@@ -59,15 +59,24 @@ module Scheduler #(
     );
     
     TDMA # (
+        .NUMBER_OF_QUEUES(NUMBER_OF_QUEUES),
         .REGISTER_SIZE(REGISTER_SIZE)
     ) tdma (
         .clock(clock),
         .reset(reset),
-        .inDelta0(periods[0]),
-        .inDelta1(periods[1]),
-        .inDelta2(periods[2]),
-        .inDelta3(periods[3]),
+        .deltaT(periods),
         .selection(schedulers_to_selector[0])
+    );
+    
+    EDF # (
+        .NUMBER_OF_QUEUES(NUMBER_OF_QUEUES),
+        .REGISTER_SIZE(REGISTER_SIZE)
+    ) edf (
+        .clock(clock),
+        .reset(reset),
+        .periods(periods),
+        .deadlines(deadlines),
+        .selection(schedulers_to_selector[1])
     );
     
 endmodule
