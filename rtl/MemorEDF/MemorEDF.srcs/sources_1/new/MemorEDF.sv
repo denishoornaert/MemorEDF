@@ -22,21 +22,19 @@
 
 module MemorEDF #
 	(
-		// Users to add parameters here
-
-		// User parameters ends
-		// Do not modify the parameters beyond this line
-
-
+		// Global parameters
+		parameter integer NUMBER_OF_QUEUES       = 4,
+		parameter integer DATA_SIZE              = 5*128,
+		parameter integer QUEUE_LENGTH           = 16,
 		// Parameters of Axi Slave Bus Interface S00_AXI
-		parameter integer C_S00_AXI_ID_WIDTH	= 1,
-		parameter integer C_S00_AXI_DATA_WIDTH	= 32,
-		parameter integer C_S00_AXI_ADDR_WIDTH	= 7,
-		parameter integer C_S00_AXI_AWUSER_WIDTH	= 0,
-		parameter integer C_S00_AXI_ARUSER_WIDTH	= 0,
-		parameter integer C_S00_AXI_WUSER_WIDTH	= 0,
-		parameter integer C_S00_AXI_RUSER_WIDTH	= 0,
-		parameter integer C_S00_AXI_BUSER_WIDTH	= 0
+		parameter integer C_S00_AXI_ID_WIDTH	 = 1,
+		parameter integer C_S00_AXI_DATA_WIDTH	 = 32,
+		parameter integer C_S00_AXI_ADDR_WIDTH	 = 7,
+		parameter integer C_S00_AXI_AWUSER_WIDTH = 0,
+		parameter integer C_S00_AXI_ARUSER_WIDTH = 0,
+		parameter integer C_S00_AXI_WUSER_WIDTH	 = 0,
+		parameter integer C_S00_AXI_RUSER_WIDTH	 = 0,
+		parameter integer C_S00_AXI_BUSER_WIDTH	 = 0
 	)
 	(
 		// Users to add ports here
@@ -96,11 +94,19 @@ module MemorEDF #
 	
 	
     // Internal routing
-    wire [C_S00_AXI_DATA_WIDTH-1 : 0] packetOut [0 : 5-1];
-    wire                              packetValid;
-    wire                      [1 : 0] coreId;
+    wire [C_S00_AXI_DATA_WIDTH-1 : 0] packetizer_to_dispatcher_packet [0 : 5-1];
+    wire                              packetizer_to_dispatcher_valid;
+    wire                      [1 : 0] packetizer_to_dispatcher_id;
+    wire            [DATA_SIZE-1 : 0] dispatcher_to_queues_packets [NUMBER_OF_QUEUES];
+    wire     [NUMBER_OF_QUEUES-1 : 0] dispatcher_to_queues_valid;
+    wire     [NUMBER_OF_QUEUES-1 : 0] serializer_to_queues_consumed;
+    wire            [DATA_SIZE-1 : 0] queues_to_selector_packets [NUMBER_OF_QUEUES];
+    wire     [NUMBER_OF_QUEUES-1 : 0] empty;
+    wire     [NUMBER_OF_QUEUES-1 : 0] full;
+    wire     [NUMBER_OF_QUEUES-1 : 0] scheduler_to_selector_id;
+    wire            [DATA_SIZE-1 : 0] selector_to_serializer_packet;
 	
-// Instantiation of Axi Bus Interface S00_AXI
+    // Instantiation of Axi Bus Interface S00_AXI
 	Packetizer # ( 
 		.C_S_AXI_ID_WIDTH(C_S00_AXI_ID_WIDTH),
 		.C_S_AXI_DATA_WIDTH(C_S00_AXI_DATA_WIDTH),
@@ -111,6 +117,7 @@ module MemorEDF #
 		.C_S_AXI_RUSER_WIDTH(C_S00_AXI_RUSER_WIDTH),
 		.C_S_AXI_BUSER_WIDTH(C_S00_AXI_BUSER_WIDTH)
 	) packetizer (
+	    // Out of module/IP IOs
 		.S_AXI_ACLK(s00_axi_aclk),
 		.S_AXI_ARESETN(s00_axi_aresetn),
 		.S_AXI_AWID(s00_axi_awid),
@@ -157,14 +164,56 @@ module MemorEDF #
 		.S_AXI_RUSER(s00_axi_ruser),
 		.S_AXI_RVALID(s00_axi_rvalid),
 		.S_AXI_RREADY(s00_axi_rready),
-		// Internal IO
-		.packetOut(packetOut),
-		.packetValid(packetValid),
-		.coreId(coreId)
+		// Internal IOs
+		.packetOut(packetizer_to_dispatcher_packet),
+		.packetValid(packetizer_to_dispatcher_valid),
+		.coreId(packetizer_to_dispatcher_id)
 	);
 
-	// Add user logic here
-
-	// User logic ends
+    // Instantiation of the Dispatcher module
+    Dispatcher # (
+        .OUTPUTS(NUMBER_OF_QUEUES),
+        .INPUT_SIZE(DATA_SIZE)
+    ) dispatcher (
+        .clock(s00_axi_aclk),
+        .reset(~s00_axi_aresetn),
+        .packetIn(packetizer_to_dispatcher_packet),
+        .valid(packetizer_to_dispatcher_valid),
+        .id(packetizer_to_dispatcher_id),
+        .packetsOut(dispatcher_to_queues_packets),
+        .produced(dispatcher_to_queues_valid)
+    );
+	
+	
+	// Instantiation of the Queue moludes
+	genvar i;
+	for (i = 0; i < NUMBER_OF_QUEUES; i = i + 1)
+	begin
+	   Queue # (
+	       .DATA_SIZE(DATA_SIZE),
+	       .QUEUE_LENGTH(QUEUE_LENGTH)
+	   ) queue (
+	       .clock(s00_axi_aclk),
+           .reset(~s00_axi_aresetn),
+           .valueIn(dispatcher_to_queues_packets[i]),
+           .valueInValid(dispatcher_to_queues_valid[i]),
+           .consumed(serializer_to_queues_consumed),
+           .valueOut(queues_to_selector_packets[i]),
+           .empty(empty[i]),
+           .full(full[i])
+	   );
+	end
+	
+	// Instantiation of the Selector module
+	Selector # (
+	   .INPUTS(NUMBER_OF_QUEUES),
+	   .INPUT_SIZE(DATA_SIZE)
+	) selector (
+	   .clock(s00_axi_aclk),
+       .reset(~s00_axi_aresetn),
+       .index(scheduler_to_selector_id),
+       .values(queues_to_selector_packets),
+       .outcome(selector_to_serializer_packet)
+	);
 
 	endmodule
