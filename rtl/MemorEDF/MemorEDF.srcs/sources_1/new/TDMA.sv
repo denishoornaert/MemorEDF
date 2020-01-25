@@ -21,47 +21,41 @@
 
 
 module TDMA #(
+    parameter NUMBER_OF_QUEUES = 4,
+    parameter REGISTER_SIZE    = 32
     )
     (
     clock,
     reset,
-    inDelta0,
-    inDelta1,
-    inDelta2,
-    inDelta3,
+    deltaT,
     selection
     );
 
     // Input definition
     input clock;
     input reset;
-    input [31 : 0] inDelta0;
-    input [31 : 0] inDelta1;
-    input [31 : 0] inDelta2;
-    input [31 : 0] inDelta3;
+    input [REGISTER_SIZE-1 : 0] deltaT [NUMBER_OF_QUEUES];
     
     // Output definition
-    output [1 : 0] selection;
+    output [$clog2(NUMBER_OF_QUEUES)-1 : 0] selection;
     
     // Output registers
-    reg [1 : 0] internalSelection;
+    reg [$clog2(NUMBER_OF_QUEUES)-1 : 0] internalSelection;
          
     // Definition of the internal register(s)
-    reg [31 : 0] counter;
-    reg [31 : 0] delta0;
-    reg [31 : 0] delta1;
-    reg [31 : 0] delta2;
-    reg [31 : 0] delta3;
+    reg [REGISTER_SIZE-1 : 0] counter;
+    reg [REGISTER_SIZE-1 : 0] delta [NUMBER_OF_QUEUES];
     
     assign selection = internalSelection;
     
-    wire [31 : 0] delta01;
-    wire [31 : 0] delta012;
-    wire [31 : 0] delta0123;
+    wire [REGISTER_SIZE-1 : 0] sums [NUMBER_OF_QUEUES];
     
-    assign delta01   = delta0   + delta1;
-    assign delta012  = delta01  + delta2;
-    assign delta0123 = delta012 + delta3;
+    genvar i;
+    for (i = 1; i < NUMBER_OF_QUEUES; i = i + 1)
+    begin
+        assign sums[i] = sums[i-1]+delta[i];
+    end
+    assign sums[0] = delta[0];
     
     always @(posedge clock or reset)
     begin
@@ -69,36 +63,28 @@ module TDMA #(
         begin
             internalSelection <= 0;
             counter <=  0;
-            delta0  <= inDelta0;
-            delta1  <= inDelta1;
-            delta2  <= inDelta2;
-            delta3  <= inDelta3;
+            for (int i = 0; i < NUMBER_OF_QUEUES; i = i + 1)
+            begin
+                delta[i] <= deltaT[i];
+            end
         end
         else
         begin
-            if(counter == delta0123-1)
-            begin
-                counter <= 0;
-            end
-            else
-            begin
-                counter <= counter+1;
-            end
-            if(0 <= counter & counter < delta0)
+            // Counter management if sum of the periods reached, then reset
+            counter <= (counter == sums[NUMBER_OF_QUEUES-1]-1)? 0 : counter+1;
+            // Management of the selections depending on the periods
+            // Hard coded first case
+            if(0 <= counter & counter < sums[0])
             begin
                 internalSelection <= 0;
             end
-            else if(delta0 <= counter & counter < delta01)
+            // Generation of the other cases
+            for (int i = 1; i < NUMBER_OF_QUEUES; i = i + 1)
             begin
-                internalSelection <= 1;
-            end
-            else if(delta01 <= counter & counter < delta012)
-            begin
-                internalSelection <= 2;
-            end
-            else
-            begin
-                internalSelection <= 3;
+                if(sums[i-1] <= counter & counter < sums[i])
+                begin
+                    internalSelection <= i;
+                end
             end
         end 
     end
