@@ -21,7 +21,7 @@
 
 
 module Selector #(
-    parameter INPUTS = 4,
+    parameter INPUTS     = 4,
     parameter INPUT_SIZE = 8
     )
     (
@@ -42,11 +42,11 @@ module Selector #(
     endfunction
     
     // Definition of the module IOs
-    input                        clock;
-    input                        reset;
+    input                         clock;
+    input                         reset;
     input  [$clog2(INPUTS)-1 : 0] index;
-    input  [INPUT_SIZE-1    : 0] values [INPUTS];
-    output [INPUT_SIZE-1    : 0] outcome;
+    input      [INPUT_SIZE-1 : 0] values [INPUTS];
+    output     [INPUT_SIZE-1 : 0] outcome;
     
     // Output register(s) definition
     reg [INPUT_SIZE-1 : 0] internalOutcome;
