@@ -26,6 +26,9 @@ module MemorEDF #
 		parameter integer NUMBER_OF_QUEUES       = 4,
 		parameter integer DATA_SIZE              = 5*128,
 		parameter integer QUEUE_LENGTH           = 16,
+		// Available/enabled schdulers
+		parameter integer REGISTER_SIZE          = 32,
+        parameter integer NUMBER_OF_SCHEDULERS   = 2,
 		// Parameters of Axi Slave Bus Interface S00_AXI
 		parameter integer C_S00_AXI_ID_WIDTH	 = 1,
 		parameter integer C_S00_AXI_DATA_WIDTH	 = 32,
@@ -105,6 +108,10 @@ module MemorEDF #
     wire     [NUMBER_OF_QUEUES-1 : 0] full;
     wire     [NUMBER_OF_QUEUES-1 : 0] scheduler_to_selector_id;
     wire            [DATA_SIZE-1 : 0] selector_to_serializer_packet;
+    
+    reg   [$clog2(NUMBER_OF_SCHEDULERS)-1 : 0] scheduling_mode;
+    reg                  [REGISTER_SIZE-1 : 0] scheduler_deadlines [NUMBER_OF_QUEUES];
+    reg                  [REGISTER_SIZE-1 : 0] scheduler_periods [NUMBER_OF_QUEUES];
 	
     // Instantiation of Axi Bus Interface S00_AXI
 	Packetizer # ( 
@@ -214,6 +221,22 @@ module MemorEDF #
        .index(scheduler_to_selector_id),
        .values(queues_to_selector_packets),
        .outcome(selector_to_serializer_packet)
+	);
+	
+	// Instantiation of the Scheduler module
+	Scheduler # (
+	   .NUMBER_OF_QUEUES(NUMBER_OF_QUEUES),
+	   .REGISTER_SIZE(REGISTER_SIZE),
+	   .NUMBER_OF_SCHEDULER(NUMBER_OF_SCHEDULERS)
+	) scheduler (
+	   .clock(s00_axi_aclk),
+       .reset(~s00_axi_aresetn),
+       .mode(scheduling_mode),
+       .full(full),
+       .empty(empty),
+       .deadlines(scheduler_deadlines),
+       .periods(scheduler_periods),
+       .id(scheduler_to_selector_id)
 	);
 
 	endmodule
