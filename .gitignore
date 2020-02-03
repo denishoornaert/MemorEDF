@@ -50,3 +50,8 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# VERILOG/VIVADO related files
+rtl/MemorEDF/MemorEDF.sim/*
+trl/MemorEDF/MemorEDF.ip_user_files/*
+*.log
