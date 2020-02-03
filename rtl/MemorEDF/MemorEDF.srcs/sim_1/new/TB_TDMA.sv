@@ -198,7 +198,88 @@ module TB_TDMA();
         begin
             $display("Selection output does not respect the specifications!");
             $finish;
+        end
+        #30;
+        // Third test with only one time slot
+        reset <= 1;
+        delta[0] <= 32;
+        delta[1] <=  0;
+        delta[2] <=  0;
+        delta[3] <=  0;
+        #10;
+        reset <= 0;
+        #10;
+        if(selection != 0)
+        begin
+            $display("Selection output does not respect the specifications!");
+            $finish;
         end 
+        #160;
+        if(selection != 0)
+        begin
+            $display("Selection output does not respect the specifications!");
+            $finish;
+        end  
+        #160;
+        if(selection != 0)
+        begin
+            $display("Selection output does not respect the specifications!");
+            $finish;
+        end 
+        #160;
+        if(selection != 0)
+        begin
+            $display("Selection output does not respect the specifications!");
+            $finish;
+        end 
+        #160;
+        if(selection != 0)
+        begin
+            $display("Selection output does not respect the specifications!");
+            $finish;
+        end 
+        #160;
+        if(selection != 0)
+        begin
+            $display("Selection output does not respect the specifications!");
+            $finish;
+        end  
+        #160;
+        if(selection != 0)
+        begin
+            $display("Selection output does not respect the specifications!");
+            $finish;
+        end 
+        #160;
+        if(selection != 0)
+        begin
+            $display("Selection output does not respect the specifications!");
+            $finish;
+        end 
+        #160;
+        if(selection != 0)
+        begin
+            $display("Selection output does not respect the specifications!");
+            $finish;
+        end 
+        #160;
+        if(selection != 0)
+        begin
+            $display("Selection output does not respect the specifications!");
+            $finish;
+        end  
+        #160;
+        if(selection != 0)
+        begin
+            $display("Selection output does not respect the specifications!");
+            $finish;
+        end 
+        #160;
+        if(selection != 0)
+        begin
+            $display("Selection output does not respect the specifications!");
+            $finish;
+        end
         #320;
         #40;
         $finish;
