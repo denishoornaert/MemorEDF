@@ -52,14 +52,20 @@ module Scheduler
     input                [REGISTER_SIZE-1 : 0] periods [NUMBER_OF_QUEUES];
     output    [$clog2(NUMBER_OF_QUEUES)-1 : 0] id;
     input                                      consumed;
-    output            [NUMBER_OF_QUEUES-1 : 0] hasBeenConsumed;
+    output                             [0 : 0] hasBeenConsumed [NUMBER_OF_QUEUES];
     output                                     enable;
     
     // Scheduling part
     wire [$clog2(NUMBER_OF_QUEUES)-1 : 0] schedulers_to_selector [NUMBER_OF_SCHEDULERS];
     wire [$clog2(NUMBER_OF_QUEUES)-1 : 0] selected_queue;
+    // Control part
+    reg                                  start_transaction;
+    reg [$clog2(NUMBER_OF_QUEUES)-1 : 0] override_id;
+    wire                                 priority_override;
     
-    assign id = selected_queue;
+    assign priority_override = |full;
+    assign enable            = start_transaction | priority_override;
+    assign id                = (priority_override)? override_id : selected_queue;
     
     if (NUMBER_OF_SCHEDULERS <= 2)
     begin
@@ -106,19 +112,15 @@ module Scheduler
         );
     end
     
-    // Control part
-    reg start_transaction;
-    
-    assign enable = start_transaction;
-    
     // Dispatcher route the consumed signal to the appropriate queue
-    Dispacther #(
+    Dispatcher #(
         .OUTPUTS(NUMBER_OF_QUEUES),
         .INPUT_SIZE(1)
     ) queue_router (
         .clock(clock),
         .reset(reset),
         .packetIn(consumed),
+        .valid(0'b1),
         .id(selected_queue),
         .packetsOut(hasBeenConsumed)
     );
@@ -131,7 +133,26 @@ module Scheduler
         end
         else
         begin
-            start_transaction <= (consumed)? empty[selected_queue] : 0;
+            start_transaction <= (consumed)? !empty[selected_queue] : 0;
+        end
+    end
+    
+    always @(clock)
+    begin
+        if(reset)
+        begin
+            override_id <= 0;
+        end
+        else
+        begin
+            integer i;
+            for(i = 0; i < NUMBER_OF_QUEUES; i = i + 1)
+            begin
+                if(full[i])
+                begin
+                    override_id <= i;
+                end
+            end
         end
     end
     
