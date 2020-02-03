@@ -22,17 +22,17 @@
 
 module Dispatcher
     #(
-    parameter OUTPUTS = 4,
-    parameter INPUT_SIZE = 8
+        parameter OUTPUTS = 4,
+        parameter INPUT_SIZE = 8
     )
     (
-    clock,
-    reset,
-    packetIn,
-    valid,
-    id,
-    packetsOut,
-    produced
+        clock,
+        reset,
+        packetIn,
+        valid,
+        id,
+        packetsOut,
+        produced
     );
     
     input                          clock;
