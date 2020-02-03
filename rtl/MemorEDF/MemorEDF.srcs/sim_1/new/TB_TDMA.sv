@@ -27,7 +27,7 @@ module TB_TDMA();
     reg  [31 : 0] delta [4];
     wire [1 : 0]  selection;
     
-    TDMA #(4, 32) tdma(clock, reset, delta, selection);
+    TDMA #(4, 32) tdma (clock, reset, delta, selection);
     
     always
     begin
