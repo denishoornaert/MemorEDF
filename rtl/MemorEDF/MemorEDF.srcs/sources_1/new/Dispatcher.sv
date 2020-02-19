@@ -41,13 +41,13 @@ module Dispatcher
     input                          valid;
     input  [$clog2(OUTPUTS)-1 : 0] id;
     
-    output [INPUT_SIZE-1 : 0] packetsOut [OUTPUTS-1 : 0];
-    output    [OUTPUTS-1 : 0] produced;
+    output [(INPUT_SIZE*OUTPUTS)-1 : 0] packetsOut;
+    output              [OUTPUTS-1 : 0] produced;
     
     reg [INPUT_SIZE-1 : 0] internalPacketsOut [OUTPUTS-1 : 0];
     reg    [OUTPUTS-1 : 0] internalProduced;
     
-    assign packetsOut = internalPacketsOut;
+    assign packetsOut = {>>{internalPacketsOut}};
     assign produced = internalProduced;
     
     always @(posedge clock)

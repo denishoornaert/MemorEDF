@@ -52,7 +52,7 @@ module Scheduler
     input                [REGISTER_SIZE-1 : 0] periods [NUMBER_OF_QUEUES];
     output    [$clog2(NUMBER_OF_QUEUES)-1 : 0] id;
     input                                      consumed;
-    output                             [0 : 0] hasBeenConsumed [NUMBER_OF_QUEUES];
+    output            [NUMBER_OF_QUEUES-1 : 0] hasBeenConsumed;
     output                                     enable;
     
     // Scheduling part
@@ -115,13 +115,13 @@ module Scheduler
     // Dispatcher route the consumed signal to the appropriate queue
     Dispatcher #(
         .OUTPUTS(NUMBER_OF_QUEUES),
-        .INPUT_SIZE(1)
+        .INPUT_SIZE(1'b1)
     ) queue_router (
         .clock(clock),
         .reset(reset),
         .packetIn(consumed),
-        .valid(0'b1),
-        .id(selected_queue),
+        .valid(1'b1),
+        .id(id),
         .packetsOut(hasBeenConsumed)
     );
     

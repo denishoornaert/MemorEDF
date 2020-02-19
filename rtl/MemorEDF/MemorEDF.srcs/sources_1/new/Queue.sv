@@ -69,7 +69,7 @@ module Queue #(
     assign valueOut = values[0];
 
     // Running behaviour of the micro-architecture
-    always @(posedge clock or reset)
+    always @(posedge clock)
     begin
         if(reset)
         begin
@@ -108,7 +108,7 @@ module Queue #(
                 end
                 counter <= counter+1;
                 internalEmpty <= 0;
-                if(counter == 3)
+                if(counter == QUEUE_LENGTH-1)
                 begin
                     internalFull <= 1;
                 end

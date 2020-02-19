@@ -21,18 +21,18 @@
 
 
 module EDF #(
-    parameter NUMBER_OF_QUEUES = 4,
-    parameter REGISTER_SIZE    = 32
+        parameter NUMBER_OF_QUEUES = 4,
+        parameter REGISTER_SIZE    = 32
     )
     (
-    clock,
-    reset,
-    deadlines,
-    periods,
-    selection
+        clock,
+        reset,
+        deadlines,
+        periods,
+        selection
     );
     
-    parameter MAX_VALUE = (2**REGISTER_SIZE)-1;
+    localparam MAX_VALUE = (2**REGISTER_SIZE)-1;
     
     // Input definition
     input                       clock;

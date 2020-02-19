@@ -21,15 +21,15 @@
 
 
 module Selector #(
-    parameter INPUTS     = 4,
-    parameter INPUT_SIZE = 8
+        parameter INPUTS     = 4,
+        parameter INPUT_SIZE = 8
     )
     (
-    clock,
-    reset,
-    index,
-    values,
-    outcome
+        clock,
+        reset,
+        index,
+        values,
+        outcome
     );
     
     function integer clog2;
@@ -55,7 +55,7 @@ module Selector #(
     assign outcome = internalOutcome;
     
     // Running behaviour of the micro-architecture
-    always @(posedge clock or reset)
+    always @(posedge clock)
     begin
         if(reset)
         begin

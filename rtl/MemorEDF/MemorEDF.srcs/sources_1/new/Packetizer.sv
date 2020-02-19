@@ -182,7 +182,7 @@ module Packetizer #
 		input wire  S_AXI_RREADY,
 		
 		// Custom output
-		output wire [C_S_AXI_DATA_WIDTH-1:0] packetOut [0 : 5-1],
+		output wire [(C_S_AXI_DATA_WIDTH*5)-1:0] packetOut,
 		output wire packetValid,
 		output wire [1 : 0] coreId
 	);
@@ -575,82 +575,103 @@ module Packetizer #
 	endgenerate
 
     // Implementation of Packetisation of transactions (i.e. Serial to Parallel)
-    wire mem_rden;
-    wire mem_wren;
-    assign mem_wren = axi_wready && S_AXI_WVALID ;
-    assign mem_rden = axi_arv_arr_flag ; //& ~axi_rvalid
-    
-    wire [C_S_AXI_DATA_WIDTH-1:0] data_in ;
-    reg  [C_S_AXI_DATA_WIDTH-1:0] byte_ram [0 : 5-1];
-    reg                           packetProduced;
-    reg                  [1 : 0 ] coreIdReg;
-    
-    assign packetOut   = byte_ram;
-    assign packetValid = packetProduced;
-    assign coreId      = coreIdReg;
-    
-    //assigning 8 bit data
-    assign data_in  = S_AXI_WDATA;
-    
-    integer i;
-    
-    always @( posedge S_AXI_ACLK )
-    begin
-        if ( S_AXI_ARESETN == 1'b0 )
+        wire mem_rden;
+        wire mem_wren;
+        assign mem_wren = axi_wready && S_AXI_WVALID ;
+        assign mem_rden = axi_arv_arr_flag ; //& ~axi_rvalid
+        
+        wire [C_S_AXI_DATA_WIDTH-1:0] data_in ;
+        reg  [C_S_AXI_DATA_WIDTH-1:0] byte_ram_read [0 : 5-1];
+        reg  [C_S_AXI_DATA_WIDTH-1:0] byte_ram_write [0 : 5-1];
+        reg                           packetProduced_read;
+        reg                           packetProduced_write;
+        reg                  [1 : 0 ] coreIdReg_read;
+        reg                  [1 : 0 ] coreIdReg_write;
+        
+        assign packetOut   = (S_AXI_WLAST)? {byte_ram_write[4], byte_ram_write[3], byte_ram_write[2], byte_ram_write[1], byte_ram_write[0]} : {byte_ram_read[4], byte_ram_read[3], byte_ram_read[2], byte_ram_read[1], byte_ram_read[0]};
+        assign packetValid = packetProduced_read|packetProduced_write;
+        assign coreId      = (S_AXI_WLAST)? coreIdReg_write : coreIdReg_read;
+        
+        //assigning 8 bit data
+        assign data_in  = S_AXI_WDATA;
+        
+        reg rlast_ff;
+        // The "has been consumed" signal
+        always @(posedge S_AXI_ACLK)                                              
+        begin                                                                        
+            // Initiates AXI transaction delay    
+            if (S_AXI_ARESETN == 0 )                                                   
+            begin                                                  
+                rlast_ff <= 1'b0;                                                   
+            end                                                                               
+            else                                                                       
+            begin  
+                rlast_ff <= (S_AXI_ARVALID & axi_arready);                                                                
+            end                                                                      
+        end 
+        
+        integer i;
+        
+        always @( posedge S_AXI_ACLK )
         begin
-            for(i = 0; i < 19; i = i + 1)
+            if ( S_AXI_ARESETN == 1'b0 )
             begin
-                byte_ram[i] <= 0;
+                for(i = 0; i < 19; i = i + 1) // TODO rather 5 ??!!
+                begin
+                    byte_ram_read[i] <= 0;
+                    byte_ram_write[i] <= 0;
+                end
+                coreIdReg_read  <= 0;
+                coreIdReg_write <= 0;
             end
-            coreIdReg <= 0;
+            else
+            begin
+                if (mem_wren)
+                begin
+                    coreIdReg_write               <= {1'b0, S_AXI_AWID};
+                    // starts with 1 as it is a write package
+                    byte_ram_write[0]             <= {1'b1, S_AXI_AWADDR, S_AXI_AWID, S_AXI_AWLEN, S_AXI_AWSIZE, S_AXI_AWBURST, S_AXI_AWLOCK, S_AXI_AWCACHE, S_AXI_AWPROT, S_AXI_AWQOS, S_AXI_AWREGION, S_AXI_AWUSER, S_AXI_WUSER, S_AXI_WSTRB, 39'h0000000000};
+                    byte_ram_write[mem_address+1] <= data_in;
+                end
+                else if(mem_rden)
+                begin
+                    coreIdReg_read               <= {1'b0, S_AXI_ARID};
+                    // starts with 0 as it is a write package
+                    byte_ram_read[0]             <= {1'b0, S_AXI_ARADDR, S_AXI_ARID, S_AXI_ARLEN, S_AXI_ARSIZE, S_AXI_ARBURST, S_AXI_ARLOCK, S_AXI_ARCACHE, S_AXI_ARPROT, S_AXI_ARQOS, S_AXI_ARREGION, S_AXI_ARUSER, 56'h000000000000000};
+                    byte_ram_read[mem_address+1] <= 0;
+                end
+             end
         end
-        else
+        
+        always @( posedge S_AXI_ACLK )
         begin
-            if (mem_wren)
+            if( S_AXI_ARESETN == 1'b0 )
             begin
-                coreIdReg               <= {1'b0, S_AXI_AWID};
-                byte_ram[0]             <= {S_AXI_AWADDR, S_AXI_AWID, S_AXI_AWLEN, S_AXI_AWSIZE, S_AXI_AWBURST, S_AXI_AWLOCK, S_AXI_AWCACHE, S_AXI_AWPROT, S_AXI_AWQOS, S_AXI_AWREGION, S_AXI_AWUSER, S_AXI_WUSER, S_AXI_WSTRB, 40'h0000000000};
-                byte_ram[mem_address+1] <= data_in;
+                packetProduced_read <= 0;
+                packetProduced_write <= 0;
             end
-            else if(mem_rden)
+            else
             begin
-                coreIdReg               <= {1'b0, S_AXI_ARID};
-                byte_ram[0]             <= {S_AXI_ARADDR, S_AXI_ARID, S_AXI_ARLEN, S_AXI_ARSIZE, S_AXI_ARBURST, S_AXI_ARLOCK, S_AXI_ARCACHE, S_AXI_ARPROT, S_AXI_ARQOS, S_AXI_ARREGION, S_AXI_ARUSER, 57'h000000000000000};
-                byte_ram[mem_address+1] <= 0;
+                // TODO Since read and write transaction can be perform simultaneously (diff. channels) they can also have different 
+                // Or when mem_address == 3 packetProduced <= 1 otherwise packetProduced <= 0
+                // TODO replace RLAST by falling edges of arready and arvalid!
+                packetProduced_write <= S_AXI_WLAST;
+                packetProduced_read  <= (!(S_AXI_ARVALID & axi_arready))&(rlast_ff);
             end
-         end
-    end
+        end
+        //Output register or memory read data
     
-    always @( posedge S_AXI_ACLK )
-    begin
-        if( S_AXI_ARESETN == 1'b0 )
+        always @( mem_data_out, axi_rvalid)
         begin
-            packetProduced <= 0;
-        end
-        else
-        begin
-            // TODO Since read and write transaction can be perform simultaneously (diff. channels) they can also have different 
-            // Or when mem_address == 3 packetProduced <= 1 otherwise packetProduced <= 0
-            packetProduced <= S_AXI_WLAST | S_AXI_RLAST;
-        end
-    end
-	//Output register or memory read data
-
-	always @( mem_data_out, axi_rvalid)
-	begin
-	  if (axi_rvalid) 
-	    begin
-	      // Read address mux
-	      axi_rdata <= mem_data_out[0];
-	    end   
-	  else
-	    begin
-	      axi_rdata <= 32'h00000000;
-	    end       
-	end    
-
-	// Add user logic here
-
-	// User logic ends
-
-	endmodule
+          if (axi_rvalid) 
+            begin
+              // Read address mux
+              axi_rdata <= mem_data_out[0];
+            end   
+          else
+            begin
+              axi_rdata <= 32'h00000000;
+            end       
+        end  
+    
+endmodule

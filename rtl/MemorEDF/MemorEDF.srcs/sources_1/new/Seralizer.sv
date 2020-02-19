@@ -31,7 +31,7 @@ module Serializer #
 		// Width of Address Bus
 		parameter integer C_M_AXI_ADDR_WIDTH	= 32,
 		// Width of Data Bus
-		parameter integer C_M_AXI_DATA_WIDTH	= 32,
+		parameter integer C_M_AXI_DATA_WIDTH	= 128,
 		// Width of User Write Address Bus
 		parameter integer C_M_AXI_AWUSER_WIDTH	= 0,
 		// Width of User Read Address Bus
@@ -160,7 +160,7 @@ module Serializer #
 		output wire  M_AXI_RREADY,
 		
 		// Packet to serialise
-		input wire [C_M_AXI_DATA_WIDTH-1 : 0] packet [5],
+		input wire [(C_M_AXI_DATA_WIDTH*5)-1 : 0] packet_in,
 		output wire packetConsumed
 	);
 
@@ -239,8 +239,17 @@ module Serializer #
     wire [3 : 0] p_arqos;
     wire [3 : 0] p_arregion;
     wire p_aruser;
-    // Decompositionof the read and write packet intot he corresponding and adequate signals
-    assign packet_type = packet[0][127 : 127];
+    
+    wire [C_M_AXI_DATA_WIDTH-1 : 0] packet [0 : 5-1];
+    //assign {packet[4], packet[3], packet[2], packet[1], packet[0]} = packet_in;
+    assign packet[4] = packet_in[639 : 512];
+    assign packet[3] = packet_in[511 : 384];
+    assign packet[2] = packet_in[383 : 256];
+    assign packet[1] = packet_in[255 : 128];
+    assign packet[0] = packet_in[127 :   0];
+    
+    // Decomposition of the read and write packet intot he corresponding and adequate signals
+    assign packet_type = packet[0][127 +: 1];
     assign {p_araddr, p_arid, p_arlen, p_arsize, p_arburst, p_arlock, p_arcache, p_arprot, p_arqos, p_arregion, p_aruser} = packet[0][126 : 53];
     assign {p_awaddr, p_awid, p_awlen, p_awsize, p_awburst, p_awlock, p_awcache, p_awprot, p_awqos, p_awregion, p_awuser, p_wuser, p_wstrb} = packet[0][126 : 36];
 

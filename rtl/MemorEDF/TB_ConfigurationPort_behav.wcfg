@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="TN_NonAXIDomain_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="TN_NonAXIDomain" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="1730000001fs"></ZoomEndTime>
+      <Cursor1Time time="1730000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="231"></NameColumnWidth>
+      <ValueColumnWidth column_width="80"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="6" />
+   <wvobject type="logic" fp_name="/TN_NonAXIDomain/nonaxidomain/clock">
+      <obj_property name="ElementShortName">clock</obj_property>
+      <obj_property name="ObjectShortName">clock</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TN_NonAXIDomain/nonaxidomain/reset">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TN_NonAXIDomain/nonaxidomain/\genblk1[0].queue /values">
+      <obj_property name="ElementShortName">values[0:15][127:0]</obj_property>
+      <obj_property name="ObjectShortName">values[0:15][127:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TN_NonAXIDomain/nonaxidomain/\genblk1[1].queue /values">
+      <obj_property name="ElementShortName">values[0:15][127:0]</obj_property>
+      <obj_property name="ObjectShortName">values[0:15][127:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TN_NonAXIDomain/nonaxidomain/\genblk1[2].queue /values">
+      <obj_property name="ElementShortName">values[0:15][127:0]</obj_property>
+      <obj_property name="ObjectShortName">values[0:15][127:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TN_NonAXIDomain/nonaxidomain/\genblk1[3].queue /values">
+      <obj_property name="ElementShortName">values[0:15][127:0]</obj_property>
+      <obj_property name="ObjectShortName">values[0:15][127:0]</obj_property>
+   </wvobject>
+</wave_config>

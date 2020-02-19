@@ -28,7 +28,7 @@ module TB_Dispatcher();
     reg         valid;
     reg [1 : 0] id;
     
-    wire [7 : 0] packetsOut [3 : 0];
+    wire [(4*8)-1 : 0] packetsOut;
     wire [3 : 0] produced;
 
     Dispatcher dispatcher(clock, reset, packetIn, valid, id, packetsOut, produced);
