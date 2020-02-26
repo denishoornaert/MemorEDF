@@ -13,15 +13,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="8489400000fs"></ZoomStartTime>
-      <ZoomEndTime time="8929200001fs"></ZoomEndTime>
-      <Cursor1Time time="8635000000fs"></Cursor1Time>
+      <ZoomStartTime time="8075472800fs"></ZoomStartTime>
+      <ZoomEndTime time="10278472801fs"></ZoomEndTime>
+      <Cursor1Time time="8695000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="303"></NameColumnWidth>
-      <ValueColumnWidth column_width="302"></ValueColumnWidth>
+      <ValueColumnWidth column_width="298"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="124" />
+   <WVObjectSize size="125" />
    <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/s00_axi_aclk">
       <obj_property name="ElementShortName">s00_axi_aclk</obj_property>
       <obj_property name="ObjectShortName">s00_axi_aclk</obj_property>
@@ -518,5 +518,9 @@
    <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/default_axi_full_master_0/inst/default_axi_full_master_v1_0_M00_AXI_inst/read_mismatch">
       <obj_property name="ElementShortName">read_mismatch</obj_property>
       <obj_property name="ObjectShortName">read_mismatch</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/packetizer/rlast_ff">
+      <obj_property name="ElementShortName">rlast_ff</obj_property>
+      <obj_property name="ObjectShortName">rlast_ff</obj_property>
    </wvobject>
 </wave_config>

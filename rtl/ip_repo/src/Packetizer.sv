@@ -517,7 +517,7 @@ module Packetizer #
 	                end                      
 	            default: //reserved (incremental burst for example)
 	              begin
-	                axi_araddr <= axi_araddr[C_S_AXI_ADDR_WIDTH - 1:ADDR_LSB]+1;
+	                axi_araddr <= axi_araddr;//[C_S_AXI_ADDR_WIDTH - 1:ADDR_LSB]+1;
 	                //for arsize = 4 bytes (010)
 	              end
 	          endcase              

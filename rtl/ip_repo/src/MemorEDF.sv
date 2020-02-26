@@ -101,12 +101,12 @@ module MemorEDF #
 //		input wire   [C_S00_AXI_ARUSER_WIDTH-1 : 0] s00_axi_aruser,
 		input wire                                  s00_axi_arvalid,
 		output wire                                 s00_axi_arready,
-		output wire      [C_S00_AXI_ID_WIDTH-1 : 0] s00_axi_rid,
-		output wire    [C_S00_AXI_DATA_WIDTH-1 : 0] s00_axi_rdata,
-		output wire                         [1 : 0] s00_axi_rresp,
-		output wire                                 s00_axi_rlast,
+		output reg       [C_S00_AXI_ID_WIDTH-1 : 0] s00_axi_rid, //**
+		output reg     [C_S00_AXI_DATA_WIDTH-1 : 0] s00_axi_rdata, //**
+		output reg                          [1 : 0] s00_axi_rresp, //**
+		output reg                                  s00_axi_rlast, //**
 //		output wire   [C_S00_AXI_RUSER_WIDTH-1 : 0] s00_axi_ruser,
-		output wire                                 s00_axi_rvalid,
+		output reg                                  s00_axi_rvalid, //**
 		input wire                                  s00_axi_rready,
 //		// Ports of Axi Slave Bus Interface S01_AXI
 //        input wire                                  s01_axi_aclk,
@@ -199,7 +199,7 @@ module MemorEDF #
         input wire                                  m00_axi_rlast,
 //        input wire    [C_M00_AXI_RUSER_WIDTH-1 : 0] m00_axi_ruser,
         input wire                                  m00_axi_rvalid,
-        output wire                                 m00_axi_rready
+        output reg                                  m00_axi_rready //**
 	);
 	
 	localparam NUMBER_OF_SCHEDULERS = TDMA_ENABLED+EDF_ENABLED;
@@ -207,13 +207,13 @@ module MemorEDF #
 //    reg       [C_M00_AXI_ID_WIDTH-1 : 0] bp_axi_bid;
 //    reg                          [1 : 0] bp_axi_bresp;
 //    wire    [C_M00_AXI_BUSER_WIDTH-1 : 0] bp_axi_buser;
-    wire                                 bp_axi_rvalid;
-    wire                                 bp_axi_bready;
-    wire                                 bp_axi_rready;
-    wire      [C_M00_AXI_ID_WIDTH-1 : 0] bp_axi_rid;
-    wire    [C_M00_AXI_DATA_WIDTH-1 : 0] bp_axi_rdata;
-    wire                         [1 : 0] bp_axi_rresp;
-    wire                                  bp_axi_rlast;
+    reg                                  bp_axi_rvalid;
+    reg                                  bp_axi_bready;
+    reg                                  bp_axi_rready;
+    reg       [C_M00_AXI_ID_WIDTH-1 : 0] bp_axi_rid;
+    reg     [C_M00_AXI_DATA_WIDTH-1 : 0] bp_axi_rdata;
+    reg                          [1 : 0] bp_axi_rresp;
+    reg                                  bp_axi_rlast;
 //    wire    [C_M00_AXI_RUSER_WIDTH-1 : 0] bp_axi_ruser;
 	
     // Internal routing
@@ -253,7 +253,7 @@ module MemorEDF #
 //            bp_axi_rdata <= 0;
 //            bp_axi_rresp <= 0;
 //            bp_axi_rlast <= 0;
-//        end
+        end
 //        else
 //        begin
 ////            bp_axi_bid <= m00_axi_bid;
@@ -264,7 +264,7 @@ module MemorEDF #
 //            bp_axi_rdata <= m00_axi_rdata;
 //            bp_axi_rresp <= m00_axi_rresp;
 //            bp_axi_rlast <= m00_axi_rlast;
-        end
+//        end
     end
     
 //    assign m00_axi_rready = bp_axi_rready;
@@ -461,7 +461,7 @@ module MemorEDF #
 //        .M_AXI_RID(bp_axi_rid),
 //        .M_AXI_RDATA(bp_axi_rdata),
 //        .M_AXI_RRESP(bp_axi_rresp),
-        .M_AXI_RLAST(bp_axi_rlast),
+        .M_AXI_RLAST(m00_axi_rlast), // bp_axi_rlast
 //        .M_AXI_RUSER(bp_axi_ruser),
 //        .M_AXI_RVALID(m00_axi_rvalid),
 //        .M_AXI_RREADY(bp_axi_rready),

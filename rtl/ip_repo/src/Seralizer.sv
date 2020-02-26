@@ -684,7 +684,7 @@ module Serializer #
         begin
             internal_packetConsumed <= 0;  
         end 
-        else if (((!wlast_ff)&(axi_wlast))|((!M_AXI_RLAST)&(rlast_ff)))
+        else if (((!wlast_ff)&(axi_wlast))|((!rlast_ff)&(M_AXI_RLAST)))
         begin  
             internal_packetConsumed <= 1;                                                              
         end
