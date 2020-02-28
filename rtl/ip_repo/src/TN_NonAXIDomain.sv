@@ -22,15 +22,15 @@
 
 module TN_NonAXIDomain();
 
-    reg                   clock;
-    reg                   reset;
-    reg   [(128)-1 : 0] packet;
-    reg                   valid; // Valid input
-    reg           [1 : 0] id;
-    reg [$clog2(2)-1 : 0] mode;
-    reg        [32-1 : 0] deadlines [4];
-    reg        [32-1 : 0] periods [4];
-    reg                   consumed;
+    reg                    clock;
+    reg                    reset;
+    reg      [(128)-1 : 0] packet;
+    reg                    valid; // Valid input
+    reg            [1 : 0] id;
+    reg  [$clog2(2)-1 : 0] mode;
+    reg [3 : 0] [32-1 : 0] deadlines;
+    reg [3 : 0] [32-1 : 0] periods;
+    reg                    consumed;
     
     wire    [(128)-1 : 0] packet_out;
     wire                  activate_out;
