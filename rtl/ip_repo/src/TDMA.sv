@@ -34,7 +34,7 @@ module TDMA #(
     // Input definition
     input clock;
     input reset;
-    input [REGISTER_SIZE-1 : 0] deltaT [NUMBER_OF_QUEUES];
+    input [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] deltaT;
     
     // Output definition
     output [$clog2(NUMBER_OF_QUEUES)-1 : 0] selection;
@@ -44,11 +44,11 @@ module TDMA #(
          
     // Definition of the internal register(s)
     reg [REGISTER_SIZE-1 : 0] counter;
-    reg [REGISTER_SIZE-1 : 0] delta [NUMBER_OF_QUEUES];
+    reg [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] delta;
     
     assign selection = internalSelection;
     
-    wire [REGISTER_SIZE-1 : 0] sums [NUMBER_OF_QUEUES];
+    wire [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] sums;
     
     genvar i;
     for (i = 1; i < NUMBER_OF_QUEUES; i = i + 1)
@@ -65,11 +65,15 @@ module TDMA #(
             counter <=  0;
             for (int i = 0; i < NUMBER_OF_QUEUES; i = i + 1)
             begin
-                delta[i] <= deltaT[i];
-            end
+                delta[i] <= 0;
+            end 
         end
         else
-        begin
+        begin 
+            for (int i = 0; i < NUMBER_OF_QUEUES; i = i + 1)
+            begin
+                delta[i] <= deltaT[i];
+            end
             // Counter management if sum of the periods reached, then reset
             counter <= (counter == sums[NUMBER_OF_QUEUES-1]-1)? 0 : counter+1;
             // Management of the selections depending on the periods
