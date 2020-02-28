@@ -35,10 +35,10 @@ module EDF #(
     localparam MAX_VALUE = (2**REGISTER_SIZE)-1;
     
     // Input definition
-    input                       clock;
-    input                       reset;
-    input [REGISTER_SIZE-1 : 0] deadlines [NUMBER_OF_QUEUES];
-    input [REGISTER_SIZE-1 : 0] periods [NUMBER_OF_QUEUES];
+    input                                                clock;
+    input                                                reset;
+    input [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] deadlines;
+    input [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] periods;
     
     // Output definition
     output [$clog2(NUMBER_OF_QUEUES)-1 : 0] selection;
