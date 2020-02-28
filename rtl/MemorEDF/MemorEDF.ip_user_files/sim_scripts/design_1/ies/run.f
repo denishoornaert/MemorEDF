@@ -23,16 +23,17 @@
 -endlib
 -makelib ies_lib/xil_defaultlib -sv \
   "../../../bd/design_1/ip/design_1_axi_vip_0_1/sim/design_1_axi_vip_0_1.sv" \
-  "../../../bd/design_1/ipshared/7f88/src/Dispatcher.sv" \
-  "../../../bd/design_1/ipshared/7f88/src/EDF.sv" \
-  "../../../bd/design_1/ipshared/7f88/src/NonAXIDomain.sv" \
-  "../../../bd/design_1/ipshared/7f88/src/Packetizer.sv" \
-  "../../../bd/design_1/ipshared/7f88/src/Queue.sv" \
-  "../../../bd/design_1/ipshared/7f88/src/Scheduler.sv" \
-  "../../../bd/design_1/ipshared/7f88/src/Selector.sv" \
-  "../../../bd/design_1/ipshared/7f88/src/Seralizer.sv" \
-  "../../../bd/design_1/ipshared/7f88/src/TDMA.sv" \
-  "../../../bd/design_1/ipshared/7f88/src/MemorEDF.sv" \
+  "../../../bd/design_1/ipshared/2462/src/ConfigurationPort.sv" \
+  "../../../bd/design_1/ipshared/2462/src/Dispatcher.sv" \
+  "../../../bd/design_1/ipshared/2462/src/EDF.sv" \
+  "../../../bd/design_1/ipshared/2462/src/NonAXIDomain.sv" \
+  "../../../bd/design_1/ipshared/2462/src/Packetizer.sv" \
+  "../../../bd/design_1/ipshared/2462/src/Queue.sv" \
+  "../../../bd/design_1/ipshared/2462/src/Scheduler.sv" \
+  "../../../bd/design_1/ipshared/2462/src/Selector.sv" \
+  "../../../bd/design_1/ipshared/2462/src/Seralizer.sv" \
+  "../../../bd/design_1/ipshared/2462/src/TDMA.sv" \
+  "../../../bd/design_1/ipshared/2462/src/MemorEDF.sv" \
   "../../../bd/design_1/ip/design_1_MemorEDF_0_0/sim/design_1_MemorEDF_0_0.sv" \
 -endlib
 -makelib ies_lib/xil_defaultlib \
@@ -40,6 +41,10 @@
   "../../../bd/design_1/ipshared/0f1b/hdl/default_axi_full_master_v1_0_M00_AXI.v" \
   "../../../bd/design_1/ipshared/0f1b/hdl/default_axi_full_master_v1_0.v" \
   "../../../bd/design_1/ip/design_1_default_axi_full_master_0_0/sim/design_1_default_axi_full_master_0_0.v" \
+-endlib
+-makelib ies_lib/xil_defaultlib -sv \
+  "../../../bd/design_1/ip/design_1_axi_vip_0_0/sim/design_1_axi_vip_0_0_pkg.sv" \
+  "../../../bd/design_1/ip/design_1_axi_vip_0_0/sim/design_1_axi_vip_0_0.sv" \
 -endlib
 -makelib ies_lib/xil_defaultlib \
   glbl.v

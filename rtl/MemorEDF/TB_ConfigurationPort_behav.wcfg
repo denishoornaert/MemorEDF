@@ -8,20 +8,21 @@
             <top_module name="TB_MemorEDF" />
             <top_module name="axi_vip_pkg" />
             <top_module name="glbl" />
+            <top_module name="std" />
             <top_module name="xil_common_vip_pkg" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="8075472800fs"></ZoomStartTime>
-      <ZoomEndTime time="10278472801fs"></ZoomEndTime>
-      <Cursor1Time time="8695000000fs"></Cursor1Time>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="23129613831fs"></ZoomEndTime>
+      <Cursor1Time time="27025000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="303"></NameColumnWidth>
-      <ValueColumnWidth column_width="298"></ValueColumnWidth>
+      <ValueColumnWidth column_width="274"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="125" />
+   <WVObjectSize size="186" />
    <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/s00_axi_aclk">
       <obj_property name="ElementShortName">s00_axi_aclk</obj_property>
       <obj_property name="ObjectShortName">s00_axi_aclk</obj_property>
@@ -522,5 +523,250 @@
    <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/packetizer/rlast_ff">
       <obj_property name="ElementShortName">rlast_ff</obj_property>
       <obj_property name="ObjectShortName">rlast_ff</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/configurationport/memory_out">
+      <obj_property name="ElementShortName">memory_out[511:0]</obj_property>
+      <obj_property name="ObjectShortName">memory_out[511:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/configurationport/byte_ram">
+      <obj_property name="ElementShortName">byte_ram[3:0][15:0][7:0]</obj_property>
+      <obj_property name="ObjectShortName">byte_ram[3:0][15:0][7:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/configurationport/S_AXI_ACLK">
+      <obj_property name="ElementShortName">S_AXI_ACLK</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_ACLK</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/configurationport/S_AXI_ARESETN">
+      <obj_property name="ElementShortName">S_AXI_ARESETN</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_ARESETN</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/configurationport/S_AXI_AWID">
+      <obj_property name="ElementShortName">S_AXI_AWID[0:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_AWID[0:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/configurationport/S_AXI_AWADDR">
+      <obj_property name="ElementShortName">S_AXI_AWADDR[39:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_AWADDR[39:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/configurationport/S_AXI_AWLEN">
+      <obj_property name="ElementShortName">S_AXI_AWLEN[7:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_AWLEN[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/configurationport/S_AXI_AWSIZE">
+      <obj_property name="ElementShortName">S_AXI_AWSIZE[2:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_AWSIZE[2:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/configurationport/S_AXI_AWBURST">
+      <obj_property name="ElementShortName">S_AXI_AWBURST[1:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_AWBURST[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/configurationport/S_AXI_AWLOCK">
+      <obj_property name="ElementShortName">S_AXI_AWLOCK</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_AWLOCK</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/configurationport/S_AXI_AWCACHE">
+      <obj_property name="ElementShortName">S_AXI_AWCACHE[3:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_AWCACHE[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/configurationport/S_AXI_AWPROT">
+      <obj_property name="ElementShortName">S_AXI_AWPROT[2:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_AWPROT[2:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/configurationport/S_AXI_AWQOS">
+      <obj_property name="ElementShortName">S_AXI_AWQOS[3:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_AWQOS[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/configurationport/S_AXI_AWREGION">
+      <obj_property name="ElementShortName">S_AXI_AWREGION[3:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_AWREGION[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/configurationport/S_AXI_AWVALID">
+      <obj_property name="ElementShortName">S_AXI_AWVALID</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_AWVALID</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/configurationport/S_AXI_AWREADY">
+      <obj_property name="ElementShortName">S_AXI_AWREADY</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_AWREADY</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/configurationport/S_AXI_WDATA">
+      <obj_property name="ElementShortName">S_AXI_WDATA[127:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_WDATA[127:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/configurationport/S_AXI_WSTRB">
+      <obj_property name="ElementShortName">S_AXI_WSTRB[15:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_WSTRB[15:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/configurationport/S_AXI_WLAST">
+      <obj_property name="ElementShortName">S_AXI_WLAST</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_WLAST</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/configurationport/S_AXI_WVALID">
+      <obj_property name="ElementShortName">S_AXI_WVALID</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_WVALID</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/configurationport/S_AXI_WREADY">
+      <obj_property name="ElementShortName">S_AXI_WREADY</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_WREADY</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/configurationport/S_AXI_BID">
+      <obj_property name="ElementShortName">S_AXI_BID[0:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_BID[0:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/configurationport/S_AXI_BRESP">
+      <obj_property name="ElementShortName">S_AXI_BRESP[1:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_BRESP[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/configurationport/S_AXI_BVALID">
+      <obj_property name="ElementShortName">S_AXI_BVALID</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_BVALID</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/configurationport/S_AXI_BREADY">
+      <obj_property name="ElementShortName">S_AXI_BREADY</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_BREADY</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/configurationport/S_AXI_ARID">
+      <obj_property name="ElementShortName">S_AXI_ARID[0:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_ARID[0:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/configurationport/S_AXI_ARADDR">
+      <obj_property name="ElementShortName">S_AXI_ARADDR[39:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_ARADDR[39:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/configurationport/S_AXI_ARLEN">
+      <obj_property name="ElementShortName">S_AXI_ARLEN[7:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_ARLEN[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/configurationport/S_AXI_ARSIZE">
+      <obj_property name="ElementShortName">S_AXI_ARSIZE[2:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_ARSIZE[2:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/configurationport/S_AXI_ARBURST">
+      <obj_property name="ElementShortName">S_AXI_ARBURST[1:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_ARBURST[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/configurationport/S_AXI_ARLOCK">
+      <obj_property name="ElementShortName">S_AXI_ARLOCK</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_ARLOCK</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/configurationport/S_AXI_ARCACHE">
+      <obj_property name="ElementShortName">S_AXI_ARCACHE[3:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_ARCACHE[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/configurationport/S_AXI_ARPROT">
+      <obj_property name="ElementShortName">S_AXI_ARPROT[2:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_ARPROT[2:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/configurationport/S_AXI_ARQOS">
+      <obj_property name="ElementShortName">S_AXI_ARQOS[3:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_ARQOS[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/configurationport/S_AXI_ARREGION">
+      <obj_property name="ElementShortName">S_AXI_ARREGION[3:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_ARREGION[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/configurationport/S_AXI_ARVALID">
+      <obj_property name="ElementShortName">S_AXI_ARVALID</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_ARVALID</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/configurationport/S_AXI_ARREADY">
+      <obj_property name="ElementShortName">S_AXI_ARREADY</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_ARREADY</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/configurationport/S_AXI_RID">
+      <obj_property name="ElementShortName">S_AXI_RID[0:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_RID[0:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/configurationport/S_AXI_RDATA">
+      <obj_property name="ElementShortName">S_AXI_RDATA[127:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_RDATA[127:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/configurationport/S_AXI_RRESP">
+      <obj_property name="ElementShortName">S_AXI_RRESP[1:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_RRESP[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/configurationport/S_AXI_RLAST">
+      <obj_property name="ElementShortName">S_AXI_RLAST</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_RLAST</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/configurationport/S_AXI_RVALID">
+      <obj_property name="ElementShortName">S_AXI_RVALID</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_RVALID</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/configurationport/S_AXI_RREADY">
+      <obj_property name="ElementShortName">S_AXI_RREADY</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_RREADY</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/configurationport/mem_address">
+      <obj_property name="ElementShortName">mem_address[2:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_address[2:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/configurationport/OPT_MEM_ADDR_BITS">
+      <obj_property name="ElementShortName">OPT_MEM_ADDR_BITS[31:0]</obj_property>
+      <obj_property name="ObjectShortName">OPT_MEM_ADDR_BITS[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/configurationport/ADDR_LSB">
+      <obj_property name="ElementShortName">ADDR_LSB[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ADDR_LSB[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/scheduler_deadlines">
+      <obj_property name="ElementShortName">scheduler_deadlines[3:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">scheduler_deadlines[3:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/scheduler_periods">
+      <obj_property name="ElementShortName">scheduler_periods[3:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">scheduler_periods[3:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/\genblk2.tdma /selection">
+      <obj_property name="ElementShortName">selection[1:0]</obj_property>
+      <obj_property name="ObjectShortName">selection[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/id">
+      <obj_property name="ElementShortName">id[1:0]</obj_property>
+      <obj_property name="ObjectShortName">id[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/mode">
+      <obj_property name="ElementShortName">mode[0:0]</obj_property>
+      <obj_property name="ObjectShortName">mode[0:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/\genblk2.tdma /clock">
+      <obj_property name="ElementShortName">clock</obj_property>
+      <obj_property name="ObjectShortName">clock</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/\genblk2.tdma /reset">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/\genblk2.tdma /deltaT">
+      <obj_property name="ElementShortName">deltaT[3:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">deltaT[3:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/\genblk2.tdma /selection">
+      <obj_property name="ElementShortName">selection[1:0]</obj_property>
+      <obj_property name="ObjectShortName">selection[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/\genblk2.tdma /internalSelection">
+      <obj_property name="ElementShortName">internalSelection[1:0]</obj_property>
+      <obj_property name="ObjectShortName">internalSelection[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/\genblk2.tdma /counter">
+      <obj_property name="ElementShortName">counter[31:0]</obj_property>
+      <obj_property name="ObjectShortName">counter[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/\genblk2.tdma /delta">
+      <obj_property name="ElementShortName">delta[0:3][31:0]</obj_property>
+      <obj_property name="ObjectShortName">delta[0:3][31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/\genblk2.tdma /sums">
+      <obj_property name="ElementShortName">sums[0:3][31:0]</obj_property>
+      <obj_property name="ObjectShortName">sums[0:3][31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/\genblk2.tdma /NUMBER_OF_QUEUES">
+      <obj_property name="ElementShortName">NUMBER_OF_QUEUES[31:0]</obj_property>
+      <obj_property name="ObjectShortName">NUMBER_OF_QUEUES[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/\genblk2.tdma /REGISTER_SIZE">
+      <obj_property name="ElementShortName">REGISTER_SIZE[31:0]</obj_property>
+      <obj_property name="ObjectShortName">REGISTER_SIZE[31:0]</obj_property>
    </wvobject>
 </wave_config>
