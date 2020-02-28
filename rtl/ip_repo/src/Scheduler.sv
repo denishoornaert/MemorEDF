@@ -44,24 +44,25 @@ module Scheduler
     localparam NUMBER_OF_SCHEDULERS = TDMA_ENABLED + EDF_ENABLED;
     
     // Definition of the module IOs
-    input                                      clock;
-    input                                      reset;
-    input [$clog2(NUMBER_OF_SCHEDULERS)-1 : 0] mode;
-    input             [NUMBER_OF_QUEUES-1 : 0] full;
-    input             [NUMBER_OF_QUEUES-1 : 0] empty;
-    input             [NUMBER_OF_QUEUES-1 : 0] lastElem;
-    input                [REGISTER_SIZE-1 : 0] deadlines [NUMBER_OF_QUEUES];
-    input                [REGISTER_SIZE-1 : 0] periods [NUMBER_OF_QUEUES];
-    output    [$clog2(NUMBER_OF_QUEUES)-1 : 0] id;
-    input                                      consumed;
-    output            [NUMBER_OF_QUEUES-1 : 0] hasBeenConsumed;
-    output                                     enable;
+    input                                                clock;
+    input                                                reset;
+    input           [$clog2(NUMBER_OF_SCHEDULERS)-1 : 0] mode;
+    input                       [NUMBER_OF_QUEUES-1 : 0] full;
+    input                       [NUMBER_OF_QUEUES-1 : 0] empty;
+    input                       [NUMBER_OF_QUEUES-1 : 0] lastElem;
+    input [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] deadlines;
+    input [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] periods;
+    output              [$clog2(NUMBER_OF_QUEUES)-1 : 0] id;
+    input                                                consumed;
+    output                      [NUMBER_OF_QUEUES-1 : 0] hasBeenConsumed;
+    output                                               enable;
     
     // Scheduling part
     wire [$clog2(NUMBER_OF_QUEUES)-1 : 0] schedulers_to_selector [NUMBER_OF_SCHEDULERS];
     wire [$clog2(NUMBER_OF_QUEUES)-1 : 0] selected_queue;
     // Control part
     reg                                  internal_enable;
+    reg [$clog2(NUMBER_OF_QUEUES)-1 : 0] internal_id;
     reg                                  start_transaction;
     reg [$clog2(NUMBER_OF_QUEUES)-1 : 0] override_id;
     reg                                  priority_override;
@@ -73,7 +74,7 @@ module Scheduler
     reg booted;
     
     assign enable            = internal_enable;
-    assign id                = (priority_override)? override_id : selected_queue;
+    assign id                = internal_id;//(priority_override)? override_id : selected_queue;
     
     if (NUMBER_OF_SCHEDULERS <= 2)
     begin
@@ -121,7 +122,7 @@ module Scheduler
     end
     
     // Dispatcher route the consumed signal to the appropriate queue
-    Dispatcher #(
+    Combinatorial_Dispatcher #(
         .OUTPUTS(NUMBER_OF_QUEUES),
         .INPUT_SIZE(1'b1)
     ) queue_router (
@@ -137,11 +138,31 @@ module Scheduler
     begin
         if(reset)
         begin
-            internal_enable <= 0;
+            internal_id <= 0;
         end
         else
         begin
+            internal_id <= (priority_override)? override_id : selected_queue;
+        end
+    end
+    
+    always @(posedge clock)
+    begin
+        if(reset)
+        begin
+            internal_enable <= 0;
+        end
+        else if(start_transaction)//internal_enable)
+        begin
+            internal_enable <= 1;
+        end 
+        else if(!priority_override)//internal_enable)
+        begin
             internal_enable <= start_transaction | priority_override;
+        end
+        else
+        begin
+            internal_enable <= 0;
         end
     end
     
@@ -168,8 +189,11 @@ module Scheduler
                 booted <= 1;
             end
         end
-    
-    assign hasBeenConsumed = booted&(internal_hasBeenConsumed&(~hasBeenConsumed_ff));
+    genvar i;
+    for(i = 0; i < NUMBER_OF_QUEUES; i = i + 1)
+    begin
+        assign hasBeenConsumed[i] = booted&(internal_hasBeenConsumed[i]&(~hasBeenConsumed_ff[i]));
+    end
     
     always @(posedge clock)
     begin
@@ -219,6 +243,10 @@ module Scheduler
                     priority_override <= |full;
                 end
             end
+//            else
+//            begin
+//                priority_override <= 0;
+//            end
         end
     end
     
