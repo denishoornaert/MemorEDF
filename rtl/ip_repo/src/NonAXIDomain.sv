@@ -45,15 +45,15 @@ module NonAXIDomain #(
         stall
     );
     
-    input wire                                      clock;
-    input wire                                      reset;
-    input wire                    [DATA_SIZE-1 : 0] packetizer_to_dispatcher_packet;
-    input wire                                      packetizer_to_dispatcher_valid;
-    input wire                              [1 : 0] packetizer_to_dispatcher_id;
-    input wire [$clog2(NUMBER_OF_SCHEDULERS)-1 : 0] scheduling_mode;
-    input wire                [REGISTER_SIZE-1 : 0] scheduler_deadlines [NUMBER_OF_QUEUES];
-    input wire                [REGISTER_SIZE-1 : 0] scheduler_periods [NUMBER_OF_QUEUES];
-    input wire                                      serializer_to_scheduler_consumed;
+    input wire                                                clock;
+    input wire                                                reset;
+    input wire                              [DATA_SIZE-1 : 0] packetizer_to_dispatcher_packet;
+    input wire                                                packetizer_to_dispatcher_valid;
+    input wire                                        [1 : 0] packetizer_to_dispatcher_id;
+    input wire           [$clog2(NUMBER_OF_SCHEDULERS)-1 : 0] scheduling_mode;
+    input wire [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] scheduler_deadlines;
+    input wire [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] scheduler_periods;
+    input wire                                                serializer_to_scheduler_consumed;
     
     output wire                   [DATA_SIZE-1 : 0] selector_to_serializer_packet;
     output wire                                     scheduler_to_serializer_activate_signal;
