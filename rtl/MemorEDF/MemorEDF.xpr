@@ -36,20 +36,20 @@
     <Option Name="DSAVendor" Val="xilinx"/>
     <Option Name="DSABoardId" Val="zcu102"/>
     <Option Name="DSANumComputeUnits" Val="60"/>
-    <Option Name="WTXSimLaunchSim" Val="335"/>
+    <Option Name="WTXSimLaunchSim" Val="344"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="119"/>
-    <Option Name="WTModelSimExportSim" Val="119"/>
-    <Option Name="WTQuestaExportSim" Val="119"/>
-    <Option Name="WTIesExportSim" Val="119"/>
-    <Option Name="WTVcsExportSim" Val="119"/>
-    <Option Name="WTRivieraExportSim" Val="119"/>
-    <Option Name="WTActivehdlExportSim" Val="119"/>
+    <Option Name="WTXSimExportSim" Val="129"/>
+    <Option Name="WTModelSimExportSim" Val="129"/>
+    <Option Name="WTQuestaExportSim" Val="129"/>
+    <Option Name="WTIesExportSim" Val="129"/>
+    <Option Name="WTVcsExportSim" Val="129"/>
+    <Option Name="WTRivieraExportSim" Val="129"/>
+    <Option Name="WTActivehdlExportSim" Val="129"/>
     <Option Name="GenerateIPUpgradeLog" Val="TRUE"/>
     <Option Name="XSimRadix" Val="hex"/>
     <Option Name="XSimTimeUnit" Val="ns"/>
@@ -66,14 +66,14 @@
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
-        <CompFileExtendedInfo CompFileName="design_1.bd" FileRelPathName="ip/design_1_default_axi_full_master_0_0/design_1_default_axi_full_master_0_0.xci">
-          <Proxy FileSetName="design_1_default_axi_full_master_0_0"/>
+        <CompFileExtendedInfo CompFileName="design_1.bd" FileRelPathName="ip/design_1_axi_vip_0_1/design_1_axi_vip_0_1.xci">
+          <Proxy FileSetName="design_1_axi_vip_0_1"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="design_1.bd" FileRelPathName="ip/design_1_axi_vip_0_0/design_1_axi_vip_0_0.xci">
           <Proxy FileSetName="design_1_axi_vip_0_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="design_1.bd" FileRelPathName="ip/design_1_axi_vip_0_1/design_1_axi_vip_0_1.xci">
-          <Proxy FileSetName="design_1_axi_vip_0_1"/>
+        <CompFileExtendedInfo CompFileName="design_1.bd" FileRelPathName="ip/design_1_default_axi_full_master_0_0/design_1_default_axi_full_master_0_0.xci">
+          <Proxy FileSetName="design_1_default_axi_full_master_0_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="design_1.bd" FileRelPathName="ip/design_1_MemorEDF_0_0/design_1_MemorEDF_0_0.xci">
           <Proxy FileSetName="design_1_MemorEDF_0_0"/>

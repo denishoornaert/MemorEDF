@@ -165,15 +165,22 @@ proc create_root_design { parentCell } {
   # Create instance: MemorEDF_0, and set properties
   set MemorEDF_0 [ create_bd_cell -type ip -vlnv user.org:user:MemorEDF:1.0 MemorEDF_0 ]
   set_property -dict [ list \
+   CONFIG.CONFIGURATION_PORT_ENABLED {true} \
    CONFIG.C_M00_AXI_ADDR_WIDTH {40} \
    CONFIG.C_M00_AXI_BURST_LEN {4} \
    CONFIG.C_M00_AXI_DATA_WIDTH {128} \
+   CONFIG.C_M00_AXI_ID_WIDTH {16} \
    CONFIG.C_S00_AXI_ADDR_WIDTH {40} \
    CONFIG.C_S00_AXI_DATA_WIDTH {128} \
-   CONFIG.C_S00_AXI_ID_WIDTH {1} \
+   CONFIG.C_S00_AXI_ID_WIDTH {16} \
    CONFIG.C_S01_AXI_ADDR_WIDTH {40} \
+   CONFIG.C_S01_AXI_ARUSER_WIDTH {16} \
+   CONFIG.C_S01_AXI_AWUSER_WIDTH {16} \
    CONFIG.C_S01_AXI_DATA_WIDTH {128} \
-   CONFIG.DATA_SIZE {647} \
+   CONFIG.C_S01_AXI_ID_WIDTH {16} \
+   CONFIG.DATA_SIZE {678} \
+   CONFIG.EDF_ENABLED {true} \
+   CONFIG.TDMA_ENABLED {true} \
  ] $MemorEDF_0
 
   set_property -dict [ list \
@@ -197,8 +204,8 @@ proc create_root_design { parentCell } {
   set axi_vip_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_vip:1.1 axi_vip_0 ]
   set_property -dict [ list \
    CONFIG.ADDR_WIDTH {32} \
-   CONFIG.ARUSER_WIDTH {0} \
-   CONFIG.AWUSER_WIDTH {0} \
+   CONFIG.ARUSER_WIDTH {16} \
+   CONFIG.AWUSER_WIDTH {16} \
    CONFIG.BUSER_WIDTH {0} \
    CONFIG.DATA_WIDTH {128} \
    CONFIG.HAS_BRESP {1} \
@@ -210,7 +217,7 @@ proc create_root_design { parentCell } {
    CONFIG.HAS_REGION {1} \
    CONFIG.HAS_RRESP {1} \
    CONFIG.HAS_WSTRB {1} \
-   CONFIG.ID_WIDTH {0} \
+   CONFIG.ID_WIDTH {16} \
    CONFIG.INTERFACE_MODE {MASTER} \
    CONFIG.PROTOCOL {AXI4} \
    CONFIG.READ_WRITE_MODE {READ_WRITE} \
@@ -233,9 +240,15 @@ proc create_root_design { parentCell } {
   set default_axi_full_master_0 [ create_bd_cell -type ip -vlnv user.org:user:default_axi_full_master:1.0 default_axi_full_master_0 ]
   set_property -dict [ list \
    CONFIG.C_M00_AXI_ADDR_WIDTH {40} \
+   CONFIG.C_M00_AXI_ARUSER_WIDTH {16} \
+   CONFIG.C_M00_AXI_AWUSER_WIDTH {16} \
    CONFIG.C_M00_AXI_BURST_LEN {4} \
+   CONFIG.C_M00_AXI_BUSER_WIDTH {0} \
    CONFIG.C_M00_AXI_DATA_WIDTH {128} \
+   CONFIG.C_M00_AXI_ID_WIDTH {16} \
+   CONFIG.C_M00_AXI_RUSER_WIDTH {0} \
    CONFIG.C_M00_AXI_TARGET_SLAVE_BASE_ADDR {0x8000000000} \
+   CONFIG.C_M00_AXI_WUSER_WIDTH {0} \
  ] $default_axi_full_master_0
 
   # Create interface connections

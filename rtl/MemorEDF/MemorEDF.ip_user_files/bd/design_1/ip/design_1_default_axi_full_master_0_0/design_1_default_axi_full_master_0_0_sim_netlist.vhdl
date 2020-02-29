@@ -1,7 +1,7 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
--- Date        : Mon Feb 24 13:28:29 2020
+-- Date        : Sat Feb 29 16:46:10 2020
 -- Host        : CELSIUS running 64-bit Ubuntu 16.04.6 LTS
 -- Command     : write_vhdl -force -mode funcsim
 --               /home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_1/ip/design_1_default_axi_full_master_0_0/design_1_default_axi_full_master_0_0_sim_netlist.vhdl
@@ -6107,7 +6107,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity design_1_default_axi_full_master_0_0 is
   port (
-    m00_axi_awid : out STD_LOGIC_VECTOR ( 0 to 0 );
+    m00_axi_awid : out STD_LOGIC_VECTOR ( 15 downto 0 );
     m00_axi_awaddr : out STD_LOGIC_VECTOR ( 39 downto 0 );
     m00_axi_awlen : out STD_LOGIC_VECTOR ( 7 downto 0 );
     m00_axi_awsize : out STD_LOGIC_VECTOR ( 2 downto 0 );
@@ -6116,21 +6116,19 @@ entity design_1_default_axi_full_master_0_0 is
     m00_axi_awcache : out STD_LOGIC_VECTOR ( 3 downto 0 );
     m00_axi_awprot : out STD_LOGIC_VECTOR ( 2 downto 0 );
     m00_axi_awqos : out STD_LOGIC_VECTOR ( 3 downto 0 );
-    m00_axi_awuser : out STD_LOGIC_VECTOR ( 0 to 0 );
+    m00_axi_awuser : out STD_LOGIC_VECTOR ( 15 downto 0 );
     m00_axi_awvalid : out STD_LOGIC;
     m00_axi_awready : in STD_LOGIC;
     m00_axi_wdata : out STD_LOGIC_VECTOR ( 127 downto 0 );
     m00_axi_wstrb : out STD_LOGIC_VECTOR ( 15 downto 0 );
     m00_axi_wlast : out STD_LOGIC;
-    m00_axi_wuser : out STD_LOGIC_VECTOR ( 0 to 0 );
     m00_axi_wvalid : out STD_LOGIC;
     m00_axi_wready : in STD_LOGIC;
-    m00_axi_bid : in STD_LOGIC_VECTOR ( 0 to 0 );
+    m00_axi_bid : in STD_LOGIC_VECTOR ( 15 downto 0 );
     m00_axi_bresp : in STD_LOGIC_VECTOR ( 1 downto 0 );
-    m00_axi_buser : in STD_LOGIC_VECTOR ( 0 to 0 );
     m00_axi_bvalid : in STD_LOGIC;
     m00_axi_bready : out STD_LOGIC;
-    m00_axi_arid : out STD_LOGIC_VECTOR ( 0 to 0 );
+    m00_axi_arid : out STD_LOGIC_VECTOR ( 15 downto 0 );
     m00_axi_araddr : out STD_LOGIC_VECTOR ( 39 downto 0 );
     m00_axi_arlen : out STD_LOGIC_VECTOR ( 7 downto 0 );
     m00_axi_arsize : out STD_LOGIC_VECTOR ( 2 downto 0 );
@@ -6139,14 +6137,13 @@ entity design_1_default_axi_full_master_0_0 is
     m00_axi_arcache : out STD_LOGIC_VECTOR ( 3 downto 0 );
     m00_axi_arprot : out STD_LOGIC_VECTOR ( 2 downto 0 );
     m00_axi_arqos : out STD_LOGIC_VECTOR ( 3 downto 0 );
-    m00_axi_aruser : out STD_LOGIC_VECTOR ( 0 to 0 );
+    m00_axi_aruser : out STD_LOGIC_VECTOR ( 15 downto 0 );
     m00_axi_arvalid : out STD_LOGIC;
     m00_axi_arready : in STD_LOGIC;
-    m00_axi_rid : in STD_LOGIC_VECTOR ( 0 to 0 );
+    m00_axi_rid : in STD_LOGIC_VECTOR ( 15 downto 0 );
     m00_axi_rdata : in STD_LOGIC_VECTOR ( 127 downto 0 );
     m00_axi_rresp : in STD_LOGIC_VECTOR ( 1 downto 0 );
     m00_axi_rlast : in STD_LOGIC;
-    m00_axi_ruser : in STD_LOGIC_VECTOR ( 0 to 0 );
     m00_axi_rvalid : in STD_LOGIC;
     m00_axi_rready : out STD_LOGIC;
     m00_axi_aclk : in STD_LOGIC;
@@ -6186,7 +6183,7 @@ architecture STRUCTURE of design_1_default_axi_full_master_0_0 is
   attribute X_INTERFACE_INFO of m00_axi_bvalid : signal is "xilinx.com:interface:aximm:1.0 M00_AXI BVALID";
   attribute X_INTERFACE_INFO of m00_axi_rlast : signal is "xilinx.com:interface:aximm:1.0 M00_AXI RLAST";
   attribute X_INTERFACE_INFO of m00_axi_rready : signal is "xilinx.com:interface:aximm:1.0 M00_AXI RREADY";
-  attribute X_INTERFACE_PARAMETER of m00_axi_rready : signal is "XIL_INTERFACENAME M00_AXI, WIZ_DATA_WIDTH 32, SUPPORTS_NARROW_BURST 0, DATA_WIDTH 128, PROTOCOL AXI4, FREQ_HZ 100000000, ID_WIDTH 1, ADDR_WIDTH 40, AWUSER_WIDTH 1, ARUSER_WIDTH 1, WUSER_WIDTH 1, RUSER_WIDTH 1, BUSER_WIDTH 1, READ_WRITE_MODE READ_WRITE, HAS_BURST 1, HAS_LOCK 1, HAS_PROT 1, HAS_CACHE 1, HAS_QOS 1, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, NUM_READ_OUTSTANDING 2, NUM_WRITE_OUTSTANDING 2, MAX_BURST_LENGTH 256, PHASE 0.000, CLK_DOMAIN design_1_aclk_0, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0";
+  attribute X_INTERFACE_PARAMETER of m00_axi_rready : signal is "XIL_INTERFACENAME M00_AXI, WIZ_DATA_WIDTH 32, SUPPORTS_NARROW_BURST 0, DATA_WIDTH 128, PROTOCOL AXI4, FREQ_HZ 100000000, ID_WIDTH 16, ADDR_WIDTH 40, AWUSER_WIDTH 16, ARUSER_WIDTH 16, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 1, HAS_LOCK 1, HAS_PROT 1, HAS_CACHE 1, HAS_QOS 1, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, NUM_READ_OUTSTANDING 2, NUM_WRITE_OUTSTANDING 2, MAX_BURST_LENGTH 256, PHASE 0.000, CLK_DOMAIN design_1_aclk_0, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0";
   attribute X_INTERFACE_INFO of m00_axi_rvalid : signal is "xilinx.com:interface:aximm:1.0 M00_AXI RVALID";
   attribute X_INTERFACE_INFO of m00_axi_wlast : signal is "xilinx.com:interface:aximm:1.0 M00_AXI WLAST";
   attribute X_INTERFACE_INFO of m00_axi_wready : signal is "xilinx.com:interface:aximm:1.0 M00_AXI WREADY";
@@ -6211,14 +6208,11 @@ architecture STRUCTURE of design_1_default_axi_full_master_0_0 is
   attribute X_INTERFACE_INFO of m00_axi_awuser : signal is "xilinx.com:interface:aximm:1.0 M00_AXI AWUSER";
   attribute X_INTERFACE_INFO of m00_axi_bid : signal is "xilinx.com:interface:aximm:1.0 M00_AXI BID";
   attribute X_INTERFACE_INFO of m00_axi_bresp : signal is "xilinx.com:interface:aximm:1.0 M00_AXI BRESP";
-  attribute X_INTERFACE_INFO of m00_axi_buser : signal is "xilinx.com:interface:aximm:1.0 M00_AXI BUSER";
   attribute X_INTERFACE_INFO of m00_axi_rdata : signal is "xilinx.com:interface:aximm:1.0 M00_AXI RDATA";
   attribute X_INTERFACE_INFO of m00_axi_rid : signal is "xilinx.com:interface:aximm:1.0 M00_AXI RID";
   attribute X_INTERFACE_INFO of m00_axi_rresp : signal is "xilinx.com:interface:aximm:1.0 M00_AXI RRESP";
-  attribute X_INTERFACE_INFO of m00_axi_ruser : signal is "xilinx.com:interface:aximm:1.0 M00_AXI RUSER";
   attribute X_INTERFACE_INFO of m00_axi_wdata : signal is "xilinx.com:interface:aximm:1.0 M00_AXI WDATA";
   attribute X_INTERFACE_INFO of m00_axi_wstrb : signal is "xilinx.com:interface:aximm:1.0 M00_AXI WSTRB";
-  attribute X_INTERFACE_INFO of m00_axi_wuser : signal is "xilinx.com:interface:aximm:1.0 M00_AXI WUSER";
 begin
   m00_axi_araddr(39 downto 6) <= \^m00_axi_araddr\(39 downto 6);
   m00_axi_araddr(5) <= \<const0>\;
@@ -6233,6 +6227,21 @@ begin
   m00_axi_arcache(2) <= \<const0>\;
   m00_axi_arcache(1) <= \<const1>\;
   m00_axi_arcache(0) <= \<const0>\;
+  m00_axi_arid(15) <= \<const0>\;
+  m00_axi_arid(14) <= \<const0>\;
+  m00_axi_arid(13) <= \<const0>\;
+  m00_axi_arid(12) <= \<const0>\;
+  m00_axi_arid(11) <= \<const0>\;
+  m00_axi_arid(10) <= \<const0>\;
+  m00_axi_arid(9) <= \<const0>\;
+  m00_axi_arid(8) <= \<const0>\;
+  m00_axi_arid(7) <= \<const0>\;
+  m00_axi_arid(6) <= \<const0>\;
+  m00_axi_arid(5) <= \<const0>\;
+  m00_axi_arid(4) <= \<const0>\;
+  m00_axi_arid(3) <= \<const0>\;
+  m00_axi_arid(2) <= \<const0>\;
+  m00_axi_arid(1) <= \<const0>\;
   m00_axi_arid(0) <= \<const0>\;
   m00_axi_arlen(7) <= \<const0>\;
   m00_axi_arlen(6) <= \<const0>\;
@@ -6253,6 +6262,21 @@ begin
   m00_axi_arsize(2) <= \<const1>\;
   m00_axi_arsize(1) <= \<const0>\;
   m00_axi_arsize(0) <= \<const0>\;
+  m00_axi_aruser(15) <= \<const0>\;
+  m00_axi_aruser(14) <= \<const0>\;
+  m00_axi_aruser(13) <= \<const0>\;
+  m00_axi_aruser(12) <= \<const0>\;
+  m00_axi_aruser(11) <= \<const0>\;
+  m00_axi_aruser(10) <= \<const0>\;
+  m00_axi_aruser(9) <= \<const0>\;
+  m00_axi_aruser(8) <= \<const0>\;
+  m00_axi_aruser(7) <= \<const0>\;
+  m00_axi_aruser(6) <= \<const0>\;
+  m00_axi_aruser(5) <= \<const0>\;
+  m00_axi_aruser(4) <= \<const0>\;
+  m00_axi_aruser(3) <= \<const0>\;
+  m00_axi_aruser(2) <= \<const0>\;
+  m00_axi_aruser(1) <= \<const0>\;
   m00_axi_aruser(0) <= \<const1>\;
   m00_axi_awaddr(39 downto 6) <= \^m00_axi_awaddr\(39 downto 6);
   m00_axi_awaddr(5) <= \<const0>\;
@@ -6267,6 +6291,21 @@ begin
   m00_axi_awcache(2) <= \<const0>\;
   m00_axi_awcache(1) <= \<const1>\;
   m00_axi_awcache(0) <= \<const0>\;
+  m00_axi_awid(15) <= \<const0>\;
+  m00_axi_awid(14) <= \<const0>\;
+  m00_axi_awid(13) <= \<const0>\;
+  m00_axi_awid(12) <= \<const0>\;
+  m00_axi_awid(11) <= \<const0>\;
+  m00_axi_awid(10) <= \<const0>\;
+  m00_axi_awid(9) <= \<const0>\;
+  m00_axi_awid(8) <= \<const0>\;
+  m00_axi_awid(7) <= \<const0>\;
+  m00_axi_awid(6) <= \<const0>\;
+  m00_axi_awid(5) <= \<const0>\;
+  m00_axi_awid(4) <= \<const0>\;
+  m00_axi_awid(3) <= \<const0>\;
+  m00_axi_awid(2) <= \<const0>\;
+  m00_axi_awid(1) <= \<const0>\;
   m00_axi_awid(0) <= \<const0>\;
   m00_axi_awlen(7) <= \<const0>\;
   m00_axi_awlen(6) <= \<const0>\;
@@ -6287,6 +6326,21 @@ begin
   m00_axi_awsize(2) <= \<const1>\;
   m00_axi_awsize(1) <= \<const0>\;
   m00_axi_awsize(0) <= \<const0>\;
+  m00_axi_awuser(15) <= \<const0>\;
+  m00_axi_awuser(14) <= \<const0>\;
+  m00_axi_awuser(13) <= \<const0>\;
+  m00_axi_awuser(12) <= \<const0>\;
+  m00_axi_awuser(11) <= \<const0>\;
+  m00_axi_awuser(10) <= \<const0>\;
+  m00_axi_awuser(9) <= \<const0>\;
+  m00_axi_awuser(8) <= \<const0>\;
+  m00_axi_awuser(7) <= \<const0>\;
+  m00_axi_awuser(6) <= \<const0>\;
+  m00_axi_awuser(5) <= \<const0>\;
+  m00_axi_awuser(4) <= \<const0>\;
+  m00_axi_awuser(3) <= \<const0>\;
+  m00_axi_awuser(2) <= \<const0>\;
+  m00_axi_awuser(1) <= \<const0>\;
   m00_axi_awuser(0) <= \<const1>\;
   m00_axi_wstrb(15) <= \<const1>\;
   m00_axi_wstrb(14) <= \<const1>\;
@@ -6304,7 +6358,6 @@ begin
   m00_axi_wstrb(2) <= \<const1>\;
   m00_axi_wstrb(1) <= \<const1>\;
   m00_axi_wstrb(0) <= \<const1>\;
-  m00_axi_wuser(0) <= \<const0>\;
 GND: unisim.vcomponents.GND
      port map (
       G => \<const0>\

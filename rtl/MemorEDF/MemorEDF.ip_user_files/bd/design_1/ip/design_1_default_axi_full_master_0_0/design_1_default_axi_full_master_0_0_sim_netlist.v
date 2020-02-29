@@ -1,7 +1,7 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-// Date        : Mon Feb 24 13:28:29 2020
+// Date        : Sat Feb 29 16:46:10 2020
 // Host        : CELSIUS running 64-bit Ubuntu 16.04.6 LTS
 // Command     : write_verilog -force -mode funcsim
 //               /home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_1/ip/design_1_default_axi_full_master_0_0/design_1_default_axi_full_master_0_0_sim_netlist.v
@@ -30,12 +30,10 @@ module design_1_default_axi_full_master_0_0
     m00_axi_wdata,
     m00_axi_wstrb,
     m00_axi_wlast,
-    m00_axi_wuser,
     m00_axi_wvalid,
     m00_axi_wready,
     m00_axi_bid,
     m00_axi_bresp,
-    m00_axi_buser,
     m00_axi_bvalid,
     m00_axi_bready,
     m00_axi_arid,
@@ -54,7 +52,6 @@ module design_1_default_axi_full_master_0_0
     m00_axi_rdata,
     m00_axi_rresp,
     m00_axi_rlast,
-    m00_axi_ruser,
     m00_axi_rvalid,
     m00_axi_rready,
     m00_axi_aclk,
@@ -62,7 +59,7 @@ module design_1_default_axi_full_master_0_0
     m00_axi_init_axi_txn,
     m00_axi_txn_done,
     m00_axi_error);
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M00_AXI AWID" *) output [0:0]m00_axi_awid;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M00_AXI AWID" *) output [15:0]m00_axi_awid;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M00_AXI AWADDR" *) output [39:0]m00_axi_awaddr;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M00_AXI AWLEN" *) output [7:0]m00_axi_awlen;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M00_AXI AWSIZE" *) output [2:0]m00_axi_awsize;
@@ -71,21 +68,19 @@ module design_1_default_axi_full_master_0_0
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M00_AXI AWCACHE" *) output [3:0]m00_axi_awcache;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M00_AXI AWPROT" *) output [2:0]m00_axi_awprot;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M00_AXI AWQOS" *) output [3:0]m00_axi_awqos;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M00_AXI AWUSER" *) output [0:0]m00_axi_awuser;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M00_AXI AWUSER" *) output [15:0]m00_axi_awuser;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M00_AXI AWVALID" *) output m00_axi_awvalid;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M00_AXI AWREADY" *) input m00_axi_awready;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M00_AXI WDATA" *) output [127:0]m00_axi_wdata;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M00_AXI WSTRB" *) output [15:0]m00_axi_wstrb;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M00_AXI WLAST" *) output m00_axi_wlast;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M00_AXI WUSER" *) output [0:0]m00_axi_wuser;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M00_AXI WVALID" *) output m00_axi_wvalid;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M00_AXI WREADY" *) input m00_axi_wready;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M00_AXI BID" *) input [0:0]m00_axi_bid;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M00_AXI BID" *) input [15:0]m00_axi_bid;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M00_AXI BRESP" *) input [1:0]m00_axi_bresp;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M00_AXI BUSER" *) input [0:0]m00_axi_buser;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M00_AXI BVALID" *) input m00_axi_bvalid;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M00_AXI BREADY" *) output m00_axi_bready;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M00_AXI ARID" *) output [0:0]m00_axi_arid;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M00_AXI ARID" *) output [15:0]m00_axi_arid;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M00_AXI ARADDR" *) output [39:0]m00_axi_araddr;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M00_AXI ARLEN" *) output [7:0]m00_axi_arlen;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M00_AXI ARSIZE" *) output [2:0]m00_axi_arsize;
@@ -94,16 +89,15 @@ module design_1_default_axi_full_master_0_0
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M00_AXI ARCACHE" *) output [3:0]m00_axi_arcache;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M00_AXI ARPROT" *) output [2:0]m00_axi_arprot;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M00_AXI ARQOS" *) output [3:0]m00_axi_arqos;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M00_AXI ARUSER" *) output [0:0]m00_axi_aruser;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M00_AXI ARUSER" *) output [15:0]m00_axi_aruser;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M00_AXI ARVALID" *) output m00_axi_arvalid;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M00_AXI ARREADY" *) input m00_axi_arready;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M00_AXI RID" *) input [0:0]m00_axi_rid;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M00_AXI RID" *) input [15:0]m00_axi_rid;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M00_AXI RDATA" *) input [127:0]m00_axi_rdata;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M00_AXI RRESP" *) input [1:0]m00_axi_rresp;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M00_AXI RLAST" *) input m00_axi_rlast;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M00_AXI RUSER" *) input [0:0]m00_axi_ruser;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M00_AXI RVALID" *) input m00_axi_rvalid;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M00_AXI RREADY" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME M00_AXI, WIZ_DATA_WIDTH 32, SUPPORTS_NARROW_BURST 0, DATA_WIDTH 128, PROTOCOL AXI4, FREQ_HZ 100000000, ID_WIDTH 1, ADDR_WIDTH 40, AWUSER_WIDTH 1, ARUSER_WIDTH 1, WUSER_WIDTH 1, RUSER_WIDTH 1, BUSER_WIDTH 1, READ_WRITE_MODE READ_WRITE, HAS_BURST 1, HAS_LOCK 1, HAS_PROT 1, HAS_CACHE 1, HAS_QOS 1, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, NUM_READ_OUTSTANDING 2, NUM_WRITE_OUTSTANDING 2, MAX_BURST_LENGTH 256, PHASE 0.000, CLK_DOMAIN design_1_aclk_0, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0" *) output m00_axi_rready;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M00_AXI RREADY" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME M00_AXI, WIZ_DATA_WIDTH 32, SUPPORTS_NARROW_BURST 0, DATA_WIDTH 128, PROTOCOL AXI4, FREQ_HZ 100000000, ID_WIDTH 16, ADDR_WIDTH 40, AWUSER_WIDTH 16, ARUSER_WIDTH 16, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 1, HAS_LOCK 1, HAS_PROT 1, HAS_CACHE 1, HAS_QOS 1, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, NUM_READ_OUTSTANDING 2, NUM_WRITE_OUTSTANDING 2, MAX_BURST_LENGTH 256, PHASE 0.000, CLK_DOMAIN design_1_aclk_0, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0" *) output m00_axi_rready;
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 M00_AXI_CLK CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME M00_AXI_CLK, ASSOCIATED_BUSIF M00_AXI, ASSOCIATED_RESET m00_axi_aresetn, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_aclk_0" *) input m00_axi_aclk;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 M00_AXI_RST RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME M00_AXI_RST, POLARITY ACTIVE_LOW" *) input m00_axi_aresetn;
   input m00_axi_init_axi_txn;
@@ -149,6 +143,21 @@ module design_1_default_axi_full_master_0_0
   assign m00_axi_arcache[2] = \<const0> ;
   assign m00_axi_arcache[1] = \<const1> ;
   assign m00_axi_arcache[0] = \<const0> ;
+  assign m00_axi_arid[15] = \<const0> ;
+  assign m00_axi_arid[14] = \<const0> ;
+  assign m00_axi_arid[13] = \<const0> ;
+  assign m00_axi_arid[12] = \<const0> ;
+  assign m00_axi_arid[11] = \<const0> ;
+  assign m00_axi_arid[10] = \<const0> ;
+  assign m00_axi_arid[9] = \<const0> ;
+  assign m00_axi_arid[8] = \<const0> ;
+  assign m00_axi_arid[7] = \<const0> ;
+  assign m00_axi_arid[6] = \<const0> ;
+  assign m00_axi_arid[5] = \<const0> ;
+  assign m00_axi_arid[4] = \<const0> ;
+  assign m00_axi_arid[3] = \<const0> ;
+  assign m00_axi_arid[2] = \<const0> ;
+  assign m00_axi_arid[1] = \<const0> ;
   assign m00_axi_arid[0] = \<const0> ;
   assign m00_axi_arlen[7] = \<const0> ;
   assign m00_axi_arlen[6] = \<const0> ;
@@ -169,6 +178,21 @@ module design_1_default_axi_full_master_0_0
   assign m00_axi_arsize[2] = \<const1> ;
   assign m00_axi_arsize[1] = \<const0> ;
   assign m00_axi_arsize[0] = \<const0> ;
+  assign m00_axi_aruser[15] = \<const0> ;
+  assign m00_axi_aruser[14] = \<const0> ;
+  assign m00_axi_aruser[13] = \<const0> ;
+  assign m00_axi_aruser[12] = \<const0> ;
+  assign m00_axi_aruser[11] = \<const0> ;
+  assign m00_axi_aruser[10] = \<const0> ;
+  assign m00_axi_aruser[9] = \<const0> ;
+  assign m00_axi_aruser[8] = \<const0> ;
+  assign m00_axi_aruser[7] = \<const0> ;
+  assign m00_axi_aruser[6] = \<const0> ;
+  assign m00_axi_aruser[5] = \<const0> ;
+  assign m00_axi_aruser[4] = \<const0> ;
+  assign m00_axi_aruser[3] = \<const0> ;
+  assign m00_axi_aruser[2] = \<const0> ;
+  assign m00_axi_aruser[1] = \<const0> ;
   assign m00_axi_aruser[0] = \<const1> ;
   assign m00_axi_awaddr[39:6] = \^m00_axi_awaddr [39:6];
   assign m00_axi_awaddr[5] = \<const0> ;
@@ -183,6 +207,21 @@ module design_1_default_axi_full_master_0_0
   assign m00_axi_awcache[2] = \<const0> ;
   assign m00_axi_awcache[1] = \<const1> ;
   assign m00_axi_awcache[0] = \<const0> ;
+  assign m00_axi_awid[15] = \<const0> ;
+  assign m00_axi_awid[14] = \<const0> ;
+  assign m00_axi_awid[13] = \<const0> ;
+  assign m00_axi_awid[12] = \<const0> ;
+  assign m00_axi_awid[11] = \<const0> ;
+  assign m00_axi_awid[10] = \<const0> ;
+  assign m00_axi_awid[9] = \<const0> ;
+  assign m00_axi_awid[8] = \<const0> ;
+  assign m00_axi_awid[7] = \<const0> ;
+  assign m00_axi_awid[6] = \<const0> ;
+  assign m00_axi_awid[5] = \<const0> ;
+  assign m00_axi_awid[4] = \<const0> ;
+  assign m00_axi_awid[3] = \<const0> ;
+  assign m00_axi_awid[2] = \<const0> ;
+  assign m00_axi_awid[1] = \<const0> ;
   assign m00_axi_awid[0] = \<const0> ;
   assign m00_axi_awlen[7] = \<const0> ;
   assign m00_axi_awlen[6] = \<const0> ;
@@ -203,6 +242,21 @@ module design_1_default_axi_full_master_0_0
   assign m00_axi_awsize[2] = \<const1> ;
   assign m00_axi_awsize[1] = \<const0> ;
   assign m00_axi_awsize[0] = \<const0> ;
+  assign m00_axi_awuser[15] = \<const0> ;
+  assign m00_axi_awuser[14] = \<const0> ;
+  assign m00_axi_awuser[13] = \<const0> ;
+  assign m00_axi_awuser[12] = \<const0> ;
+  assign m00_axi_awuser[11] = \<const0> ;
+  assign m00_axi_awuser[10] = \<const0> ;
+  assign m00_axi_awuser[9] = \<const0> ;
+  assign m00_axi_awuser[8] = \<const0> ;
+  assign m00_axi_awuser[7] = \<const0> ;
+  assign m00_axi_awuser[6] = \<const0> ;
+  assign m00_axi_awuser[5] = \<const0> ;
+  assign m00_axi_awuser[4] = \<const0> ;
+  assign m00_axi_awuser[3] = \<const0> ;
+  assign m00_axi_awuser[2] = \<const0> ;
+  assign m00_axi_awuser[1] = \<const0> ;
   assign m00_axi_awuser[0] = \<const1> ;
   assign m00_axi_wstrb[15] = \<const1> ;
   assign m00_axi_wstrb[14] = \<const1> ;
@@ -220,7 +274,6 @@ module design_1_default_axi_full_master_0_0
   assign m00_axi_wstrb[2] = \<const1> ;
   assign m00_axi_wstrb[1] = \<const1> ;
   assign m00_axi_wstrb[0] = \<const1> ;
-  assign m00_axi_wuser[0] = \<const0> ;
   GND GND
        (.G(\<const0> ));
   VCC VCC

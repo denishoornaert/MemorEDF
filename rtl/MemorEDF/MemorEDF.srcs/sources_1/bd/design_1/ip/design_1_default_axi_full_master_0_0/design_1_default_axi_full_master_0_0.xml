@@ -388,7 +388,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>ID_WIDTH</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.M00_AXI.ID_WIDTH">1</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.M00_AXI.ID_WIDTH">16</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -406,7 +406,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>AWUSER_WIDTH</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.M00_AXI.AWUSER_WIDTH">1</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.M00_AXI.AWUSER_WIDTH">16</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -415,7 +415,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>ARUSER_WIDTH</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.M00_AXI.ARUSER_WIDTH">1</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.M00_AXI.ARUSER_WIDTH">16</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -424,7 +424,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>WUSER_WIDTH</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.M00_AXI.WUSER_WIDTH">1</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.M00_AXI.WUSER_WIDTH">0</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -433,7 +433,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>RUSER_WIDTH</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.M00_AXI.RUSER_WIDTH">1</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.M00_AXI.RUSER_WIDTH">0</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -442,7 +442,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>BUSER_WIDTH</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.M00_AXI.BUSER_WIDTH">1</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.M00_AXI.BUSER_WIDTH">0</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -722,7 +722,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>7:4b7b0001</spirit:value>
+            <spirit:value>7:694fcf53</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -737,11 +737,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Feb 24 12:27:06 UTC 2020</spirit:value>
+            <spirit:value>Sat Feb 29 15:44:43 UTC 2020</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>7:4b7b0001</spirit:value>
+            <spirit:value>7:694fcf53</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -760,7 +760,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>7:9e7e17e7</spirit:value>
+            <spirit:value>7:9005f043</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -775,11 +775,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Feb 24 12:27:06 UTC 2020</spirit:value>
+            <spirit:value>Sat Feb 29 15:44:43 UTC 2020</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>7:9e7e17e7</spirit:value>
+            <spirit:value>7:9005f043</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -793,11 +793,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Feb 24 12:28:29 UTC 2020</spirit:value>
+            <spirit:value>Sat Feb 29 15:46:10 UTC 2020</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>7:4b7b0001</spirit:value>
+            <spirit:value>7:694fcf53</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -808,7 +808,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_M00_AXI_ID_WIDTH&apos;))-1)">0</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_M00_AXI_ID_WIDTH&apos;))-1)">15</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -967,7 +967,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_M00_AXI_AWUSER_WIDTH&apos;))-1)">0</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_M00_AXI_AWUSER_WIDTH&apos;))-1)">15</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -1084,7 +1084,7 @@
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.m00_axi_wuser" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.C_M00_AXI_WUSER_WIDTH&apos;)) >0">true</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.m00_axi_wuser" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.C_M00_AXI_WUSER_WIDTH&apos;)) >0">false</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
@@ -1120,7 +1120,7 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_M00_AXI_ID_WIDTH&apos;))-1)">0</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_M00_AXI_ID_WIDTH&apos;))-1)">15</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -1181,7 +1181,7 @@
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.m00_axi_buser" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.C_M00_AXI_BUSER_WIDTH&apos;)) >0">true</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.m00_axi_buser" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.C_M00_AXI_BUSER_WIDTH&apos;)) >0">false</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
@@ -1217,7 +1217,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_M00_AXI_ID_WIDTH&apos;))-1)">0</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_M00_AXI_ID_WIDTH&apos;))-1)">15</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -1376,7 +1376,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_M00_AXI_ARUSER_WIDTH&apos;))-1)">0</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_M00_AXI_ARUSER_WIDTH&apos;))-1)">15</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -1429,7 +1429,7 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_M00_AXI_ID_WIDTH&apos;))-1)">0</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_M00_AXI_ID_WIDTH&apos;))-1)">15</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -1520,7 +1520,7 @@
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.m00_axi_ruser" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.C_M00_AXI_RUSER_WIDTH&apos;)) >0">true</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.m00_axi_ruser" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.C_M00_AXI_RUSER_WIDTH&apos;)) >0">false</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
@@ -1634,7 +1634,7 @@
         <spirit:name>C_M00_AXI_ID_WIDTH</spirit:name>
         <spirit:displayName>C M00 AXI ID WIDTH</spirit:displayName>
         <spirit:description>Thread ID Width</spirit:description>
-        <spirit:value spirit:format="long" spirit:resolve="dependent" spirit:id="MODELPARAM_VALUE.C_M00_AXI_ID_WIDTH" spirit:dependency="((spirit:decode(id(&apos;PARAM_VALUE.C_M00_AXI_ID_WIDTH&apos;)) &lt;= 0 ) + (spirit:decode(id(&apos;PARAM_VALUE.C_M00_AXI_ID_WIDTH&apos;))))" spirit:order="5" spirit:minimum="0" spirit:maximum="32" spirit:rangeType="long">1</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="dependent" spirit:id="MODELPARAM_VALUE.C_M00_AXI_ID_WIDTH" spirit:dependency="((spirit:decode(id(&apos;PARAM_VALUE.C_M00_AXI_ID_WIDTH&apos;)) &lt;= 0 ) + (spirit:decode(id(&apos;PARAM_VALUE.C_M00_AXI_ID_WIDTH&apos;))))" spirit:order="5" spirit:minimum="0" spirit:maximum="32" spirit:rangeType="long">16</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_M00_AXI_ADDR_WIDTH</spirit:name>
@@ -1652,31 +1652,31 @@
         <spirit:name>C_M00_AXI_AWUSER_WIDTH</spirit:name>
         <spirit:displayName>C M00 AXI AWUSER WIDTH</spirit:displayName>
         <spirit:description>Width of User Write Address Bus</spirit:description>
-        <spirit:value spirit:format="long" spirit:resolve="dependent" spirit:id="MODELPARAM_VALUE.C_M00_AXI_AWUSER_WIDTH" spirit:dependency="((spirit:decode(id(&apos;PARAM_VALUE.C_M00_AXI_AWUSER_WIDTH&apos;)) &lt;= 0 ) + (spirit:decode(id(&apos;PARAM_VALUE.C_M00_AXI_AWUSER_WIDTH&apos;))))" spirit:order="8" spirit:minimum="0" spirit:maximum="1024" spirit:rangeType="long">1</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="dependent" spirit:id="MODELPARAM_VALUE.C_M00_AXI_AWUSER_WIDTH" spirit:dependency="((spirit:decode(id(&apos;PARAM_VALUE.C_M00_AXI_AWUSER_WIDTH&apos;)) &lt;= 0 ) + (spirit:decode(id(&apos;PARAM_VALUE.C_M00_AXI_AWUSER_WIDTH&apos;))))" spirit:order="8" spirit:minimum="0" spirit:maximum="1024" spirit:rangeType="long">16</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_M00_AXI_ARUSER_WIDTH</spirit:name>
         <spirit:displayName>C M00 AXI ARUSER WIDTH</spirit:displayName>
         <spirit:description>Width of User Read Address Bus</spirit:description>
-        <spirit:value spirit:format="long" spirit:resolve="dependent" spirit:id="MODELPARAM_VALUE.C_M00_AXI_ARUSER_WIDTH" spirit:dependency="((spirit:decode(id(&apos;PARAM_VALUE.C_M00_AXI_ARUSER_WIDTH&apos;)) &lt;= 0 ) + (spirit:decode(id(&apos;PARAM_VALUE.C_M00_AXI_ARUSER_WIDTH&apos;))))" spirit:order="9" spirit:minimum="0" spirit:maximum="1024" spirit:rangeType="long">1</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="dependent" spirit:id="MODELPARAM_VALUE.C_M00_AXI_ARUSER_WIDTH" spirit:dependency="((spirit:decode(id(&apos;PARAM_VALUE.C_M00_AXI_ARUSER_WIDTH&apos;)) &lt;= 0 ) + (spirit:decode(id(&apos;PARAM_VALUE.C_M00_AXI_ARUSER_WIDTH&apos;))))" spirit:order="9" spirit:minimum="0" spirit:maximum="1024" spirit:rangeType="long">16</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_M00_AXI_WUSER_WIDTH</spirit:name>
         <spirit:displayName>C M00 AXI WUSER WIDTH</spirit:displayName>
         <spirit:description>Width of User Write Data Bus</spirit:description>
-        <spirit:value spirit:format="long" spirit:resolve="dependent" spirit:id="MODELPARAM_VALUE.C_M00_AXI_WUSER_WIDTH" spirit:dependency="((spirit:decode(id(&apos;PARAM_VALUE.C_M00_AXI_WUSER_WIDTH&apos;)) &lt;= 0 ) + (spirit:decode(id(&apos;PARAM_VALUE.C_M00_AXI_WUSER_WIDTH&apos;))))" spirit:order="10" spirit:minimum="0" spirit:maximum="1024" spirit:rangeType="long">1</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="dependent" spirit:id="MODELPARAM_VALUE.C_M00_AXI_WUSER_WIDTH" spirit:dependency="((spirit:decode(id(&apos;PARAM_VALUE.C_M00_AXI_WUSER_WIDTH&apos;)) &lt;= 0 ) + (spirit:decode(id(&apos;PARAM_VALUE.C_M00_AXI_WUSER_WIDTH&apos;))))" spirit:order="10" spirit:minimum="0" spirit:maximum="1024" spirit:rangeType="long">0</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_M00_AXI_RUSER_WIDTH</spirit:name>
         <spirit:displayName>C M00 AXI RUSER WIDTH</spirit:displayName>
         <spirit:description>Width of User Read Data Bus</spirit:description>
-        <spirit:value spirit:format="long" spirit:resolve="dependent" spirit:id="MODELPARAM_VALUE.C_M00_AXI_RUSER_WIDTH" spirit:dependency="((spirit:decode(id(&apos;PARAM_VALUE.C_M00_AXI_RUSER_WIDTH&apos;)) &lt;= 0 ) + (spirit:decode(id(&apos;PARAM_VALUE.C_M00_AXI_RUSER_WIDTH&apos;))))" spirit:order="11" spirit:minimum="0" spirit:maximum="1024" spirit:rangeType="long">1</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="dependent" spirit:id="MODELPARAM_VALUE.C_M00_AXI_RUSER_WIDTH" spirit:dependency="((spirit:decode(id(&apos;PARAM_VALUE.C_M00_AXI_RUSER_WIDTH&apos;)) &lt;= 0 ) + (spirit:decode(id(&apos;PARAM_VALUE.C_M00_AXI_RUSER_WIDTH&apos;))))" spirit:order="11" spirit:minimum="0" spirit:maximum="1024" spirit:rangeType="long">0</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_M00_AXI_BUSER_WIDTH</spirit:name>
         <spirit:displayName>C M00 AXI BUSER WIDTH</spirit:displayName>
         <spirit:description>Width of User Response Bus</spirit:description>
-        <spirit:value spirit:format="long" spirit:resolve="dependent" spirit:id="MODELPARAM_VALUE.C_M00_AXI_BUSER_WIDTH" spirit:dependency="((spirit:decode(id(&apos;PARAM_VALUE.C_M00_AXI_BUSER_WIDTH&apos;)) &lt;= 0 ) + (spirit:decode(id(&apos;PARAM_VALUE.C_M00_AXI_BUSER_WIDTH&apos;))))" spirit:order="12" spirit:minimum="0" spirit:maximum="1024" spirit:rangeType="long">1</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="dependent" spirit:id="MODELPARAM_VALUE.C_M00_AXI_BUSER_WIDTH" spirit:dependency="((spirit:decode(id(&apos;PARAM_VALUE.C_M00_AXI_BUSER_WIDTH&apos;)) &lt;= 0 ) + (spirit:decode(id(&apos;PARAM_VALUE.C_M00_AXI_BUSER_WIDTH&apos;))))" spirit:order="12" spirit:minimum="0" spirit:maximum="1024" spirit:rangeType="long">0</spirit:value>
       </spirit:modelParameter>
     </spirit:modelParameters>
   </spirit:model>
@@ -1803,7 +1803,7 @@
       <spirit:name>C_M00_AXI_ID_WIDTH</spirit:name>
       <spirit:displayName>C M00 AXI ID WIDTH</spirit:displayName>
       <spirit:description>Thread ID Width</spirit:description>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_M00_AXI_ID_WIDTH" spirit:order="5" spirit:minimum="0" spirit:maximum="32" spirit:rangeType="long">1</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_M00_AXI_ID_WIDTH" spirit:order="5" spirit:minimum="0" spirit:maximum="32" spirit:rangeType="long">16</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>C_M00_AXI_ADDR_WIDTH</spirit:name>
@@ -1821,31 +1821,31 @@
       <spirit:name>C_M00_AXI_AWUSER_WIDTH</spirit:name>
       <spirit:displayName>C M00 AXI AWUSER WIDTH</spirit:displayName>
       <spirit:description>Width of User Write Address Bus</spirit:description>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_M00_AXI_AWUSER_WIDTH" spirit:order="8" spirit:minimum="0" spirit:maximum="1024" spirit:rangeType="long">1</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_M00_AXI_AWUSER_WIDTH" spirit:order="8" spirit:minimum="0" spirit:maximum="1024" spirit:rangeType="long">16</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>C_M00_AXI_ARUSER_WIDTH</spirit:name>
       <spirit:displayName>C M00 AXI ARUSER WIDTH</spirit:displayName>
       <spirit:description>Width of User Read Address Bus</spirit:description>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_M00_AXI_ARUSER_WIDTH" spirit:order="9" spirit:minimum="0" spirit:maximum="1024" spirit:rangeType="long">1</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_M00_AXI_ARUSER_WIDTH" spirit:order="9" spirit:minimum="0" spirit:maximum="1024" spirit:rangeType="long">16</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>C_M00_AXI_WUSER_WIDTH</spirit:name>
       <spirit:displayName>C M00 AXI WUSER WIDTH</spirit:displayName>
       <spirit:description>Width of User Write Data Bus</spirit:description>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_M00_AXI_WUSER_WIDTH" spirit:order="10" spirit:minimum="0" spirit:maximum="1024" spirit:rangeType="long">1</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_M00_AXI_WUSER_WIDTH" spirit:order="10" spirit:minimum="0" spirit:maximum="1024" spirit:rangeType="long">0</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>C_M00_AXI_RUSER_WIDTH</spirit:name>
       <spirit:displayName>C M00 AXI RUSER WIDTH</spirit:displayName>
       <spirit:description>Width of User Read Data Bus</spirit:description>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_M00_AXI_RUSER_WIDTH" spirit:order="11" spirit:minimum="0" spirit:maximum="1024" spirit:rangeType="long">1</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_M00_AXI_RUSER_WIDTH" spirit:order="11" spirit:minimum="0" spirit:maximum="1024" spirit:rangeType="long">0</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>C_M00_AXI_BUSER_WIDTH</spirit:name>
       <spirit:displayName>C M00 AXI BUSER WIDTH</spirit:displayName>
       <spirit:description>Width of User Response Bus</spirit:description>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_M00_AXI_BUSER_WIDTH" spirit:order="12" spirit:minimum="0" spirit:maximum="1024" spirit:rangeType="long">1</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_M00_AXI_BUSER_WIDTH" spirit:order="12" spirit:minimum="0" spirit:maximum="1024" spirit:rangeType="long">0</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Component_Name</spirit:name>
@@ -1885,9 +1885,15 @@
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.M00_AXI.WUSER_WIDTH" xilinx:valueSource="user" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.M00_AXI_CLK.CLK_DOMAIN" xilinx:valueSource="default_prop" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.C_M00_AXI_ADDR_WIDTH" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.C_M00_AXI_ARUSER_WIDTH" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.C_M00_AXI_AWUSER_WIDTH" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.C_M00_AXI_BURST_LEN" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.C_M00_AXI_BUSER_WIDTH" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.C_M00_AXI_DATA_WIDTH" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.C_M00_AXI_ID_WIDTH" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.C_M00_AXI_RUSER_WIDTH" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.C_M00_AXI_TARGET_SLAVE_BASE_ADDR" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.C_M00_AXI_WUSER_WIDTH" xilinx:valueSource="user"/>
       </xilinx:configElementInfos>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>

@@ -1,7 +1,7 @@
 //Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-//Date        : Thu Feb 27 13:57:58 2020
+//Date        : Sat Feb 29 17:08:31 2020
 //Host        : CELSIUS running 64-bit Ubuntu 16.04.6 LTS
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -21,31 +21,33 @@ module design_1
   wire [39:0]MemorEDF_0_m00_axi_ARADDR;
   wire [1:0]MemorEDF_0_m00_axi_ARBURST;
   wire [3:0]MemorEDF_0_m00_axi_ARCACHE;
-  wire [0:0]MemorEDF_0_m00_axi_ARID;
+  wire [15:0]MemorEDF_0_m00_axi_ARID;
   wire [7:0]MemorEDF_0_m00_axi_ARLEN;
   wire MemorEDF_0_m00_axi_ARLOCK;
   wire [2:0]MemorEDF_0_m00_axi_ARPROT;
   wire [3:0]MemorEDF_0_m00_axi_ARQOS;
   wire MemorEDF_0_m00_axi_ARREADY;
   wire [2:0]MemorEDF_0_m00_axi_ARSIZE;
+  wire [15:0]MemorEDF_0_m00_axi_ARUSER;
   wire MemorEDF_0_m00_axi_ARVALID;
   wire [39:0]MemorEDF_0_m00_axi_AWADDR;
   wire [1:0]MemorEDF_0_m00_axi_AWBURST;
   wire [3:0]MemorEDF_0_m00_axi_AWCACHE;
-  wire [0:0]MemorEDF_0_m00_axi_AWID;
+  wire [15:0]MemorEDF_0_m00_axi_AWID;
   wire [7:0]MemorEDF_0_m00_axi_AWLEN;
   wire MemorEDF_0_m00_axi_AWLOCK;
   wire [2:0]MemorEDF_0_m00_axi_AWPROT;
   wire [3:0]MemorEDF_0_m00_axi_AWQOS;
   wire MemorEDF_0_m00_axi_AWREADY;
   wire [2:0]MemorEDF_0_m00_axi_AWSIZE;
+  wire [15:0]MemorEDF_0_m00_axi_AWUSER;
   wire MemorEDF_0_m00_axi_AWVALID;
-  wire [0:0]MemorEDF_0_m00_axi_BID;
+  wire [15:0]MemorEDF_0_m00_axi_BID;
   wire MemorEDF_0_m00_axi_BREADY;
   wire [1:0]MemorEDF_0_m00_axi_BRESP;
   wire MemorEDF_0_m00_axi_BVALID;
   wire [127:0]MemorEDF_0_m00_axi_RDATA;
-  wire [0:0]MemorEDF_0_m00_axi_RID;
+  wire [15:0]MemorEDF_0_m00_axi_RID;
   wire MemorEDF_0_m00_axi_RLAST;
   wire MemorEDF_0_m00_axi_RREADY;
   wire [1:0]MemorEDF_0_m00_axi_RRESP;
@@ -60,6 +62,7 @@ module design_1
   wire [31:0]axi_vip_0_M_AXI_ARADDR;
   wire [1:0]axi_vip_0_M_AXI_ARBURST;
   wire [3:0]axi_vip_0_M_AXI_ARCACHE;
+  wire [15:0]axi_vip_0_M_AXI_ARID;
   wire [7:0]axi_vip_0_M_AXI_ARLEN;
   wire [0:0]axi_vip_0_M_AXI_ARLOCK;
   wire [2:0]axi_vip_0_M_AXI_ARPROT;
@@ -67,10 +70,12 @@ module design_1
   wire axi_vip_0_M_AXI_ARREADY;
   wire [3:0]axi_vip_0_M_AXI_ARREGION;
   wire [2:0]axi_vip_0_M_AXI_ARSIZE;
+  wire [15:0]axi_vip_0_M_AXI_ARUSER;
   wire axi_vip_0_M_AXI_ARVALID;
   wire [31:0]axi_vip_0_M_AXI_AWADDR;
   wire [1:0]axi_vip_0_M_AXI_AWBURST;
   wire [3:0]axi_vip_0_M_AXI_AWCACHE;
+  wire [15:0]axi_vip_0_M_AXI_AWID;
   wire [7:0]axi_vip_0_M_AXI_AWLEN;
   wire [0:0]axi_vip_0_M_AXI_AWLOCK;
   wire [2:0]axi_vip_0_M_AXI_AWPROT;
@@ -78,11 +83,14 @@ module design_1
   wire axi_vip_0_M_AXI_AWREADY;
   wire [3:0]axi_vip_0_M_AXI_AWREGION;
   wire [2:0]axi_vip_0_M_AXI_AWSIZE;
+  wire [15:0]axi_vip_0_M_AXI_AWUSER;
   wire axi_vip_0_M_AXI_AWVALID;
+  wire [15:0]axi_vip_0_M_AXI_BID;
   wire axi_vip_0_M_AXI_BREADY;
   wire [1:0]axi_vip_0_M_AXI_BRESP;
   wire axi_vip_0_M_AXI_BVALID;
   wire [127:0]axi_vip_0_M_AXI_RDATA;
+  wire [15:0]axi_vip_0_M_AXI_RID;
   wire axi_vip_0_M_AXI_RLAST;
   wire axi_vip_0_M_AXI_RREADY;
   wire [1:0]axi_vip_0_M_AXI_RRESP;
@@ -95,31 +103,33 @@ module design_1
   wire [39:0]default_axi_full_master_0_M00_AXI_ARADDR;
   wire [1:0]default_axi_full_master_0_M00_AXI_ARBURST;
   wire [3:0]default_axi_full_master_0_M00_AXI_ARCACHE;
-  wire [0:0]default_axi_full_master_0_M00_AXI_ARID;
+  wire [15:0]default_axi_full_master_0_M00_AXI_ARID;
   wire [7:0]default_axi_full_master_0_M00_AXI_ARLEN;
   wire default_axi_full_master_0_M00_AXI_ARLOCK;
   wire [2:0]default_axi_full_master_0_M00_AXI_ARPROT;
   wire [3:0]default_axi_full_master_0_M00_AXI_ARQOS;
   wire default_axi_full_master_0_M00_AXI_ARREADY;
   wire [2:0]default_axi_full_master_0_M00_AXI_ARSIZE;
+  wire [15:0]default_axi_full_master_0_M00_AXI_ARUSER;
   wire default_axi_full_master_0_M00_AXI_ARVALID;
   wire [39:0]default_axi_full_master_0_M00_AXI_AWADDR;
   wire [1:0]default_axi_full_master_0_M00_AXI_AWBURST;
   wire [3:0]default_axi_full_master_0_M00_AXI_AWCACHE;
-  wire [0:0]default_axi_full_master_0_M00_AXI_AWID;
+  wire [15:0]default_axi_full_master_0_M00_AXI_AWID;
   wire [7:0]default_axi_full_master_0_M00_AXI_AWLEN;
   wire default_axi_full_master_0_M00_AXI_AWLOCK;
   wire [2:0]default_axi_full_master_0_M00_AXI_AWPROT;
   wire [3:0]default_axi_full_master_0_M00_AXI_AWQOS;
   wire default_axi_full_master_0_M00_AXI_AWREADY;
   wire [2:0]default_axi_full_master_0_M00_AXI_AWSIZE;
+  wire [15:0]default_axi_full_master_0_M00_AXI_AWUSER;
   wire default_axi_full_master_0_M00_AXI_AWVALID;
-  wire [0:0]default_axi_full_master_0_M00_AXI_BID;
+  wire [15:0]default_axi_full_master_0_M00_AXI_BID;
   wire default_axi_full_master_0_M00_AXI_BREADY;
   wire [1:0]default_axi_full_master_0_M00_AXI_BRESP;
   wire default_axi_full_master_0_M00_AXI_BVALID;
   wire [127:0]default_axi_full_master_0_M00_AXI_RDATA;
-  wire [0:0]default_axi_full_master_0_M00_AXI_RID;
+  wire [15:0]default_axi_full_master_0_M00_AXI_RID;
   wire default_axi_full_master_0_M00_AXI_RLAST;
   wire default_axi_full_master_0_M00_AXI_RREADY;
   wire [1:0]default_axi_full_master_0_M00_AXI_RRESP;
@@ -147,6 +157,7 @@ module design_1
         .m00_axi_arqos(MemorEDF_0_m00_axi_ARQOS),
         .m00_axi_arready(MemorEDF_0_m00_axi_ARREADY),
         .m00_axi_arsize(MemorEDF_0_m00_axi_ARSIZE),
+        .m00_axi_aruser(MemorEDF_0_m00_axi_ARUSER),
         .m00_axi_arvalid(MemorEDF_0_m00_axi_ARVALID),
         .m00_axi_awaddr(MemorEDF_0_m00_axi_AWADDR),
         .m00_axi_awburst(MemorEDF_0_m00_axi_AWBURST),
@@ -158,6 +169,7 @@ module design_1
         .m00_axi_awqos(MemorEDF_0_m00_axi_AWQOS),
         .m00_axi_awready(MemorEDF_0_m00_axi_AWREADY),
         .m00_axi_awsize(MemorEDF_0_m00_axi_AWSIZE),
+        .m00_axi_awuser(MemorEDF_0_m00_axi_AWUSER),
         .m00_axi_awvalid(MemorEDF_0_m00_axi_AWVALID),
         .m00_axi_bid(MemorEDF_0_m00_axi_BID),
         .m00_axi_bready(MemorEDF_0_m00_axi_BREADY),
@@ -187,6 +199,7 @@ module design_1
         .s00_axi_arready(default_axi_full_master_0_M00_AXI_ARREADY),
         .s00_axi_arregion({1'b0,1'b0,1'b0,1'b0}),
         .s00_axi_arsize(default_axi_full_master_0_M00_AXI_ARSIZE),
+        .s00_axi_aruser(default_axi_full_master_0_M00_AXI_ARUSER),
         .s00_axi_arvalid(default_axi_full_master_0_M00_AXI_ARVALID),
         .s00_axi_awaddr(default_axi_full_master_0_M00_AXI_AWADDR),
         .s00_axi_awburst(default_axi_full_master_0_M00_AXI_AWBURST),
@@ -199,6 +212,7 @@ module design_1
         .s00_axi_awready(default_axi_full_master_0_M00_AXI_AWREADY),
         .s00_axi_awregion({1'b0,1'b0,1'b0,1'b0}),
         .s00_axi_awsize(default_axi_full_master_0_M00_AXI_AWSIZE),
+        .s00_axi_awuser(default_axi_full_master_0_M00_AXI_AWUSER),
         .s00_axi_awvalid(default_axi_full_master_0_M00_AXI_AWVALID),
         .s00_axi_bid(default_axi_full_master_0_M00_AXI_BID),
         .s00_axi_bready(default_axi_full_master_0_M00_AXI_BREADY),
@@ -220,7 +234,7 @@ module design_1
         .s01_axi_arburst(axi_vip_0_M_AXI_ARBURST),
         .s01_axi_arcache(axi_vip_0_M_AXI_ARCACHE),
         .s01_axi_aresetn(aresetn_0_1),
-        .s01_axi_arid(1'b0),
+        .s01_axi_arid(axi_vip_0_M_AXI_ARID),
         .s01_axi_arlen(axi_vip_0_M_AXI_ARLEN),
         .s01_axi_arlock(axi_vip_0_M_AXI_ARLOCK),
         .s01_axi_arprot(axi_vip_0_M_AXI_ARPROT),
@@ -228,11 +242,12 @@ module design_1
         .s01_axi_arready(axi_vip_0_M_AXI_ARREADY),
         .s01_axi_arregion(axi_vip_0_M_AXI_ARREGION),
         .s01_axi_arsize(axi_vip_0_M_AXI_ARSIZE),
+        .s01_axi_aruser(axi_vip_0_M_AXI_ARUSER),
         .s01_axi_arvalid(axi_vip_0_M_AXI_ARVALID),
         .s01_axi_awaddr({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,axi_vip_0_M_AXI_AWADDR}),
         .s01_axi_awburst(axi_vip_0_M_AXI_AWBURST),
         .s01_axi_awcache(axi_vip_0_M_AXI_AWCACHE),
-        .s01_axi_awid(1'b0),
+        .s01_axi_awid(axi_vip_0_M_AXI_AWID),
         .s01_axi_awlen(axi_vip_0_M_AXI_AWLEN),
         .s01_axi_awlock(axi_vip_0_M_AXI_AWLOCK),
         .s01_axi_awprot(axi_vip_0_M_AXI_AWPROT),
@@ -240,11 +255,14 @@ module design_1
         .s01_axi_awready(axi_vip_0_M_AXI_AWREADY),
         .s01_axi_awregion(axi_vip_0_M_AXI_AWREGION),
         .s01_axi_awsize(axi_vip_0_M_AXI_AWSIZE),
+        .s01_axi_awuser(axi_vip_0_M_AXI_AWUSER),
         .s01_axi_awvalid(axi_vip_0_M_AXI_AWVALID),
+        .s01_axi_bid(axi_vip_0_M_AXI_BID),
         .s01_axi_bready(axi_vip_0_M_AXI_BREADY),
         .s01_axi_bresp(axi_vip_0_M_AXI_BRESP),
         .s01_axi_bvalid(axi_vip_0_M_AXI_BVALID),
         .s01_axi_rdata(axi_vip_0_M_AXI_RDATA),
+        .s01_axi_rid(axi_vip_0_M_AXI_RID),
         .s01_axi_rlast(axi_vip_0_M_AXI_RLAST),
         .s01_axi_rready(axi_vip_0_M_AXI_RREADY),
         .s01_axi_rresp(axi_vip_0_M_AXI_RRESP),
@@ -260,6 +278,7 @@ module design_1
         .m_axi_araddr(axi_vip_0_M_AXI_ARADDR),
         .m_axi_arburst(axi_vip_0_M_AXI_ARBURST),
         .m_axi_arcache(axi_vip_0_M_AXI_ARCACHE),
+        .m_axi_arid(axi_vip_0_M_AXI_ARID),
         .m_axi_arlen(axi_vip_0_M_AXI_ARLEN),
         .m_axi_arlock(axi_vip_0_M_AXI_ARLOCK),
         .m_axi_arprot(axi_vip_0_M_AXI_ARPROT),
@@ -267,10 +286,12 @@ module design_1
         .m_axi_arready(axi_vip_0_M_AXI_ARREADY),
         .m_axi_arregion(axi_vip_0_M_AXI_ARREGION),
         .m_axi_arsize(axi_vip_0_M_AXI_ARSIZE),
+        .m_axi_aruser(axi_vip_0_M_AXI_ARUSER),
         .m_axi_arvalid(axi_vip_0_M_AXI_ARVALID),
         .m_axi_awaddr(axi_vip_0_M_AXI_AWADDR),
         .m_axi_awburst(axi_vip_0_M_AXI_AWBURST),
         .m_axi_awcache(axi_vip_0_M_AXI_AWCACHE),
+        .m_axi_awid(axi_vip_0_M_AXI_AWID),
         .m_axi_awlen(axi_vip_0_M_AXI_AWLEN),
         .m_axi_awlock(axi_vip_0_M_AXI_AWLOCK),
         .m_axi_awprot(axi_vip_0_M_AXI_AWPROT),
@@ -278,11 +299,14 @@ module design_1
         .m_axi_awready(axi_vip_0_M_AXI_AWREADY),
         .m_axi_awregion(axi_vip_0_M_AXI_AWREGION),
         .m_axi_awsize(axi_vip_0_M_AXI_AWSIZE),
+        .m_axi_awuser(axi_vip_0_M_AXI_AWUSER),
         .m_axi_awvalid(axi_vip_0_M_AXI_AWVALID),
+        .m_axi_bid(axi_vip_0_M_AXI_BID),
         .m_axi_bready(axi_vip_0_M_AXI_BREADY),
         .m_axi_bresp(axi_vip_0_M_AXI_BRESP),
         .m_axi_bvalid(axi_vip_0_M_AXI_BVALID),
         .m_axi_rdata(axi_vip_0_M_AXI_RDATA),
+        .m_axi_rid(axi_vip_0_M_AXI_RID),
         .m_axi_rlast(axi_vip_0_M_AXI_RLAST),
         .m_axi_rready(axi_vip_0_M_AXI_RREADY),
         .m_axi_rresp(axi_vip_0_M_AXI_RRESP),
@@ -305,6 +329,7 @@ module design_1
         .s_axi_arqos(MemorEDF_0_m00_axi_ARQOS),
         .s_axi_arready(MemorEDF_0_m00_axi_ARREADY),
         .s_axi_arsize(MemorEDF_0_m00_axi_ARSIZE),
+        .s_axi_aruser(MemorEDF_0_m00_axi_ARUSER),
         .s_axi_arvalid(MemorEDF_0_m00_axi_ARVALID),
         .s_axi_awaddr(MemorEDF_0_m00_axi_AWADDR),
         .s_axi_awburst(MemorEDF_0_m00_axi_AWBURST),
@@ -316,6 +341,7 @@ module design_1
         .s_axi_awqos(MemorEDF_0_m00_axi_AWQOS),
         .s_axi_awready(MemorEDF_0_m00_axi_AWREADY),
         .s_axi_awsize(MemorEDF_0_m00_axi_AWSIZE),
+        .s_axi_awuser(MemorEDF_0_m00_axi_AWUSER),
         .s_axi_awvalid(MemorEDF_0_m00_axi_AWVALID),
         .s_axi_bid(MemorEDF_0_m00_axi_BID),
         .s_axi_bready(MemorEDF_0_m00_axi_BREADY),
@@ -345,6 +371,7 @@ module design_1
         .m00_axi_arqos(default_axi_full_master_0_M00_AXI_ARQOS),
         .m00_axi_arready(default_axi_full_master_0_M00_AXI_ARREADY),
         .m00_axi_arsize(default_axi_full_master_0_M00_AXI_ARSIZE),
+        .m00_axi_aruser(default_axi_full_master_0_M00_AXI_ARUSER),
         .m00_axi_arvalid(default_axi_full_master_0_M00_AXI_ARVALID),
         .m00_axi_awaddr(default_axi_full_master_0_M00_AXI_AWADDR),
         .m00_axi_awburst(default_axi_full_master_0_M00_AXI_AWBURST),
@@ -356,11 +383,11 @@ module design_1
         .m00_axi_awqos(default_axi_full_master_0_M00_AXI_AWQOS),
         .m00_axi_awready(default_axi_full_master_0_M00_AXI_AWREADY),
         .m00_axi_awsize(default_axi_full_master_0_M00_AXI_AWSIZE),
+        .m00_axi_awuser(default_axi_full_master_0_M00_AXI_AWUSER),
         .m00_axi_awvalid(default_axi_full_master_0_M00_AXI_AWVALID),
         .m00_axi_bid(default_axi_full_master_0_M00_AXI_BID),
         .m00_axi_bready(default_axi_full_master_0_M00_AXI_BREADY),
         .m00_axi_bresp(default_axi_full_master_0_M00_AXI_BRESP),
-        .m00_axi_buser(1'b0),
         .m00_axi_bvalid(default_axi_full_master_0_M00_AXI_BVALID),
         .m00_axi_init_axi_txn(m00_axi_init_axi_txn_0_1),
         .m00_axi_rdata(default_axi_full_master_0_M00_AXI_RDATA),
@@ -368,7 +395,6 @@ module design_1
         .m00_axi_rlast(default_axi_full_master_0_M00_AXI_RLAST),
         .m00_axi_rready(default_axi_full_master_0_M00_AXI_RREADY),
         .m00_axi_rresp(default_axi_full_master_0_M00_AXI_RRESP),
-        .m00_axi_ruser(1'b0),
         .m00_axi_rvalid(default_axi_full_master_0_M00_AXI_RVALID),
         .m00_axi_wdata(default_axi_full_master_0_M00_AXI_WDATA),
         .m00_axi_wlast(default_axi_full_master_0_M00_AXI_WLAST),

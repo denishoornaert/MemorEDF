@@ -1,7 +1,7 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-// Date        : Fri Feb 14 14:52:36 2020
+// Date        : Sat Feb 29 16:46:09 2020
 // Host        : CELSIUS running 64-bit Ubuntu 16.04.6 LTS
 // Command     : write_verilog -force -mode synth_stub
 //               /home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_1/ip/design_1_axi_vip_0_1/design_1_axi_vip_0_1_stub.v
@@ -16,15 +16,15 @@
 (* X_CORE_INFO = "axi_vip_v1_1_1_top,Vivado 2017.4" *)
 module design_1_axi_vip_0_1(aclk, aresetn, s_axi_awid, s_axi_awaddr, 
   s_axi_awlen, s_axi_awsize, s_axi_awburst, s_axi_awlock, s_axi_awcache, s_axi_awprot, 
-  s_axi_awqos, s_axi_awvalid, s_axi_awready, s_axi_wdata, s_axi_wstrb, s_axi_wlast, 
-  s_axi_wvalid, s_axi_wready, s_axi_bid, s_axi_bresp, s_axi_bvalid, s_axi_bready, s_axi_arid, 
-  s_axi_araddr, s_axi_arlen, s_axi_arsize, s_axi_arburst, s_axi_arlock, s_axi_arcache, 
-  s_axi_arprot, s_axi_arqos, s_axi_arvalid, s_axi_arready, s_axi_rid, s_axi_rdata, s_axi_rresp, 
-  s_axi_rlast, s_axi_rvalid, s_axi_rready)
-/* synthesis syn_black_box black_box_pad_pin="aclk,aresetn,s_axi_awid[0:0],s_axi_awaddr[39:0],s_axi_awlen[7:0],s_axi_awsize[2:0],s_axi_awburst[1:0],s_axi_awlock[0:0],s_axi_awcache[3:0],s_axi_awprot[2:0],s_axi_awqos[3:0],s_axi_awvalid,s_axi_awready,s_axi_wdata[127:0],s_axi_wstrb[15:0],s_axi_wlast,s_axi_wvalid,s_axi_wready,s_axi_bid[0:0],s_axi_bresp[1:0],s_axi_bvalid,s_axi_bready,s_axi_arid[0:0],s_axi_araddr[39:0],s_axi_arlen[7:0],s_axi_arsize[2:0],s_axi_arburst[1:0],s_axi_arlock[0:0],s_axi_arcache[3:0],s_axi_arprot[2:0],s_axi_arqos[3:0],s_axi_arvalid,s_axi_arready,s_axi_rid[0:0],s_axi_rdata[127:0],s_axi_rresp[1:0],s_axi_rlast,s_axi_rvalid,s_axi_rready" */;
+  s_axi_awqos, s_axi_awuser, s_axi_awvalid, s_axi_awready, s_axi_wdata, s_axi_wstrb, 
+  s_axi_wlast, s_axi_wvalid, s_axi_wready, s_axi_bid, s_axi_bresp, s_axi_bvalid, s_axi_bready, 
+  s_axi_arid, s_axi_araddr, s_axi_arlen, s_axi_arsize, s_axi_arburst, s_axi_arlock, 
+  s_axi_arcache, s_axi_arprot, s_axi_arqos, s_axi_aruser, s_axi_arvalid, s_axi_arready, 
+  s_axi_rid, s_axi_rdata, s_axi_rresp, s_axi_rlast, s_axi_rvalid, s_axi_rready)
+/* synthesis syn_black_box black_box_pad_pin="aclk,aresetn,s_axi_awid[15:0],s_axi_awaddr[39:0],s_axi_awlen[7:0],s_axi_awsize[2:0],s_axi_awburst[1:0],s_axi_awlock[0:0],s_axi_awcache[3:0],s_axi_awprot[2:0],s_axi_awqos[3:0],s_axi_awuser[15:0],s_axi_awvalid,s_axi_awready,s_axi_wdata[127:0],s_axi_wstrb[15:0],s_axi_wlast,s_axi_wvalid,s_axi_wready,s_axi_bid[15:0],s_axi_bresp[1:0],s_axi_bvalid,s_axi_bready,s_axi_arid[15:0],s_axi_araddr[39:0],s_axi_arlen[7:0],s_axi_arsize[2:0],s_axi_arburst[1:0],s_axi_arlock[0:0],s_axi_arcache[3:0],s_axi_arprot[2:0],s_axi_arqos[3:0],s_axi_aruser[15:0],s_axi_arvalid,s_axi_arready,s_axi_rid[15:0],s_axi_rdata[127:0],s_axi_rresp[1:0],s_axi_rlast,s_axi_rvalid,s_axi_rready" */;
   input aclk;
   input aresetn;
-  input [0:0]s_axi_awid;
+  input [15:0]s_axi_awid;
   input [39:0]s_axi_awaddr;
   input [7:0]s_axi_awlen;
   input [2:0]s_axi_awsize;
@@ -33,6 +33,7 @@ module design_1_axi_vip_0_1(aclk, aresetn, s_axi_awid, s_axi_awaddr,
   input [3:0]s_axi_awcache;
   input [2:0]s_axi_awprot;
   input [3:0]s_axi_awqos;
+  input [15:0]s_axi_awuser;
   input s_axi_awvalid;
   output s_axi_awready;
   input [127:0]s_axi_wdata;
@@ -40,11 +41,11 @@ module design_1_axi_vip_0_1(aclk, aresetn, s_axi_awid, s_axi_awaddr,
   input s_axi_wlast;
   input s_axi_wvalid;
   output s_axi_wready;
-  output [0:0]s_axi_bid;
+  output [15:0]s_axi_bid;
   output [1:0]s_axi_bresp;
   output s_axi_bvalid;
   input s_axi_bready;
-  input [0:0]s_axi_arid;
+  input [15:0]s_axi_arid;
   input [39:0]s_axi_araddr;
   input [7:0]s_axi_arlen;
   input [2:0]s_axi_arsize;
@@ -53,9 +54,10 @@ module design_1_axi_vip_0_1(aclk, aresetn, s_axi_awid, s_axi_awaddr,
   input [3:0]s_axi_arcache;
   input [2:0]s_axi_arprot;
   input [3:0]s_axi_arqos;
+  input [15:0]s_axi_aruser;
   input s_axi_arvalid;
   output s_axi_arready;
-  output [0:0]s_axi_rid;
+  output [15:0]s_axi_rid;
   output [127:0]s_axi_rdata;
   output [1:0]s_axi_rresp;
   output s_axi_rlast;

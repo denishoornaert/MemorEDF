@@ -16,6 +16,7 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
+set_msg_config -id {HDL-1065} -limit 10000
 set_param project.vivado.isBlockSynthRun true
 set_msg_config -msgmgr_mode ooc_run
 create_project -in_memory -part xczu9eg-ffvb1156-2-e
@@ -26,10 +27,13 @@ set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
 set_property webtalk.parent_dir /home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.cache/wt [current_project]
 set_property parent.project_path /home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.xpr [current_project]
+set_property XPM_LIBRARIES {XPM_FIFO XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property board_part xilinx.com:zcu102:part0:3.1 [current_project]
 set_property ip_repo_paths {
+  /home/duck/Github/MemorEDF/rtl/ip_repo/default_axi_full_master_1.0
+  /home/duck/Github/MemorEDF/rtl/ip_repo/myip_1.0
   /home/duck/Github/MemorEDF/rtl/ip_repo
   /home/duck/ip_repo/ConfigurationPort_1.0
 } [current_project]

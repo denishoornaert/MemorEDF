@@ -14,6 +14,35 @@
     </spirit:parameters>
     <spirit:busInterfaces>
       <spirit:busInterface>
+        <spirit:name>RST.ARESETN_0</spirit:name>
+        <spirit:displayName>Reset</spirit:displayName>
+        <spirit:description>Reset</spirit:description>
+        <spirit:busType spirit:library="signal" spirit:name="reset" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:abstractionType spirit:library="signal" spirit:name="reset_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:slave/>
+        <spirit:portMaps>
+          <spirit:portMap>
+            <spirit:logicalPort>
+              <spirit:name>RST</spirit:name>
+            </spirit:logicalPort>
+            <spirit:physicalPort>
+              <spirit:name>aresetn_0</spirit:name>
+            </spirit:physicalPort>
+          </spirit:portMap>
+        </spirit:portMaps>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>POLARITY</spirit:name>
+            <spirit:value>ACTIVE_LOW</spirit:value>
+            <spirit:vendorExtensions>
+              <bd:configElementInfos>
+                <bd:configElementInfo bd:valueSource="default"/>
+              </bd:configElementInfos>
+            </spirit:vendorExtensions>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:busInterface>
+      <spirit:busInterface>
         <spirit:name>CLK.ACLK_0</spirit:name>
         <spirit:displayName>Clk</spirit:displayName>
         <spirit:description>Clock</spirit:description>
@@ -69,35 +98,6 @@
           </spirit:parameter>
         </spirit:parameters>
       </spirit:busInterface>
-      <spirit:busInterface>
-        <spirit:name>RST.ARESETN_0</spirit:name>
-        <spirit:displayName>Reset</spirit:displayName>
-        <spirit:description>Reset</spirit:description>
-        <spirit:busType spirit:library="signal" spirit:name="reset" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-        <spirit:abstractionType spirit:library="signal" spirit:name="reset_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-        <spirit:slave/>
-        <spirit:portMaps>
-          <spirit:portMap>
-            <spirit:logicalPort>
-              <spirit:name>RST</spirit:name>
-            </spirit:logicalPort>
-            <spirit:physicalPort>
-              <spirit:name>aresetn_0</spirit:name>
-            </spirit:physicalPort>
-          </spirit:portMap>
-        </spirit:portMaps>
-        <spirit:parameters>
-          <spirit:parameter>
-            <spirit:name>POLARITY</spirit:name>
-            <spirit:value>ACTIVE_LOW</spirit:value>
-            <spirit:vendorExtensions>
-              <bd:configElementInfos>
-                <bd:configElementInfo bd:valueSource="default"/>
-              </bd:configElementInfos>
-            </spirit:vendorExtensions>
-          </spirit:parameter>
-        </spirit:parameters>
-      </spirit:busInterface>
     </spirit:busInterfaces>
     <spirit:model>
       <spirit:views>
@@ -109,12 +109,6 @@
       </spirit:views>
       <spirit:ports>
         <spirit:port>
-          <spirit:name>aclk_0</spirit:name>
-          <spirit:wire>
-            <spirit:direction>in</spirit:direction>
-          </spirit:wire>
-        </spirit:port>
-        <spirit:port>
           <spirit:name>aresetn_0</spirit:name>
           <spirit:wire>
             <spirit:direction>in</spirit:direction>
@@ -122,6 +116,12 @@
         </spirit:port>
         <spirit:port>
           <spirit:name>txn_0</spirit:name>
+          <spirit:wire>
+            <spirit:direction>in</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>aclk_0</spirit:name>
           <spirit:wire>
             <spirit:direction>in</spirit:direction>
           </spirit:wire>
@@ -153,8 +153,14 @@
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">design_1_default_axi_full_master_0_0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_M00_AXI_TARGET_SLAVE_BASE_ADDR">0x8000000000</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_M00_AXI_BURST_LEN">4</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_M00_AXI_ID_WIDTH">16</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_M00_AXI_ADDR_WIDTH">40</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_M00_AXI_DATA_WIDTH">128</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_M00_AXI_AWUSER_WIDTH">16</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_M00_AXI_ARUSER_WIDTH">16</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_M00_AXI_WUSER_WIDTH">0</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_M00_AXI_RUSER_WIDTH">0</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_M00_AXI_BUSER_WIDTH">0</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
       <spirit:componentInstance>
@@ -167,9 +173,9 @@
           <spirit:configurableElementValue spirit:referenceId="INTERFACE_MODE">MASTER</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="ADDR_WIDTH">32</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="DATA_WIDTH">128</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="ID_WIDTH">0</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="AWUSER_WIDTH">0</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="ARUSER_WIDTH">0</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="ID_WIDTH">16</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="AWUSER_WIDTH">16</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="ARUSER_WIDTH">16</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="RUSER_WIDTH">0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="WUSER_WIDTH">0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="BUSER_WIDTH">0</spirit:configurableElementValue>
@@ -192,13 +198,20 @@
         <spirit:componentRef spirit:library="user" spirit:name="MemorEDF" spirit:vendor="user.org" spirit:version="1.0"/>
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">design_1_MemorEDF_0_0</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="DATA_SIZE">647</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_S00_AXI_ID_WIDTH">1</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="CONFIGURATION_PORT_ENABLED">true</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="DATA_SIZE">678</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="TDMA_ENABLED">true</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="EDF_ENABLED">true</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_S00_AXI_ID_WIDTH">16</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_S00_AXI_DATA_WIDTH">128</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_S00_AXI_ADDR_WIDTH">40</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_S01_AXI_ID_WIDTH">16</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_S01_AXI_DATA_WIDTH">128</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_S01_AXI_ADDR_WIDTH">40</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_S01_AXI_AWUSER_WIDTH">16</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_S01_AXI_ARUSER_WIDTH">16</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_M00_AXI_BURST_LEN">4</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_M00_AXI_ID_WIDTH">16</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_M00_AXI_ADDR_WIDTH">40</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_M00_AXI_DATA_WIDTH">128</spirit:configurableElementValue>
         </spirit:configurableElementValues>
@@ -211,14 +224,14 @@
         <spirit:activeInterface spirit:busRef="m00_axi" spirit:componentRef="MemorEDF_0"/>
       </spirit:interconnection>
       <spirit:interconnection>
-        <spirit:name>default_axi_full_master_0_M00_AXI</spirit:name>
-        <spirit:activeInterface spirit:busRef="M00_AXI" spirit:componentRef="default_axi_full_master_0"/>
-        <spirit:activeInterface spirit:busRef="s00_axi" spirit:componentRef="MemorEDF_0"/>
+        <spirit:name>axi_vip_0_M_AXI</spirit:name>
+        <spirit:activeInterface spirit:busRef="s01_axi" spirit:componentRef="MemorEDF_0"/>
+        <spirit:activeInterface spirit:busRef="M_AXI" spirit:componentRef="axi_vip_0"/>
       </spirit:interconnection>
       <spirit:interconnection>
-        <spirit:name>axi_vip_0_M_AXI</spirit:name>
-        <spirit:activeInterface spirit:busRef="M_AXI" spirit:componentRef="axi_vip_0"/>
-        <spirit:activeInterface spirit:busRef="s01_axi" spirit:componentRef="MemorEDF_0"/>
+        <spirit:name>default_axi_full_master_0_M00_AXI</spirit:name>
+        <spirit:activeInterface spirit:busRef="s00_axi" spirit:componentRef="MemorEDF_0"/>
+        <spirit:activeInterface spirit:busRef="M00_AXI" spirit:componentRef="default_axi_full_master_0"/>
       </spirit:interconnection>
     </spirit:interconnections>
     <spirit:adHocConnections>
