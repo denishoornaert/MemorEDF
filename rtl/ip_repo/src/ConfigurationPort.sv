@@ -82,7 +82,7 @@ module ConfigurationPort #
 		input wire [3 : 0] S_AXI_AWREGION,
 		// Optional User-defined signal in the write address channel.
 		// TODO has to be canceled
-//		input wire [C_S_AXI_AWUSER_WIDTH-1 : 0] S_AXI_AWUSER,
+		input wire [C_S_AXI_AWUSER_WIDTH-1 : 0] S_AXI_AWUSER,
 		// Write address valid. This signal indicates that
     // the channel is signaling valid write address and
     // control information.
@@ -155,7 +155,7 @@ module ConfigurationPort #
 		input wire [3 : 0] S_AXI_ARREGION,
 		// Optional User-defined signal in the read address channel.
 		// TODO has to be canceled
-//		input wire [C_S_AXI_ARUSER_WIDTH-1 : 0] S_AXI_ARUSER,
+		input wire [C_S_AXI_ARUSER_WIDTH-1 : 0] S_AXI_ARUSER,
 		// Write address valid. This signal indicates that
     // the channel is signaling valid read address and
     // control information.

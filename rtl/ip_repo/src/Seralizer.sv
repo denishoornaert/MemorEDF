@@ -27,7 +27,7 @@ module Serializer #
 		// Burst Length. Supports 1, 2, 4, 8, 16, 32, 64, 128, 256 burst lengths
 		parameter integer C_M_AXI_BURST_LEN	    = 16,
 		// Thread ID Width
-		parameter integer C_M_AXI_ID_WIDTH	    = 1,
+		parameter integer C_M_AXI_ID_WIDTH	    = 16,
 		// Width of Address Bus
 		parameter integer C_M_AXI_ADDR_WIDTH	= 32,
 		// Width of Data Bus
@@ -74,7 +74,7 @@ module Serializer #
 		// Quality of Service, QoS identifier sent for each write transaction.
 		output wire [3 : 0] M_AXI_AWQOS,
 		// Optional User-defined signal in the write address channel.
-//		output wire [C_M_AXI_AWUSER_WIDTH-1 : 0] M_AXI_AWUSER,
+		output wire [C_M_AXI_AWUSER_WIDTH-1 : 0] M_AXI_AWUSER,
 		// Write address valid. This signal indicates that
     // the channel is signaling valid write address and control information.
 		output wire  M_AXI_AWVALID,
@@ -134,7 +134,7 @@ module Serializer #
 		// Quality of Service, QoS identifier sent for each read transaction
 		output wire [3 : 0] M_AXI_ARQOS,
 		// Optional User-defined signal in the read address channel.
-//		output wire [C_M_AXI_ARUSER_WIDTH-1 : 0] M_AXI_ARUSER,
+		output wire [C_M_AXI_ARUSER_WIDTH-1 : 0] M_AXI_ARUSER,
 		// Write address valid. This signal indicates that
     // the channel is signaling valid read address and control information
 		output wire  M_AXI_ARVALID,
@@ -160,7 +160,7 @@ module Serializer #
 //		output wire  M_AXI_RREADY,
 		
 		// Packet to serialise
-		input wire [(71+(4*16)+(4*C_M_AXI_DATA_WIDTH))-1 : 0] packet_in,
+		input wire [(102+(4*16)+(4*C_M_AXI_DATA_WIDTH))-1 : 0] packet_in,
 		output wire packetConsumed
 	);
 
@@ -215,35 +215,37 @@ module Serializer #
     wire packet_type;
     // Write packet signals
     wire [C_M_AXI_ADDR_WIDTH-1 : 0] p_awaddr;
-    wire p_awid;
-    wire [7 : 0] p_awlen;
-    wire [2 : 0] p_awsize;
-    wire [1 : 0] p_awburst;
-    wire         p_awlock;
-    wire [3 : 0] p_awcache;
-    wire [2 : 0] p_awprot;
-    wire [3 : 0] p_awqos;
-    wire [3 : 0] p_awregion;
+    wire [C_M_AXI_ID_WIDTH-1 : 0] p_awid;
+    wire [7 : 0]  p_awlen;
+    wire [2 : 0]  p_awsize;
+    wire [1 : 0]  p_awburst;
+    wire          p_awlock;
+    wire [3 : 0]  p_awcache;
+    wire [2 : 0]  p_awprot;
+    wire [3 : 0]  p_awqos;
+    wire [3 : 0]  p_awregion;
+    wire [C_M_AXI_AWUSER_WIDTH-1 : 0] p_awuser;
 //    wire p_awuser;
 //    wire p_wuser;
 //    wire [(C_M_AXI_DATA_WIDTH/8)-1 : 0] p_wstrb;
     // Read packet signal
     wire [C_M_AXI_ADDR_WIDTH-1 : 0] p_araddr;
-    wire p_arid;
-    wire [7 : 0] p_arlen;
-    wire [2 : 0] p_arsize;
-    wire [1 : 0] p_arburst;
-    wire         p_arlock;
-    wire [3 : 0] p_arcache;
-    wire [2 : 0] p_arprot;
-    wire [3 : 0] p_arqos;
-    wire [3 : 0] p_arregion;
+    wire [C_M_AXI_ID_WIDTH-1 : 0] p_arid;
+    wire [7 : 0]  p_arlen;
+    wire [2 : 0]  p_arsize;
+    wire [1 : 0]  p_arburst;
+    wire          p_arlock;
+    wire [3 : 0]  p_arcache;
+    wire [2 : 0]  p_arprot;
+    wire [3 : 0]  p_arqos;
+    wire [3 : 0]  p_arregion;
+    wire [C_M_AXI_ARUSER_WIDTH-1 : 0] p_aruser;
 //    wire p_aruser;
     
-    wire                 [71-1 : 0] metadata;
+    wire                [102-1 : 0] metadata;
     wire                 [16-1 : 0] wstrb_write [0 : 4-1];
     wire [C_M_AXI_DATA_WIDTH-1 : 0] data [0 : 4-1];
-    assign metadata       = packet_in[646 : 576];
+    assign metadata       = packet_in[677 : 576];
     // TODO check the order !!
     assign wstrb_write[0] = packet_in[575 : 560];
     assign wstrb_write[1] = packet_in[559 : 544];
@@ -255,9 +257,9 @@ module Serializer #
     assign data[3]        = packet_in[127 :   0];
     
     // Decomposition of the read and write packet intot he corresponding and adequate signals
-    assign packet_type = metadata[70 +: 1];
-    assign {p_araddr, p_arid, p_arlen, p_arsize, p_arburst, p_arlock, p_arcache, p_arprot, p_arqos, p_arregion} = metadata[69 : 0];
-    assign {p_awaddr, p_awid, p_awlen, p_awsize, p_awburst, p_awlock, p_awcache, p_awprot, p_awqos, p_awregion} = metadata[69 : 0];
+    assign packet_type = metadata[101 +: 1];
+    assign {p_araddr, p_arid, p_arlen, p_arsize, p_arburst, p_arlock, p_arcache, p_arprot, p_arqos, p_arregion, p_aruser} = metadata[100 : 0];
+    assign {p_awaddr, p_awid, p_awlen, p_awsize, p_awburst, p_awlock, p_awcache, p_awprot, p_awqos, p_awregion, p_awuser} = metadata[100 : 0];
 
 	// I/O Connections assignments
 
@@ -276,7 +278,7 @@ module Serializer #
 	assign M_AXI_AWCACHE  = p_awcache;
 	assign M_AXI_AWPROT	  = p_awprot;
 	assign M_AXI_AWQOS	  = p_awqos;
-//	assign M_AXI_AWUSER	  = p_awuser;
+	assign M_AXI_AWUSER	  = p_awuser;
 	assign M_AXI_AWVALID  = axi_awvalid;
 	//Write Data(W)
 	assign M_AXI_WDATA	  = axi_wdata;
@@ -300,7 +302,7 @@ module Serializer #
 	assign M_AXI_ARCACHE  = p_arcache;
 	assign M_AXI_ARPROT	  = p_arprot;
 	assign M_AXI_ARQOS	  = p_arqos;
-//	assign M_AXI_ARUSER	  = p_aruser;
+	assign M_AXI_ARUSER	  = p_aruser;
 	assign M_AXI_ARVALID  = axi_arvalid;
 	//Read and Read Response (R)
 //	assign M_AXI_RREADY	  = axi_rready;

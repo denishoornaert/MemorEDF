@@ -82,7 +82,7 @@ module Packetizer #
     // on a slave to be used for multiple logical interfaces.
 		input wire [3 : 0] S_AXI_AWREGION,
 		// Optional User-defined signal in the write address channel.
-//		input wire [C_S_AXI_AWUSER_WIDTH-1 : 0] S_AXI_AWUSER,
+		input wire [C_S_AXI_AWUSER_WIDTH-1 : 0] S_AXI_AWUSER,
 		// Write address valid. This signal indicates that
     // the channel is signaling valid write address and
     // control information.
@@ -152,7 +152,7 @@ module Packetizer #
     // on a slave to be used for multiple logical interfaces.
 		input wire [3 : 0] S_AXI_ARREGION,
 		// Optional User-defined signal in the read address channel.
-//		input wire [C_S_AXI_ARUSER_WIDTH-1 : 0] S_AXI_ARUSER,
+		input wire [C_S_AXI_ARUSER_WIDTH-1 : 0] S_AXI_ARUSER,
 		// Write address valid. This signal indicates that
     // the channel is signaling valid read address and
     // control information.
@@ -182,7 +182,7 @@ module Packetizer #
 		input wire  S_AXI_RREADY,
 		
 		// Custom output
-		output wire [(71+(4*16)+(4*C_S_AXI_DATA_WIDTH))-1 : 0] packetOut,
+		output wire [(102+(4*16)+(4*C_S_AXI_DATA_WIDTH))-1 : 0] packetOut,
 		output wire packetValid,
 		output wire [1 : 0] coreId,
 		input  wire stall
@@ -589,8 +589,8 @@ module Packetizer #
         assign mem_arden = axi_arready && S_AXI_ARVALID;//axi_arv_arr_flag ; //& ~axi_rvalid // TODO should be modified
         
         wire [C_S_AXI_DATA_WIDTH-1:0] data_in ;
-        reg                     [71-1 : 0] meta_data_write; // when burst len == 1 -> [71-1 : 0]
-        reg                     [71-1 : 0] meta_data_read;
+        reg                    [102-1 : 0] meta_data_write;
+        reg                    [102-1 : 0] meta_data_read;
         reg [(C_S_AXI_DATA_WIDTH/8)-1 : 0] wstrb_write [4-1 : 0];
         reg       [C_S_AXI_DATA_WIDTH-1:0] byte_ram_read [4-1 : 0];
         reg       [C_S_AXI_DATA_WIDTH-1:0] byte_ram_write [4-1 : 0];
@@ -662,11 +662,11 @@ module Packetizer #
             begin
                 if (mem_awren)
                 begin
-                    meta_data_write <= {1'b1, S_AXI_AWADDR, S_AXI_AWID, S_AXI_AWLEN, S_AXI_AWSIZE, S_AXI_AWBURST, S_AXI_AWLOCK, S_AXI_AWCACHE, S_AXI_AWPROT, S_AXI_AWQOS, S_AXI_AWREGION};
+                    meta_data_write <= {1'b1, S_AXI_AWADDR, S_AXI_AWID, S_AXI_AWLEN, S_AXI_AWSIZE, S_AXI_AWBURST, S_AXI_AWLOCK, S_AXI_AWCACHE, S_AXI_AWPROT, S_AXI_AWQOS, S_AXI_AWREGION, S_AXI_AWUSER};
                 end
                 else if(mem_arden)
                 begin
-                    meta_data_read  <= {1'b0, S_AXI_ARADDR, S_AXI_ARID, S_AXI_ARLEN, S_AXI_ARSIZE, S_AXI_ARBURST, S_AXI_ARLOCK, S_AXI_ARCACHE, S_AXI_ARPROT, S_AXI_ARQOS, S_AXI_ARREGION};
+                    meta_data_read  <= {1'b0, S_AXI_ARADDR, S_AXI_ARID, S_AXI_ARLEN, S_AXI_ARSIZE, S_AXI_ARBURST, S_AXI_ARLOCK, S_AXI_ARCACHE, S_AXI_ARPROT, S_AXI_ARQOS, S_AXI_ARREGION, S_AXI_ARUSER};
                 end
              end
         end

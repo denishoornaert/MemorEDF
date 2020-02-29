@@ -23,7 +23,7 @@
 module NonAXIDomain #(
         // Global parameters
 		parameter integer NUMBER_OF_QUEUES       = 4,
-		parameter integer DATA_SIZE              = 5*128,
+		parameter integer DATA_SIZE              = (102+(4*16)+(4*128)),
 		parameter integer QUEUE_LENGTH           = 16,
 		// Available/enabled schdulers
 		parameter integer REGISTER_SIZE          = 32,
