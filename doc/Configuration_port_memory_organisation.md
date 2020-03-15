@@ -65,6 +65,33 @@ devmem 0x44A00018 32 0x00000000
 devmem 0x44A00014 32 0x00000000
 devmem 0x44A00010 32 0x00000000
 # Set the periods such that they all boast a time slot of 250ms
+devmem 0x44A0000C 32 0x00000000
+devmem 0x44A00008 32 0x00000000
+devmem 0x44A00004 32 0x00000000
+devmem 0x44A00000 32 0x017D6E7C
+```
+
+Reciprocally, for 128 bits values
+```bash
+# Specify the mode of scheduling. Here, we opted for TDMA so we write 0
+devmem 0x44A00020 128 0x00000000000000000000000000000000
+# Set the deadlines to 0 as the TDMA scheduler does not need these meta-data
+devmem 0x44A00010 128 0x00000000000000000000000000000000
+# Set the periods such that they all boast a time slot of 250ms
+devmem 0x44A00000 128 0x000000000000000000000000017D6E7C
+```
+
+### First experiment
+Using the ```devmem``` command:
+```bash
+# Specify the mode of scheduling. Here, we opted for TDMA so we write 0
+devmem 0x44A00020 32 0x00000000
+# Set the deadlines to 0 as the TDMA scheduler does not need these meta-data
+devmem 0x44A0001C 32 0x00000000
+devmem 0x44A00018 32 0x00000000
+devmem 0x44A00014 32 0x00000000
+devmem 0x44A00010 32 0x00000000
+# Set the periods such that they all boast a time slot of 250ms
 devmem 0x44A0000C 32 0x017D6E7C
 devmem 0x44A00008 32 0x017D6E7C
 devmem 0x44A00004 32 0x017D6E7C
