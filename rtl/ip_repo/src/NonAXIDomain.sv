@@ -27,9 +27,11 @@ module NonAXIDomain #(
 		parameter integer QUEUE_LENGTH           = 16,
 		// Available/enabled schdulers
 		parameter integer REGISTER_SIZE          = 32,
+		parameter integer PRIORITY_SIZE          = 4,
         parameter integer TDMA_ENABLED           = 1,
         parameter integer EDF_ENABLED            = 1,
-        parameter integer NUMBER_OF_SCHEDULERS   = 2
+        parameter integer FP_ENABLED             = 1,
+        parameter integer NUMBER_OF_SCHEDULERS   = 3
     )(
         clock,
         reset,
@@ -39,6 +41,7 @@ module NonAXIDomain #(
         scheduling_mode,
         scheduler_deadlines,
         scheduler_periods,
+        scheduler_priorities,
         selector_to_serializer_packet,
         serializer_to_scheduler_consumed,
         scheduler_to_serializer_activate_signal,
@@ -53,6 +56,7 @@ module NonAXIDomain #(
     input wire           [$clog2(NUMBER_OF_SCHEDULERS)-1 : 0] scheduling_mode;
     input wire [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] scheduler_deadlines;
     input wire [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] scheduler_periods;
+    input wire [NUMBER_OF_QUEUES-1 : 0] [PRIORITY_SIZE-1 : 0] scheduler_priorities;
     input wire                                                serializer_to_scheduler_consumed;
     
     output wire                   [DATA_SIZE-1 : 0] selector_to_serializer_packet;
@@ -133,6 +137,7 @@ module NonAXIDomain #(
        .lastElem(lastElem),
        .deadlines(scheduler_deadlines),
        .periods(scheduler_periods),
+       .priorities(scheduler_priorities),
        .id(scheduler_to_selector_id),
        .consumed(serializer_to_scheduler_consumed),
        .hasBeenConsumed(scheduler_to_queues_consumed),

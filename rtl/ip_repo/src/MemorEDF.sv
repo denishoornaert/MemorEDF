@@ -29,8 +29,10 @@ module MemorEDF #
 		parameter integer QUEUE_LENGTH           = 16,
 		// Available/enabled schdulers
 		parameter integer REGISTER_SIZE          = 32,
+		parameter integer PRIORITY_SIZE          = 4,
         parameter integer TDMA_ENABLED           = 1,
         parameter integer EDF_ENABLED            = 1,
+        parameter integer FP_ENABLED             = 1,
 		// Parameters of Axi Slave Bus Interface S00_AXI
 		parameter integer C_S00_AXI_ID_WIDTH	 = 16,
 		parameter integer C_S00_AXI_DATA_WIDTH	 = 128,
@@ -202,7 +204,7 @@ module MemorEDF #
         output reg                                  m00_axi_rready //**
 	);
 	
-	localparam NUMBER_OF_SCHEDULERS = TDMA_ENABLED+EDF_ENABLED;
+	localparam NUMBER_OF_SCHEDULERS = TDMA_ENABLED + EDF_ENABLED + FP_ENABLED;
 	
 //    reg       [C_M00_AXI_ID_WIDTH-1 : 0] bp_axi_bid;
 //    reg                          [1 : 0] bp_axi_bresp;
@@ -225,19 +227,17 @@ module MemorEDF #
     wire                              scheduler_to_serializer_activate_signal;
     wire                              nonaxi_to_packetizer_stall;
     
-    // TODO TEMPORARY!
-//    reg   [$clog2(NUMBER_OF_SCHEDULERS)-1 : 0] scheduling_mode;
-//    reg                  [REGISTER_SIZE-1 : 0] scheduler_deadlines [NUMBER_OF_QUEUES];
-//    reg                  [REGISTER_SIZE-1 : 0] scheduler_periods [NUMBER_OF_QUEUES];
-    
     // Issued from the configuration port
     wire          [((C_S01_AXI_DATA_WIDTH/8)*32)-1 : 0] buffers;
     wire           [$clog2(NUMBER_OF_SCHEDULERS)-1 : 0] scheduling_mode;
     wire [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] scheduler_deadlines;
-    wire [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] scheduler_periods;
-    assign scheduler_periods = buffers[(1*C_S01_AXI_DATA_WIDTH)-1 : 0];
-    assign scheduler_deadlines = buffers[(2*C_S01_AXI_DATA_WIDTH)-1 : (1*C_S01_AXI_DATA_WIDTH)];
-    assign scheduling_mode = buffers[(2*C_S01_AXI_DATA_WIDTH)+$clog2(NUMBER_OF_SCHEDULERS)-1 : (2*C_S01_AXI_DATA_WIDTH)];
+    wire [NUMBER_OF_QUEUES-1 : 0] [PRIORITY_SIZE-1 : 0] scheduler_periods;
+    wire [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] scheduler_priorities;
+    
+    assign scheduler_periods = buffers[127 : 0];
+    assign scheduler_deadlines = buffers[255 : 128];
+    assign scheduler_priorities = buffers[287 : 256];
+    assign scheduling_mode = buffers[289 : 288];
     
 //    always @(posedge m00_axi_aclk)
 //    begin
@@ -474,6 +474,7 @@ module MemorEDF #
 		.DATA_SIZE(DATA_SIZE),
 		.QUEUE_LENGTH(QUEUE_LENGTH),
         .REGISTER_SIZE(REGISTER_SIZE),
+        .PRIORITY_SIZE(PRIORITY_SIZE),
 		// Available/enabled schdulers
         .TDMA_ENABLED(1),
         .EDF_ENABLED(1),

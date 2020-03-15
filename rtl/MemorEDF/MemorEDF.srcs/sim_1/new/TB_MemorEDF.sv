@@ -37,20 +37,35 @@ bit txn = 0;
 xil_axi_prot_t  prot = 0;
 
 xil_axi_ulong addr1  = 40'h0000000000;
-xil_axi_ulong addr2  = 40'h0000000010;
-xil_axi_ulong addr3  = 40'h0000000020;
-xil_axi_ulong addr4  = 40'h0000000030;
+xil_axi_ulong addr2  = 40'h0000000004;
+xil_axi_ulong addr3  = 40'h0000000008;
+xil_axi_ulong addr4  = 40'h000000000c;
+xil_axi_ulong addr5  = 40'h0000000010;
+xil_axi_ulong addr6  = 40'h0000000014;
+xil_axi_ulong addr7  = 40'h0000000018;
+xil_axi_ulong addr8  = 40'h000000001c;
+xil_axi_ulong addr9  = 40'h0000000020;
 
 //  indices                    76543210765432107654321076543210
-bit [127 : 0] data_wr1  = 128'h00000000000000000000000000000020; // ABITRARY PERIOD
-bit [127 : 0] data_wr2  = 128'h00000000000000000000000000000030; // ARBITRRY AND MEANINGLESS DEADLINE
-bit [127 : 0] data_wr3  = 128'h00000000000000000000000000000000; // MODE is 0
-bit [127 : 0] data_wr4  = 128'h00000000000000000000000000000000;
+bit [127 : 0] data_wr1  = 128'h00000000000000000000000089abcdef; // Period
+bit [127 : 0] data_wr2  = 128'h00000000000000000123456700000000; // Period
+bit [127 : 0] data_wr3  = 128'h00000000cafecafe0000000000000000; // Period
+bit [127 : 0] data_wr4  = 128'hbeefbeef000000000000000000000000; // Period
+bit [127 : 0] data_wr5  = 128'h00000000000000000000000076543210; // Deadline
+bit [127 : 0] data_wr6  = 128'h0000000000000000fedcba9800000000; // Deadline
+bit [127 : 0] data_wr7  = 128'h00000000cafecafe0000000000000000; // Deadline
+bit [127 : 0] data_wr8  = 128'hbeefbeef000000000000000000000000; // Deadline
+bit [127 : 0] data_wr9  = 128'h00000000000000000000000000000001; // Mode
 
 bit [127 : 0] data_rd1;
 bit [127 : 0] data_rd2;
 bit [127 : 0] data_rd3;
 bit [127 : 0] data_rd4;
+bit [127 : 0] data_rd5;
+bit [127 : 0] data_rd6;
+bit [127 : 0] data_rd7;
+bit [127 : 0] data_rd8;
+bit [127 : 0] data_rd9;
 
 xil_axi_resp_t 	resp;
 
@@ -104,6 +119,16 @@ initial begin
     master_agent.AXI4LITE_WRITE_BURST(addr3,prot,data_wr3,resp);
     #20ns
     master_agent.AXI4LITE_WRITE_BURST(addr4,prot,data_wr4,resp);
+    #20ns
+    master_agent.AXI4LITE_WRITE_BURST(addr5,prot,data_wr5,resp);
+    #20ns
+    master_agent.AXI4LITE_WRITE_BURST(addr6,prot,data_wr6,resp);
+    #20ns
+    master_agent.AXI4LITE_WRITE_BURST(addr7,prot,data_wr7,resp);
+    #20ns
+    master_agent.AXI4LITE_WRITE_BURST(addr8,prot,data_wr8,resp);
+    #20ns
+    master_agent.AXI4LITE_WRITE_BURST(addr9,prot,data_wr9,resp);
     #50ns
     
     #20ns
@@ -114,6 +139,16 @@ initial begin
     master_agent.AXI4LITE_READ_BURST(addr3,prot,data_rd3,resp);
     #20ns
     master_agent.AXI4LITE_READ_BURST(addr4,prot,data_rd4,resp);
+    #20ns
+    master_agent.AXI4LITE_READ_BURST(addr5,prot,data_rd5,resp);
+    #20ns
+    master_agent.AXI4LITE_READ_BURST(addr6,prot,data_rd6,resp);
+    #20ns
+    master_agent.AXI4LITE_READ_BURST(addr7,prot,data_rd7,resp);
+    #20ns
+    master_agent.AXI4LITE_READ_BURST(addr8,prot,data_rd8,resp);
+    #20ns
+    master_agent.AXI4LITE_READ_BURST(addr9,prot,data_rd9,resp);
     #20ns
     
     #200ns
@@ -127,7 +162,6 @@ initial begin
         $display("1)  Received %h but expectd %h", data_rd1, data_wr1);
         $display("2)  Received %h but expectd %h", data_rd2, data_wr2);
         $display("3)  Received %h but expectd %h", data_rd3, data_wr3);
-        $display("4)  Received %h but expectd %h", data_rd4, data_wr4);
     end
     
     #50ns

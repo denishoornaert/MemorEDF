@@ -23,8 +23,10 @@ module Scheduler
     #(
         parameter NUMBER_OF_QUEUES     = 4,
         parameter REGISTER_SIZE        = 32,
+        parameter PRIORITY_SIZE        = 4,
         parameter TDMA_ENABLED         = 1,
-        parameter EDF_ENABLED          = 1
+        parameter EDF_ENABLED          = 1,
+        parameter FP_ENABLED           = 1
     )
     (
         clock,
@@ -35,13 +37,14 @@ module Scheduler
         lastElem,
         deadlines,
         periods,
+        priorities,
         id,
         consumed,
         hasBeenConsumed,
         enable
     );
     
-    localparam NUMBER_OF_SCHEDULERS = TDMA_ENABLED + EDF_ENABLED;
+    localparam NUMBER_OF_SCHEDULERS = TDMA_ENABLED + EDF_ENABLED + FP_ENABLED;
     
     // Definition of the module IOs
     input                                                clock;
@@ -52,6 +55,7 @@ module Scheduler
     input                       [NUMBER_OF_QUEUES-1 : 0] lastElem;
     input [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] deadlines;
     input [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] periods;
+    input [NUMBER_OF_QUEUES-1 : 0] [PRIORITY_SIZE-1 : 0] priorities;
     output              [$clog2(NUMBER_OF_QUEUES)-1 : 0] id;
     input                                                consumed;
     output                      [NUMBER_OF_QUEUES-1 : 0] hasBeenConsumed;
@@ -118,6 +122,20 @@ module Scheduler
             .periods(periods),
             .deadlines(deadlines),
             .selection(schedulers_to_selector[1])
+        );
+    end
+    
+    if(FP_ENABLED)
+    begin
+        FP #(
+            .NUMBER_OF_QUEUES(NUMBER_OF_QUEUES),
+            .PRIORITY_SIZE(PRIORITY_SIZE)
+        ) fp (
+            .clock(clock),
+            .reset(reset),
+            .priorities(priorities),
+            .free(empty),
+            .selection(schedulers_to_selector[2])
         );
     end
     
