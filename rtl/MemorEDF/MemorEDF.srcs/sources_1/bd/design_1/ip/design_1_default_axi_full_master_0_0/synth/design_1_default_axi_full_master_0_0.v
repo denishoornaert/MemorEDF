@@ -48,7 +48,7 @@
 
 
 // IP VLNV: user.org:user:default_axi_full_master:1.0
-// IP Revision: 5
+// IP Revision: 8
 
 (* X_CORE_INFO = "default_axi_full_master_v1_0,Vivado 2017.4" *)
 (* CHECK_LICENSE_TYPE = "design_1_default_axi_full_master_0_0,default_axi_full_master_v1_0,{}" *)

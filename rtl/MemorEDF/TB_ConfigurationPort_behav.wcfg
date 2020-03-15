@@ -15,14 +15,14 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="20903791043fs"></ZoomEndTime>
-      <Cursor1Time time="11000000000fs"></Cursor1Time>
+      <ZoomEndTime time="27025000001fs"></ZoomEndTime>
+      <Cursor1Time time="8125000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="303"></NameColumnWidth>
-      <ValueColumnWidth column_width="270"></ValueColumnWidth>
+      <ValueColumnWidth column_width="258"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="187" />
+   <WVObjectSize size="195" />
    <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/s00_axi_aclk">
       <obj_property name="ElementShortName">s00_axi_aclk</obj_property>
       <obj_property name="ObjectShortName">s00_axi_aclk</obj_property>
@@ -770,7 +770,39 @@
       <obj_property name="ObjectShortName">REGISTER_SIZE[31:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/serializer/packet_in">
-      <obj_property name="ElementShortName">packet_in[646:0]</obj_property>
-      <obj_property name="ObjectShortName">packet_in[646:0]</obj_property>
+      <obj_property name="ElementShortName">packet_in[677:0]</obj_property>
+      <obj_property name="ObjectShortName">packet_in[677:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/packetizer_to_dispatcher_id">
+      <obj_property name="ElementShortName">packetizer_to_dispatcher_id[15:0]</obj_property>
+      <obj_property name="ObjectShortName">packetizer_to_dispatcher_id[15:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/dispatcher/id">
+      <obj_property name="ElementShortName">id[1:0]</obj_property>
+      <obj_property name="ObjectShortName">id[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/packetizer/coreId">
+      <obj_property name="ElementShortName">coreId[15:0]</obj_property>
+      <obj_property name="ObjectShortName">coreId[15:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/packetizer/coreIdReg_read">
+      <obj_property name="ElementShortName">coreIdReg_read[15:0]</obj_property>
+      <obj_property name="ObjectShortName">coreIdReg_read[15:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/packetizer/coreIdReg_write">
+      <obj_property name="ElementShortName">coreIdReg_write[15:0]</obj_property>
+      <obj_property name="ObjectShortName">coreIdReg_write[15:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/\genblk1[1].queue /values">
+      <obj_property name="ElementShortName">values[0:15][677:0]</obj_property>
+      <obj_property name="ObjectShortName">values[0:15][677:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/\genblk1[2].queue /values">
+      <obj_property name="ElementShortName">values[0:15][677:0]</obj_property>
+      <obj_property name="ObjectShortName">values[0:15][677:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/\genblk1[3].queue /values">
+      <obj_property name="ElementShortName">values[0:15][677:0]</obj_property>
+      <obj_property name="ObjectShortName">values[0:15][677:0]</obj_property>
    </wvobject>
 </wave_config>

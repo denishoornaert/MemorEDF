@@ -16,6 +16,9 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
+set_param power.enableLutRouteBelPower 1
+set_param power.enableCarry8RouteBelPower 1
+set_param power.enableUnconnectedCarry8PinPower 1
 set_msg_config -id {HDL-1065} -limit 10000
 set_param project.vivado.isBlockSynthRun true
 create_project -in_memory -part xczu9eg-ffvb1156-2-e
@@ -31,8 +34,6 @@ set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property board_part xilinx.com:zcu102:part0:3.1 [current_project]
 set_property ip_repo_paths {
-  /home/duck/Github/MemorEDF/rtl/ip_repo/default_axi_full_master_1.0
-  /home/duck/Github/MemorEDF/rtl/ip_repo/myip_1.0
   /home/duck/Github/MemorEDF/rtl/ip_repo
   /home/duck/ip_repo/ConfigurationPort_1.0
 } [current_project]
