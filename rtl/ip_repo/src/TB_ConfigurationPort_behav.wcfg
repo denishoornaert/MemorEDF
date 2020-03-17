@@ -3,402 +3,93 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="TN_NonAXIDomain_behav.wdb" id="1">
+      <db_ref path="TB_Scheduler_behav.wdb" id="1">
          <top_modules>
-            <top_module name="TN_NonAXIDomain" />
+            <top_module name="TB_Scheduler" />
             <top_module name="glbl" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="288333334fs"></ZoomStartTime>
-      <ZoomEndTime time="2018333334fs"></ZoomEndTime>
-      <Cursor1Time time="1730000000fs"></Cursor1Time>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="1256500001fs"></ZoomEndTime>
+      <Cursor1Time time="360000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="215"></NameColumnWidth>
+      <NameColumnWidth column_width="211"></NameColumnWidth>
       <ValueColumnWidth column_width="80"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="90" />
-   <wvobject type="logic" fp_name="/TN_NonAXIDomain/clock">
+   <WVObjectSize size="18" />
+   <wvobject type="logic" fp_name="/TB_Scheduler/clock">
       <obj_property name="ElementShortName">clock</obj_property>
       <obj_property name="ObjectShortName">clock</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/TN_NonAXIDomain/reset">
+   <wvobject type="logic" fp_name="/TB_Scheduler/reset">
       <obj_property name="ElementShortName">reset</obj_property>
       <obj_property name="ObjectShortName">reset</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/TN_NonAXIDomain/packet">
-      <obj_property name="ElementShortName">packet[127:0]</obj_property>
-      <obj_property name="ObjectShortName">packet[127:0]</obj_property>
+   <wvobject type="logic" fp_name="/TB_Scheduler/mode">
+      <obj_property name="ElementShortName">mode</obj_property>
+      <obj_property name="ObjectShortName">mode</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/TN_NonAXIDomain/valid">
-      <obj_property name="ElementShortName">valid</obj_property>
-      <obj_property name="ObjectShortName">valid</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/TN_NonAXIDomain/id">
-      <obj_property name="ElementShortName">id[1:0]</obj_property>
-      <obj_property name="ObjectShortName">id[1:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/TN_NonAXIDomain/mode">
-      <obj_property name="ElementShortName">mode[0:0]</obj_property>
-      <obj_property name="ObjectShortName">mode[0:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/TN_NonAXIDomain/deadlines">
-      <obj_property name="ElementShortName">deadlines[3:0][31:0]</obj_property>
-      <obj_property name="ObjectShortName">deadlines[3:0][31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/TN_NonAXIDomain/periods">
-      <obj_property name="ElementShortName">periods[3:0][31:0]</obj_property>
-      <obj_property name="ObjectShortName">periods[3:0][31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/TN_NonAXIDomain/packet_out">
-      <obj_property name="ElementShortName">packet_out[127:0]</obj_property>
-      <obj_property name="ObjectShortName">packet_out[127:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/TN_NonAXIDomain/activate_out">
-      <obj_property name="ElementShortName">activate_out</obj_property>
-      <obj_property name="ObjectShortName">activate_out</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/TN_NonAXIDomain/nonaxidomain/\genblk1[0].queue /consumed">
-      <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="ElementShortName">consumed</obj_property>
-      <obj_property name="ObjectShortName">consumed</obj_property>
-      <obj_property name="label">0) consumed</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/TN_NonAXIDomain/nonaxidomain/\genblk1[0].queue /values">
-      <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="ElementShortName">values[0:15][127:0]</obj_property>
-      <obj_property name="ObjectShortName">values[0:15][127:0]</obj_property>
-      <obj_property name="label">0) values[0:15][639:0]</obj_property>
-      <obj_property name="isExpanded"></obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/TN_NonAXIDomain/nonaxidomain/\genblk1[1].queue /consumed">
-      <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="ElementShortName">consumed</obj_property>
-      <obj_property name="ObjectShortName">consumed</obj_property>
-      <obj_property name="label">1) consumed</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/TN_NonAXIDomain/nonaxidomain/\genblk1[1].queue /values">
-      <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="ElementShortName">values[0:15][127:0]</obj_property>
-      <obj_property name="ObjectShortName">values[0:15][127:0]</obj_property>
-      <obj_property name="label">1) values[0:15][639:0]</obj_property>
-      <obj_property name="isExpanded"></obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/TN_NonAXIDomain/nonaxidomain/\genblk1[2].queue /consumed">
-      <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="ElementShortName">consumed</obj_property>
-      <obj_property name="ObjectShortName">consumed</obj_property>
-      <obj_property name="label">2) consumed</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/TN_NonAXIDomain/nonaxidomain/\genblk1[2].queue /values">
-      <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="ElementShortName">values[0:15][127:0]</obj_property>
-      <obj_property name="ObjectShortName">values[0:15][127:0]</obj_property>
-      <obj_property name="label">2) values[0:15][639:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/TN_NonAXIDomain/nonaxidomain/\genblk1[3].queue /consumed">
-      <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="ElementShortName">consumed</obj_property>
-      <obj_property name="ObjectShortName">consumed</obj_property>
-      <obj_property name="label">3) consumed</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/TN_NonAXIDomain/nonaxidomain/\genblk1[3].queue /values">
-      <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="ElementShortName">values[0:15][127:0]</obj_property>
-      <obj_property name="ObjectShortName">values[0:15][127:0]</obj_property>
-      <obj_property name="label">3) values[0:15][639:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/TN_NonAXIDomain/nonaxidomain/selector/clock">
-      <obj_property name="ElementShortName">clock</obj_property>
-      <obj_property name="ObjectShortName">clock</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/TN_NonAXIDomain/nonaxidomain/selector/reset">
-      <obj_property name="ElementShortName">reset</obj_property>
-      <obj_property name="ObjectShortName">reset</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/TN_NonAXIDomain/nonaxidomain/selector/index">
-      <obj_property name="ElementShortName">index[1:0]</obj_property>
-      <obj_property name="ObjectShortName">index[1:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/TN_NonAXIDomain/nonaxidomain/selector/values">
-      <obj_property name="ElementShortName">values[0:3][127:0]</obj_property>
-      <obj_property name="ObjectShortName">values[0:3][127:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/TN_NonAXIDomain/nonaxidomain/selector/outcome">
-      <obj_property name="ElementShortName">outcome[127:0]</obj_property>
-      <obj_property name="ObjectShortName">outcome[127:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/TN_NonAXIDomain/nonaxidomain/selector/internalOutcome">
-      <obj_property name="ElementShortName">internalOutcome[127:0]</obj_property>
-      <obj_property name="ObjectShortName">internalOutcome[127:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/TN_NonAXIDomain/nonaxidomain/selector/INPUTS">
-      <obj_property name="ElementShortName">INPUTS[31:0]</obj_property>
-      <obj_property name="ObjectShortName">INPUTS[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/TN_NonAXIDomain/nonaxidomain/selector/INPUT_SIZE">
-      <obj_property name="ElementShortName">INPUT_SIZE[31:0]</obj_property>
-      <obj_property name="ObjectShortName">INPUT_SIZE[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/TN_NonAXIDomain/nonaxidomain/scheduler/clock">
-      <obj_property name="ElementShortName">clock</obj_property>
-      <obj_property name="ObjectShortName">clock</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/TN_NonAXIDomain/nonaxidomain/scheduler/reset">
-      <obj_property name="ElementShortName">reset</obj_property>
-      <obj_property name="ObjectShortName">reset</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/TN_NonAXIDomain/nonaxidomain/scheduler/mode">
-      <obj_property name="ElementShortName">mode[0:0]</obj_property>
-      <obj_property name="ObjectShortName">mode[0:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/TN_NonAXIDomain/nonaxidomain/scheduler/full">
+   <wvobject type="array" fp_name="/TB_Scheduler/full">
       <obj_property name="ElementShortName">full[3:0]</obj_property>
       <obj_property name="ObjectShortName">full[3:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/TN_NonAXIDomain/nonaxidomain/scheduler/empty">
+   <wvobject type="array" fp_name="/TB_Scheduler/empty">
       <obj_property name="ElementShortName">empty[3:0]</obj_property>
       <obj_property name="ObjectShortName">empty[3:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/TN_NonAXIDomain/nonaxidomain/scheduler/deadlines">
+   <wvobject type="array" fp_name="/TB_Scheduler/lastElem">
+      <obj_property name="ElementShortName">lastElem[3:0]</obj_property>
+      <obj_property name="ObjectShortName">lastElem[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_Scheduler/deadlines">
       <obj_property name="ElementShortName">deadlines[3:0][31:0]</obj_property>
       <obj_property name="ObjectShortName">deadlines[3:0][31:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/TN_NonAXIDomain/nonaxidomain/scheduler/periods">
+   <wvobject type="array" fp_name="/TB_Scheduler/periods">
       <obj_property name="ElementShortName">periods[3:0][31:0]</obj_property>
       <obj_property name="ObjectShortName">periods[3:0][31:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/TN_NonAXIDomain/nonaxidomain/scheduler/id">
-      <obj_property name="ElementShortName">id[1:0]</obj_property>
-      <obj_property name="ObjectShortName">id[1:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/TN_NonAXIDomain/nonaxidomain/scheduler/internal_id">
-      <obj_property name="ElementShortName">internal_id</obj_property>
-      <obj_property name="ObjectShortName">internal_id</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/TN_NonAXIDomain/nonaxidomain/scheduler/consumed">
+   <wvobject type="logic" fp_name="/TB_Scheduler/consumed">
       <obj_property name="ElementShortName">consumed</obj_property>
       <obj_property name="ObjectShortName">consumed</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/TN_NonAXIDomain/nonaxidomain/scheduler/hasBeenConsumed">
+   <wvobject type="array" fp_name="/TB_Scheduler/id">
+      <obj_property name="ElementShortName">id[1:0]</obj_property>
+      <obj_property name="ObjectShortName">id[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_Scheduler/hasBeenConsumed">
       <obj_property name="ElementShortName">hasBeenConsumed[3:0]</obj_property>
       <obj_property name="ObjectShortName">hasBeenConsumed[3:0]</obj_property>
-      <obj_property name="isExpanded"></obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/TN_NonAXIDomain/nonaxidomain/scheduler/enable">
+   <wvobject type="logic" fp_name="/TB_Scheduler/enable">
       <obj_property name="ElementShortName">enable</obj_property>
       <obj_property name="ObjectShortName">enable</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/TN_NonAXIDomain/nonaxidomain/scheduler/schedulers_to_selector">
-      <obj_property name="ElementShortName">schedulers_to_selector[0:1][1:0]</obj_property>
-      <obj_property name="ObjectShortName">schedulers_to_selector[0:1][1:0]</obj_property>
+   <wvobject type="logic" fp_name="/TB_Scheduler/scheduler/internal_enable">
+      <obj_property name="ElementShortName">internal_enable</obj_property>
+      <obj_property name="ObjectShortName">internal_enable</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/TN_NonAXIDomain/nonaxidomain/scheduler/selected_queue">
-      <obj_property name="ElementShortName">selected_queue[1:0]</obj_property>
-      <obj_property name="ObjectShortName">selected_queue[1:0]</obj_property>
-      <obj_property name="isExpanded"></obj_property>
+   <wvobject type="array" fp_name="/TB_Scheduler/scheduler/internal_id">
+      <obj_property name="ElementShortName">internal_id[1:0]</obj_property>
+      <obj_property name="ObjectShortName">internal_id[1:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/TN_NonAXIDomain/nonaxidomain/scheduler/start_transaction">
-      <obj_property name="ElementShortName">start_transaction</obj_property>
-      <obj_property name="ObjectShortName">start_transaction</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/TN_NonAXIDomain/nonaxidomain/scheduler/override_id">
-      <obj_property name="ElementShortName">override_id[1:0]</obj_property>
-      <obj_property name="ObjectShortName">override_id[1:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/TN_NonAXIDomain/nonaxidomain/scheduler/priority_override">
+   <wvobject type="logic" fp_name="/TB_Scheduler/scheduler/priority_override">
       <obj_property name="ElementShortName">priority_override</obj_property>
       <obj_property name="ObjectShortName">priority_override</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/TN_NonAXIDomain/nonaxidomain/scheduler/NUMBER_OF_QUEUES">
-      <obj_property name="ElementShortName">NUMBER_OF_QUEUES[31:0]</obj_property>
-      <obj_property name="ObjectShortName">NUMBER_OF_QUEUES[31:0]</obj_property>
+   <wvobject type="array" fp_name="/TB_Scheduler/scheduler/selected_queue">
+      <obj_property name="ElementShortName">selected_queue[1:0]</obj_property>
+      <obj_property name="ObjectShortName">selected_queue[1:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/TN_NonAXIDomain/nonaxidomain/scheduler/REGISTER_SIZE">
-      <obj_property name="ElementShortName">REGISTER_SIZE[31:0]</obj_property>
-      <obj_property name="ObjectShortName">REGISTER_SIZE[31:0]</obj_property>
+   <wvobject type="array" fp_name="/TB_Scheduler/scheduler/override_id">
+      <obj_property name="ElementShortName">override_id[1:0]</obj_property>
+      <obj_property name="ObjectShortName">override_id[1:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/TN_NonAXIDomain/nonaxidomain/scheduler/TDMA_ENABLED">
-      <obj_property name="ElementShortName">TDMA_ENABLED[31:0]</obj_property>
-      <obj_property name="ObjectShortName">TDMA_ENABLED[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/TN_NonAXIDomain/nonaxidomain/scheduler/EDF_ENABLED">
-      <obj_property name="ElementShortName">EDF_ENABLED[31:0]</obj_property>
-      <obj_property name="ObjectShortName">EDF_ENABLED[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/TN_NonAXIDomain/nonaxidomain/scheduler/NUMBER_OF_SCHEDULERS">
-      <obj_property name="ElementShortName">NUMBER_OF_SCHEDULERS[31:0]</obj_property>
-      <obj_property name="ObjectShortName">NUMBER_OF_SCHEDULERS[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/TN_NonAXIDomain/nonaxidomain/\genblk1[0].queue /full">
-      <obj_property name="ElementShortName">full</obj_property>
-      <obj_property name="ObjectShortName">full</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/TN_NonAXIDomain/nonaxidomain/\genblk1[1].queue /full">
-      <obj_property name="ElementShortName">full</obj_property>
-      <obj_property name="ObjectShortName">full</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/TN_NonAXIDomain/nonaxidomain/\genblk1[2].queue /full">
-      <obj_property name="ElementShortName">full</obj_property>
-      <obj_property name="ObjectShortName">full</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/TN_NonAXIDomain/nonaxidomain/\genblk1[3].queue /full">
-      <obj_property name="ElementShortName">full</obj_property>
-      <obj_property name="ObjectShortName">full</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/TN_NonAXIDomain/nonaxidomain/\genblk1[0].queue /clock">
-      <obj_property name="ElementShortName">clock</obj_property>
-      <obj_property name="ObjectShortName">clock</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/TN_NonAXIDomain/nonaxidomain/\genblk1[0].queue /reset">
-      <obj_property name="ElementShortName">reset</obj_property>
-      <obj_property name="ObjectShortName">reset</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/TN_NonAXIDomain/nonaxidomain/\genblk1[0].queue /valueIn">
-      <obj_property name="ElementShortName">valueIn[127:0]</obj_property>
-      <obj_property name="ObjectShortName">valueIn[127:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/TN_NonAXIDomain/nonaxidomain/\genblk1[0].queue /valueInValid">
-      <obj_property name="ElementShortName">valueInValid</obj_property>
-      <obj_property name="ObjectShortName">valueInValid</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/TN_NonAXIDomain/nonaxidomain/\genblk1[0].queue /consumed">
-      <obj_property name="ElementShortName">consumed</obj_property>
-      <obj_property name="ObjectShortName">consumed</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/TN_NonAXIDomain/nonaxidomain/\genblk1[0].queue /valueOut">
-      <obj_property name="ElementShortName">valueOut[127:0]</obj_property>
-      <obj_property name="ObjectShortName">valueOut[127:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/TN_NonAXIDomain/nonaxidomain/\genblk1[0].queue /empty">
-      <obj_property name="ElementShortName">empty</obj_property>
-      <obj_property name="ObjectShortName">empty</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/TN_NonAXIDomain/nonaxidomain/\genblk1[0].queue /full">
-      <obj_property name="ElementShortName">full</obj_property>
-      <obj_property name="ObjectShortName">full</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/TN_NonAXIDomain/nonaxidomain/\genblk1[0].queue /internalEmpty">
-      <obj_property name="ElementShortName">internalEmpty</obj_property>
-      <obj_property name="ObjectShortName">internalEmpty</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/TN_NonAXIDomain/nonaxidomain/\genblk1[0].queue /internalFull">
-      <obj_property name="ElementShortName">internalFull</obj_property>
-      <obj_property name="ObjectShortName">internalFull</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/TN_NonAXIDomain/nonaxidomain/\genblk1[0].queue /values">
-      <obj_property name="ElementShortName">values[0:15][127:0]</obj_property>
-      <obj_property name="ObjectShortName">values[0:15][127:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/TN_NonAXIDomain/nonaxidomain/\genblk1[0].queue /counter">
-      <obj_property name="ElementShortName">counter[3:0]</obj_property>
-      <obj_property name="ObjectShortName">counter[3:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/TN_NonAXIDomain/nonaxidomain/\genblk1[0].queue /DATA_SIZE">
-      <obj_property name="ElementShortName">DATA_SIZE[31:0]</obj_property>
-      <obj_property name="ObjectShortName">DATA_SIZE[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/TN_NonAXIDomain/nonaxidomain/\genblk1[0].queue /QUEUE_LENGTH">
-      <obj_property name="ElementShortName">QUEUE_LENGTH[31:0]</obj_property>
-      <obj_property name="ObjectShortName">QUEUE_LENGTH[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/TN_NonAXIDomain/nonaxidomain/selector/index">
-      <obj_property name="ElementShortName">index[1:0]</obj_property>
-      <obj_property name="ObjectShortName">index[1:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/TN_NonAXIDomain/nonaxidomain/scheduler/\genblk1.scheduling_policy_selector /clock">
-      <obj_property name="ElementShortName">clock</obj_property>
-      <obj_property name="ObjectShortName">clock</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/TN_NonAXIDomain/nonaxidomain/scheduler/\genblk1.scheduling_policy_selector /reset">
-      <obj_property name="ElementShortName">reset</obj_property>
-      <obj_property name="ObjectShortName">reset</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/TN_NonAXIDomain/nonaxidomain/scheduler/\genblk1.scheduling_policy_selector /index">
-      <obj_property name="ElementShortName">index[0:0]</obj_property>
-      <obj_property name="ObjectShortName">index[0:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/TN_NonAXIDomain/nonaxidomain/scheduler/\genblk1.scheduling_policy_selector /values">
-      <obj_property name="ElementShortName">values[0:1][1:0]</obj_property>
-      <obj_property name="ObjectShortName">values[0:1][1:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/TN_NonAXIDomain/nonaxidomain/scheduler/\genblk1.scheduling_policy_selector /outcome">
-      <obj_property name="ElementShortName">outcome[1:0]</obj_property>
-      <obj_property name="ObjectShortName">outcome[1:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/TN_NonAXIDomain/nonaxidomain/scheduler/\genblk1.scheduling_policy_selector /internalOutcome">
-      <obj_property name="ElementShortName">internalOutcome[1:0]</obj_property>
-      <obj_property name="ObjectShortName">internalOutcome[1:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/TN_NonAXIDomain/nonaxidomain/scheduler/\genblk1.scheduling_policy_selector /INPUTS">
-      <obj_property name="ElementShortName">INPUTS[31:0]</obj_property>
-      <obj_property name="ObjectShortName">INPUTS[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/TN_NonAXIDomain/nonaxidomain/scheduler/\genblk1.scheduling_policy_selector /INPUT_SIZE">
-      <obj_property name="ElementShortName">INPUT_SIZE[31:0]</obj_property>
-      <obj_property name="ObjectShortName">INPUT_SIZE[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/TN_NonAXIDomain/nonaxidomain/selector_to_serializer_packet">
-      <obj_property name="ElementShortName">selector_to_serializer_packet[127:0]</obj_property>
-      <obj_property name="ObjectShortName">selector_to_serializer_packet[127:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/TN_NonAXIDomain/nonaxidomain/scheduler/queue_router/packetsOut">
-      <obj_property name="ElementShortName">packetsOut[3:0]</obj_property>
-      <obj_property name="ObjectShortName">packetsOut[3:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/TN_NonAXIDomain/nonaxidomain/scheduler/queue_router/id">
-      <obj_property name="ElementShortName">id[1:0]</obj_property>
-      <obj_property name="ObjectShortName">id[1:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/TN_NonAXIDomain/nonaxidomain/scheduler/queue_router/valid">
-      <obj_property name="ElementShortName">valid</obj_property>
-      <obj_property name="ObjectShortName">valid</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/TN_NonAXIDomain/nonaxidomain/scheduler/booted">
-      <obj_property name="ElementShortName">booted</obj_property>
-      <obj_property name="ObjectShortName">booted</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/TN_NonAXIDomain/nonaxidomain/scheduler/hasBeenConsumed">
-      <obj_property name="ElementShortName">hasBeenConsumed[3:0]</obj_property>
-      <obj_property name="ObjectShortName">hasBeenConsumed[3:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/TN_NonAXIDomain/nonaxidomain/scheduler/queue_router/clock">
-      <obj_property name="ElementShortName">clock</obj_property>
-      <obj_property name="ObjectShortName">clock</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/TN_NonAXIDomain/nonaxidomain/scheduler/queue_router/reset">
-      <obj_property name="ElementShortName">reset</obj_property>
-      <obj_property name="ObjectShortName">reset</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/TN_NonAXIDomain/nonaxidomain/scheduler/queue_router/packetIn">
-      <obj_property name="ElementShortName">packetIn[0:0]</obj_property>
-      <obj_property name="ObjectShortName">packetIn[0:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/TN_NonAXIDomain/nonaxidomain/scheduler/queue_router/valid">
-      <obj_property name="ElementShortName">valid</obj_property>
-      <obj_property name="ObjectShortName">valid</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/TN_NonAXIDomain/nonaxidomain/scheduler/queue_router/id">
-      <obj_property name="ElementShortName">id[1:0]</obj_property>
-      <obj_property name="ObjectShortName">id[1:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/TN_NonAXIDomain/nonaxidomain/scheduler/queue_router/packetsOut">
-      <obj_property name="ElementShortName">packetsOut[3:0]</obj_property>
-      <obj_property name="ObjectShortName">packetsOut[3:0]</obj_property>
-      <obj_property name="isExpanded"></obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/TN_NonAXIDomain/nonaxidomain/scheduler/queue_router/produced">
-      <obj_property name="ElementShortName">produced[3:0]</obj_property>
-      <obj_property name="ObjectShortName">produced[3:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/TN_NonAXIDomain/nonaxidomain/scheduler/queue_router/OUTPUTS">
-      <obj_property name="ElementShortName">OUTPUTS[31:0]</obj_property>
-      <obj_property name="ObjectShortName">OUTPUTS[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/TN_NonAXIDomain/nonaxidomain/scheduler/queue_router/INPUT_SIZE">
-      <obj_property name="ElementShortName">INPUT_SIZE</obj_property>
-      <obj_property name="ObjectShortName">INPUT_SIZE</obj_property>
+   <wvobject type="array" fp_name="/TB_Scheduler/scheduler/counter">
+      <obj_property name="ElementShortName">counter[1:0]</obj_property>
+      <obj_property name="ObjectShortName">counter[1:0]</obj_property>
    </wvobject>
 </wave_config>

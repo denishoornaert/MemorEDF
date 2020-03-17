@@ -682,7 +682,7 @@ module Serializer #
         begin                                                  
             internal_packetConsumed <= 1'b1;                                                   
         end
-        else if( init_txn_pulse == 1'b1 )
+        else if((!init_txn_ff) && INIT_AXI_TXN)
         begin
             internal_packetConsumed <= 0;  
         end 
