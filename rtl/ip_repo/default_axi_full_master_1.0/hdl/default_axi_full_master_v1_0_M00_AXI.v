@@ -238,7 +238,7 @@
 	// I/O Connections assignments
 
 	//I/O Connections. Write Address (AW)
-	assign M_AXI_AWID	= 16'b0000000110001101; // core 0
+	assign M_AXI_AWID	= 16'b0000000110101101; // core 0
 	//The AXI address is a concatenation of the target base address + active offset range
 	assign M_AXI_AWADDR	= C_M_TARGET_SLAVE_BASE_ADDR + axi_awaddr;
 	//Burst LENgth is number of transaction beats, minus 1
