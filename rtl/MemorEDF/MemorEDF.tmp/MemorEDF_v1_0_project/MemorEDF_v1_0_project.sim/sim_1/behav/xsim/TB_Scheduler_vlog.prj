@@ -1,0 +1,14 @@
+# compile verilog/system verilog design source files
+sv xil_defaultlib  --include "/opt/Xilinx/Vivado/2017.4/data/xilinx_vip/include" \
+"../../../../../../../ip_repo/src/Combinatorial_Dispatcher.sv" \
+"../../../../../../../ip_repo/src/EDF.sv" \
+"../../../../../../../ip_repo/src/Scheduler.sv" \
+"../../../../../../../ip_repo/src/Selector.sv" \
+"../../../../../../../ip_repo/src/TDMA.sv" \
+"../../../../../../../ip_repo/src/TB_Scheduler.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

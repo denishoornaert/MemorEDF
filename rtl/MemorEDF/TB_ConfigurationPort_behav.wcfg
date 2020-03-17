@@ -14,15 +14,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="27025000001fs"></ZoomEndTime>
-      <Cursor1Time time="8125000000fs"></Cursor1Time>
+      <ZoomStartTime time="2506000000fs"></ZoomStartTime>
+      <ZoomEndTime time="3640000001fs"></ZoomEndTime>
+      <Cursor1Time time="2905000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="303"></NameColumnWidth>
-      <ValueColumnWidth column_width="258"></ValueColumnWidth>
+      <ValueColumnWidth column_width="174"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="195" />
+   <WVObjectSize size="255" />
    <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/s00_axi_aclk">
       <obj_property name="ElementShortName">s00_axi_aclk</obj_property>
       <obj_property name="ObjectShortName">s00_axi_aclk</obj_property>
@@ -374,6 +374,8 @@
    <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/\genblk1[0].queue /empty">
       <obj_property name="ElementShortName">empty</obj_property>
       <obj_property name="ObjectShortName">empty</obj_property>
+      <obj_property name="CustomSignalColor">#FF0000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/\genblk1[0].queue /full">
       <obj_property name="ElementShortName">full</obj_property>
@@ -382,6 +384,10 @@
    <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/\genblk1[0].queue /lastElem">
       <obj_property name="ElementShortName">lastElem</obj_property>
       <obj_property name="ObjectShortName">lastElem</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/packetizer/packetValid">
+      <obj_property name="ElementShortName">packetValid</obj_property>
+      <obj_property name="ObjectShortName">packetValid</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/\genblk1[0].queue /counter">
       <obj_property name="ElementShortName">counter[3:0]</obj_property>
@@ -396,9 +402,38 @@
       <obj_property name="ElementShortName">start_transaction</obj_property>
       <obj_property name="ObjectShortName">start_transaction</obj_property>
    </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/counter">
+      <obj_property name="ElementShortName">counter[1:0]</obj_property>
+      <obj_property name="ObjectShortName">counter[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/internal_id">
+      <obj_property name="ElementShortName">internal_id[1:0]</obj_property>
+      <obj_property name="ObjectShortName">internal_id[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/empty">
+      <obj_property name="ElementShortName">empty[3:0]</obj_property>
+      <obj_property name="ObjectShortName">empty[3:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/hasBeenConsumed">
+      <obj_property name="ElementShortName">hasBeenConsumed[3:0]</obj_property>
+      <obj_property name="ObjectShortName">hasBeenConsumed[3:0]</obj_property>
+      <obj_property name="CustomSignalColor">#D2691E</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/first_time">
+      <obj_property name="ElementShortName">first_time</obj_property>
+      <obj_property name="ObjectShortName">first_time</obj_property>
+   </wvobject>
    <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/serializer_to_scheduler_consumed">
       <obj_property name="ElementShortName">serializer_to_scheduler_consumed</obj_property>
       <obj_property name="ObjectShortName">serializer_to_scheduler_consumed</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/enable">
+      <obj_property name="ElementShortName">enable</obj_property>
+      <obj_property name="ObjectShortName">enable</obj_property>
    </wvobject>
    <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/\genblk1[0].queue /consumed">
       <obj_property name="ElementShortName">consumed</obj_property>
@@ -439,10 +474,14 @@
    <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/serializer/start_single_burst_write">
       <obj_property name="ElementShortName">start_single_burst_write</obj_property>
       <obj_property name="ObjectShortName">start_single_burst_write</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/serializer/start_single_burst_read">
       <obj_property name="ElementShortName">start_single_burst_read</obj_property>
       <obj_property name="ObjectShortName">start_single_burst_read</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/packetizer/stall">
       <obj_property name="ElementShortName">stall</obj_property>
@@ -717,10 +756,6 @@
       <obj_property name="ElementShortName">scheduler_periods[3:0][31:0]</obj_property>
       <obj_property name="ObjectShortName">scheduler_periods[3:0][31:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/\genblk2.tdma /selection">
-      <obj_property name="ElementShortName">selection[1:0]</obj_property>
-      <obj_property name="ObjectShortName">selection[1:0]</obj_property>
-   </wvobject>
    <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/id">
       <obj_property name="ElementShortName">id[1:0]</obj_property>
       <obj_property name="ObjectShortName">id[1:0]</obj_property>
@@ -728,46 +763,6 @@
    <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/mode">
       <obj_property name="ElementShortName">mode[0:0]</obj_property>
       <obj_property name="ObjectShortName">mode[0:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/\genblk2.tdma /clock">
-      <obj_property name="ElementShortName">clock</obj_property>
-      <obj_property name="ObjectShortName">clock</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/\genblk2.tdma /reset">
-      <obj_property name="ElementShortName">reset</obj_property>
-      <obj_property name="ObjectShortName">reset</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/\genblk2.tdma /deltaT">
-      <obj_property name="ElementShortName">deltaT[3:0][31:0]</obj_property>
-      <obj_property name="ObjectShortName">deltaT[3:0][31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/\genblk2.tdma /selection">
-      <obj_property name="ElementShortName">selection[1:0]</obj_property>
-      <obj_property name="ObjectShortName">selection[1:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/\genblk2.tdma /internalSelection">
-      <obj_property name="ElementShortName">internalSelection[1:0]</obj_property>
-      <obj_property name="ObjectShortName">internalSelection[1:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/\genblk2.tdma /counter">
-      <obj_property name="ElementShortName">counter[31:0]</obj_property>
-      <obj_property name="ObjectShortName">counter[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/\genblk2.tdma /delta">
-      <obj_property name="ElementShortName">delta[3:0][31:0]</obj_property>
-      <obj_property name="ObjectShortName">delta[3:0][31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/\genblk2.tdma /sums">
-      <obj_property name="ElementShortName">sums[3:0][31:0]</obj_property>
-      <obj_property name="ObjectShortName">sums[3:0][31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/\genblk2.tdma /NUMBER_OF_QUEUES">
-      <obj_property name="ElementShortName">NUMBER_OF_QUEUES[31:0]</obj_property>
-      <obj_property name="ObjectShortName">NUMBER_OF_QUEUES[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/\genblk2.tdma /REGISTER_SIZE">
-      <obj_property name="ElementShortName">REGISTER_SIZE[31:0]</obj_property>
-      <obj_property name="ObjectShortName">REGISTER_SIZE[31:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/serializer/packet_in">
       <obj_property name="ElementShortName">packet_in[677:0]</obj_property>
@@ -793,16 +788,286 @@
       <obj_property name="ElementShortName">coreIdReg_write[15:0]</obj_property>
       <obj_property name="ObjectShortName">coreIdReg_write[15:0]</obj_property>
    </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/\genblk1[1].queue /valueIn">
+      <obj_property name="ElementShortName">valueIn[677:0]</obj_property>
+      <obj_property name="ObjectShortName">valueIn[677:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/\genblk1[1].queue /valueInValid">
+      <obj_property name="ElementShortName">valueInValid</obj_property>
+      <obj_property name="ObjectShortName">valueInValid</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/override_id">
+      <obj_property name="ElementShortName">override_id[1:0]</obj_property>
+      <obj_property name="ObjectShortName">override_id[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/priority_override">
+      <obj_property name="ElementShortName">priority_override</obj_property>
+      <obj_property name="ObjectShortName">priority_override</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/id">
+      <obj_property name="ElementShortName">id[1:0]</obj_property>
+      <obj_property name="ObjectShortName">id[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/hasBeenConsumed">
+      <obj_property name="ElementShortName">hasBeenConsumed[3:0]</obj_property>
+      <obj_property name="ObjectShortName">hasBeenConsumed[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/\genblk1[0].queue /consumed">
+      <obj_property name="ElementShortName">consumed</obj_property>
+      <obj_property name="ObjectShortName">consumed</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/\genblk1[1].queue /consumed">
+      <obj_property name="ElementShortName">consumed</obj_property>
+      <obj_property name="ObjectShortName">consumed</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/\genblk1[1].queue /valueOut">
+      <obj_property name="ElementShortName">valueOut[677:0]</obj_property>
+      <obj_property name="ObjectShortName">valueOut[677:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/\genblk1[1].queue /empty">
+      <obj_property name="ElementShortName">empty</obj_property>
+      <obj_property name="ObjectShortName">empty</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/\genblk1[1].queue /full">
+      <obj_property name="ElementShortName">full</obj_property>
+      <obj_property name="ObjectShortName">full</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/\genblk1[1].queue /lastElem">
+      <obj_property name="ElementShortName">lastElem</obj_property>
+      <obj_property name="ObjectShortName">lastElem</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/\genblk1[1].queue /internalEmpty">
+      <obj_property name="ElementShortName">internalEmpty</obj_property>
+      <obj_property name="ObjectShortName">internalEmpty</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/\genblk1[1].queue /internalFull">
+      <obj_property name="ElementShortName">internalFull</obj_property>
+      <obj_property name="ObjectShortName">internalFull</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/\genblk1[1].queue /internalLastElem">
+      <obj_property name="ElementShortName">internalLastElem</obj_property>
+      <obj_property name="ObjectShortName">internalLastElem</obj_property>
+   </wvobject>
    <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/\genblk1[1].queue /values">
       <obj_property name="ElementShortName">values[0:15][677:0]</obj_property>
       <obj_property name="ObjectShortName">values[0:15][677:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/\genblk1[1].queue /counter">
+      <obj_property name="ElementShortName">counter[3:0]</obj_property>
+      <obj_property name="ObjectShortName">counter[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/clock">
+      <obj_property name="ElementShortName">clock</obj_property>
+      <obj_property name="ObjectShortName">clock</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/reset">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/mode">
+      <obj_property name="ElementShortName">mode[0:0]</obj_property>
+      <obj_property name="ObjectShortName">mode[0:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/full">
+      <obj_property name="ElementShortName">full[3:0]</obj_property>
+      <obj_property name="ObjectShortName">full[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/empty">
+      <obj_property name="ElementShortName">empty[3:0]</obj_property>
+      <obj_property name="ObjectShortName">empty[3:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/lastElem">
+      <obj_property name="ElementShortName">lastElem[3:0]</obj_property>
+      <obj_property name="ObjectShortName">lastElem[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/deadlines">
+      <obj_property name="ElementShortName">deadlines[3:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">deadlines[3:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/periods">
+      <obj_property name="ElementShortName">periods[3:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">periods[3:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/consumed_ff">
+      <obj_property name="ElementShortName">consumed_ff</obj_property>
+      <obj_property name="ObjectShortName">consumed_ff</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/consumed_ff2">
+      <obj_property name="ElementShortName">consumed_ff2</obj_property>
+      <obj_property name="ObjectShortName">consumed_ff2</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/hasBeenConsumed_ff">
+      <obj_property name="ElementShortName">hasBeenConsumed_ff[3:0]</obj_property>
+      <obj_property name="ObjectShortName">hasBeenConsumed_ff[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/booted">
+      <obj_property name="ElementShortName">booted</obj_property>
+      <obj_property name="ObjectShortName">booted</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/schedulers_to_selector">
+      <obj_property name="ElementShortName">schedulers_to_selector[0:1][1:0]</obj_property>
+      <obj_property name="ObjectShortName">schedulers_to_selector[0:1][1:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/selected_queue">
+      <obj_property name="ElementShortName">selected_queue[1:0]</obj_property>
+      <obj_property name="ObjectShortName">selected_queue[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/internal_id_ff">
+      <obj_property name="ElementShortName">internal_id_ff[1:0]</obj_property>
+      <obj_property name="ObjectShortName">internal_id_ff[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/override_id">
+      <obj_property name="ElementShortName">override_id[1:0]</obj_property>
+      <obj_property name="ObjectShortName">override_id[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/id">
+      <obj_property name="ElementShortName">id[1:0]</obj_property>
+      <obj_property name="ObjectShortName">id[1:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/selector/outcome">
+      <obj_property name="ElementShortName">outcome[677:0]</obj_property>
+      <obj_property name="ObjectShortName">outcome[677:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/priority_override">
+      <obj_property name="ElementShortName">priority_override</obj_property>
+      <obj_property name="ObjectShortName">priority_override</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/internal_enable">
+      <obj_property name="ElementShortName">internal_enable</obj_property>
+      <obj_property name="ObjectShortName">internal_enable</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/hasBeenConsumed">
+      <obj_property name="ElementShortName">hasBeenConsumed[3:0]</obj_property>
+      <obj_property name="ObjectShortName">hasBeenConsumed[3:0]</obj_property>
+      <obj_property name="CustomSignalColor">#D2691E</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/internal_hasBeenConsumed">
+      <obj_property name="ElementShortName">internal_hasBeenConsumed[3:0]</obj_property>
+      <obj_property name="ObjectShortName">internal_hasBeenConsumed[3:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/internal_id">
+      <obj_property name="ElementShortName">internal_id[1:0]</obj_property>
+      <obj_property name="ObjectShortName">internal_id[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/counter">
+      <obj_property name="ElementShortName">counter[1:0]</obj_property>
+      <obj_property name="ObjectShortName">counter[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/first_time">
+      <obj_property name="ElementShortName">first_time</obj_property>
+      <obj_property name="ObjectShortName">first_time</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/consumed">
+      <obj_property name="ElementShortName">consumed</obj_property>
+      <obj_property name="ObjectShortName">consumed</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/mode">
+      <obj_property name="ElementShortName">mode[0:0]</obj_property>
+      <obj_property name="ObjectShortName">mode[0:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFFFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/\genblk1[0].queue /empty">
+      <obj_property name="ElementShortName">empty</obj_property>
+      <obj_property name="ObjectShortName">empty</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/\genblk1[0].queue /full">
+      <obj_property name="ElementShortName">full</obj_property>
+      <obj_property name="ObjectShortName">full</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/\genblk1[0].queue /values">
+      <obj_property name="ElementShortName">values[0:15][677:0]</obj_property>
+      <obj_property name="ObjectShortName">values[0:15][677:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/\genblk1[0].queue /counter">
+      <obj_property name="ElementShortName">counter[3:0]</obj_property>
+      <obj_property name="ObjectShortName">counter[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/\genblk1[1].queue /consumed">
+      <obj_property name="ElementShortName">consumed</obj_property>
+      <obj_property name="ObjectShortName">consumed</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/\genblk1[1].queue /empty">
+      <obj_property name="ElementShortName">empty</obj_property>
+      <obj_property name="ObjectShortName">empty</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/\genblk1[1].queue /full">
+      <obj_property name="ElementShortName">full</obj_property>
+      <obj_property name="ObjectShortName">full</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/\genblk1[1].queue /values">
+      <obj_property name="ElementShortName">values[0:15][677:0]</obj_property>
+      <obj_property name="ObjectShortName">values[0:15][677:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/\genblk1[1].queue /counter">
+      <obj_property name="ElementShortName">counter[3:0]</obj_property>
+      <obj_property name="ObjectShortName">counter[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/\genblk1[2].queue /consumed">
+      <obj_property name="ElementShortName">consumed</obj_property>
+      <obj_property name="ObjectShortName">consumed</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/\genblk1[2].queue /empty">
+      <obj_property name="ElementShortName">empty</obj_property>
+      <obj_property name="ObjectShortName">empty</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/\genblk1[2].queue /full">
+      <obj_property name="ElementShortName">full</obj_property>
+      <obj_property name="ObjectShortName">full</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/\genblk1[2].queue /values">
       <obj_property name="ElementShortName">values[0:15][677:0]</obj_property>
       <obj_property name="ObjectShortName">values[0:15][677:0]</obj_property>
    </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/\genblk1[2].queue /counter">
+      <obj_property name="ElementShortName">counter[3:0]</obj_property>
+      <obj_property name="ObjectShortName">counter[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/\genblk1[3].queue /empty">
+      <obj_property name="ElementShortName">empty</obj_property>
+      <obj_property name="ObjectShortName">empty</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/\genblk1[3].queue /full">
+      <obj_property name="ElementShortName">full</obj_property>
+      <obj_property name="ObjectShortName">full</obj_property>
+   </wvobject>
    <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/\genblk1[3].queue /values">
       <obj_property name="ElementShortName">values[0:15][677:0]</obj_property>
       <obj_property name="ObjectShortName">values[0:15][677:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/\genblk1[3].queue /counter">
+      <obj_property name="ElementShortName">counter[3:0]</obj_property>
+      <obj_property name="ObjectShortName">counter[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/\genblk1[0].queue /consumed">
+      <obj_property name="ElementShortName">consumed</obj_property>
+      <obj_property name="ObjectShortName">consumed</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/id">
+      <obj_property name="ElementShortName">id[1:0]</obj_property>
+      <obj_property name="ObjectShortName">id[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/consumed">
+      <obj_property name="ElementShortName">consumed</obj_property>
+      <obj_property name="ObjectShortName">consumed</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/hasBeenConsumed">
+      <obj_property name="ElementShortName">hasBeenConsumed[3:0]</obj_property>
+      <obj_property name="ObjectShortName">hasBeenConsumed[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_MemorEDF/DUT/design_1_i/MemorEDF_0/inst/nonaxidomain/scheduler/enable">
+      <obj_property name="ElementShortName">enable</obj_property>
+      <obj_property name="ObjectShortName">enable</obj_property>
    </wvobject>
 </wave_config>
