@@ -221,7 +221,7 @@ module MemorEDF #
     // Internal routing
     wire            [DATA_SIZE-1 : 0] packetizer_to_dispatcher_packet;
     wire                              packetizer_to_dispatcher_valid;
-    wire                      [1 : 0] packetizer_to_dispatcher_id;
+    wire   [C_S00_AXI_ID_WIDTH-1 : 0] packetizer_to_dispatcher_id;
     wire            [DATA_SIZE-1 : 0] selector_to_serializer_packet;
     wire                              serializer_to_scheduler_consumed;
     wire                              scheduler_to_serializer_activate_signal;

@@ -32,12 +32,12 @@ module TB_FP();
     
     FP #(
         .NUMBER_OF_QUEUES(4),
-        .REGISTER_SIZE(32)
+        .PRIORITY_SIZE(32)
     ) fp (
         .clock(clock),
         .reset(reset),
         .priorities(priorities),
-        .free(free),
+        .empty(free),
         .selection(selection)
     );
     
@@ -75,15 +75,15 @@ module TB_FP();
         assert(selection == 0) else $display("Selection should be equal to 0");
         #10ns;
         
-        free <= 4'b1001;
+        free <= 4'b1011;
         assert(selection == 2) else $display("Selection should be equal to 2");
         #10ns;
         
-        free <= 4'b1000;
+        free <= 4'b1001;
         assert(selection == 0) else $display("Selection should be equal to 0");
         #10ns;
         
-        free <= 4'b0010;
+        free <= 4'b0111;
         assert(selection == 3) else $display("Selection should be equal to 3");
         #10ns;
         

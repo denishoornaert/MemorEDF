@@ -28,7 +28,7 @@ module FP #(
         clock,
         reset,
         priorities,
-        free,
+        empty,
         selection
     );
     
@@ -36,7 +36,7 @@ module FP #(
     input  wire                                                clock;
     input  wire                                                reset;
     input  wire [NUMBER_OF_QUEUES-1 : 0] [PRIORITY_SIZE-1 : 0] priorities;
-    input  wire                       [NUMBER_OF_QUEUES-1 : 0] free;
+    input  wire                       [NUMBER_OF_QUEUES-1 : 0] empty;
     
     // Output definition
     output wire [$clog2(NUMBER_OF_QUEUES)-1 : 0] selection;
@@ -63,7 +63,7 @@ module FP #(
             integer j;
             for(j = 0; j < NUMBER_OF_QUEUES; j = j + 1)
             begin
-                updated_priorities[j] <= (free[j])? priorities[j] : 0;
+                updated_priorities[j] <= (empty[j])? 0 : priorities[j];
             end
         end 
     end

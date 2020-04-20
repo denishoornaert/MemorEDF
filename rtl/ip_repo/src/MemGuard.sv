@@ -66,6 +66,7 @@ module MemGuard #(
         assign eligible_queues[i] = (!empty) & (amount_of_transactions_already_performed[front] < budgets[front]);
     end
     
+    assign selection = RR[0];
     
     always @(posedge clock)
     begin
@@ -80,7 +81,7 @@ module MemGuard #(
         end
         else
         begin
-            if(!empty[front])
+            if(empty[front] | (amount_of_transactions_already_performed[front] < budgets[front]))
             begin
                 RR <= {RR[NUMBER_OF_QUEUES-1 : 1], RR[0]}; // TODO Check if not the other way arround
                 valid <= 0;

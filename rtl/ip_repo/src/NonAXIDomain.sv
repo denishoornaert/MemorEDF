@@ -26,6 +26,7 @@ module NonAXIDomain #(
 		parameter integer DATA_SIZE              = (102+(4*16)+(4*128)),
 		parameter integer QUEUE_LENGTH           = 16,
 		// Available/enabled schdulers
+		parameter integer ID_WIDTH               = 16,
 		parameter integer REGISTER_SIZE          = 32,
 		parameter integer PRIORITY_SIZE          = 4,
         parameter integer TDMA_ENABLED           = 1,
@@ -52,7 +53,7 @@ module NonAXIDomain #(
     input wire                                                reset;
     input wire                              [DATA_SIZE-1 : 0] packetizer_to_dispatcher_packet;
     input wire                                                packetizer_to_dispatcher_valid;
-    input wire                                        [1 : 0] packetizer_to_dispatcher_id;
+    input wire                               [ID_WIDTH-1 : 0] packetizer_to_dispatcher_id;
     input wire           [$clog2(NUMBER_OF_SCHEDULERS)-1 : 0] scheduling_mode;
     input wire [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] scheduler_deadlines;
     input wire [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] scheduler_periods;
@@ -84,7 +85,7 @@ module NonAXIDomain #(
         .reset(reset),
         .packetIn(packetizer_to_dispatcher_packet),
         .valid(packetizer_to_dispatcher_valid),
-        .id(packetizer_to_dispatcher_id),
+        .id(packetizer_to_dispatcher_id[(5+$clog2(NUMBER_OF_QUEUES)-1) : 5]),
         .packetsOut(dispatcher_to_queues_packets),
         .produced(dispatcher_to_queues_valid)
     );
