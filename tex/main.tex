@@ -7,6 +7,9 @@
 \usepackage{graphicx}
 \usepackage{textcomp}
 \usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\usepackage{subcaption}
 \usepackage{todonotes}
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
@@ -45,7 +48,7 @@ email address or ORCID}
 
 \begin{abstract}
 This document is a model and instructions for \LaTeX.
-This and the IEEEtran.cls file define the components of your paper [title, text, heads, etc.]. *CRITICAL: Do Not Use Symbols, Special Characters, Footnotes, 
+This and the IEEEtran.cls file define the components of your paper [title, text, heads, etc.]. *CRITICAL: Do Not Use Symbols, Special Characters, Footnotes,
 or Math in Paper Title or Abstract.
 \end{abstract}
 
@@ -58,10 +61,12 @@ component, formatting, style, styling, insert
 \input{Related_Work}
 \input{System_Design_Background}
 \input{Scheduling_Background}
-\input{Experiment_Setup}
+\input{SchIM_Implementation}
 \input{Evaluation}
 \input{Overhead}
 \input{Conclusion}
 
+\bibliographystyle{IEEEtranS}
+\bibliography{references}
 
 \end{document}
