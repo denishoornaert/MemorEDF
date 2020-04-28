@@ -1,0 +1,889 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:54:30 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Tue Apr 28 11:43:23 2020
+# Process ID: 26635
+# Current directory: /home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/design_2_MemorEDF_0_0_synth_1
+# Command line: vivado -log design_2_MemorEDF_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_2_MemorEDF_0_0.tcl
+# Log file: /home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/design_2_MemorEDF_0_0_synth_1/design_2_MemorEDF_0_0.vds
+# Journal file: /home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/design_2_MemorEDF_0_0_synth_1/vivado.jou
+#-----------------------------------------------------------
+source design_2_MemorEDF_0_0.tcl -notrace
+Command: synth_design -top design_2_MemorEDF_0_0 -part xczu9eg-ffvb1156-2-e -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xczu9eg'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xczu9eg'
+INFO: [Common 17-1540] The version limit for your license is '2020.03' and has expired for new software. A version limit expiration means that, although you may be able to continue to use the current version of tools or IP with this license, you will not be eligible for any updates or new releases.
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 26672 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1551.199 ; gain = 0.000 ; free physical = 17813 ; free virtual = 26308
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'design_2_MemorEDF_0_0' [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_MemorEDF_0_0/synth/design_2_MemorEDF_0_0.sv:56]
+INFO: [Synth 8-638] synthesizing module 'MemorEDF' [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/MemorEDF.sv:23]
+	Parameter CONFIGURATION_PORT_ENABLED bound to: 1 - type: integer 
+	Parameter NUMBER_OF_QUEUES bound to: 4 - type: integer 
+	Parameter DATA_SIZE bound to: 246 - type: integer 
+	Parameter QUEUE_LENGTH bound to: 16 - type: integer 
+	Parameter REGISTER_SIZE bound to: 32 - type: integer 
+	Parameter TDMA_ENABLED bound to: 1 - type: integer 
+	Parameter EDF_ENABLED bound to: 1 - type: integer 
+	Parameter C_S00_AXI_ID_WIDTH bound to: 16 - type: integer 
+	Parameter C_S00_AXI_DATA_WIDTH bound to: 128 - type: integer 
+	Parameter C_S00_AXI_ADDR_WIDTH bound to: 40 - type: integer 
+	Parameter C_S00_AXI_AWUSER_WIDTH bound to: 16 - type: integer 
+	Parameter C_S00_AXI_ARUSER_WIDTH bound to: 16 - type: integer 
+	Parameter C_S01_AXI_ID_WIDTH bound to: 16 - type: integer 
+	Parameter C_S01_AXI_DATA_WIDTH bound to: 128 - type: integer 
+	Parameter C_S01_AXI_ADDR_WIDTH bound to: 40 - type: integer 
+	Parameter C_S01_AXI_AWUSER_WIDTH bound to: 16 - type: integer 
+	Parameter C_S01_AXI_ARUSER_WIDTH bound to: 16 - type: integer 
+	Parameter C_M00_AXI_BURST_LEN bound to: 1 - type: integer 
+	Parameter C_M00_AXI_ID_WIDTH bound to: 16 - type: integer 
+	Parameter C_M00_AXI_ADDR_WIDTH bound to: 40 - type: integer 
+	Parameter C_M00_AXI_DATA_WIDTH bound to: 128 - type: integer 
+	Parameter C_M00_AXI_AWUSER_WIDTH bound to: 16 - type: integer 
+	Parameter C_M00_AXI_ARUSER_WIDTH bound to: 16 - type: integer 
+	Parameter NUMBER_OF_SCHEDULERS bound to: 2 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'Packetizer' [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/Packetizer.sv:23]
+	Parameter C_S_AXI_ID_WIDTH bound to: 16 - type: integer 
+	Parameter C_S_AXI_DATA_WIDTH bound to: 128 - type: integer 
+	Parameter C_S_AXI_ADDR_WIDTH bound to: 40 - type: integer 
+	Parameter C_S_AXI_AWUSER_WIDTH bound to: 16 - type: integer 
+	Parameter C_S_AXI_ARUSER_WIDTH bound to: 16 - type: integer 
+	Parameter C_S_AXI_WUSER_WIDTH bound to: 0 - type: integer 
+	Parameter C_S_AXI_RUSER_WIDTH bound to: 0 - type: integer 
+	Parameter C_S_AXI_BUSER_WIDTH bound to: 0 - type: integer 
+	Parameter ADDR_LSB bound to: 4 - type: integer 
+	Parameter OPT_MEM_ADDR_BITS bound to: 1 - type: integer 
+	Parameter USER_NUM_MEM bound to: 1 - type: integer 
+WARNING: [Synth 8-6014] Unused sequential element axi_awaddr_reg was removed.  [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/Packetizer.sv:265]
+WARNING: [Synth 8-6014] Unused sequential element axi_awlen_cntr_reg was removed.  [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/Packetizer.sv:312]
+WARNING: [Synth 8-6014] Unused sequential element axi_awburst_reg was removed.  [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/Packetizer.sv:313]
+WARNING: [Synth 8-6014] Unused sequential element axi_awlen_reg was removed.  [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/Packetizer.sv:263]
+WARNING: [Synth 8-6014] Unused sequential element axi_awid_reg was removed.  [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/Packetizer.sv:404]
+WARNING: [Synth 8-6014] Unused sequential element axi_araddr_reg was removed.  [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/Packetizer.sv:266]
+WARNING: [Synth 8-6014] Unused sequential element axi_arburst_reg was removed.  [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/Packetizer.sv:485]
+WARNING: [Synth 8-3848] Net mem_data_out in module/entity Packetizer does not have driver. [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/Packetizer.sv:244]
+INFO: [Synth 8-256] done synthesizing module 'Packetizer' (1#1) [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/Packetizer.sv:23]
+WARNING: [Synth 8-350] instance 'packetizer' of module 'Packetizer' requires 43 connections, but only 38 given [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/MemorEDF.sv:249]
+INFO: [Synth 8-638] synthesizing module 'ConfigurationPort' [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/ConfigurationPort.sv:22]
+	Parameter C_S_AXI_ID_WIDTH bound to: 16 - type: integer 
+	Parameter C_S_AXI_DATA_WIDTH bound to: 128 - type: integer 
+	Parameter C_S_AXI_ADDR_WIDTH bound to: 40 - type: integer 
+	Parameter C_S_AXI_AWUSER_WIDTH bound to: 16 - type: integer 
+	Parameter C_S_AXI_ARUSER_WIDTH bound to: 16 - type: integer 
+	Parameter C_S_AXI_WUSER_WIDTH bound to: 0 - type: integer 
+	Parameter C_S_AXI_RUSER_WIDTH bound to: 0 - type: integer 
+	Parameter C_S_AXI_BUSER_WIDTH bound to: 0 - type: integer 
+	Parameter ADDR_LSB bound to: 4 - type: integer 
+	Parameter OPT_MEM_ADDR_BITS bound to: 2 - type: integer 
+	Parameter USER_NUM_MEM bound to: 1 - type: integer 
+	Parameter MEMORY_SIZE_IN_BYTE bound to: 64 - type: integer 
+	Parameter MEMORY_ROWS bound to: 4 - type: integer 
+WARNING: [Synth 8-324] index 16 out of range [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/ConfigurationPort.sv:591]
+WARNING: [Synth 8-5856] 3D RAM byte_ram_reg  for this pattern/configuration is not supported. This will most likely be implemented in registers
+WARNING: [Synth 8-6014] Unused sequential element axi_buser_reg was removed.  [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/ConfigurationPort.sv:404]
+WARNING: [Synth 8-6014] Unused sequential element axi_ruser_reg was removed.  [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/ConfigurationPort.sv:471]
+INFO: [Synth 8-256] done synthesizing module 'ConfigurationPort' (2#1) [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/ConfigurationPort.sv:22]
+INFO: [Synth 8-638] synthesizing module 'Serializer' [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/Seralizer.sv:23]
+	Parameter C_M_TARGET_SLAVE_BASE_ADDR bound to: 40'b0100000000000000000000000000000000000000 
+	Parameter C_M_AXI_BURST_LEN bound to: 1 - type: integer 
+	Parameter C_M_AXI_ID_WIDTH bound to: 16 - type: integer 
+	Parameter C_M_AXI_ADDR_WIDTH bound to: 40 - type: integer 
+	Parameter C_M_AXI_DATA_WIDTH bound to: 128 - type: integer 
+	Parameter C_M_AXI_AWUSER_WIDTH bound to: 16 - type: integer 
+	Parameter C_M_AXI_ARUSER_WIDTH bound to: 16 - type: integer 
+	Parameter C_M_AXI_WUSER_WIDTH bound to: 0 - type: integer 
+	Parameter C_M_AXI_RUSER_WIDTH bound to: 0 - type: integer 
+	Parameter C_M_AXI_BUSER_WIDTH bound to: 0 - type: integer 
+	Parameter C_TRANSACTIONS_NUM bound to: 0 - type: integer 
+	Parameter C_MASTER_LENGTH bound to: 12 - type: integer 
+	Parameter C_NO_BURSTS_REQ bound to: 8 - type: integer 
+WARNING: [Synth 8-6014] Unused sequential element write_index_reg was removed.  [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/Seralizer.sv:474]
+INFO: [Synth 8-256] done synthesizing module 'Serializer' (3#1) [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/Seralizer.sv:23]
+INFO: [Synth 8-638] synthesizing module 'NonAXIDomain' [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/NonAXIDomain.sv:23]
+	Parameter NUMBER_OF_QUEUES bound to: 4 - type: integer 
+	Parameter DATA_SIZE bound to: 246 - type: integer 
+	Parameter QUEUE_LENGTH bound to: 16 - type: integer 
+	Parameter ID_WIDTH bound to: 16 - type: integer 
+	Parameter REGISTER_SIZE bound to: 32 - type: integer 
+	Parameter TDMA_ENABLED bound to: 1 - type: integer 
+	Parameter EDF_ENABLED bound to: 1 - type: integer 
+	Parameter NUMBER_OF_SCHEDULERS bound to: 2 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'Queue' [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/Queue.sv:23]
+	Parameter DATA_SIZE bound to: 246 - type: integer 
+	Parameter QUEUE_LENGTH bound to: 16 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'Queue' (4#1) [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/Queue.sv:23]
+INFO: [Synth 8-638] synthesizing module 'Dispatcher' [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/Dispatcher.sv:23]
+	Parameter OUTPUTS bound to: 4 - type: integer 
+	Parameter INPUT_SIZE bound to: 246 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'Dispatcher' (5#1) [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/Dispatcher.sv:23]
+INFO: [Synth 8-638] synthesizing module 'Selector' [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/Selector.sv:23]
+	Parameter INPUTS bound to: 4 - type: integer 
+	Parameter INPUT_SIZE bound to: 246 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'Selector' (6#1) [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/Selector.sv:23]
+INFO: [Synth 8-638] synthesizing module 'Scheduler' [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/Scheduler.sv:295]
+	Parameter NUMBER_OF_QUEUES bound to: 4 - type: integer 
+	Parameter REGISTER_SIZE bound to: 32 - type: integer 
+	Parameter TDMA_ENABLED bound to: 1 - type: integer 
+	Parameter EDF_ENABLED bound to: 1 - type: integer 
+	Parameter NUMBER_OF_SCHEDULERS bound to: 2 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'Selector__parameterized0' [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/Selector.sv:23]
+	Parameter INPUTS bound to: 2 - type: integer 
+	Parameter INPUT_SIZE bound to: 2 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'Selector__parameterized0' (6#1) [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/Selector.sv:23]
+INFO: [Synth 8-638] synthesizing module 'TDMA' [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/TDMA.sv:23]
+	Parameter NUMBER_OF_QUEUES bound to: 4 - type: integer 
+	Parameter REGISTER_SIZE bound to: 32 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'TDMA' (7#1) [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/TDMA.sv:23]
+INFO: [Synth 8-638] synthesizing module 'EDF' [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/EDF.sv:23]
+	Parameter NUMBER_OF_QUEUES bound to: 4 - type: integer 
+	Parameter REGISTER_SIZE bound to: 32 - type: integer 
+	Parameter MAX_VALUE bound to: -1 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'EDF' (8#1) [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/EDF.sv:23]
+INFO: [Synth 8-638] synthesizing module 'Combinatorial_Dispatcher' [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/Combinatorial_Dispatcher.sv:23]
+	Parameter OUTPUTS bound to: 4 - type: integer 
+	Parameter INPUT_SIZE bound to: 1'b1 
+INFO: [Synth 8-256] done synthesizing module 'Combinatorial_Dispatcher' (9#1) [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/Combinatorial_Dispatcher.sv:23]
+WARNING: [Synth 8-350] instance 'queue_router' of module 'Combinatorial_Dispatcher' requires 7 connections, but only 6 given [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/Scheduler.sv:485]
+WARNING: [Synth 8-567] referenced signal 'reset' should be on the sensitivity list [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/Scheduler.sv:520]
+WARNING: [Synth 8-567] referenced signal 'full' should be on the sensitivity list [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/Scheduler.sv:520]
+WARNING: [Synth 8-6014] Unused sequential element first_time_ff_reg was removed.  [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/Scheduler.sv:395]
+WARNING: [Synth 8-6014] Unused sequential element consumed_ff2_reg was removed.  [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/Scheduler.sv:408]
+INFO: [Synth 8-256] done synthesizing module 'Scheduler' (10#1) [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/Scheduler.sv:295]
+INFO: [Synth 8-256] done synthesizing module 'NonAXIDomain' (11#1) [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/NonAXIDomain.sv:23]
+INFO: [Synth 8-256] done synthesizing module 'MemorEDF' (12#1) [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/MemorEDF.sv:23]
+INFO: [Synth 8-256] done synthesizing module 'design_2_MemorEDF_0_0' (13#1) [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_MemorEDF_0_0/synth/design_2_MemorEDF_0_0.sv:56]
+WARNING: [Synth 8-3331] design Combinatorial_Dispatcher has unconnected port clock
+WARNING: [Synth 8-3331] design Scheduler has unconnected port lastElem[3]
+WARNING: [Synth 8-3331] design Scheduler has unconnected port lastElem[2]
+WARNING: [Synth 8-3331] design Scheduler has unconnected port lastElem[1]
+WARNING: [Synth 8-3331] design Scheduler has unconnected port lastElem[0]
+WARNING: [Synth 8-3331] design NonAXIDomain has unconnected port packetizer_to_dispatcher_id[15]
+WARNING: [Synth 8-3331] design NonAXIDomain has unconnected port packetizer_to_dispatcher_id[14]
+WARNING: [Synth 8-3331] design NonAXIDomain has unconnected port packetizer_to_dispatcher_id[13]
+WARNING: [Synth 8-3331] design NonAXIDomain has unconnected port packetizer_to_dispatcher_id[12]
+WARNING: [Synth 8-3331] design NonAXIDomain has unconnected port packetizer_to_dispatcher_id[11]
+WARNING: [Synth 8-3331] design NonAXIDomain has unconnected port packetizer_to_dispatcher_id[10]
+WARNING: [Synth 8-3331] design NonAXIDomain has unconnected port packetizer_to_dispatcher_id[9]
+WARNING: [Synth 8-3331] design NonAXIDomain has unconnected port packetizer_to_dispatcher_id[8]
+WARNING: [Synth 8-3331] design NonAXIDomain has unconnected port packetizer_to_dispatcher_id[7]
+WARNING: [Synth 8-3331] design NonAXIDomain has unconnected port packetizer_to_dispatcher_id[4]
+WARNING: [Synth 8-3331] design NonAXIDomain has unconnected port packetizer_to_dispatcher_id[3]
+WARNING: [Synth 8-3331] design NonAXIDomain has unconnected port packetizer_to_dispatcher_id[2]
+WARNING: [Synth 8-3331] design NonAXIDomain has unconnected port packetizer_to_dispatcher_id[1]
+WARNING: [Synth 8-3331] design NonAXIDomain has unconnected port packetizer_to_dispatcher_id[0]
+WARNING: [Synth 8-3331] design Serializer has unconnected port M_AXI_RLAST
+WARNING: [Synth 8-3331] design Serializer has unconnected port packet_in[163]
+WARNING: [Synth 8-3331] design Serializer has unconnected port packet_in[162]
+WARNING: [Synth 8-3331] design Serializer has unconnected port packet_in[161]
+WARNING: [Synth 8-3331] design Serializer has unconnected port packet_in[160]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_AWSIZE[2]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_AWSIZE[1]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_AWSIZE[0]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_AWLOCK
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_AWCACHE[3]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_AWCACHE[2]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_AWCACHE[1]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_AWCACHE[0]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_AWPROT[2]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_AWPROT[1]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_AWPROT[0]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_AWQOS[3]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_AWQOS[2]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_AWQOS[1]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_AWQOS[0]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_AWREGION[3]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_AWREGION[2]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_AWREGION[1]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_AWREGION[0]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_AWUSER[15]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_AWUSER[14]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_AWUSER[13]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_AWUSER[12]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_AWUSER[11]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_AWUSER[10]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_AWUSER[9]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_AWUSER[8]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_AWUSER[7]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_AWUSER[6]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_AWUSER[5]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_AWUSER[4]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_AWUSER[3]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_AWUSER[2]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_AWUSER[1]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_AWUSER[0]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_ARSIZE[2]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_ARSIZE[1]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_ARSIZE[0]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_ARLOCK
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_ARCACHE[3]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_ARCACHE[2]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_ARCACHE[1]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_ARCACHE[0]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_ARPROT[2]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_ARPROT[1]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_ARPROT[0]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_ARQOS[3]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_ARQOS[2]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_ARQOS[1]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_ARQOS[0]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_ARREGION[3]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_ARREGION[2]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_ARREGION[1]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_ARREGION[0]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_ARUSER[15]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_ARUSER[14]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_ARUSER[13]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_ARUSER[12]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_ARUSER[11]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_ARUSER[10]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_ARUSER[9]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_ARUSER[8]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_ARUSER[7]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_ARUSER[6]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_ARUSER[5]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_ARUSER[4]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_ARUSER[3]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_ARUSER[2]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_ARUSER[1]
+WARNING: [Synth 8-3331] design ConfigurationPort has unconnected port S_AXI_ARUSER[0]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1551.199 ; gain = 0.000 ; free physical = 17810 ; free virtual = 26305
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1551.199 ; gain = 0.000 ; free physical = 17814 ; free virtual = 26310
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xczu9eg-ffvb1156-2-e
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.75 ; elapsed = 00:00:00.13 . Memory (MB): peak = 2254.309 ; gain = 18.000 ; free physical = 17027 ; free virtual = 25522
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:24 ; elapsed = 00:00:30 . Memory (MB): peak = 2254.309 ; gain = 703.109 ; free physical = 17154 ; free virtual = 25650
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xczu9eg-ffvb1156-2-e
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:24 ; elapsed = 00:00:30 . Memory (MB): peak = 2254.309 ; gain = 703.109 ; free physical = 17154 ; free virtual = 25650
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:24 ; elapsed = 00:00:30 . Memory (MB): peak = 2254.309 ; gain = 703.109 ; free physical = 17156 ; free virtual = 25652
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-6014] Unused sequential element axi_arlen_cntr_reg was removed.  [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/Packetizer.sv:484]
+INFO: [Synth 8-5544] ROM "byte_ram_reg[3][15]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "byte_ram_reg[2][15]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "byte_ram_reg[1][15]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "byte_ram_reg[0][15]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+WARNING: [Synth 8-6014] Unused sequential element axi_awlen_cntr_reg was removed.  [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/ConfigurationPort.sv:310]
+WARNING: [Synth 8-6014] Unused sequential element axi_arlen_cntr_reg was removed.  [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/ConfigurationPort.sv:467]
+INFO: [Synth 8-4471] merging register 'axi_araddr_reg[39:0]' into 'axi_awaddr_reg[39:0]' [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/Seralizer.sv:287]
+WARNING: [Synth 8-6014] Unused sequential element axi_araddr_reg was removed.  [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/Seralizer.sv:287]
+WARNING: [Synth 8-6014] Unused sequential element counter_reg was removed.  [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/TDMA.sv:65]
+WARNING: [Synth 8-6014] Unused sequential element counters_reg[0] was removed.  [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/EDF.sv:61]
+WARNING: [Synth 8-6014] Unused sequential element counters_reg[1] was removed.  [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/EDF.sv:61]
+WARNING: [Synth 8-6014] Unused sequential element counters_reg[2] was removed.  [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/EDF.sv:61]
+WARNING: [Synth 8-6014] Unused sequential element counters_reg[3] was removed.  [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/EDF.sv:61]
+INFO: [Synth 8-5544] ROM "internal_id_ff" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "first_time" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/Queue.sv:104]
+INFO: [Synth 8-5544] ROM "internalEmpty" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "internalFull" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "internalLastElem" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "internalLastElem" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+WARNING: [Synth 8-6014] Unused sequential element counter_reg was removed.  [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/Queue.sv:85]
+WARNING: [Synth 8-327] inferring latch for variable 'override_id_reg' [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/Scheduler.sv:524]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:24 ; elapsed = 00:00:30 . Memory (MB): peak = 2254.309 ; gain = 703.109 ; free physical = 17142 ; free virtual = 25637
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++------+------------------+------------+----------+
+|      |RTL Partition     |Replication |Instances |
++------+------------------+------------+----------+
+|1     |Queue             |           4|     28668|
+|2     |NonAXIDomain__GC0 |           1|      9558|
+|3     |MemorEDF__GC0     |           1|      4660|
++------+------------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input     40 Bit       Adders := 2     
+	   2 Input     37 Bit       Adders := 2     
+	   2 Input     36 Bit       Adders := 2     
+	   2 Input     32 Bit       Adders := 4     
+	   3 Input     32 Bit       Adders := 4     
+	   2 Input      8 Bit       Adders := 3     
+	   2 Input      4 Bit       Adders := 4     
+	   2 Input      2 Bit       Adders := 1     
++---Registers : 
+	              246 Bit    Registers := 69    
+	              128 Bit    Registers := 4     
+	              102 Bit    Registers := 2     
+	               40 Bit    Registers := 3     
+	               32 Bit    Registers := 8     
+	               16 Bit    Registers := 3     
+	                8 Bit    Registers := 72    
+	                4 Bit    Registers := 6     
+	                2 Bit    Registers := 11    
+	                1 Bit    Registers := 46    
++---Muxes : 
+	   2 Input    246 Bit        Muxes := 201   
+	   4 Input    246 Bit        Muxes := 1     
+	   2 Input    128 Bit        Muxes := 1     
+	   4 Input    102 Bit        Muxes := 1     
+	   2 Input    102 Bit        Muxes := 1     
+	   2 Input     40 Bit        Muxes := 4     
+	   4 Input     40 Bit        Muxes := 2     
+	   2 Input     34 Bit        Muxes := 2     
+	   2 Input     16 Bit        Muxes := 1     
+	   4 Input      8 Bit        Muxes := 16    
+	   2 Input      4 Bit        Muxes := 2     
+	   2 Input      3 Bit        Muxes := 2     
+	   2 Input      2 Bit        Muxes := 15    
+	   5 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 102   
+	   3 Input      1 Bit        Muxes := 8     
+	   4 Input      1 Bit        Muxes := 2     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module Queue 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      4 Bit       Adders := 1     
++---Registers : 
+	              246 Bit    Registers := 16    
+	                4 Bit    Registers := 1     
+	                1 Bit    Registers := 3     
++---Muxes : 
+	   2 Input    246 Bit        Muxes := 49    
+	   2 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 10    
+	   3 Input      1 Bit        Muxes := 2     
+Module Dispatcher 
+Detailed RTL Component Info : 
++---Registers : 
+	              246 Bit    Registers := 4     
+	                4 Bit    Registers := 1     
++---Muxes : 
+	   2 Input    246 Bit        Muxes := 4     
+Module Selector 
+Detailed RTL Component Info : 
++---Registers : 
+	              246 Bit    Registers := 1     
++---Muxes : 
+	   4 Input    246 Bit        Muxes := 1     
+Module Selector__parameterized0 
+Detailed RTL Component Info : 
++---Registers : 
+	                2 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      2 Bit        Muxes := 1     
+Module TDMA 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 4     
++---Registers : 
+	               32 Bit    Registers := 4     
+	                2 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      2 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 5     
+Module EDF 
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input     32 Bit       Adders := 4     
++---Registers : 
+	               32 Bit    Registers := 4     
+	                2 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     34 Bit        Muxes := 2     
+	   2 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 4     
+Module Combinatorial_Dispatcher 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input      4 Bit        Muxes := 2     
+Module Scheduler 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      2 Bit       Adders := 1     
++---Registers : 
+	                4 Bit    Registers := 1     
+	                2 Bit    Registers := 3     
+	                1 Bit    Registers := 4     
++---Muxes : 
+	   2 Input      2 Bit        Muxes := 7     
+	   5 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 16    
+Module Packetizer 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      8 Bit       Adders := 1     
++---Registers : 
+	              128 Bit    Registers := 2     
+	              102 Bit    Registers := 2     
+	               16 Bit    Registers := 3     
+	                8 Bit    Registers := 2     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 11    
++---Muxes : 
+	   2 Input    246 Bit        Muxes := 1     
+	   4 Input    102 Bit        Muxes := 1     
+	   2 Input    102 Bit        Muxes := 1     
+	   2 Input     16 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 13    
+Module ConfigurationPort 
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input     40 Bit       Adders := 2     
+	   2 Input     37 Bit       Adders := 2     
+	   2 Input     36 Bit       Adders := 2     
+	   2 Input      8 Bit       Adders := 2     
++---Registers : 
+	              128 Bit    Registers := 1     
+	               40 Bit    Registers := 2     
+	                8 Bit    Registers := 70    
+	                2 Bit    Registers := 4     
+	                1 Bit    Registers := 8     
++---Muxes : 
+	   2 Input    128 Bit        Muxes := 1     
+	   2 Input     40 Bit        Muxes := 4     
+	   4 Input     40 Bit        Muxes := 2     
+	   4 Input      8 Bit        Muxes := 16    
+	   2 Input      3 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 20    
+	   4 Input      1 Bit        Muxes := 2     
+Module Serializer 
+Detailed RTL Component Info : 
++---Registers : 
+	              128 Bit    Registers := 1     
+	               40 Bit    Registers := 1     
+	                1 Bit    Registers := 11    
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 4     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 2520 (col length:168)
+BRAMs: 1824 (col length: RAMB18 168 RAMB36 84)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-6014] Unused sequential element counter_reg was removed.  [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/Queue.sv:85]
+WARNING: [Synth 8-6014] Unused sequential element counters_reg[3] was removed.  [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/EDF.sv:61]
+WARNING: [Synth 8-6014] Unused sequential element counters_reg[2] was removed.  [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/EDF.sv:61]
+WARNING: [Synth 8-6014] Unused sequential element counters_reg[1] was removed.  [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/EDF.sv:61]
+WARNING: [Synth 8-6014] Unused sequential element counters_reg[0] was removed.  [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/EDF.sv:61]
+WARNING: [Synth 8-6014] Unused sequential element tdma/counter_reg was removed.  [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/TDMA.sv:65]
+WARNING: [Synth 8-6014] Unused sequential element axi_arlen_cntr_reg was removed.  [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/Packetizer.sv:484]
+INFO: [Synth 8-4471] merging register 'axi_awlen_reg[7:0]' into 'axi_awlen_reg[7:0]' [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/ConfigurationPort.sv:261]
+INFO: [Synth 8-4471] merging register 'axi_arlen_reg[7:0]' into 'axi_arlen_reg[7:0]' [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/ConfigurationPort.sv:469]
+WARNING: [Synth 8-6014] Unused sequential element axi_awlen_reg was removed.  [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/ConfigurationPort.sv:261]
+WARNING: [Synth 8-6014] Unused sequential element axi_arlen_reg was removed.  [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/ConfigurationPort.sv:469]
+WARNING: [Synth 8-6014] Unused sequential element axi_arlen_cntr_reg was removed.  [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/ConfigurationPort.sv:467]
+WARNING: [Synth 8-6014] Unused sequential element axi_awlen_cntr_reg was removed.  [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ipshared/000f/src/ConfigurationPort.sv:310]
+INFO: [Synth 8-3886] merging instance 'insti_1/configurationport/axi_rresp_reg[0]' (FDRE) to 'insti_1/configurationport/axi_rresp_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (insti_1/\configurationport/axi_rresp_reg[1] )
+INFO: [Synth 8-3886] merging instance 'insti_1/configurationport/axi_bresp_reg[0]' (FDRE) to 'insti_1/configurationport/axi_bresp_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (insti_1/\configurationport/axi_bresp_reg[1] )
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/coreIdReg_read_reg[0]' (FDRE) to 'insti_1/packetizer/meta_data_read_reg[45]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/coreIdReg_read_reg[1]' (FDRE) to 'insti_1/packetizer/meta_data_read_reg[46]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/coreIdReg_read_reg[2]' (FDRE) to 'insti_1/packetizer/meta_data_read_reg[47]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/coreIdReg_read_reg[3]' (FDRE) to 'insti_1/packetizer/meta_data_read_reg[48]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/coreIdReg_read_reg[4]' (FDRE) to 'insti_1/packetizer/meta_data_read_reg[49]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/coreIdReg_read_reg[5]' (FDRE) to 'insti_1/packetizer/meta_data_read_reg[50]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/coreIdReg_read_reg[6]' (FDRE) to 'insti_1/packetizer/meta_data_read_reg[51]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/coreIdReg_read_reg[7]' (FDRE) to 'insti_1/packetizer/meta_data_read_reg[52]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/coreIdReg_read_reg[8]' (FDRE) to 'insti_1/packetizer/meta_data_read_reg[53]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/coreIdReg_read_reg[9]' (FDRE) to 'insti_1/packetizer/meta_data_read_reg[54]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/coreIdReg_read_reg[10]' (FDRE) to 'insti_1/packetizer/meta_data_read_reg[55]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/coreIdReg_read_reg[11]' (FDRE) to 'insti_1/packetizer/meta_data_read_reg[56]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/coreIdReg_read_reg[12]' (FDRE) to 'insti_1/packetizer/meta_data_read_reg[57]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/coreIdReg_read_reg[13]' (FDRE) to 'insti_1/packetizer/meta_data_read_reg[58]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/coreIdReg_read_reg[14]' (FDRE) to 'insti_1/packetizer/meta_data_read_reg[59]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/coreIdReg_read_reg[15]' (FDRE) to 'insti_1/packetizer/meta_data_read_reg[60]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[0]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[1]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[2]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[3]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[4]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[5]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[6]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[7]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[8]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[9]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[10]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[11]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[12]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[13]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[14]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[15]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[16]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[17]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[18]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[19]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[20]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[21]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[22]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[23]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[24]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[25]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[26]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[27]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[28]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[29]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[30]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[31]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[32]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[33]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[34]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[35]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[36]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[37]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[38]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[39]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[40]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[41]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[42]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[43]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[44]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[45]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[46]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[47]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[48]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[49]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[50]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[51]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[52]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[53]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[54]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[55]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[56]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[57]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[58]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[59]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[60]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[61]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[62]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[63]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[64]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[65]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[66]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[67]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[68]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[69]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[70]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[71]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[72]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[73]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[74]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[75]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[76]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[77]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[78]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[79]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[80]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Synth 8-3886] merging instance 'insti_1/packetizer/byte_ram_read_reg[81]' (FDRE) to 'insti_1/packetizer/byte_ram_read_reg[127]'
+INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (insti_1/\packetizer/byte_ram_read_reg[127] )
+WARNING: [Synth 8-3332] Sequential element (internalOutcome_reg[163]) is unused and will be removed from module Selector.
+WARNING: [Synth 8-3332] Sequential element (internalOutcome_reg[162]) is unused and will be removed from module Selector.
+WARNING: [Synth 8-3332] Sequential element (internalOutcome_reg[161]) is unused and will be removed from module Selector.
+WARNING: [Synth 8-3332] Sequential element (internalOutcome_reg[160]) is unused and will be removed from module Selector.
+WARNING: [Synth 8-3332] Sequential element (values_reg[15][163]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[15][162]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[15][161]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[15][160]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[14][163]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[14][162]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[14][161]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[14][160]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[13][163]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[13][162]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[13][161]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[13][160]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[12][163]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[12][162]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[12][161]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[12][160]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[11][163]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[11][162]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[11][161]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[11][160]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[10][163]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[10][162]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[10][161]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[10][160]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[9][163]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[9][162]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[9][161]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[9][160]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[8][163]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[8][162]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[8][161]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[8][160]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[7][163]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[7][162]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[7][161]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[7][160]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[6][163]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[6][162]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[6][161]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[6][160]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[5][163]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[5][162]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[5][161]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[5][160]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[4][163]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[4][162]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[4][161]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[4][160]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[3][163]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[3][162]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[3][161]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[3][160]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[2][163]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[2][162]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[2][161]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[2][160]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[1][163]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[1][162]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[1][161]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[1][160]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[0][163]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[0][162]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[0][161]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (values_reg[0][160]) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (internalLastElem_reg) is unused and will be removed from module Queue.
+WARNING: [Synth 8-3332] Sequential element (internalPacketsOut_reg[0][163]) is unused and will be removed from module Dispatcher.
+WARNING: [Synth 8-3332] Sequential element (internalPacketsOut_reg[0][162]) is unused and will be removed from module Dispatcher.
+WARNING: [Synth 8-3332] Sequential element (internalPacketsOut_reg[0][161]) is unused and will be removed from module Dispatcher.
+WARNING: [Synth 8-3332] Sequential element (internalPacketsOut_reg[0][160]) is unused and will be removed from module Dispatcher.
+WARNING: [Synth 8-3332] Sequential element (internalPacketsOut_reg[1][163]) is unused and will be removed from module Dispatcher.
+WARNING: [Synth 8-3332] Sequential element (internalPacketsOut_reg[1][162]) is unused and will be removed from module Dispatcher.
+WARNING: [Synth 8-3332] Sequential element (internalPacketsOut_reg[1][161]) is unused and will be removed from module Dispatcher.
+WARNING: [Synth 8-3332] Sequential element (internalPacketsOut_reg[1][160]) is unused and will be removed from module Dispatcher.
+WARNING: [Synth 8-3332] Sequential element (internalPacketsOut_reg[2][163]) is unused and will be removed from module Dispatcher.
+WARNING: [Synth 8-3332] Sequential element (internalPacketsOut_reg[2][162]) is unused and will be removed from module Dispatcher.
+WARNING: [Synth 8-3332] Sequential element (internalPacketsOut_reg[2][161]) is unused and will be removed from module Dispatcher.
+WARNING: [Synth 8-3332] Sequential element (internalPacketsOut_reg[2][160]) is unused and will be removed from module Dispatcher.
+WARNING: [Synth 8-3332] Sequential element (internalPacketsOut_reg[3][163]) is unused and will be removed from module Dispatcher.
+WARNING: [Synth 8-3332] Sequential element (internalPacketsOut_reg[3][162]) is unused and will be removed from module Dispatcher.
+WARNING: [Synth 8-3332] Sequential element (internalPacketsOut_reg[3][161]) is unused and will be removed from module Dispatcher.
+WARNING: [Synth 8-3332] Sequential element (internalPacketsOut_reg[3][160]) is unused and will be removed from module Dispatcher.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:44 ; elapsed = 00:00:50 . Memory (MB): peak = 2314.293 ; gain = 763.094 ; free physical = 17016 ; free virtual = 25512
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++------+------------------+------------+----------+
+|      |RTL Partition     |Replication |Instances |
++------+------------------+------------+----------+
+|1     |Queue             |           4|     26467|
+|2     |NonAXIDomain__GC0 |           1|      7980|
+|3     |MemorEDF__GC0     |           1|      3686|
++------+------------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:58 ; elapsed = 00:01:18 . Memory (MB): peak = 2931.285 ; gain = 1380.086 ; free physical = 16256 ; free virtual = 24752
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:58 ; elapsed = 00:01:18 . Memory (MB): peak = 2931.285 ; gain = 1380.086 ; free physical = 16255 ; free virtual = 24751
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++------+------------------+------------+----------+
+|      |RTL Partition     |Replication |Instances |
++------+------------------+------------+----------+
+|1     |Queue             |           4|     26467|
+|2     |NonAXIDomain__GC0 |           1|      7980|
+|3     |MemorEDF__GC0     |           1|      3686|
++------+------------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:01:02 ; elapsed = 00:01:22 . Memory (MB): peak = 2993.582 ; gain = 1442.383 ; free physical = 16300 ; free virtual = 24795
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:01:19 ; elapsed = 00:01:40 . Memory (MB): peak = 2993.582 ; gain = 1442.383 ; free physical = 16294 ; free virtual = 24790
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:19 ; elapsed = 00:01:40 . Memory (MB): peak = 2993.582 ; gain = 1442.383 ; free physical = 16294 ; free virtual = 24790
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:21 ; elapsed = 00:01:41 . Memory (MB): peak = 2993.582 ; gain = 1442.383 ; free physical = 16292 ; free virtual = 24788
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:21 ; elapsed = 00:01:41 . Memory (MB): peak = 2993.582 ; gain = 1442.383 ; free physical = 16292 ; free virtual = 24788
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:29 ; elapsed = 00:01:50 . Memory (MB): peak = 2993.582 ; gain = 1442.383 ; free physical = 16292 ; free virtual = 24788
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:29 ; elapsed = 00:01:50 . Memory (MB): peak = 2993.582 ; gain = 1442.383 ; free physical = 16292 ; free virtual = 24788
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |CARRY8 |   122|
+|2     |LUT1   |    47|
+|3     |LUT2   |   452|
+|4     |LUT3   | 13647|
+|5     |LUT4   |  1623|
+|6     |LUT5   |  1347|
+|7     |LUT6   | 15288|
+|8     |FDRE   | 18454|
+|9     |FDSE   |   134|
+|10    |LDC    |     2|
++------+-------+------+
+
+Report Instance Areas: 
++------+-----------------------------------+-------------------------+------+
+|      |Instance                           |Module                   |Cells |
++------+-----------------------------------+-------------------------+------+
+|1     |top                                |                         | 51116|
+|2     |  inst                             |MemorEDF                 | 51115|
+|3     |    configurationport              |ConfigurationPort        |  1800|
+|4     |    nonaxidomain                   |NonAXIDomain             | 47604|
+|5     |      dispatcher                   |Dispatcher               |  2068|
+|6     |      \genblk1[0].queue            |Queue                    | 10922|
+|7     |      \genblk1[1].queue            |Queue_0                  | 10923|
+|8     |      \genblk1[2].queue            |Queue_1                  | 10924|
+|9     |      \genblk1[3].queue            |Queue_2                  | 10924|
+|10    |      scheduler                    |Scheduler                |  1359|
+|11    |        edf                        |EDF                      |   610|
+|12    |        scheduling_policy_selector |Selector__parameterized0 |     4|
+|13    |        tdma                       |TDMA                     |   586|
+|14    |      selector                     |Selector                 |   484|
+|15    |    packetizer                     |Packetizer               |  1523|
+|16    |    serializer                     |Serializer               |   188|
++------+-----------------------------------+-------------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:29 ; elapsed = 00:01:50 . Memory (MB): peak = 2993.582 ; gain = 1442.383 ; free physical = 16292 ; free virtual = 24788
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 107 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:17 ; elapsed = 00:01:33 . Memory (MB): peak = 2993.582 ; gain = 739.273 ; free physical = 16332 ; free virtual = 24828
+Synthesis Optimization Complete : Time (s): cpu = 00:01:29 ; elapsed = 00:01:50 . Memory (MB): peak = 2993.590 ; gain = 1442.383 ; free physical = 16332 ; free virtual = 24828
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 124 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 2 instances were transformed.
+  LDC => LDCE: 2 instances
+
+INFO: [Common 17-83] Releasing license: Synthesis
+158 Infos, 220 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:35 ; elapsed = 00:01:55 . Memory (MB): peak = 3025.598 ; gain = 1495.773 ; free physical = 16313 ; free virtual = 24809
+INFO: [Common 17-1381] The checkpoint '/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/design_2_MemorEDF_0_0_synth_1/design_2_MemorEDF_0_0.dcp' has been generated.
+write_checkpoint: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 3049.609 ; gain = 24.012 ; free physical = 16301 ; free virtual = 24802
+INFO: [Coretcl 2-1482] Added synthesis output to IP cache for IP /home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_MemorEDF_0_0/design_2_MemorEDF_0_0.xci
+INFO: [Coretcl 2-1174] Renamed 15 cell refs.
+INFO: [Common 17-1381] The checkpoint '/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/design_2_MemorEDF_0_0_synth_1/design_2_MemorEDF_0_0.dcp' has been generated.
+write_checkpoint: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 3049.609 ; gain = 0.000 ; free physical = 16260 ; free virtual = 24795
+INFO: [runtcl-4] Executing : report_utilization -file design_2_MemorEDF_0_0_utilization_synth.rpt -pb design_2_MemorEDF_0_0_utilization_synth.pb
+report_utilization: Time (s): cpu = 00:00:00.29 ; elapsed = 00:00:00.34 . Memory (MB): peak = 3049.609 ; gain = 0.000 ; free physical = 16258 ; free virtual = 24794
+INFO: [Common 17-206] Exiting Vivado at Tue Apr 28 11:45:56 2020...

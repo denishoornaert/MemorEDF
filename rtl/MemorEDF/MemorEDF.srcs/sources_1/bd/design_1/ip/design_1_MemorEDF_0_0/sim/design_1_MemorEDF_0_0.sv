@@ -48,7 +48,7 @@
 
 
 // IP VLNV: user.org:user:MemorEDF:1.0
-// IP Revision: 179
+// IP Revision: 190
 
 `timescale 1ns/1ps
 
@@ -450,7 +450,7 @@ output wire m00_axi_rready;
   MemorEDF #(
     .CONFIGURATION_PORT_ENABLED(1'B1),
     .NUMBER_OF_QUEUES(4),
-    .DATA_SIZE(678),
+    .DATA_SIZE(246),
     .QUEUE_LENGTH(16),
     .REGISTER_SIZE(32),
     .TDMA_ENABLED(1'B1),
@@ -463,7 +463,7 @@ output wire m00_axi_rready;
     .C_S01_AXI_ADDR_WIDTH(40),
     .C_S01_AXI_AWUSER_WIDTH(16),
     .C_S01_AXI_ARUSER_WIDTH(16),
-    .C_M00_AXI_BURST_LEN(4),
+    .C_M00_AXI_BURST_LEN(1),
     .C_M00_AXI_ID_WIDTH(16),
     .C_M00_AXI_ADDR_WIDTH(40),
     .C_M00_AXI_DATA_WIDTH(128),
