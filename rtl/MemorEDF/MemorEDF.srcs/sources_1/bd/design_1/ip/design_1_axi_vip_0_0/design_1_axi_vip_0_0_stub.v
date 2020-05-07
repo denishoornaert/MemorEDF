@@ -1,11 +1,11 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-// Date        : Sat Feb 29 16:46:09 2020
+// Date        : Wed Apr 29 15:17:31 2020
 // Host        : CELSIUS running 64-bit Ubuntu 16.04.6 LTS
-// Command     : write_verilog -force -mode synth_stub
-//               /home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_1/ip/design_1_axi_vip_0_0/design_1_axi_vip_0_0_stub.v
-// Design      : design_1_axi_vip_0_0
+// Command     : write_verilog -force -mode synth_stub -rename_top design_1_axi_vip_0_0 -prefix
+//               design_1_axi_vip_0_0_ design_1_axi_vip_0_2_stub.v
+// Design      : design_1_axi_vip_0_2
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xczu9eg-ffvb1156-2-e
 // --------------------------------------------------------------------------------

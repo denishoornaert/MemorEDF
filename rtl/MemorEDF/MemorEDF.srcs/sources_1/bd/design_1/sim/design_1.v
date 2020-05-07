@@ -1,7 +1,7 @@
 //Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-//Date        : Tue Apr 28 11:42:22 2020
+//Date        : Wed May  6 21:03:54 2020
 //Host        : CELSIUS running 64-bit Ubuntu 16.04.6 LTS
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -9,7 +9,7 @@
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=4,numReposBlks=4,numNonXlnxBlks=1,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_clkrst_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "design_1.hwdef" *) 
+(* CORE_GENERATION_INFO = "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=4,numReposBlks=4,numNonXlnxBlks=1,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_clkrst_cnt=9,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "design_1.hwdef" *) 
 module design_1
    (aclk_0,
     aresetn_0);
@@ -314,7 +314,7 @@ module design_1
         .m_axi_wready(axi_vip_0_M_AXI_WREADY),
         .m_axi_wstrb(axi_vip_0_M_AXI_WSTRB),
         .m_axi_wvalid(axi_vip_0_M_AXI_WVALID));
-  design_1_axi_vip_0_1 axi_vip_1
+  design_1_axi_vip_1_0 axi_vip_1
        (.aclk(aclk_0_1),
         .aresetn(aresetn_0_1),
         .s_axi_araddr(MemorEDF_0_m00_axi_ARADDR),

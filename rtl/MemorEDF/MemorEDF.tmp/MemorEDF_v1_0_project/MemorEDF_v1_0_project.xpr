@@ -6,7 +6,7 @@
 <Project Version="7" Minor="35" Path="/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.tmp/MemorEDF_v1_0_project/MemorEDF_v1_0_project.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
-    <Option Name="Id" Val="2e0c9a06368343c18051ffd2f9220131"/>
+    <Option Name="Id" Val="329c4a442d8c49da867cce58d59701d5"/>
     <Option Name="Part" Val="xczu9eg-ffvb1156-2-e"/>
     <Option Name="CompiledLibDir" Val="$PCACHEDIR/compile_simlib"/>
     <Option Name="CompiledLibDirXSim" Val=""/>
@@ -77,6 +77,24 @@
         </FileInfo>
       </File>
       <File Path="$PPRDIR/../../../ip_repo/src/EDF.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../../../ip_repo/src/FP.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../../../ip_repo/src/MaxSelector.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../../../ip_repo/src/MemGuard.sv">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>

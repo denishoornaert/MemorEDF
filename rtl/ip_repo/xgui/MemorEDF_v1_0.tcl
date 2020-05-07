@@ -11,11 +11,13 @@ proc init_gui { IPINST } {
   set Scheduling_policies [ipgui::add_group $IPINST -name "Scheduling policies" -parent ${Page_0}]
   ipgui::add_param $IPINST -name "EDF_ENABLED" -parent ${Scheduling_policies}
   ipgui::add_param $IPINST -name "TDMA_ENABLED" -parent ${Scheduling_policies}
+  ipgui::add_param $IPINST -name "FP_ENABLED" -parent ${Scheduling_policies}
 
   #Adding Group
   set Elements_size [ipgui::add_group $IPINST -name "Elements size" -parent ${Page_0}]
   ipgui::add_param $IPINST -name "DATA_SIZE" -parent ${Elements_size}
   ipgui::add_param $IPINST -name "REGISTER_SIZE" -parent ${Elements_size}
+  ipgui::add_param $IPINST -name "PRIORITY_SIZE" -parent ${Elements_size}
 
   #Adding Group
   set Queues_parameters [ipgui::add_group $IPINST -name "Queues parameters" -parent ${Page_0}]
@@ -228,12 +230,30 @@ proc validate_PARAM_VALUE.EDF_ENABLED { PARAM_VALUE.EDF_ENABLED } {
 	return true
 }
 
+proc update_PARAM_VALUE.FP_ENABLED { PARAM_VALUE.FP_ENABLED } {
+	# Procedure called to update FP_ENABLED when any of the dependent parameters in the arguments change
+}
+
+proc validate_PARAM_VALUE.FP_ENABLED { PARAM_VALUE.FP_ENABLED } {
+	# Procedure called to validate FP_ENABLED
+	return true
+}
+
 proc update_PARAM_VALUE.NUMBER_OF_QUEUES { PARAM_VALUE.NUMBER_OF_QUEUES } {
 	# Procedure called to update NUMBER_OF_QUEUES when any of the dependent parameters in the arguments change
 }
 
 proc validate_PARAM_VALUE.NUMBER_OF_QUEUES { PARAM_VALUE.NUMBER_OF_QUEUES } {
 	# Procedure called to validate NUMBER_OF_QUEUES
+	return true
+}
+
+proc update_PARAM_VALUE.PRIORITY_SIZE { PARAM_VALUE.PRIORITY_SIZE } {
+	# Procedure called to update PRIORITY_SIZE when any of the dependent parameters in the arguments change
+}
+
+proc validate_PARAM_VALUE.PRIORITY_SIZE { PARAM_VALUE.PRIORITY_SIZE } {
+	# Procedure called to validate PRIORITY_SIZE
 	return true
 }
 
@@ -378,5 +398,15 @@ proc update_MODELPARAM_VALUE.C_M00_AXI_AWUSER_WIDTH { MODELPARAM_VALUE.C_M00_AXI
 proc update_MODELPARAM_VALUE.C_M00_AXI_ARUSER_WIDTH { MODELPARAM_VALUE.C_M00_AXI_ARUSER_WIDTH PARAM_VALUE.C_M00_AXI_ARUSER_WIDTH } {
 	# Procedure called to set VHDL generic/Verilog parameter value(s) based on TCL parameter value
 	set_property value [get_property value ${PARAM_VALUE.C_M00_AXI_ARUSER_WIDTH}] ${MODELPARAM_VALUE.C_M00_AXI_ARUSER_WIDTH}
+}
+
+proc update_MODELPARAM_VALUE.PRIORITY_SIZE { MODELPARAM_VALUE.PRIORITY_SIZE PARAM_VALUE.PRIORITY_SIZE } {
+	# Procedure called to set VHDL generic/Verilog parameter value(s) based on TCL parameter value
+	set_property value [get_property value ${PARAM_VALUE.PRIORITY_SIZE}] ${MODELPARAM_VALUE.PRIORITY_SIZE}
+}
+
+proc update_MODELPARAM_VALUE.FP_ENABLED { MODELPARAM_VALUE.FP_ENABLED PARAM_VALUE.FP_ENABLED } {
+	# Procedure called to set VHDL generic/Verilog parameter value(s) based on TCL parameter value
+	set_property value [get_property value ${PARAM_VALUE.FP_ENABLED}] ${MODELPARAM_VALUE.FP_ENABLED}
 }
 

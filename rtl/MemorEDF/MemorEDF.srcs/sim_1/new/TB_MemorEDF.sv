@@ -22,7 +22,7 @@
 
 import axi_vip_pkg::*;
 import design_1_axi_vip_0_0_pkg::*;
-import design_1_axi_vip_0_1_pkg::*;
+import design_1_axi_vip_1_0_pkg::*;
 
 // AXI4_WRITE_BURST (id, addr, len, size, burst, lock, cache, prot, region, qos, awuser, data, wuser, resp)
 //  AXI4_READ_BURST (id, addr, len, size, burst, lock, cache, prot, region, qos, awuser, data, wuser, resp)
@@ -34,12 +34,9 @@ bit aclk = 0;
 bit aresetn=0;
 
 xil_axi_ulong addr1  = 40'h0000000000;
-xil_axi_ulong addr11 = 40'h0000000004;
-xil_axi_ulong addr12 = 40'h0000000008;
-xil_axi_ulong addr13 = 40'h000000000c;
 xil_axi_ulong addr2  = 40'h0000000010;
 xil_axi_ulong addr3  = 40'h0000000020;
-xil_axi_ulong addr4  = 40'h0000000030;
+xil_axi_ulong addr4  = 40'h0000000024;
 
 xil_axi_ulong b_addr1   = 40'h0400000000;
 xil_axi_ulong b_addr2   = 40'h0400000010;
@@ -55,14 +52,12 @@ xil_axi_ulong b_addr11  = 40'h04000000A0;
 xil_axi_ulong b_addr12  = 40'h04000000B0;
 xil_axi_ulong b_addr13  = 40'h04000000C0;
 
-//  indices                    76543210765432107654321076543210
-bit [127 : 0] data_wr1  = 128'h00000000000000000000000000000100; // ABITRARY PERIOD
-bit [127 : 0] data_wr11 = 128'h00000000000000000000000000000000; // ABITRARY PERIOD
-bit [127 : 0] data_wr12 = 128'h00000000000000000000000000000000; // ABITRARY PERIOD
-bit [127 : 0] data_wr13 = 128'h00000000000000000000000000000000; // ABITRARY PERIOD
-bit [127 : 0] data_wr2  = 128'h00000000000000000000000000000000; // ARBITRRY AND MEANINGLESS DEADLINE
-bit [127 : 0] data_wr3  = 128'h00000000000000000000000000000000; // MODE is 0 for TDMA
-bit [127 : 0] data_wr4  = 128'h00000000000000000000000000000000; // Place holder
+//  indices                      76543210765432107654321076543210
+bit [127 : 0] data_wr1    = 128'h00000000000000000000000000000100; // ABITRARY PERIOD
+bit [127 : 0] data_wr1bis = 128'h00000000000000000001000000000000; // ABITRARY PERIOD
+bit [127 : 0] data_wr2    = 128'h00000000000000000000000000000000; // ARBITRRY AND MEANINGLESS DEADLINE
+bit [127 : 0] data_wr3    = 128'h0000000000000000000000000f0e0d0c; // Priorities
+bit [127 : 0] data_wr4    = 128'h00000000000000000000000200000000; // Mode (tdma = 0, edf = 1, fp = 2)
 
 //  indices                       76543210765432107654321076543210
 bit [127 : 0] b_data_wr1   = 128'h0d000000000000001111111111111111;
@@ -112,7 +107,7 @@ design_1_wrapper DUT
 // Declare agent
 design_1_axi_vip_0_0_mst_t      master_agent;
 design_1_axi_vip_0_0_mst_t      b_master_agent;
-design_1_axi_vip_0_1_slv_mem_t  slv_mem_agent;
+design_1_axi_vip_1_0_slv_mem_t  slv_mem_agent;
 
 initial begin
     //Create an agent
@@ -158,12 +153,6 @@ initial begin
     #20ns
     master_agent.AXI4LITE_WRITE_BURST(addr1,prot,data_wr1,resp);
     #20ns
-    master_agent.AXI4LITE_WRITE_BURST(addr11,prot,data_wr11,resp);
-    #20ns
-    master_agent.AXI4LITE_WRITE_BURST(addr12,prot,data_wr12,resp);
-    #20ns
-    master_agent.AXI4LITE_WRITE_BURST(addr13,prot,data_wr13,resp);
-    #20ns
     master_agent.AXI4LITE_WRITE_BURST(addr2,prot,data_wr2,resp);
     #20ns
     master_agent.AXI4LITE_WRITE_BURST(addr3,prot,data_wr3,resp);
@@ -197,60 +186,83 @@ initial begin
     
     // WRITE PHASE
     #20ns
-    b_master_agent.AXI4_WRITE_BURST(16'h0180+(0), b_addr1, 0, size, burst, lock, 4'h0, prot, 4'h0, 4'h0, 1'h0, b_data_wr1, 1, resp);
+    b_master_agent.send_multi_wrbursts(	
+        8, //input     xil_axi_uint     num_xfers,
+        b_addr1, //input     xil_axi_ulong     start_addr,
+        16'h01ad, //input     xil_axi_uint     myid ,
+        size, //input     xil_axi_size_t     mysize,
+        0, //input     xil_axi_len_t     mylen,
+        burst, //input     xil_axi_burst_t     myburst,
+        1//input     bit     no_xfer_delays 
+        );
     #20ns
-    b_master_agent.AXI4_WRITE_BURST(16'h0180+(1), b_addr2, 0, size, burst, lock, 4'h0, prot, 4'h0, 4'h0, 1'h0, b_data_wr2, 1, resp);
+    b_master_agent.send_multi_rdbursts(	
+        8, //input     xil_axi_uint     num_xfers,
+        b_addr1, //input     xil_axi_ulong     start_addr,
+        16'h01ad, //input     xil_axi_uint     myid ,
+        size, //input     xil_axi_size_t     mysize,
+        0, //input     xil_axi_len_t     mylen,
+        burst, //input     xil_axi_burst_t     myburst,
+        1//input     bit     no_xfer_delays 
+        );
     #20ns
-    b_master_agent.AXI4_WRITE_BURST(16'h0180+(2), b_addr3, 0, size, burst, lock, 4'h0, prot, 4'h0, 4'h0, 1'h0, b_data_wr3, 1, resp);
+    master_agent.AXI4LITE_WRITE_BURST(addr1,prot,data_wr1bis,resp);
     #20ns
-    b_master_agent.AXI4_WRITE_BURST(16'h0180+(3), b_addr4, 0, size, burst, lock, 4'h0, prot, 4'h0, 4'h0, 1'h0, b_data_wr4, 1, resp);
+//    #20ns
+//    b_master_agent.AXI4_WRITE_BURST(16'h01ad+(0*128), b_addr1, 0, size, burst, lock, 4'h0, prot, 4'h0, 4'h0, 1'h0, b_data_wr1, 1, resp);
+//    #20ns
+//    b_master_agent.AXI4_WRITE_BURST(16'h01ad+(1*128), b_addr2, 0, size, burst, lock, 4'h0, prot, 4'h0, 4'h0, 1'h0, b_data_wr2, 1, resp);
+//    #20ns
+//    b_master_agent.AXI4_WRITE_BURST(16'h01ad+(2*128), b_addr3, 0, size, burst, lock, 4'h0, prot, 4'h0, 4'h0, 1'h0, b_data_wr3, 1, resp);
+//    #20ns
+//    b_master_agent.AXI4_WRITE_BURST(16'h01ad+(3*128), b_addr4, 0, size, burst, lock, 4'h0, prot, 4'h0, 4'h0, 1'h0, b_data_wr4, 1, resp);
+//    #20ns
+//    b_master_agent.AXI4_WRITE_BURST(16'h01ad+(4*128), b_addr5, 0, size, burst, lock, 4'h0, prot, 4'h0, 4'h0, 1'h0, b_data_wr5, 1, resp);
+//    #20ns
+//    b_master_agent.AXI4_WRITE_BURST(16'h01ad+(5*128), b_addr6, 0, size, burst, lock, 4'h0, prot, 4'h0, 4'h0, 1'h0, b_data_wr6, 1, resp);
+//    #20ns
+//    b_master_agent.AXI4_WRITE_BURST(16'h01ad+(6*128), b_addr7, 0, size, burst, lock, 4'h0, prot, 4'h0, 4'h0, 1'h0, b_data_wr7, 1, resp);
+//    #20ns
+//    b_master_agent.AXI4_WRITE_BURST(16'h01ad+(7*128), b_addr8, 0, size, burst, lock, 4'h0, prot, 4'h0, 4'h0, 1'h0, b_data_wr8, 1, resp);
     #20ns
-    b_master_agent.AXI4_WRITE_BURST(16'h0180+(4), b_addr5, 0, size, burst, lock, 4'h0, prot, 4'h0, 4'h0, 1'h0, b_data_wr5, 1, resp);
-    #20ns
-    b_master_agent.AXI4_WRITE_BURST(16'h0180+(5), b_addr6, 0, size, burst, lock, 4'h0, prot, 4'h0, 4'h0, 1'h0, b_data_wr6, 1, resp);
-    #20ns
-    b_master_agent.AXI4_WRITE_BURST(16'h0180+(6), b_addr7, 0, size, burst, lock, 4'h0, prot, 4'h0, 4'h0, 1'h0, b_data_wr7, 1, resp);
-    #20ns
-    b_master_agent.AXI4_WRITE_BURST(16'h0180+(7), b_addr8, 0, size, burst, lock, 4'h0, prot, 4'h0, 4'h0, 1'h0, b_data_wr8, 1, resp);
-    #20ns
-    b_master_agent.AXI4_WRITE_BURST(16'h0180+(8), b_addr9, 0, size, burst, lock, 4'h0, prot, 4'h0, 4'h0, 1'h0, b_data_wr9, 1, resp);
-    #20ns
-    b_master_agent.AXI4_WRITE_BURST(16'h0180+(9), b_addr10, 0, size, burst, lock, 4'h0, prot, 4'h0, 4'h0, 1'h0, b_data_wr10, 1, resp);
-    #20ns
-    b_master_agent.AXI4_WRITE_BURST(16'h0180+(10), b_addr11, 0, size, burst, lock, 4'h0, prot, 4'h0, 4'h0, 1'h0, b_data_wr11, 1, resp);
-    #20ns
-    b_master_agent.AXI4_WRITE_BURST(16'h0180+(11), b_addr12, 0, size, burst, lock, 4'h0, prot, 4'h0, 4'h0, 1'h0, b_data_wr12, 1, resp);
-    #20ns
-    b_master_agent.AXI4_WRITE_BURST(16'h0180+(12), b_addr13, 0, size, burst, lock, 4'h0, prot, 4'h0, 4'h0, 1'h0, b_data_wr13, 1, resp);
-    #20ns
+//    b_master_agent.AXI4_WRITE_BURST(16'h01ad+(8), b_addr9, 0, size, burst, lock, 4'h0, prot, 4'h0, 4'h0, 1'h0, b_data_wr9, 1, resp);
+//    #20ns
+//    b_master_agent.AXI4_WRITE_BURST(16'h01ad+(9), b_addr10, 0, size, burst, lock, 4'h0, prot, 4'h0, 4'h0, 1'h0, b_data_wr10, 1, resp);
+//    #20ns
+//    b_master_agent.AXI4_WRITE_BURST(16'h01ad+(10), b_addr11, 0, size, burst, lock, 4'h0, prot, 4'h0, 4'h0, 1'h0, b_data_wr11, 1, resp);
+//    #20ns
+//    b_master_agent.AXI4_WRITE_BURST(16'h01ad+(11), b_addr12, 0, size, burst, lock, 4'h0, prot, 4'h0, 4'h0, 1'h0, b_data_wr12, 1, resp);
+//    #20ns
+//    b_master_agent.AXI4_WRITE_BURST(16'h01ad+(12), b_addr13, 0, size, burst, lock, 4'h0, prot, 4'h0, 4'h0, 1'h0, b_data_wr13, 1, resp);
+//    #20ns
 //     READ PHASE
-    #20ns
-    b_master_agent.AXI4_READ_BURST(16'h0180+(0), b_addr1, 0, size, burst, lock, 4'h0, prot, 4'h0, 4'h0, 1'h0, data_rd1, rresp, ruser);
-    #20ns
-    b_master_agent.AXI4_READ_BURST(16'h0180+(1), b_addr2, 0, size, burst, lock, 4'h0, prot, 4'h0, 4'h0, 1'h0, data_rd2, rresp, ruser);
-    #20ns
-    b_master_agent.AXI4_READ_BURST(16'h0180+(2), b_addr3, 0, size, burst, lock, 4'h0, prot, 4'h0, 4'h0, 1'h0, data_rd3, rresp, ruser);
-    #20ns
-    b_master_agent.AXI4_READ_BURST(16'h0180+(3), b_addr4, 0, size, burst, lock, 4'h0, prot, 4'h0, 4'h0, 1'h0, data_rd4, rresp, ruser);
-    #20ns
-    b_master_agent.AXI4_READ_BURST(16'h0180+(4), b_addr5, 0, size, burst, lock, 4'h0, prot, 4'h0, 4'h0, 1'h0, data_rd5, rresp, ruser);
-    #20ns
-    b_master_agent.AXI4_READ_BURST(16'h0180+(5), b_addr6, 0, size, burst, lock, 4'h0, prot, 4'h0, 4'h0, 1'h0, data_rd6, rresp, ruser);
-    #20ns
-    b_master_agent.AXI4_READ_BURST(16'h0180+(6), b_addr7, 0, size, burst, lock, 4'h0, prot, 4'h0, 4'h0, 1'h0, data_rd7, rresp, ruser);
-    #20ns
-    b_master_agent.AXI4_READ_BURST(16'h0180+(7), b_addr8, 0, size, burst, lock, 4'h0, prot, 4'h0, 4'h0, 1'h0, data_rd8, rresp, ruser);
-    #20ns
-    b_master_agent.AXI4_READ_BURST(16'h0180+(8), b_addr9, 0, size, burst, lock, 4'h0, prot, 4'h0, 4'h0, 1'h0, data_rd9, rresp, ruser);
-    #20ns
-    b_master_agent.AXI4_READ_BURST(16'h0180+(9), b_addr10, 0, size, burst, lock, 4'h0, prot, 4'h0, 4'h0, 1'h0, data_rd10, rresp, ruser);
-    #20ns
-    b_master_agent.AXI4_READ_BURST(16'h0180+(10), b_addr11, 0, size, burst, lock, 4'h0, prot, 4'h0, 4'h0, 1'h0, data_rd11, rresp, ruser);
-    #20ns
-    b_master_agent.AXI4_READ_BURST(16'h0180+(11), b_addr12, 0, size, burst, lock, 4'h0, prot, 4'h0, 4'h0, 1'h0, data_rd12, rresp, ruser);
-    #20ns
-    b_master_agent.AXI4_READ_BURST(16'h0180+(12), b_addr13, 0, size, burst, lock, 4'h0, prot, 4'h0, 4'h0, 1'h0, data_rd13, rresp, ruser);
-    #20ns
+//    #20ns
+//    b_master_agent.AXI4_READ_BURST(16'h0180+(0), b_addr1, 0, size, burst, lock, 4'h0, prot, 4'h0, 4'h0, 1'h0, data_rd1, rresp, ruser);
+//    #20ns
+//    b_master_agent.AXI4_READ_BURST(16'h0180+(1), b_addr2, 0, size, burst, lock, 4'h0, prot, 4'h0, 4'h0, 1'h0, data_rd2, rresp, ruser);
+//    #20ns
+//    b_master_agent.AXI4_READ_BURST(16'h0180+(2), b_addr3, 0, size, burst, lock, 4'h0, prot, 4'h0, 4'h0, 1'h0, data_rd3, rresp, ruser);
+//    #20ns
+//    b_master_agent.AXI4_READ_BURST(16'h0180+(3), b_addr4, 0, size, burst, lock, 4'h0, prot, 4'h0, 4'h0, 1'h0, data_rd4, rresp, ruser);
+//    #20ns
+//    b_master_agent.AXI4_READ_BURST(16'h0180+(4), b_addr5, 0, size, burst, lock, 4'h0, prot, 4'h0, 4'h0, 1'h0, data_rd5, rresp, ruser);
+//    #20ns
+//    b_master_agent.AXI4_READ_BURST(16'h0180+(5), b_addr6, 0, size, burst, lock, 4'h0, prot, 4'h0, 4'h0, 1'h0, data_rd6, rresp, ruser);
+//    #20ns
+//    b_master_agent.AXI4_READ_BURST(16'h0180+(6), b_addr7, 0, size, burst, lock, 4'h0, prot, 4'h0, 4'h0, 1'h0, data_rd7, rresp, ruser);
+//    #20ns
+//    b_master_agent.AXI4_READ_BURST(16'h0180+(7), b_addr8, 0, size, burst, lock, 4'h0, prot, 4'h0, 4'h0, 1'h0, data_rd8, rresp, ruser);
+//    #20ns
+//    b_master_agent.AXI4_READ_BURST(16'h0180+(8), b_addr9, 0, size, burst, lock, 4'h0, prot, 4'h0, 4'h0, 1'h0, data_rd9, rresp, ruser);
+//    #20ns
+//    b_master_agent.AXI4_READ_BURST(16'h0180+(9), b_addr10, 0, size, burst, lock, 4'h0, prot, 4'h0, 4'h0, 1'h0, data_rd10, rresp, ruser);
+//    #20ns
+//    b_master_agent.AXI4_READ_BURST(16'h0180+(10), b_addr11, 0, size, burst, lock, 4'h0, prot, 4'h0, 4'h0, 1'h0, data_rd11, rresp, ruser);
+//    #20ns
+//    b_master_agent.AXI4_READ_BURST(16'h0180+(11), b_addr12, 0, size, burst, lock, 4'h0, prot, 4'h0, 4'h0, 1'h0, data_rd12, rresp, ruser);
+//    #20ns
+//    b_master_agent.AXI4_READ_BURST(16'h0180+(12), b_addr13, 0, size, burst, lock, 4'h0, prot, 4'h0, 4'h0, 1'h0, data_rd13, rresp, ruser);
+//    #20ns
 //    b_master_agent.AXI4_READ_BURST(16'h0180+(0), b_addr1, 0, size, burst, lock, 4'h0, prot, 4'h0, 4'h0, 1'h0, data_rd1, rresp, ruser);
 //    #20ns
 //    b_master_agent.AXI4_READ_BURST(16'h0180+(1), b_addr2, 0, size, burst, lock, 4'h0, prot, 4'h0, 4'h0, 1'h0, data_rd2, rresp, ruser);

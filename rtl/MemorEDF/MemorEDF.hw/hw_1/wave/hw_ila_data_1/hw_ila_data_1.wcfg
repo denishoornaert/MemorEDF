@@ -10,277 +10,326 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="1024001fs"></ZoomEndTime>
-      <Cursor1Time time="511000fs"></Cursor1Time>
+      <ZoomEndTime time="14900fs"></ZoomEndTime>
+      <Cursor1Time time="0fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="543"></NameColumnWidth>
+      <NameColumnWidth column_width="515"></NameColumnWidth>
       <ValueColumnWidth column_width="80"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="3" />
-   <wave_markers>
-   </wave_markers>
-   <wvobject type="group" fp_name="group1000">
-      <obj_property name="label">Read</obj_property>
-      <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="isExpanded"></obj_property>
-      <wvobject type="array" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARADDR_1">
-         <obj_property name="DisplayName">FullPathName</obj_property>
-         <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARADDR_1[39:0]</obj_property>
-         <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARADDR_1[39:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-         <obj_property name="LABELRADIX">true</obj_property>
-         <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARVALID_1">
-         <obj_property name="DisplayName">FullPathName</obj_property>
-         <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARVALID_1</obj_property>
-         <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARVALID_1</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-         <obj_property name="LABELRADIX">true</obj_property>
-         <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARREADY_1">
-         <obj_property name="DisplayName">FullPathName</obj_property>
-         <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARREADY_1</obj_property>
-         <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARREADY_1</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-         <obj_property name="LABELRADIX">true</obj_property>
-         <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARID_1">
-         <obj_property name="DisplayName">FullPathName</obj_property>
-         <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARID_1[15:0]</obj_property>
-         <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARID_1[15:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-         <obj_property name="LABELRADIX">true</obj_property>
-         <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARLEN_1">
-         <obj_property name="DisplayName">FullPathName</obj_property>
-         <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARLEN_1[7:0]</obj_property>
-         <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARLEN_1[7:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-         <obj_property name="LABELRADIX">true</obj_property>
-         <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARSIZE_1">
-         <obj_property name="DisplayName">FullPathName</obj_property>
-         <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARSIZE_1[2:0]</obj_property>
-         <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARSIZE_1[2:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-         <obj_property name="LABELRADIX">true</obj_property>
-         <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARBURST_1">
-         <obj_property name="DisplayName">FullPathName</obj_property>
-         <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARBURST_1[1:0]</obj_property>
-         <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARBURST_1[1:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-         <obj_property name="LABELRADIX">true</obj_property>
-         <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARREGION">
-         <obj_property name="DisplayName">FullPathName</obj_property>
-         <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARREGION[3:0]</obj_property>
-         <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARREGION[3:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-         <obj_property name="LABELRADIX">true</obj_property>
-         <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RVALID_1">
-         <obj_property name="DisplayName">FullPathName</obj_property>
-         <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RVALID_1</obj_property>
-         <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RVALID_1</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-         <obj_property name="LABELRADIX">true</obj_property>
-         <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RREADY_1">
-         <obj_property name="DisplayName">FullPathName</obj_property>
-         <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RREADY_1</obj_property>
-         <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RREADY_1</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-         <obj_property name="LABELRADIX">true</obj_property>
-         <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RDATA_1">
-         <obj_property name="DisplayName">FullPathName</obj_property>
-         <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RDATA_1[127:0]</obj_property>
-         <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RDATA_1[127:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-         <obj_property name="LABELRADIX">true</obj_property>
-         <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RLAST_1">
-         <obj_property name="DisplayName">FullPathName</obj_property>
-         <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RLAST_1</obj_property>
-         <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RLAST_1</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-         <obj_property name="LABELRADIX">true</obj_property>
-         <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RID_1">
-         <obj_property name="DisplayName">FullPathName</obj_property>
-         <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RID_1[15:0]</obj_property>
-         <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RID_1[15:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-         <obj_property name="LABELRADIX">true</obj_property>
-         <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RRESP">
-         <obj_property name="DisplayName">FullPathName</obj_property>
-         <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RRESP[1:0]</obj_property>
-         <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RRESP[1:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-         <obj_property name="LABELRADIX">true</obj_property>
-         <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-      </wvobject>
+   <WVObjectSize size="41" />
+   <wvobject type="array" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARADDR">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARADDR[39:0]</obj_property>
+      <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARADDR[39:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject type="group" fp_name="group999">
-      <obj_property name="label">Write</obj_property>
-      <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="isExpanded"></obj_property>
-      <wvobject type="array" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWADDR">
-         <obj_property name="DisplayName">FullPathName</obj_property>
-         <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWADDR[39:0]</obj_property>
-         <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWADDR[39:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-         <obj_property name="LABELRADIX">true</obj_property>
-         <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWVALID_1">
-         <obj_property name="DisplayName">FullPathName</obj_property>
-         <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWVALID_1</obj_property>
-         <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWVALID_1</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-         <obj_property name="LABELRADIX">true</obj_property>
-         <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWREADY_1">
-         <obj_property name="DisplayName">FullPathName</obj_property>
-         <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWREADY_1</obj_property>
-         <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWREADY_1</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-         <obj_property name="LABELRADIX">true</obj_property>
-         <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWID_1">
-         <obj_property name="DisplayName">FullPathName</obj_property>
-         <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWID_1[15:0]</obj_property>
-         <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWID_1[15:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-         <obj_property name="LABELRADIX">true</obj_property>
-         <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWLEN_1">
-         <obj_property name="DisplayName">FullPathName</obj_property>
-         <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWLEN_1[7:0]</obj_property>
-         <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWLEN_1[7:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-         <obj_property name="LABELRADIX">true</obj_property>
-         <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWSIZE_1">
-         <obj_property name="DisplayName">FullPathName</obj_property>
-         <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWSIZE_1[2:0]</obj_property>
-         <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWSIZE_1[2:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-         <obj_property name="LABELRADIX">true</obj_property>
-         <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWBURST_1">
-         <obj_property name="DisplayName">FullPathName</obj_property>
-         <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWBURST_1[1:0]</obj_property>
-         <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWBURST_1[1:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-         <obj_property name="LABELRADIX">true</obj_property>
-         <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWREGION">
-         <obj_property name="DisplayName">FullPathName</obj_property>
-         <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWREGION[3:0]</obj_property>
-         <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWREGION[3:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-         <obj_property name="LABELRADIX">true</obj_property>
-         <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WVALID_1">
-         <obj_property name="DisplayName">FullPathName</obj_property>
-         <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WVALID_1</obj_property>
-         <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WVALID_1</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-         <obj_property name="LABELRADIX">true</obj_property>
-         <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WREADY">
-         <obj_property name="DisplayName">FullPathName</obj_property>
-         <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WREADY</obj_property>
-         <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WREADY</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-         <obj_property name="LABELRADIX">true</obj_property>
-         <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WDATA_1">
-         <obj_property name="DisplayName">FullPathName</obj_property>
-         <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WDATA_1[127:0]</obj_property>
-         <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WDATA_1[127:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-         <obj_property name="LABELRADIX">true</obj_property>
-         <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WSTRB_1">
-         <obj_property name="DisplayName">FullPathName</obj_property>
-         <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WSTRB_1[15:0]</obj_property>
-         <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WSTRB_1[15:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-         <obj_property name="LABELRADIX">true</obj_property>
-         <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WLAST_1">
-         <obj_property name="DisplayName">FullPathName</obj_property>
-         <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WLAST_1</obj_property>
-         <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WLAST_1</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-         <obj_property name="LABELRADIX">true</obj_property>
-         <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-      </wvobject>
+   <wvobject type="logic" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARVALID">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARVALID</obj_property>
+      <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARVALID</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject type="group" fp_name="group998">
-      <obj_property name="label">Response</obj_property>
-      <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="isExpanded"></obj_property>
-      <wvobject type="array" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_BRESP">
-         <obj_property name="DisplayName">FullPathName</obj_property>
-         <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_BRESP[1:0]</obj_property>
-         <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_BRESP[1:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-         <obj_property name="LABELRADIX">true</obj_property>
-         <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_BVALID_1">
-         <obj_property name="DisplayName">FullPathName</obj_property>
-         <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_BVALID_1</obj_property>
-         <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_BVALID_1</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-         <obj_property name="LABELRADIX">true</obj_property>
-         <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_BREADY_1">
-         <obj_property name="DisplayName">FullPathName</obj_property>
-         <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_BREADY_1</obj_property>
-         <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_BREADY_1</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-         <obj_property name="LABELRADIX">true</obj_property>
-         <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_BID">
-         <obj_property name="DisplayName">FullPathName</obj_property>
-         <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_BID[15:0]</obj_property>
-         <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_BID[15:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-         <obj_property name="LABELRADIX">true</obj_property>
-         <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-      </wvobject>
+   <wvobject type="logic" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARREADY">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARREADY</obj_property>
+      <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARREADY</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARID">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARID[15:0]</obj_property>
+      <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARID[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARBURST">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARBURST[1:0]</obj_property>
+      <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARBURST[1:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARCACHE">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARCACHE[3:0]</obj_property>
+      <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARCACHE[3:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARLEN">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARLEN[7:0]</obj_property>
+      <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARLEN[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARLOCK">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARLOCK</obj_property>
+      <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARLOCK</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARPROT">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARPROT[2:0]</obj_property>
+      <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARPROT[2:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARQOS">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARQOS[3:0]</obj_property>
+      <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARQOS[3:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARREGION">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARREGION[3:0]</obj_property>
+      <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARREGION[3:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARSIZE">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARSIZE[2:0]</obj_property>
+      <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARSIZE[2:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARUSER">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARUSER[15:0]</obj_property>
+      <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARUSER[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RDATA">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RDATA[127:0]</obj_property>
+      <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RDATA[127:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RID">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RID[15:0]</obj_property>
+      <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RID[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RLAST">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RLAST</obj_property>
+      <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RLAST</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RREADY">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RREADY</obj_property>
+      <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RREADY</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RRESP">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RRESP[1:0]</obj_property>
+      <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RRESP[1:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RVALID">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RVALID</obj_property>
+      <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RVALID</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWADDR">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWADDR[39:0]</obj_property>
+      <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWADDR[39:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWVALID">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWVALID</obj_property>
+      <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWVALID</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWREADY">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWREADY</obj_property>
+      <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWREADY</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWID">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWID[15:0]</obj_property>
+      <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWID[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWBURST">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWBURST[1:0]</obj_property>
+      <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWBURST[1:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWCACHE">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWCACHE[3:0]</obj_property>
+      <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWCACHE[3:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWLEN">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWLEN[7:0]</obj_property>
+      <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWLEN[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWLOCK">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWLOCK</obj_property>
+      <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWLOCK</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWPROT">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWPROT[2:0]</obj_property>
+      <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWPROT[2:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWQOS">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWQOS[3:0]</obj_property>
+      <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWQOS[3:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWREGION">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWREGION[3:0]</obj_property>
+      <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWREGION[3:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWSIZE">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWSIZE[2:0]</obj_property>
+      <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWSIZE[2:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWUSER">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWUSER[15:0]</obj_property>
+      <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWUSER[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WDATA">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WDATA[127:0]</obj_property>
+      <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WDATA[127:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WLAST">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WLAST</obj_property>
+      <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WLAST</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WREADY">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WREADY</obj_property>
+      <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WREADY</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WSTRB">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WSTRB[15:0]</obj_property>
+      <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WSTRB[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WVALID">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WVALID</obj_property>
+      <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WVALID</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_BVALID">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_BVALID</obj_property>
+      <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_BVALID</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_BREADY">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_BREADY</obj_property>
+      <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_BREADY</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_BID">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_BID[15:0]</obj_property>
+      <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_BID[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_BRESP">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_2_i/zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_BRESP[1:0]</obj_property>
+      <obj_property name="ObjectShortName">zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_BRESP[1:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
 </wave_config>

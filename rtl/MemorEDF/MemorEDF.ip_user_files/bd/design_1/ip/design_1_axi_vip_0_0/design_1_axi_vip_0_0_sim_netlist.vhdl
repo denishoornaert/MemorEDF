@@ -1,11 +1,11 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
--- Date        : Sat Feb 29 16:46:09 2020
+-- Date        : Wed Apr 29 15:17:31 2020
 -- Host        : CELSIUS running 64-bit Ubuntu 16.04.6 LTS
--- Command     : write_vhdl -force -mode funcsim
---               /home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_1/ip/design_1_axi_vip_0_0/design_1_axi_vip_0_0_sim_netlist.vhdl
--- Design      : design_1_axi_vip_0_0
+-- Command     : write_vhdl -force -mode funcsim -rename_top design_1_axi_vip_0_0 -prefix
+--               design_1_axi_vip_0_0_ design_1_axi_vip_0_2_sim_netlist.vhdl
+-- Design      : design_1_axi_vip_0_2
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
 -- Device      : xczu9eg-ffvb1156-2-e
@@ -158,8 +158,6 @@ entity design_1_axi_vip_0_0_axi_vip_v1_1_1_top is
   attribute C_AXI_WUSER_WIDTH of design_1_axi_vip_0_0_axi_vip_v1_1_1_top : entity is 0;
   attribute DowngradeIPIdentifiedWarnings : string;
   attribute DowngradeIPIdentifiedWarnings of design_1_axi_vip_0_0_axi_vip_v1_1_1_top : entity is "yes";
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_axi_vip_0_0_axi_vip_v1_1_1_top : entity is "axi_vip_v1_1_1_top";
 end design_1_axi_vip_0_0_axi_vip_v1_1_1_top;
 
 architecture STRUCTURE of design_1_axi_vip_0_0_axi_vip_v1_1_1_top is
@@ -748,7 +746,7 @@ entity design_1_axi_vip_0_0 is
   attribute NotValidForBitStream : boolean;
   attribute NotValidForBitStream of design_1_axi_vip_0_0 : entity is true;
   attribute CHECK_LICENSE_TYPE : string;
-  attribute CHECK_LICENSE_TYPE of design_1_axi_vip_0_0 : entity is "design_1_axi_vip_0_0,axi_vip_v1_1_1_top,{}";
+  attribute CHECK_LICENSE_TYPE of design_1_axi_vip_0_0 : entity is "design_1_axi_vip_0_2,axi_vip_v1_1_1_top,{}";
   attribute DowngradeIPIdentifiedWarnings : string;
   attribute DowngradeIPIdentifiedWarnings of design_1_axi_vip_0_0 : entity is "yes";
   attribute X_CORE_INFO : string;

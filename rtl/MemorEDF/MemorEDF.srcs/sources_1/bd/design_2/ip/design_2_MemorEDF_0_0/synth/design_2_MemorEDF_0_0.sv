@@ -48,7 +48,7 @@
 
 
 // IP VLNV: user.org:user:MemorEDF:1.0
-// IP Revision: 190
+// IP Revision: 205
 
 (* X_CORE_INFO = "MemorEDF,Vivado 2017.4" *)
 (* CHECK_LICENSE_TYPE = "design_2_MemorEDF_0_0,MemorEDF,{}" *)
@@ -470,7 +470,9 @@ output wire m00_axi_rready;
     .C_S00_AXI_AWUSER_WIDTH(16),
     .C_S00_AXI_ARUSER_WIDTH(16),
     .C_M00_AXI_AWUSER_WIDTH(16),
-    .C_M00_AXI_ARUSER_WIDTH(16)
+    .C_M00_AXI_ARUSER_WIDTH(16),
+    .PRIORITY_SIZE(4),
+    .FP_ENABLED(1'B1)
   ) inst (
     .s00_axi_aclk(s00_axi_aclk),
     .s00_axi_aresetn(s00_axi_aresetn),
