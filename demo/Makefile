@@ -1,0 +1,23 @@
+COMPILER_ARM = aarch64-linux-gnu-gcc
+FLAGS = -lpthread -lrt
+
+all: tdma fp poke populate
+
+tdma: src/tdma.c objects/tool.o
+	$(COMPILER_ARM) src/tdma.c -o exec/tdma.out $(FLAGS) objects/tool.o
+
+fp: src/fp.c objects/tool.o
+	$(COMPILER_ARM) src/fp.c -o exec/fp.out $(FLAGS) objects/tool.o
+
+poke: src/poke.c objects/tool.o
+	$(COMPILER_ARM) src/poke.c -o exec/poke.out $(FLAGS) objects/tool.o
+
+populate: src/populate.c objects/tool.o
+	$(COMPILER_ARM) src/populate.c -o exec/populate.out $(FLAGS) objects/tool.o
+
+objects/tool.o: include/tool.h src/tool.c
+	$(COMPILER_ARM) -c src/tool.c -o objects/tool.o $(FLAGS)
+
+clean:
+	rm -f exec/*.out
+	rm -f objects/*.o
