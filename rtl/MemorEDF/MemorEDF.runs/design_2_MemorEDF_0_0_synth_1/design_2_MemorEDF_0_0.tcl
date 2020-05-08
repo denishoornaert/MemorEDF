@@ -16,12 +16,6 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
-set_param power.enableLutRouteBelPower 1
-set_param power.enableCarry8RouteBelPower 1
-set_param power.enableUnconnectedCarry8PinPower 1
-set_param xicom.use_bs_reader 1
-set_param tcl.collectionResultDisplayLimit 0
-set_msg_config -id {HDL-1065} -limit 10000
 set_param project.vivado.isBlockSynthRun true
 create_project -in_memory -part xczu9eg-ffvb1156-2-e
 

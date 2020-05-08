@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-| Date         : Wed May  6 22:52:29 2020
+| Date         : Fri May  8 14:55:12 2020
 | Host         : CELSIUS running 64-bit Ubuntu 16.04.6 LTS
 | Command      : report_methodology -file design_2_wrapper_methodology_drc_routed.rpt -pb design_2_wrapper_methodology_drc_routed.pb -rpx design_2_wrapper_methodology_drc_routed.rpx
 | Design       : design_2_wrapper
@@ -37,7 +37,7 @@ Table of Contents
 -----------------
 PDRC-190#1 Warning
 Suboptimally placed synchronized register chain  
-The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD5/shift_reg_in_reg[2] in site SLICE_X66Y134 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD5/shift_reg_in_reg[1] is not placed in the same (SLICE) site.
+The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD5/shift_reg_in_reg[2] in site SLICE_X82Y96 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD5/shift_reg_in_reg[1] is not placed in the same (SLICE) site.
 Related violations: <none>
 
 TIMING-20#1 Warning
@@ -52,7 +52,7 @@ Related violations: <none>
 
 TIMING-35#1 Warning
 No common node in paths with the same clock  
-The clock clk_pl_0 has paths without a common node. First path found between design_2_i/zynq_ultra_ps_e_0/inst/PS8_i/PLCLK[0] and u_ila_0/inst/ila_core_inst/shifted_data_in_reg[7][708]_srl8/D. Please review clock constraints
+The clock clk_pl_0 has paths without a common node. First path found between design_2_i/zynq_ultra_ps_e_0/inst/PS8_i/PLCLK[0] and u_ila_0/inst/ila_core_inst/shifted_data_in_reg[7][693]_srl8/D. Please review clock constraints
 Related violations: <none>
 
 TIMING-35#2 Warning
@@ -183,7 +183,7 @@ Related violations: <none>
 XDCB-5#21 Warning
 Runtime inefficient way to find pin objects  
 The option '-from : [get_pins -hierarchical -filter { NAME =~  "*ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/u_cap_sample_counter/u_scnt_cmp/allx_typeA_match_detection.ltlib_v1_0_0_allx_typeA_inst/DUT/I_WHOLE_SLICE.G_SLICE_IDX[*].U_ALL_SRL_SLICE/u_srl*/S*/CLK*"}]' of constraint 'set_false_path' uses inefficient query to find pin objects (see constraint position '128' in the Timing Constraint window in Vivado IDE). To reduce runtime, it is recommended to get the pins through the cell objects. Please refer to Using Constraints Guide (Constraints Efficiency). An example of optimal query is: get_pins -filter {REF_PIN_NAME=~yy*} -of_objects [get_cells -hierarchical xx*].
-Current XDC: /home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/impl_1/.Xil/Vivado-11827-CELSIUS/u_ila_0_CV.0/out/ila_impl.xdc (Line: 10)
+Current XDC: /home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/impl_1/.Xil/Vivado-7251-CELSIUS/u_ila_0_CV.0/out/ila_impl.xdc (Line: 10)
 Related violations: <none>
 
 XDCB-5#22 Warning
@@ -249,7 +249,7 @@ Related violations: <none>
 XDCB-5#32 Warning
 Runtime inefficient way to find pin objects  
 The option '-from : [get_pins -hierarchical -filter { NAME =~  "*ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/u_cap_window_counter/u_wcnt_hcmp/allx_typeA_match_detection.ltlib_v1_0_0_allx_typeA_inst/DUT/I_WHOLE_SLICE.G_SLICE_IDX[*].U_ALL_SRL_SLICE/u_srl*/S*/CLK*"}]' of constraint 'set_false_path' uses inefficient query to find pin objects (see constraint position '130' in the Timing Constraint window in Vivado IDE). To reduce runtime, it is recommended to get the pins through the cell objects. Please refer to Using Constraints Guide (Constraints Efficiency). An example of optimal query is: get_pins -filter {REF_PIN_NAME=~yy*} -of_objects [get_cells -hierarchical xx*].
-Current XDC: /home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/impl_1/.Xil/Vivado-11827-CELSIUS/u_ila_0_CV.0/out/ila_impl.xdc (Line: 16)
+Current XDC: /home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/impl_1/.Xil/Vivado-7251-CELSIUS/u_ila_0_CV.0/out/ila_impl.xdc (Line: 16)
 Related violations: <none>
 
 XDCB-5#33 Warning
@@ -279,7 +279,7 @@ Related violations: <none>
 XDCB-5#37 Warning
 Runtime inefficient way to find pin objects  
 The option '-from : [get_pins -hierarchical -filter { NAME =~  "*ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/u_cap_window_counter/u_wcnt_lcmp/allx_typeA_match_detection.ltlib_v1_0_0_allx_typeA_inst/DUT/I_WHOLE_SLICE.G_SLICE_IDX[*].U_ALL_SRL_SLICE/u_srl*/S*/CLK*"}]' of constraint 'set_false_path' uses inefficient query to find pin objects (see constraint position '129' in the Timing Constraint window in Vivado IDE). To reduce runtime, it is recommended to get the pins through the cell objects. Please refer to Using Constraints Guide (Constraints Efficiency). An example of optimal query is: get_pins -filter {REF_PIN_NAME=~yy*} -of_objects [get_cells -hierarchical xx*].
-Current XDC: /home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/impl_1/.Xil/Vivado-11827-CELSIUS/u_ila_0_CV.0/out/ila_impl.xdc (Line: 15)
+Current XDC: /home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/impl_1/.Xil/Vivado-7251-CELSIUS/u_ila_0_CV.0/out/ila_impl.xdc (Line: 15)
 Related violations: <none>
 
 XDCB-5#38 Warning
@@ -363,7 +363,7 @@ Related violations: <none>
 XDCB-5#51 Warning
 Runtime inefficient way to find pin objects  
 The option '-from : [get_pins -hierarchical -filter {NAME =~ *allx_typeA_match_detection.ltlib_v1_0_0_allx_typeA_inst/DUT/I_WHOLE_SLICE.G_SLICE_IDX[*].U_ALL_SRL_SLICE/u_srl*/S*/CLK}]' of constraint 'set_false_path' uses inefficient query to find pin objects (see constraint position '127' in the Timing Constraint window in Vivado IDE). To reduce runtime, it is recommended to get the pins through the cell objects. Please refer to Using Constraints Guide (Constraints Efficiency). An example of optimal query is: get_pins -filter {REF_PIN_NAME=~yy*} -of_objects [get_cells -hierarchical xx*].
-Current XDC: /home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/impl_1/.Xil/Vivado-11827-CELSIUS/u_ila_0_CV.0/out/ila_impl.xdc (Line: 5)
+Current XDC: /home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/impl_1/.Xil/Vivado-7251-CELSIUS/u_ila_0_CV.0/out/ila_impl.xdc (Line: 5)
 Related violations: <none>
 
 XDCB-5#52 Warning
@@ -417,7 +417,7 @@ Related violations: <none>
 XDCB-5#60 Warning
 Runtime inefficient way to find pin objects  
 The option '-to : [get_pins -hierarchical -filter {NAME =~ *allx_typeA_match_detection.ltlib_v1_0_0_allx_typeA_inst/DUT/I_WHOLE_SLICE.G_SLICE_IDX[*].U_ALL_SRL_SLICE/I_IS_TERMINATION_SLICE_W_OUTPUT_REG.DOUT_O_reg/D}]' of constraint 'set_false_path' uses inefficient query to find pin objects (see constraint position '127' in the Timing Constraint window in Vivado IDE). To reduce runtime, it is recommended to get the pins through the cell objects. Please refer to Using Constraints Guide (Constraints Efficiency). An example of optimal query is: get_pins -filter {REF_PIN_NAME=~yy*} -of_objects [get_cells -hierarchical xx*].
-Current XDC: /home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/impl_1/.Xil/Vivado-11827-CELSIUS/u_ila_0_CV.0/out/ila_impl.xdc (Line: 5)
+Current XDC: /home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/impl_1/.Xil/Vivado-7251-CELSIUS/u_ila_0_CV.0/out/ila_impl.xdc (Line: 5)
 Related violations: <none>
 
 XDCB-5#61 Warning
@@ -441,7 +441,7 @@ Related violations: <none>
 XDCB-5#64 Warning
 Runtime inefficient way to find pin objects  
 The option 'objects : [get_pins -hierarchical -filter {NAME =~ "*BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_inst/SERIES7_BSCAN.bscan_inst/INTERNAL_TCK"}]' of constraint 'create_clock' uses inefficient query to find pin objects (see constraint position '125' in the Timing Constraint window in Vivado IDE). To reduce runtime, it is recommended to get the pins through the cell objects. Please refer to Using Constraints Guide (Constraints Efficiency). An example of optimal query is: get_pins -filter {REF_PIN_NAME=~yy*} -of_objects [get_cells -hierarchical xx*].
-Current XDC: /home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/impl_1/.Xil/Vivado-11827-CELSIUS/dbg_hub_CV.0/out/xsdbm.xdc (Line: 5)
+Current XDC: /home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/impl_1/.Xil/Vivado-7251-CELSIUS/dbg_hub_CV.0/out/xsdbm.xdc (Line: 5)
 Related violations: <none>
 
 

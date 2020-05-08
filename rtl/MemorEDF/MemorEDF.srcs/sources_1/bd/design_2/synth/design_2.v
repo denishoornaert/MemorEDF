@@ -1,7 +1,7 @@
 //Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-//Date        : Wed May  6 22:38:07 2020
+//Date        : Fri May  8 14:40:02 2020
 //Host        : CELSIUS running 64-bit Ubuntu 16.04.6 LTS
 //Command     : generate_target design_2.bd
 //Design      : design_2
@@ -9,10 +9,49 @@
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "design_2,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_2,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=7,numReposBlks=7,numNonXlnxBlks=1,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_clkrst_cnt=10,da_zynq_ultra_ps_e_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "design_2.hwdef" *) 
+(* CORE_GENERATION_INFO = "design_2,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_2,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=6,numReposBlks=6,numNonXlnxBlks=2,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_clkrst_cnt=12,da_zynq_ultra_ps_e_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "design_2.hwdef" *) 
 module design_2
    ();
 
+  wire [48:0]AXI_PerfectTranslator_0_M00_AXI_ARADDR;
+  wire [1:0]AXI_PerfectTranslator_0_M00_AXI_ARBURST;
+  wire [3:0]AXI_PerfectTranslator_0_M00_AXI_ARCACHE;
+  wire [5:0]AXI_PerfectTranslator_0_M00_AXI_ARID;
+  wire [7:0]AXI_PerfectTranslator_0_M00_AXI_ARLEN;
+  wire AXI_PerfectTranslator_0_M00_AXI_ARLOCK;
+  wire [2:0]AXI_PerfectTranslator_0_M00_AXI_ARPROT;
+  wire [3:0]AXI_PerfectTranslator_0_M00_AXI_ARQOS;
+  wire AXI_PerfectTranslator_0_M00_AXI_ARREADY;
+  wire [2:0]AXI_PerfectTranslator_0_M00_AXI_ARSIZE;
+  wire [0:0]AXI_PerfectTranslator_0_M00_AXI_ARUSER;
+  wire AXI_PerfectTranslator_0_M00_AXI_ARVALID;
+  wire [48:0]AXI_PerfectTranslator_0_M00_AXI_AWADDR;
+  wire [1:0]AXI_PerfectTranslator_0_M00_AXI_AWBURST;
+  wire [3:0]AXI_PerfectTranslator_0_M00_AXI_AWCACHE;
+  wire [5:0]AXI_PerfectTranslator_0_M00_AXI_AWID;
+  wire [7:0]AXI_PerfectTranslator_0_M00_AXI_AWLEN;
+  wire AXI_PerfectTranslator_0_M00_AXI_AWLOCK;
+  wire [2:0]AXI_PerfectTranslator_0_M00_AXI_AWPROT;
+  wire [3:0]AXI_PerfectTranslator_0_M00_AXI_AWQOS;
+  wire AXI_PerfectTranslator_0_M00_AXI_AWREADY;
+  wire [2:0]AXI_PerfectTranslator_0_M00_AXI_AWSIZE;
+  wire [0:0]AXI_PerfectTranslator_0_M00_AXI_AWUSER;
+  wire AXI_PerfectTranslator_0_M00_AXI_AWVALID;
+  wire [5:0]AXI_PerfectTranslator_0_M00_AXI_BID;
+  wire AXI_PerfectTranslator_0_M00_AXI_BREADY;
+  wire [1:0]AXI_PerfectTranslator_0_M00_AXI_BRESP;
+  wire AXI_PerfectTranslator_0_M00_AXI_BVALID;
+  wire [127:0]AXI_PerfectTranslator_0_M00_AXI_RDATA;
+  wire [5:0]AXI_PerfectTranslator_0_M00_AXI_RID;
+  wire AXI_PerfectTranslator_0_M00_AXI_RLAST;
+  wire AXI_PerfectTranslator_0_M00_AXI_RREADY;
+  wire [1:0]AXI_PerfectTranslator_0_M00_AXI_RRESP;
+  wire AXI_PerfectTranslator_0_M00_AXI_RVALID;
+  wire [127:0]AXI_PerfectTranslator_0_M00_AXI_WDATA;
+  wire AXI_PerfectTranslator_0_M00_AXI_WLAST;
+  wire AXI_PerfectTranslator_0_M00_AXI_WREADY;
+  wire [15:0]AXI_PerfectTranslator_0_M00_AXI_WSTRB;
+  wire AXI_PerfectTranslator_0_M00_AXI_WVALID;
   (* DEBUG = "true" *) (* MARK_DEBUG *) wire [39:0]MemorEDF_0_m00_axi_ARADDR;
   (* DEBUG = "true" *) (* MARK_DEBUG *) wire [1:0]MemorEDF_0_m00_axi_ARBURST;
   (* DEBUG = "true" *) (* MARK_DEBUG *) wire [3:0]MemorEDF_0_m00_axi_ARCACHE;
@@ -22,6 +61,7 @@ module design_2
   (* DEBUG = "true" *) (* MARK_DEBUG *) wire [2:0]MemorEDF_0_m00_axi_ARPROT;
   (* DEBUG = "true" *) (* MARK_DEBUG *) wire [3:0]MemorEDF_0_m00_axi_ARQOS;
   (* DEBUG = "true" *) (* MARK_DEBUG *) wire MemorEDF_0_m00_axi_ARREADY;
+  (* DEBUG = "true" *) (* MARK_DEBUG *) wire [3:0]MemorEDF_0_m00_axi_ARREGION;
   (* DEBUG = "true" *) (* MARK_DEBUG *) wire [2:0]MemorEDF_0_m00_axi_ARSIZE;
   (* DEBUG = "true" *) (* MARK_DEBUG *) wire [15:0]MemorEDF_0_m00_axi_ARUSER;
   (* DEBUG = "true" *) (* MARK_DEBUG *) wire MemorEDF_0_m00_axi_ARVALID;
@@ -34,6 +74,7 @@ module design_2
   (* DEBUG = "true" *) (* MARK_DEBUG *) wire [2:0]MemorEDF_0_m00_axi_AWPROT;
   (* DEBUG = "true" *) (* MARK_DEBUG *) wire [3:0]MemorEDF_0_m00_axi_AWQOS;
   (* DEBUG = "true" *) (* MARK_DEBUG *) wire MemorEDF_0_m00_axi_AWREADY;
+  (* DEBUG = "true" *) (* MARK_DEBUG *) wire [3:0]MemorEDF_0_m00_axi_AWREGION;
   (* DEBUG = "true" *) (* MARK_DEBUG *) wire [2:0]MemorEDF_0_m00_axi_AWSIZE;
   (* DEBUG = "true" *) (* MARK_DEBUG *) wire [15:0]MemorEDF_0_m00_axi_AWUSER;
   (* DEBUG = "true" *) (* MARK_DEBUG *) wire MemorEDF_0_m00_axi_AWVALID;
@@ -52,13 +93,6 @@ module design_2
   (* DEBUG = "true" *) (* MARK_DEBUG *) wire MemorEDF_0_m00_axi_WREADY;
   (* DEBUG = "true" *) (* MARK_DEBUG *) wire [15:0]MemorEDF_0_m00_axi_WSTRB;
   (* DEBUG = "true" *) (* MARK_DEBUG *) wire MemorEDF_0_m00_axi_WVALID;
-  wire [12:0]axi_bram_ctrl_0_BRAM_PORTA_ADDR;
-  wire axi_bram_ctrl_0_BRAM_PORTA_CLK;
-  wire [127:0]axi_bram_ctrl_0_BRAM_PORTA_DIN;
-  wire [127:0]axi_bram_ctrl_0_BRAM_PORTA_DOUT;
-  wire axi_bram_ctrl_0_BRAM_PORTA_EN;
-  wire axi_bram_ctrl_0_BRAM_PORTA_RST;
-  wire [15:0]axi_bram_ctrl_0_BRAM_PORTA_WE;
   wire [0:0]rst_ps8_0_99M_peripheral_aresetn;
   (* DEBUG = "true" *) (* MARK_DEBUG *) wire [39:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARADDR;
   (* DEBUG = "true" *) (* MARK_DEBUG *) wire [1:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARBURST;
@@ -143,6 +177,94 @@ module design_2
   wire zynq_ultra_ps_e_0_pl_clk0;
   wire zynq_ultra_ps_e_0_pl_resetn0;
 
+  design_2_AXI_PerfectTranslator_0_0 AXI_PerfectTranslator_0
+       (.m00_axi_aclk(zynq_ultra_ps_e_0_pl_clk0),
+        .m00_axi_araddr(AXI_PerfectTranslator_0_M00_AXI_ARADDR),
+        .m00_axi_arburst(AXI_PerfectTranslator_0_M00_AXI_ARBURST),
+        .m00_axi_arcache(AXI_PerfectTranslator_0_M00_AXI_ARCACHE),
+        .m00_axi_aresetn(rst_ps8_0_99M_peripheral_aresetn),
+        .m00_axi_arid(AXI_PerfectTranslator_0_M00_AXI_ARID),
+        .m00_axi_arlen(AXI_PerfectTranslator_0_M00_AXI_ARLEN),
+        .m00_axi_arlock(AXI_PerfectTranslator_0_M00_AXI_ARLOCK),
+        .m00_axi_arprot(AXI_PerfectTranslator_0_M00_AXI_ARPROT),
+        .m00_axi_arqos(AXI_PerfectTranslator_0_M00_AXI_ARQOS),
+        .m00_axi_arready(AXI_PerfectTranslator_0_M00_AXI_ARREADY),
+        .m00_axi_arsize(AXI_PerfectTranslator_0_M00_AXI_ARSIZE),
+        .m00_axi_aruser(AXI_PerfectTranslator_0_M00_AXI_ARUSER),
+        .m00_axi_arvalid(AXI_PerfectTranslator_0_M00_AXI_ARVALID),
+        .m00_axi_awaddr(AXI_PerfectTranslator_0_M00_AXI_AWADDR),
+        .m00_axi_awburst(AXI_PerfectTranslator_0_M00_AXI_AWBURST),
+        .m00_axi_awcache(AXI_PerfectTranslator_0_M00_AXI_AWCACHE),
+        .m00_axi_awid(AXI_PerfectTranslator_0_M00_AXI_AWID),
+        .m00_axi_awlen(AXI_PerfectTranslator_0_M00_AXI_AWLEN),
+        .m00_axi_awlock(AXI_PerfectTranslator_0_M00_AXI_AWLOCK),
+        .m00_axi_awprot(AXI_PerfectTranslator_0_M00_AXI_AWPROT),
+        .m00_axi_awqos(AXI_PerfectTranslator_0_M00_AXI_AWQOS),
+        .m00_axi_awready(AXI_PerfectTranslator_0_M00_AXI_AWREADY),
+        .m00_axi_awsize(AXI_PerfectTranslator_0_M00_AXI_AWSIZE),
+        .m00_axi_awuser(AXI_PerfectTranslator_0_M00_AXI_AWUSER),
+        .m00_axi_awvalid(AXI_PerfectTranslator_0_M00_AXI_AWVALID),
+        .m00_axi_bid(AXI_PerfectTranslator_0_M00_AXI_BID),
+        .m00_axi_bready(AXI_PerfectTranslator_0_M00_AXI_BREADY),
+        .m00_axi_bresp(AXI_PerfectTranslator_0_M00_AXI_BRESP),
+        .m00_axi_buser(1'b0),
+        .m00_axi_bvalid(AXI_PerfectTranslator_0_M00_AXI_BVALID),
+        .m00_axi_init_axi_txn(1'b0),
+        .m00_axi_rdata(AXI_PerfectTranslator_0_M00_AXI_RDATA),
+        .m00_axi_rid(AXI_PerfectTranslator_0_M00_AXI_RID),
+        .m00_axi_rlast(AXI_PerfectTranslator_0_M00_AXI_RLAST),
+        .m00_axi_rready(AXI_PerfectTranslator_0_M00_AXI_RREADY),
+        .m00_axi_rresp(AXI_PerfectTranslator_0_M00_AXI_RRESP),
+        .m00_axi_ruser(1'b0),
+        .m00_axi_rvalid(AXI_PerfectTranslator_0_M00_AXI_RVALID),
+        .m00_axi_wdata(AXI_PerfectTranslator_0_M00_AXI_WDATA),
+        .m00_axi_wlast(AXI_PerfectTranslator_0_M00_AXI_WLAST),
+        .m00_axi_wready(AXI_PerfectTranslator_0_M00_AXI_WREADY),
+        .m00_axi_wstrb(AXI_PerfectTranslator_0_M00_AXI_WSTRB),
+        .m00_axi_wvalid(AXI_PerfectTranslator_0_M00_AXI_WVALID),
+        .s00_axi_aclk(zynq_ultra_ps_e_0_pl_clk0),
+        .s00_axi_araddr(MemorEDF_0_m00_axi_ARADDR),
+        .s00_axi_arburst(MemorEDF_0_m00_axi_ARBURST),
+        .s00_axi_arcache(MemorEDF_0_m00_axi_ARCACHE),
+        .s00_axi_aresetn(rst_ps8_0_99M_peripheral_aresetn),
+        .s00_axi_arid(MemorEDF_0_m00_axi_ARID),
+        .s00_axi_arlen(MemorEDF_0_m00_axi_ARLEN),
+        .s00_axi_arlock(MemorEDF_0_m00_axi_ARLOCK),
+        .s00_axi_arprot(MemorEDF_0_m00_axi_ARPROT),
+        .s00_axi_arqos(MemorEDF_0_m00_axi_ARQOS),
+        .s00_axi_arready(MemorEDF_0_m00_axi_ARREADY),
+        .s00_axi_arregion({1'b0,1'b0,1'b0,1'b0}),
+        .s00_axi_arsize(MemorEDF_0_m00_axi_ARSIZE),
+        .s00_axi_aruser(MemorEDF_0_m00_axi_ARUSER),
+        .s00_axi_arvalid(MemorEDF_0_m00_axi_ARVALID),
+        .s00_axi_awaddr(MemorEDF_0_m00_axi_AWADDR),
+        .s00_axi_awburst(MemorEDF_0_m00_axi_AWBURST),
+        .s00_axi_awcache(MemorEDF_0_m00_axi_AWCACHE),
+        .s00_axi_awid(MemorEDF_0_m00_axi_AWID),
+        .s00_axi_awlen(MemorEDF_0_m00_axi_AWLEN),
+        .s00_axi_awlock(MemorEDF_0_m00_axi_AWLOCK),
+        .s00_axi_awprot(MemorEDF_0_m00_axi_AWPROT),
+        .s00_axi_awqos(MemorEDF_0_m00_axi_AWQOS),
+        .s00_axi_awready(MemorEDF_0_m00_axi_AWREADY),
+        .s00_axi_awregion({1'b0,1'b0,1'b0,1'b0}),
+        .s00_axi_awsize(MemorEDF_0_m00_axi_AWSIZE),
+        .s00_axi_awuser(MemorEDF_0_m00_axi_AWUSER),
+        .s00_axi_awvalid(MemorEDF_0_m00_axi_AWVALID),
+        .s00_axi_bid(MemorEDF_0_m00_axi_BID),
+        .s00_axi_bready(MemorEDF_0_m00_axi_BREADY),
+        .s00_axi_bresp(MemorEDF_0_m00_axi_BRESP),
+        .s00_axi_bvalid(MemorEDF_0_m00_axi_BVALID),
+        .s00_axi_rdata(MemorEDF_0_m00_axi_RDATA),
+        .s00_axi_rid(MemorEDF_0_m00_axi_RID),
+        .s00_axi_rlast(MemorEDF_0_m00_axi_RLAST),
+        .s00_axi_rready(MemorEDF_0_m00_axi_RREADY),
+        .s00_axi_rresp(MemorEDF_0_m00_axi_RRESP),
+        .s00_axi_rvalid(MemorEDF_0_m00_axi_RVALID),
+        .s00_axi_wdata(MemorEDF_0_m00_axi_WDATA),
+        .s00_axi_wlast(MemorEDF_0_m00_axi_WLAST),
+        .s00_axi_wready(MemorEDF_0_m00_axi_WREADY),
+        .s00_axi_wstrb(MemorEDF_0_m00_axi_WSTRB),
+        .s00_axi_wvalid(MemorEDF_0_m00_axi_WVALID));
   design_2_MemorEDF_0_0 MemorEDF_0
        (.m00_axi_aclk(zynq_ultra_ps_e_0_pl_clk0),
         .m00_axi_araddr(MemorEDF_0_m00_axi_ARADDR),
@@ -271,59 +393,6 @@ module design_2
         .s01_axi_wready(zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_WREADY),
         .s01_axi_wstrb(zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_WSTRB),
         .s01_axi_wvalid(zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_WVALID));
-  design_2_axi_bram_ctrl_0_0 axi_bram_ctrl_0
-       (.bram_addr_a(axi_bram_ctrl_0_BRAM_PORTA_ADDR),
-        .bram_clk_a(axi_bram_ctrl_0_BRAM_PORTA_CLK),
-        .bram_en_a(axi_bram_ctrl_0_BRAM_PORTA_EN),
-        .bram_rddata_a(axi_bram_ctrl_0_BRAM_PORTA_DOUT),
-        .bram_rst_a(axi_bram_ctrl_0_BRAM_PORTA_RST),
-        .bram_we_a(axi_bram_ctrl_0_BRAM_PORTA_WE),
-        .bram_wrdata_a(axi_bram_ctrl_0_BRAM_PORTA_DIN),
-        .s_axi_aclk(zynq_ultra_ps_e_0_pl_clk0),
-        .s_axi_araddr(MemorEDF_0_m00_axi_ARADDR[12:0]),
-        .s_axi_arburst(MemorEDF_0_m00_axi_ARBURST),
-        .s_axi_arcache(MemorEDF_0_m00_axi_ARCACHE),
-        .s_axi_aresetn(rst_ps8_0_99M_peripheral_aresetn),
-        .s_axi_arid(MemorEDF_0_m00_axi_ARID),
-        .s_axi_arlen(MemorEDF_0_m00_axi_ARLEN),
-        .s_axi_arlock(MemorEDF_0_m00_axi_ARLOCK),
-        .s_axi_arprot(MemorEDF_0_m00_axi_ARPROT),
-        .s_axi_arready(MemorEDF_0_m00_axi_ARREADY),
-        .s_axi_arsize(MemorEDF_0_m00_axi_ARSIZE),
-        .s_axi_arvalid(MemorEDF_0_m00_axi_ARVALID),
-        .s_axi_awaddr(MemorEDF_0_m00_axi_AWADDR[12:0]),
-        .s_axi_awburst(MemorEDF_0_m00_axi_AWBURST),
-        .s_axi_awcache(MemorEDF_0_m00_axi_AWCACHE),
-        .s_axi_awid(MemorEDF_0_m00_axi_AWID),
-        .s_axi_awlen(MemorEDF_0_m00_axi_AWLEN),
-        .s_axi_awlock(MemorEDF_0_m00_axi_AWLOCK),
-        .s_axi_awprot(MemorEDF_0_m00_axi_AWPROT),
-        .s_axi_awready(MemorEDF_0_m00_axi_AWREADY),
-        .s_axi_awsize(MemorEDF_0_m00_axi_AWSIZE),
-        .s_axi_awvalid(MemorEDF_0_m00_axi_AWVALID),
-        .s_axi_bid(MemorEDF_0_m00_axi_BID),
-        .s_axi_bready(MemorEDF_0_m00_axi_BREADY),
-        .s_axi_bresp(MemorEDF_0_m00_axi_BRESP),
-        .s_axi_bvalid(MemorEDF_0_m00_axi_BVALID),
-        .s_axi_rdata(MemorEDF_0_m00_axi_RDATA),
-        .s_axi_rid(MemorEDF_0_m00_axi_RID),
-        .s_axi_rlast(MemorEDF_0_m00_axi_RLAST),
-        .s_axi_rready(MemorEDF_0_m00_axi_RREADY),
-        .s_axi_rresp(MemorEDF_0_m00_axi_RRESP),
-        .s_axi_rvalid(MemorEDF_0_m00_axi_RVALID),
-        .s_axi_wdata(MemorEDF_0_m00_axi_WDATA),
-        .s_axi_wlast(MemorEDF_0_m00_axi_WLAST),
-        .s_axi_wready(MemorEDF_0_m00_axi_WREADY),
-        .s_axi_wstrb(MemorEDF_0_m00_axi_WSTRB),
-        .s_axi_wvalid(MemorEDF_0_m00_axi_WVALID));
-  design_2_blk_mem_gen_0_0 blk_mem_gen_0
-       (.addra({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,axi_bram_ctrl_0_BRAM_PORTA_ADDR}),
-        .clka(axi_bram_ctrl_0_BRAM_PORTA_CLK),
-        .dina(axi_bram_ctrl_0_BRAM_PORTA_DIN),
-        .douta(axi_bram_ctrl_0_BRAM_PORTA_DOUT),
-        .ena(axi_bram_ctrl_0_BRAM_PORTA_EN),
-        .rsta(axi_bram_ctrl_0_BRAM_PORTA_RST),
-        .wea(axi_bram_ctrl_0_BRAM_PORTA_WE));
   design_2_ila_0_0 ila_0
        (.clk(zynq_ultra_ps_e_0_pl_clk0),
         .probe0(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WREADY),
@@ -399,10 +468,10 @@ module design_2
         .probe30(MemorEDF_0_m00_axi_ARLOCK),
         .probe31(MemorEDF_0_m00_axi_ARCACHE),
         .probe32(MemorEDF_0_m00_axi_AWCACHE),
-        .probe33({1'b0,1'b0,1'b0,1'b0}),
+        .probe33(MemorEDF_0_m00_axi_ARREGION),
         .probe34(MemorEDF_0_m00_axi_ARQOS),
         .probe35(MemorEDF_0_m00_axi_ARUSER),
-        .probe36({1'b0,1'b0,1'b0,1'b0}),
+        .probe36(MemorEDF_0_m00_axi_AWREGION),
         .probe37(MemorEDF_0_m00_axi_AWQOS),
         .probe38(MemorEDF_0_m00_axi_RID),
         .probe39(MemorEDF_0_m00_axi_AWUSER),
@@ -506,5 +575,45 @@ module design_2
         .maxihpm0_lpd_aclk(zynq_ultra_ps_e_0_pl_clk0),
         .pl_clk0(zynq_ultra_ps_e_0_pl_clk0),
         .pl_ps_irq0(1'b0),
-        .pl_resetn0(zynq_ultra_ps_e_0_pl_resetn0));
+        .pl_resetn0(zynq_ultra_ps_e_0_pl_resetn0),
+        .saxigp2_araddr(AXI_PerfectTranslator_0_M00_AXI_ARADDR),
+        .saxigp2_arburst(AXI_PerfectTranslator_0_M00_AXI_ARBURST),
+        .saxigp2_arcache(AXI_PerfectTranslator_0_M00_AXI_ARCACHE),
+        .saxigp2_arid(AXI_PerfectTranslator_0_M00_AXI_ARID),
+        .saxigp2_arlen(AXI_PerfectTranslator_0_M00_AXI_ARLEN),
+        .saxigp2_arlock(AXI_PerfectTranslator_0_M00_AXI_ARLOCK),
+        .saxigp2_arprot(AXI_PerfectTranslator_0_M00_AXI_ARPROT),
+        .saxigp2_arqos(AXI_PerfectTranslator_0_M00_AXI_ARQOS),
+        .saxigp2_arready(AXI_PerfectTranslator_0_M00_AXI_ARREADY),
+        .saxigp2_arsize(AXI_PerfectTranslator_0_M00_AXI_ARSIZE),
+        .saxigp2_aruser(AXI_PerfectTranslator_0_M00_AXI_ARUSER),
+        .saxigp2_arvalid(AXI_PerfectTranslator_0_M00_AXI_ARVALID),
+        .saxigp2_awaddr(AXI_PerfectTranslator_0_M00_AXI_AWADDR),
+        .saxigp2_awburst(AXI_PerfectTranslator_0_M00_AXI_AWBURST),
+        .saxigp2_awcache(AXI_PerfectTranslator_0_M00_AXI_AWCACHE),
+        .saxigp2_awid(AXI_PerfectTranslator_0_M00_AXI_AWID),
+        .saxigp2_awlen(AXI_PerfectTranslator_0_M00_AXI_AWLEN),
+        .saxigp2_awlock(AXI_PerfectTranslator_0_M00_AXI_AWLOCK),
+        .saxigp2_awprot(AXI_PerfectTranslator_0_M00_AXI_AWPROT),
+        .saxigp2_awqos(AXI_PerfectTranslator_0_M00_AXI_AWQOS),
+        .saxigp2_awready(AXI_PerfectTranslator_0_M00_AXI_AWREADY),
+        .saxigp2_awsize(AXI_PerfectTranslator_0_M00_AXI_AWSIZE),
+        .saxigp2_awuser(AXI_PerfectTranslator_0_M00_AXI_AWUSER),
+        .saxigp2_awvalid(AXI_PerfectTranslator_0_M00_AXI_AWVALID),
+        .saxigp2_bid(AXI_PerfectTranslator_0_M00_AXI_BID),
+        .saxigp2_bready(AXI_PerfectTranslator_0_M00_AXI_BREADY),
+        .saxigp2_bresp(AXI_PerfectTranslator_0_M00_AXI_BRESP),
+        .saxigp2_bvalid(AXI_PerfectTranslator_0_M00_AXI_BVALID),
+        .saxigp2_rdata(AXI_PerfectTranslator_0_M00_AXI_RDATA),
+        .saxigp2_rid(AXI_PerfectTranslator_0_M00_AXI_RID),
+        .saxigp2_rlast(AXI_PerfectTranslator_0_M00_AXI_RLAST),
+        .saxigp2_rready(AXI_PerfectTranslator_0_M00_AXI_RREADY),
+        .saxigp2_rresp(AXI_PerfectTranslator_0_M00_AXI_RRESP),
+        .saxigp2_rvalid(AXI_PerfectTranslator_0_M00_AXI_RVALID),
+        .saxigp2_wdata(AXI_PerfectTranslator_0_M00_AXI_WDATA),
+        .saxigp2_wlast(AXI_PerfectTranslator_0_M00_AXI_WLAST),
+        .saxigp2_wready(AXI_PerfectTranslator_0_M00_AXI_WREADY),
+        .saxigp2_wstrb(AXI_PerfectTranslator_0_M00_AXI_WSTRB),
+        .saxigp2_wvalid(AXI_PerfectTranslator_0_M00_AXI_WVALID),
+        .saxihp0_fpd_aclk(zynq_ultra_ps_e_0_pl_clk0));
 endmodule

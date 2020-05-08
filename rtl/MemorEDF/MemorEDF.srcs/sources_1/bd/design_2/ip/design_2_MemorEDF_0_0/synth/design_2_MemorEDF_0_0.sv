@@ -48,7 +48,7 @@
 
 
 // IP VLNV: user.org:user:MemorEDF:1.0
-// IP Revision: 205
+// IP Revision: 206
 
 (* X_CORE_INFO = "MemorEDF,Vivado 2017.4" *)
 (* CHECK_LICENSE_TYPE = "design_2_MemorEDF_0_0,MemorEDF,{}" *)

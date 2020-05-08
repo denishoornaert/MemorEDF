@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------
 | Tool Version      : Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-| Date              : Wed May  6 22:53:31 2020
+| Date              : Fri May  8 14:56:15 2020
 | Host              : CELSIUS running 64-bit Ubuntu 16.04.6 LTS
 | Command           : report_clock_utilization -file design_2_wrapper_clock_utilization_routed.rpt
 | Design            : design_2_wrapper
@@ -58,12 +58,12 @@ Table of Contents
 +-----------+-----------+-----------------+------------+---------------+--------------+------+-------------------+-------------------+-------------+-----------------+--------------+-----------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------+--------------------------------------------------------------------------+
 | Global Id | Source Id | Driver Type/Pin | Constraint | Site          | Clock Region | Root | Clock Delay Group | Load Clock Region | Clock Loads | Non-Clock Loads | Clock Period | Clock                                                                                               | Driver Pin                                                                             | Net                                                                      |
 +-----------+-----------+-----------------+------------+---------------+--------------+------+-------------------+-------------------+-------------+-----------------+--------------+-----------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------+--------------------------------------------------------------------------+
-| g0        | src0      | BUFG_PS/O       | None       | BUFG_PS_X0Y48 | X1Y2         | X2Y1 |                   |                10 |       46139 |               4 |       10.001 | clk_pl_0                                                                                            | design_2_i/zynq_ultra_ps_e_0/inst/buffer_pl_clk_0.PL_CLK_0_BUFG/O                      | design_2_i/zynq_ultra_ps_e_0/inst/pl_clk0                                |
-| g1        | src1      | BUFGCE/O        | None       | BUFGCE_X0Y26  | X3Y1         | X3Y1 |                   |                 3 |         465 |               0 |       50.000 | dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_inst/SERIES7_BSCAN.bscan_inst/INTERNAL_TCK | dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.u_bufg_icon_tck/O                   | dbg_hub/inst/BSCANID.u_xsdbm_id/itck_i                                   |
-| g2        | src2      | BUFGCE/O        | None       | BUFGCE_X0Y32  | X3Y1         | X3Y1 | n/a               |                 6 |           0 |            3630 |          n/a | n/a                                                                                                 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values[15][245]_i_1_bufg_place/O    | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/E[0]                  |
-| g3        | src3      | BUFGCE/O        | None       | BUFGCE_X0Y38  | X3Y1         | X3Y1 | n/a               |                 6 |           0 |            3630 |          n/a | n/a                                                                                                 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values[15][245]_i_1__0_bufg_place/O | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values_reg[2][0]_0[0] |
-| g4        | src4      | BUFGCE/O        | None       | BUFGCE_X0Y44  | X3Y1         | X3Y1 | n/a               |                 6 |           0 |            3630 |          n/a | n/a                                                                                                 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values[15][245]_i_1__1_bufg_place/O | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values_reg[2][0]_1[0] |
-| g5        | src5      | BUFGCE/O        | None       | BUFGCE_X0Y1   | X3Y0         | X3Y0 | n/a               |                 6 |           0 |            3630 |          n/a | n/a                                                                                                 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values[15][245]_i_1__2_bufg_place/O | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values_reg[2][0]_2[0] |
+| g0        | src0      | BUFG_PS/O       | None       | BUFG_PS_X0Y48 | X1Y2         | X2Y1 |                   |                10 |       45509 |               4 |       10.001 | clk_pl_0                                                                                            | design_2_i/zynq_ultra_ps_e_0/inst/buffer_pl_clk_0.PL_CLK_0_BUFG/O                      | design_2_i/zynq_ultra_ps_e_0/inst/pl_clk0                                |
+| g1        | src1      | BUFGCE/O        | None       | BUFGCE_X0Y26  | X3Y1         | X3Y1 |                   |                 2 |         465 |               0 |       50.000 | dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_inst/SERIES7_BSCAN.bscan_inst/INTERNAL_TCK | dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.u_bufg_icon_tck/O                   | dbg_hub/inst/BSCANID.u_xsdbm_id/itck_i                                   |
+| g2        | src2      | BUFGCE/O        | None       | BUFGCE_X0Y56  | X3Y2         | X3Y2 | n/a               |                 6 |           0 |            3630 |          n/a | n/a                                                                                                 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values[15][245]_i_1_bufg_place/O    | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/E[0]                  |
+| g3        | src3      | BUFGCE/O        | None       | BUFGCE_X0Y62  | X3Y2         | X3Y2 | n/a               |                 6 |           0 |            3630 |          n/a | n/a                                                                                                 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values[15][245]_i_1__0_bufg_place/O | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values_reg[2][0]_0[0] |
+| g4        | src4      | BUFGCE/O        | None       | BUFGCE_X0Y68  | X3Y2         | X3Y2 | n/a               |                 7 |           0 |            3630 |          n/a | n/a                                                                                                 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values[15][245]_i_1__1_bufg_place/O | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values_reg[2][0]_1[0] |
+| g5        | src5      | BUFGCE/O        | None       | BUFGCE_X0Y49  | X3Y2         | X3Y2 | n/a               |                 6 |           0 |            3630 |          n/a | n/a                                                                                                 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values[15][245]_i_1__2_bufg_place/O | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values_reg[2][0]_2[0] |
 +-----------+-----------+-----------------+------------+---------------+--------------+------+-------------------+-------------------+-------------+-----------------+--------------+-----------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------+--------------------------------------------------------------------------+
 * Clock Loads column represents the clock pin loads (pin count)
 ** Non-Clock Loads column represents the non-clock pin loads (pin count)
@@ -77,10 +77,10 @@ Table of Contents
 +-----------+-----------+-----------------+------------+------------------+--------------+-------------+-----------------+---------------------+-----------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+
 | src0      | g0        | PS8/PLCLK[0]    | None       | PS8_X0Y0         | X0Y0         |           1 |               0 |              10.001 | clk_pl_0                                                                                            | design_2_i/zynq_ultra_ps_e_0/inst/PS8_i/PLCLK[0]                                           | design_2_i/zynq_ultra_ps_e_0/inst/pl_clk_unbuffered[0]                              |
 | src1      | g1        | BSCANE2/TCK     | None       | CONFIG_SITE_X0Y0 | X3Y1         |           1 |               0 |              50.000 | dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_inst/SERIES7_BSCAN.bscan_inst/INTERNAL_TCK | dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_inst/SERIES7_BSCAN.bscan_inst/TCK | dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_inst/tck_bs                |
-| src2      | g2        | LUT2/O          | None       | SLICE_X50Y44     | X1Y0         |           1 |               0 |                     |                                                                                                     | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values[15][245]_i_1/O                   | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/E[0]_bufg_place                  |
-| src3      | g3        | LUT2/O          | None       | SLICE_X49Y52     | X1Y0         |           1 |               0 |                     |                                                                                                     | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values[15][245]_i_1__0/O                | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values_reg[2][0]_0[0]_bufg_place |
-| src4      | g4        | LUT2/O          | None       | SLICE_X50Y44     | X1Y0         |           1 |               0 |                     |                                                                                                     | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values[15][245]_i_1__1/O                | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values_reg[2][0]_1[0]_bufg_place |
-| src5      | g5        | LUT2/O          | None       | SLICE_X52Y41     | X1Y0         |           1 |               0 |                     |                                                                                                     | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values[15][245]_i_1__2/O                | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values_reg[2][0]_2[0]_bufg_place |
+| src2      | g2        | LUT2/O          | None       | SLICE_X36Y102    | X1Y1         |           1 |               0 |                     |                                                                                                     | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values[15][245]_i_1/O                   | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/E[0]_bufg_place                  |
+| src3      | g3        | LUT2/O          | None       | SLICE_X40Y94     | X1Y1         |           1 |               0 |                     |                                                                                                     | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values[15][245]_i_1__0/O                | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values_reg[2][0]_0[0]_bufg_place |
+| src4      | g4        | LUT2/O          | None       | SLICE_X36Y95     | X1Y1         |           1 |               0 |                     |                                                                                                     | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values[15][245]_i_1__1/O                | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values_reg[2][0]_1[0]_bufg_place |
+| src5      | g5        | LUT2/O          | None       | SLICE_X39Y96     | X1Y1         |           1 |               0 |                     |                                                                                                     | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values[15][245]_i_1__2/O                | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values_reg[2][0]_2[0]_bufg_place |
 +-----------+-----------+-----------------+------------+------------------+--------------+-------------+-----------------+---------------------+-----------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+
 * Clock Loads column represents the clock pin loads (pin count)
 ** Non-Clock Loads column represents the non-clock pin loads (pin count)
@@ -97,15 +97,15 @@ Table of Contents
 | X0Y0              |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |
 | X1Y0              |    5 |    24 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |
 | X2Y0              |    5 |    24 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |
-| X3Y0              |    5 |    24 |    1 |    28 |    0 |     4 |    0 |     8 |    0 |     0 |    0 |     1 |    0 |     2 |
+| X3Y0              |    5 |    24 |    0 |    28 |    0 |     4 |    0 |     8 |    0 |     0 |    0 |     1 |    0 |     2 |
 | X0Y1              |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |
 | X1Y1              |    5 |    24 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |
 | X2Y1              |    5 |    24 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |
-| X3Y1              |    6 |    24 |    4 |    24 |    0 |     4 |    0 |     8 |    0 |     0 |    0 |     1 |    0 |     2 |
+| X3Y1              |    6 |    24 |    1 |    24 |    0 |     4 |    0 |     8 |    0 |     0 |    0 |     1 |    0 |     2 |
 | X0Y2              |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |
-| X1Y2              |    1 |    24 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |
+| X1Y2              |    2 |    24 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |
 | X2Y2              |    2 |    24 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |
-| X3Y2              |    2 |    24 |    0 |    24 |    0 |     4 |    0 |     8 |    0 |     0 |    0 |     1 |    0 |     2 |
+| X3Y2              |    3 |    24 |    4 |    24 |    0 |     4 |    0 |     8 |    0 |     0 |    0 |     1 |    0 |     2 |
 | X0Y3              |    0 |    24 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |    24 |    0 |     0 |    0 |     0 |
 | X1Y3              |    0 |    24 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |
 | X2Y3              |    0 |    24 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |
@@ -135,17 +135,17 @@ Table of Contents
 | Clock Region Name | Used   | Avail   | Used   | Avail   | Used   | Avail   | Used   | Avail   | Used   | Avail   | Used   | Avail   | Used   | Avail   |
 +-------------------+--------+---------+--------+---------+--------+---------+--------+---------+--------+---------+--------+---------+--------+---------+
 | X0Y0              |      0 |       0 |      0 |       0 |      0 |       0 |      0 |       0 |      0 |       0 |      0 |       0 |      0 |       0 |
-| X1Y0              |      5 |      24 |   6012 |   19200 |    452 |    5280 |     28 |      48 |      0 |     120 |      0 |       0 |      0 |       0 |
-| X2Y0              |      5 |      24 |   5922 |   20160 |    275 |    5280 |     56 |      72 |      0 |      96 |      0 |       0 |      0 |       0 |
-| X3Y0              |      5 |      24 |   1734 |   19200 |      0 |    4800 |     14 |      72 |      0 |      48 |      0 |       0 |      0 |       0 |
+| X1Y0              |      5 |      24 |   6687 |   19200 |    702 |    5280 |     42 |      48 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X2Y0              |      5 |      24 |   6833 |   20160 |    462 |    5280 |     63 |      72 |      0 |      96 |      0 |       0 |      0 |       0 |
+| X3Y0              |      5 |      24 |   2258 |   19200 |     17 |    4800 |      4 |      72 |      0 |      48 |      0 |       0 |      0 |       0 |
 | X0Y1              |      0 |       0 |      0 |       0 |      0 |       0 |      0 |       0 |      0 |       0 |      0 |       0 |      0 |       0 |
-| X1Y1              |      5 |      24 |   6398 |   19200 |    339 |    5280 |     39 |      48 |      0 |     120 |      0 |       0 |      0 |       0 |
-| X2Y1              |      5 |      24 |   7755 |   20160 |    799 |    5280 |     62 |      72 |      0 |      96 |      0 |       0 |      0 |       0 |
-| X3Y1              |      6 |      24 |   2283 |   19200 |     91 |    4800 |     24 |      72 |      0 |      48 |      0 |       0 |      0 |       0 |
+| X1Y1              |      5 |      24 |   5821 |   19200 |    377 |    5280 |     38 |      48 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X2Y1              |      5 |      24 |   6636 |   20160 |    312 |    5280 |     67 |      72 |      0 |      96 |      0 |       0 |      0 |       0 |
+| X3Y1              |      6 |      24 |   3666 |   19200 |     51 |    4800 |      4 |      72 |      0 |      48 |      0 |       0 |      0 |       0 |
 | X0Y2              |      0 |       0 |      0 |       0 |      0 |       0 |      0 |       0 |      0 |       0 |      0 |       0 |      0 |       0 |
-| X1Y2              |      1 |      24 |   6220 |   19200 |     97 |    5280 |      0 |      48 |      0 |     120 |      0 |       0 |      0 |       0 |
-| X2Y2              |      2 |      24 |   4730 |   20160 |     47 |    5280 |      2 |      72 |      0 |      96 |      0 |       0 |      0 |       0 |
-| X3Y2              |      2 |      24 |     26 |   19200 |      0 |    4800 |      0 |      72 |      0 |      48 |      0 |       0 |      0 |       0 |
+| X1Y2              |      2 |      24 |   3333 |   19200 |     28 |    5280 |      2 |      48 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X2Y2              |      2 |      24 |   4767 |   20160 |    119 |    5280 |      1 |      72 |      0 |      96 |      0 |       0 |      0 |       0 |
+| X3Y2              |      3 |      24 |    478 |   19200 |      5 |    4800 |      0 |      72 |      0 |      48 |      0 |       0 |      0 |       0 |
 | X0Y3              |      0 |      24 |      0 |   27840 |      0 |    7200 |      0 |      96 |      0 |     144 |      0 |       4 |      0 |       0 |
 | X1Y3              |      0 |      24 |      0 |   25920 |      0 |    7200 |      0 |      72 |      0 |     144 |      0 |       0 |      0 |       0 |
 | X2Y3              |      0 |      24 |      0 |   20160 |      0 |    5280 |      0 |      72 |      0 |      96 |      0 |       0 |      0 |       0 |
@@ -177,7 +177,7 @@ All Modules
 | Y5 |  0 |  0 |  0 |  0 |
 | Y4 |  0 |  0 |  0 |  0 |
 | Y3 |  0 |  0 |  0 |  0 |
-| Y2 |  0 |  1 |  2 |  2 |
+| Y2 |  0 |  2 |  2 |  3 |
 | Y1 |  0 |  5 |  5 |  6 |
 | Y0 |  0 |  5 |  5 |  5 |
 +----+----+----+----+----+
@@ -199,11 +199,11 @@ All Modules
 | X0Y1              |    0 |     0 |  0.00 |    0 |     0 |  0.00 |    0 |     0 |  0.00 |    0 |     0 |  0.00 |
 | X1Y1              |    0 |    24 |  0.00 |    5 |    24 | 20.83 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
 | X2Y1              |    0 |    24 |  0.00 |    5 |    24 | 20.83 |    1 |    24 |  4.17 |    1 |    24 |  4.17 |
-| X3Y1              |    0 |    24 |  0.00 |    6 |    24 | 25.00 |    0 |    24 |  0.00 |    4 |    24 | 16.67 |
+| X3Y1              |    0 |    24 |  0.00 |    6 |    24 | 25.00 |    0 |    24 |  0.00 |    5 |    24 | 20.83 |
 | X0Y2              |    0 |     0 |  0.00 |    0 |     0 |  0.00 |    0 |     0 |  0.00 |    0 |     0 |  0.00 |
-| X1Y2              |    1 |    24 |  4.17 |    1 |    24 |  4.17 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X1Y2              |    1 |    24 |  4.17 |    2 |    24 |  8.33 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
 | X2Y2              |    1 |    24 |  4.17 |    2 |    24 |  8.33 |    1 |    24 |  4.17 |    0 |    24 |  0.00 |
-| X3Y2              |    0 |    24 |  0.00 |    2 |    24 |  8.33 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X3Y2              |    0 |    24 |  0.00 |    3 |    24 | 12.50 |    0 |    24 |  0.00 |    4 |    24 | 16.67 |
 | X0Y3              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
 | X1Y3              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
 | X2Y3              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
@@ -229,7 +229,7 @@ All Modules
 +-----------+-----------------+-------------------+----------+-------------+---------------+----------+-------------+----------+----------------+----------+-------------------------------------------+
 | Global Id | Driver Type/Pin | Driver Region (D) | Clock    | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                       |
 +-----------+-----------------+-------------------+----------+-------------+---------------+----------+-------------+----------+----------------+----------+-------------------------------------------+
-| g0        | BUFG_PS/O       | X1Y2              | clk_pl_0 |      10.001 | {0.000 5.001} | X2Y1     |       42833 |        0 |              0 |        0 | design_2_i/zynq_ultra_ps_e_0/inst/pl_clk0 |
+| g0        | BUFG_PS/O       | X1Y2              | clk_pl_0 |      10.001 | {0.000 5.001} | X2Y1     |       42203 |        0 |              0 |        0 | design_2_i/zynq_ultra_ps_e_0/inst/pl_clk0 |
 +-----------+-----------------+-------------------+----------+-------------+---------------+----------+-------------+----------+----------------+----------+-------------------------------------------+
 * Logic Loads column represents load cell count of all cell types other than IO, GT and clock resources
 ** IO Loads column represents load cell count of IO types
@@ -244,9 +244,9 @@ All Modules
 | Y5 |  0 |         0 |        0 |     0 |
 | Y4 |  0 |         0 |        0 |     0 |
 | Y3 |  0 |         0 |        0 |     0 |
-| Y2 |  0 |  (D) 6317 |     4474 |    25 |
-| Y1 |  0 |      6757 | (R) 8586 |  2228 |
-| Y0 |  1 |      6479 |     6225 |  1741 |
+| Y2 |  0 |  (D) 3362 |     4887 |   476 |
+| Y1 |  0 |      6217 | (R) 6982 |  3263 |
+| Y0 |  1 |      7411 |     7327 |  2277 |
 +----+----+-----------+----------+-------+
 
 
@@ -264,17 +264,17 @@ All Modules
 **** GT Loads column represents load cell count of GT types
 
 
-+----+----+----+------+-------------+
-|    | X0 | X1 | X2   | X3          |
-+----+----+----+------+-------------+
-| Y6 |  0 |  0 |    0 |           0 |
-| Y5 |  0 |  0 |    0 |           0 |
-| Y4 |  0 |  0 |    0 |           0 |
-| Y3 |  0 |  0 |    0 |           0 |
-| Y2 |  0 |  0 |  304 |           1 |
-| Y1 |  0 |  0 |    0 | (R) (D) 158 |
-| Y0 |  0 |  0 |    0 |           0 |
-+----+----+----+------+-------------+
++----+----+----+----+-------------+
+|    | X0 | X1 | X2 | X3          |
++----+----+----+----+-------------+
+| Y6 |  0 |  0 |  0 |           0 |
+| Y5 |  0 |  0 |  0 |           0 |
+| Y4 |  0 |  0 |  0 |           0 |
+| Y3 |  0 |  0 |  0 |           0 |
+| Y2 |  0 |  0 |  0 |           7 |
+| Y1 |  0 |  0 |  0 | (R) (D) 456 |
+| Y0 |  0 |  0 |  0 |           0 |
++----+----+----+----+-------------+
 
 
 10. Device Cell Placement Summary for Global Clock g2
@@ -283,7 +283,7 @@ All Modules
 +-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+---------------------------------------------------------+
 | Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                                     |
 +-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+---------------------------------------------------------+
-| g2        | BUFGCE/O        | X3Y1              |       |             |               | X3Y1     |        3630 |        0 |              0 |        0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/E[0] |
+| g2        | BUFGCE/O        | X3Y2              |       |             |               | X3Y2     |        3630 |        0 |              0 |        0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/E[0] |
 +-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+---------------------------------------------------------+
 * Logic Loads column represents load cell count of all cell types other than IO, GT and clock resources
 ** IO Loads column represents load cell count of IO types
@@ -291,17 +291,17 @@ All Modules
 **** GT Loads column represents load cell count of GT types
 
 
-+----+----+------+------+-------------+
-|    | X0 | X1   | X2   | X3          |
-+----+----+------+------+-------------+
-| Y6 |  0 |    0 |    0 |           0 |
-| Y5 |  0 |    0 |    0 |           0 |
-| Y4 |  0 |    0 |    0 |           0 |
-| Y3 |  0 |    0 |    0 |           0 |
-| Y2 |  0 |    0 |    0 |           0 |
-| Y1 |  0 |  501 |  462 | (R) (D) 311 |
-| Y0 |  0 |  932 |  977 |         447 |
-+----+----+------+------+-------------+
++----+----+------+------+-----------+
+|    | X0 | X1   | X2   | X3        |
++----+----+------+------+-----------+
+| Y6 |  0 |    0 |    0 |         0 |
+| Y5 |  0 |    0 |    0 |         0 |
+| Y4 |  0 |    0 |    0 |         0 |
+| Y3 |  0 |    0 |    0 |         0 |
+| Y2 |  0 |    0 |    0 | (R) (D) 0 |
+| Y1 |  0 |  889 |  769 |        92 |
+| Y0 |  0 |  718 |  814 |       348 |
++----+----+------+------+-----------+
 
 
 11. Device Cell Placement Summary for Global Clock g3
@@ -310,7 +310,7 @@ All Modules
 +-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+--------------------------------------------------------------------------+
 | Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                                                      |
 +-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+--------------------------------------------------------------------------+
-| g3        | BUFGCE/O        | X3Y1              |       |             |               | X3Y1     |        3630 |        0 |              0 |        0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values_reg[2][0]_0[0] |
+| g3        | BUFGCE/O        | X3Y2              |       |             |               | X3Y2     |        3630 |        0 |              0 |        0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values_reg[2][0]_0[0] |
 +-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+--------------------------------------------------------------------------+
 * Logic Loads column represents load cell count of all cell types other than IO, GT and clock resources
 ** IO Loads column represents load cell count of IO types
@@ -318,17 +318,17 @@ All Modules
 **** GT Loads column represents load cell count of GT types
 
 
-+----+----+------+-------+-------------+
-|    | X0 | X1   | X2    | X3          |
-+----+----+------+-------+-------------+
-| Y6 |  0 |    0 |     0 |           0 |
-| Y5 |  0 |    0 |     0 |           0 |
-| Y4 |  0 |    0 |     0 |           0 |
-| Y3 |  0 |    0 |     0 |           0 |
-| Y2 |  0 |    0 |     0 |           0 |
-| Y1 |  0 |  513 |   471 | (R) (D) 291 |
-| Y0 |  0 |  871 |  1179 |         305 |
-+----+----+------+-------+-------------+
++----+----+------+------+-----------+
+|    | X0 | X1   | X2   | X3        |
++----+----+------+------+-----------+
+| Y6 |  0 |    0 |    0 |         0 |
+| Y5 |  0 |    0 |    0 |         0 |
+| Y4 |  0 |    0 |    0 |         0 |
+| Y3 |  0 |    0 |    0 |         0 |
+| Y2 |  0 |    0 |    0 | (R) (D) 0 |
+| Y1 |  0 |  870 |  809 |        95 |
+| Y0 |  0 |  735 |  799 |       322 |
++----+----+------+------+-----------+
 
 
 12. Device Cell Placement Summary for Global Clock g4
@@ -337,7 +337,7 @@ All Modules
 +-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+--------------------------------------------------------------------------+
 | Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                                                      |
 +-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+--------------------------------------------------------------------------+
-| g4        | BUFGCE/O        | X3Y1              |       |             |               | X3Y1     |        3630 |        0 |              0 |        0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values_reg[2][0]_1[0] |
+| g4        | BUFGCE/O        | X3Y2              |       |             |               | X3Y2     |        3630 |        0 |              0 |        0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values_reg[2][0]_1[0] |
 +-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+--------------------------------------------------------------------------+
 * Logic Loads column represents load cell count of all cell types other than IO, GT and clock resources
 ** IO Loads column represents load cell count of IO types
@@ -345,17 +345,17 @@ All Modules
 **** GT Loads column represents load cell count of GT types
 
 
-+----+----+------+-------+-------------+
-|    | X0 | X1   | X2    | X3          |
-+----+----+------+-------+-------------+
-| Y6 |  0 |    0 |     0 |           0 |
-| Y5 |  0 |    0 |     0 |           0 |
-| Y4 |  0 |    0 |     0 |           0 |
-| Y3 |  0 |    0 |     0 |           0 |
-| Y2 |  0 |    0 |     0 |           0 |
-| Y1 |  0 |  507 |   526 | (R) (D) 282 |
-| Y0 |  0 |  893 |  1053 |         369 |
-+----+----+------+-------+-------------+
++----+----+------+------+-----------+
+|    | X0 | X1   | X2   | X3        |
++----+----+------+------+-----------+
+| Y6 |  0 |    0 |    0 |         0 |
+| Y5 |  0 |    0 |    0 |         0 |
+| Y4 |  0 |    0 |    0 |         0 |
+| Y3 |  0 |    0 |    0 |         0 |
+| Y2 |  0 |    1 |    0 | (R) (D) 0 |
+| Y1 |  0 |  901 |  762 |        93 |
+| Y0 |  0 |  715 |  800 |       358 |
++----+----+------+------+-----------+
 
 
 13. Device Cell Placement Summary for Global Clock g5
@@ -364,7 +364,7 @@ All Modules
 +-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+--------------------------------------------------------------------------+
 | Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                                                      |
 +-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+--------------------------------------------------------------------------+
-| g5        | BUFGCE/O        | X3Y0              |       |             |               | X3Y0     |        3630 |        0 |              0 |        0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values_reg[2][0]_2[0] |
+| g5        | BUFGCE/O        | X3Y2              |       |             |               | X3Y2     |        3630 |        0 |              0 |        0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values_reg[2][0]_2[0] |
 +-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+--------------------------------------------------------------------------+
 * Logic Loads column represents load cell count of all cell types other than IO, GT and clock resources
 ** IO Loads column represents load cell count of IO types
@@ -372,17 +372,17 @@ All Modules
 **** GT Loads column represents load cell count of GT types
 
 
-+----+----+------+-------+-------------+
-|    | X0 | X1   | X2    | X3          |
-+----+----+------+-------+-------------+
-| Y6 |  0 |    0 |     0 |           0 |
-| Y5 |  0 |    0 |     0 |           0 |
-| Y4 |  0 |    0 |     0 |           0 |
-| Y3 |  0 |    0 |     0 |           0 |
-| Y2 |  0 |    0 |     0 |           0 |
-| Y1 |  0 |  520 |   448 |         328 |
-| Y0 |  0 |  929 |  1061 | (R) (D) 344 |
-+----+----+------+-------+-------------+
++----+----+------+------+-----------+
+|    | X0 | X1   | X2   | X3        |
++----+----+------+------+-----------+
+| Y6 |  0 |    0 |    0 |         0 |
+| Y5 |  0 |    0 |    0 |         0 |
+| Y4 |  0 |    0 |    0 |         0 |
+| Y3 |  0 |    0 |    0 |         0 |
+| Y2 |  0 |    0 |    0 | (R) (D) 0 |
+| Y1 |  0 |  880 |  779 |       102 |
+| Y0 |  0 |  744 |  789 |       336 |
++----+----+------+------+-----------+
 
 
 14. Clock Region Cell Placement per Global Clock: Region X1Y0
@@ -391,11 +391,11 @@ All Modules
 +-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+--------------------------------------------------------------------------+
 | Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF   | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                                      |
 +-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+--------------------------------------------------------------------------+
-| g0        | 0     | BUFG_PS/O       | None       |        6479 |               0 | 6012 |    452 |   15 |   0 |  0 |    0 |   0 |       0 | design_2_i/zynq_ultra_ps_e_0/inst/pl_clk0                                |
-| g2        | 8     | BUFGCE/O        | None       |           0 |             932 |  932 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/E[0]                  |
-| g3        | 14    | BUFGCE/O        | None       |           0 |             871 |  871 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values_reg[2][0]_0[0] |
-| g4        | 20    | BUFGCE/O        | None       |           0 |             893 |  893 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values_reg[2][0]_1[0] |
-| g5        | 1     | BUFGCE/O        | None       |           0 |             929 |  929 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values_reg[2][0]_2[0] |
+| g0        | 0     | BUFG_PS/O       | None       |        7411 |               0 | 6687 |    702 |   22 |   0 |  0 |    0 |   0 |       0 | design_2_i/zynq_ultra_ps_e_0/inst/pl_clk0                                |
+| g2        | 8     | BUFGCE/O        | None       |           0 |             718 |  718 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/E[0]                  |
+| g3        | 14    | BUFGCE/O        | None       |           0 |             735 |  735 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values_reg[2][0]_0[0] |
+| g4        | 20    | BUFGCE/O        | None       |           0 |             715 |  715 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values_reg[2][0]_1[0] |
+| g5        | 1     | BUFGCE/O        | None       |           0 |             744 |  744 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values_reg[2][0]_2[0] |
 +-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+--------------------------------------------------------------------------+
 * Clock Loads column represents the clock pin loads (pin count)
 ** Non-Clock Loads column represents the non-clock pin loads (pin count)
@@ -408,11 +408,11 @@ All Modules
 +-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+--------------------------------------------------------------------------+
 | Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF   | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                                      |
 +-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+--------------------------------------------------------------------------+
-| g0        | 0     | BUFG_PS/O       | None       |        6225 |               0 | 5922 |    275 |   28 |   0 |  0 |    0 |   0 |       0 | design_2_i/zynq_ultra_ps_e_0/inst/pl_clk0                                |
-| g2        | 8     | BUFGCE/O        | None       |           0 |             977 |  977 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/E[0]                  |
-| g3        | 14    | BUFGCE/O        | None       |           0 |            1179 | 1179 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values_reg[2][0]_0[0] |
-| g4        | 20    | BUFGCE/O        | None       |           0 |            1053 | 1053 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values_reg[2][0]_1[0] |
-| g5        | 1     | BUFGCE/O        | None       |           0 |            1061 | 1061 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values_reg[2][0]_2[0] |
+| g0        | 0     | BUFG_PS/O       | None       |        7327 |               0 | 6833 |    462 |   32 |   0 |  0 |    0 |   0 |       0 | design_2_i/zynq_ultra_ps_e_0/inst/pl_clk0                                |
+| g2        | 8     | BUFGCE/O        | None       |           0 |             814 |  814 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/E[0]                  |
+| g3        | 14    | BUFGCE/O        | None       |           0 |             799 |  799 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values_reg[2][0]_0[0] |
+| g4        | 20    | BUFGCE/O        | None       |           0 |             800 |  800 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values_reg[2][0]_1[0] |
+| g5        | 1     | BUFGCE/O        | None       |           0 |             789 |  789 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values_reg[2][0]_2[0] |
 +-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+--------------------------------------------------------------------------+
 * Clock Loads column represents the clock pin loads (pin count)
 ** Non-Clock Loads column represents the non-clock pin loads (pin count)
@@ -425,11 +425,11 @@ All Modules
 +-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+--------------------------------------------------------------------------+
 | Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF   | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                                      |
 +-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+--------------------------------------------------------------------------+
-| g0        | 0     | BUFG_PS/O       | None       |        1741 |               0 | 1734 |      0 |    7 |   0 |  0 |    0 |   0 |       0 | design_2_i/zynq_ultra_ps_e_0/inst/pl_clk0                                |
-| g2        | 8     | BUFGCE/O        | None       |           0 |             447 |  447 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/E[0]                  |
-| g3        | 14    | BUFGCE/O        | None       |           0 |             305 |  305 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values_reg[2][0]_0[0] |
-| g4        | 20    | BUFGCE/O        | None       |           0 |             369 |  369 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values_reg[2][0]_1[0] |
-| g5        | 1     | BUFGCE/O        | None       |           0 |             344 |  344 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values_reg[2][0]_2[0] |
+| g0        | 0     | BUFG_PS/O       | None       |        2277 |               0 | 2258 |     17 |    2 |   0 |  0 |    0 |   0 |       0 | design_2_i/zynq_ultra_ps_e_0/inst/pl_clk0                                |
+| g2        | 8     | BUFGCE/O        | None       |           0 |             348 |  348 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/E[0]                  |
+| g3        | 14    | BUFGCE/O        | None       |           0 |             322 |  322 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values_reg[2][0]_0[0] |
+| g4        | 20    | BUFGCE/O        | None       |           0 |             358 |  358 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values_reg[2][0]_1[0] |
+| g5        | 1     | BUFGCE/O        | None       |           0 |             336 |  336 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values_reg[2][0]_2[0] |
 +-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+--------------------------------------------------------------------------+
 * Clock Loads column represents the clock pin loads (pin count)
 ** Non-Clock Loads column represents the non-clock pin loads (pin count)
@@ -442,11 +442,11 @@ All Modules
 +-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+--------------------------------------------------------------------------+
 | Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF   | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                                      |
 +-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+--------------------------------------------------------------------------+
-| g0        | 0     | BUFG_PS/O       | None       |        6757 |               0 | 6398 |    339 |   20 |   0 |  0 |    0 |   0 |       0 | design_2_i/zynq_ultra_ps_e_0/inst/pl_clk0                                |
-| g2        | 8     | BUFGCE/O        | None       |           0 |             501 |  501 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/E[0]                  |
-| g3        | 14    | BUFGCE/O        | None       |           0 |             513 |  513 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values_reg[2][0]_0[0] |
-| g4        | 20    | BUFGCE/O        | None       |           0 |             507 |  507 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values_reg[2][0]_1[0] |
-| g5        | 1     | BUFGCE/O        | None       |           0 |             520 |  520 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values_reg[2][0]_2[0] |
+| g0        | 0     | BUFG_PS/O       | None       |        6217 |               0 | 5821 |    377 |   19 |   0 |  0 |    0 |   0 |       0 | design_2_i/zynq_ultra_ps_e_0/inst/pl_clk0                                |
+| g2        | 8     | BUFGCE/O        | None       |           0 |             889 |  889 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/E[0]                  |
+| g3        | 14    | BUFGCE/O        | None       |           0 |             870 |  870 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values_reg[2][0]_0[0] |
+| g4        | 20    | BUFGCE/O        | None       |           0 |             901 |  901 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values_reg[2][0]_1[0] |
+| g5        | 1     | BUFGCE/O        | None       |           0 |             880 |  880 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values_reg[2][0]_2[0] |
 +-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+--------------------------------------------------------------------------+
 * Clock Loads column represents the clock pin loads (pin count)
 ** Non-Clock Loads column represents the non-clock pin loads (pin count)
@@ -459,11 +459,11 @@ All Modules
 +-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+--------------------------------------------------------------------------+
 | Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF   | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                                      |
 +-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+--------------------------------------------------------------------------+
-| g0        | 0     | BUFG_PS/O       | None       |        8586 |               0 | 7755 |    799 |   32 |   0 |  0 |    0 |   0 |       0 | design_2_i/zynq_ultra_ps_e_0/inst/pl_clk0                                |
-| g2        | 8     | BUFGCE/O        | None       |           0 |             462 |  462 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/E[0]                  |
-| g3        | 14    | BUFGCE/O        | None       |           0 |             471 |  471 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values_reg[2][0]_0[0] |
-| g4        | 20    | BUFGCE/O        | None       |           0 |             526 |  526 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values_reg[2][0]_1[0] |
-| g5        | 1     | BUFGCE/O        | None       |           0 |             448 |  448 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values_reg[2][0]_2[0] |
+| g0        | 0     | BUFG_PS/O       | None       |        6982 |               0 | 6636 |    312 |   34 |   0 |  0 |    0 |   0 |       0 | design_2_i/zynq_ultra_ps_e_0/inst/pl_clk0                                |
+| g2        | 8     | BUFGCE/O        | None       |           0 |             769 |  769 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/E[0]                  |
+| g3        | 14    | BUFGCE/O        | None       |           0 |             809 |  809 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values_reg[2][0]_0[0] |
+| g4        | 20    | BUFGCE/O        | None       |           0 |             762 |  762 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values_reg[2][0]_1[0] |
+| g5        | 1     | BUFGCE/O        | None       |           0 |             779 |  779 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values_reg[2][0]_2[0] |
 +-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+--------------------------------------------------------------------------+
 * Clock Loads column represents the clock pin loads (pin count)
 ** Non-Clock Loads column represents the non-clock pin loads (pin count)
@@ -476,12 +476,12 @@ All Modules
 +-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+--------------------------------------------------------------------------+
 | Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF   | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                                      |
 +-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+--------------------------------------------------------------------------+
-| g0        | 0     | BUFG_PS/O       | None       |        2228 |               0 | 2125 |     91 |   12 |   0 |  0 |    0 |   0 |       0 | design_2_i/zynq_ultra_ps_e_0/inst/pl_clk0                                |
-| g1        | 2     | BUFGCE/O        | None       |         158 |               0 |  158 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | dbg_hub/inst/BSCANID.u_xsdbm_id/itck_i                                   |
-| g2        | 8     | BUFGCE/O        | None       |           0 |             311 |  311 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/E[0]                  |
-| g3        | 14    | BUFGCE/O        | None       |           0 |             291 |  291 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values_reg[2][0]_0[0] |
-| g4        | 20    | BUFGCE/O        | None       |           0 |             282 |  282 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values_reg[2][0]_1[0] |
-| g5        | 1     | BUFGCE/O        | None       |           0 |             328 |  328 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values_reg[2][0]_2[0] |
+| g0        | 0     | BUFG_PS/O       | None       |        3263 |               0 | 3210 |     51 |    2 |   0 |  0 |    0 |   0 |       0 | design_2_i/zynq_ultra_ps_e_0/inst/pl_clk0                                |
+| g1        | 2     | BUFGCE/O        | None       |         456 |               0 |  456 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | dbg_hub/inst/BSCANID.u_xsdbm_id/itck_i                                   |
+| g2        | 8     | BUFGCE/O        | None       |           0 |              92 |   92 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/E[0]                  |
+| g3        | 14    | BUFGCE/O        | None       |           0 |              95 |   95 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values_reg[2][0]_0[0] |
+| g4        | 20    | BUFGCE/O        | None       |           0 |              93 |   93 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values_reg[2][0]_1[0] |
+| g5        | 1     | BUFGCE/O        | None       |           0 |             102 |  102 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values_reg[2][0]_2[0] |
 +-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+--------------------------------------------------------------------------+
 * Clock Loads column represents the clock pin loads (pin count)
 ** Non-Clock Loads column represents the non-clock pin loads (pin count)
@@ -491,11 +491,12 @@ All Modules
 20. Clock Region Cell Placement per Global Clock: Region X1Y2
 -------------------------------------------------------------
 
-+-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+-------------------------------------------+
-| Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF   | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                       |
-+-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+-------------------------------------------+
-| g0        | 0     | BUFG_PS/O       | None       |        6317 |               0 | 6220 |     97 |    0 |   0 |  0 |    0 |   0 |       0 | design_2_i/zynq_ultra_ps_e_0/inst/pl_clk0 |
-+-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+-------------------------------------------+
++-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+--------------------------------------------------------------------------+
+| Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF   | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                                      |
++-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+--------------------------------------------------------------------------+
+| g0        | 0     | BUFG_PS/O       | None       |        3362 |               0 | 3333 |     28 |    1 |   0 |  0 |    0 |   0 |       0 | design_2_i/zynq_ultra_ps_e_0/inst/pl_clk0                                |
+| g4        | 20    | BUFGCE/O        | None       |           0 |               1 |    1 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values_reg[2][0]_1[0] |
++-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+--------------------------------------------------------------------------+
 * Clock Loads column represents the clock pin loads (pin count)
 ** Non-Clock Loads column represents the non-clock pin loads (pin count)
 *** Columns FF, LUTRAM, RAMB through 'Hard IP' represents load cell counts
@@ -504,28 +505,34 @@ All Modules
 21. Clock Region Cell Placement per Global Clock: Region X2Y2
 -------------------------------------------------------------
 
-+-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+-------------------------------------------+
-| Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF   | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                       |
-+-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+-------------------------------------------+
-| g0        | 0     | BUFG_PS/O       | None       |        4474 |               0 | 4426 |     47 |    1 |   0 |  0 |    0 |   0 |       0 | design_2_i/zynq_ultra_ps_e_0/inst/pl_clk0 |
-| g1        | 2     | BUFGCE/O        | None       |         304 |               0 |  304 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | dbg_hub/inst/BSCANID.u_xsdbm_id/itck_i    |
-+-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+-------------------------------------------+
++-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+--------------------------------------------------------------------------+
+| Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF   | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                                      |
++-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+--------------------------------------------------------------------------+
+| g0        | 0     | BUFG_PS/O       | None       |        4887 |               0 | 4767 |    119 |    1 |   0 |  0 |    0 |   0 |       0 | design_2_i/zynq_ultra_ps_e_0/inst/pl_clk0                                |
+| g4+       | 20    | BUFGCE/O        | None       |           0 |               0 |    0 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values_reg[2][0]_1[0] |
++-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+--------------------------------------------------------------------------+
 * Clock Loads column represents the clock pin loads (pin count)
 ** Non-Clock Loads column represents the non-clock pin loads (pin count)
 *** Columns FF, LUTRAM, RAMB through 'Hard IP' represents load cell counts
+**** In Global Id column, sympbol '+' indicates that global clock was used only to route through the clock region.
 
 
 22. Clock Region Cell Placement per Global Clock: Region X3Y2
 -------------------------------------------------------------
 
-+-----------+-------+-----------------+------------+-------------+-----------------+----+--------+------+-----+----+------+-----+---------+-------------------------------------------+
-| Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                       |
-+-----------+-------+-----------------+------------+-------------+-----------------+----+--------+------+-----+----+------+-----+---------+-------------------------------------------+
-| g0        | 0     | BUFG_PS/O       | None       |          25 |               0 | 25 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | design_2_i/zynq_ultra_ps_e_0/inst/pl_clk0 |
-| g1        | 2     | BUFGCE/O        | None       |           1 |               0 |  1 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | dbg_hub/inst/BSCANID.u_xsdbm_id/itck_i    |
-+-----------+-------+-----------------+------------+-------------+-----------------+----+--------+------+-----+----+------+-----+---------+-------------------------------------------+
++-----------+-------+-----------------+------------+-------------+-----------------+-----+--------+------+-----+----+------+-----+---------+--------------------------------------------------------------------------+
+| Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF  | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                                      |
++-----------+-------+-----------------+------------+-------------+-----------------+-----+--------+------+-----+----+------+-----+---------+--------------------------------------------------------------------------+
+| g0        | 0     | BUFG_PS/O       | None       |         476 |               0 | 471 |      5 |    0 |   0 |  0 |    0 |   0 |       0 | design_2_i/zynq_ultra_ps_e_0/inst/pl_clk0                                |
+| g1        | 2     | BUFGCE/O        | None       |           7 |               0 |   7 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | dbg_hub/inst/BSCANID.u_xsdbm_id/itck_i                                   |
+| g2+       | 8     | BUFGCE/O        | None       |           0 |               0 |   0 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/E[0]                  |
+| g3+       | 14    | BUFGCE/O        | None       |           0 |               0 |   0 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values_reg[2][0]_0[0] |
+| g4+       | 20    | BUFGCE/O        | None       |           0 |               0 |   0 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values_reg[2][0]_1[0] |
+| g5+       | 1     | BUFGCE/O        | None       |           0 |               0 |   0 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | design_2_i/MemorEDF_0/inst/nonaxidomain/dispatcher/values_reg[2][0]_2[0] |
++-----------+-------+-----------------+------------+-------------+-----------------+-----+--------+------+-----+----+------+-----+---------+--------------------------------------------------------------------------+
 * Clock Loads column represents the clock pin loads (pin count)
 ** Non-Clock Loads column represents the non-clock pin loads (pin count)
 *** Columns FF, LUTRAM, RAMB through 'Hard IP' represents load cell counts
+**** In Global Id column, sympbol '+' indicates that global clock was used only to route through the clock region.
 
 
