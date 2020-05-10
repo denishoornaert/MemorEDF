@@ -1,0 +1,48 @@
+\begin{tikzpicture}[scale=0.6, every node/.style={scale=0.6}]
+    % Module Master
+    \draw ( 0.0, 0.0) -- ++( 2.0, 0.0) -- ++( 0.0, 5.25) -- ++( -2.0, 0.0);
+    \node[rotate=90] at (0.25, 2.5) {\large MASTER};
+    % Module Slave
+    \draw (13.0, 0.0) -- ++(-2.0, 0.0) -- ++( 0.0, 5.25) -- ++( 2.0, 0.0);
+    \node[rotate=270] at (12.75, 2.5) {\large SLAVE};
+    % AW channel
+    \node at ( 1.5, 4.50) {AW};
+    \draw ( 2.0, 4.25) rectangle ++( 9.0, 0.5);
+    \draw ( 5.0, 4.25) rectangle ++( 0.5, 0.5)  node[pos=.5] {A};
+    \draw[-{Stealth}] ( 5.5, 4.5) -- ++( 0.5, 0.0);
+    \node at ( 11.5, 4.50) {AW};
+    \draw[red] ( 6.25, 4.50) circle [radius=0.2] node {1};
+    % W channel
+    \node at ( 1.5, 3.75) {W};
+    \draw ( 2.0, 3.50) rectangle ++( 9.0, 0.5);
+    \draw ( 3.0, 3.50) rectangle ++( 0.5, 0.5)  node[pos=.5] {D};
+    \draw ( 3.5, 3.50) rectangle ++( 0.5, 0.5)  node[pos=.5] {...};
+    \draw ( 4.0, 3.50) rectangle ++( 0.5, 0.5)  node[pos=.5] {D};
+    \draw[-{Stealth}] ( 4.5, 3.75) -- ++( 0.5, 0.0);
+    \node at ( 11.5, 3.75) {W};
+    \draw[red] ( 5.25, 3.75) circle [radius=0.2] node {2};
+    % B channel
+    \node at ( 1.5, 3.00) {B};
+    \draw ( 2.0, 2.75) rectangle ++( 9.0, 0.5);
+    \draw ( 9.5, 2.75) rectangle ++( 0.5, 0.5)  node[pos=.5] {B};
+    \draw[-{Stealth}] ( 9.5, 3.00) -- ++(-0.5, 0.0);
+    \node at ( 11.5, 3.00) {B};
+    \draw[red] ( 8.75, 3.00) circle [radius=0.2] node {3};
+    % AR channel
+    \node at ( 1.5, 1.50) {AR};
+    \draw ( 2.0, 1.25) rectangle ++( 9.0, 0.5);
+    \draw ( 5.0, 1.25) rectangle ++( 0.5, 0.5)  node[pos=.5] {A};
+    \draw[-{Stealth}] ( 5.5, 1.5) -- ++( 0.5, 0.0);
+    \node at ( 11.5, 1.50) {AR};
+    \draw[red] ( 6.25, 1.50) circle [radius=0.2] node {1'};
+    % R channel
+    \node at ( 1.5, 0.75) {R};
+    \draw ( 2.0, 0.50) rectangle ++( 9.0, 0.5);
+    \draw ( 8.0, 0.50) rectangle ++( 0.5, 0.5)  node[pos=.5] {D};
+    \draw ( 8.5, 0.50) rectangle ++( 0.5, 0.5)  node[pos=.5] {...};
+    \draw ( 9.0, 0.50) rectangle ++( 0.5, 0.5)  node[pos=.5] {D};
+    \draw ( 9.5, 0.50) rectangle ++( 0.5, 0.5)  node[pos=.5] {B};
+    \draw[-{Stealth}] ( 8.0, 0.75) -- ++(-0.5, 0.0);
+    \node at ( 11.5, 0.75) {R};
+    \draw[red] ( 7.25, 0.75) circle [radius=0.2] node {2'};
+\end{tikzpicture}
