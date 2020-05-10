@@ -1,0 +1,25 @@
+\begin{tabular}{|c|c||c|c|c|c|}
+    \hline
+    \multicolumn{2}{|c||}{Contention}         & \multicolumn{4}{c|}{Priorities assignment} \\
+    \hline %                                     0c0d0e0f                                      0f0c0d0e                                      0f0e0c0d                                      0f0e0d0c
+    Qty.          & Cores set                 & $C_{0} \succ C_{3} \succ C_{2} \succ C_{1}$ & $C_{3} \succ C_{0} \succ C_{2} \succ C_{1}$ & $C_{3} \succ C_{2} \succ C_{0} \succ C_{1}$ & $C_{3} \succ C_{2} \succ C_{1} \succ C_{0}$ \\
+    \hline
+    \hline
+    0             & $\{\phi\}$                & $34783.77~ns$ & $34901.18~ns$ & $35058.65~ns$ & $34969.87~ns$ \\
+    \hline
+    1             & $\{C_{1}\}$               & $34789.45~ns$ & $34966.09~ns$ & $34911.28~ns$ & $46223.52~ns$ \\
+    \hline
+    2             & $\{C_{1}, C_{2}\}$        & $35051.5~ns$ & $35082.57~ns$ & $46249.01~ns$ & $70536.67~ns$ \\
+    \hline
+    3             & $\{C_{1}, C_{2}, C_{3}\}$ & $35110.02~ns$ & $46447.15~ns$ & $71171.19~ns$ & $113021.57~ns$ \\
+    \hline
+    \hline
+    0             & $\{\phi\}$                &   $\pm 160.91~ns$ & $\pm 1201.99~ns$ & $\pm 2715.47~ns$ & $\pm 1908.16~ns$ \\
+    \hline
+    1             & $\{C_{1}\}$               &   $\pm 166.68~ns$ & $\pm 1839.36~ns$ & $\pm 1316.35~ns$ & $\pm 1043.79~ns$ \\
+    \hline
+    2             & $\{C_{1}, C_{2}\}$        &   $\pm 2628.02~ns$ & $\pm 2948.05~ns$ & $\pm 1206.55~ns$ & $\pm 4100.33~ns$ \\
+    \hline
+    3             & $\{C_{1}, C_{2}, C_{3}\}$ &   $\pm 3087.87~ns$ & $\pm 3194.82~ns$ & $\pm 3077.81~ns$ & $\pm 3836.1~ns$ \\
+    \hline
+\end{tabular}
