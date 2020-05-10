@@ -4,34 +4,27 @@
     Roughly, the module receives transactions from the PS side, acknowledges them and finally repeat them with the main memory as destination.
     The exact order in which inter-core transactions are being repeated is decided by an embedded on-chip hardware scheduler.
 
-    The present section exposes how SchIM interacts with the remaining of the systems in \ref{subsec:communication-scheme}, how its internal logic enforces transaction scheduling policies in \ref{subsec:micro-arch} and finally, an example of the transaction life cycle inside the logic is provided in \ref{subsec:transaction-life-cycle}.
+    The present section exposes how SchIM interacts with the remaining of the systems in \ref{subsec:communication-scheme}, how its internal logic enforces transaction scheduling policies in \ref{subsec:micro-arch} and finally, an example of the transaction life cycle within the SchIM module is provided in \ref{subsec:transaction-life-cycle}.
 
-    \subsection{Communication scheme}
+    \subsection{Altered communication scheme}
         \label{subsec:communication-scheme}
-        The exact communication scheme varies depending on whether the transaction aims at reading the main memory or writing to it as emphasised in the figures \ref{fig:Write_SchIM_communication_scheme} and \ref{fig:Read_SchIM_communication_scheme}.
-        This difference between the schemes is a direct consequence of the AXI protocol \cite{ARM-AXI} used.
-        As illustrated in the figure \ref{fig:Write_SchIM_communication_scheme}, the writing scheme is a simple succession of two standard AXI transactions. In fact, the actions groups $1-2-3$ and $4-5-6$ are both the succession of an address phase, followed by a data phase itself followed by a response phase.
-
-        On the other hand, the reading communication scheme is less linear as the cores are not unloading data but rather retrieve some.
-        The main difference with the writing scheme lays in the fact that the entire transaction is only partially pipelined.
-        As depicted in the figure \ref{fig:Read_SchIM_communication_scheme}, steps 1 and 2 can be pipelined however, the PS is still busy waiting for the data to arrive whereas, in figure \ref{fig:Write_SchIM_communication_scheme}, once the step 3 is completed, the core can resume.
+        In order to achieve the objective of re-ordering transactions, one must alter the standard AXI communication scheme explained in the subsection \ref{subsec:axi_transaction_scheme}.
+        To this end, we instantiate a in-between the master and the slave a pass-through module named SchIM as depicted in figure \ref{fig:SchIM_transaction_scheme_figure}.
+        This module is the one in charge of the re-ordering of the transactions and does so by intercepting on the fly the transactions emitted by the masters before they reach the desired slaves.
+        As shown in the figure \ref{fig:SchIM_transaction_scheme_figure}, only the phases instantiated by the masters (i.e. address phase on AW and AR and the data phase on W) are intercepted for re-ordering by SchIM.
+        The introduction of SchIM has a direct consequence on the overall communication scheme. Indeed, while the response phases on channels R and B remain unchanged, the address and data phases are duplicated.
+        Consequently, a write transaction will start exactly as in the standard AXI scheme with its address phase \circled{1} and data phase \circled{2}.
+        These two transactions are buffered within the SchIm module in \circled{3} and only repeated when decided by the latter's internal logic.
+        This release of the transaction leads to the initialisation of two new address and data phase \circled{4} and \circled{5}.
+        Finally, the response phase \circled{6} goes directly from the slave to the master without being intercepted.
+        The same modifications apply to the transmissions of read transactions as the address phase \circled{1'} is being buffered in \circled{2'} for some time before being re-emitted in \circled{3'}.
+        As for the writing, the response phase \circled{4'} is not intercepted by SchIM.
 
         \begin{figure}
-            \begin{subfigure}{.5\textwidth}
-                \centering
-                \input{tikz/write_SchIM_communication_scheme}
-                \caption{The six phases required to perform a write transaction}
-                \label{fig:Write_SchIM_communication_scheme}
-            \end{subfigure}
-            \par\bigskip
-            \begin{subfigure}{.5\textwidth}
-                \centering
-                \input{tikz/read_SchIM_communication_scheme}
-                \caption{The four phases required to perform a read transaction}
-                \label{fig:Read_SchIM_communication_scheme}
-            \end{subfigure}
-            \caption{Sequence of phases in order to perform a read (a) or write (b) memory transaction from the PS to the memory by going through SchIM.}
-            \label{fig:SchIM_communication_scheme}
+            \centering
+            \input{tikz/SchIM_transaction_scheme.tex}
+            \caption{Caption}
+            \label{fig:SchIM_transaction_scheme_figure}
         \end{figure}
 
     \subsection{Micro-architecture}
