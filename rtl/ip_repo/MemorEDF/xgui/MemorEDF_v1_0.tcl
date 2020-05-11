@@ -12,6 +12,7 @@ proc init_gui { IPINST } {
   ipgui::add_param $IPINST -name "EDF_ENABLED" -parent ${Scheduling_policies}
   ipgui::add_param $IPINST -name "TDMA_ENABLED" -parent ${Scheduling_policies}
   ipgui::add_param $IPINST -name "FP_ENABLED" -parent ${Scheduling_policies}
+  ipgui::add_param $IPINST -name "MG_ENABLED" -parent ${Scheduling_policies}
 
   #Adding Group
   set Elements_size [ipgui::add_group $IPINST -name "Elements size" -parent ${Page_0}]
@@ -239,6 +240,15 @@ proc validate_PARAM_VALUE.FP_ENABLED { PARAM_VALUE.FP_ENABLED } {
 	return true
 }
 
+proc update_PARAM_VALUE.MG_ENABLED { PARAM_VALUE.MG_ENABLED } {
+	# Procedure called to update MG_ENABLED when any of the dependent parameters in the arguments change
+}
+
+proc validate_PARAM_VALUE.MG_ENABLED { PARAM_VALUE.MG_ENABLED } {
+	# Procedure called to validate MG_ENABLED
+	return true
+}
+
 proc update_PARAM_VALUE.NUMBER_OF_QUEUES { PARAM_VALUE.NUMBER_OF_QUEUES } {
 	# Procedure called to update NUMBER_OF_QUEUES when any of the dependent parameters in the arguments change
 }
@@ -408,5 +418,10 @@ proc update_MODELPARAM_VALUE.PRIORITY_SIZE { MODELPARAM_VALUE.PRIORITY_SIZE PARA
 proc update_MODELPARAM_VALUE.FP_ENABLED { MODELPARAM_VALUE.FP_ENABLED PARAM_VALUE.FP_ENABLED } {
 	# Procedure called to set VHDL generic/Verilog parameter value(s) based on TCL parameter value
 	set_property value [get_property value ${PARAM_VALUE.FP_ENABLED}] ${MODELPARAM_VALUE.FP_ENABLED}
+}
+
+proc update_MODELPARAM_VALUE.MG_ENABLED { MODELPARAM_VALUE.MG_ENABLED PARAM_VALUE.MG_ENABLED } {
+	# Procedure called to set VHDL generic/Verilog parameter value(s) based on TCL parameter value
+	set_property value [get_property value ${PARAM_VALUE.MG_ENABLED}] ${MODELPARAM_VALUE.MG_ENABLED}
 }
 

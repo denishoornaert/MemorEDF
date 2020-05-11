@@ -312,6 +312,8 @@ module Scheduler
         deadlines,
         periods,
         priorities,
+        budgets,
+        hyper_period,
         id,
         consumed,
         hasBeenConsumed,
@@ -330,6 +332,8 @@ module Scheduler
     input [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] deadlines;
     input [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] periods;
     input [NUMBER_OF_QUEUES-1 : 0] [PRIORITY_SIZE-1 : 0] priorities;
+    input [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] budgets;
+    input                          [REGISTER_SIZE-1 : 0] hyper_period;
     output              [$clog2(NUMBER_OF_QUEUES)-1 : 0] id;
     input                                                consumed;
     output                      [NUMBER_OF_QUEUES-1 : 0] hasBeenConsumed;

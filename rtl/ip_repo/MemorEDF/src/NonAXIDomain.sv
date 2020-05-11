@@ -32,7 +32,8 @@ module NonAXIDomain #(
         parameter integer TDMA_ENABLED           = 1,
         parameter integer EDF_ENABLED            = 1,
         parameter integer FP_ENABLED             = 1,
-        parameter integer NUMBER_OF_SCHEDULERS   = 3
+        parameter integer MG_ENABLED             = 1,
+        parameter integer NUMBER_OF_SCHEDULERS   = 4
     )(
         clock,
         reset,
@@ -43,6 +44,8 @@ module NonAXIDomain #(
         scheduler_deadlines,
         scheduler_periods,
         scheduler_priorities,
+        scheduler_budgets,
+        scheduler_hyper_period,
         selector_to_serializer_packet,
         serializer_to_scheduler_consumed,
         scheduler_to_serializer_activate_signal,
@@ -58,6 +61,8 @@ module NonAXIDomain #(
     input wire [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] scheduler_deadlines;
     input wire [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] scheduler_periods;
     input wire [NUMBER_OF_QUEUES-1 : 0] [PRIORITY_SIZE-1 : 0] scheduler_priorities;
+    input wire [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] scheduler_budgets;
+    input wire                          [REGISTER_SIZE-1 : 0] scheduler_hyper_period;
     input wire                                                serializer_to_scheduler_consumed;
     
     output wire                   [DATA_SIZE-1 : 0] selector_to_serializer_packet;
@@ -128,7 +133,9 @@ module NonAXIDomain #(
 	   .NUMBER_OF_QUEUES(NUMBER_OF_QUEUES),
 	   .REGISTER_SIZE(REGISTER_SIZE),
 	   .TDMA_ENABLED(TDMA_ENABLED),
-	   .EDF_ENABLED(EDF_ENABLED)
+	   .EDF_ENABLED(EDF_ENABLED),
+	   .FP_ENABLED(FP_ENABLED),
+	   .MG_ENABLED(MG_ENABLED)
 	) scheduler (
 	   .clock(clock),
        .reset(reset),
@@ -139,6 +146,8 @@ module NonAXIDomain #(
        .deadlines(scheduler_deadlines),
        .periods(scheduler_periods),
        .priorities(scheduler_priorities),
+       .budgets(scheduler_budgets),
+       .hyper_period(scheduler_hyper_period),
        .id(scheduler_to_selector_id),
        .consumed(serializer_to_scheduler_consumed),
        .hasBeenConsumed(scheduler_to_queues_consumed),

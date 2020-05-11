@@ -33,6 +33,7 @@ module MemorEDF #
         parameter integer TDMA_ENABLED           = 1,
         parameter integer EDF_ENABLED            = 1,
         parameter integer FP_ENABLED             = 1,
+        parameter integer MG_ENABLED             = 1,
 		// Parameters of Axi Slave Bus Interface S00_AXI
 		parameter integer C_S00_AXI_ID_WIDTH	 = 16,
 		parameter integer C_S00_AXI_DATA_WIDTH	 = 128,
@@ -204,7 +205,7 @@ module MemorEDF #
         output reg                                  m00_axi_rready
 	);
 	
-	localparam NUMBER_OF_SCHEDULERS = TDMA_ENABLED + EDF_ENABLED + FP_ENABLED;
+	localparam NUMBER_OF_SCHEDULERS = TDMA_ENABLED + EDF_ENABLED + FP_ENABLED + MG_ENABLED;
 	
     // Internal routing
     wire            [DATA_SIZE-1 : 0] packetizer_to_dispatcher_packet;
@@ -221,11 +222,15 @@ module MemorEDF #
     wire [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] scheduler_deadlines;
     wire [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] scheduler_periods;
     wire [NUMBER_OF_QUEUES-1 : 0] [PRIORITY_SIZE-1 : 0] scheduler_priorities;
+    wire [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] scheduler_budgets;
+    wire                          [REGISTER_SIZE-1 : 0] scheduler_hyper_period;
     
-    assign scheduler_periods = buffers[127 : 0];
-    assign scheduler_deadlines = buffers[255 : 128];
-    assign scheduler_priorities = {buffers[283 : 280], buffers[275 : 272], buffers[267 : 264], buffers[259 : 256]};//buffers[271 : 256];
-    assign scheduling_mode = buffers[289 : 288];
+    assign scheduler_periods      = buffers[127 :   0];
+    assign scheduler_deadlines    = buffers[255 : 128];
+    assign scheduler_priorities   = {buffers[283 : 280], buffers[275 : 272], buffers[267 : 264], buffers[259 : 256]};
+    assign scheduler_budgets      = buffers[415 : 288];
+    assign scheduler_hyper_period = buffers[447 : 416];
+    assign scheduling_mode        = buffers[479 : 448]; // TODO go for 32 bit (or REGISTER_SIZE)
     
     // Pass-through channels
     // Response channel
@@ -434,8 +439,10 @@ module MemorEDF #
         .REGISTER_SIZE(REGISTER_SIZE),
         .PRIORITY_SIZE(PRIORITY_SIZE),
 		// Available/enabled schdulers
-        .TDMA_ENABLED(1),
-        .EDF_ENABLED(1),
+        .TDMA_ENABLED(TDMA_ENABLED),
+        .EDF_ENABLED(EDF_ENABLED),
+        .FP_ENABLED(FP_ENABLED),
+        .MG_ENABLED(MG_ENABLED),
         .NUMBER_OF_SCHEDULERS(NUMBER_OF_SCHEDULERS)
     ) nonaxidomain (
         .clock(m00_axi_aclk),
@@ -447,6 +454,8 @@ module MemorEDF #
         .scheduler_deadlines(scheduler_deadlines),
         .scheduler_periods(scheduler_periods),
         .scheduler_priorities(scheduler_priorities),
+        .scheduler_budgets(scheduler_budgets),
+        .scheduler_hyper_period(scheduler_hyper_period),
         .selector_to_serializer_packet(selector_to_serializer_packet),
         .serializer_to_scheduler_consumed(serializer_to_scheduler_consumed),
         .scheduler_to_serializer_activate_signal(scheduler_to_serializer_activate_signal),
