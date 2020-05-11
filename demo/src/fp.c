@@ -57,8 +57,15 @@ int main(int argc, char** argv) {
     (*config).deadlines[1] = 0x00000000;
     (*config).deadlines[2] = 0x00000000;
     (*config).deadlines[3] = 0x00000000;
-    // Set the priorities
+    // Set the priorities register
     (*config).priorities = priorities;
+    // Set the budget registers
+    (*config).budgets[0] = 0x00000000;
+    (*config).budgets[1] = 0x00000000;
+    (*config).budgets[2] = 0x00000000;
+    (*config).budgets[3] = 0x00000000;
+    // Set the hyper period register
+    (*config).hyperperiod = 0x00000000;
     // Set the scheduler
     (*config).scheduler = fp;
 
@@ -123,7 +130,7 @@ int main(int argc, char** argv) {
 //        clock_gettime(CLOCK_REALTIME, &time2);
 //        sec = diff(time1, time2).tv_sec;
 //        ns  = diff(time1, time2).tv_nsec;
-//        printf("%d) Read  - Done in %lu:%lu\n", 0, sec, ns);
+//        printf("read, %d, %x, %lu, %lu, %u, %u\n", competing_cores, priorities, sec, ns, HPM0_SIZE, (HPM0_SIZE/sizeof(unsigned)));
     }
 
     for (size_t i = 0; i < competing_cores; i++) {
