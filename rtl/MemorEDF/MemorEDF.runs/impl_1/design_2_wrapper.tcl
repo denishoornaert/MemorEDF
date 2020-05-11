@@ -61,64 +61,12 @@ proc step_failed { step } {
 }
 
 
-start_step init_design
-set ACTIVE_STEP init_design
-set rc [catch {
-  create_msg_db init_design.pb
-  create_project -in_memory -part xczu9eg-ffvb1156-2-e
-  set_property board_part xilinx.com:zcu102:part0:3.1 [current_project]
-  set_property design_mode GateLvl [current_fileset]
-  set_param project.singleFileAddWarning.threshold 0
-  set_property webtalk.parent_dir /home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.cache/wt [current_project]
-  set_property parent.project_path /home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.xpr [current_project]
-  set_property ip_repo_paths {
-  /home/duck/Github/MemorEDF/rtl/ip_repo
-  /home/duck/ip_repo/ConfigurationPort_1.0
-} [current_project]
-  set_property ip_output_repo /home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.cache/ip [current_project]
-  set_property ip_cache_permissions {read write} [current_project]
-  set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
-  add_files -quiet /home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/synth_1/design_2_wrapper.dcp
-  set_msg_config -source 4 -id {BD 41-1661} -limit 0
-  set_param project.isImplRun true
-  add_files /home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/design_2.bd
-  set_param project.isImplRun false
-  read_xdc /home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc
-  set_param project.isImplRun true
-  link_design -top design_2_wrapper -part xczu9eg-ffvb1156-2-e
-  set_param project.isImplRun false
-  write_hwdef -force -file design_2_wrapper.hwdef
-  close_msg_db -file init_design.pb
-} RESULT]
-if {$rc} {
-  step_failed init_design
-  return -code error $RESULT
-} else {
-  end_step init_design
-  unset ACTIVE_STEP 
-}
-
-start_step opt_design
-set ACTIVE_STEP opt_design
-set rc [catch {
-  create_msg_db opt_design.pb
-  opt_design 
-  write_checkpoint -force design_2_wrapper_opt.dcp
-  create_report "impl_1_opt_report_drc_0" "report_drc -file design_2_wrapper_drc_opted.rpt -pb design_2_wrapper_drc_opted.pb -rpx design_2_wrapper_drc_opted.rpx"
-  close_msg_db -file opt_design.pb
-} RESULT]
-if {$rc} {
-  step_failed opt_design
-  return -code error $RESULT
-} else {
-  end_step opt_design
-  unset ACTIVE_STEP 
-}
-
 start_step place_design
 set ACTIVE_STEP place_design
 set rc [catch {
   create_msg_db place_design.pb
+  open_checkpoint design_2_wrapper_opt.dcp
+  set_property webtalk.parent_dir /home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.cache/wt [current_project]
   implement_debug_core 
   place_design 
   write_checkpoint -force design_2_wrapper_placed.dcp

@@ -37,6 +37,13 @@ xil_axi_ulong addr1  = 40'h0000000000;
 xil_axi_ulong addr2  = 40'h0000000010;
 xil_axi_ulong addr3  = 40'h0000000020;
 xil_axi_ulong addr4  = 40'h0000000024;
+xil_axi_ulong addr5  = 40'h000000002c;
+xil_axi_ulong addr6  = 40'h0000000034;
+xil_axi_ulong addr7  = 40'h0000000038;
+xil_axi_ulong addr_bud0 = 40'h0000000024;
+xil_axi_ulong addr_bud1 = 40'h0000000028;
+xil_axi_ulong addr_bud2 = 40'h000000002c;
+xil_axi_ulong addr_bud3 = 40'h0000000030;
 
 xil_axi_ulong b_addr1   = 40'h0400000000;
 xil_axi_ulong b_addr2   = 40'h0400000010;
@@ -57,7 +64,14 @@ bit [127 : 0] data_wr1    = 128'h00000000000000000000000000000100; // ABITRARY P
 bit [127 : 0] data_wr1bis = 128'h00000000000000000001000000000000; // ABITRARY PERIOD
 bit [127 : 0] data_wr2    = 128'h00000000000000000000000000000000; // ARBITRRY AND MEANINGLESS DEADLINE
 bit [127 : 0] data_wr3    = 128'h0000000000000000000000000f0e0d0c; // Priorities
-bit [127 : 0] data_wr4    = 128'h00000000000000000000000200000000; // Mode (tdma = 0, edf = 1, fp = 2)
+bit [127 : 0] data_wr4    = 128'h0000000000000000bbbbbbbbaaaaaaaa; // Mode (tdma = 0, edf = 1, fp = 2)
+bit [127 : 0] data_wr5    = 128'h0000000000000000ddddddddcccccccc;
+bit [127 : 0] data_wr6    = 128'h0000000000000000eeeeeeee00000000;
+bit [127 : 0] data_wr7    = 128'h00000000000000000000000300000000;
+bit [ 32 : 0] budget0     = 128'h000000000000000000000000aaaaaaaa;
+bit [ 32 : 0] budget1     = 128'h0000000000000000bbbbbbbb00000000;
+bit [ 32 : 0] budget2     = 128'h00000000cccccccc0000000000000000;
+bit [ 32 : 0] budget3     = 128'hdddddddd000000000000000000000000;
 
 //  indices                       76543210765432107654321076543210
 bit [127 : 0] b_data_wr1   = 128'h0d000000000000001111111111111111;
@@ -157,7 +171,17 @@ initial begin
     #20ns
     master_agent.AXI4LITE_WRITE_BURST(addr3,prot,data_wr3,resp);
     #20ns
-    master_agent.AXI4LITE_WRITE_BURST(addr4,prot,data_wr4,resp);
+    master_agent.AXI4LITE_WRITE_BURST(addr_bud0,prot,budget0,resp);
+    #20ns
+    master_agent.AXI4LITE_WRITE_BURST(addr_bud1,prot,budget1,resp);
+    #20ns
+    master_agent.AXI4LITE_WRITE_BURST(addr_bud2,prot,budget2,resp);
+    #20ns
+    master_agent.AXI4LITE_WRITE_BURST(addr_bud3,prot,budget3,resp);
+    #20ns
+    master_agent.AXI4LITE_WRITE_BURST(addr6,prot,data_wr6,resp);
+    #20ns
+    master_agent.AXI4LITE_WRITE_BURST(addr7,prot,data_wr7,resp);
     #50ns
     
     #20ns
@@ -168,6 +192,12 @@ initial begin
     master_agent.AXI4LITE_READ_BURST(addr3,prot,data_rd3,resp);
     #20ns
     master_agent.AXI4LITE_READ_BURST(addr4,prot,data_rd4,resp);
+    #20ns
+    master_agent.AXI4LITE_READ_BURST(addr5,prot,data_rd5,resp);
+    #20ns
+    master_agent.AXI4LITE_READ_BURST(addr6,prot,data_rd6,resp);
+    #20ns
+    master_agent.AXI4LITE_READ_BURST(addr7,prot,data_rd7,resp);
     #20ns
     
     #50ns

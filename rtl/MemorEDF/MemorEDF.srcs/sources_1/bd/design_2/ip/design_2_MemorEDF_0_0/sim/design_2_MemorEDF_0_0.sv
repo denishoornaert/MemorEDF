@@ -48,7 +48,7 @@
 
 
 // IP VLNV: user.org:user:MemorEDF:1.0
-// IP Revision: 206
+// IP Revision: 208
 
 `timescale 1ns/1ps
 
@@ -472,7 +472,8 @@ output wire m00_axi_rready;
     .C_M00_AXI_AWUSER_WIDTH(16),
     .C_M00_AXI_ARUSER_WIDTH(16),
     .PRIORITY_SIZE(4),
-    .FP_ENABLED(1'B1)
+    .FP_ENABLED(1'B1),
+    .MG_ENABLED(1'B1)
   ) inst (
     .s00_axi_aclk(s00_axi_aclk),
     .s00_axi_aresetn(s00_axi_aresetn),

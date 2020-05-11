@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri May  8 14:40:22 2020" VIVADOVERSION="2017.4">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon May 11 12:06:33 2020" VIVADOVERSION="2017.4">
 
   <SYSTEMINFO ARCH="zynquplus" BOARD="xilinx.com:zcu102:part0:3.1" DEVICE="xczu9eg" NAME="design_2" PACKAGE="ffvb1156" SPEEDGRADE="-2"/>
 
@@ -654,6 +654,7 @@
         <PARAMETER NAME="C_M00_AXI_ARUSER_WIDTH" VALUE="16"/>
         <PARAMETER NAME="PRIORITY_SIZE" VALUE="4"/>
         <PARAMETER NAME="FP_ENABLED" VALUE="true"/>
+        <PARAMETER NAME="MG_ENABLED" VALUE="true"/>
         <PARAMETER NAME="Component_Name" VALUE="design_2_MemorEDF_0_0"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
         <PARAMETER NAME="C_BASEADDR" VALUE="0xA0000000"/>
@@ -8095,11 +8096,11 @@
         <PORT DIR="O" LEFT="0" NAME="interconnect_aresetn" RIGHT="0" SIGIS="rst"/>
         <PORT DIR="O" LEFT="0" NAME="peripheral_aresetn" RIGHT="0" SIGIS="rst" SIGNAME="rst_ps8_0_99M_peripheral_aresetn">
           <CONNECTIONS>
+            <CONNECTION INSTANCE="AXI_PerfectTranslator_0" PORT="s00_axi_aresetn"/>
+            <CONNECTION INSTANCE="AXI_PerfectTranslator_0" PORT="m00_axi_aresetn"/>
             <CONNECTION INSTANCE="MemorEDF_0" PORT="s00_axi_aresetn"/>
             <CONNECTION INSTANCE="MemorEDF_0" PORT="s01_axi_aresetn"/>
             <CONNECTION INSTANCE="MemorEDF_0" PORT="m00_axi_aresetn"/>
-            <CONNECTION INSTANCE="AXI_PerfectTranslator_0" PORT="s00_axi_aresetn"/>
-            <CONNECTION INSTANCE="AXI_PerfectTranslator_0" PORT="m00_axi_aresetn"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -10337,12 +10338,12 @@
             <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxihpm0_lpd_aclk"/>
             <CONNECTION INSTANCE="ila_0" PORT="clk"/>
             <CONNECTION INSTANCE="ila_1" PORT="clk"/>
-            <CONNECTION INSTANCE="MemorEDF_0" PORT="s00_axi_aclk"/>
-            <CONNECTION INSTANCE="MemorEDF_0" PORT="s01_axi_aclk"/>
-            <CONNECTION INSTANCE="MemorEDF_0" PORT="m00_axi_aclk"/>
             <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxihp0_fpd_aclk"/>
             <CONNECTION INSTANCE="AXI_PerfectTranslator_0" PORT="s00_axi_aclk"/>
             <CONNECTION INSTANCE="AXI_PerfectTranslator_0" PORT="m00_axi_aclk"/>
+            <CONNECTION INSTANCE="MemorEDF_0" PORT="s00_axi_aclk"/>
+            <CONNECTION INSTANCE="MemorEDF_0" PORT="s01_axi_aclk"/>
+            <CONNECTION INSTANCE="MemorEDF_0" PORT="m00_axi_aclk"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

@@ -2,8 +2,8 @@
 # Vivado v2017.4 (64-bit)
 # SW Build 2086221 on Fri Dec 15 20:54:30 MST 2017
 # IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
-# Start of session at: Fri May  8 14:43:36 2020
-# Process ID: 7118
+# Start of session at: Mon May 11 12:09:07 2020
+# Process ID: 9266
 # Current directory: /home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/synth_1
 # Command line: vivado -log design_2_wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_2_wrapper.tcl
 # Log file: /home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/synth_1/design_2_wrapper.vds
@@ -14,35 +14,35 @@ INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/duck/Github/MemorEDF/rtl/ip_repo'.
 INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/duck/ip_repo/ConfigurationPort_1.0'.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2017.4/data/ip'.
-add_files: Time (s): cpu = 00:00:09 ; elapsed = 00:00:17 . Memory (MB): peak = 1530.824 ; gain = 352.961 ; free physical = 22364 ; free virtual = 28792
+add_files: Time (s): cpu = 00:00:10 ; elapsed = 00:00:17 . Memory (MB): peak = 1530.820 ; gain = 352.961 ; free physical = 21376 ; free virtual = 28310
 Command: synth_design -top design_2_wrapper -part xczu9eg-ffvb1156-2-e
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xczu9eg'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xczu9eg'
 INFO: [Common 17-1540] The version limit for your license is '2020.03' and has expired for new software. A version limit expiration means that, although you may be able to continue to use the current version of tools or IP with this license, you will not be eligible for any updates or new releases.
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 7138 
+INFO: Helper process launched with PID 9306 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1552.203 ; gain = 0.000 ; free physical = 22245 ; free virtual = 28673
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1552.199 ; gain = 0.000 ; free physical = 21265 ; free virtual = 28199
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'design_2_wrapper' [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/hdl/design_2_wrapper.v:12]
 INFO: [Synth 8-638] synthesizing module 'design_2' [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/synth/design_2.v:13]
-INFO: [Synth 8-638] synthesizing module 'design_2_AXI_PerfectTranslator_0_0' [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/synth_1/.Xil/Vivado-7118-CELSIUS/realtime/design_2_AXI_PerfectTranslator_0_0_stub.v:6]
-INFO: [Synth 8-256] done synthesizing module 'design_2_AXI_PerfectTranslator_0_0' (1#1) [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/synth_1/.Xil/Vivado-7118-CELSIUS/realtime/design_2_AXI_PerfectTranslator_0_0_stub.v:6]
+INFO: [Synth 8-638] synthesizing module 'design_2_AXI_PerfectTranslator_0_0' [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/synth_1/.Xil/Vivado-9266-CELSIUS/realtime/design_2_AXI_PerfectTranslator_0_0_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'design_2_AXI_PerfectTranslator_0_0' (1#1) [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/synth_1/.Xil/Vivado-9266-CELSIUS/realtime/design_2_AXI_PerfectTranslator_0_0_stub.v:6]
 WARNING: [Synth 8-350] instance 'AXI_PerfectTranslator_0' of module 'design_2_AXI_PerfectTranslator_0_0' requires 90 connections, but only 87 given [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/synth/design_2.v:180]
-INFO: [Synth 8-638] synthesizing module 'design_2_MemorEDF_0_0' [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/synth_1/.Xil/Vivado-7118-CELSIUS/realtime/design_2_MemorEDF_0_0_stub.v:6]
-INFO: [Synth 8-256] done synthesizing module 'design_2_MemorEDF_0_0' (2#1) [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/synth_1/.Xil/Vivado-7118-CELSIUS/realtime/design_2_MemorEDF_0_0_stub.v:6]
+INFO: [Synth 8-638] synthesizing module 'design_2_MemorEDF_0_0' [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/synth_1/.Xil/Vivado-9266-CELSIUS/realtime/design_2_MemorEDF_0_0_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'design_2_MemorEDF_0_0' (2#1) [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/synth_1/.Xil/Vivado-9266-CELSIUS/realtime/design_2_MemorEDF_0_0_stub.v:6]
 WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/synth/design_2.v:396]
-INFO: [Synth 8-638] synthesizing module 'design_2_ila_0_0' [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/synth_1/.Xil/Vivado-7118-CELSIUS/realtime/design_2_ila_0_0_stub.v:6]
-INFO: [Synth 8-256] done synthesizing module 'design_2_ila_0_0' (3#1) [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/synth_1/.Xil/Vivado-7118-CELSIUS/realtime/design_2_ila_0_0_stub.v:6]
+INFO: [Synth 8-638] synthesizing module 'design_2_ila_0_0' [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/synth_1/.Xil/Vivado-9266-CELSIUS/realtime/design_2_ila_0_0_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'design_2_ila_0_0' (3#1) [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/synth_1/.Xil/Vivado-9266-CELSIUS/realtime/design_2_ila_0_0_stub.v:6]
 WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/synth/design_2.v:442]
-INFO: [Synth 8-638] synthesizing module 'design_2_ila_0_1' [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/synth_1/.Xil/Vivado-7118-CELSIUS/realtime/design_2_ila_0_1_stub.v:6]
-INFO: [Synth 8-256] done synthesizing module 'design_2_ila_0_1' (4#1) [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/synth_1/.Xil/Vivado-7118-CELSIUS/realtime/design_2_ila_0_1_stub.v:6]
-INFO: [Synth 8-638] synthesizing module 'design_2_rst_ps8_0_99M_0' [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/synth_1/.Xil/Vivado-7118-CELSIUS/realtime/design_2_rst_ps8_0_99M_0_stub.v:6]
-INFO: [Synth 8-256] done synthesizing module 'design_2_rst_ps8_0_99M_0' (5#1) [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/synth_1/.Xil/Vivado-7118-CELSIUS/realtime/design_2_rst_ps8_0_99M_0_stub.v:6]
+INFO: [Synth 8-638] synthesizing module 'design_2_ila_0_1' [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/synth_1/.Xil/Vivado-9266-CELSIUS/realtime/design_2_ila_0_1_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'design_2_ila_0_1' (4#1) [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/synth_1/.Xil/Vivado-9266-CELSIUS/realtime/design_2_ila_0_1_stub.v:6]
+INFO: [Synth 8-638] synthesizing module 'design_2_rst_ps8_0_99M_0' [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/synth_1/.Xil/Vivado-9266-CELSIUS/realtime/design_2_rst_ps8_0_99M_0_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'design_2_rst_ps8_0_99M_0' (5#1) [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/synth_1/.Xil/Vivado-9266-CELSIUS/realtime/design_2_rst_ps8_0_99M_0_stub.v:6]
 WARNING: [Synth 8-350] instance 'rst_ps8_0_99M' of module 'design_2_rst_ps8_0_99M_0' requires 10 connections, but only 6 given [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/synth/design_2.v:488]
-INFO: [Synth 8-638] synthesizing module 'design_2_zynq_ultra_ps_e_0_0' [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/synth_1/.Xil/Vivado-7118-CELSIUS/realtime/design_2_zynq_ultra_ps_e_0_0_stub.v:6]
-INFO: [Synth 8-256] done synthesizing module 'design_2_zynq_ultra_ps_e_0_0' (6#1) [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/synth_1/.Xil/Vivado-7118-CELSIUS/realtime/design_2_zynq_ultra_ps_e_0_0_stub.v:6]
+INFO: [Synth 8-638] synthesizing module 'design_2_zynq_ultra_ps_e_0_0' [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/synth_1/.Xil/Vivado-9266-CELSIUS/realtime/design_2_zynq_ultra_ps_e_0_0_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'design_2_zynq_ultra_ps_e_0_0' (6#1) [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/synth_1/.Xil/Vivado-9266-CELSIUS/realtime/design_2_zynq_ultra_ps_e_0_0_stub.v:6]
 INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'zynq_ultra_ps_e_0'. This will prevent further optimization [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/synth/design_2.v:495]
 INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'ila_0'. This will prevent further optimization [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/synth/design_2.v:396]
 INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'MemorEDF_0'. This will prevent further optimization [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/synth/design_2.v:268]
@@ -52,7 +52,7 @@ INFO: [Synth 8-256] done synthesizing module 'design_2' (7#1) [/home/duck/Github
 WARNING: [Synth 8-115] binding instance 'design_2_i' in module 'design_2_wrapper' to reference 'design_2' which has no pins
 INFO: [Synth 8-256] done synthesizing module 'design_2_wrapper' (8#1) [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/hdl/design_2_wrapper.v:12]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1552.203 ; gain = 0.000 ; free physical = 22253 ; free virtual = 28681
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1552.199 ; gain = 0.000 ; free physical = 21274 ; free virtual = 28209
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -62,25 +62,25 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1552.203 ; gain = 0.000 ; free physical = 22254 ; free virtual = 28683
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1552.199 ; gain = 0.000 ; free physical = 21276 ; free virtual = 28210
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xczu9eg-ffvb1156-2-e
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/synth_1/.Xil/Vivado-7118-CELSIUS/dcp6/design_2_zynq_ultra_ps_e_0_0_in_context.xdc] for cell 'design_2_i/zynq_ultra_ps_e_0'
-Finished Parsing XDC File [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/synth_1/.Xil/Vivado-7118-CELSIUS/dcp6/design_2_zynq_ultra_ps_e_0_0_in_context.xdc] for cell 'design_2_i/zynq_ultra_ps_e_0'
-Parsing XDC File [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/synth_1/.Xil/Vivado-7118-CELSIUS/dcp7/design_2_MemorEDF_0_0_in_context.xdc] for cell 'design_2_i/MemorEDF_0'
-Finished Parsing XDC File [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/synth_1/.Xil/Vivado-7118-CELSIUS/dcp7/design_2_MemorEDF_0_0_in_context.xdc] for cell 'design_2_i/MemorEDF_0'
-Parsing XDC File [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/synth_1/.Xil/Vivado-7118-CELSIUS/dcp8/design_2_rst_ps8_0_99M_0_in_context.xdc] for cell 'design_2_i/rst_ps8_0_99M'
-Finished Parsing XDC File [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/synth_1/.Xil/Vivado-7118-CELSIUS/dcp8/design_2_rst_ps8_0_99M_0_in_context.xdc] for cell 'design_2_i/rst_ps8_0_99M'
-Parsing XDC File [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/synth_1/.Xil/Vivado-7118-CELSIUS/dcp9/design_2_ila_0_0_in_context.xdc] for cell 'design_2_i/ila_0'
-Finished Parsing XDC File [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/synth_1/.Xil/Vivado-7118-CELSIUS/dcp9/design_2_ila_0_0_in_context.xdc] for cell 'design_2_i/ila_0'
-Parsing XDC File [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/synth_1/.Xil/Vivado-7118-CELSIUS/dcp10/design_2_ila_0_0_in_context.xdc] for cell 'design_2_i/ila_1'
-Finished Parsing XDC File [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/synth_1/.Xil/Vivado-7118-CELSIUS/dcp10/design_2_ila_0_0_in_context.xdc] for cell 'design_2_i/ila_1'
-Parsing XDC File [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/synth_1/.Xil/Vivado-7118-CELSIUS/dcp11/design_2_AXI_PerfectTranslator_0_0_in_context.xdc] for cell 'design_2_i/AXI_PerfectTranslator_0'
-Finished Parsing XDC File [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/synth_1/.Xil/Vivado-7118-CELSIUS/dcp11/design_2_AXI_PerfectTranslator_0_0_in_context.xdc] for cell 'design_2_i/AXI_PerfectTranslator_0'
+Parsing XDC File [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/synth_1/.Xil/Vivado-9266-CELSIUS/dcp6/design_2_zynq_ultra_ps_e_0_0_in_context.xdc] for cell 'design_2_i/zynq_ultra_ps_e_0'
+Finished Parsing XDC File [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/synth_1/.Xil/Vivado-9266-CELSIUS/dcp6/design_2_zynq_ultra_ps_e_0_0_in_context.xdc] for cell 'design_2_i/zynq_ultra_ps_e_0'
+Parsing XDC File [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/synth_1/.Xil/Vivado-9266-CELSIUS/dcp7/design_2_MemorEDF_0_0_in_context.xdc] for cell 'design_2_i/MemorEDF_0'
+Finished Parsing XDC File [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/synth_1/.Xil/Vivado-9266-CELSIUS/dcp7/design_2_MemorEDF_0_0_in_context.xdc] for cell 'design_2_i/MemorEDF_0'
+Parsing XDC File [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/synth_1/.Xil/Vivado-9266-CELSIUS/dcp8/design_2_rst_ps8_0_99M_0_in_context.xdc] for cell 'design_2_i/rst_ps8_0_99M'
+Finished Parsing XDC File [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/synth_1/.Xil/Vivado-9266-CELSIUS/dcp8/design_2_rst_ps8_0_99M_0_in_context.xdc] for cell 'design_2_i/rst_ps8_0_99M'
+Parsing XDC File [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/synth_1/.Xil/Vivado-9266-CELSIUS/dcp9/design_2_ila_0_0_in_context.xdc] for cell 'design_2_i/ila_0'
+Finished Parsing XDC File [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/synth_1/.Xil/Vivado-9266-CELSIUS/dcp9/design_2_ila_0_0_in_context.xdc] for cell 'design_2_i/ila_0'
+Parsing XDC File [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/synth_1/.Xil/Vivado-9266-CELSIUS/dcp10/design_2_ila_0_0_in_context.xdc] for cell 'design_2_i/ila_1'
+Finished Parsing XDC File [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/synth_1/.Xil/Vivado-9266-CELSIUS/dcp10/design_2_ila_0_0_in_context.xdc] for cell 'design_2_i/ila_1'
+Parsing XDC File [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/synth_1/.Xil/Vivado-9266-CELSIUS/dcp11/design_2_AXI_PerfectTranslator_0_0_in_context.xdc] for cell 'design_2_i/AXI_PerfectTranslator_0'
+Finished Parsing XDC File [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/synth_1/.Xil/Vivado-9266-CELSIUS/dcp11/design_2_AXI_PerfectTranslator_0_0_in_context.xdc] for cell 'design_2_i/AXI_PerfectTranslator_0'
 Parsing XDC File [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc]
 WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/m00_axi_aclk'. [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:20]
 WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/m00_axi_bresp[1]'. [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:21]
@@ -194,16 +194,16 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2158.137 ; gain = 0.000 ; free physical = 21546 ; free virtual = 27974
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2158.133 ; gain = 0.000 ; free physical = 20553 ; free virtual = 27488
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:22 ; elapsed = 00:00:28 . Memory (MB): peak = 2158.137 ; gain = 605.934 ; free physical = 21610 ; free virtual = 28039
+Finished Constraint Validation : Time (s): cpu = 00:00:22 ; elapsed = 00:00:29 . Memory (MB): peak = 2158.133 ; gain = 605.934 ; free physical = 20622 ; free virtual = 27557
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xczu9eg-ffvb1156-2-e
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:22 ; elapsed = 00:00:28 . Memory (MB): peak = 2158.137 ; gain = 605.934 ; free physical = 21610 ; free virtual = 28039
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:22 ; elapsed = 00:00:29 . Memory (MB): peak = 2158.133 ; gain = 605.934 ; free physical = 20622 ; free virtual = 27557
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -216,11 +216,11 @@ Applied set_property DONT_TOUCH = true for design_2_i/ila_1. (constraint file  a
 Applied set_property DONT_TOUCH = true for design_2_i/rst_ps8_0_99M. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for design_2_i/zynq_ultra_ps_e_0. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:28 . Memory (MB): peak = 2158.137 ; gain = 605.934 ; free physical = 21613 ; free virtual = 28042
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:29 . Memory (MB): peak = 2158.133 ; gain = 605.934 ; free physical = 20624 ; free virtual = 27560
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-115] binding instance 'design_2_i' in module 'design_2_wrapper' to reference 'design_2' which has no pins
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:22 ; elapsed = 00:00:28 . Memory (MB): peak = 2158.137 ; gain = 605.934 ; free physical = 21615 ; free virtual = 28044
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:22 ; elapsed = 00:00:29 . Memory (MB): peak = 2158.133 ; gain = 605.934 ; free physical = 20626 ; free virtual = 27562
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -255,7 +255,7 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:29 . Memory (MB): peak = 2158.137 ; gain = 605.934 ; free physical = 21605 ; free virtual = 28034
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:29 . Memory (MB): peak = 2158.133 ; gain = 605.934 ; free physical = 20616 ; free virtual = 27552
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -269,13 +269,13 @@ Start Applying XDC Timing Constraints
 INFO: [Synth 8-5578] Moved timing constraint from pin 'design_2_i/zynq_ultra_ps_e_0/pl_clk0' to pin 'design_2_i/zynq_ultra_ps_e_0/bbstub_pl_clk0/O'
 INFO: [Synth 8-5819] Moved 1 constraints on hierarchical pins to their respective driving/loading pins
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:36 ; elapsed = 00:00:56 . Memory (MB): peak = 2834.043 ; gain = 1281.840 ; free physical = 20835 ; free virtual = 27264
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:36 ; elapsed = 00:00:56 . Memory (MB): peak = 2834.039 ; gain = 1281.840 ; free physical = 19845 ; free virtual = 26780
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:36 ; elapsed = 00:00:56 . Memory (MB): peak = 2834.043 ; gain = 1281.840 ; free physical = 20835 ; free virtual = 27263
+Finished Timing Optimization : Time (s): cpu = 00:00:36 ; elapsed = 00:00:56 . Memory (MB): peak = 2834.039 ; gain = 1281.840 ; free physical = 19845 ; free virtual = 26780
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -287,7 +287,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:36 ; elapsed = 00:00:56 . Memory (MB): peak = 2847.285 ; gain = 1295.082 ; free physical = 20833 ; free virtual = 27262
+Finished Technology Mapping : Time (s): cpu = 00:00:36 ; elapsed = 00:00:56 . Memory (MB): peak = 2847.281 ; gain = 1295.082 ; free physical = 19843 ; free virtual = 26779
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -327,7 +327,7 @@ WARNING: [Synth 8-3295] tying undriven pin MemorEDF_0_m00_axi_AWREGION_inferred:
 WARNING: [Synth 8-3295] tying undriven pin MemorEDF_0_m00_axi_AWREGION_inferred:in0[1] to constant 0
 WARNING: [Synth 8-3295] tying undriven pin MemorEDF_0_m00_axi_AWREGION_inferred:in0[0] to constant 0
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:37 ; elapsed = 00:00:56 . Memory (MB): peak = 2847.285 ; gain = 1295.082 ; free physical = 20833 ; free virtual = 27261
+Finished IO Insertion : Time (s): cpu = 00:00:37 ; elapsed = 00:00:57 . Memory (MB): peak = 2847.281 ; gain = 1295.082 ; free physical = 19843 ; free virtual = 26779
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -340,7 +340,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:37 ; elapsed = 00:00:56 . Memory (MB): peak = 2847.285 ; gain = 1295.082 ; free physical = 20833 ; free virtual = 27261
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:37 ; elapsed = 00:00:57 . Memory (MB): peak = 2847.281 ; gain = 1295.082 ; free physical = 19843 ; free virtual = 26779
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -352,25 +352,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:37 ; elapsed = 00:00:56 . Memory (MB): peak = 2847.285 ; gain = 1295.082 ; free physical = 20833 ; free virtual = 27261
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:37 ; elapsed = 00:00:57 . Memory (MB): peak = 2847.281 ; gain = 1295.082 ; free physical = 19843 ; free virtual = 26779
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:37 ; elapsed = 00:00:56 . Memory (MB): peak = 2847.285 ; gain = 1295.082 ; free physical = 20833 ; free virtual = 27261
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:37 ; elapsed = 00:00:57 . Memory (MB): peak = 2847.281 ; gain = 1295.082 ; free physical = 19843 ; free virtual = 26779
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:37 ; elapsed = 00:00:56 . Memory (MB): peak = 2847.285 ; gain = 1295.082 ; free physical = 20833 ; free virtual = 27261
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:37 ; elapsed = 00:00:57 . Memory (MB): peak = 2847.281 ; gain = 1295.082 ; free physical = 19843 ; free virtual = 26779
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:37 ; elapsed = 00:00:56 . Memory (MB): peak = 2847.285 ; gain = 1295.082 ; free physical = 20833 ; free virtual = 27261
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:37 ; elapsed = 00:00:57 . Memory (MB): peak = 2847.281 ; gain = 1295.082 ; free physical = 19843 ; free virtual = 26779
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -409,11 +409,11 @@ Report Instance Areas:
 |2     |  design_2_i |design_2 |  2030|
 +------+-------------+---------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:37 ; elapsed = 00:00:56 . Memory (MB): peak = 2847.285 ; gain = 1295.082 ; free physical = 20833 ; free virtual = 27261
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:37 ; elapsed = 00:00:57 . Memory (MB): peak = 2847.281 ; gain = 1295.082 ; free physical = 19843 ; free virtual = 26779
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 17 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:26 ; elapsed = 00:00:39 . Memory (MB): peak = 2847.285 ; gain = 689.148 ; free physical = 20870 ; free virtual = 27298
-Synthesis Optimization Complete : Time (s): cpu = 00:00:37 ; elapsed = 00:00:56 . Memory (MB): peak = 2847.293 ; gain = 1295.082 ; free physical = 20870 ; free virtual = 27298
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:26 ; elapsed = 00:00:40 . Memory (MB): peak = 2847.281 ; gain = 689.148 ; free physical = 19881 ; free virtual = 26816
+Synthesis Optimization Complete : Time (s): cpu = 00:00:37 ; elapsed = 00:00:57 . Memory (MB): peak = 2847.289 ; gain = 1295.082 ; free physical = 19881 ; free virtual = 26816
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
@@ -423,8 +423,8 @@ No Unisim elements were transformed.
 INFO: [Common 17-83] Releasing license: Synthesis
 39 Infos, 123 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:39 ; elapsed = 00:00:58 . Memory (MB): peak = 2875.918 ; gain = 1345.094 ; free physical = 20845 ; free virtual = 27274
+synth_design: Time (s): cpu = 00:00:39 ; elapsed = 00:00:59 . Memory (MB): peak = 2875.914 ; gain = 1345.094 ; free physical = 19857 ; free virtual = 26792
 INFO: [Common 17-1381] The checkpoint '/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/synth_1/design_2_wrapper.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file design_2_wrapper_utilization_synth.rpt -pb design_2_wrapper_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00.16 ; elapsed = 00:00:00.21 . Memory (MB): peak = 2875.918 ; gain = 0.000 ; free physical = 20846 ; free virtual = 27275
-INFO: [Common 17-206] Exiting Vivado at Fri May  8 14:44:58 2020...
+report_utilization: Time (s): cpu = 00:00:00.16 ; elapsed = 00:00:00.20 . Memory (MB): peak = 2875.914 ; gain = 0.000 ; free physical = 19857 ; free virtual = 26792
+INFO: [Common 17-206] Exiting Vivado at Mon May 11 12:10:30 2020...

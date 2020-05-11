@@ -34,20 +34,20 @@
     <Option Name="DSAVendor" Val="xilinx"/>
     <Option Name="DSABoardId" Val="zcu102"/>
     <Option Name="DSANumComputeUnits" Val="60"/>
-    <Option Name="WTXSimLaunchSim" Val="621"/>
+    <Option Name="WTXSimLaunchSim" Val="633"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="235"/>
-    <Option Name="WTModelSimExportSim" Val="235"/>
-    <Option Name="WTQuestaExportSim" Val="235"/>
-    <Option Name="WTIesExportSim" Val="235"/>
-    <Option Name="WTVcsExportSim" Val="235"/>
-    <Option Name="WTRivieraExportSim" Val="235"/>
-    <Option Name="WTActivehdlExportSim" Val="235"/>
+    <Option Name="WTXSimExportSim" Val="237"/>
+    <Option Name="WTModelSimExportSim" Val="237"/>
+    <Option Name="WTQuestaExportSim" Val="237"/>
+    <Option Name="WTIesExportSim" Val="237"/>
+    <Option Name="WTVcsExportSim" Val="237"/>
+    <Option Name="WTRivieraExportSim" Val="237"/>
+    <Option Name="WTActivehdlExportSim" Val="237"/>
     <Option Name="GenerateIPUpgradeLog" Val="TRUE"/>
     <Option Name="XSimRadix" Val="hex"/>
     <Option Name="XSimTimeUnit" Val="ns"/>
@@ -64,20 +64,20 @@
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
-        <CompFileExtendedInfo CompFileName="design_2.bd" FileRelPathName="ip/design_2_MemorEDF_0_0/design_2_MemorEDF_0_0.xci">
-          <Proxy FileSetName="design_2_MemorEDF_0_0"/>
-        </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="design_2.bd" FileRelPathName="ip/design_2_rst_ps8_0_99M_0/design_2_rst_ps8_0_99M_0.xci">
           <Proxy FileSetName="design_2_rst_ps8_0_99M_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="design_2.bd" FileRelPathName="ip/design_2_ila_0_0/design_2_ila_0_0.xci">
           <Proxy FileSetName="design_2_ila_0_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="design_2.bd" FileRelPathName="ip/design_2_zynq_ultra_ps_e_0_0/design_2_zynq_ultra_ps_e_0_0.xci">
-          <Proxy FileSetName="design_2_zynq_ultra_ps_e_0_0"/>
-        </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="design_2.bd" FileRelPathName="ip/design_2_AXI_PerfectTranslator_0_0/design_2_AXI_PerfectTranslator_0_0.xci">
           <Proxy FileSetName="design_2_AXI_PerfectTranslator_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="design_2.bd" FileRelPathName="ip/design_2_MemorEDF_0_0/design_2_MemorEDF_0_0.xci">
+          <Proxy FileSetName="design_2_MemorEDF_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="design_2.bd" FileRelPathName="ip/design_2_zynq_ultra_ps_e_0_0/design_2_zynq_ultra_ps_e_0_0.xci">
+          <Proxy FileSetName="design_2_zynq_ultra_ps_e_0_0"/>
         </CompFileExtendedInfo>
       </File>
       <File Path="$PSRCDIR/sources_1/bd/design_2/hdl/design_2_wrapper.v">
@@ -191,15 +191,15 @@
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
-    <FileSet Name="design_2_MemorEDF_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/design_2_MemorEDF_0_0">
-      <Config>
-        <Option Name="TopModule" Val="design_2_MemorEDF_0_0"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-      </Config>
-    </FileSet>
     <FileSet Name="design_2_AXI_PerfectTranslator_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/design_2_AXI_PerfectTranslator_0_0">
       <Config>
         <Option Name="TopModule" Val="design_2_AXI_PerfectTranslator_0_0"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="design_2_MemorEDF_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/design_2_MemorEDF_0_0">
+      <Config>
+        <Option Name="TopModule" Val="design_2_MemorEDF_0_0"/>
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
@@ -228,9 +228,7 @@
   <Runs Version="1" Minor="10">
     <Run Id="synth_1" Type="Ft3:Synth" SrcSet="sources_1" Part="xczu9eg-ffvb1156-2-e" ConstrsSet="constrs_1" Description="Vivado Synthesis Defaults" WriteIncrSynthDcp="false" State="current" Dir="$PRUNDIR/synth_1" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2017">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2017"/>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -291,22 +289,18 @@
       <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2017"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
     </Run>
-    <Run Id="design_2_MemorEDF_0_0_synth_1" Type="Ft3:Synth" SrcSet="design_2_MemorEDF_0_0" Part="xczu9eg-ffvb1156-2-e" ConstrsSet="design_2_MemorEDF_0_0" Description="Vivado Synthesis Defaults" WriteIncrSynthDcp="false" Dir="$PRUNDIR/design_2_MemorEDF_0_0_synth_1" IncludeInArchive="true">
+    <Run Id="design_2_AXI_PerfectTranslator_0_0_synth_1" Type="Ft3:Synth" SrcSet="design_2_AXI_PerfectTranslator_0_0" Part="xczu9eg-ffvb1156-2-e" ConstrsSet="design_2_AXI_PerfectTranslator_0_0" Description="Vivado Synthesis Defaults" WriteIncrSynthDcp="false" Dir="$PRUNDIR/design_2_AXI_PerfectTranslator_0_0_synth_1" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2017">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2017"/>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
       <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2017"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
     </Run>
-    <Run Id="design_2_AXI_PerfectTranslator_0_0_synth_1" Type="Ft3:Synth" SrcSet="design_2_AXI_PerfectTranslator_0_0" Part="xczu9eg-ffvb1156-2-e" ConstrsSet="design_2_AXI_PerfectTranslator_0_0" Description="Vivado Synthesis Defaults" WriteIncrSynthDcp="false" Dir="$PRUNDIR/design_2_AXI_PerfectTranslator_0_0_synth_1" IncludeInArchive="true">
+    <Run Id="design_2_MemorEDF_0_0_synth_1" Type="Ft3:Synth" SrcSet="design_2_MemorEDF_0_0" Part="xczu9eg-ffvb1156-2-e" ConstrsSet="design_2_MemorEDF_0_0" Description="Vivado Synthesis Defaults" WriteIncrSynthDcp="false" Dir="$PRUNDIR/design_2_MemorEDF_0_0_synth_1" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2017">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2017"/>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -315,9 +309,7 @@
     </Run>
     <Run Id="impl_1" Type="Ft2:EntireDesign" Part="xczu9eg-ffvb1156-2-e" ConstrsSet="constrs_1" Description="Default settings for Implementation." WriteIncrSynthDcp="false" State="current" Dir="$PRUNDIR/impl_1" SynthRun="synth_1" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2017">
-          <Desc>Default settings for Implementation.</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2017"/>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>
@@ -428,11 +420,9 @@
       <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2017"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
     </Run>
-    <Run Id="design_2_MemorEDF_0_0_impl_1" Type="Ft2:EntireDesign" Part="xczu9eg-ffvb1156-2-e" ConstrsSet="design_2_MemorEDF_0_0" Description="Default settings for Implementation." WriteIncrSynthDcp="false" SynthRun="design_2_MemorEDF_0_0_synth_1" IncludeInArchive="false">
+    <Run Id="design_2_AXI_PerfectTranslator_0_0_impl_1" Type="Ft2:EntireDesign" Part="xczu9eg-ffvb1156-2-e" ConstrsSet="design_2_AXI_PerfectTranslator_0_0" Description="Default settings for Implementation." WriteIncrSynthDcp="false" SynthRun="design_2_AXI_PerfectTranslator_0_0_synth_1" IncludeInArchive="false">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2017">
-          <Desc>Default settings for Implementation.</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2017"/>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>
@@ -446,11 +436,9 @@
       <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2017"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
     </Run>
-    <Run Id="design_2_AXI_PerfectTranslator_0_0_impl_1" Type="Ft2:EntireDesign" Part="xczu9eg-ffvb1156-2-e" ConstrsSet="design_2_AXI_PerfectTranslator_0_0" Description="Default settings for Implementation." WriteIncrSynthDcp="false" SynthRun="design_2_AXI_PerfectTranslator_0_0_synth_1" IncludeInArchive="false">
+    <Run Id="design_2_MemorEDF_0_0_impl_1" Type="Ft2:EntireDesign" Part="xczu9eg-ffvb1156-2-e" ConstrsSet="design_2_MemorEDF_0_0" Description="Default settings for Implementation." WriteIncrSynthDcp="false" SynthRun="design_2_MemorEDF_0_0_synth_1" IncludeInArchive="false">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2017">
-          <Desc>Default settings for Implementation.</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2017"/>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>
