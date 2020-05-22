@@ -245,7 +245,7 @@ module Serializer #
     wire                [102-1 : 0] metadata;
     wire                 [16-1 : 0] wstrb_write;
     wire [C_M_AXI_DATA_WIDTH-1 : 0] data;
-    assign metadata       = packet_in[245 : 144];
+    assign metadata    = packet_in[245 : 144];
     // TODO check the order !!
     assign wstrb_write = packet_in[143 : 128];
     assign data        = packet_in[127 :   0];
@@ -260,7 +260,7 @@ module Serializer #
 	//I/O Connections. Write Address (AW)
 	assign M_AXI_AWID	  = p_awid;
 	//The AXI address is a concatenation of the target base address + active offset range
-	assign M_AXI_AWADDR	  = axi_awaddr;
+	assign M_AXI_AWADDR	  = p_awaddr;//axi_awaddr;
 	//Burst LENgth is number of transaction beats, minus 1
 	assign M_AXI_AWLEN	  = p_awlen;
 	//Size should be C_M_AXI_DATA_WIDTH, in 2^SIZE bytes, otherwise narrow bursts are used
@@ -284,7 +284,7 @@ module Serializer #
 //	assign M_AXI_BREADY	  = axi_bready;
 	//Read Address (AR)
 	assign M_AXI_ARID	  = p_arid;
-	assign M_AXI_ARADDR	  = axi_araddr;
+	assign M_AXI_ARADDR	  = p_araddr;//axi_araddr;
 	//Burst LENgth is number of transaction beats, minus 1
 	assign M_AXI_ARLEN    = p_arlen;
 	//Size should be C_M_AXI_DATA_WIDTH, in 2^n bytes, otherwise narrow bursts are used
