@@ -10,6 +10,9 @@
 #define HPM0_ADDR  0x00A0000000
 #define HPM0_SIZE  2048
 
+#define HPM1_ADDR  0x00B0000000
+#define HPM1_SIZE  2048
+
 #define OCM_ADDR   0x00FFFC0000
 #define OCM_SIZE   1024
 

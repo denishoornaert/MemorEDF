@@ -13,11 +13,11 @@ The present folder's organisation is as follows:
 ### Time Division Memory Access (TDMA)
 Usage
 ```bash
-exec/tdma.out <extra-cores-having-active-slot>
+exec/tdma.out <extra-cores-having-active-slot> <extra-active-cores> <core-under-analysis-slot-size> <extra-cores-slot-size>
 ```
 For instance
 ```bash
-exec/tdma.out 3
+exec/tdma.out 2 1 4096 3125000
 ```
 
 ### Fixed Priority (FP)
@@ -54,4 +54,14 @@ exec/populate.out <address-32bit-hex> <size-in-bytes>
 For instance
 ```bash
 exec/populate.out a0000000 2048
+```
+
+### Contention
+**Warning:** not meant for the SchIM rout unless the configuration registers are set properly beforehand.
+```bash
+exec/contention.out <nb-competing-cores> <nb-samples>
+```
+For instance
+```bash
+exec/contention.out 2 20
 ```

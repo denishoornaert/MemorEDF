@@ -1,7 +1,7 @@
 COMPILER_ARM = aarch64-linux-gnu-gcc
 FLAGS = -lpthread -lrt
 
-all: tdma fp poke populate
+all: tdma fp poke populate contention
 
 tdma: src/tdma.c objects/tool.o
 	$(COMPILER_ARM) src/tdma.c -o exec/tdma.out $(FLAGS) objects/tool.o
@@ -14,6 +14,9 @@ poke: src/poke.c objects/tool.o
 
 populate: src/populate.c objects/tool.o
 	$(COMPILER_ARM) src/populate.c -o exec/populate.out $(FLAGS) objects/tool.o
+
+contention: src/contention.c objects/tool.o
+	$(COMPILER_ARM) src/contention.c -o exec/contention.out $(FLAGS) objects/tool.o
 
 objects/tool.o: include/tool.h src/tool.c
 	$(COMPILER_ARM) -c src/tool.c -o objects/tool.o $(FLAGS)
