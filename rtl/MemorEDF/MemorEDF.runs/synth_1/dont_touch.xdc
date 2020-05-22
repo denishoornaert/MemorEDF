@@ -18,10 +18,10 @@ set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_2_rst_ps
 # IP: bd/design_2/ip/design_2_ila_0_0/design_2_ila_0_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_2_ila_0_0 || ORIG_REF_NAME==design_2_ila_0_0} -quiet] -quiet
 
-# IP: bd/design_2/ip/design_2_ila_0_1/design_2_ila_0_1.xci
-set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_2_ila_0_1 || ORIG_REF_NAME==design_2_ila_0_1} -quiet] -quiet
-
 # IP: bd/design_2/ip/design_2_AXI_PerfectTranslator_0_0/design_2_AXI_PerfectTranslator_0_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_2_AXI_PerfectTranslator_0_0 || ORIG_REF_NAME==design_2_AXI_PerfectTranslator_0_0} -quiet] -quiet
+
+# IP: bd/design_2/ip/design_2_AXI_PerfectTranslator_0_1/design_2_AXI_PerfectTranslator_0_1.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_2_AXI_PerfectTranslator_0_1 || ORIG_REF_NAME==design_2_AXI_PerfectTranslator_0_1} -quiet] -quiet
 
 # XDC: bd/design_2/design_2_ooc.xdc

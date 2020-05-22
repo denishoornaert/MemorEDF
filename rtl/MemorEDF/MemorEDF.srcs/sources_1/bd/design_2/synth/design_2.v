@@ -1,7 +1,7 @@
 //Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-//Date        : Mon May 11 12:06:32 2020
+//Date        : Fri May 22 17:10:23 2020
 //Host        : CELSIUS running 64-bit Ubuntu 16.04.6 LTS
 //Command     : generate_target design_2.bd
 //Design      : design_2
@@ -9,7 +9,7 @@
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "design_2,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_2,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=6,numReposBlks=6,numNonXlnxBlks=2,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_clkrst_cnt=12,da_zynq_ultra_ps_e_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "design_2.hwdef" *) 
+(* CORE_GENERATION_INFO = "design_2,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_2,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=6,numReposBlks=6,numNonXlnxBlks=3,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_clkrst_cnt=14,da_zynq_ultra_ps_e_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "design_2.hwdef" *) 
 module design_2
    ();
 
@@ -52,6 +52,45 @@ module design_2
   wire AXI_PerfectTranslator_0_M00_AXI_WREADY;
   wire [15:0]AXI_PerfectTranslator_0_M00_AXI_WSTRB;
   wire AXI_PerfectTranslator_0_M00_AXI_WVALID;
+  wire [48:0]AXI_PerfectTranslator_1_M00_AXI_ARADDR;
+  wire [1:0]AXI_PerfectTranslator_1_M00_AXI_ARBURST;
+  wire [3:0]AXI_PerfectTranslator_1_M00_AXI_ARCACHE;
+  wire [5:0]AXI_PerfectTranslator_1_M00_AXI_ARID;
+  wire [7:0]AXI_PerfectTranslator_1_M00_AXI_ARLEN;
+  wire AXI_PerfectTranslator_1_M00_AXI_ARLOCK;
+  wire [2:0]AXI_PerfectTranslator_1_M00_AXI_ARPROT;
+  wire [3:0]AXI_PerfectTranslator_1_M00_AXI_ARQOS;
+  wire AXI_PerfectTranslator_1_M00_AXI_ARREADY;
+  wire [2:0]AXI_PerfectTranslator_1_M00_AXI_ARSIZE;
+  wire [0:0]AXI_PerfectTranslator_1_M00_AXI_ARUSER;
+  wire AXI_PerfectTranslator_1_M00_AXI_ARVALID;
+  wire [48:0]AXI_PerfectTranslator_1_M00_AXI_AWADDR;
+  wire [1:0]AXI_PerfectTranslator_1_M00_AXI_AWBURST;
+  wire [3:0]AXI_PerfectTranslator_1_M00_AXI_AWCACHE;
+  wire [5:0]AXI_PerfectTranslator_1_M00_AXI_AWID;
+  wire [7:0]AXI_PerfectTranslator_1_M00_AXI_AWLEN;
+  wire AXI_PerfectTranslator_1_M00_AXI_AWLOCK;
+  wire [2:0]AXI_PerfectTranslator_1_M00_AXI_AWPROT;
+  wire [3:0]AXI_PerfectTranslator_1_M00_AXI_AWQOS;
+  wire AXI_PerfectTranslator_1_M00_AXI_AWREADY;
+  wire [2:0]AXI_PerfectTranslator_1_M00_AXI_AWSIZE;
+  wire [0:0]AXI_PerfectTranslator_1_M00_AXI_AWUSER;
+  wire AXI_PerfectTranslator_1_M00_AXI_AWVALID;
+  wire [5:0]AXI_PerfectTranslator_1_M00_AXI_BID;
+  wire AXI_PerfectTranslator_1_M00_AXI_BREADY;
+  wire [1:0]AXI_PerfectTranslator_1_M00_AXI_BRESP;
+  wire AXI_PerfectTranslator_1_M00_AXI_BVALID;
+  wire [127:0]AXI_PerfectTranslator_1_M00_AXI_RDATA;
+  wire [5:0]AXI_PerfectTranslator_1_M00_AXI_RID;
+  wire AXI_PerfectTranslator_1_M00_AXI_RLAST;
+  wire AXI_PerfectTranslator_1_M00_AXI_RREADY;
+  wire [1:0]AXI_PerfectTranslator_1_M00_AXI_RRESP;
+  wire AXI_PerfectTranslator_1_M00_AXI_RVALID;
+  wire [127:0]AXI_PerfectTranslator_1_M00_AXI_WDATA;
+  wire AXI_PerfectTranslator_1_M00_AXI_WLAST;
+  wire AXI_PerfectTranslator_1_M00_AXI_WREADY;
+  wire [15:0]AXI_PerfectTranslator_1_M00_AXI_WSTRB;
+  wire AXI_PerfectTranslator_1_M00_AXI_WVALID;
   (* DEBUG = "true" *) (* MARK_DEBUG *) wire [39:0]MemorEDF_0_m00_axi_ARADDR;
   (* DEBUG = "true" *) (* MARK_DEBUG *) wire [1:0]MemorEDF_0_m00_axi_ARBURST;
   (* DEBUG = "true" *) (* MARK_DEBUG *) wire [3:0]MemorEDF_0_m00_axi_ARCACHE;
@@ -94,47 +133,45 @@ module design_2
   (* DEBUG = "true" *) (* MARK_DEBUG *) wire [15:0]MemorEDF_0_m00_axi_WSTRB;
   (* DEBUG = "true" *) (* MARK_DEBUG *) wire MemorEDF_0_m00_axi_WVALID;
   wire [0:0]rst_ps8_0_99M_peripheral_aresetn;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire [39:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARADDR;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire [1:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARBURST;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire [3:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARCACHE;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARID;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire [7:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARLEN;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARLOCK;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire [2:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARPROT;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire [3:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARQOS;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARREADY;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire [3:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARREGION;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire [2:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARSIZE;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARUSER;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARVALID;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire [39:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWADDR;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire [1:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWBURST;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire [3:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWCACHE;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWID;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire [7:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWLEN;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWLOCK;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire [2:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWPROT;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire [3:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWQOS;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWREADY;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire [3:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWREGION;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire [2:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWSIZE;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWUSER;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWVALID;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_BID;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_BREADY;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire [1:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_BRESP;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_BVALID;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire [127:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RDATA;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RID;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RLAST;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RREADY;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire [1:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RRESP;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RVALID;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire [127:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WDATA;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WLAST;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WREADY;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WSTRB;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WVALID;
+  wire [39:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARADDR;
+  wire [1:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARBURST;
+  wire [3:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARCACHE;
+  wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARID;
+  wire [7:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARLEN;
+  wire zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARLOCK;
+  wire [2:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARPROT;
+  wire [3:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARQOS;
+  wire zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARREADY;
+  wire [2:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARSIZE;
+  wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARUSER;
+  wire zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARVALID;
+  wire [39:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWADDR;
+  wire [1:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWBURST;
+  wire [3:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWCACHE;
+  wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWID;
+  wire [7:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWLEN;
+  wire zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWLOCK;
+  wire [2:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWPROT;
+  wire [3:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWQOS;
+  wire zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWREADY;
+  wire [2:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWSIZE;
+  wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWUSER;
+  wire zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWVALID;
+  wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_BID;
+  wire zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_BREADY;
+  wire [1:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_BRESP;
+  wire zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_BVALID;
+  wire [127:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RDATA;
+  wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RID;
+  wire zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RLAST;
+  wire zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RREADY;
+  wire [1:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RRESP;
+  wire zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RVALID;
+  wire [127:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WDATA;
+  wire zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WLAST;
+  wire zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WREADY;
+  wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WSTRB;
+  wire zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WVALID;
   wire [39:0]zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARADDR;
   wire [1:0]zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARBURST;
   wire [3:0]zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARCACHE;
@@ -174,6 +211,45 @@ module design_2
   wire zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_WREADY;
   wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_WSTRB;
   wire zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_WVALID;
+  wire [39:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARADDR;
+  wire [1:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARBURST;
+  wire [3:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARCACHE;
+  wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARID;
+  wire [7:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARLEN;
+  wire zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARLOCK;
+  wire [2:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARPROT;
+  wire [3:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARQOS;
+  wire zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARREADY;
+  wire [2:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARSIZE;
+  wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARUSER;
+  wire zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARVALID;
+  wire [39:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWADDR;
+  wire [1:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWBURST;
+  wire [3:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWCACHE;
+  wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWID;
+  wire [7:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWLEN;
+  wire zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWLOCK;
+  wire [2:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWPROT;
+  wire [3:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWQOS;
+  wire zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWREADY;
+  wire [2:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWSIZE;
+  wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWUSER;
+  wire zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWVALID;
+  wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_BID;
+  wire zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_BREADY;
+  wire [1:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_BRESP;
+  wire zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_BVALID;
+  wire [127:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_RDATA;
+  wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_RID;
+  wire zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_RLAST;
+  wire zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_RREADY;
+  wire [1:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_RRESP;
+  wire zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_RVALID;
+  wire [127:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_WDATA;
+  wire zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_WLAST;
+  wire zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_WREADY;
+  wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_WSTRB;
+  wire zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_WVALID;
   wire zynq_ultra_ps_e_0_pl_clk0;
   wire zynq_ultra_ps_e_0_pl_resetn0;
 
@@ -265,6 +341,94 @@ module design_2
         .s00_axi_wready(MemorEDF_0_m00_axi_WREADY),
         .s00_axi_wstrb(MemorEDF_0_m00_axi_WSTRB),
         .s00_axi_wvalid(MemorEDF_0_m00_axi_WVALID));
+  design_2_AXI_PerfectTranslator_0_1 AXI_PerfectTranslator_1
+       (.m00_axi_aclk(zynq_ultra_ps_e_0_pl_clk0),
+        .m00_axi_araddr(AXI_PerfectTranslator_1_M00_AXI_ARADDR),
+        .m00_axi_arburst(AXI_PerfectTranslator_1_M00_AXI_ARBURST),
+        .m00_axi_arcache(AXI_PerfectTranslator_1_M00_AXI_ARCACHE),
+        .m00_axi_aresetn(rst_ps8_0_99M_peripheral_aresetn),
+        .m00_axi_arid(AXI_PerfectTranslator_1_M00_AXI_ARID),
+        .m00_axi_arlen(AXI_PerfectTranslator_1_M00_AXI_ARLEN),
+        .m00_axi_arlock(AXI_PerfectTranslator_1_M00_AXI_ARLOCK),
+        .m00_axi_arprot(AXI_PerfectTranslator_1_M00_AXI_ARPROT),
+        .m00_axi_arqos(AXI_PerfectTranslator_1_M00_AXI_ARQOS),
+        .m00_axi_arready(AXI_PerfectTranslator_1_M00_AXI_ARREADY),
+        .m00_axi_arsize(AXI_PerfectTranslator_1_M00_AXI_ARSIZE),
+        .m00_axi_aruser(AXI_PerfectTranslator_1_M00_AXI_ARUSER),
+        .m00_axi_arvalid(AXI_PerfectTranslator_1_M00_AXI_ARVALID),
+        .m00_axi_awaddr(AXI_PerfectTranslator_1_M00_AXI_AWADDR),
+        .m00_axi_awburst(AXI_PerfectTranslator_1_M00_AXI_AWBURST),
+        .m00_axi_awcache(AXI_PerfectTranslator_1_M00_AXI_AWCACHE),
+        .m00_axi_awid(AXI_PerfectTranslator_1_M00_AXI_AWID),
+        .m00_axi_awlen(AXI_PerfectTranslator_1_M00_AXI_AWLEN),
+        .m00_axi_awlock(AXI_PerfectTranslator_1_M00_AXI_AWLOCK),
+        .m00_axi_awprot(AXI_PerfectTranslator_1_M00_AXI_AWPROT),
+        .m00_axi_awqos(AXI_PerfectTranslator_1_M00_AXI_AWQOS),
+        .m00_axi_awready(AXI_PerfectTranslator_1_M00_AXI_AWREADY),
+        .m00_axi_awsize(AXI_PerfectTranslator_1_M00_AXI_AWSIZE),
+        .m00_axi_awuser(AXI_PerfectTranslator_1_M00_AXI_AWUSER),
+        .m00_axi_awvalid(AXI_PerfectTranslator_1_M00_AXI_AWVALID),
+        .m00_axi_bid(AXI_PerfectTranslator_1_M00_AXI_BID),
+        .m00_axi_bready(AXI_PerfectTranslator_1_M00_AXI_BREADY),
+        .m00_axi_bresp(AXI_PerfectTranslator_1_M00_AXI_BRESP),
+        .m00_axi_buser(1'b0),
+        .m00_axi_bvalid(AXI_PerfectTranslator_1_M00_AXI_BVALID),
+        .m00_axi_init_axi_txn(1'b0),
+        .m00_axi_rdata(AXI_PerfectTranslator_1_M00_AXI_RDATA),
+        .m00_axi_rid(AXI_PerfectTranslator_1_M00_AXI_RID),
+        .m00_axi_rlast(AXI_PerfectTranslator_1_M00_AXI_RLAST),
+        .m00_axi_rready(AXI_PerfectTranslator_1_M00_AXI_RREADY),
+        .m00_axi_rresp(AXI_PerfectTranslator_1_M00_AXI_RRESP),
+        .m00_axi_ruser(1'b0),
+        .m00_axi_rvalid(AXI_PerfectTranslator_1_M00_AXI_RVALID),
+        .m00_axi_wdata(AXI_PerfectTranslator_1_M00_AXI_WDATA),
+        .m00_axi_wlast(AXI_PerfectTranslator_1_M00_AXI_WLAST),
+        .m00_axi_wready(AXI_PerfectTranslator_1_M00_AXI_WREADY),
+        .m00_axi_wstrb(AXI_PerfectTranslator_1_M00_AXI_WSTRB),
+        .m00_axi_wvalid(AXI_PerfectTranslator_1_M00_AXI_WVALID),
+        .s00_axi_aclk(zynq_ultra_ps_e_0_pl_clk0),
+        .s00_axi_araddr(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARADDR),
+        .s00_axi_arburst(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARBURST),
+        .s00_axi_arcache(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARCACHE),
+        .s00_axi_aresetn(rst_ps8_0_99M_peripheral_aresetn),
+        .s00_axi_arid(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARID),
+        .s00_axi_arlen(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARLEN),
+        .s00_axi_arlock(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARLOCK),
+        .s00_axi_arprot(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARPROT),
+        .s00_axi_arqos(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARQOS),
+        .s00_axi_arready(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARREADY),
+        .s00_axi_arregion({1'b0,1'b0,1'b0,1'b0}),
+        .s00_axi_arsize(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARSIZE),
+        .s00_axi_aruser(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARUSER),
+        .s00_axi_arvalid(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARVALID),
+        .s00_axi_awaddr(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWADDR),
+        .s00_axi_awburst(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWBURST),
+        .s00_axi_awcache(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWCACHE),
+        .s00_axi_awid(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWID),
+        .s00_axi_awlen(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWLEN),
+        .s00_axi_awlock(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWLOCK),
+        .s00_axi_awprot(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWPROT),
+        .s00_axi_awqos(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWQOS),
+        .s00_axi_awready(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWREADY),
+        .s00_axi_awregion({1'b0,1'b0,1'b0,1'b0}),
+        .s00_axi_awsize(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWSIZE),
+        .s00_axi_awuser(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWUSER),
+        .s00_axi_awvalid(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWVALID),
+        .s00_axi_bid(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_BID),
+        .s00_axi_bready(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_BREADY),
+        .s00_axi_bresp(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_BRESP),
+        .s00_axi_bvalid(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_BVALID),
+        .s00_axi_rdata(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_RDATA),
+        .s00_axi_rid(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_RID),
+        .s00_axi_rlast(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_RLAST),
+        .s00_axi_rready(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_RREADY),
+        .s00_axi_rresp(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_RRESP),
+        .s00_axi_rvalid(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_RVALID),
+        .s00_axi_wdata(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_WDATA),
+        .s00_axi_wlast(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_WLAST),
+        .s00_axi_wready(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_WREADY),
+        .s00_axi_wstrb(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_WSTRB),
+        .s00_axi_wvalid(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_WVALID));
   design_2_MemorEDF_0_0 MemorEDF_0
        (.m00_axi_aclk(zynq_ultra_ps_e_0_pl_clk0),
         .m00_axi_araddr(MemorEDF_0_m00_axi_ARADDR),
@@ -395,52 +559,6 @@ module design_2
         .s01_axi_wvalid(zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_WVALID));
   design_2_ila_0_0 ila_0
        (.clk(zynq_ultra_ps_e_0_pl_clk0),
-        .probe0(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WREADY),
-        .probe1(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWADDR),
-        .probe10(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RDATA),
-        .probe11(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWVALID),
-        .probe12(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWREADY),
-        .probe13(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RRESP),
-        .probe14(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WDATA),
-        .probe15(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WSTRB),
-        .probe16(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RVALID),
-        .probe17(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARPROT),
-        .probe18(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWPROT),
-        .probe19(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWID),
-        .probe2(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_BRESP),
-        .probe20(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_BID),
-        .probe21(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWLEN),
-        .probe22(1'b0),
-        .probe23(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWSIZE),
-        .probe24(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWBURST),
-        .probe25(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARID),
-        .probe26(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWLOCK),
-        .probe27(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARLEN),
-        .probe28(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARSIZE),
-        .probe29(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARBURST),
-        .probe3(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_BVALID),
-        .probe30(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARLOCK),
-        .probe31(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARCACHE),
-        .probe32(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWCACHE),
-        .probe33(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARREGION),
-        .probe34(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARQOS),
-        .probe35(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARUSER),
-        .probe36(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWREGION),
-        .probe37(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWQOS),
-        .probe38(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RID),
-        .probe39(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWUSER),
-        .probe4(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_BREADY),
-        .probe40(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RLAST),
-        .probe41(1'b0),
-        .probe42(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WLAST),
-        .probe43(1'b0),
-        .probe5(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARADDR),
-        .probe6(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RREADY),
-        .probe7(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WVALID),
-        .probe8(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARVALID),
-        .probe9(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARREADY));
-  design_2_ila_0_1 ila_1
-       (.clk(zynq_ultra_ps_e_0_pl_clk0),
         .probe0(MemorEDF_0_m00_axi_WREADY),
         .probe1(MemorEDF_0_m00_axi_AWADDR),
         .probe10(MemorEDF_0_m00_axi_RDATA),
@@ -532,6 +650,45 @@ module design_2
         .maxigp0_wready(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WREADY),
         .maxigp0_wstrb(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WSTRB),
         .maxigp0_wvalid(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WVALID),
+        .maxigp1_araddr(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARADDR),
+        .maxigp1_arburst(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARBURST),
+        .maxigp1_arcache(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARCACHE),
+        .maxigp1_arid(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARID),
+        .maxigp1_arlen(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARLEN),
+        .maxigp1_arlock(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARLOCK),
+        .maxigp1_arprot(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARPROT),
+        .maxigp1_arqos(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARQOS),
+        .maxigp1_arready(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARREADY),
+        .maxigp1_arsize(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARSIZE),
+        .maxigp1_aruser(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARUSER),
+        .maxigp1_arvalid(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARVALID),
+        .maxigp1_awaddr(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWADDR),
+        .maxigp1_awburst(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWBURST),
+        .maxigp1_awcache(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWCACHE),
+        .maxigp1_awid(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWID),
+        .maxigp1_awlen(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWLEN),
+        .maxigp1_awlock(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWLOCK),
+        .maxigp1_awprot(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWPROT),
+        .maxigp1_awqos(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWQOS),
+        .maxigp1_awready(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWREADY),
+        .maxigp1_awsize(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWSIZE),
+        .maxigp1_awuser(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWUSER),
+        .maxigp1_awvalid(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWVALID),
+        .maxigp1_bid(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_BID),
+        .maxigp1_bready(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_BREADY),
+        .maxigp1_bresp(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_BRESP),
+        .maxigp1_bvalid(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_BVALID),
+        .maxigp1_rdata(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_RDATA),
+        .maxigp1_rid(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_RID),
+        .maxigp1_rlast(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_RLAST),
+        .maxigp1_rready(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_RREADY),
+        .maxigp1_rresp(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_RRESP),
+        .maxigp1_rvalid(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_RVALID),
+        .maxigp1_wdata(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_WDATA),
+        .maxigp1_wlast(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_WLAST),
+        .maxigp1_wready(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_WREADY),
+        .maxigp1_wstrb(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_WSTRB),
+        .maxigp1_wvalid(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_WVALID),
         .maxigp2_araddr(zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARADDR),
         .maxigp2_arburst(zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARBURST),
         .maxigp2_arcache(zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARCACHE),
@@ -573,6 +730,7 @@ module design_2
         .maxigp2_wvalid(zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_WVALID),
         .maxihpm0_fpd_aclk(zynq_ultra_ps_e_0_pl_clk0),
         .maxihpm0_lpd_aclk(zynq_ultra_ps_e_0_pl_clk0),
+        .maxihpm1_fpd_aclk(zynq_ultra_ps_e_0_pl_clk0),
         .pl_clk0(zynq_ultra_ps_e_0_pl_clk0),
         .pl_ps_irq0(1'b0),
         .pl_resetn0(zynq_ultra_ps_e_0_pl_resetn0),
@@ -615,5 +773,45 @@ module design_2
         .saxigp2_wready(AXI_PerfectTranslator_0_M00_AXI_WREADY),
         .saxigp2_wstrb(AXI_PerfectTranslator_0_M00_AXI_WSTRB),
         .saxigp2_wvalid(AXI_PerfectTranslator_0_M00_AXI_WVALID),
-        .saxihp0_fpd_aclk(zynq_ultra_ps_e_0_pl_clk0));
+        .saxigp3_araddr(AXI_PerfectTranslator_1_M00_AXI_ARADDR),
+        .saxigp3_arburst(AXI_PerfectTranslator_1_M00_AXI_ARBURST),
+        .saxigp3_arcache(AXI_PerfectTranslator_1_M00_AXI_ARCACHE),
+        .saxigp3_arid(AXI_PerfectTranslator_1_M00_AXI_ARID),
+        .saxigp3_arlen(AXI_PerfectTranslator_1_M00_AXI_ARLEN),
+        .saxigp3_arlock(AXI_PerfectTranslator_1_M00_AXI_ARLOCK),
+        .saxigp3_arprot(AXI_PerfectTranslator_1_M00_AXI_ARPROT),
+        .saxigp3_arqos(AXI_PerfectTranslator_1_M00_AXI_ARQOS),
+        .saxigp3_arready(AXI_PerfectTranslator_1_M00_AXI_ARREADY),
+        .saxigp3_arsize(AXI_PerfectTranslator_1_M00_AXI_ARSIZE),
+        .saxigp3_aruser(AXI_PerfectTranslator_1_M00_AXI_ARUSER),
+        .saxigp3_arvalid(AXI_PerfectTranslator_1_M00_AXI_ARVALID),
+        .saxigp3_awaddr(AXI_PerfectTranslator_1_M00_AXI_AWADDR),
+        .saxigp3_awburst(AXI_PerfectTranslator_1_M00_AXI_AWBURST),
+        .saxigp3_awcache(AXI_PerfectTranslator_1_M00_AXI_AWCACHE),
+        .saxigp3_awid(AXI_PerfectTranslator_1_M00_AXI_AWID),
+        .saxigp3_awlen(AXI_PerfectTranslator_1_M00_AXI_AWLEN),
+        .saxigp3_awlock(AXI_PerfectTranslator_1_M00_AXI_AWLOCK),
+        .saxigp3_awprot(AXI_PerfectTranslator_1_M00_AXI_AWPROT),
+        .saxigp3_awqos(AXI_PerfectTranslator_1_M00_AXI_AWQOS),
+        .saxigp3_awready(AXI_PerfectTranslator_1_M00_AXI_AWREADY),
+        .saxigp3_awsize(AXI_PerfectTranslator_1_M00_AXI_AWSIZE),
+        .saxigp3_awuser(AXI_PerfectTranslator_1_M00_AXI_AWUSER),
+        .saxigp3_awvalid(AXI_PerfectTranslator_1_M00_AXI_AWVALID),
+        .saxigp3_bid(AXI_PerfectTranslator_1_M00_AXI_BID),
+        .saxigp3_bready(AXI_PerfectTranslator_1_M00_AXI_BREADY),
+        .saxigp3_bresp(AXI_PerfectTranslator_1_M00_AXI_BRESP),
+        .saxigp3_bvalid(AXI_PerfectTranslator_1_M00_AXI_BVALID),
+        .saxigp3_rdata(AXI_PerfectTranslator_1_M00_AXI_RDATA),
+        .saxigp3_rid(AXI_PerfectTranslator_1_M00_AXI_RID),
+        .saxigp3_rlast(AXI_PerfectTranslator_1_M00_AXI_RLAST),
+        .saxigp3_rready(AXI_PerfectTranslator_1_M00_AXI_RREADY),
+        .saxigp3_rresp(AXI_PerfectTranslator_1_M00_AXI_RRESP),
+        .saxigp3_rvalid(AXI_PerfectTranslator_1_M00_AXI_RVALID),
+        .saxigp3_wdata(AXI_PerfectTranslator_1_M00_AXI_WDATA),
+        .saxigp3_wlast(AXI_PerfectTranslator_1_M00_AXI_WLAST),
+        .saxigp3_wready(AXI_PerfectTranslator_1_M00_AXI_WREADY),
+        .saxigp3_wstrb(AXI_PerfectTranslator_1_M00_AXI_WSTRB),
+        .saxigp3_wvalid(AXI_PerfectTranslator_1_M00_AXI_WVALID),
+        .saxihp0_fpd_aclk(zynq_ultra_ps_e_0_pl_clk0),
+        .saxihp1_fpd_aclk(zynq_ultra_ps_e_0_pl_clk0));
 endmodule

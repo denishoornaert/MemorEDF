@@ -2,23 +2,25 @@
    ExpandedHierarchyInLayout: "",
    guistr: "# # String gsaved with Nlview 6.6.11  2017-06-12 bk=1.3860 VDI=40 GEI=35 GUI=JA:1.6
 #  -string -flagsOSRD
-preplace inst AXI_PerfectTranslator_0 -pg 1 -lvl 3 -y 290 -defaultsOSRD
-preplace inst rst_ps8_0_99M -pg 1 -lvl 1 -y 372 -defaultsOSRD
-preplace inst zynq_ultra_ps_e_0 -pg 1 -lvl 1 -y 200 -defaultsOSRD
-preplace inst MemorEDF_0 -pg 1 -lvl 2 -y 240 -defaultsOSRD
-preplace inst ila_0 -pg 1 -lvl 2 -y 70 -defaultsOSRD
-preplace inst ila_1 -pg 1 -lvl 3 -y 140 -defaultsOSRD
-preplace netloc MemorEDF_0_m00_axi 1 2 1 990
-preplace netloc zynq_ultra_ps_e_0_pl_clk0 1 0 3 -10 100 640 360 980
-preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM0_FPD 1 1 1 630
+preplace inst AXI_PerfectTranslator_0 -pg 1 -lvl 3 -y 310 -defaultsOSRD
+preplace inst AXI_PerfectTranslator_1 -pg 1 -lvl 3 -y 120 -defaultsOSRD
+preplace inst rst_ps8_0_99M -pg 1 -lvl 2 -y 410 -defaultsOSRD
+preplace inst zynq_ultra_ps_e_0 -pg 1 -lvl 1 -y 160 -defaultsOSRD
+preplace inst MemorEDF_0 -pg 1 -lvl 2 -y 210 -defaultsOSRD
+preplace inst ila_0 -pg 1 -lvl 3 -y 460 -defaultsOSRD
+preplace netloc MemorEDF_0_m00_axi 1 2 1 1060
+preplace netloc zynq_ultra_ps_e_0_pl_clk0 1 0 3 40 40 680 80 1070
+preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM0_FPD 1 1 1 670
 preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM0_LPD 1 1 1 N
-preplace netloc AXI_PerfectTranslator_0_M00_AXI 1 0 4 -20 10 NJ 10 NJ 10 1370
-preplace netloc rst_ps8_0_99M_peripheral_aresetn 1 1 2 650 370 990
-preplace netloc zynq_ultra_ps_e_0_pl_resetn0 1 0 2 0 110 620
-levelinfo -pg 1 -40 310 840 1200 1390 -top 0 -bot 1270
+preplace netloc AXI_PerfectTranslator_0_M00_AXI 1 0 4 20 10 NJ 10 NJ 10 1440
+preplace netloc rst_ps8_0_99M_peripheral_aresetn 1 1 2 690 90 1050
+preplace netloc zynq_ultra_ps_e_0_pl_resetn0 1 1 1 660
+preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM1_FPD 1 1 2 660 70 NJ
+preplace netloc AXI_PerfectTranslator_1_M00_AXI 1 0 4 30 20 NJ 20 NJ 20 1430
+levelinfo -pg 1 0 350 870 1260 1460 -top 0 -bot 520
 ",
 }
 {
-   da_clkrst_cnt: "12",
+   da_clkrst_cnt: "14",
    da_zynq_ultra_ps_e_cnt: "1",
 }

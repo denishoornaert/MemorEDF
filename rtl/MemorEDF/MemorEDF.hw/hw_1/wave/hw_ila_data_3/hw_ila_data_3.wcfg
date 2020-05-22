@@ -9,16 +9,17 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="1997800fs"></ZoomStartTime>
-      <ZoomEndTime time="2117901fs"></ZoomEndTime>
-      <Cursor1Time time="2049000fs"></Cursor1Time>
+      <ZoomStartTime time="133939fs"></ZoomStartTime>
+      <ZoomEndTime time="248090fs"></ZoomEndTime>
+      <Cursor1Time time="178000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="540"></NameColumnWidth>
-      <ValueColumnWidth column_width="117"></ValueColumnWidth>
+      <NameColumnWidth column_width="523"></NameColumnWidth>
+      <ValueColumnWidth column_width="253"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="62" />
+   <WVObjectSize size="55" />
    <wave_markers>
+      <marker label="" time="144000" />
    </wave_markers>
    <wvobject type="logic" fp_name="u_ila_0_m00_axi_aresetn">
       <obj_property name="DisplayName">FullPathName</obj_property>
@@ -34,84 +35,40 @@
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="u_ila_0_m00_axi_awcache">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">u_ila_0_m00_axi_awcache[3:0]</obj_property>
-      <obj_property name="ObjectShortName">u_ila_0_m00_axi_awcache[3:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="u_ila_0_m00_axi_awlock">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">u_ila_0_m00_axi_awlock</obj_property>
-      <obj_property name="ObjectShortName">u_ila_0_m00_axi_awlock</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="u_ila_0_m00_axi_awprot">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">u_ila_0_m00_axi_awprot[2:0]</obj_property>
-      <obj_property name="ObjectShortName">u_ila_0_m00_axi_awprot[2:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-   </wvobject>
    <wvobject type="logic" fp_name="design_2_i/MemorEDF_0/m00_axi_arvalid">
       <obj_property name="DisplayName">FullPathName</obj_property>
       <obj_property name="ElementShortName">design_2_i/MemorEDF_0/m00_axi_arvalid</obj_property>
       <obj_property name="ObjectShortName">m00_axi_arvalid</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="design_2_i/MemorEDF_0/m00_axi_arready">
+   <wvobject type="array" fp_name="design_2_i/MemorEDF_0/m00_axi_awaddr">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">design_2_i/MemorEDF_0/m00_axi_arready</obj_property>
-      <obj_property name="ObjectShortName">m00_axi_arready</obj_property>
+      <obj_property name="ElementShortName">design_2_i/MemorEDF_0/m00_axi_awaddr[39:0]</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_awaddr[39:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject type="vbus" fp_name="vbus1548">
-      <wvobject type="array" fp_name="design_2_i/MemorEDF_0/m00_axi_awaddr">
-         <obj_property name="DisplayName">FullPathName</obj_property>
-         <obj_property name="ElementShortName">design_2_i/MemorEDF_0/m00_axi_awaddr[39:13]</obj_property>
-         <obj_property name="ObjectShortName">m00_axi_awaddr[39:13]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-         <obj_property name="LABELRADIX">true</obj_property>
-         <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="u_ila_0_m00_axi_awaddr">
-         <obj_property name="DisplayName">FullPathName</obj_property>
-         <obj_property name="ElementShortName">u_ila_0_m00_axi_awaddr[12:12]</obj_property>
-         <obj_property name="ObjectShortName">u_ila_0_m00_axi_awaddr[12:12]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-         <obj_property name="LABELRADIX">true</obj_property>
-         <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="design_2_i/MemorEDF_0/m00_axi_awaddr_2">
-         <obj_property name="DisplayName">FullPathName</obj_property>
-         <obj_property name="ElementShortName">design_2_i/MemorEDF_0/m00_axi_awaddr_2[11:5]</obj_property>
-         <obj_property name="ObjectShortName">m00_axi_awaddr_2[11:5]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-         <obj_property name="LABELRADIX">true</obj_property>
-         <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="u_ila_0_m00_axi_awaddr_1">
-         <obj_property name="DisplayName">FullPathName</obj_property>
-         <obj_property name="ElementShortName">u_ila_0_m00_axi_awaddr_1[4:4]</obj_property>
-         <obj_property name="ObjectShortName">u_ila_0_m00_axi_awaddr_1[4:4]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-         <obj_property name="LABELRADIX">true</obj_property>
-         <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="design_2_i/MemorEDF_0/m00_axi_awaddr_1">
-         <obj_property name="DisplayName">FullPathName</obj_property>
-         <obj_property name="ElementShortName">design_2_i/MemorEDF_0/m00_axi_awaddr_1[3:0]</obj_property>
-         <obj_property name="ObjectShortName">m00_axi_awaddr_1[3:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-         <obj_property name="LABELRADIX">true</obj_property>
-         <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-      </wvobject>
+   <wvobject type="logic" fp_name="design_2_i/MemorEDF_0/m00_axi_awvalid">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_2_i/MemorEDF_0/m00_axi_awvalid</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_awvalid</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="u_ila_0_m00_axi_awready">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">u_ila_0_m00_axi_awready</obj_property>
+      <obj_property name="ObjectShortName">u_ila_0_m00_axi_awready</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="design_2_i/MemorEDF_0/m00_axi_awburst">
       <obj_property name="DisplayName">FullPathName</obj_property>
@@ -120,6 +77,8 @@
       <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="design_2_i/MemorEDF_0/m00_axi_awlen">
       <obj_property name="DisplayName">FullPathName</obj_property>
@@ -128,6 +87,8 @@
       <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="design_2_i/MemorEDF_0/m00_axi_awqos">
       <obj_property name="DisplayName">FullPathName</obj_property>
@@ -136,20 +97,8 @@
       <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="design_2_i/MemorEDF_0/m00_axi_awvalid">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">design_2_i/MemorEDF_0/m00_axi_awvalid</obj_property>
-      <obj_property name="ObjectShortName">m00_axi_awvalid</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="design_2_i/MemorEDF_0/m00_axi_awready">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">design_2_i/MemorEDF_0/m00_axi_awready</obj_property>
-      <obj_property name="ObjectShortName">m00_axi_awready</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="design_2_i/MemorEDF_0/m00_axi_awid">
       <obj_property name="DisplayName">FullPathName</obj_property>
@@ -158,7 +107,7 @@
       <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-      <obj_property name="CustomSignalColor">#FF0000</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="design_2_i/MemorEDF_0/m00_axi_awsize">
@@ -168,6 +117,8 @@
       <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="design_2_i/MemorEDF_0/m00_axi_awuser">
       <obj_property name="DisplayName">FullPathName</obj_property>
@@ -176,38 +127,64 @@
       <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="design_2_i/MemorEDF_0/m00_axi_bid">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">design_2_i/MemorEDF_0/m00_axi_bid[15:0]</obj_property>
-      <obj_property name="ObjectShortName">m00_axi_bid[15:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="design_2_i/MemorEDF_0/m00_axi_bvalid">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">design_2_i/MemorEDF_0/m00_axi_bvalid</obj_property>
-      <obj_property name="ObjectShortName">m00_axi_bvalid</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-      <obj_property name="CustomSignalColor">#A52A2A</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="design_2_i/MemorEDF_0/m00_axi_rdata">
+   <wvobject type="logic" fp_name="u_ila_0_m00_axi_bvalid">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">design_2_i/MemorEDF_0/m00_axi_rdata[127:0]</obj_property>
-      <obj_property name="ObjectShortName">m00_axi_rdata[127:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="ElementShortName">u_ila_0_m00_axi_bvalid</obj_property>
+      <obj_property name="ObjectShortName">u_ila_0_m00_axi_bvalid</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="design_2_i/MemorEDF_0/m00_axi_rvalid">
+   <wvobject type="logic" fp_name="design_2_i/MemorEDF_0/s00_axi_bready">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">design_2_i/MemorEDF_0/m00_axi_rvalid</obj_property>
-      <obj_property name="ObjectShortName">m00_axi_rvalid</obj_property>
+      <obj_property name="ElementShortName">design_2_i/MemorEDF_0/s00_axi_bready</obj_property>
+      <obj_property name="ObjectShortName">s00_axi_bready</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="vbus" fp_name="vbus1958">
+      <obj_property name="label">New Virtual Bus 16</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <wvobject type="array" fp_name="design_2_i/MemorEDF_0/m00_axi_bid">
+         <obj_property name="DisplayName">FullPathName</obj_property>
+         <obj_property name="ElementShortName">design_2_i/MemorEDF_0/m00_axi_bid[15:11]</obj_property>
+         <obj_property name="ObjectShortName">m00_axi_bid[15:11]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="LABELRADIX">true</obj_property>
+         <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="design_2_i/MemorEDF_0/m00_axi_bid_3">
+         <obj_property name="DisplayName">FullPathName</obj_property>
+         <obj_property name="ElementShortName">design_2_i/MemorEDF_0/m00_axi_bid_3[10:4]</obj_property>
+         <obj_property name="ObjectShortName">m00_axi_bid_3[10:4]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="LABELRADIX">true</obj_property>
+         <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="design_2_i/MemorEDF_0/m00_axi_bid_2">
+         <obj_property name="DisplayName">FullPathName</obj_property>
+         <obj_property name="ElementShortName">design_2_i/MemorEDF_0/m00_axi_bid_2[3:1]</obj_property>
+         <obj_property name="ObjectShortName">m00_axi_bid_2[3:1]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="LABELRADIX">true</obj_property>
+         <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="design_2_i/MemorEDF_0/m00_axi_bid_1">
+         <obj_property name="DisplayName">FullPathName</obj_property>
+         <obj_property name="ElementShortName">design_2_i/MemorEDF_0/m00_axi_bid_1[0:0]</obj_property>
+         <obj_property name="ObjectShortName">m00_axi_bid_1[0:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="LABELRADIX">true</obj_property>
+         <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      </wvobject>
    </wvobject>
    <wvobject type="logic" fp_name="design_2_i/MemorEDF_0/s00_axi_rready">
       <obj_property name="DisplayName">FullPathName</obj_property>
@@ -215,23 +192,18 @@
       <obj_property name="ObjectShortName">s00_axi_rready</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="design_2_i/MemorEDF_0/m00_axi_rid">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">design_2_i/MemorEDF_0/m00_axi_rid[15:0]</obj_property>
-      <obj_property name="ObjectShortName">m00_axi_rid[15:0]</obj_property>
+      <obj_property name="ElementShortName">design_2_i/MemorEDF_0/m00_axi_rid[15:11]</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_rid[15:11]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
       <obj_property name="CustomSignalColor">#00FFFF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="design_2_i/MemorEDF_0/m00_axi_rlast">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">design_2_i/MemorEDF_0/m00_axi_rlast</obj_property>
-      <obj_property name="ObjectShortName">m00_axi_rlast</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="design_2_i/MemorEDF_0/m00_axi_wdata">
       <obj_property name="DisplayName">FullPathName</obj_property>
@@ -240,6 +212,8 @@
       <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="logic" fp_name="design_2_i/MemorEDF_0/m00_axi_wlast">
       <obj_property name="DisplayName">FullPathName</obj_property>
@@ -247,6 +221,17 @@
       <obj_property name="ObjectShortName">m00_axi_wlast</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="design_2_i/MemorEDF_0/m00_axi_wvalid">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_2_i/MemorEDF_0/m00_axi_wvalid</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_wvalid</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="logic" fp_name="design_2_i/MemorEDF_0/m00_axi_wready">
       <obj_property name="DisplayName">FullPathName</obj_property>
@@ -254,6 +239,8 @@
       <obj_property name="ObjectShortName">m00_axi_wready</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="design_2_i/MemorEDF_0/m00_axi_wstrb">
       <obj_property name="DisplayName">FullPathName</obj_property>
@@ -262,13 +249,8 @@
       <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="design_2_i/MemorEDF_0/m00_axi_wvalid">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">design_2_i/MemorEDF_0/m00_axi_wvalid</obj_property>
-      <obj_property name="ObjectShortName">m00_axi_wvalid</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="design_2_i/MemorEDF_0/s00_axi_araddr">
       <obj_property name="DisplayName">FullPathName</obj_property>
@@ -277,6 +259,8 @@
       <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="logic" fp_name="design_2_i/MemorEDF_0/s00_axi_arvalid">
       <obj_property name="DisplayName">FullPathName</obj_property>
@@ -303,6 +287,8 @@
       <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="design_2_i/MemorEDF_0/s00_axi_arburst">
       <obj_property name="DisplayName">FullPathName</obj_property>
@@ -311,6 +297,8 @@
       <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="design_2_i/MemorEDF_0/s00_axi_arcache">
       <obj_property name="DisplayName">FullPathName</obj_property>
@@ -319,6 +307,8 @@
       <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="design_2_i/MemorEDF_0/s00_axi_arlen">
       <obj_property name="DisplayName">FullPathName</obj_property>
@@ -327,6 +317,8 @@
       <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="logic" fp_name="design_2_i/MemorEDF_0/s00_axi_arlock">
       <obj_property name="DisplayName">FullPathName</obj_property>
@@ -334,6 +326,8 @@
       <obj_property name="ObjectShortName">s00_axi_arlock</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="design_2_i/MemorEDF_0/s00_axi_arprot">
       <obj_property name="DisplayName">FullPathName</obj_property>
@@ -342,6 +336,8 @@
       <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="design_2_i/MemorEDF_0/s00_axi_arqos">
       <obj_property name="DisplayName">FullPathName</obj_property>
@@ -350,6 +346,8 @@
       <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="design_2_i/MemorEDF_0/s00_axi_arsize">
       <obj_property name="DisplayName">FullPathName</obj_property>
@@ -358,6 +356,8 @@
       <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="design_2_i/MemorEDF_0/s00_axi_aruser">
       <obj_property name="DisplayName">FullPathName</obj_property>
@@ -366,6 +366,8 @@
       <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="design_2_i/MemorEDF_0/s00_axi_awaddr">
       <obj_property name="DisplayName">FullPathName</obj_property>
@@ -374,6 +376,8 @@
       <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="design_2_i/MemorEDF_0/s00_axi_awburst">
       <obj_property name="DisplayName">FullPathName</obj_property>
@@ -382,6 +386,8 @@
       <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="design_2_i/MemorEDF_0/s00_axi_awcache">
       <obj_property name="DisplayName">FullPathName</obj_property>
@@ -390,6 +396,8 @@
       <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="design_2_i/MemorEDF_0/s00_axi_awid">
       <obj_property name="DisplayName">FullPathName</obj_property>
@@ -398,6 +406,8 @@
       <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="design_2_i/MemorEDF_0/s00_axi_awlen">
       <obj_property name="DisplayName">FullPathName</obj_property>
@@ -406,6 +416,8 @@
       <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="logic" fp_name="design_2_i/MemorEDF_0/s00_axi_awlock">
       <obj_property name="DisplayName">FullPathName</obj_property>
@@ -413,6 +425,8 @@
       <obj_property name="ObjectShortName">s00_axi_awlock</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="design_2_i/MemorEDF_0/s00_axi_awprot">
       <obj_property name="DisplayName">FullPathName</obj_property>
@@ -421,6 +435,8 @@
       <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="design_2_i/MemorEDF_0/s00_axi_awqos">
       <obj_property name="DisplayName">FullPathName</obj_property>
@@ -429,6 +445,8 @@
       <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="design_2_i/MemorEDF_0/s00_axi_awsize">
       <obj_property name="DisplayName">FullPathName</obj_property>
@@ -437,6 +455,8 @@
       <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="design_2_i/MemorEDF_0/s00_axi_awuser">
       <obj_property name="DisplayName">FullPathName</obj_property>
@@ -445,13 +465,8 @@
       <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="design_2_i/MemorEDF_0/s00_axi_bready">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">design_2_i/MemorEDF_0/s00_axi_bready</obj_property>
-      <obj_property name="ObjectShortName">s00_axi_bready</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="logic" fp_name="design_2_i/MemorEDF_0/s00_axi_awready">
       <obj_property name="DisplayName">FullPathName</obj_property>
@@ -459,7 +474,7 @@
       <obj_property name="ObjectShortName">s00_axi_awready</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-      <obj_property name="CustomSignalColor">#00FF00</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="logic" fp_name="design_2_i/MemorEDF_0/s00_axi_awvalid">
@@ -468,7 +483,7 @@
       <obj_property name="ObjectShortName">s00_axi_awvalid</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-      <obj_property name="CustomSignalColor">#00FF00</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="design_2_i/MemorEDF_0/s00_axi_wdata">
@@ -478,6 +493,8 @@
       <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="logic" fp_name="design_2_i/MemorEDF_0/s00_axi_wvalid">
       <obj_property name="DisplayName">FullPathName</obj_property>
@@ -513,33 +530,37 @@
       <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="design_2_i/MemorEDF_0/inst/nonaxidomain/genblk1[0].queue/empty">
+   <wvobject type="array" fp_name="design_2_i/MemorEDF_0/inst/nonaxidomain/genblk1[0].queue/counter_reg__0">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">design_2_i/MemorEDF_0/inst/nonaxidomain/genblk1[0].queue/empty[0:0]</obj_property>
-      <obj_property name="ObjectShortName">empty[0:0]</obj_property>
+      <obj_property name="ElementShortName">design_2_i/MemorEDF_0/inst/nonaxidomain/genblk1[0].queue/counter_reg__0[3:0]</obj_property>
+      <obj_property name="ObjectShortName">counter_reg__0[3:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="design_2_i/MemorEDF_0/inst/packetizer/packetProduced_read">
+   <wvobject type="array" fp_name="design_2_i/MemorEDF_0/inst/nonaxidomain/genblk1[1].queue/counter_reg__0__0">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">design_2_i/MemorEDF_0/inst/packetizer/packetProduced_read</obj_property>
-      <obj_property name="ObjectShortName">packetProduced_read</obj_property>
+      <obj_property name="ElementShortName">design_2_i/MemorEDF_0/inst/nonaxidomain/genblk1[1].queue/counter_reg__0__0[3:0]</obj_property>
+      <obj_property name="ObjectShortName">counter_reg__0__0[3:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="design_2_i/MemorEDF_0/inst/packetizer/packetProduced_write">
+   <wvobject type="array" fp_name="design_2_i/MemorEDF_0/inst/nonaxidomain/genblk1[2].queue/counter_reg__0">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">design_2_i/MemorEDF_0/inst/packetizer/packetProduced_write</obj_property>
-      <obj_property name="ObjectShortName">packetProduced_write</obj_property>
+      <obj_property name="ElementShortName">design_2_i/MemorEDF_0/inst/nonaxidomain/genblk1[2].queue/counter_reg__0[3:0]</obj_property>
+      <obj_property name="ObjectShortName">counter_reg__0[3:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="design_2_i/MemorEDF_0/inst/packetizer/packetizer_to_dispatcher_id">
+   <wvobject type="array" fp_name="design_2_i/MemorEDF_0/inst/nonaxidomain/genblk1[3].queue/counter_reg__0">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">design_2_i/MemorEDF_0/inst/packetizer/packetizer_to_dispatcher_id[6:5]</obj_property>
-      <obj_property name="ObjectShortName">packetizer_to_dispatcher_id[6:5]</obj_property>
+      <obj_property name="ElementShortName">design_2_i/MemorEDF_0/inst/nonaxidomain/genblk1[3].queue/counter_reg__0[3:0]</obj_property>
+      <obj_property name="ObjectShortName">counter_reg__0[3:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>

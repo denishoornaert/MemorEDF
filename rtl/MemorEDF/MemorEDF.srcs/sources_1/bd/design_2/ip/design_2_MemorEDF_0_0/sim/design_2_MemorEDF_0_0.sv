@@ -48,7 +48,7 @@
 
 
 // IP VLNV: user.org:user:MemorEDF:1.0
-// IP Revision: 208
+// IP Revision: 276
 
 `timescale 1ns/1ps
 

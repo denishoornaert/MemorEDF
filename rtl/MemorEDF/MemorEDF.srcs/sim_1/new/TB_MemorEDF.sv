@@ -60,14 +60,14 @@ xil_axi_ulong b_addr12  = 40'h04000000B0;
 xil_axi_ulong b_addr13  = 40'h04000000C0;
 
 //  indices                      76543210765432107654321076543210
-bit [127 : 0] data_wr1    = 128'h00000000000000000000000000000100; // ABITRARY PERIOD
+bit [127 : 0] data_wr1    = 128'h00000000000000000000000800000020; // ABITRARY PERIOD
 bit [127 : 0] data_wr1bis = 128'h00000000000000000001000000000000; // ABITRARY PERIOD
 bit [127 : 0] data_wr2    = 128'h00000000000000000000000000000000; // ARBITRRY AND MEANINGLESS DEADLINE
 bit [127 : 0] data_wr3    = 128'h0000000000000000000000000f0e0d0c; // Priorities
 bit [127 : 0] data_wr4    = 128'h0000000000000000bbbbbbbbaaaaaaaa; // Mode (tdma = 0, edf = 1, fp = 2)
 bit [127 : 0] data_wr5    = 128'h0000000000000000ddddddddcccccccc;
-bit [127 : 0] data_wr6    = 128'h0000000000000000eeeeeeee00000000;
-bit [127 : 0] data_wr7    = 128'h00000000000000000000000300000000;
+bit [127 : 0] data_wr6    = 128'h0000000000000000eeeeeeee00000002;
+bit [127 : 0] data_wr7    = 128'h00000000000000020000000000000002;
 bit [ 32 : 0] budget0     = 128'h000000000000000000000000aaaaaaaa;
 bit [ 32 : 0] budget1     = 128'h0000000000000000bbbbbbbb00000000;
 bit [ 32 : 0] budget2     = 128'h00000000cccccccc0000000000000000;
@@ -135,6 +135,8 @@ initial begin
     
     //Start the agent
     slv_mem_agent.start_slave();
+    
+    $display("Slave depth %u", slv_mem_agent.get_rd_transaction_depth());
     
     //Create an agent
     master_agent = new("master vip agent",DUT.design_1_i.axi_vip_0.inst.IF);
@@ -236,7 +238,6 @@ initial begin
         1//input     bit     no_xfer_delays 
         );
     #20ns
-    master_agent.AXI4LITE_WRITE_BURST(addr1,prot,data_wr1bis,resp);
     #20ns
 //    #20ns
 //    b_master_agent.AXI4_WRITE_BURST(16'h01ad+(0*128), b_addr1, 0, size, burst, lock, 4'h0, prot, 4'h0, 4'h0, 1'h0, b_data_wr1, 1, resp);
@@ -360,7 +361,7 @@ initial begin
     $display("12)  Received %h but expectd %h", data_rd12, b_data_wr12);
     $display("13)  Received %h but expectd %h", data_rd13, b_data_wr13);
     
-    #10us
+    #20ns
     
     $finish;
 end
