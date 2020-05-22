@@ -8,23 +8,37 @@
 #include <fcntl.h>
 #include <time.h>
 #include <unistd.h>
+#include <sys/wait.h>
 
 #include "../include/config.h"
 #include "../include/tool.h"
 
 
+unsigned loop_activated = 1;
+unsigned counter = 0;
+int current_cpu = 0;
+
+void handler() {
+    counter++;
+}
+
+void finish() {
+    loop_activated = 0;
+}
+
 int main(int argc, char** argv) {
-    int cpu = 2;
-    int active_slots;
-    struct timespec time1, time2;
-    long unsigned sec, ns;
+    unsigned active_slots;
+    unsigned active_cores;
+    unsigned cua_slot_size;
+    unsigned cic_slot_size;
 
-    sscanf(argv[1], "%d", &active_slots);
+    sscanf(argv[1], "%u", &active_slots);
+    sscanf(argv[2], "%u", &active_cores);
+    sscanf(argv[3], "%u", &cua_slot_size);
+    sscanf(argv[4], "%u", &cic_slot_size);
 
-    cpu_set_t mask;
-    CPU_ZERO(&mask);
-    CPU_SET(cpu, &mask);
-    sched_setaffinity(0, sizeof(mask), &mask);
+    pid_t child[active_cores];
+    int status[active_cores];
 
     int lpd_fd   = open_fd();
     int hpm_fd  = open_fd();
@@ -32,11 +46,14 @@ int main(int argc, char** argv) {
     struct configuration* config = mmap((void*)0, LPD0_SIZE, PROT_EXEC|PROT_READ|PROT_WRITE, MAP_SHARED, lpd_fd, LPD0_ADDR);
     unsigned* plim = mmap((void*)0, HPM0_SIZE, PROT_EXEC|PROT_READ|PROT_WRITE, MAP_SHARED, hpm_fd, HPM0_ADDR);
 
+    pid_t parent = getpid();
+    signal(SIGUSR1, handler);
+
     // Set the period registers (default: 0x002faf08)
-    (*config).periods[0] = (active_slots >= 1)? 0x002faf08 : 0x00000000;
-    (*config).periods[1] = (active_slots >= 2)? 0x002faf08 : 0x00000000;
-    (*config).periods[2] = 0x00000100;
-    (*config).periods[3] = (active_slots >= 3)? 0x002faf08 : 0x00000000;
+    (*config).periods[0] = cua_slot_size;
+    (*config).periods[1] = (active_slots >= 1)? cic_slot_size : 0x00000000;
+    (*config).periods[2] = (active_slots >= 2)? cic_slot_size : 0x00000000;
+    (*config).periods[3] = (active_slots >= 3)? cic_slot_size : 0x00000000;
     // Set the deadline registers
     (*config).deadlines[0] = 0x00000000;
     (*config).deadlines[1] = 0x00000000;
@@ -54,28 +71,86 @@ int main(int argc, char** argv) {
     // Set the scheduler
     (*config).scheduler = tdma;
 
-    // Write
-    printf("Write\n");
-    clock_gettime(CLOCK_REALTIME, &time1);
-    for (unsigned i = 0; i < HPM0_SIZE/sizeof(unsigned); i++) {
-        plim[i] = i;
+    for (unsigned i = 0; i < 4; i++) {
+        printf("Period[%u] = %x\n", i, (*config).periods[i]);
     }
-    clock_gettime(CLOCK_REALTIME, &time2);
-    sec = diff(time1,time2).tv_sec;
-    ns  = diff(time1,time2).tv_nsec;
-    printf("Done in %lu:%lu\n", sec, ns);
 
-    // Read
-    printf("Read\n");
-    unsigned tmp;
-    clock_gettime(CLOCK_REALTIME, &time1);
-    for (unsigned i = 0; i < HPM0_SIZE/sizeof(unsigned); i++) {
-        tmp = plim[i];
+    for(int c = 0; c < active_cores; c++) {
+        if((child[c] = fork()) == 0) { // Child
+            // Set the CPU
+            current_cpu = c+1;
+            cpu_set_t mask;
+            CPU_ZERO(&mask);
+            CPU_SET(current_cpu, &mask);
+            sched_setaffinity(0, sizeof(mask), &mask);
+            printf("Core %d started\n", current_cpu);
+            unsigned tmp;
+            signal(SIGUSR2, finish);
+            kill(parent, SIGUSR1);
+            while(loop_activated) {
+                for (unsigned i = 1; i < ((HPM0_SIZE/sizeof(unsigned))&loop_activated); i++) {
+                    tmp = plim[i];
+                    //plim[i] = i;
+                }
+            }
+            printf("Bombing from core %i is over\n", current_cpu);
+            _exit(0);
+        }
     }
-    clock_gettime(CLOCK_REALTIME, &time2);
-    sec = diff(time1,time2).tv_sec;
-    ns  = diff(time1,time2).tv_nsec;
-    printf("Done in %lu:%lu\n", sec, ns);
+
+    // Parent
+    printf("Parent start\n");
+
+    // Set the CPU
+    cpu_set_t mask;
+    CPU_ZERO(&mask);
+    CPU_SET(0, &mask);
+    sched_setaffinity(0, sizeof(mask), &mask);
+
+    while(counter != active_cores) {}
+    printf("All children started\n");
+    printf("operation, contention, priorities, seconds, nanoseconds, bytes, iterations\n");
+
+    unsigned k = 0;
+
+    for (size_t j = 0; j < 20; j++) {
+        struct timespec time1, time2;
+        long unsigned sec, ns;
+
+        // Write
+        clock_gettime(CLOCK_REALTIME, &time1);
+        for (unsigned i = 0; i < (HPM0_SIZE/sizeof(unsigned)); i++) {
+            plim[i] = (k++);
+        }
+        clock_gettime(CLOCK_REALTIME, &time2);
+        sec = diff(time1, time2).tv_sec;
+        ns  = diff(time1, time2).tv_nsec;
+        printf("write, %d, %u, %lu, %lu, %u, %u, %u\n", active_cores, active_slots, sec, ns, HPM0_SIZE, (HPM0_SIZE/sizeof(unsigned)), cua_slot_size);
+
+//        // Read
+//        unsigned tmp;
+//        clock_gettime(CLOCK_REALTIME, &time1);
+//        for (unsigned i = 0; i < HPM0_SIZE/sizeof(unsigned); i++) {
+//            tmp = plim[i];
+//        }
+//        clock_gettime(CLOCK_REALTIME, &time2);
+//        sec = diff(time1, time2).tv_sec;
+//        ns  = diff(time1, time2).tv_nsec;
+//        printf("read, %d, %x, %lu, %lu, %u, %u\n", competing_cores, priorities, sec, ns, HPM0_SIZE, (HPM0_SIZE/sizeof(unsigned)));
+    }
+
+    for (size_t i = 0; i < active_cores; i++) {
+        printf("kill child %d\n", i);
+        kill(child[i], SIGUSR2);
+        child[i] = wait(&status[i]);
+    }
+    printf("Finish\n");
+
+    // Set all registers back to 0 to ensure that next time the situation will be the same
+    (*config).periods[0] = 0x00000000;
+    (*config).periods[1] = 0x00000000;
+    (*config).periods[2] = 0x00000000;
+    (*config).periods[3] = 0x00000000;
 
     int unmap_result = 0;
     unmap_result |= unmap(plim  , HPM0_SIZE);
