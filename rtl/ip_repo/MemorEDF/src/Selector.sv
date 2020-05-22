@@ -32,34 +32,26 @@ module Selector #(
         outcome
     );
     
-    function integer clog2;
-        input integer value;
-        begin
-            value = value-1;
-            for (clog2=0; value>0; clog2=clog2+1)
-                value = value>>1;
-        end
-    endfunction
-    
     // Definition of the module IOs
-    input                         clock;
-    input                         reset;
-    input  [$clog2(INPUTS)-1 : 0] index;
-    input      [INPUT_SIZE-1 : 0] values [INPUTS];
-    output     [INPUT_SIZE-1 : 0] outcome;
+    input  wire                        clock;
+    input  wire                        reset;
+    input  wire [$clog2(INPUTS)-1 : 0] index;
+    input  wire     [INPUT_SIZE-1 : 0] values [INPUTS];
+    output reg      [INPUT_SIZE-1 : 0] outcome;
     
-    // Output register(s) definition
-    reg [INPUT_SIZE-1 : 0] internalOutcome;
+//    // Output register(s) definition
+//    reg [INPUT_SIZE-1 : 0] internalOutcome;
     
-    // External routing of the registers
-    assign outcome = internalOutcome;
+//    // External routing of the registers
+//    assign outcome = internalOutcome;
     
     // Running behaviour of the micro-architecture
     always @(posedge clock)
     begin
         if(reset)
         begin
-            internalOutcome <= 0;
+            //internalOutcome <= 0;
+            outcome <= 0;
         end
         else
         begin
@@ -68,7 +60,7 @@ module Selector #(
             begin
                 if(index == i)
                 begin
-                    internalOutcome <= values[i];
+                    outcome <= values[i];
                 end 
             end
         end

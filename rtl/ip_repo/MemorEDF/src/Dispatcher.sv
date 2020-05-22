@@ -35,29 +35,31 @@ module Dispatcher
         produced
     );
     
-    input                          clock;
-    input                          reset;
-    input  [INPUT_SIZE-1 : 0]      packetIn;
-    input                          valid;
-    input  [$clog2(OUTPUTS)-1 : 0] id;
+    input wire                         clock;
+    input wire                         reset;
+    input wire [INPUT_SIZE-1 : 0]      packetIn;
+    input wire                         valid;
+    input wire [$clog2(OUTPUTS)-1 : 0] id;
     
-    output [(INPUT_SIZE*OUTPUTS)-1 : 0] packetsOut;
-    output              [OUTPUTS-1 : 0] produced;
+    output reg [OUTPUTS-1 : 0] [INPUT_SIZE-1 : 0] packetsOut;
+    output reg              [OUTPUTS-1 : 0] produced;
     
     reg [INPUT_SIZE-1 : 0] internalPacketsOut [OUTPUTS-1 : 0];
     reg    [OUTPUTS-1 : 0] internalProduced;
     
-    assign packetsOut = {>>{internalPacketsOut}};
-    assign produced = internalProduced;
+//    assign packetsOut = {>>{internalPacketsOut}};
+//    assign produced = internalProduced;
     
-    always @(posedge clock)
+    always @(*)
     begin
         if(reset == 1)
         begin
             for(int i = 0; i < OUTPUTS; i = i + 1)
             begin
-                internalPacketsOut[i] <= 0;
-                internalProduced[i]   <= 0;
+//                internalPacketsOut[i] <= 0;
+//                internalProduced[i]   <= 0;
+                packetsOut[i] <= 0;
+                produced[i]   <= 0;
             end 
         end
         else
@@ -66,13 +68,17 @@ module Dispatcher
             begin
                 if(id == i & valid)
                 begin
-                    internalPacketsOut[i] <= packetIn;
-                    internalProduced[i]   <= 1;
+//                    internalPacketsOut[i] <= packetIn;
+//                    internalProduced[i]   <= 1;
+                    packetsOut[i] <= packetIn;
+                    produced[i]   <= 1;
                 end
                 else
                 begin
-                    internalPacketsOut[i] <= 0;
-                    internalProduced[i]   <= 0;
+//                    internalPacketsOut[i] <= 0;
+//                    internalProduced[i]   <= 0;
+                    packetsOut[i] <= 0;
+                    produced[i]   <= 0;
                 end
             end 
         end
