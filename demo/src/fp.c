@@ -136,6 +136,7 @@ int main(int argc, char** argv) {
     for (size_t i = 0; i < competing_cores; i++) {
         printf("kill child %d\n", i);
         kill(child[i], SIGUSR2);
+        child[i] = wait(&status[i]);
     }
     printf("Finish\n");
 
