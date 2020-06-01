@@ -28,6 +28,7 @@ module TDMA #(
         clock,
         reset,
         delta,
+        valid,
         selection
     );
 
@@ -37,6 +38,7 @@ module TDMA #(
     input [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] delta;
     
     // Output definition
+    output                                  valid;
     output [$clog2(NUMBER_OF_QUEUES)-1 : 0] selection;
     
     // Output registers
@@ -48,6 +50,8 @@ module TDMA #(
     
     
     wire [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] sums;
+    
+    assign valid = 1;
     
     assign sums[0] = delta[0];
     assign sums[1] = sums[0]+delta[1];

@@ -4,8 +4,8 @@
 // Engineer: Denis Hoornaert
 // 
 // Create Date: 01/18/2020 05:19:46 PM
-// Design Name: FP
-// Module Name: FP
+// Design Name: Combinatorial_FP
+// Module Name: Combinatorial_FP
 // Project Name: MemorEDF
 // Target Devices: 
 // Tool Versions: 
@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module FP #(
+module Combinatorial_FP #(
         parameter NUMBER_OF_QUEUES = 4,
         parameter PRIORITY_SIZE    = 4
     )
@@ -29,7 +29,6 @@ module FP #(
         reset,
         priorities,
         empty,
-        valid,
         selection
     );
     
@@ -40,16 +39,13 @@ module FP #(
     input  wire                       [NUMBER_OF_QUEUES-1 : 0] empty;
     
     // Output definition
-    output wire                                  valid;
     output wire [$clog2(NUMBER_OF_QUEUES)-1 : 0] selection;
     
     // Updated priorities given the availability of at least one packet in a given queue
-    reg [NUMBER_OF_QUEUES-1 : 0] [PRIORITY_SIZE-1 : 0] updated_priorities;
+    wire [NUMBER_OF_QUEUES-1 : 0] [PRIORITY_SIZE-1 : 0] updated_priorities;
     
     // List of all the possible queue ids possible given the amount specified in the parameters
     reg [NUMBER_OF_QUEUES-1 : 0] [$clog2(NUMBER_OF_QUEUES)-1 : 0] ids;
-    
-    assign valid = 1;
     
     // If no packets are available, the priority associated to a given queue should be the lowest (0). Otherwise, the priority specified by the user remains unaltered.
     always @(posedge clock)
@@ -62,15 +58,13 @@ module FP #(
                 ids[j] <= j;
             end
         end
-        else
-        begin
-            integer j;
-            for(j = 0; j < NUMBER_OF_QUEUES; j = j + 1)
-            begin
-                updated_priorities[j] <= (empty[j])? 0 : priorities[j];
-            end
-        end 
     end
+    
+    genvar j;
+    for(j = 0; j < NUMBER_OF_QUEUES; j = j + 1)
+    begin
+        assign updated_priorities[j] = (empty[j])? 0 : priorities[j];
+    end 
     
     wire            [NUMBER_OF_QUEUES-1 : 0] [PRIORITY_SIZE-1 : 0] priority_chain;
     wire [NUMBER_OF_QUEUES-1 : 0] [$clog2(NUMBER_OF_QUEUES)-1 : 0] id_chain;

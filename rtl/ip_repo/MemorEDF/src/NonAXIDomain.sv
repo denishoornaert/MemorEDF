@@ -46,6 +46,7 @@ module NonAXIDomain #(
         scheduler_priorities,
         scheduler_budgets,
         scheduler_hyper_period,
+        scheduler_counter_reset,
         selector_to_serializer_packet,
         serializer_to_scheduler_consumed,
         scheduler_to_serializer_activate_signal,
@@ -63,6 +64,7 @@ module NonAXIDomain #(
     input wire [NUMBER_OF_QUEUES-1 : 0] [PRIORITY_SIZE-1 : 0] scheduler_priorities;
     input wire [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] scheduler_budgets;
     input wire                          [REGISTER_SIZE-1 : 0] scheduler_hyper_period;
+    input wire                          [REGISTER_SIZE-1 : 0] scheduler_counter_reset;
     input wire                                                serializer_to_scheduler_consumed;
     
     output wire                   [DATA_SIZE-1 : 0] selector_to_serializer_packet;
@@ -148,6 +150,7 @@ module NonAXIDomain #(
        .priorities(scheduler_priorities),
        .budgets(scheduler_budgets),
        .hyper_period(scheduler_hyper_period),
+       .counter_reset(scheduler_counter_reset),
        .id(scheduler_to_selector_id),
        .consumed(serializer_to_scheduler_consumed),
        .hasBeenConsumed(scheduler_to_queues_consumed),

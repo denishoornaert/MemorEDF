@@ -224,6 +224,7 @@ module MemorEDF #
     wire [NUMBER_OF_QUEUES-1 : 0] [PRIORITY_SIZE-1 : 0] scheduler_priorities;
     wire [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] scheduler_budgets;
     wire                          [REGISTER_SIZE-1 : 0] scheduler_hyper_period;
+    wire                          [REGISTER_SIZE-1 : 0] counter_reset;
     
     assign scheduler_periods      = buffers[127 :   0];
     assign scheduler_deadlines    = buffers[255 : 128];
@@ -231,6 +232,7 @@ module MemorEDF #
     assign scheduler_budgets      = buffers[415 : 288];
     assign scheduler_hyper_period = buffers[447 : 416];
     assign scheduling_mode        = buffers[479 : 448]; // TODO go for 32 bit (or REGISTER_SIZE)
+    assign counter_reset          = buffers[511 : 480];
     
     // Pass-through channels
     // Response channel
@@ -456,6 +458,7 @@ module MemorEDF #
         .scheduler_priorities(scheduler_priorities),
         .scheduler_budgets(scheduler_budgets),
         .scheduler_hyper_period(scheduler_hyper_period),
+        .scheduler_counter_reset(counter_reset),
         .selector_to_serializer_packet(selector_to_serializer_packet),
         .serializer_to_scheduler_consumed(serializer_to_scheduler_consumed),
         .scheduler_to_serializer_activate_signal(scheduler_to_serializer_activate_signal),

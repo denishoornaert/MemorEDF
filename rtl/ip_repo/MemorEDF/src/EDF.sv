@@ -29,6 +29,7 @@ module EDF #(
         reset,
         deadlines,
         periods,
+        valid,
         selection
     );
     
@@ -41,6 +42,7 @@ module EDF #(
     input [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] periods;
     
     // Output definition
+    output                                  valid;
     output [$clog2(NUMBER_OF_QUEUES)-1 : 0] selection;
     
     reg [REGISTER_SIZE-1 : 0] counters [NUMBER_OF_QUEUES];
@@ -51,6 +53,8 @@ module EDF #(
     
     wire            [REGISTER_SIZE-1 : 0] value [$clog2(NUMBER_OF_QUEUES)];
     wire [$clog2(NUMBER_OF_QUEUES)-1 : 0] id [$clog2(NUMBER_OF_QUEUES)];
+    
+    assign valid = 1;
     
     always @(posedge clock)
     begin

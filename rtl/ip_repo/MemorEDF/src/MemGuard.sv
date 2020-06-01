@@ -28,44 +28,48 @@ module MemGuard #(
         clock,
         reset,
         budgets,
-        hyper_period,
         empty,
+        consumed,
         valid,
         selection
     );
+    localparam PRIORITY_SIZE = $clog2(NUMBER_OF_QUEUES)+1;
     
     // Input definition
     input  wire                                                clock;
     input  wire                                                reset;
     input  wire [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] budgets;
-    input  wire                          [REGISTER_SIZE-1 : 0] hyper_period;
     input  wire                       [NUMBER_OF_QUEUES-1 : 0] empty;
+    input  wire                       [NUMBER_OF_QUEUES-1 : 0] consumed;
     
     // Output definition
     output reg                                   valid;
     output wire [$clog2(NUMBER_OF_QUEUES)-1 : 0] selection;
     
-    // Generation of the list of all the possible IDs given the parameters given.
-    reg  [NUMBER_OF_QUEUES-1 : 0] [$clog2(NUMBER_OF_QUEUES)-1 : 0] RR;
-    
-    // Alias for the first element of the id list
-    wire [$clog2(NUMBER_OF_QUEUES)-1 : 0] front;
-    assign front = RR[0];
-    assign selection = front;
     
     // Registers tracking the amount of transactions already performed for each queue
-    reg  [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] amount_of_transactions_already_performed;
+    reg  [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] core_counter;
+    reg                        [NUMBER_OF_QUEUES-1 : 0] core_active;
     
-    // Hyper-period tracker
-    reg  [REGISTER_SIZE-1 : 0] hyper_period_counter;
+    wire [NUMBER_OF_QUEUES-1 : 0] [PRIORITY_SIZE-1 : 0] priorities;
     
-//    //
-//    wire [NUMBER_OF_QUEUES-1 : 0] eligible_queues;
-//    genvar i;
-//    for(i = 0; i < NUMBER_OF_QUEUES; i = i + 1)
-//    begin
-//        assign eligible_queues[i] = (!empty) & (amount_of_transactions_already_performed[front] < budgets[front]);
-//    end
+    assign valid = |(core_active & (~empty));
+    genvar i;
+    for(i = 0; i < NUMBER_OF_QUEUES; i = i + 1)
+    begin
+        assign priorities[i] = (core_active[i])? i+1 : 0;
+    end 
+    
+    Combinatorial_FP #(
+        .NUMBER_OF_QUEUES(NUMBER_OF_QUEUES),
+        .PRIORITY_SIZE(PRIORITY_SIZE)
+    ) fp (
+        .clock(clock),
+        .reset(reset),
+        .priorities(priorities),
+        .empty(empty),
+        .selection(selection)
+    );
     
     always @(posedge clock)
     begin
@@ -74,48 +78,26 @@ module MemGuard #(
             integer i;
             for(i = 0; i < NUMBER_OF_QUEUES; i = i + 1)
             begin
-                RR[i] <= i;
+                core_counter[i] <= 0;
+                core_active[i] <= 0;
             end
-            valid <= 0;
         end
         else
-        begin
-            if(empty[front] | (amount_of_transactions_already_performed[front] < budgets[front]))
-            begin
-                RR <= {RR[NUMBER_OF_QUEUES-1 : 1], RR[0]}; // TODO Check if not the other way arround
-                valid <= 0;
-            end
-            else
-            begin
-                RR <= RR;
-                valid <= 1;
-            end
-        end
-    end
-    
-    always @(posedge clock)
-    begin
-        // When the hyperperiod is completed, we replenish the budgets
-        if(reset | (hyper_period_counter >= hyper_period))
         begin
             integer i;
             for(i = 0; i < NUMBER_OF_QUEUES; i = i + 1)
             begin
-                amount_of_transactions_already_performed[i] <= 0;
-            end
-            hyper_period_counter <= 0;
-        end
-        else
-        begin
-            if(valid & (amount_of_transactions_already_performed[front] < budgets[front]))
-            begin
-                amount_of_transactions_already_performed[front] <= amount_of_transactions_already_performed[front] + 1;
-            end
-            else
-            begin
-                amount_of_transactions_already_performed[front] <= amount_of_transactions_already_performed[front];
-            end
-            hyper_period_counter <= hyper_period_counter + 1;
+                if(consumed[i] | (budgets[i] == 0))
+                begin
+                    core_active[i] <= 0;
+                    core_counter[i] <= 0;
+                end
+                else
+                begin
+                    core_active[i] <= (core_counter[i] >= budgets[i]);
+                    core_counter[i] <= core_counter[i] + (core_counter[i] <= budgets[i]);
+                end
+            end 
         end
     end
     

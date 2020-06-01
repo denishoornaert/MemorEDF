@@ -41,6 +41,7 @@ module Scheduler
         priorities,
         budgets,
         hyper_period,
+        counter_reset,
         id,
         consumed,
         hasBeenConsumed,
@@ -61,23 +62,29 @@ module Scheduler
     input [NUMBER_OF_QUEUES-1 : 0] [PRIORITY_SIZE-1 : 0] priorities;
     input [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] budgets;
     input                          [REGISTER_SIZE-1 : 0] hyper_period;
+    input                          [REGISTER_SIZE-1 : 0] counter_reset;
     output              [$clog2(NUMBER_OF_QUEUES)-1 : 0] id;
     input                                                consumed;
     output                      [NUMBER_OF_QUEUES-1 : 0] hasBeenConsumed;
     output                                               enable;
 
     // Scheduling part
-    wire [$clog2(NUMBER_OF_QUEUES)-1 : 0] schedulers_to_selector [NUMBER_OF_SCHEDULERS];
+    wire [$clog2(NUMBER_OF_QUEUES)-1 : 0] schedulers_to_selector_selection [NUMBER_OF_SCHEDULERS];
     wire [$clog2(NUMBER_OF_QUEUES)-1 : 0] selected_queue;
+    wire                                  schedulers_to_selector_valid [NUMBER_OF_SCHEDULERS];
+    wire                                  valid;
     // Control part
-    reg                                  internal_enable;
-    reg [$clog2(NUMBER_OF_QUEUES)-1 : 0] internal_id;
+    reg                                   internal_enable;
+    reg  [$clog2(NUMBER_OF_QUEUES)-1 : 0] internal_id;
     //
-    reg         [NUMBER_OF_QUEUES-1 : 0] internal_hasBeenConsumed;
+    reg          [NUMBER_OF_QUEUES-1 : 0] internal_hasBeenConsumed;
     //
-    reg                                  consumed_ff;
+    reg                                   consumed_ff;
     // Booting
-    reg pending_transaction;
+    reg                                   pending_transaction;
+    //
+    reg             [REGISTER_SIZE-1 : 0] counter_reset_ff;
+    wire                                  force_reset;
 
     assign enable            = internal_enable;
     assign id                = internal_id;
@@ -100,6 +107,19 @@ module Scheduler
             consumed_ff <= consumed;
         end
     end
+    
+    always @(posedge clock)
+    begin
+        if(reset)
+        begin
+            counter_reset_ff <= 0;
+        end
+        else
+        begin
+            counter_reset_ff <= counter_reset;
+        end
+    end
+    assign force_reset = (counter_reset != counter_reset_ff);
 
     if (NUMBER_OF_SCHEDULERS >= 2)
     begin
@@ -110,14 +130,32 @@ module Scheduler
             .clock(clock),
             .reset(reset),
             .index(mode),
-            .values(schedulers_to_selector),
+            .values(schedulers_to_selector_selection),
             .outcome(selected_queue)
         );
     end
     else
     begin
-        assign selected_queue = schedulers_to_selector[0];
+        assign selected_queue = schedulers_to_selector_selection[0];
     end
+    
+    if (NUMBER_OF_SCHEDULERS >= 2)
+    begin
+        Combinatorial_Selector # (
+            .INPUTS(NUMBER_OF_SCHEDULERS),
+            .INPUT_SIZE(1)
+        ) valid_signal_selector (
+            .clock(clock),
+            .reset(reset),
+            .index(mode),
+            .values(schedulers_to_selector_valid),
+            .outcome(valid)
+        );
+    end
+    else
+    begin
+        assign valid = schedulers_to_selector_valid[0];
+        end
 
     if (TDMA_ENABLED)
     begin
@@ -126,9 +164,10 @@ module Scheduler
             .REGISTER_SIZE(REGISTER_SIZE)
         ) tdma (
             .clock(clock),
-            .reset(reset),
+            .reset(reset|force_reset),
             .delta(periods),
-            .selection(schedulers_to_selector[0])
+            .valid(schedulers_to_selector_valid[0]),
+            .selection(schedulers_to_selector_selection[0])
         );
     end
 
@@ -142,7 +181,8 @@ module Scheduler
             .reset(reset),
             .periods(periods),
             .deadlines(deadlines),
-            .selection(schedulers_to_selector[1])
+            .valid(schedulers_to_selector_valid[1]),
+            .selection(schedulers_to_selector_selection[1])
         );
     end
 
@@ -156,7 +196,8 @@ module Scheduler
             .reset(reset),
             .priorities(priorities),
             .empty(empty),
-            .selection(schedulers_to_selector[2])
+            .valid(schedulers_to_selector_valid[2]),
+            .selection(schedulers_to_selector_selection[2])
         );
     end
 
@@ -164,15 +205,15 @@ module Scheduler
     begin
         MemGuard #(
             .NUMBER_OF_QUEUES(NUMBER_OF_QUEUES),
-            .REGISTER_SIZE(PRIORITY_SIZE)
+            .REGISTER_SIZE(REGISTER_SIZE)
         ) mg (
             .clock(clock),
-            .reset(reset),
+            .reset(reset|force_reset),
             .budgets(budgets),
-            .hyper_period(hyper_period),
             .empty(empty),
-            .valid(valid),
-            .selection(schedulers_to_selector[3])
+            .consumed(hasBeenConsumed),
+            .valid(schedulers_to_selector_valid[3]),
+            .selection(schedulers_to_selector_selection[3])
         );
     end
 
@@ -213,7 +254,7 @@ module Scheduler
         end
         else
         begin
-            if(~pending_transaction & ~empty[selected_queue])
+            if(~pending_transaction & ~empty[selected_queue] & valid)
             begin
                 pending_transaction <= 1;
                 internal_enable <= 1;
