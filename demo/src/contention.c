@@ -9,6 +9,7 @@
 #include <time.h>
 #include <unistd.h>
 #include <sys/wait.h>
+#include <stdint.h>
 
 #include "../include/config.h"
 #include "../include/tool.h"
@@ -39,7 +40,7 @@ int main(int argc, char** argv) {
     int lpd_fd  = open_fd();
     int hpm_fd  = open_fd();
 
-    unsigned* plim   = mmap((void*)0, HPM1_SIZE, PROT_EXEC|PROT_READ|PROT_WRITE, MAP_SHARED, hpm_fd, HPM1_ADDR);
+    u128* plim   = mmap((void*)0, HPM1_SIZE, PROT_EXEC|PROT_READ|PROT_WRITE, MAP_SHARED, hpm_fd, HPM1_ADDR);
 
     pid_t parent = getpid();
     signal(SIGUSR1, handler);
@@ -57,9 +58,9 @@ int main(int argc, char** argv) {
             signal(SIGUSR2, finish);
             kill(parent, SIGUSR1);
             while(loop_activated) {
-                for (unsigned i = 1; i < (HPM1_SIZE/sizeof(unsigned)); i++) {
-                    tmp = plim[i];
-                    //plim[i] = i;
+                for (unsigned i = 1; i < (HPM1_SIZE/sizeof(u128)); i++) {
+                    //tmp = plim[i];
+                    plim[current_cpu] = i;
                 }
             }
             printf("Bombing from core %i is over\n", current_cpu);
@@ -88,13 +89,13 @@ int main(int argc, char** argv) {
 
         // Write
         clock_gettime(CLOCK_REALTIME, &time1);
-        for (unsigned i = 0; i < (HPM1_SIZE/sizeof(unsigned)); i++) {
-            plim[i] = (k++);
+        for (unsigned i = 0; i < (HPM1_SIZE/sizeof(u128)); i++) {
+            plim[0] = (k++);
         }
         clock_gettime(CLOCK_REALTIME, &time2);
         sec = diff(time1, time2).tv_sec;
         ns  = diff(time1, time2).tv_nsec;
-        printf("write, %d, %lu, %lu, %u, %u\n", competing_cores, sec, ns, HPM1_SIZE, (HPM1_SIZE/sizeof(unsigned)));
+        printf("write, %d, %lu, %lu, %u, %u\n", competing_cores, sec, ns, HPM1_SIZE, (HPM1_SIZE/sizeof(u128)));
 
 //        // Read
 //        unsigned tmp;

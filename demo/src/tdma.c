@@ -44,7 +44,7 @@ int main(int argc, char** argv) {
     int hpm_fd  = open_fd();
 
     struct configuration* config = mmap((void*)0, LPD0_SIZE, PROT_EXEC|PROT_READ|PROT_WRITE, MAP_SHARED, lpd_fd, LPD0_ADDR);
-    unsigned* plim = mmap((void*)0, HPM0_SIZE, PROT_EXEC|PROT_READ|PROT_WRITE, MAP_SHARED, hpm_fd, HPM0_ADDR);
+    u128* plim = mmap((void*)0, HPM0_SIZE, PROT_EXEC|PROT_READ|PROT_WRITE, MAP_SHARED, hpm_fd, HPM0_ADDR);
 
     pid_t parent = getpid();
     signal(SIGUSR1, handler);
@@ -88,7 +88,7 @@ int main(int argc, char** argv) {
             signal(SIGUSR2, finish);
             kill(parent, SIGUSR1);
             while(loop_activated) {
-                for (unsigned i = 1; i < ((HPM0_SIZE/sizeof(unsigned))&loop_activated); i++) {
+                for (unsigned i = 1; i < ((HPM0_SIZE/sizeof(u128))&loop_activated); i++) {
                     tmp = plim[i];
                     //plim[i] = i;
                 }
@@ -109,23 +109,25 @@ int main(int argc, char** argv) {
 
     while(counter != active_cores) {}
     printf("All children started\n");
-    printf("operation, contention, priorities, seconds, nanoseconds, bytes, iterations\n");
+    printf("operation, active cores, active slots, seconds, nanoseconds, bytes, iterations, slot sizes\n");
 
     unsigned k = 0;
 
-    for (size_t j = 0; j < 20; j++) {
+    for (size_t j = 0; j < 100; j++) {
         struct timespec time1, time2;
         long unsigned sec, ns;
 
+        (*config).reset = j;
+
         // Write
         clock_gettime(CLOCK_REALTIME, &time1);
-        for (unsigned i = 0; i < (HPM0_SIZE/sizeof(unsigned)); i++) {
+        for (unsigned i = 0; i < (HPM0_SIZE/sizeof(u128)); i++) {
             plim[i] = (k++);
         }
         clock_gettime(CLOCK_REALTIME, &time2);
         sec = diff(time1, time2).tv_sec;
         ns  = diff(time1, time2).tv_nsec;
-        printf("write, %d, %u, %lu, %lu, %u, %u, %u\n", active_cores, active_slots, sec, ns, HPM0_SIZE, (HPM0_SIZE/sizeof(unsigned)), cua_slot_size);
+        printf("write, %d, %u, %lu, %lu, %u, %u, %u\n", active_cores, active_slots, sec, ns, HPM0_SIZE, (HPM0_SIZE/sizeof(u128)), cua_slot_size);
 
 //        // Read
 //        unsigned tmp;
@@ -145,12 +147,6 @@ int main(int argc, char** argv) {
         child[i] = wait(&status[i]);
     }
     printf("Finish\n");
-
-    // Set all registers back to 0 to ensure that next time the situation will be the same
-    (*config).periods[0] = 0x00000000;
-    (*config).periods[1] = 0x00000000;
-    (*config).periods[2] = 0x00000000;
-    (*config).periods[3] = 0x00000000;
 
     int unmap_result = 0;
     unmap_result |= unmap(plim  , HPM0_SIZE);

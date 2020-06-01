@@ -27,22 +27,22 @@ void finish() {
 }
 
 int main(int argc, char** argv) {
-    int competing_cores;
-    unsigned priorities;
-    unsigned samples;
+    unsigned active_cores;
+    unsigned cua_budget;
+    unsigned cic_budget;
 
-    sscanf(argv[1], "%d", &competing_cores);
-    sscanf(argv[2], "%x", &priorities);
-    sscanf(argv[3], "%u", &samples);
+    sscanf(argv[1], "%u", &active_cores);
+    sscanf(argv[2], "%u", &cua_budget);
+    sscanf(argv[3], "%u", &cic_budget);
 
-    pid_t child[competing_cores];
-    int status[competing_cores];
+    pid_t child[active_cores];
+    int status[active_cores];
 
-    int lpd_fd  = open_fd();
+    int lpd_fd   = open_fd();
     int hpm_fd  = open_fd();
 
     struct configuration* config = mmap((void*)0, LPD0_SIZE, PROT_EXEC|PROT_READ|PROT_WRITE, MAP_SHARED, lpd_fd, LPD0_ADDR);
-    u128* plim   = mmap((void*)0, HPM0_SIZE, PROT_EXEC|PROT_READ|PROT_WRITE, MAP_SHARED, hpm_fd, HPM0_ADDR);
+    u128* plim = mmap((void*)0, HPM0_SIZE, PROT_EXEC|PROT_READ|PROT_WRITE, MAP_SHARED, hpm_fd, HPM0_ADDR);
 
     pid_t parent = getpid();
     signal(SIGUSR1, handler);
@@ -58,18 +58,18 @@ int main(int argc, char** argv) {
     (*config).deadlines[2] = 0x00000000;
     (*config).deadlines[3] = 0x00000000;
     // Set the priorities register
-    (*config).priorities = priorities;
+    (*config).priorities = 0x00000000;
     // Set the budget registers
-    (*config).budgets[0] = 0x00000000;
-    (*config).budgets[1] = 0x00000000;
-    (*config).budgets[2] = 0x00000000;
-    (*config).budgets[3] = 0x00000000;
+    (*config).budgets[0] = cua_budget;
+    (*config).budgets[1] = (active_cores >= 1)? cic_budget : 0x00000000;
+    (*config).budgets[2] = (active_cores >= 2)? cic_budget : 0x00000000;
+    (*config).budgets[3] = (active_cores >= 3)? cic_budget : 0x00000000;
     // Set the hyper period register
     (*config).hyperperiod = 0x00000000;
     // Set the scheduler
-    (*config).scheduler = fp;
+    (*config).scheduler = mg;
 
-    for(int c = 0; c < competing_cores; c++) {
+    for(int c = 0; c < active_cores; c++) {
         if((child[c] = fork()) == 0) { // Child
             // Set the CPU
             current_cpu = c+1;
@@ -82,7 +82,7 @@ int main(int argc, char** argv) {
             signal(SIGUSR2, finish);
             kill(parent, SIGUSR1);
             while(loop_activated) {
-                for (unsigned i = 1; i < (HPM0_SIZE/sizeof(u128)); i++) {
+                for (unsigned i = 1; i < ((HPM0_SIZE/sizeof(u128))&loop_activated); i++) {
                     tmp = plim[i];
                     //plim[i] = i;
                 }
@@ -101,25 +101,27 @@ int main(int argc, char** argv) {
     CPU_SET(0, &mask);
     sched_setaffinity(0, sizeof(mask), &mask);
 
-    while(counter != competing_cores) {}
+    while(counter != active_cores) {}
     printf("All children started\n");
-    printf("operation, contention, priorities, seconds, nanoseconds, bytes, iterations\n");
+    printf("operation, active cores, seconds, nanoseconds, bytes, iterations, budget\n");
 
     unsigned k = 0;
 
-    for (size_t j = 0; j < samples; j++) {
+    for (size_t j = 0; j < 100; j++) {
         struct timespec time1, time2;
         long unsigned sec, ns;
+
+        (*config).reset = j;
 
         // Write
         clock_gettime(CLOCK_REALTIME, &time1);
         for (unsigned i = 0; i < (HPM0_SIZE/sizeof(u128)); i++) {
-            plim[0] = (k++);
+            plim[i] = (k++);
         }
         clock_gettime(CLOCK_REALTIME, &time2);
         sec = diff(time1, time2).tv_sec;
         ns  = diff(time1, time2).tv_nsec;
-        printf("write, %d, %x, %lu, %lu, %u, %u\n", competing_cores, priorities, sec, ns, HPM0_SIZE, (HPM0_SIZE/sizeof(u128)));
+        printf("write, %d, %lu, %lu, %u, %u, %u\n", active_cores, sec, ns, HPM0_SIZE, (HPM0_SIZE/sizeof(u128)), cua_budget);
 
 //        // Read
 //        unsigned tmp;
@@ -133,13 +135,12 @@ int main(int argc, char** argv) {
 //        printf("read, %d, %x, %lu, %lu, %u, %u\n", competing_cores, priorities, sec, ns, HPM0_SIZE, (HPM0_SIZE/sizeof(unsigned)));
     }
 
-    for (size_t i = 0; i < competing_cores; i++) {
+    for (size_t i = 0; i < active_cores; i++) {
         printf("kill child %d\n", i);
         kill(child[i], SIGUSR2);
         child[i] = wait(&status[i]);
     }
     printf("Finish\n");
-
 
     int unmap_result = 0;
     unmap_result |= unmap(plim  , HPM0_SIZE);
