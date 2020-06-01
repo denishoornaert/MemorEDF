@@ -2,6 +2,9 @@ import csv
 import numpy as np
 import os
 
+def mbps(amount, duration):
+    return (amount/duration)*(10**9)/(2**20)
+
 def read(filepath, skip):
     res = dict()
     with open(filepath) as csv_file:
@@ -9,38 +12,29 @@ def read(filepath, skip):
         for x in range(0, skip):
             next(csv_reader)
         for operation, contention, priorities, seconds, nanoseconds, bytes, iterations in csv_reader:
-            res.setdefault((contention.strip(), priorities.strip()), []).extend([(int(seconds)*10**9)+int(nanoseconds)])
+            res.setdefault((contention.strip(), priorities.strip()), []).extend([mbps(int(bytes), (int(seconds)*10**9)+int(nanoseconds))])
     return res
 
 if (__name__ == '__main__'):
-    measurements = read("../demo/data/schim_fp_mlb_out.csv", 1)
-    for key in measurements.keys():
-        measurements[key] = {"avg": round(np.mean(measurements[key]), 2), "std": round(np.std(measurements[key]), 2)}
-        print(key, measurements[key])
-    
-    res = """\\begin{tabular}{|c|c||c|c|c|c|}
+    m = read("../demo/data/schim_fp_mlb_out.csv", 1)
+    for key in m.keys():
+        m[key] = {"avg": round(np.mean(m[key]), 2), "std": round(np.std(m[key]), 2)}
+        print(key, m[key])
+
+    res = """\\begin{tabular}{|c||c|c|c|c|}
     \hline
-    \multicolumn{2}{|c||}{Contention}         & \multicolumn{4}{c|}{Priorities assignment} \\\\
-    \hline %                                     0c0d0e0f                                      0f0c0d0e                                      0f0e0c0d                                      0f0e0d0c
-    Qty.          & Cores set                 & $C_{0} \succ C_{3} \succ C_{2} \succ C_{1}$ & $C_{3} \succ C_{0} \succ C_{2} \succ C_{1}$ & $C_{3} \succ C_{2} \succ C_{0} \succ C_{1}$ & $C_{3} \succ C_{2} \succ C_{1} \succ C_{0}$ \\\\
-    \hline
-    \hline
-    0             & $\{\phi\}$                & $"""+str(measurements[("0", "c0d0e0f")]["avg"])+"""~ns$ & $"""+str(measurements[("0", "f0c0d0e")]["avg"])+"""~ns$ & $"""+str(measurements[("0", "f0e0c0d")]["avg"])+"""~ns$ & $"""+str(measurements[("0", "f0e0d0c")]["avg"])+"""~ns$ \\\\
-    \hline
-    1             & $\{C_{1}\}$               & $"""+str(measurements[("1", "c0d0e0f")]["avg"])+"""~ns$ & $"""+str(measurements[("1", "f0c0d0e")]["avg"])+"""~ns$ & $"""+str(measurements[("1", "f0e0c0d")]["avg"])+"""~ns$ & $"""+str(measurements[("1", "f0e0d0c")]["avg"])+"""~ns$ \\\\
-    \hline
-    2             & $\{C_{1}, C_{2}\}$        & $"""+str(measurements[("2", "c0d0e0f")]["avg"])+"""~ns$ & $"""+str(measurements[("2", "f0c0d0e")]["avg"])+"""~ns$ & $"""+str(measurements[("2", "f0e0c0d")]["avg"])+"""~ns$ & $"""+str(measurements[("2", "f0e0d0c")]["avg"])+"""~ns$ \\\\
-    \hline
-    3             & $\{C_{1}, C_{2}, C_{3}\}$ & $"""+str(measurements[("3", "c0d0e0f")]["avg"])+"""~ns$ & $"""+str(measurements[("3", "f0c0d0e")]["avg"])+"""~ns$ & $"""+str(measurements[("3", "f0e0c0d")]["avg"])+"""~ns$ & $"""+str(measurements[("3", "f0e0d0c")]["avg"])+"""~ns$ \\\\
+    \multirow{2}{*}{Contention}               & \multicolumn{4}{c|}{Priorities assignment} \\\\
+    \cline{2-5} %                                     0c0d0e0f                                      0f0c0d0e                                      0f0e0c0d                                      0f0e0d0c
+    Cores set                 & $C_{0} \succ C_{3} \succ C_{2} \succ C_{1}$ & $C_{3} \succ C_{0} \succ C_{2} \succ C_{1}$ & $C_{3} \succ C_{2} \succ C_{0} \succ C_{1}$ & $C_{3} \succ C_{2} \succ C_{1} \succ C_{0}$ \\\\
     \hline
     \hline
-    0             & $\{\phi\}$                &   $\pm """+str(measurements[("0", "c0d0e0f")]["std"])+"""~ns$ & $\pm """+str(measurements[("0", "f0c0d0e")]["std"])+"""~ns$ & $\pm """+str(measurements[("0", "f0e0c0d")]["std"])+"""~ns$ & $\pm """+str(measurements[("0", "f0e0d0c")]["std"])+"""~ns$ \\\\
+    $\{\phi\}$                & $"""+str(m[("0", "c0d0e0f")]["avg"])+""" \pm """+str(m[("0", "c0d0e0f")]["std"])+"""$ & $"""+str(m[("0", "f0c0d0e")]["avg"])+""" \pm """+str(m[("0", "f0c0d0e")]["std"])+"""$ & $"""+str(m[("0", "f0e0c0d")]["avg"])+""" \pm """+str(m[("0", "f0e0c0d")]["std"])+"""$ & $"""+str(m[("0", "f0e0d0c")]["avg"])+""" \pm """+str(m[("0", "f0e0d0c")]["std"])+"""$ \\\\
     \hline
-    1             & $\{C_{1}\}$               &   $\pm """+str(measurements[("1", "c0d0e0f")]["std"])+"""~ns$ & $\pm """+str(measurements[("1", "f0c0d0e")]["std"])+"""~ns$ & $\pm """+str(measurements[("1", "f0e0c0d")]["std"])+"""~ns$ & $\pm """+str(measurements[("1", "f0e0d0c")]["std"])+"""~ns$ \\\\
+    $\{C_{1}\}$               & $"""+str(m[("1", "c0d0e0f")]["avg"])+""" \pm """+str(m[("1", "c0d0e0f")]["std"])+"""$ & $"""+str(m[("1", "f0c0d0e")]["avg"])+""" \pm """+str(m[("1", "f0c0d0e")]["std"])+"""$ & $"""+str(m[("1", "f0e0c0d")]["avg"])+""" \pm """+str(m[("1", "f0e0c0d")]["std"])+"""$ & $"""+str(m[("1", "f0e0d0c")]["avg"])+""" \pm """+str(m[("1", "f0e0d0c")]["std"])+"""$ \\\\
     \hline
-    2             & $\{C_{1}, C_{2}\}$        &   $\pm """+str(measurements[("2", "c0d0e0f")]["std"])+"""~ns$ & $\pm """+str(measurements[("2", "f0c0d0e")]["std"])+"""~ns$ & $\pm """+str(measurements[("2", "f0e0c0d")]["std"])+"""~ns$ & $\pm """+str(measurements[("2", "f0e0d0c")]["std"])+"""~ns$ \\\\
+    $\{C_{1}, C_{2}\}$        & $"""+str(m[("2", "c0d0e0f")]["avg"])+""" \pm """+str(m[("2", "c0d0e0f")]["std"])+"""$ & $"""+str(m[("2", "f0c0d0e")]["avg"])+""" \pm """+str(m[("2", "f0c0d0e")]["std"])+"""$ & $"""+str(m[("2", "f0e0c0d")]["avg"])+""" \pm """+str(m[("2", "f0e0c0d")]["std"])+"""$ & $"""+str(m[("2", "f0e0d0c")]["avg"])+""" \pm """+str(m[("2", "f0e0d0c")]["std"])+"""$ \\\\
     \hline
-    3             & $\{C_{1}, C_{2}, C_{3}\}$ &   $\pm """+str(measurements[("3", "c0d0e0f")]["std"])+"""~ns$ & $\pm """+str(measurements[("3", "f0c0d0e")]["std"])+"""~ns$ & $\pm """+str(measurements[("3", "f0e0c0d")]["std"])+"""~ns$ & $\pm """+str(measurements[("3", "f0e0d0c")]["std"])+"""~ns$ \\\\
+    $\{C_{1}, C_{2}, C_{3}\}$ & $"""+str(m[("3", "c0d0e0f")]["avg"])+""" \pm """+str(m[("3", "c0d0e0f")]["std"])+"""$ & $"""+str(m[("3", "f0c0d0e")]["avg"])+""" \pm """+str(m[("3", "f0c0d0e")]["std"])+"""$ & $"""+str(m[("3", "f0e0c0d")]["avg"])+""" \pm """+str(m[("3", "f0e0c0d")]["std"])+"""$ & $"""+str(m[("3", "f0e0d0c")]["avg"])+""" \pm """+str(m[("3", "f0e0d0c")]["std"])+"""$ \\\\
     \hline
 \end{tabular}
 """
