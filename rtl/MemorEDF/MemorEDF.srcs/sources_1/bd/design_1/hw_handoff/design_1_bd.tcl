@@ -160,19 +160,26 @@ proc create_root_design { parentCell } {
   # Create ports
   set aclk_0 [ create_bd_port -dir I -type clk aclk_0 ]
   set aresetn_0 [ create_bd_port -dir I -type rst aresetn_0 ]
-  set txn_0 [ create_bd_port -dir I txn_0 ]
 
   # Create instance: MemorEDF_0, and set properties
   set MemorEDF_0 [ create_bd_cell -type ip -vlnv user.org:user:MemorEDF:1.0 MemorEDF_0 ]
   set_property -dict [ list \
+   CONFIG.CONFIGURATION_PORT_ENABLED {true} \
    CONFIG.C_M00_AXI_ADDR_WIDTH {40} \
-   CONFIG.C_M00_AXI_BURST_LEN {4} \
+   CONFIG.C_M00_AXI_BURST_LEN {1} \
    CONFIG.C_M00_AXI_DATA_WIDTH {128} \
+   CONFIG.C_M00_AXI_ID_WIDTH {16} \
    CONFIG.C_S00_AXI_ADDR_WIDTH {40} \
    CONFIG.C_S00_AXI_DATA_WIDTH {128} \
-   CONFIG.C_S00_AXI_ID_WIDTH {1} \
-   CONFIG.C_S01_AXI_DATA_WIDTH {32} \
-   CONFIG.DATA_SIZE {647} \
+   CONFIG.C_S00_AXI_ID_WIDTH {16} \
+   CONFIG.C_S01_AXI_ADDR_WIDTH {40} \
+   CONFIG.C_S01_AXI_ARUSER_WIDTH {16} \
+   CONFIG.C_S01_AXI_AWUSER_WIDTH {16} \
+   CONFIG.C_S01_AXI_DATA_WIDTH {128} \
+   CONFIG.C_S01_AXI_ID_WIDTH {16} \
+   CONFIG.DATA_SIZE {246} \
+   CONFIG.EDF_ENABLED {true} \
+   CONFIG.TDMA_ENABLED {true} \
  ] $MemorEDF_0
 
   set_property -dict [ list \
@@ -187,6 +194,39 @@ proc create_root_design { parentCell } {
    CONFIG.NUM_WRITE_OUTSTANDING {2} \
  ] [get_bd_intf_pins /MemorEDF_0/s00_axi]
 
+  set_property -dict [ list \
+   CONFIG.NUM_READ_OUTSTANDING {2} \
+   CONFIG.NUM_WRITE_OUTSTANDING {2} \
+ ] [get_bd_intf_pins /MemorEDF_0/s01_axi]
+
+  # Create instance: axi_vip_0, and set properties
+  set axi_vip_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_vip:1.1 axi_vip_0 ]
+  set_property -dict [ list \
+   CONFIG.ADDR_WIDTH {32} \
+   CONFIG.ARUSER_WIDTH {16} \
+   CONFIG.AWUSER_WIDTH {16} \
+   CONFIG.BUSER_WIDTH {0} \
+   CONFIG.DATA_WIDTH {128} \
+   CONFIG.HAS_BRESP {1} \
+   CONFIG.HAS_BURST {1} \
+   CONFIG.HAS_CACHE {1} \
+   CONFIG.HAS_LOCK {1} \
+   CONFIG.HAS_PROT {1} \
+   CONFIG.HAS_QOS {1} \
+   CONFIG.HAS_REGION {1} \
+   CONFIG.HAS_RRESP {1} \
+   CONFIG.HAS_WSTRB {1} \
+   CONFIG.ID_WIDTH {16} \
+   CONFIG.INTERFACE_MODE {MASTER} \
+   CONFIG.PROTOCOL {AXI4} \
+   CONFIG.READ_WRITE_MODE {READ_WRITE} \
+   CONFIG.RUSER_BITS_PER_BYTE {0} \
+   CONFIG.RUSER_WIDTH {0} \
+   CONFIG.SUPPORTS_NARROW {1} \
+   CONFIG.WUSER_BITS_PER_BYTE {0} \
+   CONFIG.WUSER_WIDTH {0} \
+ ] $axi_vip_0
+
   # Create instance: axi_vip_1, and set properties
   set axi_vip_1 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_vip:1.1 axi_vip_1 ]
   set_property -dict [ list \
@@ -195,26 +235,46 @@ proc create_root_design { parentCell } {
    CONFIG.INTERFACE_MODE {SLAVE} \
  ] $axi_vip_1
 
-  # Create instance: default_axi_full_master_0, and set properties
-  set default_axi_full_master_0 [ create_bd_cell -type ip -vlnv user.org:user:default_axi_full_master:1.0 default_axi_full_master_0 ]
+  # Create instance: axi_vip_2, and set properties
+  set axi_vip_2 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_vip:1.1 axi_vip_2 ]
   set_property -dict [ list \
-   CONFIG.C_M00_AXI_ADDR_WIDTH {40} \
-   CONFIG.C_M00_AXI_BURST_LEN {4} \
-   CONFIG.C_M00_AXI_DATA_WIDTH {128} \
-   CONFIG.C_M00_AXI_TARGET_SLAVE_BASE_ADDR {0x8000000000} \
- ] $default_axi_full_master_0
+   CONFIG.ADDR_WIDTH {32} \
+   CONFIG.ARUSER_WIDTH {16} \
+   CONFIG.AWUSER_WIDTH {16} \
+   CONFIG.BUSER_WIDTH {0} \
+   CONFIG.DATA_WIDTH {128} \
+   CONFIG.HAS_BRESP {1} \
+   CONFIG.HAS_BURST {1} \
+   CONFIG.HAS_CACHE {1} \
+   CONFIG.HAS_LOCK {1} \
+   CONFIG.HAS_PROT {1} \
+   CONFIG.HAS_QOS {1} \
+   CONFIG.HAS_REGION {1} \
+   CONFIG.HAS_RRESP {1} \
+   CONFIG.HAS_WSTRB {1} \
+   CONFIG.ID_WIDTH {16} \
+   CONFIG.INTERFACE_MODE {MASTER} \
+   CONFIG.PROTOCOL {AXI4} \
+   CONFIG.READ_WRITE_MODE {READ_WRITE} \
+   CONFIG.RUSER_BITS_PER_BYTE {0} \
+   CONFIG.RUSER_WIDTH {0} \
+   CONFIG.SUPPORTS_NARROW {1} \
+   CONFIG.WUSER_BITS_PER_BYTE {0} \
+   CONFIG.WUSER_WIDTH {0} \
+ ] $axi_vip_2
 
   # Create interface connections
   connect_bd_intf_net -intf_net MemorEDF_0_m00_axi [get_bd_intf_pins MemorEDF_0/m00_axi] [get_bd_intf_pins axi_vip_1/S_AXI]
-  connect_bd_intf_net -intf_net default_axi_full_master_0_M00_AXI [get_bd_intf_pins MemorEDF_0/s00_axi] [get_bd_intf_pins default_axi_full_master_0/M00_AXI]
+  connect_bd_intf_net -intf_net axi_vip_0_M_AXI [get_bd_intf_pins MemorEDF_0/s01_axi] [get_bd_intf_pins axi_vip_0/M_AXI]
+  connect_bd_intf_net -intf_net axi_vip_2_M_AXI [get_bd_intf_pins MemorEDF_0/s00_axi] [get_bd_intf_pins axi_vip_2/M_AXI]
 
   # Create port connections
-  connect_bd_net -net aclk_0_1 [get_bd_ports aclk_0] [get_bd_pins MemorEDF_0/m00_axi_aclk] [get_bd_pins MemorEDF_0/s00_axi_aclk] [get_bd_pins axi_vip_1/aclk] [get_bd_pins default_axi_full_master_0/m00_axi_aclk]
-  connect_bd_net -net aresetn_0_1 [get_bd_ports aresetn_0] [get_bd_pins MemorEDF_0/m00_axi_aresetn] [get_bd_pins MemorEDF_0/s00_axi_aresetn] [get_bd_pins axi_vip_1/aresetn] [get_bd_pins default_axi_full_master_0/m00_axi_aresetn]
-  connect_bd_net -net m00_axi_init_axi_txn_0_1 [get_bd_ports txn_0] [get_bd_pins default_axi_full_master_0/m00_axi_init_axi_txn]
+  connect_bd_net -net aclk_0_1 [get_bd_ports aclk_0] [get_bd_pins MemorEDF_0/m00_axi_aclk] [get_bd_pins MemorEDF_0/s00_axi_aclk] [get_bd_pins MemorEDF_0/s01_axi_aclk] [get_bd_pins axi_vip_0/aclk] [get_bd_pins axi_vip_1/aclk] [get_bd_pins axi_vip_2/aclk]
+  connect_bd_net -net aresetn_0_1 [get_bd_ports aresetn_0] [get_bd_pins MemorEDF_0/m00_axi_aresetn] [get_bd_pins MemorEDF_0/s00_axi_aresetn] [get_bd_pins MemorEDF_0/s01_axi_aresetn] [get_bd_pins axi_vip_0/aresetn] [get_bd_pins axi_vip_1/aresetn] [get_bd_pins axi_vip_2/aresetn]
 
   # Create address segments
   create_bd_addr_seg -range 0x000100000000 -offset 0x004000000000 [get_bd_addr_spaces MemorEDF_0/m00_axi] [get_bd_addr_segs axi_vip_1/S_AXI/Reg] SEG_axi_vip_1_Reg
+  create_bd_addr_seg -range 0x00010000 -offset 0x44A00000 [get_bd_addr_spaces axi_vip_0/Master_AXI] [get_bd_addr_segs MemorEDF_0/s01_axi/Reg] SEG_MemorEDF_0_Reg
 
 
   # Restore current instance

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="TB_MemGuard_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="TB_MemGuard" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="390000001fs"></ZoomEndTime>
+      <Cursor1Time time="390000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="259"></NameColumnWidth>
+      <ValueColumnWidth column_width="197"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="19" />
+   <wvobject type="logic" fp_name="/TB_MemGuard/clock">
+      <obj_property name="ElementShortName">clock</obj_property>
+      <obj_property name="ObjectShortName">clock</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_MemGuard/reset">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemGuard/budgets">
+      <obj_property name="ElementShortName">budgets[3:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">budgets[3:0][31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemGuard/empty">
+      <obj_property name="ElementShortName">empty[3:0]</obj_property>
+      <obj_property name="ObjectShortName">empty[3:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemGuard/consumed">
+      <obj_property name="ElementShortName">consumed[3:0]</obj_property>
+      <obj_property name="ObjectShortName">consumed[3:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_MemGuard/valid">
+      <obj_property name="ElementShortName">valid</obj_property>
+      <obj_property name="ObjectShortName">valid</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemGuard/selection">
+      <obj_property name="ElementShortName">selection[1:0]</obj_property>
+      <obj_property name="ObjectShortName">selection[1:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_MemGuard/mg/clock">
+      <obj_property name="ElementShortName">clock</obj_property>
+      <obj_property name="ObjectShortName">clock</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_MemGuard/mg/reset">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemGuard/mg/budgets">
+      <obj_property name="ElementShortName">budgets[3:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">budgets[3:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemGuard/mg/empty">
+      <obj_property name="ElementShortName">empty[3:0]</obj_property>
+      <obj_property name="ObjectShortName">empty[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_MemGuard/mg/valid">
+      <obj_property name="ElementShortName">valid</obj_property>
+      <obj_property name="ObjectShortName">valid</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemGuard/mg/selection">
+      <obj_property name="ElementShortName">selection[1:0]</obj_property>
+      <obj_property name="ObjectShortName">selection[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemGuard/mg/core_counter">
+      <obj_property name="ElementShortName">core_counter[3:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">core_counter[3:0][31:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemGuard/mg/core_active">
+      <obj_property name="ElementShortName">core_active[3:0]</obj_property>
+      <obj_property name="ObjectShortName">core_active[3:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemGuard/mg/priorities">
+      <obj_property name="ElementShortName">priorities[3:0][2:0]</obj_property>
+      <obj_property name="ObjectShortName">priorities[3:0][2:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemGuard/mg/NUMBER_OF_QUEUES">
+      <obj_property name="ElementShortName">NUMBER_OF_QUEUES[31:0]</obj_property>
+      <obj_property name="ObjectShortName">NUMBER_OF_QUEUES[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemGuard/mg/REGISTER_SIZE">
+      <obj_property name="ElementShortName">REGISTER_SIZE[31:0]</obj_property>
+      <obj_property name="ObjectShortName">REGISTER_SIZE[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_MemGuard/mg/PRIORITY_SIZE">
+      <obj_property name="ElementShortName">PRIORITY_SIZE[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PRIORITY_SIZE[31:0]</obj_property>
+   </wvobject>
+</wave_config>
