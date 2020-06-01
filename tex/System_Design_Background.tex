@@ -1,0 +1,49 @@
+\section{System Background}
+\subsection{Cache and DRAM temporal partitioning}
+
+\subsection{Programmable Logic in the Middle(PLIM)}
+    Here we detail the necessary background to understand how to interpose a module between a traditional multi-core processor and main memory.
+
+    Commercially available SoCs that integrate a traditional embedded multi-core processor system (PS) and a block of programmable logic (PL) with high-performance PS-PL communication interfaces. There are high-performance masters (HPM) and high-performance slaves (HPS) to send and receive transactions to and from the PL, respectively.
+
+    The underlying mechanism is the ability to intercept memory transactions originated from the processors inside the PS, at the PL. Transactions are then forwarded from the PL again toward the memory controller inside the PS. The primary mechanism of PS-PL and PL-PS redirection of a transaction is called the Memory Loop-Back. Loop-Back is done through address bit manipulation of the transaction such that it falls in the range of the target HPM(HPS) for the PS-PL(PL-PS) interception. In this way, the main memory content is accessed, but through a programmable environment. It is possible to act on the characteristics of the traffic that now traverses the PL. For example, in the PL, it is possible to direct the transaction to arbitrary modules before, eventually, redirecting it back to PS and the memory controller, ultimately.
+
+    This provides a unique capability of manipulating individual memory transactions. Hence, by sitting between CPUs and main memory, PLIM is exploited to perform memory scheduling. A configurable memory scheduler in the middle, namely SchIM, is designed to implement several elected scheduling policies of Fixed Priority, TDMA, and Memguard. With
+    SchIM, now we can enforce policy at the level of the transaction altogether by the hardware.
+
+
+
+\subsubsection{PS-PL SoCs}
+\subsubsection{Memory-Loopback}
+\subsubsection{Cache Bleaching}
+\subsubsection{Transaction-level Inspection}
+\subsubsection{Transaction-level Profiling}
+
+\subsection{Jailhouse, the partitioning Hypervisor}
+\subsubsection{Partitioning}
+        \subsubsection{Run-time Zero-Copy Recoloring support}
+
+\subsection{Advanced eXtensible Interface (AXI)}
+    \label{subsec:axi_transaction_scheme}
+    The Advanced eXtensible Interface (or AXI for short) is a widely spread open specification bus protocol proposed by ARM \cite{ARM-AXI} and exploited by Xilinx to interface both the PL side and the PS side.\\
+    The AXI protocol is based on the master-slave duality. Typically, the former is in charge of instantiating transactions directed to any of the slaves composing the system.
+    On the other hand, the latter, does not emit any transaction but receive the requests emitted by a master and answer them.
+    The masters and the slaves communicate between each other through five different channels named AW, W, B, AR and R as illustrated in figure \ref{fig:axi_transaction_scheme_figure}.
+    A write transaction will start first by its address phase \circled{1}.
+    That is, the transmission through the channel AW of meta-data regarding the transaction such as the destination address, the transaction ID, the amount of bursts and so on.
+    Upon the completion of this phase, follows the data phase \circled{2} which, as its name suggests it, consists in the transmission of the payload itself through the W channel.
+    Thereafter, comes the response phase \circled{3} performed on the B channel.
+    This phase, the only one being initiated by the slave, is used to inform the master whether the transaction has been completed successfully.
+    The transmission of a read transaction is carried out in a similar way.
+    In fact, as for the writing, the address phase \circled{1'} is transmitted through the equivalent channel called AR and is directly followed by the data phase \circled{2'}.
+    However, unlike the writing scheme, the data being fetched, the data phase is instantiated by the slave.
+    The reading response phase is performed simultaneously and is thus merge within the R channel.\\
+    The protocol is said to be asynchronous as transaction behaves similarly to packets each having a dedicated ID.
+    Hence, multiple outstanding transactions can be emitted successively by a single master which can managed them in an out-of-order manner.
+
+    \begin{figure}
+        \centering
+        \input{tikz/axi_transaction_scheme.tex}
+        \caption{Caption}
+        \label{fig:axi_transaction_scheme_figure}
+    \end{figure}
