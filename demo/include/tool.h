@@ -17,6 +17,7 @@ struct configuration {
     unsigned budgets[4];   // 16 Bytes
     unsigned hyperperiod;  //  4 Bytes
     unsigned scheduler;    //  4 Bytes
+    unsigned reset;        //  4 Bytes
 };
 
 int open_fd();
