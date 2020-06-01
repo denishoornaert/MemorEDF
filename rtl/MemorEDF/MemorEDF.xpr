@@ -34,20 +34,20 @@
     <Option Name="DSAVendor" Val="xilinx"/>
     <Option Name="DSABoardId" Val="zcu102"/>
     <Option Name="DSANumComputeUnits" Val="60"/>
-    <Option Name="WTXSimLaunchSim" Val="829"/>
+    <Option Name="WTXSimLaunchSim" Val="892"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="305"/>
-    <Option Name="WTModelSimExportSim" Val="305"/>
-    <Option Name="WTQuestaExportSim" Val="305"/>
-    <Option Name="WTIesExportSim" Val="305"/>
-    <Option Name="WTVcsExportSim" Val="305"/>
-    <Option Name="WTRivieraExportSim" Val="305"/>
-    <Option Name="WTActivehdlExportSim" Val="305"/>
+    <Option Name="WTXSimExportSim" Val="314"/>
+    <Option Name="WTModelSimExportSim" Val="314"/>
+    <Option Name="WTQuestaExportSim" Val="314"/>
+    <Option Name="WTIesExportSim" Val="314"/>
+    <Option Name="WTVcsExportSim" Val="314"/>
+    <Option Name="WTRivieraExportSim" Val="314"/>
+    <Option Name="WTActivehdlExportSim" Val="314"/>
     <Option Name="GenerateIPUpgradeLog" Val="TRUE"/>
     <Option Name="XSimRadix" Val="hex"/>
     <Option Name="XSimTimeUnit" Val="ns"/>
@@ -64,12 +64,6 @@
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
-        <CompFileExtendedInfo CompFileName="design_2.bd" FileRelPathName="ip/design_2_AXI_PerfectTranslator_0_0/design_2_AXI_PerfectTranslator_0_0.xci">
-          <Proxy FileSetName="design_2_AXI_PerfectTranslator_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="design_2.bd" FileRelPathName="ip/design_2_ila_0_0/design_2_ila_0_0.xci">
-          <Proxy FileSetName="design_2_ila_0_0"/>
-        </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="design_2.bd" FileRelPathName="ip/design_2_zynq_ultra_ps_e_0_0/design_2_zynq_ultra_ps_e_0_0.xci">
           <Proxy FileSetName="design_2_zynq_ultra_ps_e_0_0"/>
         </CompFileExtendedInfo>
@@ -78,6 +72,12 @@
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="design_2.bd" FileRelPathName="ip/design_2_rst_ps8_0_99M_0/design_2_rst_ps8_0_99M_0.xci">
           <Proxy FileSetName="design_2_rst_ps8_0_99M_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="design_2.bd" FileRelPathName="ip/design_2_ila_0_0/design_2_ila_0_0.xci">
+          <Proxy FileSetName="design_2_ila_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="design_2.bd" FileRelPathName="ip/design_2_AXI_PerfectTranslator_0_0/design_2_AXI_PerfectTranslator_0_0.xci">
+          <Proxy FileSetName="design_2_AXI_PerfectTranslator_0_0"/>
         </CompFileExtendedInfo>
       </File>
       <File Path="$PSRCDIR/sources_1/bd/design_2/hdl/design_2_wrapper.v">
@@ -94,14 +94,14 @@
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
+        <CompFileExtendedInfo CompFileName="design_1.bd" FileRelPathName="ip/design_1_axi_vip_0_2/design_1_axi_vip_0_2.xci">
+          <Proxy FileSetName="design_1_axi_vip_0_2"/>
+        </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="design_1.bd" FileRelPathName="ip/design_1_axi_vip_1_0/design_1_axi_vip_1_0.xci">
           <Proxy FileSetName="design_1_axi_vip_1_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="design_1.bd" FileRelPathName="ip/design_1_axi_vip_0_0/design_1_axi_vip_0_0.xci">
           <Proxy FileSetName="design_1_axi_vip_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="design_1.bd" FileRelPathName="ip/design_1_axi_vip_0_2/design_1_axi_vip_0_2.xci">
-          <Proxy FileSetName="design_1_axi_vip_0_2"/>
         </CompFileExtendedInfo>
       </File>
       <File Path="$PSRCDIR/sources_1/bd/design_1/hdl/design_1_wrapper.v">

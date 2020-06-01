@@ -3,8 +3,6 @@ Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
 Running: /opt/Xilinx/Vivado/2017.4/bin/unwrapped/lnx64.o/xelab -wto 43f55efd69aa4e918038648ffa5e146b --incr --debug typical --relax --mt 8 -L xil_defaultlib -L axi_infrastructure_v1_1_0 -L smartconnect_v1_0 -L axi_protocol_checker_v2_0_1 -L axi_vip_v1_1_1 -L xilinx_vip -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot TB_MemorEDF_behav xil_defaultlib.TB_MemorEDF xil_defaultlib.glbl -log elaborate.log 
 Using 8 slave threads.
 Starting static elaboration
-WARNING: [VRFC 10-278] actual bit length 128 differs from formal bit length 16 for port budgets [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.ip_user_files/bd/design_1/ipshared/c8ff/src/Scheduler.sv:240]
-WARNING: [VRFC 10-278] actual bit length 32 differs from formal bit length 4 for port hyper_period [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.ip_user_files/bd/design_1/ipshared/c8ff/src/Scheduler.sv:241]
-WARNING: [VRFC 10-1783] select index 16 into byte_ram is out of bounds [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.ip_user_files/bd/design_1/ipshared/c8ff/src/ConfigurationPort.sv:591]
+WARNING: [VRFC 10-1783] select index 16 into byte_ram is out of bounds [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.ip_user_files/bd/design_1/ipshared/b747/src/ConfigurationPort.sv:591]
 Completed static elaboration
 INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel

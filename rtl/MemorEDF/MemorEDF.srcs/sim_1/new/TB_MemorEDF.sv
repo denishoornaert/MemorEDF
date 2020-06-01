@@ -36,14 +36,10 @@ bit aresetn=0;
 xil_axi_ulong addr1  = 40'h0000000000;
 xil_axi_ulong addr2  = 40'h0000000010;
 xil_axi_ulong addr3  = 40'h0000000020;
-xil_axi_ulong addr4  = 40'h0000000024;
-xil_axi_ulong addr5  = 40'h000000002c;
-xil_axi_ulong addr6  = 40'h0000000034;
-xil_axi_ulong addr7  = 40'h0000000038;
-xil_axi_ulong addr_bud0 = 40'h0000000024;
-xil_axi_ulong addr_bud1 = 40'h0000000028;
-xil_axi_ulong addr_bud2 = 40'h000000002c;
-xil_axi_ulong addr_bud3 = 40'h0000000030;
+xil_axi_ulong addr4  = 40'h0000000030;
+xil_axi_ulong addr5  = 40'h0000000040;
+xil_axi_ulong addr6  = 40'h0000000050;
+xil_axi_ulong addr7  = 40'h0000000060;
 
 xil_axi_ulong b_addr1   = 40'h0400000000;
 xil_axi_ulong b_addr2   = 40'h0400000010;
@@ -60,18 +56,18 @@ xil_axi_ulong b_addr12  = 40'h04000000B0;
 xil_axi_ulong b_addr13  = 40'h04000000C0;
 
 //  indices                      76543210765432107654321076543210
-bit [127 : 0] data_wr1    = 128'h00000000000000000000000800000020; // ABITRARY PERIOD
+bit [127 : 0] data_wr1    = 128'h00000000000000000000000000000008; // ABITRARY PERIOD
 bit [127 : 0] data_wr1bis = 128'h00000000000000000001000000000000; // ABITRARY PERIOD
 bit [127 : 0] data_wr2    = 128'h00000000000000000000000000000000; // ARBITRRY AND MEANINGLESS DEADLINE
-bit [127 : 0] data_wr3    = 128'h0000000000000000000000000f0e0d0c; // Priorities
-bit [127 : 0] data_wr4    = 128'h0000000000000000bbbbbbbbaaaaaaaa; // Mode (tdma = 0, edf = 1, fp = 2)
-bit [127 : 0] data_wr5    = 128'h0000000000000000ddddddddcccccccc;
-bit [127 : 0] data_wr6    = 128'h0000000000000000eeeeeeee00000002;
+bit [127 : 0] data_wr3    = 128'h0000004000000030000000500f0e0d0c; // Priorities
+bit [127 : 0] data_wr4    = 128'h00000000000000000000005000000000; // Budgets 1 and 3
+bit [127 : 0] data_wr5    = 128'h00000040000000300000000000000000; // Budgets 3 and 4
+bit [127 : 0] data_wr6    = 128'h0000000000000000eeeeeeee00000002; // Mode (tdma = 0, edf = 1, fp = 2, mg = 3)
 bit [127 : 0] data_wr7    = 128'h00000000000000020000000000000002;
 bit [ 32 : 0] budget0     = 128'h000000000000000000000000aaaaaaaa;
 bit [ 32 : 0] budget1     = 128'h0000000000000000bbbbbbbb00000000;
 bit [ 32 : 0] budget2     = 128'h00000000cccccccc0000000000000000;
-bit [ 32 : 0] budget3     = 128'hdddddddd000000000000000000000000;
+bit [ 32 : 0] budget3     = 128'hdddddddd000000000000000000000042;
 
 //  indices                       76543210765432107654321076543210
 bit [127 : 0] b_data_wr1   = 128'h0d000000000000001111111111111111;
@@ -173,13 +169,9 @@ initial begin
     #20ns
     master_agent.AXI4LITE_WRITE_BURST(addr3,prot,data_wr3,resp);
     #20ns
-    master_agent.AXI4LITE_WRITE_BURST(addr_bud0,prot,budget0,resp);
+    master_agent.AXI4LITE_WRITE_BURST(addr4,prot,data_wr4,resp);
     #20ns
-    master_agent.AXI4LITE_WRITE_BURST(addr_bud1,prot,budget1,resp);
-    #20ns
-    master_agent.AXI4LITE_WRITE_BURST(addr_bud2,prot,budget2,resp);
-    #20ns
-    master_agent.AXI4LITE_WRITE_BURST(addr_bud3,prot,budget3,resp);
+    master_agent.AXI4LITE_WRITE_BURST(addr5,prot,data_wr5,resp);
     #20ns
     master_agent.AXI4LITE_WRITE_BURST(addr6,prot,data_wr6,resp);
     #20ns
@@ -221,7 +213,7 @@ initial begin
     b_master_agent.send_multi_wrbursts(	
         8, //input     xil_axi_uint     num_xfers,
         b_addr1, //input     xil_axi_ulong     start_addr,
-        16'h01ad, //input     xil_axi_uint     myid ,
+        16'h018d, //input     xil_axi_uint     myid ,
         size, //input     xil_axi_size_t     mysize,
         0, //input     xil_axi_len_t     mylen,
         burst, //input     xil_axi_burst_t     myburst,
@@ -231,7 +223,7 @@ initial begin
     b_master_agent.send_multi_rdbursts(	
         8, //input     xil_axi_uint     num_xfers,
         b_addr1, //input     xil_axi_ulong     start_addr,
-        16'h01ad, //input     xil_axi_uint     myid ,
+        16'h018d, //input     xil_axi_uint     myid ,
         size, //input     xil_axi_size_t     mysize,
         0, //input     xil_axi_len_t     mylen,
         burst, //input     xil_axi_burst_t     myburst,
