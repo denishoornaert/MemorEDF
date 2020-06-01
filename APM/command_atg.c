@@ -97,27 +97,7 @@
     	/*                 Config Status -  read only register               */
     	/*********************************************************************/
 
-    	while (!controlregister_ok)
-    {
-    		s2mm_status = axi_dma_register_mmap[S2MM_STATUS_REGISTER >> 2];
-    		controlregister_ok = ((s2mm_status & 0x00001000));
-    	     	printf("Stream to memory-mapped status (0x%08x@0x%02x):\n", s2mm_status, S2MM_STATUS_REGISTER);
-    		printf("S2MM_STATUS_REGISTER status register values:\n");
-    		if (s2mm_status & 0x00000001) printf(" halted"); else printf(" running");
-    		if (s2mm_status & 0x00000002) printf(" idle");
-    		if (s2mm_status & 0x00000008) printf(" SGIncld");
-    		if (s2mm_status & 0x00000010) printf(" DMAIntErr");
-    		if (s2mm_status & 0x00000020) printf(" DMASlvErr");
-    		if (s2mm_status & 0x00000040) printf(" DMADecErr");
-    		if (s2mm_status & 0x00000100) printf(" SGIntErr");
-    		if (s2mm_status & 0x00000200) printf(" SGSlvErr");
-    		if (s2mm_status & 0x00000400) printf(" SGDecErr");
-    		if (s2mm_status & 0x00001000) printf(" IOC_Irq");
-    		if (s2mm_status & 0x00002000) printf(" Dly_Irq");
-    		if (s2mm_status & 0x00004000) printf(" Err_Irq");
-    		printf("\n");
-    }
-        
+
 
 	return 0;
 }
