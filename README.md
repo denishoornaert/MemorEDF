@@ -21,8 +21,8 @@ As shown in the figure below, the µ-architecture is composed of 7 different sub
 We need to save 1536M on top of the ram for JH
 
 
-# > setenv bootargs "console=ttyPS0,115200 uio_pdrv_genirq.of_id=generic-uio earlycon clk_ignore_unused earlyprintk  cpuidle.off=1 mem=1536M root=/dev/mmcblk0p2 rw rootwait" 
-# > setenv uenvcmd "fatload mmc 0 0x3000000 Image && fatload mmc 0 0x2A00000 system.dtb && booti 0x3000000 - 0x2A00000" 
-# > setenv bootcmd "run uenvcmd"
-# > saveenv
-# > boot
+ > setenv bootargs "console=ttyPS0,115200 uio_pdrv_genirq.of_id=generic-uio earlycon clk_ignore_unused earlyprintk  cpuidle.off=1 mem=1536M root=/dev/mmcblk0p2 rw rootwait" 
+ > setenv uenvcmd "fatload mmc 0 0x3000000 Image && fatload mmc 0 0x2A00000 system.dtb && booti 0x3000000 - 0x2A00000" 
+ > setenv bootcmd "run uenvcmd"
+ > saveenv
+ > boot
