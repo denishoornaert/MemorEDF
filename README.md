@@ -15,3 +15,14 @@ As shown in the figure below, the µ-architecture is composed of 7 different sub
  - **Dispatcher**: The dispatcher sub-module is in charge of routing the packet to the adequate queue depending on the ```id``` passed by the packetizer once the ```valid``` signal emitted by the same source is set to high. Typically, the dispatcher module is a 1 to 4 multiplexer. In addition to routing the packets, the sub-module also repeat/route the ```valid``` signal received from the packetizer.
  - **Queues**: The queues are in charge of buffering the packets created by the packetizer. Like in any producer consumer problem, the queues are in charge of informing both the producer and the consumer when it is full or empty. These two bits arrays are routed to the Scheduler sub-module and to the packetizer in order to adapt the scheduling and prevent the producer to over produce and crush data in the queues.
  - **Selector**: The selector sub-module is in charge of routing the first packet of every queues to the serializer sub-module given an id provided by the scheduler sub-module. The selector is also in charge once the first value of the targeted queue has been read and stored in a register to send a ```consumed``` signal to the queue targeted.
+
+## Booting from the board
+
+We need to save 1536M on top of the ram for JH
+
+
+# > setenv bootargs "console=ttyPS0,115200 uio_pdrv_genirq.of_id=generic-uio earlycon clk_ignore_unused earlyprintk  cpuidle.off=1 mem=1536M root=/dev/mmcblk0p2 rw rootwait" 
+# > setenv uenvcmd "fatload mmc 0 0x3000000 Image && fatload mmc 0 0x2A00000 system.dtb && booti 0x3000000 - 0x2A00000" 
+# > setenv bootcmd "run uenvcmd"
+# > saveenv
+# > boot
