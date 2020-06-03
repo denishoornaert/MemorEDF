@@ -1,0 +1,106 @@
+# 1 "/home/zcu1023/Cache_Bleaching/jailhouse_PL/configs/arm64/dts/inmate-macchiatobin.dts"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 1 "/home/zcu1023/Cache_Bleaching/jailhouse_PL/configs/arm64/dts/inmate-macchiatobin.dts"
+# 16 "/home/zcu1023/Cache_Bleaching/jailhouse_PL/configs/arm64/dts/inmate-macchiatobin.dts"
+# 1 "/home/zcu1023/Cache_Bleaching/lnx_jh/build/tmp/work-shared/plnx_aarch64/kernel-source/arch/arm64/boot/dts/include/dt-bindings/interrupt-controller/arm-gic.h" 1
+
+
+
+
+
+
+
+# 1 "/home/zcu1023/Cache_Bleaching/lnx_jh/build/tmp/work-shared/plnx_aarch64/kernel-source/arch/arm64/boot/dts/include/dt-bindings/interrupt-controller/irq.h" 1
+# 9 "/home/zcu1023/Cache_Bleaching/lnx_jh/build/tmp/work-shared/plnx_aarch64/kernel-source/arch/arm64/boot/dts/include/dt-bindings/interrupt-controller/arm-gic.h" 2
+# 17 "/home/zcu1023/Cache_Bleaching/jailhouse_PL/configs/arm64/dts/inmate-macchiatobin.dts" 2
+
+/dts-v1/;
+
+/ {
+ model = "Jailhouse cell on MACCHIATObin";
+
+ #address-cells = <2>;
+ #size-cells = <2>;
+
+ interrupt-parent = <&gic>;
+
+ hypervisor {
+  compatible = "jailhouse,cell";
+ };
+
+ cpus {
+  #address-cells = <1>;
+  #size-cells = <0>;
+
+  cpu@100 {
+   compatible = "arm,cortex-a72", "arm,armv8";
+   device_type = "cpu";
+   reg = <0x100>;
+   enable-method = "psci";
+  };
+  cpu@101 {
+   compatible = "arm,cortex-a72", "arm,armv8";
+   device_type = "cpu";
+   reg = <0x101>;
+   enable-method = "psci";
+  };
+ };
+
+ psci {
+  compatible = "arm,psci-0.2";
+  method = "smc";
+ };
+
+ timer {
+  compatible = "arm,armv8-timer";
+  interrupts = <1 13 ((((1 << (4)) - 1) << 8) | 8)>,
+        <1 14 ((((1 << (4)) - 1) << 8) | 8)>,
+        <1 11 ((((1 << (4)) - 1) << 8) | 8)>,
+        <1 10 ((((1 << (4)) - 1) << 8) | 8)>;
+ };
+
+ gic: interrupt-controller@f0210000 {
+  compatible = "arm,gic-400";
+  #interrupt-cells = <3>;
+  interrupt-controller;
+  reg = <0x0 0xf0210000 0x0 0x10000>,
+        <0x0 0xf022f000 0x0 0x20000>;
+ };
+
+ ap_syscon: system-controller@f06f4000 {
+  compatible = "syscon", "simple-mfd";
+  reg = <0 0xf06f4000 0 0x2000>;
+
+  ap_clk: clock {
+   compatible = "marvell,ap806-clock";
+   #clock-cells = <1>;
+  };
+ };
+
+ uart0: serial@f0512000 {
+  compatible = "snps,dw-apb-uart";
+  reg = <0 0xf0512000 0 0x100>;
+  reg-shift = <2>;
+  interrupts = <0 19 4>;
+  reg-io-width = <1>;
+  clocks = <&ap_clk 3>;
+ };
+
+ pci@fc000000 {
+  compatible = "pci-host-ecam-generic";
+  device_type = "pci";
+  bus-range = <0 0>;
+  #address-cells = <3>;
+  #size-cells = <2>;
+  #interrupt-cells = <1>;
+  interrupt-map-mask = <0 0 0 7>;
+  interrupt-map = <0 0 0 1 &gic 0 80 1>,
+    <0 0 0 2 &gic 0 81 1>,
+    <0 0 0 3 &gic 0 82 1>,
+    <0 0 0 4 &gic 0 83 1>;
+  reg = <0x0 0xfc000000 0x0 0x100000>;
+  ranges =
+   <0x02000000 0x00 0x10000000 0x0 0x10000000 0x00 0x10000>;
+ };
+};

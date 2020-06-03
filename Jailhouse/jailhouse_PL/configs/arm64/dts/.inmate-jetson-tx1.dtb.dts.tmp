@@ -1,0 +1,103 @@
+# 1 "/home/zcu1023/Cache_Bleaching/jailhouse_PL/configs/arm64/dts/inmate-jetson-tx1.dts"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 1 "/home/zcu1023/Cache_Bleaching/jailhouse_PL/configs/arm64/dts/inmate-jetson-tx1.dts"
+# 16 "/home/zcu1023/Cache_Bleaching/jailhouse_PL/configs/arm64/dts/inmate-jetson-tx1.dts"
+# 1 "/home/zcu1023/Cache_Bleaching/lnx_jh/build/tmp/work-shared/plnx_aarch64/kernel-source/arch/arm64/boot/dts/include/dt-bindings/interrupt-controller/arm-gic.h" 1
+
+
+
+
+
+
+
+# 1 "/home/zcu1023/Cache_Bleaching/lnx_jh/build/tmp/work-shared/plnx_aarch64/kernel-source/arch/arm64/boot/dts/include/dt-bindings/interrupt-controller/irq.h" 1
+# 9 "/home/zcu1023/Cache_Bleaching/lnx_jh/build/tmp/work-shared/plnx_aarch64/kernel-source/arch/arm64/boot/dts/include/dt-bindings/interrupt-controller/arm-gic.h" 2
+# 17 "/home/zcu1023/Cache_Bleaching/jailhouse_PL/configs/arm64/dts/inmate-jetson-tx1.dts" 2
+
+/dts-v1/;
+
+/ {
+ model = "Jailhouse cell on NVIDIA Jetson TX1";
+
+ #address-cells = <1>;
+ #size-cells = <1>;
+
+ interrupt-parent = <&gic>;
+
+ hypervisor {
+  compatible = "jailhouse,cell";
+ };
+
+ cpus {
+  #address-cells = <1>;
+  #size-cells = <0>;
+
+  cpu@2 {
+   compatible = "arm,cortex-a57";
+   device_type = "cpu";
+   enable-method = "psci";
+   reg = <0x2>;
+  };
+
+  cpu@3 {
+   compatible = "arm,cortex-a57";
+   device_type = "cpu";
+   enable-method = "psci";
+   reg = <0x3>;
+  };
+ };
+
+ psci {
+  compatible = "arm,psci-0.2";
+  method = "smc";
+ };
+
+ gic: interrupt-controller@50041000 {
+  compatible = "arm,gic-400";
+  #interrupt-cells = <3>;
+  interrupt-controller;
+  reg = <0x50041000 0x1000>,
+        <0x50042000 0x1000>;
+ };
+
+ timer {
+  compatible = "arm,armv8-timer";
+  interrupts = <1 13
+    ((((1 << (4)) - 1) << 8) | 8)>,
+        <1 14
+    ((((1 << (4)) - 1) << 8) | 8)>,
+        <1 11
+    ((((1 << (4)) - 1) << 8) | 8)>,
+        <1 10
+    ((((1 << (4)) - 1) << 8) | 8)>;
+  interrupt-parent = <&gic>;
+ };
+
+ serial@70006000 {
+  compatible = "nvidia,tegra210-uart", "nvidia,tegra20-uart";
+  reg = <0x70006000 0x40>;
+  reg-shift = <2>;
+  interrupts = <0 36 4>;
+  clock-frequency = <408000000>;
+  status = "okay";
+ };
+
+ pci@48000000 {
+  status = "okay";
+  compatible = "pci-host-ecam-generic";
+  device_type = "pci";
+  bus-range = <0 0>;
+  #address-cells = <3>;
+  #size-cells = <2>;
+  #interrupt-cells = <1>;
+  interrupt-map-mask = <0 0 0 7>;
+  interrupt-map = <0 0 0 1 &gic 0 152 1>,
+    <0 0 0 2 &gic 0 153 1>,
+    <0 0 0 3 &gic 0 154 1>,
+    <0 0 0 4 &gic 0 155 1>;
+  reg = <0x48000000 0x100000>;
+  ranges =
+   <0x02000000 0x00 0x10000000 0x10000000 0x00 0x10000>;
+ };
+};
