@@ -8,7 +8,7 @@
 
 
 petalinux_build_lnx_loc=~/Cache_Bleaching/lnx_jh/build/tmp/work/plnx_aarch64-xilinx-linux/linux-xlnx/4.9-xilinx-v2017.3+gitAUTOINC+f1b1e077d6-r0/linux-plnx_aarch64-standard-build/
-jailhouse_dir=jailhouse_PL
+jailhouse_dir=jailhouse
 
 cd $jailhouse_dir
 sudo make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- KDIR=$petalinux_build_lnx_loc
