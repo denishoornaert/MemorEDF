@@ -106,7 +106,7 @@ struct {
 			.flags = JAILHOUSE_MEM_READ | JAILHOUSE_MEM_WRITE |
 				JAILHOUSE_MEM_EXECUTE,
 		},
-		/* HIGH RAM for inmates */ {
+		/* RAM for inmates */ {
 			.phys_start = 0x801000000,
 			.virt_start = 0x801000000,
 			.size =        0x7f000000,
@@ -114,18 +114,26 @@ struct {
 				JAILHOUSE_MEM_EXECUTE,
 		},
 
-		/* HIGH RAM for inmates via DROP 0 */ {
-			.phys_start = 0x1001000000,
-			.virt_start = 0x1001000000,
-			.size =         0x7f000000,
+		/* RAM for inmates via Perfect Translator */ {
+			.phys_start = 0xB1000000,
+			.virt_start = 0xB1000000,
+			.size =       0x10000000,
 			.flags = JAILHOUSE_MEM_READ | JAILHOUSE_MEM_WRITE |
 			         JAILHOUSE_MEM_EXECUTE,
 		},
 
-		/* HIGH RAM for inmates via DROP 1 */ {
-			.phys_start = 0x4801000000,
-			.virt_start = 0x4801000000,
-			.size =         0x7f000000,
+		/* Config Aperture for SchiM */ {
+			.phys_start = 0x80000000,
+			.virt_start = 0x80000000,
+			.size =       0x10000,
+			.flags = JAILHOUSE_MEM_READ | JAILHOUSE_MEM_WRITE |
+				JAILHOUSE_MEM_EXECUTE,
+		},
+
+		/* RAM for inmates via SchiM */ {
+			.phys_start = 0xA1000000,
+			.virt_start = 0xA1000000,
+			.size =       0x10000000,
 			.flags = JAILHOUSE_MEM_READ | JAILHOUSE_MEM_WRITE |
 				JAILHOUSE_MEM_EXECUTE,
 		},
