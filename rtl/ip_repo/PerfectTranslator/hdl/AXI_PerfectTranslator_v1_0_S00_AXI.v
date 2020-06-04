@@ -690,8 +690,8 @@
      assign  S_AXI_BP_AWID = S_AXI_AWID>>5 ;
      //assign  S_AXI_BP_AWADDR = S_AXI_AWADDR ;
      //This is where the Bit Dropping Happens:
-     assign  S_AXI_BP_AWADDR[C_S_AXI_ADDR_WIDTH-1 : 28] = 12'b000010000000;
-     assign  S_AXI_BP_AWADDR[31 : 0] = S_AXI_AWADDR[27 : 0] ;
+     assign  S_AXI_BP_AWADDR[C_S_AXI_ADDR_WIDTH-1 : 32] = 8'b00001000;
+     assign  S_AXI_BP_AWADDR[31 : 0] = S_AXI_AWADDR[31 : 0] ;
      assign  S_AXI_BP_AWLEN = S_AXI_AWLEN ;
      assign  S_AXI_BP_AWSIZE = S_AXI_AWSIZE ;
      assign  S_AXI_BP_AWBURST = S_AXI_AWBURST ;
@@ -713,8 +713,8 @@
      //assign  S_AXI_BP_ARID = S_AXI_ARID ;
      assign  S_AXI_BP_ARID = S_AXI_ARID>>5 ;
      //assign  S_AXI_BP_ARADDR = S_AXI_ARADDR ;
-     assign  S_AXI_BP_ARADDR[C_S_AXI_ADDR_WIDTH-1 : 28] = 12'b000010000000;
-     assign  S_AXI_BP_ARADDR[31 : 0] = S_AXI_ARADDR[27 : 0];
+     assign  S_AXI_BP_ARADDR[C_S_AXI_ADDR_WIDTH-1 : 32] = 8'b00001000;
+     assign  S_AXI_BP_ARADDR[31 : 0] = S_AXI_ARADDR[31 : 0];
      assign  S_AXI_BP_ARLEN = S_AXI_ARLEN ;
      assign  S_AXI_BP_ARSIZE = S_AXI_ARSIZE ;
      assign  S_AXI_BP_ARBURST = S_AXI_ARBURST ;
