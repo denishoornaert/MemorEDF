@@ -1,4 +1,7 @@
 #!/bin/bash
+## This script is meant to be run on ZYNQ board, while larg files provided
+## in a seperate folder on the board. Note that those large files are not
+## pushed to the git repo and could be found on zcu3 machine: 128.197.10.176
 
 ## This script automates some of the steps to launch the linux demo
 ## via jailhouse. The correct path to the kernel image and rootfs
@@ -6,12 +9,12 @@
 
 ## Author: Shahin
 ## Date: Aug 28 2019
+large_files_dir=/home/root/inmate_imgs
+kern_image=$large_files_dir/Image
+kern_image=$large_files_dir/Image_large
 
-kern_image=$(pwd)/Image
-kern_image=$(pwd)/Image_large
-
-rootfs_image=$(pwd)/rootfs.cpio
-jh_path=/home/root/MemorEDF/Jailhouse/jailhouse_PL
+rootfs_image=$large_files_dir/rootfs.cpio
+jh_path=/home/root/jailhouse_PL
 out_dtb=$(pwd)/inmate_linux.dtb
 
 cd $jh_path
