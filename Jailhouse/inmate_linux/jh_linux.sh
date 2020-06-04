@@ -11,7 +11,7 @@ kern_image=$(pwd)/Image
 kern_image=$(pwd)/Image_large
 
 rootfs_image=$(pwd)/rootfs.cpio
-jh_path=/home/root/jailhouse_PL
+jh_path=/home/root/MemorEDF/Jailhouse/jailhouse_PL
 out_dtb=$(pwd)/inmate_linux.dtb
 
 cd $jh_path
@@ -25,6 +25,6 @@ fi
 jailhouse enable configs/arm64/rtas_root.cell
 
 # Now starting the Linux non-root cell
-jailhouse cell linux configs/arm64/rtas_16_obs.cell $kern_image -d configs/arm64/dts/rtas.dtb -i $rootfs_image -c "console=ttyPS0,115200 ramdisk_size=10000000"
+jailhouse cell linux configs/arm64/rtas_obs.cell $kern_image -d configs/arm64/dts/rtas.dtb -i $rootfs_image -c "console=ttyPS0,115200 ramdisk_size=10000000"
 
 cd -

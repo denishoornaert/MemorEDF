@@ -8,7 +8,7 @@ seq_bomb=$(seq 1 6)
 seq_rbomb=$(echo -e "4000\n3000\n0f00\n00ff\n8000\nffff")
 
 kern_image=$(pwd)/Image_large
-rootfs_image=$(pwd)/rootfs.cpio.automated.nofullhd
+rootfs_image=$(pwd)/rootfs.cpio.automated.BeginWith.Stitch.vgaonly
 jh_path=/home/root/jailhouse_PL
 out_dtb=$(pwd)/inmate_linux.dtb
 bombs_alive=$(pwd)/bombs_alive.sh
@@ -52,11 +52,17 @@ then
     echo "Unable to load jailhouse module. Is it already loaded?"
     exit
 fi
-\
+
 jailhouse enable configs/arm64/rtas_root.cell
 
 for i in $seq_obs
 do
+    if [ $i -lt 2 ]
+    then
+	    echo -n
+	    continue
+    fi
+
     cur_obs=${runs_obs[i-1]}
     cur_bomb=${runs_bomb[i-1]}
     cur_rbomb=${runs_rbomb[i-1]}
@@ -102,8 +108,10 @@ do
 
     if [ $solo -eq 0 ]
     then
+	echo -n    
 	jailhouse cell alt 3 1
     else
+	echo -n
 	jailhouse cell alt 1 1
     fi
 	
