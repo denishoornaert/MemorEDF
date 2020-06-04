@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-| Date             : Sun May 31 16:09:38 2020
+| Date             : Thu Jun  4 20:11:44 2020
 | Host             : CELSIUS running 64-bit Ubuntu 16.04.6 LTS
 | Command          : report_power -file design_2_wrapper_power_routed.rpt -pb design_2_wrapper_power_summary_routed.pb -rpx design_2_wrapper_power_routed.rpx
 | Design           : design_2_wrapper
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 4.083        |
+| Total On-Chip Power (W)  | 4.085        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 3.357        |
+| Dynamic (W)              | 3.359        |
 | Device Static (W)        | 0.726        |
 | Effective TJA (C/W)      | 1.0          |
-| Max Ambient (C)          | 96.1         |
-| Junction Temperature (C) | 28.9         |
+| Max Ambient (C)          | 96.0         |
+| Junction Temperature (C) | 29.0         |
 | Confidence Level         | Medium       |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,23 +52,23 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.078 |        4 |       --- |             --- |
+| Clocks                   |     0.080 |        4 |       --- |             --- |
 | CLB Logic                |     0.022 |    87182 |       --- |             --- |
 |   LUT as Shift Register  |     0.013 |     3623 |    144000 |            2.52 |
-|   LUT as Logic           |     0.007 |    33009 |    274080 |           12.04 |
+|   LUT as Logic           |     0.007 |    33008 |    274080 |           12.04 |
 |   Register               |     0.001 |    34041 |    548160 |            6.21 |
 |   CARRY8                 |    <0.001 |      630 |     34260 |            1.84 |
 |   LUT as Distributed RAM |    <0.001 |      160 |    144000 |            0.11 |
 |   BUFG                   |    <0.001 |        4 |        32 |           12.50 |
 |   Others                 |     0.000 |     2705 |       --- |             --- |
 |   F7/F8 Muxes            |     0.000 |      716 |    274080 |            0.26 |
-| Signals                  |     0.026 |    59144 |       --- |             --- |
+| Signals                  |     0.026 |    59149 |       --- |             --- |
 | Block RAM                |     0.035 |     35.5 |       912 |            3.89 |
 | PS8                      |     3.196 |        1 |       --- |             --- |
 | Static Power             |     0.726 |          |           |                 |
 |   PS Static              |     0.099 |          |           |                 |
 |   PL Static              |     0.627 |          |           |                 |
-| Total                    |     4.083 |          |           |                 |
+| Total                    |     4.085 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -78,7 +78,7 @@ Table of Contents
 +-----------------+-------------+-----------+-------------+------------+
 | Source          | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------------+-------------+-----------+-------------+------------+
-| Vccint          |       0.850 |     0.388 |       0.183 |      0.204 |
+| Vccint          |       0.850 |     0.390 |       0.185 |      0.204 |
 | Vccint_io       |       0.850 |     0.034 |       0.000 |      0.034 |
 | Vccint_xiphy    |       0.850 |     0.002 |       0.000 |      0.002 |
 | Vccbram         |       0.850 |     0.009 |       0.006 |      0.003 |
@@ -167,7 +167,7 @@ Table of Contents
 +------------------------------------------------------------------------------------+-----------+
 | Name                                                                               | Power (W) |
 +------------------------------------------------------------------------------------+-----------+
-| design_2_wrapper                                                                   |     3.357 |
+| design_2_wrapper                                                                   |     3.359 |
 |   dbg_hub                                                                          |     0.002 |
 |     inst                                                                           |     0.002 |
 |       BSCANID.u_xsdbm_id                                                           |     0.002 |
@@ -248,13 +248,13 @@ Table of Contents
 |           U_SYNC                                                                   |    <0.001 |
 |         SWITCH_N_EXT_BSCAN.bscan_inst                                              |    <0.001 |
 |         SWITCH_N_EXT_BSCAN.bscan_switch                                            |    <0.001 |
-|   design_2_i                                                                       |     3.308 |
+|   design_2_i                                                                       |     3.309 |
 |     AXI_PerfectTranslator_0                                                        |     0.000 |
 |     AXI_PerfectTranslator_1                                                        |     0.000 |
-|     MemorEDF_0                                                                     |     0.050 |
-|       inst                                                                         |     0.050 |
+|     MemorEDF_0                                                                     |     0.051 |
+|       inst                                                                         |     0.051 |
 |         configurationport                                                          |     0.005 |
-|         nonaxidomain                                                               |     0.041 |
+|         nonaxidomain                                                               |     0.042 |
 |           genblk1[0].queue                                                         |     0.009 |
 |           genblk1[1].queue                                                         |     0.009 |
 |           genblk1[2].queue                                                         |     0.008 |
@@ -574,7 +574,7 @@ Table of Contents
 |             asyncrounous_transfer.halt_in_transfer_inst                            |    <0.001 |
 |             asyncrounous_transfer.halt_out_transfer_inst                           |    <0.001 |
 |             halt_detection_inst                                                    |    <0.001 |
-|           u_trig                                                                   |     0.018 |
+|           u_trig                                                                   |     0.019 |
 |             N_DDR_TC.N_DDR_TC_INST[0].U_TC                                         |    <0.001 |
 |               allx_typeA_match_detection.ltlib_v1_0_0_allx_typeA_inst              |    <0.001 |
 |                 DUT                                                                |    <0.001 |
@@ -3654,9 +3654,9 @@ Table of Contents
 |           SEQ_COUNTER                                                              |    <0.001 |
 |     zynq_ultra_ps_e_0                                                              |     3.202 |
 |       inst                                                                         |     3.202 |
-|   u_ila_0                                                                          |     0.047 |
-|     inst                                                                           |     0.047 |
-|       ila_core_inst                                                                |     0.047 |
+|   u_ila_0                                                                          |     0.048 |
+|     inst                                                                           |     0.048 |
+|       ila_core_inst                                                                |     0.048 |
 |         ila_trace_memory_inst                                                      |     0.020 |
 |           SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory                            |     0.014 |
 |             inst_blk_mem_gen                                                       |     0.014 |
@@ -3761,7 +3761,7 @@ Table of Contents
 |                       u_srlB                                                       |    <0.001 |
 |                       u_srlC                                                       |    <0.001 |
 |                       u_srlD                                                       |    <0.001 |
-|         u_ila_regs                                                                 |     0.007 |
+|         u_ila_regs                                                                 |     0.008 |
 |           MU_SRL[0].mu_srl_reg                                                     |    <0.001 |
 |           MU_SRL[10].mu_srl_reg                                                    |    <0.001 |
 |           MU_SRL[11].mu_srl_reg                                                    |    <0.001 |
@@ -3877,7 +3877,7 @@ Table of Contents
 |           asyncrounous_transfer.halt_in_transfer_inst                              |    <0.001 |
 |           asyncrounous_transfer.halt_out_transfer_inst                             |    <0.001 |
 |           halt_detection_inst                                                      |    <0.001 |
-|         u_trig                                                                     |     0.009 |
+|         u_trig                                                                     |     0.010 |
 |           N_DDR_TC.N_DDR_TC_INST[0].U_TC                                           |    <0.001 |
 |             allx_typeA_match_detection.ltlib_v1_0_0_allx_typeA_inst                |    <0.001 |
 |               DUT                                                                  |    <0.001 |

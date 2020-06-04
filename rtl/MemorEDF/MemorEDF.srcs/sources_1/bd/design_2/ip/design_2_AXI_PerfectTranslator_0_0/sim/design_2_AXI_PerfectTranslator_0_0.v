@@ -48,7 +48,7 @@
 
 
 // IP VLNV: user.org:user:AXI_PerfectTranslator:1.0
-// IP Revision: 9
+// IP Revision: 10
 
 `timescale 1ns/1ps
 

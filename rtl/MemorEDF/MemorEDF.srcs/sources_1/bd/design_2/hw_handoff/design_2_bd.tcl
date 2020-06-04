@@ -189,13 +189,17 @@ proc create_root_design { parentCell } {
  ] [get_bd_intf_pins /MemorEDF_0/m00_axi]
 
   set_property -dict [ list \
+   CONFIG.SUPPORTS_NARROW_BURST {1} \
    CONFIG.NUM_READ_OUTSTANDING {2} \
    CONFIG.NUM_WRITE_OUTSTANDING {2} \
+   CONFIG.MAX_BURST_LENGTH {256} \
  ] [get_bd_intf_pins /MemorEDF_0/s00_axi]
 
   set_property -dict [ list \
+   CONFIG.SUPPORTS_NARROW_BURST {1} \
    CONFIG.NUM_READ_OUTSTANDING {2} \
    CONFIG.NUM_WRITE_OUTSTANDING {2} \
+   CONFIG.MAX_BURST_LENGTH {256} \
  ] [get_bd_intf_pins /MemorEDF_0/s01_axi]
 
   # Create instance: ila_0, and set properties
@@ -925,9 +929,9 @@ HDL_ATTRIBUTE.DEBUG {true} \
   create_bd_addr_seg -range 0x80000000 -offset 0x000800000000 [get_bd_addr_spaces AXI_PerfectTranslator_0/M00_AXI] [get_bd_addr_segs zynq_ultra_ps_e_0/SAXIGP2/HP0_DDR_LOW] SEG_zynq_ultra_ps_e_0_HP0_DDR_LOW
   create_bd_addr_seg -range 0x80000000 -offset 0x000800000000 [get_bd_addr_spaces AXI_PerfectTranslator_1/M00_AXI] [get_bd_addr_segs zynq_ultra_ps_e_0/SAXIGP3/HP1_DDR_LOW] SEG_zynq_ultra_ps_e_0_HP1_DDR_LOW
   create_bd_addr_seg -range 0x80000000 -offset 0x00000000 [get_bd_addr_spaces MemorEDF_0/m00_axi] [get_bd_addr_segs AXI_PerfectTranslator_0/S00_AXI/S00_AXI_mem] SEG_AXI_PerfectTranslator_0_S00_AXI_mem
-  create_bd_addr_seg -range 0x10000000 -offset 0xB0000000 [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs AXI_PerfectTranslator_1/S00_AXI/S00_AXI_mem] SEG_AXI_PerfectTranslator_1_S00_AXI_mem
+  create_bd_addr_seg -range 0x80000000 -offset 0x000500000000 [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs AXI_PerfectTranslator_1/S00_AXI/S00_AXI_mem] SEG_AXI_PerfectTranslator_1_S00_AXI_mem
   create_bd_addr_seg -range 0x00010000 -offset 0x80000000 [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs MemorEDF_0/s01_axi/Reg] SEG_MemorEDF_0_Reg
-  create_bd_addr_seg -range 0x10000000 -offset 0xA0000000 [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs MemorEDF_0/s00_axi/reg0] SEG_MemorEDF_0_reg0
+  create_bd_addr_seg -range 0x80000000 -offset 0x000400000000 [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs MemorEDF_0/s00_axi/reg0] SEG_MemorEDF_0_reg0
 
   # Exclude Address Segments
   create_bd_addr_seg -range 0x000800000000 -offset 0x001000000000 [get_bd_addr_spaces AXI_PerfectTranslator_0/M00_AXI] [get_bd_addr_segs zynq_ultra_ps_e_0/SAXIGP2/HP0_DDR_HIGH] SEG_zynq_ultra_ps_e_0_HP0_DDR_HIGH

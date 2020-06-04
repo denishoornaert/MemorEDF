@@ -48,7 +48,7 @@
 
 
 // IP VLNV: user.org:user:AXI_PerfectTranslator:1.0
-// IP Revision: 9
+// IP Revision: 10
 
 (* X_CORE_INFO = "AXI_PerfectTranslator_v1_0,Vivado 2017.4" *)
 (* CHECK_LICENSE_TYPE = "design_2_AXI_PerfectTranslator_0_0,AXI_PerfectTranslator_v1_0,{}" *)

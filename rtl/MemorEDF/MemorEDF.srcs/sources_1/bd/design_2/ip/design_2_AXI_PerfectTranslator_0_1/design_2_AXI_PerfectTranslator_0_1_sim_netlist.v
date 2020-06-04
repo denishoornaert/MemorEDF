@@ -1,7 +1,7 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-// Date        : Fri May  8 14:42:23 2020
+// Date        : Thu Jun  4 19:57:09 2020
 // Host        : CELSIUS running 64-bit Ubuntu 16.04.6 LTS
 // Command     : write_verilog -force -mode funcsim -rename_top design_2_AXI_PerfectTranslator_0_1 -prefix
 //               design_2_AXI_PerfectTranslator_0_1_ design_2_AXI_PerfectTranslator_0_0_sim_netlist.v
@@ -2636,11 +2636,7 @@ module design_2_AXI_PerfectTranslator_0_1
   assign m00_axi_araddr[34] = \<const0> ;
   assign m00_axi_araddr[33] = \<const0> ;
   assign m00_axi_araddr[32] = \<const0> ;
-  assign m00_axi_araddr[31] = \<const0> ;
-  assign m00_axi_araddr[30] = \<const0> ;
-  assign m00_axi_araddr[29] = \<const0> ;
-  assign m00_axi_araddr[28] = \<const0> ;
-  assign m00_axi_araddr[27:0] = s00_axi_araddr[27:0];
+  assign m00_axi_araddr[31:0] = s00_axi_araddr[31:0];
   assign m00_axi_arburst[1:0] = s00_axi_arburst;
   assign m00_axi_arcache[3:0] = s00_axi_arcache;
   assign m00_axi_arid[5:0] = s00_axi_arid[10:5];
@@ -2668,11 +2664,7 @@ module design_2_AXI_PerfectTranslator_0_1
   assign m00_axi_awaddr[34] = \<const0> ;
   assign m00_axi_awaddr[33] = \<const0> ;
   assign m00_axi_awaddr[32] = \<const0> ;
-  assign m00_axi_awaddr[31] = \<const0> ;
-  assign m00_axi_awaddr[30] = \<const0> ;
-  assign m00_axi_awaddr[29] = \<const0> ;
-  assign m00_axi_awaddr[28] = \<const0> ;
-  assign m00_axi_awaddr[27:0] = s00_axi_awaddr[27:0];
+  assign m00_axi_awaddr[31:0] = s00_axi_awaddr[31:0];
   assign m00_axi_awburst[1:0] = s00_axi_awburst;
   assign m00_axi_awcache[3:0] = s00_axi_awcache;
   assign m00_axi_awid[5:0] = s00_axi_awid[10:5];

@@ -1,7 +1,7 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
--- Date        : Fri May  8 14:42:23 2020
+-- Date        : Thu Jun  4 19:57:09 2020
 -- Host        : CELSIUS running 64-bit Ubuntu 16.04.6 LTS
 -- Command     : write_vhdl -force -mode funcsim
 --               /home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_AXI_PerfectTranslator_0_0/design_2_AXI_PerfectTranslator_0_0_sim_netlist.vhdl
@@ -3531,7 +3531,7 @@ begin
   \^m00_axi_rresp\(1 downto 0) <= m00_axi_rresp(1 downto 0);
   \^m00_axi_rvalid\ <= m00_axi_rvalid;
   \^m00_axi_wready\ <= m00_axi_wready;
-  \^s00_axi_araddr\(27 downto 0) <= s00_axi_araddr(27 downto 0);
+  \^s00_axi_araddr\(31 downto 0) <= s00_axi_araddr(31 downto 0);
   \^s00_axi_arburst\(1 downto 0) <= s00_axi_arburst(1 downto 0);
   \^s00_axi_arcache\(3 downto 0) <= s00_axi_arcache(3 downto 0);
   \^s00_axi_arid\(10 downto 5) <= s00_axi_arid(10 downto 5);
@@ -3542,7 +3542,7 @@ begin
   \^s00_axi_arsize\(2 downto 0) <= s00_axi_arsize(2 downto 0);
   \^s00_axi_aruser\(0) <= s00_axi_aruser(0);
   \^s00_axi_arvalid\ <= s00_axi_arvalid;
-  \^s00_axi_awaddr\(27 downto 0) <= s00_axi_awaddr(27 downto 0);
+  \^s00_axi_awaddr\(31 downto 0) <= s00_axi_awaddr(31 downto 0);
   \^s00_axi_awburst\(1 downto 0) <= s00_axi_awburst(1 downto 0);
   \^s00_axi_awcache\(3 downto 0) <= s00_axi_awcache(3 downto 0);
   \^s00_axi_awid\(10 downto 5) <= s00_axi_awid(10 downto 5);
@@ -3576,11 +3576,7 @@ begin
   m00_axi_araddr(34) <= \<const0>\;
   m00_axi_araddr(33) <= \<const0>\;
   m00_axi_araddr(32) <= \<const0>\;
-  m00_axi_araddr(31) <= \<const0>\;
-  m00_axi_araddr(30) <= \<const0>\;
-  m00_axi_araddr(29) <= \<const0>\;
-  m00_axi_araddr(28) <= \<const0>\;
-  m00_axi_araddr(27 downto 0) <= \^s00_axi_araddr\(27 downto 0);
+  m00_axi_araddr(31 downto 0) <= \^s00_axi_araddr\(31 downto 0);
   m00_axi_arburst(1 downto 0) <= \^s00_axi_arburst\(1 downto 0);
   m00_axi_arcache(3 downto 0) <= \^s00_axi_arcache\(3 downto 0);
   m00_axi_arid(5 downto 0) <= \^s00_axi_arid\(10 downto 5);
@@ -3608,11 +3604,7 @@ begin
   m00_axi_awaddr(34) <= \<const0>\;
   m00_axi_awaddr(33) <= \<const0>\;
   m00_axi_awaddr(32) <= \<const0>\;
-  m00_axi_awaddr(31) <= \<const0>\;
-  m00_axi_awaddr(30) <= \<const0>\;
-  m00_axi_awaddr(29) <= \<const0>\;
-  m00_axi_awaddr(28) <= \<const0>\;
-  m00_axi_awaddr(27 downto 0) <= \^s00_axi_awaddr\(27 downto 0);
+  m00_axi_awaddr(31 downto 0) <= \^s00_axi_awaddr\(31 downto 0);
   m00_axi_awburst(1 downto 0) <= \^s00_axi_awburst\(1 downto 0);
   m00_axi_awcache(3 downto 0) <= \^s00_axi_awcache\(3 downto 0);
   m00_axi_awid(5 downto 0) <= \^s00_axi_awid\(10 downto 5);
