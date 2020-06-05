@@ -1,0 +1,14 @@
+--- arch/arm64/include/asm/memory.h
++++ arch/arm64/include/asm/memory.h
+@@ -127,8 +127,10 @@
+ #define MT_DEVICE_nGnRE		1
+ #define MT_DEVICE_GRE		2
+ #define MT_NORMAL_NC		3
+-#define MT_NORMAL		4
++#define MT_NORMAL           4
+ #define MT_NORMAL_WT		5
++#define MT_NORMAL_OC_INC    6
++#define MT_MASK             7
+ 
+ /*
+  * Memory types for Stage-2 translation
