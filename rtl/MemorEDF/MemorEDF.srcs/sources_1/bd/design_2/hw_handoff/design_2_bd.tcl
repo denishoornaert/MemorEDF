@@ -257,6 +257,73 @@ proc create_root_design { parentCell } {
   # Create instance: rst_ps8_0_99M, and set properties
   set rst_ps8_0_99M [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 rst_ps8_0_99M ]
 
+  # Create instance: system_ila_0, and set properties
+  set system_ila_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:system_ila:1.1 system_ila_0 ]
+  set_property -dict [ list \
+   CONFIG.C_MON_TYPE {INTERFACE} \
+   CONFIG.C_NUM_MONITOR_SLOTS {5} \
+   CONFIG.C_SLOT_0_APC_EN {0} \
+   CONFIG.C_SLOT_0_AXI_AR_SEL_DATA {1} \
+   CONFIG.C_SLOT_0_AXI_AR_SEL_TRIG {1} \
+   CONFIG.C_SLOT_0_AXI_AW_SEL_DATA {1} \
+   CONFIG.C_SLOT_0_AXI_AW_SEL_TRIG {1} \
+   CONFIG.C_SLOT_0_AXI_B_SEL_DATA {1} \
+   CONFIG.C_SLOT_0_AXI_B_SEL_TRIG {1} \
+   CONFIG.C_SLOT_0_AXI_R_SEL_DATA {1} \
+   CONFIG.C_SLOT_0_AXI_R_SEL_TRIG {1} \
+   CONFIG.C_SLOT_0_AXI_W_SEL_DATA {1} \
+   CONFIG.C_SLOT_0_AXI_W_SEL_TRIG {1} \
+   CONFIG.C_SLOT_0_INTF_TYPE {xilinx.com:interface:aximm_rtl:1.0} \
+   CONFIG.C_SLOT_1_APC_EN {0} \
+   CONFIG.C_SLOT_1_AXI_AR_SEL_DATA {1} \
+   CONFIG.C_SLOT_1_AXI_AR_SEL_TRIG {1} \
+   CONFIG.C_SLOT_1_AXI_AW_SEL_DATA {1} \
+   CONFIG.C_SLOT_1_AXI_AW_SEL_TRIG {1} \
+   CONFIG.C_SLOT_1_AXI_B_SEL_DATA {1} \
+   CONFIG.C_SLOT_1_AXI_B_SEL_TRIG {1} \
+   CONFIG.C_SLOT_1_AXI_R_SEL_DATA {1} \
+   CONFIG.C_SLOT_1_AXI_R_SEL_TRIG {1} \
+   CONFIG.C_SLOT_1_AXI_W_SEL_DATA {1} \
+   CONFIG.C_SLOT_1_AXI_W_SEL_TRIG {1} \
+   CONFIG.C_SLOT_1_INTF_TYPE {xilinx.com:interface:aximm_rtl:1.0} \
+   CONFIG.C_SLOT_2_APC_EN {0} \
+   CONFIG.C_SLOT_2_AXI_AR_SEL_DATA {1} \
+   CONFIG.C_SLOT_2_AXI_AR_SEL_TRIG {1} \
+   CONFIG.C_SLOT_2_AXI_AW_SEL_DATA {1} \
+   CONFIG.C_SLOT_2_AXI_AW_SEL_TRIG {1} \
+   CONFIG.C_SLOT_2_AXI_B_SEL_DATA {1} \
+   CONFIG.C_SLOT_2_AXI_B_SEL_TRIG {1} \
+   CONFIG.C_SLOT_2_AXI_R_SEL_DATA {1} \
+   CONFIG.C_SLOT_2_AXI_R_SEL_TRIG {1} \
+   CONFIG.C_SLOT_2_AXI_W_SEL_DATA {1} \
+   CONFIG.C_SLOT_2_AXI_W_SEL_TRIG {1} \
+   CONFIG.C_SLOT_2_INTF_TYPE {xilinx.com:interface:aximm_rtl:1.0} \
+   CONFIG.C_SLOT_3_APC_EN {0} \
+   CONFIG.C_SLOT_3_AXI_AR_SEL_DATA {1} \
+   CONFIG.C_SLOT_3_AXI_AR_SEL_TRIG {1} \
+   CONFIG.C_SLOT_3_AXI_AW_SEL_DATA {1} \
+   CONFIG.C_SLOT_3_AXI_AW_SEL_TRIG {1} \
+   CONFIG.C_SLOT_3_AXI_B_SEL_DATA {1} \
+   CONFIG.C_SLOT_3_AXI_B_SEL_TRIG {1} \
+   CONFIG.C_SLOT_3_AXI_R_SEL_DATA {1} \
+   CONFIG.C_SLOT_3_AXI_R_SEL_TRIG {1} \
+   CONFIG.C_SLOT_3_AXI_W_SEL_DATA {1} \
+   CONFIG.C_SLOT_3_AXI_W_SEL_TRIG {1} \
+   CONFIG.C_SLOT_3_INTF_TYPE {xilinx.com:interface:aximm_rtl:1.0} \
+   CONFIG.C_SLOT_4_APC_EN {0} \
+   CONFIG.C_SLOT_4_AXI_AR_SEL_DATA {1} \
+   CONFIG.C_SLOT_4_AXI_AR_SEL_TRIG {1} \
+   CONFIG.C_SLOT_4_AXI_AW_SEL_DATA {1} \
+   CONFIG.C_SLOT_4_AXI_AW_SEL_TRIG {1} \
+   CONFIG.C_SLOT_4_AXI_B_SEL_DATA {1} \
+   CONFIG.C_SLOT_4_AXI_B_SEL_TRIG {1} \
+   CONFIG.C_SLOT_4_AXI_R_SEL_DATA {1} \
+   CONFIG.C_SLOT_4_AXI_R_SEL_TRIG {1} \
+   CONFIG.C_SLOT_4_AXI_W_SEL_DATA {1} \
+   CONFIG.C_SLOT_4_AXI_W_SEL_TRIG {1} \
+   CONFIG.C_SLOT_4_INTF_TYPE {xilinx.com:interface:aximm_rtl:1.0} \
+ ] $system_ila_0
+
   # Create instance: zynq_ultra_ps_e_0, and set properties
   set zynq_ultra_ps_e_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:zynq_ultra_ps_e:3.1 zynq_ultra_ps_e_0 ]
   set_property -dict [ list \
@@ -910,19 +977,39 @@ proc create_root_design { parentCell } {
 
   # Create interface connections
   connect_bd_intf_net -intf_net AXI_PerfectTranslator_0_M00_AXI [get_bd_intf_pins AXI_PerfectTranslator_0/M00_AXI] [get_bd_intf_pins zynq_ultra_ps_e_0/S_AXI_HP0_FPD]
+connect_bd_intf_net -intf_net [get_bd_intf_nets AXI_PerfectTranslator_0_M00_AXI] [get_bd_intf_pins AXI_PerfectTranslator_0/M00_AXI] [get_bd_intf_pins system_ila_0/SLOT_1_AXI]
+  set_property -dict [ list \
+HDL_ATTRIBUTE.DEBUG {true} \
+ ] [get_bd_intf_nets AXI_PerfectTranslator_0_M00_AXI]
   connect_bd_intf_net -intf_net AXI_PerfectTranslator_1_M00_AXI [get_bd_intf_pins AXI_PerfectTranslator_1/M00_AXI] [get_bd_intf_pins zynq_ultra_ps_e_0/S_AXI_HP1_FPD]
+connect_bd_intf_net -intf_net [get_bd_intf_nets AXI_PerfectTranslator_1_M00_AXI] [get_bd_intf_pins AXI_PerfectTranslator_1/M00_AXI] [get_bd_intf_pins system_ila_0/SLOT_3_AXI]
+  set_property -dict [ list \
+HDL_ATTRIBUTE.DEBUG {true} \
+ ] [get_bd_intf_nets AXI_PerfectTranslator_1_M00_AXI]
   connect_bd_intf_net -intf_net MemorEDF_0_m00_axi [get_bd_intf_pins AXI_PerfectTranslator_0/S00_AXI] [get_bd_intf_pins MemorEDF_0/m00_axi]
 connect_bd_intf_net -intf_net [get_bd_intf_nets MemorEDF_0_m00_axi] [get_bd_intf_pins AXI_PerfectTranslator_0/S00_AXI] [get_bd_intf_pins ila_0/SLOT_0_AXI]
   set_property -dict [ list \
 HDL_ATTRIBUTE.DEBUG {true} \
  ] [get_bd_intf_nets MemorEDF_0_m00_axi]
   connect_bd_intf_net -intf_net zynq_ultra_ps_e_0_M_AXI_HPM0_FPD [get_bd_intf_pins MemorEDF_0/s00_axi] [get_bd_intf_pins zynq_ultra_ps_e_0/M_AXI_HPM0_FPD]
+connect_bd_intf_net -intf_net [get_bd_intf_nets zynq_ultra_ps_e_0_M_AXI_HPM0_FPD] [get_bd_intf_pins system_ila_0/SLOT_4_AXI] [get_bd_intf_pins zynq_ultra_ps_e_0/M_AXI_HPM0_FPD]
+  set_property -dict [ list \
+HDL_ATTRIBUTE.DEBUG {true} \
+ ] [get_bd_intf_nets zynq_ultra_ps_e_0_M_AXI_HPM0_FPD]
   connect_bd_intf_net -intf_net zynq_ultra_ps_e_0_M_AXI_HPM0_LPD [get_bd_intf_pins MemorEDF_0/s01_axi] [get_bd_intf_pins zynq_ultra_ps_e_0/M_AXI_HPM0_LPD]
+connect_bd_intf_net -intf_net [get_bd_intf_nets zynq_ultra_ps_e_0_M_AXI_HPM0_LPD] [get_bd_intf_pins system_ila_0/SLOT_0_AXI] [get_bd_intf_pins zynq_ultra_ps_e_0/M_AXI_HPM0_LPD]
+  set_property -dict [ list \
+HDL_ATTRIBUTE.DEBUG {true} \
+ ] [get_bd_intf_nets zynq_ultra_ps_e_0_M_AXI_HPM0_LPD]
   connect_bd_intf_net -intf_net zynq_ultra_ps_e_0_M_AXI_HPM1_FPD [get_bd_intf_pins AXI_PerfectTranslator_1/S00_AXI] [get_bd_intf_pins zynq_ultra_ps_e_0/M_AXI_HPM1_FPD]
+connect_bd_intf_net -intf_net [get_bd_intf_nets zynq_ultra_ps_e_0_M_AXI_HPM1_FPD] [get_bd_intf_pins system_ila_0/SLOT_2_AXI] [get_bd_intf_pins zynq_ultra_ps_e_0/M_AXI_HPM1_FPD]
+  set_property -dict [ list \
+HDL_ATTRIBUTE.DEBUG {true} \
+ ] [get_bd_intf_nets zynq_ultra_ps_e_0_M_AXI_HPM1_FPD]
 
   # Create port connections
-  connect_bd_net -net rst_ps8_0_99M_peripheral_aresetn [get_bd_pins AXI_PerfectTranslator_0/m00_axi_aresetn] [get_bd_pins AXI_PerfectTranslator_0/s00_axi_aresetn] [get_bd_pins AXI_PerfectTranslator_1/m00_axi_aresetn] [get_bd_pins AXI_PerfectTranslator_1/s00_axi_aresetn] [get_bd_pins MemorEDF_0/m00_axi_aresetn] [get_bd_pins MemorEDF_0/s00_axi_aresetn] [get_bd_pins MemorEDF_0/s01_axi_aresetn] [get_bd_pins rst_ps8_0_99M/peripheral_aresetn]
-  connect_bd_net -net zynq_ultra_ps_e_0_pl_clk0 [get_bd_pins AXI_PerfectTranslator_0/m00_axi_aclk] [get_bd_pins AXI_PerfectTranslator_0/s00_axi_aclk] [get_bd_pins AXI_PerfectTranslator_1/m00_axi_aclk] [get_bd_pins AXI_PerfectTranslator_1/s00_axi_aclk] [get_bd_pins MemorEDF_0/m00_axi_aclk] [get_bd_pins MemorEDF_0/s00_axi_aclk] [get_bd_pins MemorEDF_0/s01_axi_aclk] [get_bd_pins ila_0/clk] [get_bd_pins rst_ps8_0_99M/slowest_sync_clk] [get_bd_pins zynq_ultra_ps_e_0/maxihpm0_fpd_aclk] [get_bd_pins zynq_ultra_ps_e_0/maxihpm0_lpd_aclk] [get_bd_pins zynq_ultra_ps_e_0/maxihpm1_fpd_aclk] [get_bd_pins zynq_ultra_ps_e_0/pl_clk0] [get_bd_pins zynq_ultra_ps_e_0/saxihp0_fpd_aclk] [get_bd_pins zynq_ultra_ps_e_0/saxihp1_fpd_aclk]
+  connect_bd_net -net rst_ps8_0_99M_peripheral_aresetn [get_bd_pins AXI_PerfectTranslator_0/m00_axi_aresetn] [get_bd_pins AXI_PerfectTranslator_0/s00_axi_aresetn] [get_bd_pins AXI_PerfectTranslator_1/m00_axi_aresetn] [get_bd_pins AXI_PerfectTranslator_1/s00_axi_aresetn] [get_bd_pins MemorEDF_0/m00_axi_aresetn] [get_bd_pins MemorEDF_0/s00_axi_aresetn] [get_bd_pins MemorEDF_0/s01_axi_aresetn] [get_bd_pins rst_ps8_0_99M/peripheral_aresetn] [get_bd_pins system_ila_0/resetn]
+  connect_bd_net -net zynq_ultra_ps_e_0_pl_clk0 [get_bd_pins AXI_PerfectTranslator_0/m00_axi_aclk] [get_bd_pins AXI_PerfectTranslator_0/s00_axi_aclk] [get_bd_pins AXI_PerfectTranslator_1/m00_axi_aclk] [get_bd_pins AXI_PerfectTranslator_1/s00_axi_aclk] [get_bd_pins MemorEDF_0/m00_axi_aclk] [get_bd_pins MemorEDF_0/s00_axi_aclk] [get_bd_pins MemorEDF_0/s01_axi_aclk] [get_bd_pins ila_0/clk] [get_bd_pins rst_ps8_0_99M/slowest_sync_clk] [get_bd_pins system_ila_0/clk] [get_bd_pins zynq_ultra_ps_e_0/maxihpm0_fpd_aclk] [get_bd_pins zynq_ultra_ps_e_0/maxihpm0_lpd_aclk] [get_bd_pins zynq_ultra_ps_e_0/maxihpm1_fpd_aclk] [get_bd_pins zynq_ultra_ps_e_0/pl_clk0] [get_bd_pins zynq_ultra_ps_e_0/saxihp0_fpd_aclk] [get_bd_pins zynq_ultra_ps_e_0/saxihp1_fpd_aclk]
   connect_bd_net -net zynq_ultra_ps_e_0_pl_resetn0 [get_bd_pins rst_ps8_0_99M/ext_reset_in] [get_bd_pins zynq_ultra_ps_e_0/pl_resetn0]
 
   # Create address segments

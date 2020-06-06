@@ -2,8 +2,8 @@
 # Vivado v2017.4 (64-bit)
 # SW Build 2086221 on Fri Dec 15 20:54:30 MST 2017
 # IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
-# Start of session at: Thu Jun  4 19:59:51 2020
-# Process ID: 23522
+# Start of session at: Sat Jun  6 22:16:58 2020
+# Process ID: 24943
 # Current directory: /home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/impl_1
 # Command line: vivado -log design_2_wrapper.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source design_2_wrapper.tcl -notrace
 # Log file: /home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/impl_1/design_2_wrapper.vdi
@@ -14,7 +14,7 @@ INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/duck/Github/MemorEDF/rtl/ip_repo'.
 INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/duck/ip_repo/ConfigurationPort_1.0'.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2017.4/data/ip'.
-add_files: Time (s): cpu = 00:00:11 ; elapsed = 00:00:19 . Memory (MB): peak = 1530.820 ; gain = 347.961 ; free physical = 1823 ; free virtual = 25023
+add_files: Time (s): cpu = 00:00:13 ; elapsed = 00:00:23 . Memory (MB): peak = 1530.820 ; gain = 347.961 ; free physical = 4408 ; free virtual = 22765
 Command: link_design -top design_2_wrapper -part xczu9eg-ffvb1156-2-e
 Design is defaulting to srcset: sources_1
 Design is defaulting to constrset: constrs_1
@@ -23,13 +23,16 @@ INFO: [Project 1-454] Reading design checkpoint '/home/duck/Github/MemorEDF/rtl/
 INFO: [Project 1-454] Reading design checkpoint '/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_MemorEDF_0_0/design_2_MemorEDF_0_0.dcp' for cell 'design_2_i/MemorEDF_0'
 INFO: [Project 1-454] Reading design checkpoint '/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_ila_0_0/design_2_ila_0_0.dcp' for cell 'design_2_i/ila_0'
 INFO: [Project 1-454] Reading design checkpoint '/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_rst_ps8_0_99M_0/design_2_rst_ps8_0_99M_0.dcp' for cell 'design_2_i/rst_ps8_0_99M'
+INFO: [Project 1-454] Reading design checkpoint '/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_system_ila_0_0/design_2_system_ila_0_0.dcp' for cell 'design_2_i/system_ila_0'
 INFO: [Project 1-454] Reading design checkpoint '/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_zynq_ultra_ps_e_0_0/design_2_zynq_ultra_ps_e_0_0.dcp' for cell 'design_2_i/zynq_ultra_ps_e_0'
-INFO: [Netlist 29-17] Analyzing 3226 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 6313 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-479] Netlist was created with Vivado 2017.4
 INFO: [Device 21-403] Loading part xczu9eg-ffvb1156-2-e
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Chipscope 16-324] Core: design_2_i/ila_0 UUID: f2a5a0e1-5286-5171-a222-bf15acec5622 
+INFO: [Chipscope 16-324] Core: design_2_i/system_ila_0/inst/ila_lib UUID: 2bfc1660-7ba4-51a3-a7b3-52858838738f 
+INFO: [Timing 38-35] Done setting XDC timing constraints.
 Parsing XDC File [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_zynq_ultra_ps_e_0_0/design_2_zynq_ultra_ps_e_0_0.xdc] for cell 'design_2_i/zynq_ultra_ps_e_0/inst'
 Finished Parsing XDC File [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_zynq_ultra_ps_e_0_0/design_2_zynq_ultra_ps_e_0_0.xdc] for cell 'design_2_i/zynq_ultra_ps_e_0/inst'
 Parsing XDC File [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_rst_ps8_0_99M_0/design_2_rst_ps8_0_99M_0_board.xdc] for cell 'design_2_i/rst_ps8_0_99M/U0'
@@ -40,6 +43,10 @@ Parsing XDC File [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_
 Finished Parsing XDC File [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_ila_0_0/ila_v6_2/constraints/ila_impl.xdc] for cell 'design_2_i/ila_0/inst'
 Parsing XDC File [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_ila_0_0/ila_v6_2/constraints/ila.xdc] for cell 'design_2_i/ila_0/inst'
 Finished Parsing XDC File [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_ila_0_0/ila_v6_2/constraints/ila.xdc] for cell 'design_2_i/ila_0/inst'
+Parsing XDC File [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_system_ila_0_0/bd_0/ip/ip_0/ila_v6_2/constraints/ila_impl.xdc] for cell 'design_2_i/system_ila_0/inst/ila_lib/inst'
+Finished Parsing XDC File [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_system_ila_0_0/bd_0/ip/ip_0/ila_v6_2/constraints/ila_impl.xdc] for cell 'design_2_i/system_ila_0/inst/ila_lib/inst'
+Parsing XDC File [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_system_ila_0_0/bd_0/ip/ip_0/ila_v6_2/constraints/ila.xdc] for cell 'design_2_i/system_ila_0/inst/ila_lib/inst'
+Finished Parsing XDC File [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_system_ila_0_0/bd_0/ip/ip_0/ila_v6_2/constraints/ila.xdc] for cell 'design_2_i/system_ila_0/inst/ila_lib/inst'
 Parsing XDC File [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc]
 CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:10]
 CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:11]
@@ -158,13 +165,13 @@ CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/du
 Finished Parsing XDC File [/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc]
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 2204 instances were transformed.
-  CFGLUT5 => CFGLUT5 (SRLC32E, SRL16E): 2188 instances
+  A total of 3952 instances were transformed.
+  CFGLUT5 => CFGLUT5 (SRLC32E, SRL16E): 3936 instances
   RAM64M8 => RAM64M8 (RAMD64E, RAMD64E, RAMD64E, RAMD64E, RAMD64E, RAMD64E, RAMD64E, RAMD64E): 16 instances
 
-19 Infos, 100 Warnings, 13 Critical Warnings and 0 Errors encountered.
+22 Infos, 100 Warnings, 13 Critical Warnings and 0 Errors encountered.
 link_design completed successfully
-link_design: Time (s): cpu = 00:00:52 ; elapsed = 00:01:10 . Memory (MB): peak = 2616.684 ; gain = 1085.863 ; free physical = 548 ; free virtual = 23749
+link_design: Time (s): cpu = 00:01:30 ; elapsed = 00:01:46 . Memory (MB): peak = 3403.738 ; gain = 1872.918 ; free physical = 2623 ; free virtual = 20981
 Command: opt_design
 Attempting to get a license for feature 'Implementation' and/or device 'xczu9eg'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xczu9eg'
@@ -176,7 +183,7 @@ INFO: [DRC 23-27] Running DRC with 8 threads
 INFO: [Project 1-461] DRC finished with 0 Errors
 INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 2695.715 ; gain = 71.031 ; free physical = 536 ; free virtual = 23738
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 3475.770 ; gain = 64.031 ; free physical = 2613 ; free virtual = 20971
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 
 Starting Logic Optimization Task
@@ -184,22 +191,22 @@ Starting Logic Optimization Task
 Phase 1 Generate And Synthesize Debug Cores
 INFO: [Chipscope 16-318] Generating core instance : dbg_hub
 INFO: [IP_Flow 19-3806] Processing IP xilinx.com:ip:xsdbm:3.0 for cell dbg_hub_CV.
-INFO: [Chipscope 16-220] Re-using generated and synthesized IP, "xilinx.com:ip:xsdbm:3.0", from Vivado IP cache entry "e4a03b9a51b51794".
-INFO: [Netlist 29-17] Analyzing 1029 Unisim elements for replacement
+INFO: [Chipscope 16-220] Re-using generated and synthesized IP, "xilinx.com:ip:xsdbm:3.0", from Vivado IP cache entry "bcdc611f1106ad22".
+INFO: [Netlist 29-17] Analyzing 2368 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Chipscope 16-318] Generating core instance : u_ila_0
 INFO: [IP_Flow 19-3806] Processing IP xilinx.com:ip:ila:6.2 for cell u_ila_0_CV.
 INFO: [Chipscope 16-220] Re-using generated and synthesized IP, "xilinx.com:ip:ila:6.2", from Vivado IP cache entry "f0634856e5e853bf".
-INFO: [Netlist 29-17] Analyzing 1390 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 2729 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
-Netlist sorting complete. Time (s): cpu = 00:00:00.07 ; elapsed = 00:00:00.08 . Memory (MB): peak = 3285.473 ; gain = 0.000 ; free physical = 1765 ; free virtual = 23264
-Phase 1 Generate And Synthesize Debug Cores | Checksum: 1562526a8
+Netlist sorting complete. Time (s): cpu = 00:00:00.12 ; elapsed = 00:00:00.12 . Memory (MB): peak = 3493.879 ; gain = 0.000 ; free physical = 2502 ; free virtual = 20889
+Phase 1 Generate And Synthesize Debug Cores | Checksum: aff3033e
 
-Time (s): cpu = 00:01:53 ; elapsed = 00:02:26 . Memory (MB): peak = 3285.473 ; gain = 44.109 ; free physical = 1766 ; free virtual = 23264
+Time (s): cpu = 00:02:10 ; elapsed = 00:02:39 . Memory (MB): peak = 3493.879 ; gain = 18.109 ; free physical = 2502 ; free virtual = 20889
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 
 Phase 2 Retarget
-INFO: [Opt 31-138] Pushed 12 inverter(s) to 17138 load pin(s).
+INFO: [Opt 31-138] Pushed 18 inverter(s) to 17604 load pin(s).
 INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM18.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
 INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
 INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
@@ -216,6 +223,79 @@ INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/ila_0
 INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[8].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
 INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
 INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM18.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM18.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[12].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[13].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[14].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[8].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[1].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM18.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[1].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[1].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[1].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[12].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[1].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[13].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[1].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[14].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[1].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[1].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[1].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[1].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[1].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[1].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[1].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[1].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[8].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[1].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[2].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM18.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[2].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[2].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[2].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[12].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[2].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[13].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[2].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[14].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[2].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[2].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[2].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[2].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[2].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[2].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[2].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[2].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[8].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[2].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[3].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM18.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[3].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[3].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[3].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[12].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[3].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[13].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[3].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[14].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[3].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[3].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[3].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[3].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[3].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[3].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[3].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[3].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[8].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[3].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[12].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[8].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
 INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM18.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
 INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
 INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
@@ -227,53 +307,44 @@ INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell u_ila_0/inst/ila
 INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
 INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
 INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
-INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
-INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
-INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[8].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
-INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
-INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
-INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
-INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
-INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
-INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
-INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Common 17-14] Message 'Opt 31-422' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Opt 31-49] Retargeted 0 cell(s).
-Phase 2 Retarget | Checksum: c159f7e8
+Phase 2 Retarget | Checksum: d346febf
 
-Time (s): cpu = 00:02:03 ; elapsed = 00:02:31 . Memory (MB): peak = 3336.473 ; gain = 95.109 ; free physical = 1750 ; free virtual = 23248
-INFO: [Opt 31-389] Phase Retarget created 10 cells and removed 312 cells
+Time (s): cpu = 00:02:27 ; elapsed = 00:02:48 . Memory (MB): peak = 3552.879 ; gain = 77.109 ; free physical = 2485 ; free virtual = 20872
+INFO: [Opt 31-389] Phase Retarget created 55 cells and removed 366 cells
 
 Phase 3 Constant propagation
 INFO: [Opt 31-138] Pushed 2 inverter(s) to 298 load pin(s).
-Phase 3 Constant propagation | Checksum: 9290c9ee
+Phase 3 Constant propagation | Checksum: f2a81f4e
 
-Time (s): cpu = 00:02:04 ; elapsed = 00:02:32 . Memory (MB): peak = 3336.473 ; gain = 95.109 ; free physical = 1751 ; free virtual = 23250
-INFO: [Opt 31-389] Phase Constant propagation created 4 cells and removed 103 cells
+Time (s): cpu = 00:02:28 ; elapsed = 00:02:49 . Memory (MB): peak = 3552.879 ; gain = 77.109 ; free physical = 2488 ; free virtual = 20875
+INFO: [Opt 31-389] Phase Constant propagation created 4 cells and removed 125 cells
 
 Phase 4 Sweep
-Phase 4 Sweep | Checksum: 15a872fc9
+Phase 4 Sweep | Checksum: f35b6bbe
 
-Time (s): cpu = 00:02:07 ; elapsed = 00:02:35 . Memory (MB): peak = 3336.473 ; gain = 95.109 ; free physical = 1749 ; free virtual = 23247
-INFO: [Opt 31-389] Phase Sweep created 0 cells and removed 666 cells
+Time (s): cpu = 00:02:36 ; elapsed = 00:02:57 . Memory (MB): peak = 3552.879 ; gain = 77.109 ; free physical = 2482 ; free virtual = 20870
+INFO: [Opt 31-389] Phase Sweep created 0 cells and removed 712 cells
 
 Phase 5 BUFG optimization
-Phase 5 BUFG optimization | Checksum: 15a872fc9
+Phase 5 BUFG optimization | Checksum: f35b6bbe
 
-Time (s): cpu = 00:02:08 ; elapsed = 00:02:36 . Memory (MB): peak = 3336.473 ; gain = 95.109 ; free physical = 1749 ; free virtual = 23248
+Time (s): cpu = 00:02:38 ; elapsed = 00:02:59 . Memory (MB): peak = 3552.879 ; gain = 77.109 ; free physical = 2482 ; free virtual = 20869
 INFO: [Opt 31-389] Phase BUFG optimization created 0 cells and removed 0 cells
 
 Phase 6 Shift Register Optimization
-Phase 6 Shift Register Optimization | Checksum: 15a872fc9
+Phase 6 Shift Register Optimization | Checksum: f35b6bbe
 
-Time (s): cpu = 00:02:09 ; elapsed = 00:02:37 . Memory (MB): peak = 3336.473 ; gain = 95.109 ; free physical = 1749 ; free virtual = 23247
+Time (s): cpu = 00:02:40 ; elapsed = 00:03:01 . Memory (MB): peak = 3552.879 ; gain = 77.109 ; free physical = 2480 ; free virtual = 20867
 INFO: [Opt 31-389] Phase Shift Register Optimization created 0 cells and removed 0 cells
 
 Starting Connectivity Check Task
 
-Time (s): cpu = 00:00:00.15 ; elapsed = 00:00:00.15 . Memory (MB): peak = 3336.473 ; gain = 0.000 ; free physical = 1747 ; free virtual = 23245
-Ending Logic Optimization Task | Checksum: ee11d65c
+Time (s): cpu = 00:00:00.21 ; elapsed = 00:00:00.22 . Memory (MB): peak = 3552.879 ; gain = 0.000 ; free physical = 2478 ; free virtual = 20865
+Ending Logic Optimization Task | Checksum: f35b6bbe
 
-Time (s): cpu = 00:02:10 ; elapsed = 00:02:38 . Memory (MB): peak = 3336.473 ; gain = 95.109 ; free physical = 1747 ; free virtual = 23245
+Time (s): cpu = 00:02:41 ; elapsed = 00:03:02 . Memory (MB): peak = 3552.879 ; gain = 77.109 ; free physical = 2478 ; free virtual = 20865
 
 Starting Power Optimization Task
 INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 2.00 ns.
@@ -287,21 +358,21 @@ Finished Running Vector-less Activity Propagation
 
 
 Starting PowerOpt Patch Enables Task
-INFO: [Pwropt 34-162] WRITE_MODE attribute of 0 BRAM(s) out of a total of 37 has been updated to save power. Run report_power_opt to get a complete listing of the BRAMs updated.
+INFO: [Pwropt 34-162] WRITE_MODE attribute of 0 BRAM(s) out of a total of 110 has been updated to save power. Run report_power_opt to get a complete listing of the BRAMs updated.
 INFO: [Pwropt 34-201] Structural ODC has moved 0 WE to EN ports
-Number of BRAM Ports augmented: 37 newly gated: 0 Total Ports: 74
-Ending PowerOpt Patch Enables Task | Checksum: 14e12e065
+Number of BRAM Ports augmented: 110 newly gated: 0 Total Ports: 220
+Ending PowerOpt Patch Enables Task | Checksum: 15ddaa41c
 
-Time (s): cpu = 00:00:00.34 ; elapsed = 00:00:00.34 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 1131 ; free virtual = 22630
-Ending Power Optimization Task | Checksum: 14e12e065
+Time (s): cpu = 00:00:00.77 ; elapsed = 00:00:00.79 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 1818 ; free virtual = 20208
+Ending Power Optimization Task | Checksum: 15ddaa41c
 
-Time (s): cpu = 00:01:11 ; elapsed = 00:00:43 . Memory (MB): peak = 4782.898 ; gain = 1446.426 ; free physical = 1193 ; free virtual = 22692
+Time (s): cpu = 00:01:34 ; elapsed = 00:00:51 . Memory (MB): peak = 5059.852 ; gain = 1506.973 ; free physical = 1911 ; free virtual = 20301
 INFO: [Common 17-83] Releasing license: Implementation
-95 Infos, 100 Warnings, 13 Critical Warnings and 0 Errors encountered.
+162 Infos, 100 Warnings, 13 Critical Warnings and 0 Errors encountered.
 opt_design completed successfully
-opt_design: Time (s): cpu = 00:03:34 ; elapsed = 00:03:36 . Memory (MB): peak = 4782.898 ; gain = 2166.215 ; free physical = 1194 ; free virtual = 22692
+opt_design: Time (s): cpu = 00:04:25 ; elapsed = 00:03:58 . Memory (MB): peak = 5059.852 ; gain = 1656.113 ; free physical = 1911 ; free virtual = 20301
 INFO: [Common 17-1381] The checkpoint '/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/impl_1/design_2_wrapper_opt.dcp' has been generated.
-write_checkpoint: Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 1181 ; free virtual = 22693
+write_checkpoint: Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 1875 ; free virtual = 20287
 INFO: [runtcl-4] Executing : report_drc -file design_2_wrapper_drc_opted.rpt -pb design_2_wrapper_drc_opted.pb -rpx design_2_wrapper_drc_opted.rpx
 Command: report_drc -file design_2_wrapper_drc_opted.rpt -pb design_2_wrapper_drc_opted.pb -rpx design_2_wrapper_drc_opted.rpx
 INFO: [IP_Flow 19-1839] IP Catalog is up to date.
@@ -327,97 +398,97 @@ INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 
 Phase 1 Placer Initialization
 
 Phase 1.1 Placer Initialization Netlist Sorting
-Netlist sorting complete. Time (s): cpu = 00:00:00.10 ; elapsed = 00:00:00.11 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 1102 ; free virtual = 22616
-Phase 1.1 Placer Initialization Netlist Sorting | Checksum: dcbd2714
+Netlist sorting complete. Time (s): cpu = 00:00:00.14 ; elapsed = 00:00:00.14 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 1873 ; free virtual = 20285
+Phase 1.1 Placer Initialization Netlist Sorting | Checksum: d96bd2e9
 
-Time (s): cpu = 00:00:00.12 ; elapsed = 00:00:00.16 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 1101 ; free virtual = 22616
+Time (s): cpu = 00:00:00.17 ; elapsed = 00:00:00.20 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 1873 ; free virtual = 20285
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00.08 ; elapsed = 00:00:00.08 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 1086 ; free virtual = 22600
+Netlist sorting complete. Time (s): cpu = 00:00:00.13 ; elapsed = 00:00:00.12 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 1880 ; free virtual = 20292
 
 Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device
 INFO: [Timing 38-35] Done setting XDC timing constraints.
-Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 183e4bcbe
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 14232dc6a
 
-Time (s): cpu = 00:00:23 ; elapsed = 00:00:13 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 982 ; free virtual = 22497
+Time (s): cpu = 00:00:30 ; elapsed = 00:00:18 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 1756 ; free virtual = 20171
 
 Phase 1.3 Build Placer Netlist Model
-Phase 1.3 Build Placer Netlist Model | Checksum: 1affd8494
+Phase 1.3 Build Placer Netlist Model | Checksum: 1b3d6771b
 
-Time (s): cpu = 00:00:42 ; elapsed = 00:00:21 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 842 ; free virtual = 22357
+Time (s): cpu = 00:00:56 ; elapsed = 00:00:29 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 1567 ; free virtual = 19982
 
 Phase 1.4 Constrain Clocks/Macros
-Phase 1.4 Constrain Clocks/Macros | Checksum: 1affd8494
+Phase 1.4 Constrain Clocks/Macros | Checksum: 1b3d6771b
 
-Time (s): cpu = 00:00:42 ; elapsed = 00:00:21 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 842 ; free virtual = 22357
-Phase 1 Placer Initialization | Checksum: 1affd8494
+Time (s): cpu = 00:00:57 ; elapsed = 00:00:29 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 1566 ; free virtual = 19981
+Phase 1 Placer Initialization | Checksum: 1b3d6771b
 
-Time (s): cpu = 00:00:42 ; elapsed = 00:00:22 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 840 ; free virtual = 22356
+Time (s): cpu = 00:00:57 ; elapsed = 00:00:30 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 1570 ; free virtual = 19984
 
 Phase 2 Global Placement
-Phase 2 Global Placement | Checksum: 1ec20f584
+Phase 2 Global Placement | Checksum: 1ad53dedf
 
-Time (s): cpu = 00:02:15 ; elapsed = 00:01:04 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 743 ; free virtual = 22258
+Time (s): cpu = 00:02:54 ; elapsed = 00:01:24 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 1343 ; free virtual = 19752
 
 Phase 3 Detail Placement
 
 Phase 3.1 Commit Multi Column Macros
-Phase 3.1 Commit Multi Column Macros | Checksum: 1ec20f584
+Phase 3.1 Commit Multi Column Macros | Checksum: 1ad53dedf
 
-Time (s): cpu = 00:02:15 ; elapsed = 00:01:04 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 742 ; free virtual = 22257
+Time (s): cpu = 00:02:55 ; elapsed = 00:01:24 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 1330 ; free virtual = 19749
 
 Phase 3.2 Commit Most Macros & LUTRAMs
-Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 21e4a5349
+Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 1551de420
 
-Time (s): cpu = 00:02:24 ; elapsed = 00:01:09 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 727 ; free virtual = 22243
+Time (s): cpu = 00:03:07 ; elapsed = 00:01:32 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 1311 ; free virtual = 19725
 
 Phase 3.3 Area Swap Optimization
-Phase 3.3 Area Swap Optimization | Checksum: 29398560c
+Phase 3.3 Area Swap Optimization | Checksum: 14bab4897
 
-Time (s): cpu = 00:02:25 ; elapsed = 00:01:09 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 726 ; free virtual = 22241
+Time (s): cpu = 00:03:09 ; elapsed = 00:01:32 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 1429 ; free virtual = 19722
 
 Phase 3.4 Pipeline Register Optimization
-Phase 3.4 Pipeline Register Optimization | Checksum: 2958b5f79
+Phase 3.4 Pipeline Register Optimization | Checksum: 20fa6701d
 
-Time (s): cpu = 00:02:25 ; elapsed = 00:01:10 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 726 ; free virtual = 22241
+Time (s): cpu = 00:03:09 ; elapsed = 00:01:32 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 1381 ; free virtual = 19706
 
 Phase 3.5 Small Shape Clustering
-Phase 3.5 Small Shape Clustering | Checksum: 21e1b11c3
+Phase 3.5 Small Shape Clustering | Checksum: 1f238757f
 
-Time (s): cpu = 00:02:31 ; elapsed = 00:01:15 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 672 ; free virtual = 22188
+Time (s): cpu = 00:03:17 ; elapsed = 00:01:39 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 1237 ; free virtual = 19602
 
 Phase 3.6 DP Optimization
-Phase 3.6 DP Optimization | Checksum: 2b1623062
+Phase 3.6 DP Optimization | Checksum: 17e201ea1
 
-Time (s): cpu = 00:02:50 ; elapsed = 00:01:22 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 661 ; free virtual = 22176
+Time (s): cpu = 00:03:44 ; elapsed = 00:01:50 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 1309 ; free virtual = 19637
 
 Phase 3.7 Flow Legalize Slice Clusters
-Phase 3.7 Flow Legalize Slice Clusters | Checksum: 293f7edca
+Phase 3.7 Flow Legalize Slice Clusters | Checksum: 1fb14677b
 
-Time (s): cpu = 00:02:52 ; elapsed = 00:01:23 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 659 ; free virtual = 22175
+Time (s): cpu = 00:03:46 ; elapsed = 00:01:51 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 1330 ; free virtual = 19639
 
 Phase 3.8 Slice Area Swap
-Phase 3.8 Slice Area Swap | Checksum: 26054d4eb
+Phase 3.8 Slice Area Swap | Checksum: 155350122
 
-Time (s): cpu = 00:02:57 ; elapsed = 00:01:27 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 620 ; free virtual = 22136
+Time (s): cpu = 00:03:53 ; elapsed = 00:01:56 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 1194 ; free virtual = 19582
 
 Phase 3.9 Commit Slice Clusters
-Phase 3.9 Commit Slice Clusters | Checksum: 1cebcfa99
+Phase 3.9 Commit Slice Clusters | Checksum: 1b3e235ed
 
-Time (s): cpu = 00:03:14 ; elapsed = 00:01:32 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 618 ; free virtual = 22134
+Time (s): cpu = 00:04:18 ; elapsed = 00:02:04 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 1192 ; free virtual = 19581
 
 Phase 3.10 Re-assign LUT pins
-Phase 3.10 Re-assign LUT pins | Checksum: 2032baef2
+Phase 3.10 Re-assign LUT pins | Checksum: 18364e4b5
 
-Time (s): cpu = 00:03:17 ; elapsed = 00:01:35 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 620 ; free virtual = 22136
+Time (s): cpu = 00:04:22 ; elapsed = 00:02:07 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 1194 ; free virtual = 19582
 
 Phase 3.11 Pipeline Register Optimization
-Phase 3.11 Pipeline Register Optimization | Checksum: 2032baef2
+Phase 3.11 Pipeline Register Optimization | Checksum: 18364e4b5
 
-Time (s): cpu = 00:03:18 ; elapsed = 00:01:36 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 641 ; free virtual = 22156
-Phase 3 Detail Placement | Checksum: 2032baef2
+Time (s): cpu = 00:04:23 ; elapsed = 00:02:08 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 1218 ; free virtual = 19607
+Phase 3 Detail Placement | Checksum: 18364e4b5
 
-Time (s): cpu = 00:03:18 ; elapsed = 00:01:36 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 640 ; free virtual = 22156
+Time (s): cpu = 00:04:24 ; elapsed = 00:02:09 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 1219 ; free virtual = 19607
 
 Phase 4 Post Placement Optimization and Clean-Up
 
@@ -425,7 +496,7 @@ Phase 4.1 Post Commit Optimization
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 
 Phase 4.1.1 Post Placement Optimization
-Post Placement Optimization Initialization | Checksum: 2c95263f4
+Post Placement Optimization Initialization | Checksum: 16b4b53ff
 
 Phase 4.1.1.1 BUFG Insertion
 INFO: [Physopt 32-721] Multithreading enabled for phys_opt_design using a maximum of 8 CPUs
@@ -435,55 +506,55 @@ INFO: [Place 46-35] Processed net design_2_i/MemorEDF_0/inst/packetizer/values_r
 INFO: [Place 46-35] Processed net design_2_i/MemorEDF_0/inst/packetizer/values_reg[1][0]_0[0], inserted BUFG to drive 3630 loads.
 INFO: [Place 46-35] Processed net design_2_i/MemorEDF_0/inst/packetizer/values_reg[1][0]_1[0], inserted BUFG to drive 3630 loads.
 INFO: [Place 46-31] BUFG insertion identified 5 candidate nets, 4 success, 0 skipped for placement/routing, 0 skipped for timing, 1 skipped for netlist change reason.
-Phase 4.1.1.1 BUFG Insertion | Checksum: 1a496d856
+Phase 4.1.1.1 BUFG Insertion | Checksum: 1bfbba20a
 
-Time (s): cpu = 00:03:56 ; elapsed = 00:01:53 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 694 ; free virtual = 22209
-INFO: [Place 30-746] Post Placement Timing Summary WNS=4.167. For the most accurate timing information please run report_timing.
-Phase 4.1.1 Post Placement Optimization | Checksum: 226b2d503
+Time (s): cpu = 00:05:13 ; elapsed = 00:02:31 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 1322 ; free virtual = 19711
+INFO: [Place 30-746] Post Placement Timing Summary WNS=3.793. For the most accurate timing information please run report_timing.
+Phase 4.1.1 Post Placement Optimization | Checksum: 27b41f716
 
-Time (s): cpu = 00:03:57 ; elapsed = 00:01:53 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 694 ; free virtual = 22210
-Phase 4.1 Post Commit Optimization | Checksum: 226b2d503
+Time (s): cpu = 00:05:13 ; elapsed = 00:02:32 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 1134 ; free virtual = 19709
+Phase 4.1 Post Commit Optimization | Checksum: 27b41f716
 
-Time (s): cpu = 00:03:57 ; elapsed = 00:01:54 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 692 ; free virtual = 22207
+Time (s): cpu = 00:05:14 ; elapsed = 00:02:32 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 1102 ; free virtual = 19707
 
 Phase 4.2 Post Placement Cleanup
-Phase 4.2 Post Placement Cleanup | Checksum: 226b2d503
+Phase 4.2 Post Placement Cleanup | Checksum: 27b41f716
 
-Time (s): cpu = 00:03:59 ; elapsed = 00:01:54 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 693 ; free virtual = 22208
+Time (s): cpu = 00:05:15 ; elapsed = 00:02:33 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 1324 ; free virtual = 19795
 
 Phase 4.3 Placer Reporting
-Phase 4.3 Placer Reporting | Checksum: 2fec65d0e
+Phase 4.3 Placer Reporting | Checksum: 36ee4e661
 
-Time (s): cpu = 00:04:06 ; elapsed = 00:02:02 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 670 ; free virtual = 22186
+Time (s): cpu = 00:05:25 ; elapsed = 00:02:42 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 1391 ; free virtual = 19833
 
 Phase 4.4 Final Placement Cleanup
-Phase 4.4 Final Placement Cleanup | Checksum: 24f480d4c
+Phase 4.4 Final Placement Cleanup | Checksum: 38d04075d
 
-Time (s): cpu = 00:04:06 ; elapsed = 00:02:02 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 671 ; free virtual = 22186
-Phase 4 Post Placement Optimization and Clean-Up | Checksum: 24f480d4c
+Time (s): cpu = 00:05:25 ; elapsed = 00:02:43 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 1391 ; free virtual = 19833
+Phase 4 Post Placement Optimization and Clean-Up | Checksum: 38d04075d
 
-Time (s): cpu = 00:04:07 ; elapsed = 00:02:02 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 671 ; free virtual = 22186
-Ending Placer Task | Checksum: 17a342605
+Time (s): cpu = 00:05:26 ; elapsed = 00:02:43 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 1391 ; free virtual = 19833
+Ending Placer Task | Checksum: 2a2adf60c
 
-Time (s): cpu = 00:04:07 ; elapsed = 00:02:02 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 812 ; free virtual = 22328
+Time (s): cpu = 00:05:26 ; elapsed = 00:02:43 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 1569 ; free virtual = 20011
 INFO: [Common 17-83] Releasing license: Implementation
-123 Infos, 100 Warnings, 13 Critical Warnings and 0 Errors encountered.
+190 Infos, 100 Warnings, 13 Critical Warnings and 0 Errors encountered.
 place_design completed successfully
-place_design: Time (s): cpu = 00:04:14 ; elapsed = 00:02:08 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 804 ; free virtual = 22319
+place_design: Time (s): cpu = 00:05:34 ; elapsed = 00:02:49 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 1570 ; free virtual = 20011
 Writing placer database...
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:06 ; elapsed = 00:00:02 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 713 ; free virtual = 22304
+Write XDEF Complete: Time (s): cpu = 00:00:11 ; elapsed = 00:00:04 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 1427 ; free virtual = 19978
 INFO: [Common 17-1381] The checkpoint '/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/impl_1/design_2_wrapper_placed.dcp' has been generated.
-write_checkpoint: Time (s): cpu = 00:00:16 ; elapsed = 00:00:14 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 792 ; free virtual = 22328
+write_checkpoint: Time (s): cpu = 00:00:27 ; elapsed = 00:00:22 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 1533 ; free virtual = 20005
 INFO: [runtcl-4] Executing : report_io -file design_2_wrapper_io_placed.rpt
-report_io: Time (s): cpu = 00:00:00.16 ; elapsed = 00:00:00.24 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 763 ; free virtual = 22299
+report_io: Time (s): cpu = 00:00:00.18 ; elapsed = 00:00:00.25 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 1508 ; free virtual = 19980
 INFO: [runtcl-4] Executing : report_utilization -file design_2_wrapper_utilization_placed.rpt -pb design_2_wrapper_utilization_placed.pb
-report_utilization: Time (s): cpu = 00:00:07 ; elapsed = 00:00:05 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 781 ; free virtual = 22317
-report_utilization: Time (s): cpu = 00:00:07 ; elapsed = 00:00:05 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 781 ; free virtual = 22317
+report_utilization: Time (s): cpu = 00:00:09 ; elapsed = 00:00:07 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 1528 ; free virtual = 20000
+report_utilization: Time (s): cpu = 00:00:09 ; elapsed = 00:00:07 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 1528 ; free virtual = 20000
 INFO: [runtcl-4] Executing : report_control_sets -verbose -file design_2_wrapper_control_sets_placed.rpt
-report_control_sets: Time (s): cpu = 00:00:00.18 ; elapsed = 00:00:00.24 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 782 ; free virtual = 22318
+report_control_sets: Time (s): cpu = 00:00:00.24 ; elapsed = 00:00:00.33 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 1526 ; free virtual = 19999
 Command: route_design
 Attempting to get a license for feature 'Implementation' and/or device 'xczu9eg'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xczu9eg'
@@ -499,123 +570,124 @@ INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more in
 
 Starting Routing Task
 INFO: [Route 35-254] Multithreading enabled for route_design using a maximum of 8 CPUs
-Checksum: PlaceDB: 6c320291 ConstDB: 0 ShapeSum: 35ee9b69 RouteDB: d813880b
+Checksum: PlaceDB: caae7e51 ConstDB: 0 ShapeSum: e45c8870 RouteDB: f3a2ef4b
 
 Phase 1 Build RT Design
-Phase 1 Build RT Design | Checksum: f81b34c6
+Phase 1 Build RT Design | Checksum: f92ec7fd
 
-Time (s): cpu = 00:01:00 ; elapsed = 00:00:42 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 533 ; free virtual = 22070
-Post Restoration Checksum: NetGraph: 2aaff4c0 NumContArr: 3bb57260 Constraints: 674a87b5 Timing: 0
+Time (s): cpu = 00:01:02 ; elapsed = 00:00:42 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 1249 ; free virtual = 19722
+Post Restoration Checksum: NetGraph: ed8eceee NumContArr: f144979e Constraints: 9c10296c Timing: 0
 
 Phase 2 Router Initialization
 
 Phase 2.1 Create Timer
-Phase 2.1 Create Timer | Checksum: cdafeed5
+Phase 2.1 Create Timer | Checksum: 27ae38ff8
 
-Time (s): cpu = 00:01:03 ; elapsed = 00:00:45 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 525 ; free virtual = 22062
+Time (s): cpu = 00:01:05 ; elapsed = 00:00:45 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 1239 ; free virtual = 19712
 
 Phase 2.2 Fix Topology Constraints
-Phase 2.2 Fix Topology Constraints | Checksum: cdafeed5
+Phase 2.2 Fix Topology Constraints | Checksum: 27ae38ff8
 
-Time (s): cpu = 00:01:03 ; elapsed = 00:00:45 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 466 ; free virtual = 22003
+Time (s): cpu = 00:01:05 ; elapsed = 00:00:45 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 1177 ; free virtual = 19650
 
 Phase 2.3 Pre Route Cleanup
-Phase 2.3 Pre Route Cleanup | Checksum: cdafeed5
+Phase 2.3 Pre Route Cleanup | Checksum: 27ae38ff8
 
-Time (s): cpu = 00:01:03 ; elapsed = 00:00:45 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 466 ; free virtual = 22003
+Time (s): cpu = 00:01:05 ; elapsed = 00:00:45 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 1177 ; free virtual = 19651
 
 Phase 2.4 Global Clock Net Routing
  Number of Nodes with overlaps = 0
-Phase 2.4 Global Clock Net Routing | Checksum: 22d051f61
+Phase 2.4 Global Clock Net Routing | Checksum: 260a82677
 
-Time (s): cpu = 00:01:07 ; elapsed = 00:00:49 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 445 ; free virtual = 21982
+Time (s): cpu = 00:01:10 ; elapsed = 00:00:50 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 1157 ; free virtual = 19631
 
 Phase 2.5 Update Timing
-Phase 2.5 Update Timing | Checksum: 226f2ec2e
+Phase 2.5 Update Timing | Checksum: 202ecd9d0
 
-Time (s): cpu = 00:01:48 ; elapsed = 00:01:05 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 417 ; free virtual = 21954
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=4.233  | TNS=0.000  | WHS=-0.230 | THS=-5.950 |
+Time (s): cpu = 00:02:08 ; elapsed = 00:01:10 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 1097 ; free virtual = 19571
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=4.139  | TNS=0.000  | WHS=-0.207 | THS=-9.001 |
 
-Phase 2 Router Initialization | Checksum: 22f82b363
+Phase 2 Router Initialization | Checksum: 1d585a9ea
 
-Time (s): cpu = 00:02:08 ; elapsed = 00:01:10 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 403 ; free virtual = 21940
+Time (s): cpu = 00:02:38 ; elapsed = 00:01:18 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 1087 ; free virtual = 19564
 
 Phase 3 Initial Routing
-Phase 3 Initial Routing | Checksum: bdb00f66
+Phase 3 Initial Routing | Checksum: 2df93775a
 
-Time (s): cpu = 00:02:53 ; elapsed = 00:01:20 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 380 ; free virtual = 21918
+Time (s): cpu = 00:03:37 ; elapsed = 00:01:31 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 1091 ; free virtual = 19566
 
 Phase 4 Rip-up And Reroute
 
 Phase 4.1 Global Iteration 0
- Number of Nodes with overlaps = 18283
- Number of Nodes with overlaps = 1316
- Number of Nodes with overlaps = 107
- Number of Nodes with overlaps = 3
+ Number of Nodes with overlaps = 28440
+ Number of Nodes with overlaps = 2512
+ Number of Nodes with overlaps = 236
+ Number of Nodes with overlaps = 24
+ Number of Nodes with overlaps = 2
  Number of Nodes with overlaps = 0
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=2.612  | TNS=0.000  | WHS=-0.353 | THS=-1.300 |
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=1.128  | TNS=0.000  | WHS=-0.318 | THS=-1.174 |
 
-Phase 4.1 Global Iteration 0 | Checksum: 241c9cd97
+Phase 4.1 Global Iteration 0 | Checksum: 254a9ae91
 
-Time (s): cpu = 00:07:14 ; elapsed = 00:02:19 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 474 ; free virtual = 21959
+Time (s): cpu = 00:10:07 ; elapsed = 00:03:02 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 2071 ; free virtual = 20195
 
 Phase 4.2 Global Iteration 1
+ Number of Nodes with overlaps = 2
  Number of Nodes with overlaps = 0
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=2.612  | TNS=0.000  | WHS=N/A    | THS=N/A    |
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=1.128  | TNS=0.000  | WHS=N/A    | THS=N/A    |
 
-Phase 4.2 Global Iteration 1 | Checksum: 1740a1a56
+Phase 4.2 Global Iteration 1 | Checksum: 21adeb986
 
-Time (s): cpu = 00:07:22 ; elapsed = 00:02:22 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 474 ; free virtual = 21959
+Time (s): cpu = 00:10:22 ; elapsed = 00:03:07 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 2070 ; free virtual = 20195
 
 Phase 4.3 Global Iteration 2
- Number of Nodes with overlaps = 1
  Number of Nodes with overlaps = 0
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=2.612  | TNS=0.000  | WHS=N/A    | THS=N/A    |
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=1.128  | TNS=0.000  | WHS=N/A    | THS=N/A    |
 
-Phase 4.3 Global Iteration 2 | Checksum: 282c6647e
+Phase 4.3 Global Iteration 2 | Checksum: 19c1ef668
 
-Time (s): cpu = 00:07:25 ; elapsed = 00:02:23 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 473 ; free virtual = 21959
-Phase 4 Rip-up And Reroute | Checksum: 282c6647e
+Time (s): cpu = 00:10:25 ; elapsed = 00:03:09 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 2069 ; free virtual = 20194
+Phase 4 Rip-up And Reroute | Checksum: 19c1ef668
 
-Time (s): cpu = 00:07:25 ; elapsed = 00:02:23 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 473 ; free virtual = 21959
+Time (s): cpu = 00:10:26 ; elapsed = 00:03:09 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 2068 ; free virtual = 20193
 
 Phase 5 Delay and Skew Optimization
 
 Phase 5.1 Delay CleanUp
-Phase 5.1 Delay CleanUp | Checksum: 2641717eb
+Phase 5.1 Delay CleanUp | Checksum: 1f77d7704
 
-Time (s): cpu = 00:07:25 ; elapsed = 00:02:24 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 483 ; free virtual = 21969
+Time (s): cpu = 00:10:26 ; elapsed = 00:03:10 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 2082 ; free virtual = 20206
 
 Phase 5.2 Clock Skew Optimization
-Phase 5.2 Clock Skew Optimization | Checksum: 2641717eb
+Phase 5.2 Clock Skew Optimization | Checksum: 1f77d7704
 
-Time (s): cpu = 00:07:25 ; elapsed = 00:02:24 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 484 ; free virtual = 21970
-Phase 5 Delay and Skew Optimization | Checksum: 2641717eb
+Time (s): cpu = 00:10:27 ; elapsed = 00:03:10 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 2081 ; free virtual = 20206
+Phase 5 Delay and Skew Optimization | Checksum: 1f77d7704
 
-Time (s): cpu = 00:07:26 ; elapsed = 00:02:24 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 484 ; free virtual = 21969
+Time (s): cpu = 00:10:27 ; elapsed = 00:03:10 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 2081 ; free virtual = 20206
 
 Phase 6 Post Hold Fix
 
 Phase 6.1 Hold Fix Iter
 
 Phase 6.1.1 Update Timing
-Phase 6.1.1 Update Timing | Checksum: 1c5b261b2
+Phase 6.1.1 Update Timing | Checksum: 26cb528a5
 
-Time (s): cpu = 00:07:45 ; elapsed = 00:02:29 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 481 ; free virtual = 21967
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=2.612  | TNS=0.000  | WHS=-0.353 | THS=-1.274 |
+Time (s): cpu = 00:10:54 ; elapsed = 00:03:18 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 2084 ; free virtual = 20209
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=1.128  | TNS=0.000  | WHS=-0.318 | THS=-1.163 |
 
-Phase 6.1 Hold Fix Iter | Checksum: 1f7988a08
+Phase 6.1 Hold Fix Iter | Checksum: 29321b339
 
-Time (s): cpu = 00:07:47 ; elapsed = 00:02:32 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 479 ; free virtual = 21965
-Phase 6 Post Hold Fix | Checksum: 24cbd6e52
+Time (s): cpu = 00:10:58 ; elapsed = 00:03:22 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 2082 ; free virtual = 20207
+Phase 6 Post Hold Fix | Checksum: 2a5647067
 
-Time (s): cpu = 00:07:48 ; elapsed = 00:02:32 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 479 ; free virtual = 21964
+Time (s): cpu = 00:10:59 ; elapsed = 00:03:22 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 2082 ; free virtual = 20207
 
 Phase 7 Route finalize
 
 Router Utilization Summary
-  Global Vertical Routing Utilization    = 4.12967 %
-  Global Horizontal Routing Utilization  = 4.74327 %
+  Global Vertical Routing Utilization    = 6.19014 %
+  Global Horizontal Routing Utilization  = 7.12688 %
   Routable Net Status*
   *Does not include unroutable nets such as driverless and loadless.
   Run report_route_status for detailed report.
@@ -624,65 +696,65 @@ Router Utilization Summary
   Number of Partially Routed Nets     = 0
   Number of Node Overlaps             = 0
 
-Phase 7 Route finalize | Checksum: 1fb6e8eb8
+Phase 7 Route finalize | Checksum: 2653f7d6b
 
-Time (s): cpu = 00:07:50 ; elapsed = 00:02:32 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 475 ; free virtual = 21961
+Time (s): cpu = 00:11:01 ; elapsed = 00:03:23 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 2078 ; free virtual = 20203
 
 Phase 8 Verifying routed nets
 
  Verification completed successfully
-Phase 8 Verifying routed nets | Checksum: 1fb6e8eb8
+Phase 8 Verifying routed nets | Checksum: 2653f7d6b
 
-Time (s): cpu = 00:07:50 ; elapsed = 00:02:32 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 474 ; free virtual = 21960
+Time (s): cpu = 00:11:01 ; elapsed = 00:03:23 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 2077 ; free virtual = 20202
 
 Phase 9 Depositing Routes
-Phase 9 Depositing Routes | Checksum: 1fb6e8eb8
+Phase 9 Depositing Routes | Checksum: 2653f7d6b
 
-Time (s): cpu = 00:07:53 ; elapsed = 00:02:36 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 472 ; free virtual = 21958
+Time (s): cpu = 00:11:06 ; elapsed = 00:03:28 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 2077 ; free virtual = 20202
 
 Phase 10 Post Router Timing
 
 Phase 10.1 Update Timing
-Phase 10.1 Update Timing | Checksum: 1d68eada3
+Phase 10.1 Update Timing | Checksum: 29daacd3e
 
-Time (s): cpu = 00:08:07 ; elapsed = 00:02:42 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 458 ; free virtual = 21944
-INFO: [Route 35-57] Estimated Timing Summary | WNS=2.612  | TNS=0.000  | WHS=-0.353 | THS=-1.274 |
+Time (s): cpu = 00:11:26 ; elapsed = 00:03:37 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 2073 ; free virtual = 20198
+INFO: [Route 35-57] Estimated Timing Summary | WNS=1.128  | TNS=0.000  | WHS=-0.318 | THS=-1.163 |
 
 WARNING: [Route 35-328] Router estimated timing not met.
 Resolution: For a complete and accurate timing signoff, report_timing_summary must be run after route_design. Alternatively, route_design can be run with the -timing_summary option to enable a complete timing signoff at the end of route_design.
-Phase 10 Post Router Timing | Checksum: 1d68eada3
+Phase 10 Post Router Timing | Checksum: 29daacd3e
 
-Time (s): cpu = 00:08:08 ; elapsed = 00:02:42 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 458 ; free virtual = 21944
+Time (s): cpu = 00:11:26 ; elapsed = 00:03:37 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 2073 ; free virtual = 20198
 WARNING: [Route 35-458] Router was unable to fix hold violation on 4 pins that were part of dedicated connections. Router cannot add any routing detour to fix hold on dedicated connections. Such pins are:
-	u_ila_0/inst/ila_core_inst/shifted_data_in_reg[7][705]_srl8/D
 	u_ila_0/inst/ila_core_inst/shifted_data_in_reg[7][692]_srl8/D
-	u_ila_0/inst/ila_core_inst/u_trig/U_TM/N_DDR_MODE.G_NMU[50].U_M/allx_typeA_match_detection.ltlib_v1_0_0_allx_typeA_inst/probeDelay1_reg[0]/D
+	u_ila_0/inst/ila_core_inst/shifted_data_in_reg[7][705]_srl8/D
 	u_ila_0/inst/ila_core_inst/u_trig/U_TM/N_DDR_MODE.G_NMU[37].U_M/allx_typeA_match_detection.ltlib_v1_0_0_allx_typeA_inst/probeDelay1_reg[0]/D
+	u_ila_0/inst/ila_core_inst/u_trig/U_TM/N_DDR_MODE.G_NMU[50].U_M/allx_typeA_match_detection.ltlib_v1_0_0_allx_typeA_inst/probeDelay1_reg[0]/D
 
 Resolution: Run report_timing_summary to analyze the hold violations.
 INFO: [Route 35-16] Router Completed Successfully
 
-Time (s): cpu = 00:08:08 ; elapsed = 00:02:42 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 561 ; free virtual = 22047
+Time (s): cpu = 00:11:27 ; elapsed = 00:03:37 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 2192 ; free virtual = 20317
 
 Routing Is Done.
 INFO: [Common 17-83] Releasing license: Implementation
-144 Infos, 102 Warnings, 13 Critical Warnings and 0 Errors encountered.
+211 Infos, 102 Warnings, 13 Critical Warnings and 0 Errors encountered.
 route_design completed successfully
-route_design: Time (s): cpu = 00:08:17 ; elapsed = 00:02:47 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 561 ; free virtual = 22047
+route_design: Time (s): cpu = 00:11:38 ; elapsed = 00:03:43 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 2192 ; free virtual = 20317
 Writing placer database...
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:08 ; elapsed = 00:00:03 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 441 ; free virtual = 22030
+Write XDEF Complete: Time (s): cpu = 00:00:11 ; elapsed = 00:00:04 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 2017 ; free virtual = 20291
 INFO: [Common 17-1381] The checkpoint '/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/impl_1/design_2_wrapper_routed.dcp' has been generated.
-write_checkpoint: Time (s): cpu = 00:00:17 ; elapsed = 00:00:14 . Memory (MB): peak = 4782.898 ; gain = 0.000 ; free physical = 513 ; free virtual = 22032
+write_checkpoint: Time (s): cpu = 00:00:27 ; elapsed = 00:00:22 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 2145 ; free virtual = 20310
 INFO: [runtcl-4] Executing : report_drc -file design_2_wrapper_drc_routed.rpt -pb design_2_wrapper_drc_routed.pb -rpx design_2_wrapper_drc_routed.rpx
 Command: report_drc -file design_2_wrapper_drc_routed.rpt -pb design_2_wrapper_drc_routed.pb -rpx design_2_wrapper_drc_routed.rpx
 INFO: [IP_Flow 19-1839] IP Catalog is up to date.
 INFO: [DRC 23-27] Running DRC with 8 threads
 INFO: [Coretcl 2-168] The results of DRC are in file /home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/impl_1/design_2_wrapper_drc_routed.rpt.
 report_drc completed successfully
-report_drc: Time (s): cpu = 00:00:20 ; elapsed = 00:00:06 . Memory (MB): peak = 4813.027 ; gain = 30.129 ; free physical = 405 ; free virtual = 22006
+report_drc: Time (s): cpu = 00:00:27 ; elapsed = 00:00:07 . Memory (MB): peak = 5059.852 ; gain = 0.000 ; free physical = 2110 ; free virtual = 20276
 INFO: [runtcl-4] Executing : report_methodology -file design_2_wrapper_methodology_drc_routed.rpt -pb design_2_wrapper_methodology_drc_routed.pb -rpx design_2_wrapper_methodology_drc_routed.rpx
 Command: report_methodology -file design_2_wrapper_methodology_drc_routed.rpt -pb design_2_wrapper_methodology_drc_routed.pb -rpx design_2_wrapper_methodology_drc_routed.rpx
 INFO: [Timing 38-35] Done setting XDC timing constraints.
@@ -690,7 +762,7 @@ INFO: [Timing 38-35] Done setting XDC timing constraints.
 INFO: [DRC 23-133] Running Methodology with 8 threads
 INFO: [Coretcl 2-1520] The results of Report Methodology are in file /home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/impl_1/design_2_wrapper_methodology_drc_routed.rpt.
 report_methodology completed successfully
-report_methodology: Time (s): cpu = 00:00:58 ; elapsed = 00:00:16 . Memory (MB): peak = 4813.027 ; gain = 0.000 ; free physical = 308 ; free virtual = 21683
+report_methodology: Time (s): cpu = 00:01:19 ; elapsed = 00:00:23 . Memory (MB): peak = 5161.500 ; gain = 101.648 ; free physical = 1711 ; free virtual = 19877
 INFO: [runtcl-4] Executing : report_power -file design_2_wrapper_power_routed.rpt -pb design_2_wrapper_power_summary_routed.pb -rpx design_2_wrapper_power_routed.rpx
 Command: report_power -file design_2_wrapper_power_routed.rpt -pb design_2_wrapper_power_summary_routed.pb -rpx design_2_wrapper_power_routed.rpx
 INFO: [Timing 38-35] Done setting XDC timing constraints.
@@ -699,9 +771,9 @@ Running Vector-less Activity Propagation...
 Finished Running Vector-less Activity Propagation
 WARNING: [Power 33-332] Found switching activity that implies high-fanout reset nets being asserted for excessive periods of time which may result in inaccurate power analysis.
 Resolution: To review and fix problems, please run Power Constraints Advisor in the GUI from Tools > Power Constraints Advisor or run report_power with the -advisory option to generate a text report.
-156 Infos, 103 Warnings, 13 Critical Warnings and 0 Errors encountered.
+223 Infos, 103 Warnings, 13 Critical Warnings and 0 Errors encountered.
 report_power completed successfully
-report_power: Time (s): cpu = 00:00:59 ; elapsed = 00:00:32 . Memory (MB): peak = 4941.082 ; gain = 128.055 ; free physical = 339 ; free virtual = 21618
+report_power: Time (s): cpu = 00:01:09 ; elapsed = 00:00:35 . Memory (MB): peak = 5363.434 ; gain = 201.934 ; free physical = 1604 ; free virtual = 19785
 INFO: [runtcl-4] Executing : report_route_status -file design_2_wrapper_route_status.rpt -pb design_2_wrapper_route_status.pb
 INFO: [runtcl-4] Executing : report_timing_summary -max_paths 10 -file design_2_wrapper_timing_summary_routed.rpt -rpx design_2_wrapper_timing_summary_routed.rpx -warn_on_violation 
 INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -2, Temperature grade: E, Delay Type: min_max.
@@ -710,7 +782,7 @@ CRITICAL WARNING: [Timing 38-282] The design failed to meet the timing requireme
 INFO: [runtcl-4] Executing : report_incremental_reuse -file design_2_wrapper_incremental_reuse_routed.rpt
 INFO: [Vivado_Tcl 4-545] No incremental reuse to report, no incremental placement and routing data was found.
 INFO: [runtcl-4] Executing : report_clock_utilization -file design_2_wrapper_clock_utilization_routed.rpt
-report_clock_utilization: Time (s): cpu = 00:00:41 ; elapsed = 00:00:41 . Memory (MB): peak = 4941.082 ; gain = 0.000 ; free physical = 304 ; free virtual = 21584
+report_clock_utilization: Time (s): cpu = 00:01:32 ; elapsed = 00:01:32 . Memory (MB): peak = 5363.434 ; gain = 0.000 ; free physical = 1565 ; free virtual = 19747
 Command: write_bitstream -force design_2_wrapper.bit
 Attempting to get a license for feature 'Implementation' and/or device 'xczu9eg'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xczu9eg'
@@ -722,7 +794,7 @@ WARNING: [DRC PDRC-153] Gated clock check: Net design_2_i/MemorEDF_0/inst/packet
 WARNING: [DRC PDRC-153] Gated clock check: Net design_2_i/MemorEDF_0/inst/packetizer/values_reg[1][0][0]_bufg_place is a gated clock net sourced by a combinational pin design_2_i/MemorEDF_0/inst/packetizer/values[15][245]_i_1__0/O, cell design_2_i/MemorEDF_0/inst/packetizer/values[15][245]_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 WARNING: [DRC PDRC-153] Gated clock check: Net design_2_i/MemorEDF_0/inst/packetizer/values_reg[1][0]_0[0]_bufg_place is a gated clock net sourced by a combinational pin design_2_i/MemorEDF_0/inst/packetizer/values[15][245]_i_1__1/O, cell design_2_i/MemorEDF_0/inst/packetizer/values[15][245]_i_1__1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 WARNING: [DRC PDRC-153] Gated clock check: Net design_2_i/MemorEDF_0/inst/packetizer/values_reg[1][0]_1[0]_bufg_place is a gated clock net sourced by a combinational pin design_2_i/MemorEDF_0/inst/packetizer/values[15][245]_i_1__2/O, cell design_2_i/MemorEDF_0/inst/packetizer/values[15][245]_i_1__2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
-WARNING: [DRC RTSTAT-10] No routable loads: 23 net(s) have no routable loads. The problem bus(es) and/or net(s) are dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_CTL/ctl_reg[2:0], dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD1/ctl_reg_en_2[1], dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_CTL/ctl_reg_en_2[1], dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/m_bscan_capture[0], dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/m_bscan_drck[0], dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/m_bscan_runtest[0], dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/ram_empty_i, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/ram_full_i, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/rd_rst_reg[0], dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_inst/s_bscan_tms, u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/s_daddr_o[13], u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/s_daddr_o[14], u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/s_daddr_o[15], u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/s_daddr_o[16]... and (the first 15 of 21 listed).
+WARNING: [DRC RTSTAT-10] No routable loads: 29 net(s) have no routable loads. The problem bus(es) and/or net(s) are dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_CTL/ctl_reg[2:0], dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD1/ctl_reg_en_2[1], dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_CTL/ctl_reg_en_2[1], dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/m_bscan_capture[0], dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/m_bscan_drck[0], dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/m_bscan_runtest[0], dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/ram_empty_i, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/ram_full_i, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/rd_rst_reg[0], dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_inst/s_bscan_tms, u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/s_daddr_o[13], design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/s_daddr_o[13], design_2_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/s_daddr_o[14], u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/s_daddr_o[14]... and (the first 15 of 27 listed).
 INFO: [Vivado 12-3199] DRC finished with 0 Errors, 5 Warnings
 INFO: [Vivado 12-3200] Please refer to the DRC report (report_drc) for more information.
 INFO: [Project 1-821] Please set project.enableDesignId to be 'true'.
@@ -737,7 +809,7 @@ Writing bitstream ./design_2_wrapper.bit...
 INFO: [Vivado 12-1842] Bitgen Completed Successfully.
 INFO: [Project 1-118] WebTalk data collection is enabled (User setting is ON. Install Setting is ON.).
 INFO: [Common 17-83] Releasing license: Implementation
-174 Infos, 108 Warnings, 14 Critical Warnings and 0 Errors encountered.
+241 Infos, 108 Warnings, 14 Critical Warnings and 0 Errors encountered.
 write_bitstream completed successfully
-write_bitstream: Time (s): cpu = 00:00:45 ; elapsed = 00:00:29 . Memory (MB): peak = 5408.867 ; gain = 467.785 ; free physical = 742 ; free virtual = 21552
-INFO: [Common 17-206] Exiting Vivado at Thu Jun  4 20:12:58 2020...
+write_bitstream: Time (s): cpu = 00:00:59 ; elapsed = 00:00:36 . Memory (MB): peak = 5893.211 ; gain = 529.777 ; free physical = 1499 ; free virtual = 19708
+INFO: [Common 17-206] Exiting Vivado at Sat Jun  6 22:34:23 2020...

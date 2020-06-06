@@ -1,7 +1,7 @@
 //Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-//Date        : Thu Jun  4 19:55:27 2020
+//Date        : Sat Jun  6 22:00:47 2020
 //Host        : CELSIUS running 64-bit Ubuntu 16.04.6 LTS
 //Command     : generate_target design_2.bd
 //Design      : design_2
@@ -9,88 +9,94 @@
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "design_2,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_2,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=6,numReposBlks=6,numNonXlnxBlks=3,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_clkrst_cnt=14,da_zynq_ultra_ps_e_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "design_2.hwdef" *) 
+(* CORE_GENERATION_INFO = "design_2,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_2,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=7,numReposBlks=7,numNonXlnxBlks=3,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_clkrst_cnt=14,da_zynq_ultra_ps_e_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "design_2.hwdef" *) 
 module design_2
    ();
 
-  wire [48:0]AXI_PerfectTranslator_0_M00_AXI_ARADDR;
-  wire [1:0]AXI_PerfectTranslator_0_M00_AXI_ARBURST;
-  wire [3:0]AXI_PerfectTranslator_0_M00_AXI_ARCACHE;
-  wire [5:0]AXI_PerfectTranslator_0_M00_AXI_ARID;
-  wire [7:0]AXI_PerfectTranslator_0_M00_AXI_ARLEN;
-  wire AXI_PerfectTranslator_0_M00_AXI_ARLOCK;
-  wire [2:0]AXI_PerfectTranslator_0_M00_AXI_ARPROT;
-  wire [3:0]AXI_PerfectTranslator_0_M00_AXI_ARQOS;
-  wire AXI_PerfectTranslator_0_M00_AXI_ARREADY;
-  wire [2:0]AXI_PerfectTranslator_0_M00_AXI_ARSIZE;
-  wire [0:0]AXI_PerfectTranslator_0_M00_AXI_ARUSER;
-  wire AXI_PerfectTranslator_0_M00_AXI_ARVALID;
-  wire [48:0]AXI_PerfectTranslator_0_M00_AXI_AWADDR;
-  wire [1:0]AXI_PerfectTranslator_0_M00_AXI_AWBURST;
-  wire [3:0]AXI_PerfectTranslator_0_M00_AXI_AWCACHE;
-  wire [5:0]AXI_PerfectTranslator_0_M00_AXI_AWID;
-  wire [7:0]AXI_PerfectTranslator_0_M00_AXI_AWLEN;
-  wire AXI_PerfectTranslator_0_M00_AXI_AWLOCK;
-  wire [2:0]AXI_PerfectTranslator_0_M00_AXI_AWPROT;
-  wire [3:0]AXI_PerfectTranslator_0_M00_AXI_AWQOS;
-  wire AXI_PerfectTranslator_0_M00_AXI_AWREADY;
-  wire [2:0]AXI_PerfectTranslator_0_M00_AXI_AWSIZE;
-  wire [0:0]AXI_PerfectTranslator_0_M00_AXI_AWUSER;
-  wire AXI_PerfectTranslator_0_M00_AXI_AWVALID;
-  wire [5:0]AXI_PerfectTranslator_0_M00_AXI_BID;
-  wire AXI_PerfectTranslator_0_M00_AXI_BREADY;
-  wire [1:0]AXI_PerfectTranslator_0_M00_AXI_BRESP;
-  wire AXI_PerfectTranslator_0_M00_AXI_BVALID;
-  wire [127:0]AXI_PerfectTranslator_0_M00_AXI_RDATA;
-  wire [5:0]AXI_PerfectTranslator_0_M00_AXI_RID;
-  wire AXI_PerfectTranslator_0_M00_AXI_RLAST;
-  wire AXI_PerfectTranslator_0_M00_AXI_RREADY;
-  wire [1:0]AXI_PerfectTranslator_0_M00_AXI_RRESP;
-  wire AXI_PerfectTranslator_0_M00_AXI_RVALID;
-  wire [127:0]AXI_PerfectTranslator_0_M00_AXI_WDATA;
-  wire AXI_PerfectTranslator_0_M00_AXI_WLAST;
-  wire AXI_PerfectTranslator_0_M00_AXI_WREADY;
-  wire [15:0]AXI_PerfectTranslator_0_M00_AXI_WSTRB;
-  wire AXI_PerfectTranslator_0_M00_AXI_WVALID;
-  wire [48:0]AXI_PerfectTranslator_1_M00_AXI_ARADDR;
-  wire [1:0]AXI_PerfectTranslator_1_M00_AXI_ARBURST;
-  wire [3:0]AXI_PerfectTranslator_1_M00_AXI_ARCACHE;
-  wire [5:0]AXI_PerfectTranslator_1_M00_AXI_ARID;
-  wire [7:0]AXI_PerfectTranslator_1_M00_AXI_ARLEN;
-  wire AXI_PerfectTranslator_1_M00_AXI_ARLOCK;
-  wire [2:0]AXI_PerfectTranslator_1_M00_AXI_ARPROT;
-  wire [3:0]AXI_PerfectTranslator_1_M00_AXI_ARQOS;
-  wire AXI_PerfectTranslator_1_M00_AXI_ARREADY;
-  wire [2:0]AXI_PerfectTranslator_1_M00_AXI_ARSIZE;
-  wire [0:0]AXI_PerfectTranslator_1_M00_AXI_ARUSER;
-  wire AXI_PerfectTranslator_1_M00_AXI_ARVALID;
-  wire [48:0]AXI_PerfectTranslator_1_M00_AXI_AWADDR;
-  wire [1:0]AXI_PerfectTranslator_1_M00_AXI_AWBURST;
-  wire [3:0]AXI_PerfectTranslator_1_M00_AXI_AWCACHE;
-  wire [5:0]AXI_PerfectTranslator_1_M00_AXI_AWID;
-  wire [7:0]AXI_PerfectTranslator_1_M00_AXI_AWLEN;
-  wire AXI_PerfectTranslator_1_M00_AXI_AWLOCK;
-  wire [2:0]AXI_PerfectTranslator_1_M00_AXI_AWPROT;
-  wire [3:0]AXI_PerfectTranslator_1_M00_AXI_AWQOS;
-  wire AXI_PerfectTranslator_1_M00_AXI_AWREADY;
-  wire [2:0]AXI_PerfectTranslator_1_M00_AXI_AWSIZE;
-  wire [0:0]AXI_PerfectTranslator_1_M00_AXI_AWUSER;
-  wire AXI_PerfectTranslator_1_M00_AXI_AWVALID;
-  wire [5:0]AXI_PerfectTranslator_1_M00_AXI_BID;
-  wire AXI_PerfectTranslator_1_M00_AXI_BREADY;
-  wire [1:0]AXI_PerfectTranslator_1_M00_AXI_BRESP;
-  wire AXI_PerfectTranslator_1_M00_AXI_BVALID;
-  wire [127:0]AXI_PerfectTranslator_1_M00_AXI_RDATA;
-  wire [5:0]AXI_PerfectTranslator_1_M00_AXI_RID;
-  wire AXI_PerfectTranslator_1_M00_AXI_RLAST;
-  wire AXI_PerfectTranslator_1_M00_AXI_RREADY;
-  wire [1:0]AXI_PerfectTranslator_1_M00_AXI_RRESP;
-  wire AXI_PerfectTranslator_1_M00_AXI_RVALID;
-  wire [127:0]AXI_PerfectTranslator_1_M00_AXI_WDATA;
-  wire AXI_PerfectTranslator_1_M00_AXI_WLAST;
-  wire AXI_PerfectTranslator_1_M00_AXI_WREADY;
-  wire [15:0]AXI_PerfectTranslator_1_M00_AXI_WSTRB;
-  wire AXI_PerfectTranslator_1_M00_AXI_WVALID;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 ARADDR" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [48:0]AXI_PerfectTranslator_0_M00_AXI_ARADDR;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 ARBURST" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [1:0]AXI_PerfectTranslator_0_M00_AXI_ARBURST;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 ARCACHE" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [3:0]AXI_PerfectTranslator_0_M00_AXI_ARCACHE;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 ARID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [5:0]AXI_PerfectTranslator_0_M00_AXI_ARID;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 ARLEN" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [7:0]AXI_PerfectTranslator_0_M00_AXI_ARLEN;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 ARLOCK" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire AXI_PerfectTranslator_0_M00_AXI_ARLOCK;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 ARPROT" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [2:0]AXI_PerfectTranslator_0_M00_AXI_ARPROT;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 ARQOS" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [3:0]AXI_PerfectTranslator_0_M00_AXI_ARQOS;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 ARREADY" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire AXI_PerfectTranslator_0_M00_AXI_ARREADY;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 ARSIZE" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [2:0]AXI_PerfectTranslator_0_M00_AXI_ARSIZE;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 ARUSER" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [0:0]AXI_PerfectTranslator_0_M00_AXI_ARUSER;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 ARVALID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire AXI_PerfectTranslator_0_M00_AXI_ARVALID;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 AWADDR" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [48:0]AXI_PerfectTranslator_0_M00_AXI_AWADDR;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 AWBURST" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [1:0]AXI_PerfectTranslator_0_M00_AXI_AWBURST;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 AWCACHE" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [3:0]AXI_PerfectTranslator_0_M00_AXI_AWCACHE;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 AWID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [5:0]AXI_PerfectTranslator_0_M00_AXI_AWID;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 AWLEN" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [7:0]AXI_PerfectTranslator_0_M00_AXI_AWLEN;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 AWLOCK" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire AXI_PerfectTranslator_0_M00_AXI_AWLOCK;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 AWPROT" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [2:0]AXI_PerfectTranslator_0_M00_AXI_AWPROT;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 AWQOS" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [3:0]AXI_PerfectTranslator_0_M00_AXI_AWQOS;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 AWREADY" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire AXI_PerfectTranslator_0_M00_AXI_AWREADY;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 AWSIZE" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [2:0]AXI_PerfectTranslator_0_M00_AXI_AWSIZE;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 AWUSER" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [0:0]AXI_PerfectTranslator_0_M00_AXI_AWUSER;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 AWVALID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire AXI_PerfectTranslator_0_M00_AXI_AWVALID;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 BID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [5:0]AXI_PerfectTranslator_0_M00_AXI_BID;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 BREADY" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire AXI_PerfectTranslator_0_M00_AXI_BREADY;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 BRESP" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [1:0]AXI_PerfectTranslator_0_M00_AXI_BRESP;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 BUSER" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [0:0]AXI_PerfectTranslator_0_M00_AXI_BUSER;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 BVALID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire AXI_PerfectTranslator_0_M00_AXI_BVALID;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 RDATA" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [127:0]AXI_PerfectTranslator_0_M00_AXI_RDATA;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 RID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [5:0]AXI_PerfectTranslator_0_M00_AXI_RID;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 RLAST" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire AXI_PerfectTranslator_0_M00_AXI_RLAST;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 RREADY" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire AXI_PerfectTranslator_0_M00_AXI_RREADY;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 RRESP" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [1:0]AXI_PerfectTranslator_0_M00_AXI_RRESP;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 RUSER" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [0:0]AXI_PerfectTranslator_0_M00_AXI_RUSER;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 RVALID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire AXI_PerfectTranslator_0_M00_AXI_RVALID;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 WDATA" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [127:0]AXI_PerfectTranslator_0_M00_AXI_WDATA;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 WLAST" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire AXI_PerfectTranslator_0_M00_AXI_WLAST;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 WREADY" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire AXI_PerfectTranslator_0_M00_AXI_WREADY;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 WSTRB" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [15:0]AXI_PerfectTranslator_0_M00_AXI_WSTRB;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 WUSER" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [0:0]AXI_PerfectTranslator_0_M00_AXI_WUSER;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 WVALID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire AXI_PerfectTranslator_0_M00_AXI_WVALID;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_1_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 ARADDR" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [48:0]AXI_PerfectTranslator_1_M00_AXI_ARADDR;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_1_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 ARBURST" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [1:0]AXI_PerfectTranslator_1_M00_AXI_ARBURST;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_1_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 ARCACHE" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [3:0]AXI_PerfectTranslator_1_M00_AXI_ARCACHE;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_1_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 ARID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [5:0]AXI_PerfectTranslator_1_M00_AXI_ARID;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_1_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 ARLEN" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [7:0]AXI_PerfectTranslator_1_M00_AXI_ARLEN;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_1_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 ARLOCK" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire AXI_PerfectTranslator_1_M00_AXI_ARLOCK;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_1_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 ARPROT" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [2:0]AXI_PerfectTranslator_1_M00_AXI_ARPROT;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_1_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 ARQOS" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [3:0]AXI_PerfectTranslator_1_M00_AXI_ARQOS;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_1_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 ARREADY" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire AXI_PerfectTranslator_1_M00_AXI_ARREADY;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_1_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 ARSIZE" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [2:0]AXI_PerfectTranslator_1_M00_AXI_ARSIZE;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_1_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 ARUSER" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [0:0]AXI_PerfectTranslator_1_M00_AXI_ARUSER;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_1_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 ARVALID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire AXI_PerfectTranslator_1_M00_AXI_ARVALID;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_1_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 AWADDR" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [48:0]AXI_PerfectTranslator_1_M00_AXI_AWADDR;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_1_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 AWBURST" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [1:0]AXI_PerfectTranslator_1_M00_AXI_AWBURST;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_1_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 AWCACHE" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [3:0]AXI_PerfectTranslator_1_M00_AXI_AWCACHE;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_1_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 AWID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [5:0]AXI_PerfectTranslator_1_M00_AXI_AWID;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_1_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 AWLEN" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [7:0]AXI_PerfectTranslator_1_M00_AXI_AWLEN;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_1_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 AWLOCK" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire AXI_PerfectTranslator_1_M00_AXI_AWLOCK;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_1_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 AWPROT" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [2:0]AXI_PerfectTranslator_1_M00_AXI_AWPROT;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_1_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 AWQOS" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [3:0]AXI_PerfectTranslator_1_M00_AXI_AWQOS;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_1_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 AWREADY" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire AXI_PerfectTranslator_1_M00_AXI_AWREADY;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_1_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 AWSIZE" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [2:0]AXI_PerfectTranslator_1_M00_AXI_AWSIZE;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_1_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 AWUSER" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [0:0]AXI_PerfectTranslator_1_M00_AXI_AWUSER;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_1_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 AWVALID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire AXI_PerfectTranslator_1_M00_AXI_AWVALID;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_1_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 BID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [5:0]AXI_PerfectTranslator_1_M00_AXI_BID;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_1_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 BREADY" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire AXI_PerfectTranslator_1_M00_AXI_BREADY;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_1_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 BRESP" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [1:0]AXI_PerfectTranslator_1_M00_AXI_BRESP;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_1_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 BUSER" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [0:0]AXI_PerfectTranslator_1_M00_AXI_BUSER;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_1_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 BVALID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire AXI_PerfectTranslator_1_M00_AXI_BVALID;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_1_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 RDATA" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [127:0]AXI_PerfectTranslator_1_M00_AXI_RDATA;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_1_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 RID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [5:0]AXI_PerfectTranslator_1_M00_AXI_RID;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_1_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 RLAST" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire AXI_PerfectTranslator_1_M00_AXI_RLAST;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_1_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 RREADY" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire AXI_PerfectTranslator_1_M00_AXI_RREADY;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_1_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 RRESP" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [1:0]AXI_PerfectTranslator_1_M00_AXI_RRESP;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_1_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 RUSER" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [0:0]AXI_PerfectTranslator_1_M00_AXI_RUSER;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_1_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 RVALID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire AXI_PerfectTranslator_1_M00_AXI_RVALID;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_1_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 WDATA" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [127:0]AXI_PerfectTranslator_1_M00_AXI_WDATA;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_1_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 WLAST" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire AXI_PerfectTranslator_1_M00_AXI_WLAST;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_1_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 WREADY" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire AXI_PerfectTranslator_1_M00_AXI_WREADY;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_1_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 WSTRB" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [15:0]AXI_PerfectTranslator_1_M00_AXI_WSTRB;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_1_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 WUSER" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [0:0]AXI_PerfectTranslator_1_M00_AXI_WUSER;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_1_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 WVALID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire AXI_PerfectTranslator_1_M00_AXI_WVALID;
   (* DEBUG = "true" *) (* MARK_DEBUG *) wire [39:0]MemorEDF_0_m00_axi_ARADDR;
   (* DEBUG = "true" *) (* MARK_DEBUG *) wire [1:0]MemorEDF_0_m00_axi_ARBURST;
   (* DEBUG = "true" *) (* MARK_DEBUG *) wire [3:0]MemorEDF_0_m00_axi_ARCACHE;
@@ -133,123 +139,123 @@ module design_2
   (* DEBUG = "true" *) (* MARK_DEBUG *) wire [15:0]MemorEDF_0_m00_axi_WSTRB;
   (* DEBUG = "true" *) (* MARK_DEBUG *) wire MemorEDF_0_m00_axi_WVALID;
   wire [0:0]rst_ps8_0_99M_peripheral_aresetn;
-  wire [39:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARADDR;
-  wire [1:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARBURST;
-  wire [3:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARCACHE;
-  wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARID;
-  wire [7:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARLEN;
-  wire zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARLOCK;
-  wire [2:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARPROT;
-  wire [3:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARQOS;
-  wire zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARREADY;
-  wire [2:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARSIZE;
-  wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARUSER;
-  wire zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARVALID;
-  wire [39:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWADDR;
-  wire [1:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWBURST;
-  wire [3:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWCACHE;
-  wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWID;
-  wire [7:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWLEN;
-  wire zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWLOCK;
-  wire [2:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWPROT;
-  wire [3:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWQOS;
-  wire zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWREADY;
-  wire [2:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWSIZE;
-  wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWUSER;
-  wire zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWVALID;
-  wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_BID;
-  wire zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_BREADY;
-  wire [1:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_BRESP;
-  wire zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_BVALID;
-  wire [127:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RDATA;
-  wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RID;
-  wire zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RLAST;
-  wire zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RREADY;
-  wire [1:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RRESP;
-  wire zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RVALID;
-  wire [127:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WDATA;
-  wire zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WLAST;
-  wire zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WREADY;
-  wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WSTRB;
-  wire zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WVALID;
-  wire [39:0]zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARADDR;
-  wire [1:0]zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARBURST;
-  wire [3:0]zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARCACHE;
-  wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARID;
-  wire [7:0]zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARLEN;
-  wire zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARLOCK;
-  wire [2:0]zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARPROT;
-  wire [3:0]zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARQOS;
-  wire zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARREADY;
-  wire [2:0]zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARSIZE;
-  wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARUSER;
-  wire zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARVALID;
-  wire [39:0]zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_AWADDR;
-  wire [1:0]zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_AWBURST;
-  wire [3:0]zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_AWCACHE;
-  wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_AWID;
-  wire [7:0]zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_AWLEN;
-  wire zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_AWLOCK;
-  wire [2:0]zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_AWPROT;
-  wire [3:0]zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_AWQOS;
-  wire zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_AWREADY;
-  wire [2:0]zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_AWSIZE;
-  wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_AWUSER;
-  wire zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_AWVALID;
-  wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_BID;
-  wire zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_BREADY;
-  wire [1:0]zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_BRESP;
-  wire zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_BVALID;
-  wire [127:0]zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_RDATA;
-  wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_RID;
-  wire zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_RLAST;
-  wire zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_RREADY;
-  wire [1:0]zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_RRESP;
-  wire zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_RVALID;
-  wire [127:0]zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_WDATA;
-  wire zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_WLAST;
-  wire zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_WREADY;
-  wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_WSTRB;
-  wire zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_WVALID;
-  wire [39:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARADDR;
-  wire [1:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARBURST;
-  wire [3:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARCACHE;
-  wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARID;
-  wire [7:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARLEN;
-  wire zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARLOCK;
-  wire [2:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARPROT;
-  wire [3:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARQOS;
-  wire zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARREADY;
-  wire [2:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARSIZE;
-  wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARUSER;
-  wire zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARVALID;
-  wire [39:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWADDR;
-  wire [1:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWBURST;
-  wire [3:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWCACHE;
-  wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWID;
-  wire [7:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWLEN;
-  wire zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWLOCK;
-  wire [2:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWPROT;
-  wire [3:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWQOS;
-  wire zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWREADY;
-  wire [2:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWSIZE;
-  wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWUSER;
-  wire zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWVALID;
-  wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_BID;
-  wire zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_BREADY;
-  wire [1:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_BRESP;
-  wire zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_BVALID;
-  wire [127:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_RDATA;
-  wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_RID;
-  wire zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_RLAST;
-  wire zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_RREADY;
-  wire [1:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_RRESP;
-  wire zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_RVALID;
-  wire [127:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_WDATA;
-  wire zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_WLAST;
-  wire zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_WREADY;
-  wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_WSTRB;
-  wire zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_WVALID;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_FPD xilinx.com:interface:aximm:1.0 AXI4 ARADDR" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [39:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARADDR;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_FPD xilinx.com:interface:aximm:1.0 AXI4 ARBURST" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [1:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARBURST;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_FPD xilinx.com:interface:aximm:1.0 AXI4 ARCACHE" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [3:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARCACHE;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_FPD xilinx.com:interface:aximm:1.0 AXI4 ARID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARID;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_FPD xilinx.com:interface:aximm:1.0 AXI4 ARLEN" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [7:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARLEN;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_FPD xilinx.com:interface:aximm:1.0 AXI4 ARLOCK" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARLOCK;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_FPD xilinx.com:interface:aximm:1.0 AXI4 ARPROT" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [2:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARPROT;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_FPD xilinx.com:interface:aximm:1.0 AXI4 ARQOS" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [3:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARQOS;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_FPD xilinx.com:interface:aximm:1.0 AXI4 ARREADY" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARREADY;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_FPD xilinx.com:interface:aximm:1.0 AXI4 ARSIZE" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [2:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARSIZE;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_FPD xilinx.com:interface:aximm:1.0 AXI4 ARUSER" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARUSER;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_FPD xilinx.com:interface:aximm:1.0 AXI4 ARVALID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARVALID;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_FPD xilinx.com:interface:aximm:1.0 AXI4 AWADDR" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [39:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWADDR;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_FPD xilinx.com:interface:aximm:1.0 AXI4 AWBURST" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [1:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWBURST;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_FPD xilinx.com:interface:aximm:1.0 AXI4 AWCACHE" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [3:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWCACHE;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_FPD xilinx.com:interface:aximm:1.0 AXI4 AWID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWID;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_FPD xilinx.com:interface:aximm:1.0 AXI4 AWLEN" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [7:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWLEN;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_FPD xilinx.com:interface:aximm:1.0 AXI4 AWLOCK" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWLOCK;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_FPD xilinx.com:interface:aximm:1.0 AXI4 AWPROT" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [2:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWPROT;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_FPD xilinx.com:interface:aximm:1.0 AXI4 AWQOS" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [3:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWQOS;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_FPD xilinx.com:interface:aximm:1.0 AXI4 AWREADY" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWREADY;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_FPD xilinx.com:interface:aximm:1.0 AXI4 AWSIZE" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [2:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWSIZE;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_FPD xilinx.com:interface:aximm:1.0 AXI4 AWUSER" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWUSER;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_FPD xilinx.com:interface:aximm:1.0 AXI4 AWVALID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWVALID;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_FPD xilinx.com:interface:aximm:1.0 AXI4 BID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_BID;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_FPD xilinx.com:interface:aximm:1.0 AXI4 BREADY" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_BREADY;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_FPD xilinx.com:interface:aximm:1.0 AXI4 BRESP" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [1:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_BRESP;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_FPD xilinx.com:interface:aximm:1.0 AXI4 BVALID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_BVALID;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_FPD xilinx.com:interface:aximm:1.0 AXI4 RDATA" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [127:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RDATA;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_FPD xilinx.com:interface:aximm:1.0 AXI4 RID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RID;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_FPD xilinx.com:interface:aximm:1.0 AXI4 RLAST" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RLAST;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_FPD xilinx.com:interface:aximm:1.0 AXI4 RREADY" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RREADY;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_FPD xilinx.com:interface:aximm:1.0 AXI4 RRESP" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [1:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RRESP;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_FPD xilinx.com:interface:aximm:1.0 AXI4 RVALID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RVALID;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_FPD xilinx.com:interface:aximm:1.0 AXI4 WDATA" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [127:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WDATA;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_FPD xilinx.com:interface:aximm:1.0 AXI4 WLAST" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WLAST;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_FPD xilinx.com:interface:aximm:1.0 AXI4 WREADY" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WREADY;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_FPD xilinx.com:interface:aximm:1.0 AXI4 WSTRB" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WSTRB;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_FPD xilinx.com:interface:aximm:1.0 AXI4 WVALID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WVALID;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_LPD xilinx.com:interface:aximm:1.0 AXI4 ARADDR" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [39:0]zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARADDR;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_LPD xilinx.com:interface:aximm:1.0 AXI4 ARBURST" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [1:0]zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARBURST;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_LPD xilinx.com:interface:aximm:1.0 AXI4 ARCACHE" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [3:0]zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARCACHE;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_LPD xilinx.com:interface:aximm:1.0 AXI4 ARID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARID;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_LPD xilinx.com:interface:aximm:1.0 AXI4 ARLEN" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [7:0]zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARLEN;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_LPD xilinx.com:interface:aximm:1.0 AXI4 ARLOCK" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARLOCK;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_LPD xilinx.com:interface:aximm:1.0 AXI4 ARPROT" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [2:0]zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARPROT;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_LPD xilinx.com:interface:aximm:1.0 AXI4 ARQOS" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [3:0]zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARQOS;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_LPD xilinx.com:interface:aximm:1.0 AXI4 ARREADY" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARREADY;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_LPD xilinx.com:interface:aximm:1.0 AXI4 ARSIZE" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [2:0]zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARSIZE;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_LPD xilinx.com:interface:aximm:1.0 AXI4 ARUSER" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARUSER;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_LPD xilinx.com:interface:aximm:1.0 AXI4 ARVALID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARVALID;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_LPD xilinx.com:interface:aximm:1.0 AXI4 AWADDR" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [39:0]zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_AWADDR;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_LPD xilinx.com:interface:aximm:1.0 AXI4 AWBURST" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [1:0]zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_AWBURST;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_LPD xilinx.com:interface:aximm:1.0 AXI4 AWCACHE" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [3:0]zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_AWCACHE;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_LPD xilinx.com:interface:aximm:1.0 AXI4 AWID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_AWID;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_LPD xilinx.com:interface:aximm:1.0 AXI4 AWLEN" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [7:0]zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_AWLEN;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_LPD xilinx.com:interface:aximm:1.0 AXI4 AWLOCK" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_AWLOCK;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_LPD xilinx.com:interface:aximm:1.0 AXI4 AWPROT" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [2:0]zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_AWPROT;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_LPD xilinx.com:interface:aximm:1.0 AXI4 AWQOS" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [3:0]zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_AWQOS;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_LPD xilinx.com:interface:aximm:1.0 AXI4 AWREADY" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_AWREADY;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_LPD xilinx.com:interface:aximm:1.0 AXI4 AWSIZE" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [2:0]zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_AWSIZE;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_LPD xilinx.com:interface:aximm:1.0 AXI4 AWUSER" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_AWUSER;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_LPD xilinx.com:interface:aximm:1.0 AXI4 AWVALID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_AWVALID;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_LPD xilinx.com:interface:aximm:1.0 AXI4 BID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_BID;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_LPD xilinx.com:interface:aximm:1.0 AXI4 BREADY" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_BREADY;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_LPD xilinx.com:interface:aximm:1.0 AXI4 BRESP" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [1:0]zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_BRESP;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_LPD xilinx.com:interface:aximm:1.0 AXI4 BVALID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_BVALID;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_LPD xilinx.com:interface:aximm:1.0 AXI4 RDATA" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [127:0]zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_RDATA;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_LPD xilinx.com:interface:aximm:1.0 AXI4 RID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_RID;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_LPD xilinx.com:interface:aximm:1.0 AXI4 RLAST" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_RLAST;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_LPD xilinx.com:interface:aximm:1.0 AXI4 RREADY" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_RREADY;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_LPD xilinx.com:interface:aximm:1.0 AXI4 RRESP" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [1:0]zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_RRESP;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_LPD xilinx.com:interface:aximm:1.0 AXI4 RVALID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_RVALID;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_LPD xilinx.com:interface:aximm:1.0 AXI4 WDATA" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [127:0]zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_WDATA;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_LPD xilinx.com:interface:aximm:1.0 AXI4 WLAST" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_WLAST;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_LPD xilinx.com:interface:aximm:1.0 AXI4 WREADY" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_WREADY;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_LPD xilinx.com:interface:aximm:1.0 AXI4 WSTRB" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_WSTRB;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_LPD xilinx.com:interface:aximm:1.0 AXI4 WVALID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_WVALID;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM1_FPD xilinx.com:interface:aximm:1.0 AXI4 ARADDR" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [39:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARADDR;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM1_FPD xilinx.com:interface:aximm:1.0 AXI4 ARBURST" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [1:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARBURST;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM1_FPD xilinx.com:interface:aximm:1.0 AXI4 ARCACHE" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [3:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARCACHE;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM1_FPD xilinx.com:interface:aximm:1.0 AXI4 ARID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARID;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM1_FPD xilinx.com:interface:aximm:1.0 AXI4 ARLEN" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [7:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARLEN;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM1_FPD xilinx.com:interface:aximm:1.0 AXI4 ARLOCK" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARLOCK;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM1_FPD xilinx.com:interface:aximm:1.0 AXI4 ARPROT" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [2:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARPROT;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM1_FPD xilinx.com:interface:aximm:1.0 AXI4 ARQOS" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [3:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARQOS;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM1_FPD xilinx.com:interface:aximm:1.0 AXI4 ARREADY" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARREADY;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM1_FPD xilinx.com:interface:aximm:1.0 AXI4 ARSIZE" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [2:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARSIZE;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM1_FPD xilinx.com:interface:aximm:1.0 AXI4 ARUSER" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARUSER;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM1_FPD xilinx.com:interface:aximm:1.0 AXI4 ARVALID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARVALID;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM1_FPD xilinx.com:interface:aximm:1.0 AXI4 AWADDR" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [39:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWADDR;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM1_FPD xilinx.com:interface:aximm:1.0 AXI4 AWBURST" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [1:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWBURST;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM1_FPD xilinx.com:interface:aximm:1.0 AXI4 AWCACHE" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [3:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWCACHE;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM1_FPD xilinx.com:interface:aximm:1.0 AXI4 AWID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWID;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM1_FPD xilinx.com:interface:aximm:1.0 AXI4 AWLEN" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [7:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWLEN;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM1_FPD xilinx.com:interface:aximm:1.0 AXI4 AWLOCK" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWLOCK;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM1_FPD xilinx.com:interface:aximm:1.0 AXI4 AWPROT" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [2:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWPROT;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM1_FPD xilinx.com:interface:aximm:1.0 AXI4 AWQOS" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [3:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWQOS;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM1_FPD xilinx.com:interface:aximm:1.0 AXI4 AWREADY" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWREADY;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM1_FPD xilinx.com:interface:aximm:1.0 AXI4 AWSIZE" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [2:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWSIZE;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM1_FPD xilinx.com:interface:aximm:1.0 AXI4 AWUSER" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWUSER;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM1_FPD xilinx.com:interface:aximm:1.0 AXI4 AWVALID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWVALID;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM1_FPD xilinx.com:interface:aximm:1.0 AXI4 BID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_BID;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM1_FPD xilinx.com:interface:aximm:1.0 AXI4 BREADY" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_BREADY;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM1_FPD xilinx.com:interface:aximm:1.0 AXI4 BRESP" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [1:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_BRESP;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM1_FPD xilinx.com:interface:aximm:1.0 AXI4 BVALID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_BVALID;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM1_FPD xilinx.com:interface:aximm:1.0 AXI4 RDATA" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [127:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_RDATA;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM1_FPD xilinx.com:interface:aximm:1.0 AXI4 RID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_RID;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM1_FPD xilinx.com:interface:aximm:1.0 AXI4 RLAST" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_RLAST;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM1_FPD xilinx.com:interface:aximm:1.0 AXI4 RREADY" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_RREADY;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM1_FPD xilinx.com:interface:aximm:1.0 AXI4 RRESP" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [1:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_RRESP;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM1_FPD xilinx.com:interface:aximm:1.0 AXI4 RVALID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_RVALID;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM1_FPD xilinx.com:interface:aximm:1.0 AXI4 WDATA" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [127:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_WDATA;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM1_FPD xilinx.com:interface:aximm:1.0 AXI4 WLAST" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_WLAST;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM1_FPD xilinx.com:interface:aximm:1.0 AXI4 WREADY" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_WREADY;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM1_FPD xilinx.com:interface:aximm:1.0 AXI4 WSTRB" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [15:0]zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_WSTRB;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM1_FPD xilinx.com:interface:aximm:1.0 AXI4 WVALID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_WVALID;
   wire zynq_ultra_ps_e_0_pl_clk0;
   wire zynq_ultra_ps_e_0_pl_resetn0;
 
@@ -297,6 +303,7 @@ module design_2
         .m00_axi_wlast(AXI_PerfectTranslator_0_M00_AXI_WLAST),
         .m00_axi_wready(AXI_PerfectTranslator_0_M00_AXI_WREADY),
         .m00_axi_wstrb(AXI_PerfectTranslator_0_M00_AXI_WSTRB),
+        .m00_axi_wuser(AXI_PerfectTranslator_0_M00_AXI_WUSER),
         .m00_axi_wvalid(AXI_PerfectTranslator_0_M00_AXI_WVALID),
         .s00_axi_aclk(zynq_ultra_ps_e_0_pl_clk0),
         .s00_axi_araddr(MemorEDF_0_m00_axi_ARADDR),
@@ -385,6 +392,7 @@ module design_2
         .m00_axi_wlast(AXI_PerfectTranslator_1_M00_AXI_WLAST),
         .m00_axi_wready(AXI_PerfectTranslator_1_M00_AXI_WREADY),
         .m00_axi_wstrb(AXI_PerfectTranslator_1_M00_AXI_WSTRB),
+        .m00_axi_wuser(AXI_PerfectTranslator_1_M00_AXI_WUSER),
         .m00_axi_wvalid(AXI_PerfectTranslator_1_M00_AXI_WVALID),
         .s00_axi_aclk(zynq_ultra_ps_e_0_pl_clk0),
         .s00_axi_araddr(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARADDR),
@@ -610,6 +618,210 @@ module design_2
         .mb_debug_sys_rst(1'b0),
         .peripheral_aresetn(rst_ps8_0_99M_peripheral_aresetn),
         .slowest_sync_clk(zynq_ultra_ps_e_0_pl_clk0));
+  design_2_system_ila_0_0 system_ila_0
+       (.SLOT_0_AXI_araddr(zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARADDR),
+        .SLOT_0_AXI_arburst(zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARBURST),
+        .SLOT_0_AXI_arcache(zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARCACHE),
+        .SLOT_0_AXI_arid(zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARID),
+        .SLOT_0_AXI_arlen(zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARLEN),
+        .SLOT_0_AXI_arlock(zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARLOCK),
+        .SLOT_0_AXI_arprot(zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARPROT),
+        .SLOT_0_AXI_arqos(zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARQOS),
+        .SLOT_0_AXI_arready(zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARREADY),
+        .SLOT_0_AXI_arsize(zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARSIZE),
+        .SLOT_0_AXI_aruser(zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARUSER),
+        .SLOT_0_AXI_arvalid(zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARVALID),
+        .SLOT_0_AXI_awaddr(zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_AWADDR),
+        .SLOT_0_AXI_awburst(zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_AWBURST),
+        .SLOT_0_AXI_awcache(zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_AWCACHE),
+        .SLOT_0_AXI_awid(zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_AWID),
+        .SLOT_0_AXI_awlen(zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_AWLEN),
+        .SLOT_0_AXI_awlock(zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_AWLOCK),
+        .SLOT_0_AXI_awprot(zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_AWPROT),
+        .SLOT_0_AXI_awqos(zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_AWQOS),
+        .SLOT_0_AXI_awready(zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_AWREADY),
+        .SLOT_0_AXI_awsize(zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_AWSIZE),
+        .SLOT_0_AXI_awuser(zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_AWUSER),
+        .SLOT_0_AXI_awvalid(zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_AWVALID),
+        .SLOT_0_AXI_bid(zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_BID),
+        .SLOT_0_AXI_bready(zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_BREADY),
+        .SLOT_0_AXI_bresp(zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_BRESP),
+        .SLOT_0_AXI_bvalid(zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_BVALID),
+        .SLOT_0_AXI_rdata(zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_RDATA),
+        .SLOT_0_AXI_rid(zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_RID),
+        .SLOT_0_AXI_rlast(zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_RLAST),
+        .SLOT_0_AXI_rready(zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_RREADY),
+        .SLOT_0_AXI_rresp(zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_RRESP),
+        .SLOT_0_AXI_rvalid(zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_RVALID),
+        .SLOT_0_AXI_wdata(zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_WDATA),
+        .SLOT_0_AXI_wlast(zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_WLAST),
+        .SLOT_0_AXI_wready(zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_WREADY),
+        .SLOT_0_AXI_wstrb(zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_WSTRB),
+        .SLOT_0_AXI_wvalid(zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_WVALID),
+        .SLOT_1_AXI_araddr(AXI_PerfectTranslator_0_M00_AXI_ARADDR),
+        .SLOT_1_AXI_arburst(AXI_PerfectTranslator_0_M00_AXI_ARBURST),
+        .SLOT_1_AXI_arcache(AXI_PerfectTranslator_0_M00_AXI_ARCACHE),
+        .SLOT_1_AXI_arid(AXI_PerfectTranslator_0_M00_AXI_ARID),
+        .SLOT_1_AXI_arlen(AXI_PerfectTranslator_0_M00_AXI_ARLEN),
+        .SLOT_1_AXI_arlock(AXI_PerfectTranslator_0_M00_AXI_ARLOCK),
+        .SLOT_1_AXI_arprot(AXI_PerfectTranslator_0_M00_AXI_ARPROT),
+        .SLOT_1_AXI_arqos(AXI_PerfectTranslator_0_M00_AXI_ARQOS),
+        .SLOT_1_AXI_arready(AXI_PerfectTranslator_0_M00_AXI_ARREADY),
+        .SLOT_1_AXI_arsize(AXI_PerfectTranslator_0_M00_AXI_ARSIZE),
+        .SLOT_1_AXI_aruser(AXI_PerfectTranslator_0_M00_AXI_ARUSER),
+        .SLOT_1_AXI_arvalid(AXI_PerfectTranslator_0_M00_AXI_ARVALID),
+        .SLOT_1_AXI_awaddr(AXI_PerfectTranslator_0_M00_AXI_AWADDR),
+        .SLOT_1_AXI_awburst(AXI_PerfectTranslator_0_M00_AXI_AWBURST),
+        .SLOT_1_AXI_awcache(AXI_PerfectTranslator_0_M00_AXI_AWCACHE),
+        .SLOT_1_AXI_awid(AXI_PerfectTranslator_0_M00_AXI_AWID),
+        .SLOT_1_AXI_awlen(AXI_PerfectTranslator_0_M00_AXI_AWLEN),
+        .SLOT_1_AXI_awlock(AXI_PerfectTranslator_0_M00_AXI_AWLOCK),
+        .SLOT_1_AXI_awprot(AXI_PerfectTranslator_0_M00_AXI_AWPROT),
+        .SLOT_1_AXI_awqos(AXI_PerfectTranslator_0_M00_AXI_AWQOS),
+        .SLOT_1_AXI_awready(AXI_PerfectTranslator_0_M00_AXI_AWREADY),
+        .SLOT_1_AXI_awsize(AXI_PerfectTranslator_0_M00_AXI_AWSIZE),
+        .SLOT_1_AXI_awuser(AXI_PerfectTranslator_0_M00_AXI_AWUSER),
+        .SLOT_1_AXI_awvalid(AXI_PerfectTranslator_0_M00_AXI_AWVALID),
+        .SLOT_1_AXI_bid(AXI_PerfectTranslator_0_M00_AXI_BID),
+        .SLOT_1_AXI_bready(AXI_PerfectTranslator_0_M00_AXI_BREADY),
+        .SLOT_1_AXI_bresp(AXI_PerfectTranslator_0_M00_AXI_BRESP),
+        .SLOT_1_AXI_buser(AXI_PerfectTranslator_0_M00_AXI_BUSER),
+        .SLOT_1_AXI_bvalid(AXI_PerfectTranslator_0_M00_AXI_BVALID),
+        .SLOT_1_AXI_rdata(AXI_PerfectTranslator_0_M00_AXI_RDATA),
+        .SLOT_1_AXI_rid(AXI_PerfectTranslator_0_M00_AXI_RID),
+        .SLOT_1_AXI_rlast(AXI_PerfectTranslator_0_M00_AXI_RLAST),
+        .SLOT_1_AXI_rready(AXI_PerfectTranslator_0_M00_AXI_RREADY),
+        .SLOT_1_AXI_rresp(AXI_PerfectTranslator_0_M00_AXI_RRESP),
+        .SLOT_1_AXI_ruser(AXI_PerfectTranslator_0_M00_AXI_RUSER),
+        .SLOT_1_AXI_rvalid(AXI_PerfectTranslator_0_M00_AXI_RVALID),
+        .SLOT_1_AXI_wdata(AXI_PerfectTranslator_0_M00_AXI_WDATA),
+        .SLOT_1_AXI_wlast(AXI_PerfectTranslator_0_M00_AXI_WLAST),
+        .SLOT_1_AXI_wready(AXI_PerfectTranslator_0_M00_AXI_WREADY),
+        .SLOT_1_AXI_wstrb(AXI_PerfectTranslator_0_M00_AXI_WSTRB),
+        .SLOT_1_AXI_wuser(AXI_PerfectTranslator_0_M00_AXI_WUSER),
+        .SLOT_1_AXI_wvalid(AXI_PerfectTranslator_0_M00_AXI_WVALID),
+        .SLOT_2_AXI_araddr(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARADDR),
+        .SLOT_2_AXI_arburst(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARBURST),
+        .SLOT_2_AXI_arcache(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARCACHE),
+        .SLOT_2_AXI_arid(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARID),
+        .SLOT_2_AXI_arlen(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARLEN),
+        .SLOT_2_AXI_arlock(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARLOCK),
+        .SLOT_2_AXI_arprot(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARPROT),
+        .SLOT_2_AXI_arqos(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARQOS),
+        .SLOT_2_AXI_arready(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARREADY),
+        .SLOT_2_AXI_arsize(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARSIZE),
+        .SLOT_2_AXI_aruser(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARUSER),
+        .SLOT_2_AXI_arvalid(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_ARVALID),
+        .SLOT_2_AXI_awaddr(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWADDR),
+        .SLOT_2_AXI_awburst(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWBURST),
+        .SLOT_2_AXI_awcache(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWCACHE),
+        .SLOT_2_AXI_awid(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWID),
+        .SLOT_2_AXI_awlen(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWLEN),
+        .SLOT_2_AXI_awlock(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWLOCK),
+        .SLOT_2_AXI_awprot(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWPROT),
+        .SLOT_2_AXI_awqos(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWQOS),
+        .SLOT_2_AXI_awready(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWREADY),
+        .SLOT_2_AXI_awsize(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWSIZE),
+        .SLOT_2_AXI_awuser(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWUSER),
+        .SLOT_2_AXI_awvalid(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_AWVALID),
+        .SLOT_2_AXI_bid(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_BID),
+        .SLOT_2_AXI_bready(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_BREADY),
+        .SLOT_2_AXI_bresp(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_BRESP),
+        .SLOT_2_AXI_bvalid(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_BVALID),
+        .SLOT_2_AXI_rdata(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_RDATA),
+        .SLOT_2_AXI_rid(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_RID),
+        .SLOT_2_AXI_rlast(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_RLAST),
+        .SLOT_2_AXI_rready(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_RREADY),
+        .SLOT_2_AXI_rresp(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_RRESP),
+        .SLOT_2_AXI_rvalid(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_RVALID),
+        .SLOT_2_AXI_wdata(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_WDATA),
+        .SLOT_2_AXI_wlast(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_WLAST),
+        .SLOT_2_AXI_wready(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_WREADY),
+        .SLOT_2_AXI_wstrb(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_WSTRB),
+        .SLOT_2_AXI_wvalid(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_WVALID),
+        .SLOT_3_AXI_araddr(AXI_PerfectTranslator_1_M00_AXI_ARADDR),
+        .SLOT_3_AXI_arburst(AXI_PerfectTranslator_1_M00_AXI_ARBURST),
+        .SLOT_3_AXI_arcache(AXI_PerfectTranslator_1_M00_AXI_ARCACHE),
+        .SLOT_3_AXI_arid(AXI_PerfectTranslator_1_M00_AXI_ARID),
+        .SLOT_3_AXI_arlen(AXI_PerfectTranslator_1_M00_AXI_ARLEN),
+        .SLOT_3_AXI_arlock(AXI_PerfectTranslator_1_M00_AXI_ARLOCK),
+        .SLOT_3_AXI_arprot(AXI_PerfectTranslator_1_M00_AXI_ARPROT),
+        .SLOT_3_AXI_arqos(AXI_PerfectTranslator_1_M00_AXI_ARQOS),
+        .SLOT_3_AXI_arready(AXI_PerfectTranslator_1_M00_AXI_ARREADY),
+        .SLOT_3_AXI_arsize(AXI_PerfectTranslator_1_M00_AXI_ARSIZE),
+        .SLOT_3_AXI_aruser(AXI_PerfectTranslator_1_M00_AXI_ARUSER),
+        .SLOT_3_AXI_arvalid(AXI_PerfectTranslator_1_M00_AXI_ARVALID),
+        .SLOT_3_AXI_awaddr(AXI_PerfectTranslator_1_M00_AXI_AWADDR),
+        .SLOT_3_AXI_awburst(AXI_PerfectTranslator_1_M00_AXI_AWBURST),
+        .SLOT_3_AXI_awcache(AXI_PerfectTranslator_1_M00_AXI_AWCACHE),
+        .SLOT_3_AXI_awid(AXI_PerfectTranslator_1_M00_AXI_AWID),
+        .SLOT_3_AXI_awlen(AXI_PerfectTranslator_1_M00_AXI_AWLEN),
+        .SLOT_3_AXI_awlock(AXI_PerfectTranslator_1_M00_AXI_AWLOCK),
+        .SLOT_3_AXI_awprot(AXI_PerfectTranslator_1_M00_AXI_AWPROT),
+        .SLOT_3_AXI_awqos(AXI_PerfectTranslator_1_M00_AXI_AWQOS),
+        .SLOT_3_AXI_awready(AXI_PerfectTranslator_1_M00_AXI_AWREADY),
+        .SLOT_3_AXI_awsize(AXI_PerfectTranslator_1_M00_AXI_AWSIZE),
+        .SLOT_3_AXI_awuser(AXI_PerfectTranslator_1_M00_AXI_AWUSER),
+        .SLOT_3_AXI_awvalid(AXI_PerfectTranslator_1_M00_AXI_AWVALID),
+        .SLOT_3_AXI_bid(AXI_PerfectTranslator_1_M00_AXI_BID),
+        .SLOT_3_AXI_bready(AXI_PerfectTranslator_1_M00_AXI_BREADY),
+        .SLOT_3_AXI_bresp(AXI_PerfectTranslator_1_M00_AXI_BRESP),
+        .SLOT_3_AXI_buser(AXI_PerfectTranslator_1_M00_AXI_BUSER),
+        .SLOT_3_AXI_bvalid(AXI_PerfectTranslator_1_M00_AXI_BVALID),
+        .SLOT_3_AXI_rdata(AXI_PerfectTranslator_1_M00_AXI_RDATA),
+        .SLOT_3_AXI_rid(AXI_PerfectTranslator_1_M00_AXI_RID),
+        .SLOT_3_AXI_rlast(AXI_PerfectTranslator_1_M00_AXI_RLAST),
+        .SLOT_3_AXI_rready(AXI_PerfectTranslator_1_M00_AXI_RREADY),
+        .SLOT_3_AXI_rresp(AXI_PerfectTranslator_1_M00_AXI_RRESP),
+        .SLOT_3_AXI_ruser(AXI_PerfectTranslator_1_M00_AXI_RUSER),
+        .SLOT_3_AXI_rvalid(AXI_PerfectTranslator_1_M00_AXI_RVALID),
+        .SLOT_3_AXI_wdata(AXI_PerfectTranslator_1_M00_AXI_WDATA),
+        .SLOT_3_AXI_wlast(AXI_PerfectTranslator_1_M00_AXI_WLAST),
+        .SLOT_3_AXI_wready(AXI_PerfectTranslator_1_M00_AXI_WREADY),
+        .SLOT_3_AXI_wstrb(AXI_PerfectTranslator_1_M00_AXI_WSTRB),
+        .SLOT_3_AXI_wuser(AXI_PerfectTranslator_1_M00_AXI_WUSER),
+        .SLOT_3_AXI_wvalid(AXI_PerfectTranslator_1_M00_AXI_WVALID),
+        .SLOT_4_AXI_araddr(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARADDR),
+        .SLOT_4_AXI_arburst(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARBURST),
+        .SLOT_4_AXI_arcache(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARCACHE),
+        .SLOT_4_AXI_arid(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARID),
+        .SLOT_4_AXI_arlen(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARLEN),
+        .SLOT_4_AXI_arlock(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARLOCK),
+        .SLOT_4_AXI_arprot(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARPROT),
+        .SLOT_4_AXI_arqos(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARQOS),
+        .SLOT_4_AXI_arready(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARREADY),
+        .SLOT_4_AXI_arsize(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARSIZE),
+        .SLOT_4_AXI_aruser(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARUSER),
+        .SLOT_4_AXI_arvalid(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARVALID),
+        .SLOT_4_AXI_awaddr(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWADDR),
+        .SLOT_4_AXI_awburst(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWBURST),
+        .SLOT_4_AXI_awcache(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWCACHE),
+        .SLOT_4_AXI_awid(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWID),
+        .SLOT_4_AXI_awlen(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWLEN),
+        .SLOT_4_AXI_awlock(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWLOCK),
+        .SLOT_4_AXI_awprot(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWPROT),
+        .SLOT_4_AXI_awqos(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWQOS),
+        .SLOT_4_AXI_awready(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWREADY),
+        .SLOT_4_AXI_awsize(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWSIZE),
+        .SLOT_4_AXI_awuser(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWUSER),
+        .SLOT_4_AXI_awvalid(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_AWVALID),
+        .SLOT_4_AXI_bid(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_BID),
+        .SLOT_4_AXI_bready(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_BREADY),
+        .SLOT_4_AXI_bresp(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_BRESP),
+        .SLOT_4_AXI_bvalid(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_BVALID),
+        .SLOT_4_AXI_rdata(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RDATA),
+        .SLOT_4_AXI_rid(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RID),
+        .SLOT_4_AXI_rlast(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RLAST),
+        .SLOT_4_AXI_rready(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RREADY),
+        .SLOT_4_AXI_rresp(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RRESP),
+        .SLOT_4_AXI_rvalid(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RVALID),
+        .SLOT_4_AXI_wdata(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WDATA),
+        .SLOT_4_AXI_wlast(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WLAST),
+        .SLOT_4_AXI_wready(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WREADY),
+        .SLOT_4_AXI_wstrb(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WSTRB),
+        .SLOT_4_AXI_wvalid(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WVALID),
+        .clk(zynq_ultra_ps_e_0_pl_clk0),
+        .resetn(rst_ps8_0_99M_peripheral_aresetn));
   design_2_zynq_ultra_ps_e_0_0 zynq_ultra_ps_e_0
        (.maxigp0_araddr(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARADDR),
         .maxigp0_arburst(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARBURST),
