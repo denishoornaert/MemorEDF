@@ -1,7 +1,10 @@
 COMPILER_ARM = aarch64-linux-gnu-gcc
 FLAGS = -lpthread -lrt
 
-all: tdma fixedpriority poke populate contention memguard
+all: config_schim_fp tdma fixedpriority poke populate contention memguard
+
+config_schim_fp: src/config_schim_fp.c objects/tool.o
+	$(COMPILER_ARM) src/config_schim_fp.c -o exec/config_schim_fp.out $(FLAGS) objects/tool.o
 
 tdma: src/tdma.c objects/tool.o
 	$(COMPILER_ARM) src/tdma.c -o exec/tdma.out $(FLAGS) objects/tool.o
