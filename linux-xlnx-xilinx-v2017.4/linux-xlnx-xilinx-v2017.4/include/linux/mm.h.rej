@@ -1,0 +1,20 @@
+--- include/linux/mm.h
++++ include/linux/mm.h
+@@ -197,6 +197,7 @@ extern unsigned int kobjsize(const void *objp);
+ #define VM_NOHUGEPAGE	0x40000000	/* MADV_NOHUGEPAGE marked this vma */
+ #define VM_MERGEABLE	0x80000000	/* KSM may merge identical pages */
+ 
++
+ #ifdef CONFIG_ARCH_USES_HIGH_VMA_FLAGS
+ #define VM_HIGH_ARCH_BIT_0	32	/* bit only usable on 64-bit architectures */
+ #define VM_HIGH_ARCH_BIT_1	33	/* bit only usable on 64-bit architectures */
+@@ -208,6 +209,9 @@ extern unsigned int kobjsize(const void *objp);
+ #define VM_HIGH_ARCH_3	BIT(VM_HIGH_ARCH_BIT_3)
+ #endif /* CONFIG_ARCH_USES_HIGH_VMA_FLAGS */
+ 
++#define VM_CACHED	VM_ARCH_1	/*  */
++#define VM_OC_INC	VM_ARCH_2	/*  */
++
+ #if defined(CONFIG_X86)
+ # define VM_PAT		VM_ARCH_1	/* PAT reserves whole VMA at once (x86) */
+ #if defined (CONFIG_X86_INTEL_MEMORY_PROTECTION_KEYS)

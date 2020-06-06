@@ -1,0 +1,8 @@
+Created for linux-xlnx checkout to remotes/origin/2017.4_video_ea
+Kernel 4.9
+
+Use mmap flags directly as numbers as libc is not modified to support new flags
+#define MAP_CACHED  0x40 /* Map as cacheable */
+#define MAP_OC_INC  0x80 /* Map as Outer Cacheable, Inner non-cacheable */
+
+example: mmap(0, g_mem_size, PROT_READ | PROT_WRITE, MAP_SHARED | 0x40, memfd, dev_base);
