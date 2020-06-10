@@ -1013,17 +1013,16 @@ HDL_ATTRIBUTE.DEBUG {true} \
   connect_bd_net -net zynq_ultra_ps_e_0_pl_resetn0 [get_bd_pins rst_ps8_0_99M/ext_reset_in] [get_bd_pins zynq_ultra_ps_e_0/pl_resetn0]
 
   # Create address segments
-  create_bd_addr_seg -range 0x80000000 -offset 0x000800000000 [get_bd_addr_spaces AXI_PerfectTranslator_0/M00_AXI] [get_bd_addr_segs zynq_ultra_ps_e_0/SAXIGP2/HP0_DDR_LOW] SEG_zynq_ultra_ps_e_0_HP0_DDR_LOW
-  create_bd_addr_seg -range 0x80000000 -offset 0x000800000000 [get_bd_addr_spaces AXI_PerfectTranslator_1/M00_AXI] [get_bd_addr_segs zynq_ultra_ps_e_0/SAXIGP3/HP1_DDR_LOW] SEG_zynq_ultra_ps_e_0_HP1_DDR_LOW
-  create_bd_addr_seg -range 0x80000000 -offset 0x00000000 [get_bd_addr_spaces MemorEDF_0/m00_axi] [get_bd_addr_segs AXI_PerfectTranslator_0/S00_AXI/S00_AXI_mem] SEG_AXI_PerfectTranslator_0_S00_AXI_mem
-  create_bd_addr_seg -range 0x80000000 -offset 0x000500000000 [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs AXI_PerfectTranslator_1/S00_AXI/S00_AXI_mem] SEG_AXI_PerfectTranslator_1_S00_AXI_mem
+  create_bd_addr_seg -range 0x000800000000 -offset 0x000800000000 [get_bd_addr_spaces AXI_PerfectTranslator_0/M00_AXI] [get_bd_addr_segs zynq_ultra_ps_e_0/SAXIGP2/HP0_DDR_HIGH] SEG_zynq_ultra_ps_e_0_HP0_DDR_HIGH
+  create_bd_addr_seg -range 0x80000000 -offset 0x00000000 [get_bd_addr_spaces AXI_PerfectTranslator_0/M00_AXI] [get_bd_addr_segs zynq_ultra_ps_e_0/SAXIGP2/HP0_DDR_LOW] SEG_zynq_ultra_ps_e_0_HP0_DDR_LOW
+  create_bd_addr_seg -range 0x000800000000 -offset 0x000800000000 [get_bd_addr_spaces AXI_PerfectTranslator_1/M00_AXI] [get_bd_addr_segs zynq_ultra_ps_e_0/SAXIGP3/HP1_DDR_HIGH] SEG_zynq_ultra_ps_e_0_HP1_DDR_HIGH
+  create_bd_addr_seg -range 0x80000000 -offset 0x00000000 [get_bd_addr_spaces AXI_PerfectTranslator_1/M00_AXI] [get_bd_addr_segs zynq_ultra_ps_e_0/SAXIGP3/HP1_DDR_LOW] SEG_zynq_ultra_ps_e_0_HP1_DDR_LOW
+  create_bd_addr_seg -range 0x000800000000 -offset 0x00000000 [get_bd_addr_spaces MemorEDF_0/m00_axi] [get_bd_addr_segs AXI_PerfectTranslator_0/S00_AXI/S00_AXI_mem] SEG_AXI_PerfectTranslator_0_S00_AXI_mem
+  create_bd_addr_seg -range 0x000800000000 -offset 0x004800000000 [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs AXI_PerfectTranslator_1/S00_AXI/S00_AXI_mem] SEG_AXI_PerfectTranslator_1_S00_AXI_mem
   create_bd_addr_seg -range 0x00010000 -offset 0x80000000 [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs MemorEDF_0/s01_axi/Reg] SEG_MemorEDF_0_Reg
-  create_bd_addr_seg -range 0x80000000 -offset 0x000400000000 [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs MemorEDF_0/s00_axi/reg0] SEG_MemorEDF_0_reg0
+  create_bd_addr_seg -range 0x000800000000 -offset 0x001000000000 [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs MemorEDF_0/s00_axi/reg0] SEG_MemorEDF_0_reg0
 
   # Exclude Address Segments
-  create_bd_addr_seg -range 0x000800000000 -offset 0x001000000000 [get_bd_addr_spaces AXI_PerfectTranslator_0/M00_AXI] [get_bd_addr_segs zynq_ultra_ps_e_0/SAXIGP2/HP0_DDR_HIGH] SEG_zynq_ultra_ps_e_0_HP0_DDR_HIGH
-  exclude_bd_addr_seg [get_bd_addr_segs AXI_PerfectTranslator_0/M00_AXI/SEG_zynq_ultra_ps_e_0_HP0_DDR_HIGH]
-
   create_bd_addr_seg -range 0x01000000 -offset 0xFF000000 [get_bd_addr_spaces AXI_PerfectTranslator_0/M00_AXI] [get_bd_addr_segs zynq_ultra_ps_e_0/SAXIGP2/HP0_LPS_OCM] SEG_zynq_ultra_ps_e_0_HP0_LPS_OCM
   exclude_bd_addr_seg [get_bd_addr_segs AXI_PerfectTranslator_0/M00_AXI/SEG_zynq_ultra_ps_e_0_HP0_LPS_OCM]
 
@@ -1038,9 +1037,6 @@ HDL_ATTRIBUTE.DEBUG {true} \
 
   create_bd_addr_seg -range 0x20000000 -offset 0xC0000000 [get_bd_addr_spaces AXI_PerfectTranslator_0/M00_AXI] [get_bd_addr_segs zynq_ultra_ps_e_0/SAXIGP2/HP0_QSPI] SEG_zynq_ultra_ps_e_0_HP0_QSPI
   exclude_bd_addr_seg [get_bd_addr_segs AXI_PerfectTranslator_0/M00_AXI/SEG_zynq_ultra_ps_e_0_HP0_QSPI]
-
-  create_bd_addr_seg -range 0x000800000000 -offset 0x000800000000 [get_bd_addr_spaces AXI_PerfectTranslator_1/M00_AXI] [get_bd_addr_segs zynq_ultra_ps_e_0/SAXIGP3/HP1_DDR_HIGH] SEG_zynq_ultra_ps_e_0_HP1_DDR_HIGH
-  exclude_bd_addr_seg [get_bd_addr_segs AXI_PerfectTranslator_1/M00_AXI/SEG_zynq_ultra_ps_e_0_HP1_DDR_HIGH]
 
   create_bd_addr_seg -range 0x01000000 -offset 0xFF000000 [get_bd_addr_spaces AXI_PerfectTranslator_1/M00_AXI] [get_bd_addr_segs zynq_ultra_ps_e_0/SAXIGP3/HP1_LPS_OCM] SEG_zynq_ultra_ps_e_0_HP1_LPS_OCM
   exclude_bd_addr_seg [get_bd_addr_segs AXI_PerfectTranslator_1/M00_AXI/SEG_zynq_ultra_ps_e_0_HP1_LPS_OCM]

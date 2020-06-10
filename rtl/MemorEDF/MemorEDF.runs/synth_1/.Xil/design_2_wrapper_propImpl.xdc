@@ -1,4 +1,4 @@
-set_property SRC_FILE_INFO {cfile:/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc rfile:../../../MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc id:1} [current_design]
+set_property SRC_FILE_INFO {cfile:/home/duck/Github/text_memorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc rfile:../../../MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc id:1} [current_design]
 set_property src_info {type:XDC file:1 line:10 export:INPUT save:INPUT read:READ} [current_design]
 connect_debug_port u_ila_0/probe0 [get_nets [list {design_2_i/MemorEDF_0/inst/nonaxidomain/genblk1[3].queue/counter_reg__0[0]} {design_2_i/MemorEDF_0/inst/nonaxidomain/genblk1[3].queue/counter_reg__0[1]} {design_2_i/MemorEDF_0/inst/nonaxidomain/genblk1[3].queue/counter_reg__0[2]} {design_2_i/MemorEDF_0/inst/nonaxidomain/genblk1[3].queue/counter_reg__0[3]}]]
 set_property src_info {type:XDC file:1 line:11 export:INPUT save:INPUT read:READ} [current_design]

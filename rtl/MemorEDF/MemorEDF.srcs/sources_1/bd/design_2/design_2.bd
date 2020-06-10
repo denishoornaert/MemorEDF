@@ -686,19 +686,19 @@
         <spirit:abstractionType spirit:library="interface" spirit:name="aximm_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
       </spirit:busInterface>
       <spirit:busInterface>
-        <spirit:name>M_AXI_HPM0_LPD</spirit:name>
+        <spirit:name>M_AXI_HPM1_FPD</spirit:name>
         <spirit:master>
           <spirit:addressSpaceRef spirit:addressSpaceRef="Data"/>
-          <spirit:baseAddress spirit:maximum="0x9FFFFFFF" spirit:minimum="0x80000000">0x80000000</spirit:baseAddress>
+          <spirit:baseAddress spirit:maximum="0xBFFFFFFF" spirit:minimum="0xB0000000">0xB0000000</spirit:baseAddress>
         </spirit:master>
         <spirit:busType spirit:library="interface" spirit:name="aximm" spirit:vendor="xilinx.com" spirit:version="1.0"/>
         <spirit:abstractionType spirit:library="interface" spirit:name="aximm_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
       </spirit:busInterface>
       <spirit:busInterface>
-        <spirit:name>M_AXI_HPM1_FPD</spirit:name>
+        <spirit:name>M_AXI_HPM0_LPD</spirit:name>
         <spirit:master>
           <spirit:addressSpaceRef spirit:addressSpaceRef="Data"/>
-          <spirit:baseAddress spirit:maximum="0xBFFFFFFF" spirit:minimum="0xB0000000">0xB0000000</spirit:baseAddress>
+          <spirit:baseAddress spirit:maximum="0x9FFFFFFF" spirit:minimum="0x80000000">0x80000000</spirit:baseAddress>
         </spirit:master>
         <spirit:busType spirit:library="interface" spirit:name="aximm" spirit:vendor="xilinx.com" spirit:version="1.0"/>
         <spirit:abstractionType spirit:library="interface" spirit:name="aximm_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
@@ -722,8 +722,8 @@
           <spirit:segment>
             <spirit:name>SEG_AXI_PerfectTranslator_1_S00_AXI_mem</spirit:name>
             <spirit:displayName>/AXI_PerfectTranslator_1/S00_AXI/S00_AXI_mem</spirit:displayName>
-            <spirit:addressOffset>0x00500000000</spirit:addressOffset>
-            <spirit:range>2G</spirit:range>
+            <spirit:addressOffset>0x04800000000</spirit:addressOffset>
+            <spirit:range>32G</spirit:range>
           </spirit:segment>
           <spirit:segment>
             <spirit:name>SEG_MemorEDF_0_Reg</spirit:name>
@@ -734,8 +734,8 @@
           <spirit:segment>
             <spirit:name>SEG_MemorEDF_0_reg0</spirit:name>
             <spirit:displayName>/MemorEDF_0/s00_axi/reg0</spirit:displayName>
-            <spirit:addressOffset>0x00400000000</spirit:addressOffset>
-            <spirit:range>2G</spirit:range>
+            <spirit:addressOffset>0x01000000000</spirit:addressOffset>
+            <spirit:range>32G</spirit:range>
           </spirit:segment>
         </spirit:segments>
       </spirit:addressSpace>
@@ -783,7 +783,7 @@
             <spirit:name>SEG_AXI_PerfectTranslator_0_S00_AXI_mem</spirit:name>
             <spirit:displayName>/AXI_PerfectTranslator_0/S00_AXI/S00_AXI_mem</spirit:displayName>
             <spirit:addressOffset>0x0000000000</spirit:addressOffset>
-            <spirit:range>2G</spirit:range>
+            <spirit:range>32G</spirit:range>
           </spirit:segment>
         </spirit:segments>
       </spirit:addressSpace>
@@ -820,16 +820,16 @@
         <spirit:width>32</spirit:width>
         <spirit:segments>
           <spirit:segment>
-            <spirit:name>SEG_zynq_ultra_ps_e_0_HP0_DDR_LOW</spirit:name>
-            <spirit:displayName>/zynq_ultra_ps_e_0/SAXIGP2/HP0_DDR_LOW</spirit:displayName>
-            <spirit:addressOffset>0x0000800000000</spirit:addressOffset>
-            <spirit:range>2G</spirit:range>
-          </spirit:segment>
-          <spirit:segment bd:isExcluded="true">
             <spirit:name>SEG_zynq_ultra_ps_e_0_HP0_DDR_HIGH</spirit:name>
             <spirit:displayName>/zynq_ultra_ps_e_0/SAXIGP2/HP0_DDR_HIGH</spirit:displayName>
-            <spirit:addressOffset>0x0001000000000</spirit:addressOffset>
+            <spirit:addressOffset>0x0000800000000</spirit:addressOffset>
             <spirit:range>32G</spirit:range>
+          </spirit:segment>
+          <spirit:segment>
+            <spirit:name>SEG_zynq_ultra_ps_e_0_HP0_DDR_LOW</spirit:name>
+            <spirit:displayName>/zynq_ultra_ps_e_0/SAXIGP2/HP0_DDR_LOW</spirit:displayName>
+            <spirit:addressOffset>0x0000000000000</spirit:addressOffset>
+            <spirit:range>2G</spirit:range>
           </spirit:segment>
           <spirit:segment bd:isExcluded="true">
             <spirit:name>SEG_zynq_ultra_ps_e_0_HP0_LPS_OCM</spirit:name>
@@ -896,16 +896,16 @@
         <spirit:width>32</spirit:width>
         <spirit:segments>
           <spirit:segment>
-            <spirit:name>SEG_zynq_ultra_ps_e_0_HP1_DDR_LOW</spirit:name>
-            <spirit:displayName>/zynq_ultra_ps_e_0/SAXIGP3/HP1_DDR_LOW</spirit:displayName>
-            <spirit:addressOffset>0x0000800000000</spirit:addressOffset>
-            <spirit:range>2G</spirit:range>
-          </spirit:segment>
-          <spirit:segment bd:isExcluded="true">
             <spirit:name>SEG_zynq_ultra_ps_e_0_HP1_DDR_HIGH</spirit:name>
             <spirit:displayName>/zynq_ultra_ps_e_0/SAXIGP3/HP1_DDR_HIGH</spirit:displayName>
             <spirit:addressOffset>0x0000800000000</spirit:addressOffset>
             <spirit:range>32G</spirit:range>
+          </spirit:segment>
+          <spirit:segment>
+            <spirit:name>SEG_zynq_ultra_ps_e_0_HP1_DDR_LOW</spirit:name>
+            <spirit:displayName>/zynq_ultra_ps_e_0/SAXIGP3/HP1_DDR_LOW</spirit:displayName>
+            <spirit:addressOffset>0x0000000000000</spirit:addressOffset>
+            <spirit:range>2G</spirit:range>
           </spirit:segment>
           <spirit:segment bd:isExcluded="true">
             <spirit:name>SEG_zynq_ultra_ps_e_0_HP1_LPS_OCM</spirit:name>

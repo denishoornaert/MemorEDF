@@ -10,14 +10,14 @@ preplace inst MemorEDF_0 -pg 1 -lvl 2 -y 210 -defaultsOSRD
 preplace inst ila_0 -pg 1 -lvl 3 -y 460 -defaultsOSRD
 preplace inst system_ila_0 -pg 1 -lvl 4 -y 210 -defaultsOSRD
 preplace netloc MemorEDF_0_m00_axi 1 2 1 1110
-preplace netloc zynq_ultra_ps_e_0_pl_clk0 1 0 4 20 40 720 40 1130 560 1550
-preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM0_FPD 1 1 3 730 90 1120 520 1540
-preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM0_LPD 1 1 3 700 10 N 10 1560
-preplace netloc AXI_PerfectTranslator_0_M00_AXI 1 0 4 30 530 NJ 530 NJ 530 1530
-preplace netloc rst_ps8_0_99M_peripheral_aresetn 1 1 3 740 80 1100 550 1560
-preplace netloc zynq_ultra_ps_e_0_pl_resetn0 1 1 1 700
-preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM1_FPD 1 1 3 710 60 1140J 20 1550
-preplace netloc AXI_PerfectTranslator_1_M00_AXI 1 0 4 40 540 NJ 540 NJ 540 1520
+preplace netloc zynq_ultra_ps_e_0_pl_clk0 1 0 4 20 40 700 40 1130 560 1530
+preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM0_FPD 1 1 3 710 90 1120 520 1520
+preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM0_LPD 1 1 3 680 10 N 10 1540
+preplace netloc AXI_PerfectTranslator_0_M00_AXI 1 0 4 30 530 NJ 530 NJ 530 1510
+preplace netloc rst_ps8_0_99M_peripheral_aresetn 1 1 3 720 80 1100 550 1540
+preplace netloc zynq_ultra_ps_e_0_pl_resetn0 1 1 1 680
+preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM1_FPD 1 1 3 690 60 1140J 20 1530
+preplace netloc AXI_PerfectTranslator_1_M00_AXI 1 0 4 40 540 NJ 540 NJ 540 1500
 levelinfo -pg 1 0 370 920 1330 1650 1750 -top 0 -bot 570
 ",
 }
