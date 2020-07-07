@@ -1,7 +1,7 @@
 COMPILER_ARM = aarch64-linux-gnu-gcc
 FLAGS = -lpthread -lrt
 
-all: config_schim_fp tdma fixedpriority poke populate contention memguard
+all: config_schim_fp tdma fixedpriority poke populate contention memguard brainfreeze
 
 config_schim_fp: src/config_schim_fp.c objects/tool.o
 	$(COMPILER_ARM) src/config_schim_fp.c -o exec/config_schim_fp.out $(FLAGS) objects/tool.o
@@ -23,6 +23,9 @@ contention: src/contention.c objects/tool.o
 
 memguard: src/mg.c objects/tool.o
 	$(COMPILER_ARM) src/mg.c -o exec/mg.out $(FLAGS) objects/tool.o
+
+brainfreeze: src/brainfreeze.c objects/tool.o
+	$(COMPILER_ARM) src/brainfreeze.c -o exec/brainfreeze.out $(FLAGS) objects/tool.o
 
 objects/tool.o: include/tool.h src/tool.c
 	$(COMPILER_ARM) -c src/tool.c -o objects/tool.o $(FLAGS)
