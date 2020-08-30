@@ -29,9 +29,18 @@ static spinlock_t gic_lock;
  ******************************************************************************/
 void gicv2_fiq_enable(int irq_num){
 
+  unsigned int ctlr;
+  //// unsigned int mask;
+  ////unsigned int cpu_target = (0x1 << (irq_num - 121));
   assert(driver_data);
   assert(driver_data->gicd_base);
 
+  /* Disable the distributor before going further */
+  ctlr = gicd_read_ctlr(driver_data->gicd_base);
+  gicd_write_ctlr(driver_data->gicd_base,
+		  ctlr & ~(CTLR_ENABLE_G0_BIT | CTLR_ENABLE_G1_BIT));
+  
+  
   //unsigned int mask = (0x1 << (irq_num - 121));
   /* Configure this interrupt as a secure interrupt */
   gicd_clr_igroupr(driver_data->gicd_base, irq_num);
@@ -43,11 +52,33 @@ void gicv2_fiq_enable(int irq_num){
 
   /* Target the secure interrupts to primary CPU */
   //gicd_set_itargetsr(driver_data->gicd_base, irq_num, gicv2_get_cpuif_id(driver_data->gicd_base));
-  gicd_set_itargetsr(driver_data->gicd_base, irq_num, 0xff);
 
+
+  /////mask = gicd_read_itargetsr(driver_data->gicd_base,irq_num) | (cpu_target << ((irq_num % 4)*8));
+  //gicd_set_itargetsr(driver_data->gicd_base, irq_num, (mask | (0x1 << (irq_num - 121))));
+  //gicd_write_itargetsr(driver_data->gicd_base, irq_num, mask); 
+  //gicd_set_itargetsr(driver_data->gicd_base, irq_num, 1); 
+  switch(irq_num){
+
+  case 121:
+    gicd_set_itargetsr(driver_data->gicd_base, irq_num, (uint8_t)1);
+    break;
+  case 122:
+    gicd_set_itargetsr(driver_data->gicd_base, irq_num, (uint8_t)2);
+    break;
+  case 123:
+    gicd_set_itargetsr(driver_data->gicd_base, irq_num, (uint8_t)4);
+    break;
+  case 124:
+    gicd_set_itargetsr(driver_data->gicd_base, irq_num, (uint8_t)8);
+    break;
+  }
   /* Enable this interrupt */
   gicd_set_isenabler(driver_data->gicd_base, irq_num);
-  
+
+  /* Re-enable the secure and non-secure SPIs now that they have been configured */
+  gicd_write_ctlr(driver_data->gicd_base, ctlr | CTLR_ENABLE_G0_BIT | CTLR_ENABLE_G1_BIT);
+
 }
 
 

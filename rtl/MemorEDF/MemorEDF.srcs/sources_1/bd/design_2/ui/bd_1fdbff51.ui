@@ -2,26 +2,32 @@
    ExpandedHierarchyInLayout: "",
    guistr: "# # String gsaved with Nlview 6.6.11  2017-06-12 bk=1.3860 VDI=40 GEI=35 GUI=JA:1.6
 #  -string -flagsOSRD
-preplace inst AXI_PerfectTranslator_0 -pg 1 -lvl 3 -y 310 -defaultsOSRD
-preplace inst AXI_PerfectTranslator_1 -pg 1 -lvl 3 -y 120 -defaultsOSRD
-preplace inst rst_ps8_0_99M -pg 1 -lvl 2 -y 410 -defaultsOSRD
-preplace inst zynq_ultra_ps_e_0 -pg 1 -lvl 1 -y 160 -defaultsOSRD
-preplace inst MemorEDF_0 -pg 1 -lvl 2 -y 210 -defaultsOSRD
-preplace inst ila_0 -pg 1 -lvl 3 -y 460 -defaultsOSRD
-preplace inst system_ila_0 -pg 1 -lvl 4 -y 210 -defaultsOSRD
-preplace netloc MemorEDF_0_m00_axi 1 2 1 1110
-preplace netloc zynq_ultra_ps_e_0_pl_clk0 1 0 4 20 40 700 40 1130 560 1530
-preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM0_FPD 1 1 3 710 90 1120 520 1520
-preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM0_LPD 1 1 3 680 10 N 10 1540
-preplace netloc AXI_PerfectTranslator_0_M00_AXI 1 0 4 30 530 NJ 530 NJ 530 1510
-preplace netloc rst_ps8_0_99M_peripheral_aresetn 1 1 3 720 80 1100 550 1540
-preplace netloc zynq_ultra_ps_e_0_pl_resetn0 1 1 1 680
-preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM1_FPD 1 1 3 690 60 1140J 20 1530
-preplace netloc AXI_PerfectTranslator_1_M00_AXI 1 0 4 40 540 NJ 540 NJ 540 1500
-levelinfo -pg 1 0 370 920 1330 1650 1750 -top 0 -bot 570
+preplace inst vio_0 -pg 1 -lvl 1 -y 610 -defaultsOSRD
+preplace inst AXI_PerfectTranslator_0 -pg 1 -lvl 5 -y 340 -defaultsOSRD
+preplace inst rst_ps8_0_99M -pg 1 -lvl 1 -y 470 -defaultsOSRD
+preplace inst AXI_PerfectTranslator_1 -pg 1 -lvl 2 -y 260 -defaultsOSRD
+preplace inst zynq_ultra_ps_e_0 -pg 1 -lvl 3 -y 230 -defaultsOSRD -resize 580 200
+preplace inst MemorEDF_0 -pg 1 -lvl 4 -y 370 -defaultsOSRD
+preplace inst xlconcat_0 -pg 1 -lvl 2 -y 610 -defaultsOSRD
+preplace inst ila_0 -pg 1 -lvl 5 -y 490 -defaultsOSRD
+preplace inst system_ila_0 -pg 1 -lvl 4 -y 120 -defaultsOSRD
+preplace inst system_ila_1 -pg 1 -lvl 3 -y 450 -defaultsOSRD
+preplace netloc MemorEDF_0_m00_axi 1 4 1 1840
+preplace netloc zynq_ultra_ps_e_0_pl_clk0 1 0 5 30 270 400 160 780 100 1470 490 1860
+preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM0_FPD 1 3 1 1490
+preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM0_LPD 1 3 1 1520
+preplace netloc AXI_PerfectTranslator_0_M00_AXI 1 2 4 790 90 1480 240 NJ 240 2240
+preplace netloc rst_ps8_0_99M_peripheral_aresetn 1 1 4 390 50 NJ 50 1510 250 1850
+preplace netloc vio_0_probe_out0 1 1 1 N
+preplace netloc xlconcat_0_dout 1 2 1 790
+preplace netloc vio_0_probe_out1 1 1 1 N
+preplace netloc zynq_ultra_ps_e_0_pl_resetn0 1 0 4 20 70 NJ 70 NJ 70 1460
+preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM1_FPD 1 1 3 410 60 NJ 60 1500
+preplace netloc AXI_PerfectTranslator_1_M00_AXI 1 2 2 770 110 NJ
+levelinfo -pg 1 0 210 600 1150 1700 2070 2280 -top 0 -bot 670
 ",
 }
 {
-   da_clkrst_cnt: "14",
+   da_clkrst_cnt: "25",
    da_zynq_ultra_ps_e_cnt: "1",
 }

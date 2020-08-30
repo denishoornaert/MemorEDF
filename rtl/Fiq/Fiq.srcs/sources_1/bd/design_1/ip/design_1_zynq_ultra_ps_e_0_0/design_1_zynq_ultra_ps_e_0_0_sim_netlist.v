@@ -1,10 +1,10 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-// Date        : Thu Aug 13 11:37:06 2020
+// Date        : Sat Aug 22 18:52:59 2020
 // Host        : tower running 64-bit Ubuntu 16.04.6 LTS
 // Command     : write_verilog -force -mode funcsim
-//               /home/ro0zkhosh/Fiq/Fiq.srcs/sources_1/bd/design_1/ip/design_1_zynq_ultra_ps_e_0_0/design_1_zynq_ultra_ps_e_0_0_sim_netlist.v
+//               /home/ro0zkhosh/MemorEDF/MemorEDF/rtl/Fiq/Fiq.srcs/sources_1/bd/design_1/ip/design_1_zynq_ultra_ps_e_0_0/design_1_zynq_ultra_ps_e_0_0_sim_netlist.v
 // Design      : design_1_zynq_ultra_ps_e_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -258,7 +258,7 @@ module design_1_zynq_ultra_ps_e_0_0
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M_AXI_HPM0_LPD RREADY" *) output maxigp2_rready;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M_AXI_HPM0_LPD AWQOS" *) output [3:0]maxigp2_awqos;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M_AXI_HPM0_LPD ARQOS" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME M_AXI_HPM0_LPD, NUM_WRITE_OUTSTANDING 8, NUM_READ_OUTSTANDING 8, DATA_WIDTH 32, PROTOCOL AXI4, FREQ_HZ 99990000, ID_WIDTH 16, ADDR_WIDTH 40, AWUSER_WIDTH 16, ARUSER_WIDTH 16, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 1, HAS_LOCK 1, HAS_PROT 1, HAS_CACHE 1, HAS_QOS 1, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 1, MAX_BURST_LENGTH 256, PHASE 0.000, CLK_DOMAIN design_1_zynq_ultra_ps_e_0_0_pl_clk0, NUM_READ_THREADS 4, NUM_WRITE_THREADS 4, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0" *) output [3:0]maxigp2_arqos;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:interrupt:1.0 PL_PS_IRQ0 INTERRUPT" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME PL_PS_IRQ0, SENSITIVITY LEVEL_HIGH, PortWidth 2" *) input [1:0]pl_ps_irq0;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:interrupt:1.0 PL_PS_IRQ0 INTERRUPT" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME PL_PS_IRQ0, SENSITIVITY LEVEL_HIGH, PortWidth 2" *) input [7:0]pl_ps_irq0;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 PL_RESETN0 RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME PL_RESETN0, POLARITY ACTIVE_LOW" *) output pl_resetn0;
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 PL_CLK0 CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME PL_CLK0, FREQ_HZ 99990000, PHASE 0.000, CLK_DOMAIN design_1_zynq_ultra_ps_e_0_0_pl_clk0, PortWidth 2" *) output pl_clk0;
 
@@ -383,7 +383,7 @@ module design_1_zynq_ultra_ps_e_0_0
   wire maxihpm0_lpd_aclk;
   wire maxihpm1_fpd_aclk;
   wire pl_clk0;
-  wire [1:0]pl_ps_irq0;
+  wire [7:0]pl_ps_irq0;
   wire pl_resetn0;
   wire NLW_inst_dbg_path_fifo_bypass_UNCONNECTED;
   wire NLW_inst_dp_audio_ref_clk_UNCONNECTED;
@@ -1082,7 +1082,7 @@ module design_1_zynq_ultra_ps_e_0_0
   (* C_MAXIGP0_DATA_WIDTH = "128" *) 
   (* C_MAXIGP1_DATA_WIDTH = "128" *) 
   (* C_MAXIGP2_DATA_WIDTH = "32" *) 
-  (* C_NUM_F2P_0_INTR_INPUTS = "2" *) 
+  (* C_NUM_F2P_0_INTR_INPUTS = "8" *) 
   (* C_NUM_F2P_1_INTR_INPUTS = "4" *) 
   (* C_NUM_FABRIC_RESETS = "1" *) 
   (* C_PL_CLK0_BUF = "TRUE" *) 
@@ -2609,7 +2609,7 @@ endmodule
 (* C_DP_USE_AUDIO = "0" *) (* C_DP_USE_VIDEO = "0" *) (* C_EMIO_GPIO_WIDTH = "1" *) 
 (* C_EN_EMIO_TRACE = "0" *) (* C_EN_FIFO_ENET0 = "0" *) (* C_EN_FIFO_ENET1 = "0" *) 
 (* C_EN_FIFO_ENET2 = "0" *) (* C_EN_FIFO_ENET3 = "0" *) (* C_MAXIGP0_DATA_WIDTH = "128" *) 
-(* C_MAXIGP1_DATA_WIDTH = "128" *) (* C_MAXIGP2_DATA_WIDTH = "32" *) (* C_NUM_F2P_0_INTR_INPUTS = "2" *) 
+(* C_MAXIGP1_DATA_WIDTH = "128" *) (* C_MAXIGP2_DATA_WIDTH = "32" *) (* C_NUM_F2P_0_INTR_INPUTS = "8" *) 
 (* C_NUM_F2P_1_INTR_INPUTS = "4" *) (* C_NUM_FABRIC_RESETS = "1" *) (* C_PL_CLK0_BUF = "TRUE" *) 
 (* C_PL_CLK1_BUF = "FALSE" *) (* C_PL_CLK2_BUF = "FALSE" *) (* C_PL_CLK3_BUF = "FALSE" *) 
 (* C_SAXIGP0_DATA_WIDTH = "128" *) (* C_SAXIGP1_DATA_WIDTH = "128" *) (* C_SAXIGP2_DATA_WIDTH = "128" *) 
@@ -5086,7 +5086,7 @@ module design_1_zynq_ultra_ps_e_0_0_zynq_ultra_ps_e_v3_1_1_zynq_ultra_ps_e
   output ps_pl_trigger_3;
   output [31:0]ftm_gpo;
   input [31:0]ftm_gpi;
-  input [1:0]pl_ps_irq0;
+  input [7:0]pl_ps_irq0;
   input [3:0]pl_ps_irq1;
   output pl_resetn0;
   output pl_resetn1;
@@ -6138,7 +6138,7 @@ module design_1_zynq_ultra_ps_e_0_0_zynq_ultra_ps_e_v3_1_1_zynq_ultra_ps_e
   wire [3:0]pl_ps_apugic_fiq;
   wire [3:0]pl_ps_apugic_irq;
   wire pl_ps_eventi;
-  wire [1:0]pl_ps_irq0;
+  wire [7:0]pl_ps_irq0;
   wire [3:0]pl_ps_irq1;
   wire pl_ps_trace_clk;
   wire pl_ps_trigack_0;
@@ -8175,7 +8175,7 @@ module design_1_zynq_ultra_ps_e_0_0_zynq_ultra_ps_e_v3_1_1_zynq_ultra_ps_e
         .PLPSAPUGICFIQ(pl_ps_apugic_fiq),
         .PLPSAPUGICIRQ(pl_ps_apugic_irq),
         .PLPSEVENTI(pl_ps_eventi),
-        .PLPSIRQ0({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,pl_ps_irq0}),
+        .PLPSIRQ0(pl_ps_irq0),
         .PLPSIRQ1({1'b0,1'b0,1'b0,1'b0,pl_ps_irq1}),
         .PLPSTRACECLK(pl_ps_trace_clk),
         .PLPSTRIGACK({pl_ps_trigack_3,pl_ps_trigack_2,pl_ps_trigack_1,pl_ps_trigack_0}),

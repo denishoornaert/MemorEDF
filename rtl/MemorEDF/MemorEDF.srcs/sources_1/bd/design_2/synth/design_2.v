@@ -1,15 +1,15 @@
 //Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-//Date        : Wed Jun 10 22:58:11 2020
-//Host        : CELSIUS running 64-bit Ubuntu 16.04.6 LTS
+//Date        : Fri Aug 21 17:13:33 2020
+//Host        : tower running 64-bit Ubuntu 16.04.6 LTS
 //Command     : generate_target design_2.bd
 //Design      : design_2
 //Purpose     : IP block netlist
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "design_2,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_2,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=7,numReposBlks=7,numNonXlnxBlks=3,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_clkrst_cnt=14,da_zynq_ultra_ps_e_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "design_2.hwdef" *) 
+(* CORE_GENERATION_INFO = "design_2,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_2,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=10,numReposBlks=10,numNonXlnxBlks=3,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_clkrst_cnt=25,da_zynq_ultra_ps_e_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "design_2.hwdef" *) 
 module design_2
    ();
 
@@ -139,6 +139,9 @@ module design_2
   (* DEBUG = "true" *) (* MARK_DEBUG *) wire [15:0]MemorEDF_0_m00_axi_WSTRB;
   (* DEBUG = "true" *) (* MARK_DEBUG *) wire MemorEDF_0_m00_axi_WVALID;
   wire [0:0]rst_ps8_0_99M_peripheral_aresetn;
+  wire [0:0]vio_0_probe_out0;
+  wire [0:0]vio_0_probe_out1;
+  (* DEBUG = "true" *) (* MARK_DEBUG *) wire [1:0]xlconcat_0_dout;
   (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_FPD xilinx.com:interface:aximm:1.0 AXI4 ARADDR" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [39:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARADDR;
   (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_FPD xilinx.com:interface:aximm:1.0 AXI4 ARBURST" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [1:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARBURST;
   (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_FPD xilinx.com:interface:aximm:1.0 AXI4 ARCACHE" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [3:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARCACHE;
@@ -821,7 +824,19 @@ module design_2
         .SLOT_4_AXI_wstrb(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WSTRB),
         .SLOT_4_AXI_wvalid(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_WVALID),
         .clk(zynq_ultra_ps_e_0_pl_clk0),
+        .probe0({1'b0,1'b0,1'b0,1'b0}),
         .resetn(rst_ps8_0_99M_peripheral_aresetn));
+  design_2_system_ila_1_0 system_ila_1
+       (.clk(zynq_ultra_ps_e_0_pl_clk0),
+        .probe0(xlconcat_0_dout));
+  design_2_vio_0_1 vio_0
+       (.clk(zynq_ultra_ps_e_0_pl_clk0),
+        .probe_out0(vio_0_probe_out0),
+        .probe_out1(vio_0_probe_out1));
+  design_2_xlconcat_0_1 xlconcat_0
+       (.In0(vio_0_probe_out0),
+        .In1(vio_0_probe_out1),
+        .dout(xlconcat_0_dout));
   design_2_zynq_ultra_ps_e_0_0 zynq_ultra_ps_e_0
        (.maxigp0_araddr(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARADDR),
         .maxigp0_arburst(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARBURST),
@@ -944,7 +959,7 @@ module design_2
         .maxihpm0_lpd_aclk(zynq_ultra_ps_e_0_pl_clk0),
         .maxihpm1_fpd_aclk(zynq_ultra_ps_e_0_pl_clk0),
         .pl_clk0(zynq_ultra_ps_e_0_pl_clk0),
-        .pl_ps_irq0(1'b0),
+        .pl_ps_irq0(xlconcat_0_dout),
         .pl_resetn0(zynq_ultra_ps_e_0_pl_resetn0),
         .saxigp2_araddr(AXI_PerfectTranslator_0_M00_AXI_ARADDR),
         .saxigp2_arburst(AXI_PerfectTranslator_0_M00_AXI_ARBURST),

@@ -144,6 +144,7 @@ void gicd_write_itargetsr(uintptr_t base, unsigned int id, unsigned int val)
 	mmio_write_32(base + GICD_ITARGETSR + (n << 2), val);
 }
 
+
 void gicd_write_icfgr(uintptr_t base, unsigned int id, unsigned int val)
 {
 	unsigned n = id >> ICFGR_SHIFT;
@@ -257,6 +258,7 @@ void gicd_set_itargetsr(uintptr_t base, unsigned int id, unsigned int target)
 {
 	mmio_write_8(base + GICD_ITARGETSR + id, target & GIC_TARGET_CPU_MASK);
 }
+
 
 /*******************************************************************************
  * This function allows the interrupt management framework to determine (through

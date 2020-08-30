@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-| Date         : Thu Aug 13 11:37:09 2020
+| Date         : Sat Aug 22 18:53:05 2020
 | Host         : tower running 64-bit Ubuntu 16.04.6 LTS
 | Command      : report_utilization -file design_1_vio_0_1_utilization_synth.rpt -pb design_1_vio_0_1_utilization_synth.pb
 | Design       : design_1_vio_0_1
@@ -31,11 +31,11 @@ Table of Contents
 +-------------------------+------+-------+-----------+-------+
 |        Site Type        | Used | Fixed | Available | Util% |
 +-------------------------+------+-------+-----------+-------+
-| CLB LUTs*               |   99 |     0 |    274080 |  0.04 |
-|   LUT as Logic          |   99 |     0 |    274080 |  0.04 |
+| CLB LUTs*               |  103 |     0 |    274080 |  0.04 |
+|   LUT as Logic          |  103 |     0 |    274080 |  0.04 |
 |   LUT as Memory         |    0 |     0 |    144000 |  0.00 |
-| CLB Registers           |  234 |     0 |    548160 |  0.04 |
-|   Register as Flip Flop |  234 |     0 |    548160 |  0.04 |
+| CLB Registers           |  258 |     0 |    548160 |  0.05 |
+|   Register as Flip Flop |  258 |     0 |    548160 |  0.05 |
 |   Register as Latch     |    0 |     0 |    548160 |  0.00 |
 | CARRY8                  |    0 |     0 |     34260 |  0.00 |
 | F7 Muxes                |    0 |     0 |    137040 |  0.00 |
@@ -60,7 +60,7 @@ Table of Contents
 | 0     |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
 | 0     |          Yes |         Set |            - |
-| 234   |          Yes |       Reset |            - |
+| 258   |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -152,10 +152,10 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| FDRE     |  234 |            Register |
-| LUT6     |   60 |                 CLB |
-| LUT4     |   21 |                 CLB |
-| LUT3     |   21 |                 CLB |
+| FDRE     |  258 |            Register |
+| LUT6     |   67 |                 CLB |
+| LUT3     |   22 |                 CLB |
+| LUT4     |   14 |                 CLB |
 | LUT5     |   13 |                 CLB |
 | LUT2     |    3 |                 CLB |
 +----------+------+---------------------+

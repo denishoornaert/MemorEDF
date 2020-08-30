@@ -159,12 +159,20 @@ proc create_root_design { parentCell } {
 
   # Create ports
 
+  # Create instance: system_ila_0, and set properties
+  set system_ila_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:system_ila:1.1 system_ila_0 ]
+  set_property -dict [ list \
+   CONFIG.C_MON_TYPE {NATIVE} \
+   CONFIG.C_NUM_OF_PROBES {1} \
+   CONFIG.C_PROBE0_TYPE {0} \
+ ] $system_ila_0
+
   # Create instance: vio_0, and set properties
   set vio_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:vio:3.0 vio_0 ]
   set_property -dict [ list \
    CONFIG.C_EN_PROBE_IN_ACTIVITY {0} \
    CONFIG.C_NUM_PROBE_IN {0} \
-   CONFIG.C_PROBE_OUT0_WIDTH {2} \
+   CONFIG.C_PROBE_OUT0_WIDTH {10} \
  ] $vio_0
 
   # Create instance: zynq_ultra_ps_e_0, and set properties
@@ -798,8 +806,11 @@ proc create_root_design { parentCell } {
  ] $zynq_ultra_ps_e_0
 
   # Create port connections
-  connect_bd_net -net vio_0_probe_out0 [get_bd_pins vio_0/probe_out0] [get_bd_pins zynq_ultra_ps_e_0/pl_ps_irq0]
-  connect_bd_net -net zynq_ultra_ps_e_0_pl_clk0 [get_bd_pins vio_0/clk] [get_bd_pins zynq_ultra_ps_e_0/maxihpm0_fpd_aclk] [get_bd_pins zynq_ultra_ps_e_0/maxihpm0_lpd_aclk] [get_bd_pins zynq_ultra_ps_e_0/maxihpm1_fpd_aclk] [get_bd_pins zynq_ultra_ps_e_0/pl_clk0]
+  connect_bd_net -net vio_0_probe_out0 [get_bd_pins system_ila_0/probe0] [get_bd_pins vio_0/probe_out0] [get_bd_pins zynq_ultra_ps_e_0/pl_ps_irq0]
+  set_property -dict [ list \
+HDL_ATTRIBUTE.DEBUG {true} \
+ ] [get_bd_nets vio_0_probe_out0]
+  connect_bd_net -net zynq_ultra_ps_e_0_pl_clk0 [get_bd_pins system_ila_0/clk] [get_bd_pins vio_0/clk] [get_bd_pins zynq_ultra_ps_e_0/maxihpm0_fpd_aclk] [get_bd_pins zynq_ultra_ps_e_0/maxihpm0_lpd_aclk] [get_bd_pins zynq_ultra_ps_e_0/maxihpm1_fpd_aclk] [get_bd_pins zynq_ultra_ps_e_0/pl_clk0]
 
   # Create address segments
 

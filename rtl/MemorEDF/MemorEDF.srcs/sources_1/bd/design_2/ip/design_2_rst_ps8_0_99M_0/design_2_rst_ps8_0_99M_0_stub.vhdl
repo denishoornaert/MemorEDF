@@ -1,10 +1,10 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
--- Date        : Wed Apr 22 12:20:42 2020
+-- Date        : Wed Apr 22 12:20:41 2020
 -- Host        : CELSIUS running 64-bit Ubuntu 16.04.6 LTS
--- Command     : write_vhdl -force -mode synth_stub
---               /home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_rst_ps8_0_99M_0/design_2_rst_ps8_0_99M_0_stub.vhdl
+-- Command     : write_vhdl -force -mode synth_stub -rename_top design_2_rst_ps8_0_99M_0 -prefix
+--               design_2_rst_ps8_0_99M_0_ design_2_rst_ps8_0_99M_0_stub.vhdl
 -- Design      : design_2_rst_ps8_0_99M_0
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xczu9eg-ffvb1156-2-e

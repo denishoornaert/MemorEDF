@@ -55,6 +55,7 @@
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module design_2_system_ila_0_0 (
   clk,
+  probe0,
   SLOT_0_AXI_awid,
   SLOT_0_AXI_awaddr,
   SLOT_0_AXI_awlen,
@@ -262,6 +263,7 @@ module design_2_system_ila_0_0 (
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.clk, FREQ_HZ 99990000, PHASE 0.000, CLK_DOMAIN design_2_zynq_ultra_ps_e_0_0_pl_clk0, ASSOCIATED_BUSIF SLOT_0_AXI:SLOT_1_AXI:SLOT_2_AXI:SLOT_3_AXI:SLOT_4_AXI, ASSOCIATED_RESET resetn" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.clk CLK" *)
 input wire clk;
+input wire [3 : 0] probe0;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 SLOT_0_AXI AWID" *)
 input wire [15 : 0] SLOT_0_AXI_awid;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 SLOT_0_AXI AWADDR" *)
@@ -675,6 +677,7 @@ input wire resetn;
 
   bd_074c inst (
     .clk(clk),
+    .probe0(probe0),
     .SLOT_0_AXI_awid(SLOT_0_AXI_awid),
     .SLOT_0_AXI_awaddr(SLOT_0_AXI_awaddr),
     .SLOT_0_AXI_awlen(SLOT_0_AXI_awlen),

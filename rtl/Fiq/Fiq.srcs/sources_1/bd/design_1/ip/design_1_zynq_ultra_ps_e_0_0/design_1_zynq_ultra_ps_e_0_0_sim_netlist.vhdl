@@ -1,10 +1,10 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
--- Date        : Thu Aug 13 11:37:06 2020
+-- Date        : Sat Aug 22 18:52:59 2020
 -- Host        : tower running 64-bit Ubuntu 16.04.6 LTS
 -- Command     : write_vhdl -force -mode funcsim
---               /home/ro0zkhosh/Fiq/Fiq.srcs/sources_1/bd/design_1/ip/design_1_zynq_ultra_ps_e_0_0/design_1_zynq_ultra_ps_e_0_0_sim_netlist.vhdl
+--               /home/ro0zkhosh/MemorEDF/MemorEDF/rtl/Fiq/Fiq.srcs/sources_1/bd/design_1/ip/design_1_zynq_ultra_ps_e_0_0/design_1_zynq_ultra_ps_e_0_0_sim_netlist.vhdl
 -- Design      : design_1_zynq_ultra_ps_e_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -990,7 +990,7 @@ entity design_1_zynq_ultra_ps_e_0_0_zynq_ultra_ps_e_v3_1_1_zynq_ultra_ps_e is
     ps_pl_trigger_3 : out STD_LOGIC;
     ftm_gpo : out STD_LOGIC_VECTOR ( 31 downto 0 );
     ftm_gpi : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    pl_ps_irq0 : in STD_LOGIC_VECTOR ( 1 downto 0 );
+    pl_ps_irq0 : in STD_LOGIC_VECTOR ( 7 downto 0 );
     pl_ps_irq1 : in STD_LOGIC_VECTOR ( 3 downto 0 );
     pl_resetn0 : out STD_LOGIC;
     pl_resetn1 : out STD_LOGIC;
@@ -1531,7 +1531,7 @@ entity design_1_zynq_ultra_ps_e_0_0_zynq_ultra_ps_e_v3_1_1_zynq_ultra_ps_e is
   attribute C_MAXIGP2_DATA_WIDTH : integer;
   attribute C_MAXIGP2_DATA_WIDTH of design_1_zynq_ultra_ps_e_0_0_zynq_ultra_ps_e_v3_1_1_zynq_ultra_ps_e : entity is 32;
   attribute C_NUM_F2P_0_INTR_INPUTS : integer;
-  attribute C_NUM_F2P_0_INTR_INPUTS of design_1_zynq_ultra_ps_e_0_0_zynq_ultra_ps_e_v3_1_1_zynq_ultra_ps_e : entity is 2;
+  attribute C_NUM_F2P_0_INTR_INPUTS of design_1_zynq_ultra_ps_e_0_0_zynq_ultra_ps_e_v3_1_1_zynq_ultra_ps_e : entity is 8;
   attribute C_NUM_F2P_1_INTR_INPUTS : integer;
   attribute C_NUM_F2P_1_INTR_INPUTS of design_1_zynq_ultra_ps_e_0_0_zynq_ultra_ps_e_v3_1_1_zynq_ultra_ps_e : entity is 4;
   attribute C_NUM_FABRIC_RESETS : integer;
@@ -3396,8 +3396,7 @@ PS8_i: unisim.vcomponents.PS8
       PLPSAPUGICFIQ(3 downto 0) => pl_ps_apugic_fiq(3 downto 0),
       PLPSAPUGICIRQ(3 downto 0) => pl_ps_apugic_irq(3 downto 0),
       PLPSEVENTI => pl_ps_eventi,
-      PLPSIRQ0(7 downto 2) => B"000000",
-      PLPSIRQ0(1 downto 0) => pl_ps_irq0(1 downto 0),
+      PLPSIRQ0(7 downto 0) => pl_ps_irq0(7 downto 0),
       PLPSIRQ1(7 downto 4) => B"0000",
       PLPSIRQ1(3 downto 0) => pl_ps_irq1(3 downto 0),
       PLPSTRACECLK => pl_ps_trace_clk,
@@ -6550,7 +6549,7 @@ entity design_1_zynq_ultra_ps_e_0_0 is
     maxigp2_rready : out STD_LOGIC;
     maxigp2_awqos : out STD_LOGIC_VECTOR ( 3 downto 0 );
     maxigp2_arqos : out STD_LOGIC_VECTOR ( 3 downto 0 );
-    pl_ps_irq0 : in STD_LOGIC_VECTOR ( 1 downto 0 );
+    pl_ps_irq0 : in STD_LOGIC_VECTOR ( 7 downto 0 );
     pl_resetn0 : out STD_LOGIC;
     pl_clk0 : out STD_LOGIC
   );
@@ -7273,7 +7272,7 @@ architecture STRUCTURE of design_1_zynq_ultra_ps_e_0_0 is
   attribute C_MAXIGP2_DATA_WIDTH : integer;
   attribute C_MAXIGP2_DATA_WIDTH of inst : label is 32;
   attribute C_NUM_F2P_0_INTR_INPUTS : integer;
-  attribute C_NUM_F2P_0_INTR_INPUTS of inst : label is 2;
+  attribute C_NUM_F2P_0_INTR_INPUTS of inst : label is 8;
   attribute C_NUM_F2P_1_INTR_INPUTS : integer;
   attribute C_NUM_F2P_1_INTR_INPUTS of inst : label is 4;
   attribute C_NUM_FABRIC_RESETS : integer;
@@ -8524,7 +8523,7 @@ inst: entity work.design_1_zynq_ultra_ps_e_0_0_zynq_ultra_ps_e_v3_1_1_zynq_ultra
       pl_ps_apugic_fiq(3 downto 0) => B"0000",
       pl_ps_apugic_irq(3 downto 0) => B"0000",
       pl_ps_eventi => '0',
-      pl_ps_irq0(1 downto 0) => pl_ps_irq0(1 downto 0),
+      pl_ps_irq0(7 downto 0) => pl_ps_irq0(7 downto 0),
       pl_ps_irq1(3 downto 0) => B"0000",
       pl_ps_trace_clk => '0',
       pl_ps_trigack_0 => '0',

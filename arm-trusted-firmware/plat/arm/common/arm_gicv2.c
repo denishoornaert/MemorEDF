@@ -50,13 +50,15 @@ void plat_arm_gic_driver_init(void)
 void plat_arm_gic_init(void)
 {
 	gicv2_distif_init();
-	
-	gicv2_pcpu_distif_init();
-	gicv2_set_pe_target_mask(plat_my_core_pos());
+
 	gicv2_fiq_enable(121); //Added by Shahin
 	gicv2_fiq_enable(122); //Added by Shahin
 	gicv2_fiq_enable(123); //Added by Shahin
 	gicv2_fiq_enable(124); //Added by Shahin
+
+	
+	gicv2_pcpu_distif_init();
+	gicv2_set_pe_target_mask(plat_my_core_pos());
 	gicv2_cpuif_enable();
 	
 }

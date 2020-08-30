@@ -302,7 +302,7 @@ input maxigp2_rvalid;
 output maxigp2_rready;
 output [3 : 0] maxigp2_awqos;
 output [3 : 0] maxigp2_arqos;
-input [1 : 0] pl_ps_irq0;
+input [7 : 0] pl_ps_irq0;
 output pl_resetn0;
 output pl_clk0;
 wire pl_clk_t[3:0] ;

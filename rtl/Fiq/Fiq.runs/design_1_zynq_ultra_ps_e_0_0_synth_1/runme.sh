@@ -20,7 +20,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='/home/ro0zkhosh/Fiq/Fiq.runs/design_1_zynq_ultra_ps_e_0_0_synth_1'
+HD_PWD='/home/ro0zkhosh/MemorEDF/MemorEDF/rtl/Fiq/Fiq.runs/design_1_zynq_ultra_ps_e_0_0_synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
