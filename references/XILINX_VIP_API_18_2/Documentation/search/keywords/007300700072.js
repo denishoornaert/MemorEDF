@@ -1,0 +1,1 @@
+NDSearch.OnPrefixDataLoaded("spr",["Function"],[["sprint",,[["axi_monitor_transaction",,,,0,"File:axi_vip_pkg.sv:axi_monitor_transaction.sprint","SystemverilogClass:axi_monitor_transaction:sprint"]]]]);

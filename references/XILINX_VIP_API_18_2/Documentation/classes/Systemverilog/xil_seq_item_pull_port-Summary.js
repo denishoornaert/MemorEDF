@@ -1,0 +1,1 @@
+NDFramePage.OnPageTitleLoaded("SystemverilogClass:xil_seq_item_pull_port","xil_seq_item_pull_port");NDSummary.OnSummaryLoaded("SystemverilogClass:xil_seq_item_pull_port",[["Systemverilog","Systemverilog"]],[["Classes","Class"],["Functions","Function"],["Groups","Group"]],[[464,0,0,"xil_seq_item_pull_port"],[465,0,2,"Functions","Functions"],[466,0,1,"new","new"]]);

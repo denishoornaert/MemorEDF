@@ -1,0 +1,1 @@
+NDSearch.OnPrefixDataLoaded("cal",["Function"],[["calc_max_latency",,[[,,,,0,"File:axi_vip_if.sv:calc_max_latency"]]],["calc_running_avg",,[[,,,,0,"File:axi_vip_if.sv:calc_running_avg"]]]]);
