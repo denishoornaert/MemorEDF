@@ -1,0 +1,24 @@
+\section{Evaluation}
+
+We have performed a full system implementation on a Xilinx ZCU102 development board, featuring a Xilinx Zynq UlraScale+ XCZU9EG SoC. For this work, we utilize a combination of synthetic and real benchmarks. Our synthetic benchmark.
+\todo[inline]{
+  Talk about IO intensive and memory intensive benchmarks to be designed....
+  We also include a study of the behavior of real applications from the San Diego Vision Benchmark Suite (SD-VBS) \cite{SD-VBS}, which comes with multiple input sizes....
+}
+\todo[inline]{
+    DH: Maybe we could use AES from MiBench ?
+}
+
+As mentioned earlier, the high-performance master ports, namely HPMs, serve as a gateway from the PS to the PL. We implemented our scheduler IP, SchIM, responding under the physical addresses of HPM0 right after the PS. By doing so, any transaction toward the PL has to go through the SchIM. Hence, all memory requests yield to the scheduling policy being enforced by the scheduler. Design features of SchIM implementation and configuration interface are detailed in section ??.
+
+
+At the preprocessing stages, an AXI Performance Monitor (APM) unit connected to the bus interface between the HPM0 and the scheduler. It is crucial to affirm that this medium does not affect the transaction flow toward the PL.  APMs are powerful tools available in the PS and instantiable in the PL capable of measuring primary performance metrics (for AXI4, AXI4-Lite, or AXI4-Stream-based systems) such as bus latency for specific master/slave or amount of memory traffic for the particular duration. Moreover, APM offers the functionality of logging the necessary information about data transfers between any master and slave communicating in the AXI protocol. In this work, we program APMs to profile the behavior of the benchmarks to analyze the task's deadline. SchIM employs profiled information on task deadlines to make scheduling decisions (e.g., enforce EDF policy) for hard real-time jobs.
+
+Table \ref{tab:throughput_fp}
+
+\begin{table*}[t]
+    \caption{Caption}
+    \label{tab:throughput_fp}
+    \centering
+    \input{tables/table_fp_out.tex}
+\end{table*}

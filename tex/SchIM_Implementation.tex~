@@ -61,8 +61,8 @@
         \subsubsection{Time Division Multiple Access}
         
         \subsubsection{MemGuard}
-          The proposed MemGuard transaction scheduling policy is inspired by the Software-based bus regulation technique ??. The latter has been proved to ensure memory isolation for all the cores involved. Unlike the original MemGuard, the proposed version does not rely on memory budgets and replenishment periods. Instead, it enforces inter-arrival time (i.e. a guaranteed minimal period) between two consecutive transactions emitted by a given core.
-          This distinguishes us from ?? \todo[inline]{cite BRU}.
+          The proposed MemGuard transaction scheduling policy is inspired by the Software-based bus regulation technique \cite{}. The latter has been proved to ensure memory isolation for all the cores involved. Unlike the original MemGuard, the proposed version does not rely on memory budgets and replenishment periods. Instead, it enforces inter-arrival time (i.e. a guaranteed minimal period) between two consecutive transactions emitted by a given core.
+          This distinguishes us from \cite{} \todonotes[inline]{cite BRU}.
 
     \subsection{Transactions Life Cycle}
         \label{subsec:transaction-life-cycle}
