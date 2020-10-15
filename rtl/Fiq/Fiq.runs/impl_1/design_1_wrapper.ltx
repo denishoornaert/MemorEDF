@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<probeData version="2" minor="2">
+  <probeset name="EDA_PROBESET" active="true">
+    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="BSCAN_SWITCH_INDEX" value="0"/>
+        <Option Id="CORE_LOCATION" value="1:0"/>
+        <Option Id="CORE_UUID" value="cd4c83c823a6596d99ad09be1335c6b0"/>
+        <Option Id="HUB_CLK_INPUT_FREQ_HZ" value="99990000"/>
+        <Option Id="HW_ILA" value="design_1_i/system_ila_0/inst/ila_lib"/>
+        <Option Id="PROBE_PORT" value="0"/>
+        <Option Id="PROBE_PORT_BITS" value="0"/>
+        <Option Id="PROBE_PORT_BIT_COUNT" value="10"/>
+      </probeOptions>
+      <nets>
+        <net name="design_1_i/system_ila_0/inst/probe0_1[9]"/>
+        <net name="design_1_i/system_ila_0/inst/probe0_1[8]"/>
+        <net name="design_1_i/system_ila_0/inst/probe0_1[7]"/>
+        <net name="design_1_i/system_ila_0/inst/probe0_1[6]"/>
+        <net name="design_1_i/system_ila_0/inst/probe0_1[5]"/>
+        <net name="design_1_i/system_ila_0/inst/probe0_1[4]"/>
+        <net name="design_1_i/system_ila_0/inst/probe0_1[3]"/>
+        <net name="design_1_i/system_ila_0/inst/probe0_1[2]"/>
+        <net name="design_1_i/system_ila_0/inst/probe0_1[1]"/>
+        <net name="design_1_i/system_ila_0/inst/probe0_1[0]"/>
+      </nets>
+    </probe>
+    <probe type="vio_output" busType="bus" source="netlist" spec="VIO_OUTPUT_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="BSCAN_SWITCH_INDEX" value="0"/>
+        <Option Id="CORE_LOCATION" value="1:1"/>
+        <Option Id="CORE_UUID" value="01a4b5947c445fa6bd66f70f5f031273"/>
+        <Option Id="HUB_CLK_INPUT_FREQ_HZ" value="99990000"/>
+        <Option Id="HW_VIO" value="design_1_i/vio_0"/>
+        <Option Id="OUTPUT_VALUE" value=""/>
+        <Option Id="OUTPUT_VALUE_RADIX" value="HEX"/>
+        <Option Id="PROBE_PORT" value="0"/>
+        <Option Id="PROBE_PORT_BITS" value="0"/>
+        <Option Id="PROBE_PORT_BIT_COUNT" value="10"/>
+      </probeOptions>
+      <nets>
+        <net name="design_1_i/vio_0_probe_out0[9]"/>
+        <net name="design_1_i/vio_0_probe_out0[8]"/>
+        <net name="design_1_i/vio_0_probe_out0[7]"/>
+        <net name="design_1_i/vio_0_probe_out0[6]"/>
+        <net name="design_1_i/vio_0_probe_out0[5]"/>
+        <net name="design_1_i/vio_0_probe_out0[4]"/>
+        <net name="design_1_i/vio_0_probe_out0[3]"/>
+        <net name="design_1_i/vio_0_probe_out0[2]"/>
+        <net name="design_1_i/vio_0_probe_out0[1]"/>
+        <net name="design_1_i/vio_0_probe_out0[0]"/>
+      </nets>
+    </probe>
+    <bus_interfaces>
+      <bus_interface name="probe0" vlnv="" connected_bus="vio_0_probe_out0" protocol="PROBE">
+        <port_maps>
+          <port_map>
+            <logical_port>probe0</logical_port>
+            <physical_port probe_port_index="0" probe_port_name="design_1_i/system_ila_0/inst/probe0_1[9:0]" probe_port_core="design_1_i/system_ila_0/inst/ila_lib" probe_port_bits="0" probe_port_count="10"/>
+          </port_map>
+        </port_maps>
+      </bus_interface>
+    </bus_interfaces>
+  </probeset>
+</probeData>

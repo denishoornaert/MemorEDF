@@ -1,27 +1,27 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sat May 30 22:39:08 2020" VIVADOVERSION="2017.4">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sun Sep 13 19:39:36 2020" VIVADOVERSION="2017.4">
 
   <SYSTEMINFO ARCH="zynquplus" BOARD="xilinx.com:zcu102:part0:3.1" DEVICE="xczu9eg" NAME="design_1" PACKAGE="ffvb1156" SPEEDGRADE="-2"/>
 
   <EXTERNALPORTS>
     <PORT DIR="I" NAME="aresetn_0" SIGIS="rst" SIGNAME="External_Ports_aresetn_0">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="axi_vip_1" PORT="aresetn"/>
-        <CONNECTION INSTANCE="axi_vip_0" PORT="aresetn"/>
-        <CONNECTION INSTANCE="axi_vip_2" PORT="aresetn"/>
         <CONNECTION INSTANCE="MemorEDF_0" PORT="s00_axi_aresetn"/>
         <CONNECTION INSTANCE="MemorEDF_0" PORT="s01_axi_aresetn"/>
         <CONNECTION INSTANCE="MemorEDF_0" PORT="m00_axi_aresetn"/>
+        <CONNECTION INSTANCE="axi_vip_0" PORT="aresetn"/>
+        <CONNECTION INSTANCE="axi_vip_2" PORT="aresetn"/>
+        <CONNECTION INSTANCE="axi_vip_1" PORT="aresetn"/>
       </CONNECTIONS>
     </PORT>
     <PORT CLKFREQUENCY="100000000" DIR="I" NAME="aclk_0" SIGIS="clk" SIGNAME="External_Ports_aclk_0">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="axi_vip_0" PORT="aclk"/>
-        <CONNECTION INSTANCE="axi_vip_1" PORT="aclk"/>
-        <CONNECTION INSTANCE="axi_vip_2" PORT="aclk"/>
         <CONNECTION INSTANCE="MemorEDF_0" PORT="s00_axi_aclk"/>
         <CONNECTION INSTANCE="MemorEDF_0" PORT="s01_axi_aclk"/>
         <CONNECTION INSTANCE="MemorEDF_0" PORT="m00_axi_aclk"/>
+        <CONNECTION INSTANCE="axi_vip_0" PORT="aclk"/>
+        <CONNECTION INSTANCE="axi_vip_2" PORT="aclk"/>
+        <CONNECTION INSTANCE="axi_vip_1" PORT="aclk"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>

@@ -1,0 +1,245 @@
+drivers/arm/tzc/tzc_dmc500.c:#define DMC_INST_BASE_ADDR(instance) (g_driver_data->dmc_base[instance])
+drivers/arm/tzc/tzc_dmc500.c:	for (dmc_inst = 0; dmc_inst < g_driver_data->dmc_count; dmc_inst++) {
+drivers/arm/tzc/tzc_dmc500.c:		for (dmc_inst = 0; dmc_inst < g_driver_data->dmc_count;
+drivers/arm/tzc/tzc_dmc500.c:	for (dmc_inst = 0; dmc_inst < g_driver_data->dmc_count; dmc_inst++) {
+drivers/arm/tzc/tzc_dmc500.c:	for (dmc_inst = 0; dmc_inst < g_driver_data->dmc_count; dmc_inst++) {
+drivers/arm/tzc/tzc_dmc500.c:	for (dmc_inst = 0; dmc_inst < g_driver_data->dmc_count; dmc_inst++) {
+drivers/arm/tzc/tzc_dmc500.c:	assert(plat_driver_data->dmc_count > 0 &&
+drivers/arm/tzc/tzc_dmc500.c:		(plat_driver_data->dmc_count <= MAX_DMC_COUNT));
+drivers/arm/tzc/tzc_dmc500.c:	for (i = 0; i < plat_driver_data->dmc_count; i++) {
+drivers/arm/tzc/tzc_dmc500.c:		dmc_base = plat_driver_data->dmc_base[i];
+drivers/arm/tzc/tzc_dmc500.c:	assert(g_driver_data->sys_if_count <= MAX_SYS_IF_COUNT);
+drivers/arm/tzc/tzc_dmc500.c:	g_sys_if_count = g_driver_data->sys_if_count;
+drivers/arm/gic/v3/gicv3_main.c:	assert(plat_driver_data->gicd_base);
+drivers/arm/gic/v3/gicv3_main.c:	assert(plat_driver_data->gicr_base);
+drivers/arm/gic/v3/gicv3_main.c:	assert(plat_driver_data->rdistif_num);
+drivers/arm/gic/v3/gicv3_main.c:	assert(plat_driver_data->rdistif_base_addrs);
+drivers/arm/gic/v3/gicv3_main.c:	if (plat_driver_data->interrupt_props == NULL) {
+drivers/arm/gic/v3/gicv3_main.c:		assert(plat_driver_data->interrupt_props_num == 0);
+drivers/arm/gic/v3/gicv3_main.c:		assert(plat_driver_data->g0_interrupt_array ||
+drivers/arm/gic/v3/gicv3_main.c:				plat_driver_data->g1s_interrupt_array);
+drivers/arm/gic/v3/gicv3_main.c:		assert(plat_driver_data->g0_interrupt_array ?
+drivers/arm/gic/v3/gicv3_main.c:				plat_driver_data->g0_interrupt_num :
+drivers/arm/gic/v3/gicv3_main.c:				plat_driver_data->g0_interrupt_num == 0);
+drivers/arm/gic/v3/gicv3_main.c:		assert(plat_driver_data->g1s_interrupt_array ?
+drivers/arm/gic/v3/gicv3_main.c:				plat_driver_data->g1s_interrupt_num :
+drivers/arm/gic/v3/gicv3_main.c:				plat_driver_data->g1s_interrupt_num == 0);
+drivers/arm/gic/v3/gicv3_main.c:	assert(plat_driver_data->interrupt_props_num > 0 ?
+drivers/arm/gic/v3/gicv3_main.c:	       plat_driver_data->interrupt_props != NULL : 1);
+drivers/arm/gic/v3/gicv3_main.c:	gic_version = gicd_read_pidr2(plat_driver_data->gicd_base);
+drivers/arm/gic/v3/gicv3_main.c:	gicv2_compat = gicd_read_ctlr(plat_driver_data->gicd_base);
+drivers/arm/gic/v3/gicv3_main.c:	gicv3_rdistif_base_addrs_probe(plat_driver_data->rdistif_base_addrs,
+drivers/arm/gic/v3/gicv3_main.c:					   plat_driver_data->rdistif_num,
+drivers/arm/gic/v3/gicv3_main.c:					   plat_driver_data->gicr_base,
+drivers/arm/gic/v3/gicv3_main.c:					   plat_driver_data->mpidr_to_core_pos);
+drivers/arm/gic/v3/gicv3_main.c:	assert(gicv3_driver_data->gicd_base);
+drivers/arm/gic/v3/gicv3_main.c:	gicd_clr_ctlr(gicv3_driver_data->gicd_base,
+drivers/arm/gic/v3/gicv3_main.c:	gicd_set_ctlr(gicv3_driver_data->gicd_base,
+drivers/arm/gic/v3/gicv3_main.c:	gicv3_spis_config_defaults(gicv3_driver_data->gicd_base);
+drivers/arm/gic/v3/gicv3_main.c:	if (gicv3_driver_data->interrupt_props != NULL) {
+drivers/arm/gic/v3/gicv3_main.c:				gicv3_driver_data->gicd_base,
+drivers/arm/gic/v3/gicv3_main.c:				gicv3_driver_data->interrupt_props,
+drivers/arm/gic/v3/gicv3_main.c:				gicv3_driver_data->interrupt_props_num);
+drivers/arm/gic/v3/gicv3_main.c:		assert(gicv3_driver_data->g1s_interrupt_array ||
+drivers/arm/gic/v3/gicv3_main.c:				gicv3_driver_data->g0_interrupt_array);
+drivers/arm/gic/v3/gicv3_main.c:		if (gicv3_driver_data->g1s_interrupt_array) {
+drivers/arm/gic/v3/gicv3_main.c:			gicv3_secure_spis_config(gicv3_driver_data->gicd_base,
+drivers/arm/gic/v3/gicv3_main.c:					gicv3_driver_data->g1s_interrupt_num,
+drivers/arm/gic/v3/gicv3_main.c:					gicv3_driver_data->g1s_interrupt_array,
+drivers/arm/gic/v3/gicv3_main.c:		if (gicv3_driver_data->g0_interrupt_array) {
+drivers/arm/gic/v3/gicv3_main.c:			gicv3_secure_spis_config(gicv3_driver_data->gicd_base,
+drivers/arm/gic/v3/gicv3_main.c:					gicv3_driver_data->g0_interrupt_num,
+drivers/arm/gic/v3/gicv3_main.c:					gicv3_driver_data->g0_interrupt_array,
+drivers/arm/gic/v3/gicv3_main.c:	gicd_set_ctlr(gicv3_driver_data->gicd_base, bitmap, RWP_TRUE);
+drivers/arm/gic/v3/gicv3_main.c:	assert(proc_num < gicv3_driver_data->rdistif_num);
+drivers/arm/gic/v3/gicv3_main.c:	assert(gicv3_driver_data->rdistif_base_addrs);
+drivers/arm/gic/v3/gicv3_main.c:	assert(gicv3_driver_data->gicd_base);
+drivers/arm/gic/v3/gicv3_main.c:	ctlr = gicd_read_ctlr(gicv3_driver_data->gicd_base);
+drivers/arm/gic/v3/gicv3_main.c:	gicr_base = gicv3_driver_data->rdistif_base_addrs[proc_num];
+drivers/arm/gic/v3/gicv3_main.c:	if (gicv3_driver_data->interrupt_props != NULL) {
+drivers/arm/gic/v3/gicv3_main.c:				gicv3_driver_data->interrupt_props,
+drivers/arm/gic/v3/gicv3_main.c:				gicv3_driver_data->interrupt_props_num);
+drivers/arm/gic/v3/gicv3_main.c:		assert(gicv3_driver_data->g1s_interrupt_array ||
+drivers/arm/gic/v3/gicv3_main.c:		       gicv3_driver_data->g0_interrupt_array);
+drivers/arm/gic/v3/gicv3_main.c:		if (gicv3_driver_data->g1s_interrupt_array) {
+drivers/arm/gic/v3/gicv3_main.c:					gicv3_driver_data->g1s_interrupt_num,
+drivers/arm/gic/v3/gicv3_main.c:					gicv3_driver_data->g1s_interrupt_array,
+drivers/arm/gic/v3/gicv3_main.c:		if (gicv3_driver_data->g0_interrupt_array) {
+drivers/arm/gic/v3/gicv3_main.c:					gicv3_driver_data->g0_interrupt_num,
+drivers/arm/gic/v3/gicv3_main.c:					gicv3_driver_data->g0_interrupt_array,
+drivers/arm/gic/v3/gicv3_main.c:		gicd_set_ctlr(gicv3_driver_data->gicd_base, bitmap, RWP_TRUE);
+drivers/arm/gic/v3/gicv3_main.c:	assert(proc_num < gicv3_driver_data->rdistif_num);
+drivers/arm/gic/v3/gicv3_main.c:	assert(gicv3_driver_data->rdistif_base_addrs);
+drivers/arm/gic/v3/gicv3_main.c:	gicr_base = gicv3_driver_data->rdistif_base_addrs[proc_num];
+drivers/arm/gic/v3/gicv3_main.c:	assert(proc_num < gicv3_driver_data->rdistif_num);
+drivers/arm/gic/v3/gicv3_main.c:	assert(gicv3_driver_data->rdistif_base_addrs);
+drivers/arm/gic/v3/gicv3_main.c:	gicr_base = gicv3_driver_data->rdistif_base_addrs[proc_num];
+drivers/arm/gic/v3/gicv3_main.c:	assert(proc_num < gicv3_driver_data->rdistif_num);
+drivers/arm/gic/v3/gicv3_main.c:		assert(gicv3_driver_data->rdistif_base_addrs);
+drivers/arm/gic/v3/gicv3_main.c:		gicr_base = gicv3_driver_data->rdistif_base_addrs[proc_num];
+drivers/arm/gic/v3/gicv3_main.c:		assert(gicv3_driver_data->gicd_base);
+drivers/arm/gic/v3/gicv3_main.c:		igroup = gicd_get_igroupr(gicv3_driver_data->gicd_base, id);
+drivers/arm/gic/v3/gicv3_main.c:		grpmodr = gicd_get_igrpmodr(gicv3_driver_data->gicd_base, id);
+drivers/arm/gic/v3/gicv3_main.c:	assert(proc_num < gicv3_driver_data->rdistif_num);
+drivers/arm/gic/v3/gicv3_main.c:	assert(gicv3_driver_data->rdistif_base_addrs);
+drivers/arm/gic/v3/gicv3_main.c:	gicr_base = gicv3_driver_data->rdistif_base_addrs[proc_num];
+drivers/arm/gic/v3/gicv3_main.c:	assert(proc_num < gicv3_driver_data->rdistif_num);
+drivers/arm/gic/v3/gicv3_main.c:	assert(gicv3_driver_data->rdistif_base_addrs);
+drivers/arm/gic/v3/gicv3_main.c:	gicr_base = gicv3_driver_data->rdistif_base_addrs[proc_num];
+drivers/arm/gic/v3/gicv3_main.c:	assert(gicv3_driver_data->gicd_base);
+drivers/arm/gic/v3/gicv3_main.c:	uintptr_t gicd_base = gicv3_driver_data->gicd_base;
+drivers/arm/gic/v3/gicv3_main.c:	assert(gicv3_driver_data->gicd_base);
+drivers/arm/gic/v3/gicv3_main.c:	uintptr_t gicd_base = gicv3_driver_data->gicd_base;
+drivers/arm/gic/v3/gicv3_main.c:	assert(gicv3_driver_data->gicd_base);
+drivers/arm/gic/v3/gicv3_main.c:	assert(proc_num < gicv3_driver_data->rdistif_num);
+drivers/arm/gic/v3/gicv3_main.c:	assert(gicv3_driver_data->rdistif_base_addrs);
+drivers/arm/gic/v3/gicv3_main.c:				gicv3_driver_data->rdistif_base_addrs[proc_num], id);
+drivers/arm/gic/v3/gicv3_main.c:		value = gicd_get_isactiver(gicv3_driver_data->gicd_base, id);
+drivers/arm/gic/v3/gicv3_main.c:	assert(gicv3_driver_data->gicd_base);
+drivers/arm/gic/v3/gicv3_main.c:	assert(proc_num < gicv3_driver_data->rdistif_num);
+drivers/arm/gic/v3/gicv3_main.c:	assert(gicv3_driver_data->rdistif_base_addrs);
+drivers/arm/gic/v3/gicv3_main.c:				gicv3_driver_data->rdistif_base_addrs[proc_num],
+drivers/arm/gic/v3/gicv3_main.c:		gicd_set_isenabler(gicv3_driver_data->gicd_base, id);
+drivers/arm/gic/v3/gicv3_main.c:	assert(gicv3_driver_data->gicd_base);
+drivers/arm/gic/v3/gicv3_main.c:	assert(proc_num < gicv3_driver_data->rdistif_num);
+drivers/arm/gic/v3/gicv3_main.c:	assert(gicv3_driver_data->rdistif_base_addrs);
+drivers/arm/gic/v3/gicv3_main.c:				gicv3_driver_data->rdistif_base_addrs[proc_num],
+drivers/arm/gic/v3/gicv3_main.c:				gicv3_driver_data->rdistif_base_addrs[proc_num]);
+drivers/arm/gic/v3/gicv3_main.c:		gicd_set_icenabler(gicv3_driver_data->gicd_base, id);
+drivers/arm/gic/v3/gicv3_main.c:		gicd_wait_for_pending_write(gicv3_driver_data->gicd_base);
+drivers/arm/gic/v3/gicv3_main.c:	assert(gicv3_driver_data->gicd_base);
+drivers/arm/gic/v3/gicv3_main.c:	assert(proc_num < gicv3_driver_data->rdistif_num);
+drivers/arm/gic/v3/gicv3_main.c:	assert(gicv3_driver_data->rdistif_base_addrs);
+drivers/arm/gic/v3/gicv3_main.c:		gicr_base = gicv3_driver_data->rdistif_base_addrs[proc_num];
+drivers/arm/gic/v3/gicv3_main.c:		gicd_set_ipriorityr(gicv3_driver_data->gicd_base, id, priority);
+drivers/arm/gic/v3/gicv3_main.c:	assert(gicv3_driver_data->gicd_base);
+drivers/arm/gic/v3/gicv3_main.c:	assert(proc_num < gicv3_driver_data->rdistif_num);
+drivers/arm/gic/v3/gicv3_main.c:	assert(gicv3_driver_data->rdistif_base_addrs);
+drivers/arm/gic/v3/gicv3_main.c:		gicr_base = gicv3_driver_data->rdistif_base_addrs[proc_num];
+drivers/arm/gic/v3/gicv3_main.c:			gicd_set_igroupr(gicv3_driver_data->gicd_base, id);
+drivers/arm/gic/v3/gicv3_main.c:			gicd_clr_igroupr(gicv3_driver_data->gicd_base, id);
+drivers/arm/gic/v3/gicv3_main.c:			gicd_set_igrpmodr(gicv3_driver_data->gicd_base, id);
+drivers/arm/gic/v3/gicv3_main.c:			gicd_clr_igrpmodr(gicv3_driver_data->gicd_base, id);
+drivers/arm/gic/v3/gicv3_main.c:	assert(gicv3_driver_data->gicd_base);
+drivers/arm/gic/v3/gicv3_main.c:	gicd_write_irouter(gicv3_driver_data->gicd_base, id, aff);
+drivers/arm/gic/v3/gicv3_main.c:		router = gicd_read_irouter(gicv3_driver_data->gicd_base, id);
+drivers/arm/gic/v3/gicv3_main.c:	assert(gicv3_driver_data->gicd_base);
+drivers/arm/gic/v3/gicv3_main.c:	assert(proc_num < gicv3_driver_data->rdistif_num);
+drivers/arm/gic/v3/gicv3_main.c:	assert(gicv3_driver_data->rdistif_base_addrs);
+drivers/arm/gic/v3/gicv3_main.c:		gicr_set_icpendr0(gicv3_driver_data->rdistif_base_addrs[proc_num],
+drivers/arm/gic/v3/gicv3_main.c:		gicd_set_icpendr(gicv3_driver_data->gicd_base, id);
+drivers/arm/gic/v3/gicv3_main.c:	assert(gicv3_driver_data->gicd_base);
+drivers/arm/gic/v3/gicv3_main.c:	assert(proc_num < gicv3_driver_data->rdistif_num);
+drivers/arm/gic/v3/gicv3_main.c:	assert(gicv3_driver_data->rdistif_base_addrs);
+drivers/arm/gic/v3/gicv3_main.c:		gicr_set_ispendr0(gicv3_driver_data->rdistif_base_addrs[proc_num],
+drivers/arm/gic/v3/gicv3_main.c:		gicd_set_ispendr(gicv3_driver_data->gicd_base, id);
+drivers/arm/gic/v3/arm_gicv3_common.c:	assert(gicv3_driver_data->rdistif_base_addrs);
+drivers/arm/gic/v3/arm_gicv3_common.c:	for (unsigned int i = 0; i < gicv3_driver_data->rdistif_num; i++) {
+drivers/arm/gic/v3/arm_gicv3_common.c:		gicr_base = gicv3_driver_data->rdistif_base_addrs[i];
+drivers/arm/gic/v3/arm_gicv3_common.c:	gicr_base = gicv3_driver_data->rdistif_base_addrs[rdist_proc_num];
+drivers/arm/gic/v3/arm_gicv3_common.c:	assert(gicv3_driver_data->rdistif_base_addrs);
+drivers/arm/gic/v3/arm_gicv3_common.c:	gicr_base = gicv3_driver_data->rdistif_base_addrs[rdist_proc_num];
+drivers/arm/gic/v3/gic600.c:	assert(proc_num < gicv3_driver_data->rdistif_num);
+drivers/arm/gic/v3/gic600.c:	assert(gicv3_driver_data->rdistif_base_addrs);
+drivers/arm/gic/v3/gic600.c:	gicr_base = gicv3_driver_data->rdistif_base_addrs[proc_num];
+drivers/arm/gic/v3/gic600.c:	assert(proc_num < gicv3_driver_data->rdistif_num);
+drivers/arm/gic/v3/gic600.c:	assert(gicv3_driver_data->rdistif_base_addrs);
+drivers/arm/gic/v3/gic600.c:	gicr_base = gicv3_driver_data->rdistif_base_addrs[proc_num];
+drivers/arm/gic/v2/gicv2_main.c:  assert(driver_data->gicd_base);
+drivers/arm/gic/v2/gicv2_main.c:  gicd_clr_igroupr(driver_data->gicd_base, irq_num);
+drivers/arm/gic/v2/gicv2_main.c:  gicd_set_ipriorityr(driver_data->gicd_base,
+drivers/arm/gic/v2/gicv2_main.c:  //gicd_set_itargetsr(driver_data->gicd_base, irq_num, gicv2_get_cpuif_id(driver_data->gicd_base));
+drivers/arm/gic/v2/gicv2_main.c:  gicd_set_itargetsr(driver_data->gicd_base, irq_num, 0xff);
+drivers/arm/gic/v2/gicv2_main.c:  gicd_set_isenabler(driver_data->gicd_base, irq_num);
+drivers/arm/gic/v2/gicv2_main.c:	assert(driver_data->gicc_base);
+drivers/arm/gic/v2/gicv2_main.c:	gicc_write_pmr(driver_data->gicc_base, GIC_PRI_MASK);
+drivers/arm/gic/v2/gicv2_main.c:	gicc_write_ctlr(driver_data->gicc_base, val);
+drivers/arm/gic/v2/gicv2_main.c:	assert(driver_data->gicc_base);
+drivers/arm/gic/v2/gicv2_main.c:	val = gicc_read_ctlr(driver_data->gicc_base);
+drivers/arm/gic/v2/gicv2_main.c:	gicc_write_ctlr(driver_data->gicc_base, val);
+drivers/arm/gic/v2/gicv2_main.c:	assert(driver_data->gicd_base);
+drivers/arm/gic/v2/gicv2_main.c:	if (driver_data->interrupt_props != NULL) {
+drivers/arm/gic/v2/gicv2_main.c:		gicv2_secure_ppi_sgi_setup_props(driver_data->gicd_base,
+drivers/arm/gic/v2/gicv2_main.c:				driver_data->interrupt_props,
+drivers/arm/gic/v2/gicv2_main.c:				driver_data->interrupt_props_num);
+drivers/arm/gic/v2/gicv2_main.c:		assert(driver_data->g0_interrupt_array);
+drivers/arm/gic/v2/gicv2_main.c:		gicv2_secure_ppi_sgi_setup(driver_data->gicd_base,
+drivers/arm/gic/v2/gicv2_main.c:				driver_data->g0_interrupt_num,
+drivers/arm/gic/v2/gicv2_main.c:				driver_data->g0_interrupt_array);
+drivers/arm/gic/v2/gicv2_main.c:	ctlr = gicd_read_ctlr(driver_data->gicd_base);
+drivers/arm/gic/v2/gicv2_main.c:		gicd_write_ctlr(driver_data->gicd_base,
+drivers/arm/gic/v2/gicv2_main.c:	assert(driver_data->gicd_base);
+drivers/arm/gic/v2/gicv2_main.c:	ctlr = gicd_read_ctlr(driver_data->gicd_base);
+drivers/arm/gic/v2/gicv2_main.c:	gicd_write_ctlr(driver_data->gicd_base,
+drivers/arm/gic/v2/gicv2_main.c:	gicv2_spis_configure_defaults(driver_data->gicd_base);
+drivers/arm/gic/v2/gicv2_main.c:	if (driver_data->interrupt_props != NULL) {
+drivers/arm/gic/v2/gicv2_main.c:		gicv2_secure_spis_configure_props(driver_data->gicd_base,
+drivers/arm/gic/v2/gicv2_main.c:				driver_data->interrupt_props,
+drivers/arm/gic/v2/gicv2_main.c:				driver_data->interrupt_props_num);
+drivers/arm/gic/v2/gicv2_main.c:		assert(driver_data->g0_interrupt_array);
+drivers/arm/gic/v2/gicv2_main.c:		gicv2_secure_spis_configure(driver_data->gicd_base,
+drivers/arm/gic/v2/gicv2_main.c:				driver_data->g0_interrupt_num,
+drivers/arm/gic/v2/gicv2_main.c:				driver_data->g0_interrupt_array);
+drivers/arm/gic/v2/gicv2_main.c:	gicd_write_ctlr(driver_data->gicd_base, ctlr | CTLR_ENABLE_G0_BIT);
+drivers/arm/gic/v2/gicv2_main.c:	assert(plat_driver_data->gicd_base);
+drivers/arm/gic/v2/gicv2_main.c:	assert(plat_driver_data->gicc_base);
+drivers/arm/gic/v2/gicv2_main.c:	if (plat_driver_data->interrupt_props == NULL) {
+drivers/arm/gic/v2/gicv2_main.c:		assert(plat_driver_data->interrupt_props_num == 0);
+drivers/arm/gic/v2/gicv2_main.c:		assert(plat_driver_data->g0_interrupt_array ?
+drivers/arm/gic/v2/gicv2_main.c:				plat_driver_data->g0_interrupt_num :
+drivers/arm/gic/v2/gicv2_main.c:				plat_driver_data->g0_interrupt_num == 0);
+drivers/arm/gic/v2/gicv2_main.c:	assert(plat_driver_data->interrupt_props_num > 0 ?
+drivers/arm/gic/v2/gicv2_main.c:			plat_driver_data->interrupt_props != NULL : 1);
+drivers/arm/gic/v2/gicv2_main.c:	gic_version = gicd_read_pidr2(plat_driver_data->gicd_base);
+drivers/arm/gic/v2/gicv2_main.c:	assert(driver_data->gicc_base);
+drivers/arm/gic/v2/gicv2_main.c:	gicc_ctlr = gicc_read_ctlr(driver_data->gicc_base);
+drivers/arm/gic/v2/gicv2_main.c:	assert(driver_data->gicc_base);
+drivers/arm/gic/v2/gicv2_main.c:	return gicc_read_hppir(driver_data->gicc_base) & INT_ID_MASK;
+drivers/arm/gic/v2/gicv2_main.c:	assert(driver_data->gicc_base);
+drivers/arm/gic/v2/gicv2_main.c:	id = gicc_read_hppir(driver_data->gicc_base) & INT_ID_MASK;
+drivers/arm/gic/v2/gicv2_main.c:		id = gicc_read_ahppir(driver_data->gicc_base) & INT_ID_MASK;
+drivers/arm/gic/v2/gicv2_main.c:	assert(driver_data->gicc_base);
+drivers/arm/gic/v2/gicv2_main.c:	return gicc_read_IAR(driver_data->gicc_base);
+drivers/arm/gic/v2/gicv2_main.c:	assert(driver_data->gicc_base);
+drivers/arm/gic/v2/gicv2_main.c:	gicc_write_EOIR(driver_data->gicc_base, id);
+drivers/arm/gic/v2/gicv2_main.c:	assert(driver_data->gicd_base);
+drivers/arm/gic/v2/gicv2_main.c:	return gicd_get_igroupr(driver_data->gicd_base, id);
+drivers/arm/gic/v2/gicv2_main.c:	assert(driver_data->gicc_base);
+drivers/arm/gic/v2/gicv2_main.c:	return gicc_read_rpr(driver_data->gicc_base);
+drivers/arm/gic/v2/gicv2_main.c:	assert(driver_data->gicd_base);
+drivers/arm/gic/v2/gicv2_main.c:	assert(driver_data->target_masks);
+drivers/arm/gic/v2/gicv2_main.c:	assert(proc_num < driver_data->target_masks_num);
+drivers/arm/gic/v2/gicv2_main.c:	if (driver_data->target_masks[proc_num])
+drivers/arm/gic/v2/gicv2_main.c:	if (driver_data->target_masks[proc_num] == 0) {
+drivers/arm/gic/v2/gicv2_main.c:		driver_data->target_masks[proc_num] =
+drivers/arm/gic/v2/gicv2_main.c:			gicv2_get_cpuif_id(driver_data->gicd_base);
+drivers/arm/gic/v2/gicv2_main.c:				&driver_data->target_masks[proc_num],
+drivers/arm/gic/v2/gicv2_main.c:				sizeof(driver_data->target_masks[proc_num]));
+drivers/arm/gic/v2/gicv2_main.c:	assert(driver_data->gicd_base);
+drivers/arm/gic/v2/gicv2_main.c:	return gicd_get_isactiver(driver_data->gicd_base, id);
+drivers/arm/gic/v2/gicv2_main.c:	assert(driver_data->gicd_base);
+drivers/arm/gic/v2/gicv2_main.c:	gicd_set_isenabler(driver_data->gicd_base, id);
+drivers/arm/gic/v2/gicv2_main.c:	assert(driver_data->gicd_base);
+drivers/arm/gic/v2/gicv2_main.c:	gicd_set_icenabler(driver_data->gicd_base, id);
+drivers/arm/gic/v2/gicv2_main.c:	assert(driver_data->gicd_base);
+drivers/arm/gic/v2/gicv2_main.c:	gicd_set_ipriorityr(driver_data->gicd_base, id, priority);
+drivers/arm/gic/v2/gicv2_main.c:	assert(driver_data->gicd_base);
+drivers/arm/gic/v2/gicv2_main.c:		gicd_set_igroupr(driver_data->gicd_base, id);
+drivers/arm/gic/v2/gicv2_main.c:		gicd_clr_igroupr(driver_data->gicd_base, id);
+drivers/arm/gic/v2/gicv2_main.c:	assert(driver_data->gicd_base);
+drivers/arm/gic/v2/gicv2_main.c:	assert(driver_data->target_masks);
+drivers/arm/gic/v2/gicv2_main.c:	assert(proc_num < driver_data->target_masks_num);
+drivers/arm/gic/v2/gicv2_main.c:	target = driver_data->target_masks[proc_num];
+drivers/arm/gic/v2/gicv2_main.c:	gicd_write_sgir(driver_data->gicd_base, sgir_val);
+drivers/arm/gic/v2/gicv2_main.c:	assert(driver_data->gicd_base);
+drivers/arm/gic/v2/gicv2_main.c:	assert(driver_data->target_masks);
+drivers/arm/gic/v2/gicv2_main.c:	assert(proc_num < driver_data->target_masks_num);
+drivers/arm/gic/v2/gicv2_main.c:		target = driver_data->target_masks[proc_num];
+drivers/arm/gic/v2/gicv2_main.c:	gicd_set_itargetsr(driver_data->gicd_base, id, target);
+drivers/arm/gic/v2/gicv2_main.c:	assert(driver_data->gicd_base);
+drivers/arm/gic/v2/gicv2_main.c:	gicd_set_icpendr(driver_data->gicd_base, id);
+drivers/arm/gic/v2/gicv2_main.c:	assert(driver_data->gicd_base);
+drivers/arm/gic/v2/gicv2_main.c:	gicd_set_ispendr(driver_data->gicd_base, id);
+drivers/arm/gic/v2/gicv2_main.c:	assert(driver_data->gicc_base);
+drivers/arm/gic/v2/gicv2_main.c:	old_mask = gicc_read_pmr(driver_data->gicc_base);
+drivers/arm/gic/v2/gicv2_main.c:	gicc_write_pmr(driver_data->gicc_base, mask);

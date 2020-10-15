@@ -1,8 +1,8 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-| Date         : Sat Jun  6 22:08:11 2020
-| Host         : CELSIUS running 64-bit Ubuntu 16.04.6 LTS
+| Date         : Mon Aug 10 14:12:59 2020
+| Host         : tower running 64-bit Ubuntu 16.04.6 LTS
 | Command      : report_utilization -file design_2_system_ila_0_0_utilization_synth.rpt -pb design_2_system_ila_0_0_utilization_synth.pb
 | Design       : design_2_system_ila_0_0
 | Device       : xczu9egffvb1156-2
@@ -31,17 +31,17 @@ Table of Contents
 +----------------------------+-------+-------+-----------+-------+
 |          Site Type         |  Used | Fixed | Available | Util% |
 +----------------------------+-------+-------+-----------+-------+
-| CLB LUTs*                  | 12141 |     0 |    274080 |  4.43 |
-|   LUT as Logic             |  7666 |     0 |    274080 |  2.80 |
-|   LUT as Memory            |  4475 |     0 |    144000 |  3.11 |
+| CLB LUTs*                  | 12186 |     0 |    274080 |  4.45 |
+|   LUT as Logic             |  7705 |     0 |    274080 |  2.81 |
+|   LUT as Memory            |  4481 |     0 |    144000 |  3.11 |
 |     LUT as Distributed RAM |     0 |     0 |           |       |
-|     LUT as Shift Register  |  4475 |     0 |           |       |
-| CLB Registers              | 19967 |     0 |    548160 |  3.64 |
-|   Register as Flip Flop    | 19967 |     0 |    548160 |  3.64 |
+|     LUT as Shift Register  |  4481 |     0 |           |       |
+| CLB Registers              | 20017 |     0 |    548160 |  3.65 |
+|   Register as Flip Flop    | 20017 |     0 |    548160 |  3.65 |
 |   Register as Latch        |     0 |     0 |    548160 |  0.00 |
-| CARRY8                     |   332 |     0 |     34260 |  0.97 |
-| F7 Muxes                   |   684 |     0 |    137040 |  0.50 |
-| F8 Muxes                   |   323 |     0 |     68520 |  0.47 |
+| CARRY8                     |   333 |     0 |     34260 |  0.97 |
+| F7 Muxes                   |   686 |     0 |    137040 |  0.50 |
+| F8 Muxes                   |   321 |     0 |     68520 |  0.47 |
 | F9 Muxes                   |     0 |     0 |     34260 |  0.00 |
 +----------------------------+-------+-------+-----------+-------+
 * Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.
@@ -62,7 +62,7 @@ Table of Contents
 | 0     |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
 | 33    |          Yes |         Set |            - |
-| 19934 |          Yes |       Reset |            - |
+| 19984 |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -156,18 +156,18 @@ Table of Contents
 +----------+-------+---------------------+
 | Ref Name |  Used | Functional Category |
 +----------+-------+---------------------+
-| FDRE     | 19934 |            Register |
-| LUT6     |  5492 |                 CLB |
-| SRL16E   |  4266 |                 CLB |
-| SRLC32E  |  1955 |                 CLB |
-| LUT4     |  1769 |                 CLB |
-| MUXF7    |   684 |                 CLB |
-| LUT3     |   512 |                 CLB |
-| CARRY8   |   332 |                 CLB |
-| MUXF8    |   323 |                 CLB |
-| LUT2     |   291 |                 CLB |
-| LUT1     |   245 |                 CLB |
-| LUT5     |   221 |                 CLB |
+| FDRE     | 19984 |            Register |
+| LUT6     |  5525 |                 CLB |
+| SRL16E   |  4271 |                 CLB |
+| SRLC32E  |  1960 |                 CLB |
+| LUT4     |  1774 |                 CLB |
+| MUXF7    |   686 |                 CLB |
+| LUT3     |   534 |                 CLB |
+| CARRY8   |   333 |                 CLB |
+| MUXF8    |   321 |                 CLB |
+| LUT2     |   295 |                 CLB |
+| LUT1     |   247 |                 CLB |
+| LUT5     |   210 |                 CLB |
 | RAMB36E2 |    69 |           Block Ram |
 | FDSE     |    33 |            Register |
 | RAMB18E2 |     4 |           Block Ram |

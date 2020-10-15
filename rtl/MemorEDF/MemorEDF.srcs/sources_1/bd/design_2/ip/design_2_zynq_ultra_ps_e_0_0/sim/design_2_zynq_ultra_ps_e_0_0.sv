@@ -960,8 +960,8 @@
       bit  pl_ps_trigack_3;
       bit  [31 : 0] ftm_gpo;
       bit  [31 : 0] ftm_gpi;
-      bit  [0 : 0] pl_ps_irq0;
-      bit  [0 : 0] pl_ps_irq1;
+      bit  [1 : 0] pl_ps_irq0;
+      bit  [7 : 0] pl_ps_irq1;
       bit  pl_resetn0;
       bit  pl_resetn1;
       bit  pl_resetn2;
@@ -1732,8 +1732,8 @@
       parameter C_USE_DEBUG_TEST = 0;
       parameter C_SD0_INTERNAL_BUS_WIDTH = 8;
       parameter C_SD1_INTERNAL_BUS_WIDTH = 8;
-      parameter C_NUM_F2P_0_INTR_INPUTS = 1;
-      parameter C_NUM_F2P_1_INTR_INPUTS = 1;
+      parameter C_NUM_F2P_0_INTR_INPUTS = 2;
+      parameter C_NUM_F2P_1_INTR_INPUTS = 8;
       parameter C_EMIO_GPIO_WIDTH = 1;
       parameter C_NUM_FABRIC_RESETS = 1;
 
@@ -1939,7 +1939,7 @@
       input  saxigp3_rready;
       input  [3 : 0] saxigp3_awqos;
       input  [3 : 0] saxigp3_arqos;
-      input  [0 : 0] pl_ps_irq0;
+      input  [1 : 0] pl_ps_irq0;
       output  pl_resetn0;
       output  pl_clk0;
 
@@ -2391,6 +2391,16 @@ end
  always@(negedge pl_ps_irq0[0])
  begin
   ps8_set_input_pl_ps_irq0(0,0);
+end
+
+ always@(posedge pl_ps_irq0[1])
+ begin
+  ps8_set_input_pl_ps_irq0(1,1);
+end
+
+ always@(negedge pl_ps_irq0[1])
+ begin
+  ps8_set_input_pl_ps_irq0(1,0);
 end
 
 import "DPI-C" function void ps8_init_m_axi_hpm0_fpd(input int maxigp0_awid_size,input int maxigp0_awaddr_size,input int maxigp0_awlen_size,input int maxigp0_awsize_size,input int maxigp0_awburst_size,input int maxigp0_awlock_size,input int maxigp0_awcache_size,input int maxigp0_awprot_size,input int maxigp0_awqos_size,input int maxigp0_awuser_size,input int maxigp0_awvalid_size,input int maxigp0_awready_size,input int maxigp0_wdata_size,input int maxigp0_wstrb_size,input int maxigp0_wlast_size,input int maxigp0_wvalid_size,input int maxigp0_wready_size,input int maxigp0_bid_size,input int maxigp0_bresp_size,input int maxigp0_bvalid_size,input int maxigp0_bready_size,input int maxigp0_arid_size,input int maxigp0_araddr_size,input int maxigp0_arlen_size,input int maxigp0_arsize_size,input int maxigp0_arburst_size,input int maxigp0_arlock_size,input int maxigp0_arcache_size,input int maxigp0_arprot_size,input int maxigp0_arqos_size,input int maxigp0_aruser_size,input int maxigp0_arvalid_size,input int maxigp0_arready_size,input int maxigp0_rid_size,input int maxigp0_rdata_size,input int maxigp0_rresp_size,input int maxigp0_rlast_size,input int maxigp0_rvalid_size,input int maxigp0_rready_size);

@@ -209,6 +209,7 @@ module bd_074c_wrapper
     SLOT_4_AXI_wstrb,
     SLOT_4_AXI_wvalid,
     clk,
+    probe0,
     resetn);
   input [39:0]SLOT_0_AXI_araddr;
   input [1:0]SLOT_0_AXI_arburst;
@@ -412,6 +413,7 @@ module bd_074c_wrapper
   input [15:0]SLOT_4_AXI_wstrb;
   input SLOT_4_AXI_wvalid;
   input clk;
+  input [3:0]probe0;
   input resetn;
 
   wire [39:0]SLOT_0_AXI_araddr;
@@ -616,6 +618,7 @@ module bd_074c_wrapper
   wire [15:0]SLOT_4_AXI_wstrb;
   wire SLOT_4_AXI_wvalid;
   wire clk;
+  wire [3:0]probe0;
   wire resetn;
 
   bd_074c bd_074c_i
@@ -821,5 +824,6 @@ module bd_074c_wrapper
         .SLOT_4_AXI_wstrb(SLOT_4_AXI_wstrb),
         .SLOT_4_AXI_wvalid(SLOT_4_AXI_wvalid),
         .clk(clk),
+        .probe0(probe0),
         .resetn(resetn));
 endmodule
