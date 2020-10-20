@@ -62,9 +62,9 @@ three different domains, namely (i) the \emph{interfacing domain},
 (ii) the \emph{queuing domain}, and (iii) the \emph{scheduling
   domain}.
 
-The interfacing domain encompasses the sub-modules in charge of
-interfacing the core logic of the \schim with the rest of the system
-using the AXI protocol.  This domain is comprised of three
+\par{\bf The interfacing domain} encompasses the sub-modules in charge
+of interfacing the core logic of the \schim with the rest of the
+system using the AXI protocol.  This domain is comprised of three
 sub-modules. These are (i) the \emph{packetizer}, (ii) the
 \emph{serializer}, and (iii) the previously mentioned configuration
 interface.
@@ -88,37 +88,35 @@ be routed to the main memory controller.
 %% respectively transforming the AXI transactions into an equivalent
 %% packet and to transform these packets 
 
-The queuing domain is in charge of the storing the incoming
-transactions emitted by the PS side.  The motivation behind the use of
-queues is implied by the fact that all the masters located on the PS
-side share a common AXI bus (namely HPM0 as shown in figure
-\ref{fig:SchIM_overview_schema}).  Therefore, in order to cancel the
-Round Robin arbitration policy applied in the PS side and in order to
-avoid that one high priority core is stalled by a lower priority one,
-each core is granted a queue within the \schim module.  Not only the
-queues act as containers and buffers for transactions, they also embed
-logic and provide information to the scheduling domain regarding their
-current state in order to avoid the queues to overflow or underflow
-similarly to the producer-consumer problem.  As suggested by figure
-\ref{fig:MemorEDF_module_schema}, transactions are inserted to the
-adequate queues on the basis of the emitters identifier via the
-dispatcher module.  Similarly, transactions are evicted from their
-queue, routed by the selector module and sent directly to the output
-of the module upon the action of the scheduling domain.
+\par{\bf The queuing domain} handles how packets are stored between
+receipt and re-trasnmission. This domain is comprised of (i) the
+dispatcher module, (ii) the transaction queues, and (iii) the selector
+module.
 
-The scheduling domain encompasses all the sub-modules that enable
-arbitration of the bus between the transactions issued by the
-different cores of the PS side. Hence, this domain boasts several
-transaction schedulers implemented at the hardware level.  The
-scheduling policies offered by \schim include Fixed Priority (FP), Time
-Division Multiple Access (TDMA), Earliest Deadline First (EDF), Least
-Laxity First (LLF) and MemGuard (MG).  Each of the parameters required
-by the aforementioned algorithms such as the priorities, the periods,
-the deadlines and the budgets are re-configurable at the run-time
-thanks to the inclusion of a configuration port.  Finally, the
-scheduling domain is also the one in charge of the control of the
-remaining the \schim module, driving and selecting the adequate signals
-and ensuring the coherence and integrity of the data.
+The use of {\bf multiple transaction queues} is necessary to
+differentiate the traffic of the CPU cores and perform scheduling. As
+such, the \schim associates a queue to each of the active cores ---
+four in the platform of reference.
+%% Therefore, in order to cancel the Round Robin arbitration policy
+%% applied in the PS side and in order to avoid that one high priority
+%% core is stalled by a lower priority one, each core is granted a queue
+%% within the \schim module. <-- This should be obvious (RM)
+The queues implemented in the \schim not only act as a holding space
+for in-flight memory transactions.  They also (a) provide information
+to the scheduling domain regarding their current state, and (b) they
+can generate a congestion control signal to the associated CPU core.
+
+As suggested by figure \ref{fig:MemorEDF_module_schema}, transactions
+are categorized and enqueued based on the source of traffic. The {\bf
+  dispatcher} module performs the matching between an incoming
+transaction and the destination queue. Similarly, transactions are
+dequeued by the {\bf selector} module and sent directly to the output
+of the \schim following the decisions of the scheduling
+domain.
+
+Additional important details about the categorization and congestion
+control mechanisms enacted in the queueing domain are provided in
+Section~\ref{sec:schim_implementation}.
 
 \begin{figure}
   \centering
@@ -127,66 +125,35 @@ and ensuring the coherence and integrity of the data.
   \label{fig:MemorEDF_module_schema}
 \end{figure}
 
-\subsection{Modules Overview}
+\par{\bf The scheduling domain} encompasses all the sub-modules that
+enable arbitration of transactions issued by the different cores of
+the PS. The modules in this domain are intended to be generic for
+extensibility, albeit a first set of three template schedulers is
+provided as a proof of concept.  The scheduling policies currently
+implemented in the \schim are Fixed Priority (FP), Time Division
+Multiple Access (TDMA), and Budget-based Traffic Shaping (TS).  Each
+of the parameters required by the implemented policies --- such as the
+priorities, the periods, and the budgets --- can be adjusted at
+run-time via the configuration interface.
 
-\par{\bf Packetizer:} The packetizer module transforms transactions on
-the asynchronous AXI bus into schedulable entities to be queued at any
-of the \schim queues.
+The FP scheduler allows associating a priority value to each of the
+transaction queues. Pending transactions at the queues are then
+forwarded out of the \schim following the user-defined priority
+order. The TDMA scheduler allows associating a transmission time slot
+to each of the queues expressed in PL clock cycles. The module then
+builds a schedule by concatenating the per-core slots so that only
+pending transactions from one queue at a time are forwarded by the
+\schim. Finally, with the TS scheduler, it is possible to associate a
+maximum rate at which transactions from each queue are forwarded by
+the \schim. 
 
-\subsection{Transactions Life Cycle}
-\label{subsec:transaction-life-cycle}
+%% Finally, the scheduling domain is also the one in charge of the
+%% control of the remaining \schim module, driving and selecting the
+%% adequate signals and ensuring the coherence and integrity of the data.
 
-Let us consider a system with four cores (noted $C = \{c_{0}, c_{1},
-c_{2}, c_{3}\}$) sending transactions $T = \{t_{0}, t_{1}, ...,
-t_{n}\}$ to the \schim module.  Consequently, the latter boasts four
-queues (noted $Q = \{q_{0}, q_{1}, q_{2}, q_{3}\}$) buffering the
-transactions under the form of packets $P = \{p_{0}, p_{1}, ...,
-p_{n}\}$ where $p_{i} = Packetizer(t_{i})~\forall i \in [0 : n]$.
+%% \subsection{Modules Overview}
 
-In the present example, we will assume $t_{1}$ as being the
-transaction under analysis.  The latter is emitted by $c_{2}$ in
-direction of the \schim module.  The packetizer receives this
-transaction and, once the AXI protocol completed, transform it into an
-equivalent packet $p_{1} = Packetizer(t_{1})$.  Following this
-transformation, the newly created packet is forwarded to the
-dispatcher which, thanks to the emitter's id embedded within the
-transaction, is re-routed to the corresponding queue $q_{2}$ (since
-emitted by $c_{2}$).  After the insertion of $p_{1}$ in $q_{2}$, the
-state of the queuing domain is as follows: $q_{0}$ has two packets
-$p_{0}$ and $p_{k}$ and $q_{2}$ only has $p_{1}$.  At this point,
-$q_{0}$ is considered for scheduling by the scheduling domain.  In
-consequence, $p_{0}$ is forwarded to the serializer through the
-selector.  Simultaneously to the reception of the packet by the
-serializer, the latter receives an activation signal from the
-scheduling domain informing the serializer that the packet is valid
-and that a transaction can be started.  Similarly to the packetizer,
-the serializer will transform the packet $p_{0}$ back to its initial
-AXI transaction form $t_{0} = Serializer(p_{0})$.  Thereafter, once
-the $t_{0}$ has been sent, the serializer will inform the scheduling
-domain via a signal, that he is ready to accept the next packet as
-input.  Upon the reception of this signal, the scheduling domain will
-both re-direct the latter to the queue of the previous packet to
-indicate that it has been consumed and change the selected queue
-according to the scheduling policy so that the first packet of this
-queue can be forwarded to the serializer through the selector module.
-In the present example, the "consumed" signal forwarded by the
-scheduler is sent to $q_{0}$ which is then empty.  At this instant,
-two scenarios are possible:
-
-\begin{enumerate}
-\item $q_{0}$ is still considered for scheduling following the
-  selected scheduling policy. Therefore, as $q_{0}$ is empty, it
-  outputs an "empty" signal received by the scheduling domain.  The
-  latter then decides to not send any activation signal to the
-  serializer because there is nothing left to transmit in the selected
-  queue.  In other words, the access to the main memory is being
-  stalled on purpose by the scheduling policy i.e. the scheduling
-  policy is not work conserving.  For instance, such a scenario could
-  happen in the case of TDMA or if all the queues are empty.  The
-  logic will resume as soon as the selected queue is filled.
-\item $q_{2}$ is now considered instead of $q_{0}$ for scheduling.  In
-  this case, the "consumed" signal is repeated to $q_{0}$ while the
-  queue ID changes in order to select $q_{2}$.  This results in the
-  packet contained inside $q_{1}$ to be forwarded to the selector.
-\end{enumerate}
+%% \par{\bf Packetizer:} The packetizer module transforms transactions on
+%% the asynchronous AXI bus into schedulable entities to be queued at any
+%% of the \schim queues.
 
