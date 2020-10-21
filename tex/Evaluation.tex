@@ -15,7 +15,7 @@ As mentioned earlier, the high-performance master ports, namely HPMs, serve as a
 At the preprocessing stages, an AXI Performance Monitor (APM) unit connected to the bus interface between the HPM0 and the scheduler. It is crucial to affirm that this medium does not affect the transaction flow toward the PL.  APMs are powerful tools available in the PS and instantiable in the PL capable of measuring primary performance metrics (for AXI4, AXI4-Lite, or AXI4-Stream-based systems) such as bus latency for specific master/slave or amount of memory traffic for the particular duration. Moreover, APM offers the functionality of logging the necessary information about data transfers between any master and slave communicating in the AXI protocol. In this work, we program APMs to profile the behavior of the benchmarks to analyze the task's deadline. SchIM employs profiled information on task deadlines to make scheduling decisions (e.g., enforce EDF policy) for hard real-time jobs.
 
   \subsection{Performance degradation}
-  
+
   \subsection{Platform Capabilities}
     Here, discuss Fig.\ref{fig:bandwidth_comparison}
     \todo[inline]{Broad evaluation of the bandwidth offer by the ZCU102 depending on the route considered.}
@@ -26,39 +26,39 @@ At the preprocessing stages, an AXI Performance Monitor (APM) unit connected to 
       \label{fig:bandwidth_comparison}
       \todo[inline]{TODO: outdated version. Has to be repeated for cached transactions only with the latest version of SchIM.}
     \end{figure}
-    
+
   \subsection{Internal Behaviour of SchIM}
     Here, show and emphasize on the behaviour of SchIM with Fig.\ref{fig:schim_behaviour}
     \todo[inline]{Here, we use the trace snapshots}
     \begin{figure*}
-      \begin{subfigure}{.3\textwidth}
+      \begin{subfigure}{.31\textwidth}
         \centering
         % include first image
-        \includegraphics[scale=0.31]{../doc/experiments/buffering_4c_15_08_FP.png}  
-        \caption{Put your sub-caption here}
+        \includegraphics[scale=0.31]{images/iladata_fp_3_0f0e0d0c_20_3.png}
+        \caption{FP with ordering $C_{3} \succ C_{2} \succ C_{1} \succ C_{0}$}
         \label{fig:schim_behaviour_fp}
       \end{subfigure}
       \hfill
-      \begin{subfigure}{.3\textwidth}
+      \begin{subfigure}{.31\textwidth}
         \centering
         % include second image
-        \includegraphics[scale=0.31]{../doc/experiments/buffering_4c_15_08_TDMA.png}  
-        \caption{Put your sub-caption here}
+        \includegraphics[scale=0.31]{images/iladata_tdma_3_3_512_512_1.png}
+        \caption{TDMA with slots of 512 clock cycles}
         \label{fig:schim_behaviour_tdma}
       \end{subfigure}
       \hfill
-      \begin{subfigure}{.3\textwidth}
+      \begin{subfigure}{.31\textwidth}
         \centering
         % include second image
-        \includegraphics[scale=0.31]{../doc/experiments/buffering_4c_15_08_MG.png}  
-        \caption{Put your sub-caption here}
+        \includegraphics[scale=0.31]{images/iladata_mg_3_128_128_3.png}
+        \caption{MG with min. period of 128 clock cycles}
         \label{fig:schim_behaviour_mg}
       \end{subfigure}
-      \caption{Put your caption here}
+      \caption{Trace snapshot of SchIM for the three implemented policies}
       \label{fig:schim_behaviour}
-      \todo[inline]{TODO: outdated version. Has to be repeated for cached transactions only with the latest version of SchIM and the plots have to be reworked.}
+      \todo[inline]{TODO: The plots have to be reworked.}
     \end{figure*}
-    
+
   \subsection{Memory Isolation}
 %    \todo[inline]{Here, prove that SchIM enables us to isolate the cores. We need a bunch of benchmarks competing with mem-bombs on the remaining cores. We will try:
     \begin{itemize}
