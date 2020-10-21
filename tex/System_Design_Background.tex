@@ -7,8 +7,19 @@
 
     The underlying mechanism is the ability to intercept memory transactions originated from the processors inside the PS, at the PL. Intercepted transactions are then forwarded from the PL again toward the memory controller inside the PS. The primary mechanism of PS-PL and PL-PS redirection of a transaction is called the Memory Loop-Back. Loop-Back is done through address bit manipulation of the transaction such that it falls in the range of the target HPM(HPS) for the PS-PL(PL-PS) interception. In this way, the main memory content is accessed, but through a programmable environment. It is possible to act on the characteristics of the traffic that now traverses the PL. For example, in the PL, it is possible to direct the transaction to arbitrary modules before, eventually, redirecting it back to PS and the memory controller, ultimately.
 
-    This provides a unique capability of manipulating individual memory transactions. Hence, by sitting between CPUs and main memory, PLIM is exploited to perform memory scheduling. A configurable memory scheduler in the middle, namely, SchIM, is designed to implement several elected scheduling policies of Fixed Priority, TDMA, and Memguard. With
-    SchIM, now we can enforce policy at the level of the transaction altogether by the hardware.
+    This provides a unique capability of manipulating individual memory transactions. Hence, by sitting between CPUs and main memory, PLIM is exploited to perform memory scheduling. The idea is further leveraged by designing a configurable memory scheduler in the middle, namely, SchIM.
+
+
+First and foremost, SchIM follows a selective and dynamic re-routing policy settled at the run-time, meaning that provided a proper routing configuration interface,  SchIM can be bypassed if unacceptable overhead for some applications is detected by going through the PL following the Loop-Back routing strategy. Additionally, SchIM, provides a safe production-ready environment on COTS platforms where one can enfroce and test any proposed scheduling policy at the level of the transaction altogether by the real hardware. Memory scheduling traditionally done via hardware modifications at the controller level, or solely via software. Providing SchIM, we are now able to transcend this on intact COTS to conduct an analysis of feasibility, challenges and performance. 
+
+
+In this paper we provide a several proof-cases where SchIM is programmed to enforce a several elected scheduling policies of Fixed Priority, TDMA, and Memguard. 
+
+
+
+
+
+
 \subsection{Jailhouse, the partitioning Hypervisor}
 Jailhouse is a well-known open-source partitioning hypervisor \footnote{The source code is available at \url{https://github.com/siemens/jailhouse.git}.} based on Linux,
  with a prominent levity due to focusing on software-based partitioning of only a handful of essential resources, i.e., on-chip resources like CPUs, memory regions, I/O devices, and skipping any virtual scheduling.
