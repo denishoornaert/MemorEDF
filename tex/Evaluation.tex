@@ -21,7 +21,7 @@ At the preprocessing stages, an AXI Performance Monitor (APM) unit connected to 
     \todo[inline]{Broad evaluation of the bandwidth offer by the ZCU102 depending on the route considered.}
     \begin{figure}
       \centering
-      \includegraphics[scale=0.5]{../doc/experiments/bw_comparisons.png}
+      \includegraphics[scale=0.5]{images/bw_comparisons.pdf}
       \caption{Board bandwidth}
       \label{fig:bandwidth_comparison}
       \todo[inline]{TODO: outdated version. Has to be repeated for cached transactions only with the latest version of SchIM.}
@@ -30,34 +30,35 @@ At the preprocessing stages, an AXI Performance Monitor (APM) unit connected to 
   \subsection{Internal Behaviour of SchIM}
     Here, show and emphasize on the behaviour of SchIM with Fig.\ref{fig:schim_behaviour}
     \todo[inline]{Here, we use the trace snapshots}
-    \begin{figure*}
-      \begin{subfigure}{.31\textwidth}
+    \begin{figure}
+      \centering
+      \begin{subfigure}{0.5\textwidth}
         \centering
         % include first image
-        \includegraphics[scale=0.31]{images/iladata_fp_3_0f0e0d0c_20_3.png}
+        \includegraphics[scale=0.55]{images/iladata_fp_3_0f0e0d0c_20_3.png}
         \caption{FP with ordering $C_{3} \succ C_{2} \succ C_{1} \succ C_{0}$}
         \label{fig:schim_behaviour_fp}
       \end{subfigure}
-      \hfill
-      \begin{subfigure}{.31\textwidth}
+      %\hfill
+      \begin{subfigure}{0.5\textwidth}
         \centering
         % include second image
-        \includegraphics[scale=0.31]{images/iladata_tdma_3_3_512_512_1.png}
+        \includegraphics[scale=0.55]{images/iladata_tdma_3_3_512_512_1.png}
         \caption{TDMA with slots of 512 clock cycles}
         \label{fig:schim_behaviour_tdma}
       \end{subfigure}
-      \hfill
-      \begin{subfigure}{.31\textwidth}
+      %\hfill
+      \begin{subfigure}{0.5\textwidth}
         \centering
         % include second image
-        \includegraphics[scale=0.31]{images/iladata_mg_3_128_128_3.png}
+        \includegraphics[scale=0.55]{images/iladata_mg_3_128_128_3.png}
         \caption{MG with min. period of 128 clock cycles}
         \label{fig:schim_behaviour_mg}
       \end{subfigure}
       \caption{Trace snapshot of SchIM for the three implemented policies}
       \label{fig:schim_behaviour}
       \todo[inline]{TODO: The plots have to be reworked.}
-    \end{figure*}
+    \end{figure}
 
   \subsection{Memory Isolation}
 %    \todo[inline]{Here, prove that SchIM enables us to isolate the cores. We need a bunch of benchmarks competing with mem-bombs on the remaining cores. We will try:
