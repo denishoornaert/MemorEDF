@@ -11,7 +11,6 @@
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
 \newlabel{fig:PS-PL-diagram}{{1}{1}}
 \citation{ARM-AXI}
-\citation{PLIM20}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-B}}Jailhouse, the partitioning Hypervisor}{2}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {III-B}1}PS-PL SoCs}{2}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {III-B}2}Memory-Loopback}{2}}
@@ -22,57 +21,66 @@
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {III-C}2}Run-time Zero-Copy Recoloring support}{2}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-D}}Advanced eXtensible Interface (AXI)}{2}}
 \newlabel{subsec:axi_transaction_scheme}{{\unhbox \voidb@x \hbox {III-D}}{2}}
+\citation{PLIM20}
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Caption\relax }}{3}}
 \newlabel{fig:axi_transaction_scheme_figure}{{2}{3}}
 \@writefile{toc}{\contentsline {section}{\numberline {IV}High-level Overview}{3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-A}}Micro-architecture}{3}}
-\newlabel{subsec:micro-arch}{{\unhbox \voidb@x \hbox {IV-A}}{3}}
 \@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces High-level block design of the proposed SchIM\xspace  module. \emph  {RM: we need to replace this picture with one that provides more details about the main blocks of the platforms. We also do not need to include the bleacher as it is not fundamental for the operation of the SchIM\xspace  .}\relax }}{3}}
 \newlabel{fig:SchIM_overview_schema}{{3}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-A}}Micro-architecture}{3}}
+\newlabel{subsec:micro-arch}{{\unhbox \voidb@x \hbox {IV-A}}{3}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Caption\relax }}{4}}
 \newlabel{fig:MemorEDF_module_schema}{{4}{4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Caption\relax }}{4}}
+\newlabel{fig:SchIM_transaction_scheme_figure}{{5}{4}}
 \@writefile{toc}{\contentsline {section}{\numberline {V}SchIM Implementation}{4}}
 \newlabel{sec:schim_implmentation}{{V}{4}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-A}}Altered communication scheme}{4}}
 \newlabel{subsec:communication-scheme}{{\unhbox \voidb@x \hbox {V-A}}{4}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Caption\relax }}{4}}
-\newlabel{fig:SchIM_transaction_scheme_figure}{{5}{4}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-B}}Embedded Schedulers}{4}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-B}1}Fixed Priority}{4}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-B}2}Time Division Multiple Access}{4}}
-\@writefile{tdo}{\contentsline {todo}{DH: @DH TODO improve description!}{4}}
 \citation{Farshchi2020BRUBR}
-\pgfsyspdfmark {pgfid24}{11462081}{48463633}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-B}2}Time Division Multiple Access}{5}}
+\@writefile{tdo}{\contentsline {todo}{DH: @DH TODO improve description!}{5}}
+\pgfsyspdfmark {pgfid28}{11462081}{23745469}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-B}3}MemGuard}{5}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-C}}Transactions Life Cycle}{5}}
 \newlabel{subsec:transaction-life-cycle}{{\unhbox \voidb@x \hbox {V-C}}{5}}
-\@writefile{toc}{\contentsline {section}{\numberline {VI}PL-to-PS Feedback}{5}}
-\@writefile{tdo}{\contentsline {todo}{DH: Here, we need to argue why we need a PL feedback (i.e., Queues before the HPM ports), how it can impact SchIM (i.e., nothing can be applied since the queues can be saturated by transaction coming from other cores), how we solved it (i.e., comparators in each queue, comparing the current amount of buffered transactions with a threshold defined by the user through the configuration port, sending an interrupt at the same clock cycle to the PS side, which considers this interrupt line as an FIQ. The FIQ is handled by a routine in the hypervisor that set a DBS instruction (or Data Barrier Synchronisation) in order to kill/stop the core until all the pending transaction have been served.) and how, intuitively, we can choose the values for each proposed Scheduling policies.}{5}}
-\pgfsyspdfmark {pgfid25}{28763585}{23238744}
 \citation{SD-VBS}
+\@writefile{toc}{\contentsline {section}{\numberline {VI}PL-to-PS Feedback}{6}}
+\@writefile{tdo}{\contentsline {todo}{DH: Here, we need to argue why we need a PL feedback (i.e., Queues before the HPM ports), how it can impact SchIM (i.e., nothing can be applied since the queues can be saturated by transaction coming from other cores), how we solved it (i.e., comparators in each queue, comparing the current amount of buffered transactions with a threshold defined by the user through the configuration port, sending an interrupt at the same clock cycle to the PS side, which considers this interrupt line as an FIQ. The FIQ is handled by a routine in the hypervisor that set a DBS instruction (or Data Barrier Synchronisation) in order to kill/stop the core until all the pending transaction have been served.) and how, intuitively, we can choose the values for each proposed Scheduling policies.}{6}}
+\pgfsyspdfmark {pgfid29}{11462081}{42174244}
 \@writefile{toc}{\contentsline {section}{\numberline {VII}Evaluation}{6}}
 \@writefile{tdo}{\contentsline {todo}{ Talk about IO intensive and memory intensive benchmarks to be designed.... We also include a study of the behavior of real applications from the San Diego Vision Benchmark Suite (SD-VBS) \cite  {SD-VBS}, which comes with multiple input sizes.... }{6}}
-\pgfsyspdfmark {pgfid26}{11462081}{16878231}
+\pgfsyspdfmark {pgfid30}{28763585}{34713021}
 \@writefile{tdo}{\contentsline {todo}{ DH: Maybe we could use AES from MiBench ? }{6}}
-\pgfsyspdfmark {pgfid27}{11462081}{14197158}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Board bandwidth\relax }}{6}}
-\newlabel{fig:bandwidth_comparison}{{6}{6}}
-\@writefile{tdo}{\contentsline {todo}{TODO: outdated version. Has to be repeated for cached transactions only with the latest version of SchIM.}{6}}
-\pgfsyspdfmark {pgfid29}{28779970}{35287777}
+\pgfsyspdfmark {pgfid31}{28763585}{31962975}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {VII-A}}Performance degradation}{6}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {VII-B}}Platform Capabilities}{6}}
 \@writefile{tdo}{\contentsline {todo}{Broad evaluation of the bandwidth offer by the ZCU102 depending on the route considered.}{6}}
-\pgfsyspdfmark {pgfid28}{28763585}{17856207}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {VII-C}}Internal Behaviour of SchIM}{6}}
-\@writefile{tdo}{\contentsline {todo}{Here, we use the trace snapshots}{6}}
-\pgfsyspdfmark {pgfid30}{28763585}{13233288}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {VII-D}}Memory Isolation}{6}}
+\pgfsyspdfmark {pgfid32}{28763585}{5910111}
 \bibstyle{IEEEtranS}
 \bibdata{references}
 \bibcite{ARM-AXI}{1}
 \bibcite{Farshchi2020BRUBR}{2}
 \bibcite{PLIM20}{3}
 \bibcite{SD-VBS}{4}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Board bandwidth\relax }}{7}}
+\newlabel{fig:bandwidth_comparison}{{6}{7}}
+\@writefile{tdo}{\contentsline {todo}{TODO: outdated version. Has to be repeated for cached transactions only with the latest version of SchIM.}{7}}
+\pgfsyspdfmark {pgfid33}{11478466}{35287777}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {VII-C}}Internal Behaviour of SchIM}{7}}
+\@writefile{tdo}{\contentsline {todo}{Here, we use the trace snapshots}{7}}
+\pgfsyspdfmark {pgfid34}{11462081}{29700029}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {VII-D}}Memory Isolation}{7}}
+\@writefile{toc}{\contentsline {section}{\numberline {VIII}Overhead}{7}}
+\@writefile{tdo}{\contentsline {todo}{DH: Is this section still relevant ?}{7}}
+\pgfsyspdfmark {pgfid36}{11462081}{18881941}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {VIII-A}}Discussion}{7}}
+\@writefile{toc}{\contentsline {section}{\numberline {IX}Conclusion}{7}}
+\@writefile{tdo}{\contentsline {todo}{DH: As stressed by @Renato, we must mention that SchIM is the building brick for profile-based Bus scheduling/regulation!}{7}}
+\pgfsyspdfmark {pgfid37}{11462081}{14193854}
+\@writefile{toc}{\contentsline {section}{References}{7}}
 \newlabel{fig:schim_behaviour_fp}{{7a}{7}}
 \newlabel{sub@fig:schim_behaviour_fp}{{a}{7}}
 \newlabel{fig:schim_behaviour_tdma}{{7b}{7}}
@@ -82,16 +90,4 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Trace snapshot of SchIM for the three implemented policies\relax }}{7}}
 \newlabel{fig:schim_behaviour}{{7}{7}}
 \@writefile{tdo}{\contentsline {todo}{TODO: The plots have to be reworked.}{7}}
-<<<<<<< HEAD
-\pgfsyspdfmark {pgfid31}{20112833}{37190075}
-\@writefile{toc}{\contentsline {section}{\numberline {VIII}Overhead}{7}}
-\@writefile{tdo}{\contentsline {todo}{DH: Is this section still relevant ?}{7}}
-\pgfsyspdfmark {pgfid32}{11462081}{33942949}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {VIII-A}}Discussion}{7}}
-\@writefile{toc}{\contentsline {section}{\numberline {IX}Conclusion}{7}}
-\@writefile{tdo}{\contentsline {todo}{DH: As stressed by @Renato, we must mention that SchIM is the building brick for profile-based Bus scheduling/regulation!}{7}}
-\pgfsyspdfmark {pgfid33}{11462081}{29693129}
-\@writefile{toc}{\contentsline {section}{References}{7}}
-=======
-\pgfsyspdfmark {pgfid28}{11478466}{5560641}
->>>>>>> 57a17e0ff5470e28f8fcfdc7a0119d9d8f951516
+\pgfsyspdfmark {pgfid35}{28779970}{5560641}
