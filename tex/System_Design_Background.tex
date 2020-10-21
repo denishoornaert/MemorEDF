@@ -2,13 +2,15 @@
 \subsection{Cache and DRAM temporal partitioning}
 
 \subsection{Programmable Logic in the Middle(PLIM)}
-    Here we detail the necessary background to understand how to interpose a module between a traditional multi-core processor and main memory.
+    Here we detail the necessary background on interposing a module between a traditional multi-core processor and main memory.
 
-    Commercially available SoCs that integrate a traditional embedded multi-core processor system (PS) and a block of programmable logic (PL) with high-performance PS-PL communication interfaces. There are high-performance masters (HPM) and high-performance slaves (HPS) to send and receive transactions to and from the PL, respectively.
+    Commercially available SoCs integrate a traditional embedded multi-core processor system (PS) and a block of programmable logic (PL) with high-performance PS-PL communication interfaces. High-performance masters (HPM) and high-performance slaves (HPS) send and receive transactions to and from the PL, respectively. However, HPS's are not the only interface mediums for PL-PS communications. The chip has (limited number of) programmable interrupt lines present connected from the PL to the generic interrupt controller (GIC) inside the PS, whereas the GIC is a primary resource for managing interrupts sent to the processors. Like any other interrupt source in the system, a unique ID number identifies each of the PL-PS interrupts lines. Hence, by providing proper handlers associated with specific interrupt ID lines and unmasking them, PL can request a desired service routine from the PS. Nevertheless, the interrupt controller supports security extension to manage secure and non-secure interrupts grouped by  ARM TrustZone
+
+
 
     The underlying mechanism is the ability to intercept memory transactions originated from the processors inside the PS, at the PL. Transactions are then forwarded from the PL again toward the memory controller inside the PS. The primary mechanism of PS-PL and PL-PS redirection of a transaction is called the Memory Loop-Back. Loop-Back is done through address bit manipulation of the transaction such that it falls in the range of the target HPM(HPS) for the PS-PL(PL-PS) interception. In this way, the main memory content is accessed, but through a programmable environment. It is possible to act on the characteristics of the traffic that now traverses the PL. For example, in the PL, it is possible to direct the transaction to arbitrary modules before, eventually, redirecting it back to PS and the memory controller, ultimately.
 
-    This provides a unique capability of manipulating individual memory transactions. Hence, by sitting between CPUs and main memory, PLIM is exploited to perform memory scheduling. A configurable memory scheduler in the middle, namely SchIM, is designed to implement several elected scheduling policies of Fixed Priority, TDMA, and Memguard. With
+    This provides a unique capability of manipulating individual memory transactions. Hence, by sitting between CPUs and main memory, PLIM is exploited to perform memory scheduling. A configurable memory scheduler in the middle, namely, SchIM, is designed to implement several elected scheduling policies of Fixed Priority, TDMA, and Memguard. With
     SchIM, now we can enforce policy at the level of the transaction altogether by the hardware.
 
 
