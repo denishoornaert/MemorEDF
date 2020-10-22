@@ -23,6 +23,32 @@
             \caption{Caption}
             \label{fig:SchIM_transaction_scheme_figure}
         \end{figure}
+        
+    \subsection{Configuring and reprogramming SchIM}
+        \begin{table}[!ht]
+            \centering
+            \caption{Available configuration registers for SchIM}
+            \label{tab:configuration_port_structure}
+            \begin{tabular}{|c||c|c|}
+                \hline
+                \multicolumn{1}{|c||}{Field}               & \multicolumn{1}{c|}{Associated Core}      & \multicolumn{1}{c|}{Address}        \\ \hline\hline
+                \multirow{4}{*}{TDMA periods}             & $C_{0}$                                   & \verb|base+0x00|                    \\ \cline{2-3} 
+                                                          & $C_{1}$                                   & \verb|base+0x04|                    \\ \cline{2-3} 
+                                                          & $C_{2}$                                   & \verb|base+0x08|                    \\ \cline{2-3} 
+                                                          & $C_{3}$                                   & \verb|base+0x0C|                    \\ \hline
+                \multirow{4}{*}{Threshold}                & $C_{0}$                                   & \verb|base+0x10|                    \\ \cline{2-3} 
+                                                          & $C_{1}$                                   & \verb|base+0x14|                    \\ \cline{2-3} 
+                                                          & $C_{2}$                                   & \verb|base+0x18|                    \\ \cline{2-3} 
+                                                          & $C_{3}$                                   & \verb|base+0x1C|                    \\ \hline
+                FP Priorities                                & $\{C_{0}, C_{1}, C_{2}, C_{3}\}$          & \verb|base+0x20|                    \\ \hline
+                \multirow{4}{*}{MG inter-arrival periods} & $C_{0}$                                   & \verb|base+0x24|                    \\ \cline{2-3} 
+                                                          & $C_{1}$                                   & \verb|base+0x28|                    \\ \cline{2-3} 
+                                                          & $C_{2}$                                   & \verb|base+0x2C|                    \\ \cline{2-3} 
+                                                          & $C_{3}$                                   & \verb|base+0x30|                    \\ \hline
+                \multicolumn{3}{|c|}{Reserved}                                                                                              \\ \hline
+                Mode                                      & N.A.                                      & \verb|base+0x38|                    \\ \hline
+            \end{tabular}
+        \end{table}
 
         
     \subsection{Embedded Schedulers}
@@ -44,60 +70,59 @@
             This scheduling module is implemented as follows. For each of the queues to schedule, the module has a register counting the time elapsed since the start of the period. Once this counter has reached the period set by the user (through the configuration port), the module checks if the queue corresponding to the core contains any transaction. In the case where a transaction is available in the corresponding queue, the latter is forwarded to the output of SchIM (i.e., the serializer) and the counting register is reset to 0. Otherwise, the counting register is blocked to the desired period until a transaction is available for scheduling in the corresponding queue, leading to the counting register to be reset to 0. Any tie between two cores is solved using a fixed priority arbitration defined by the user thanks to the configuration port. 
 
 
-            \subsection{Transactions Life Cycle}
-\label{subsec:transaction-life-cycle}
+        \subsection{Transactions Life Cycle}
+            \label{subsec:transaction-life-cycle}
 
-Let us consider a system with four cores $c_0, \ldots, c_3$ sending
-transactions $T = \{t_{0}, t_{1}, ..., t_{n}\}$ to the \schim module.
-Consequently, the latter boasts four queues (noted $Q = \{q_{0},
-q_{1}, q_{2}, q_{3}\}$) buffering the transactions under the form of
-packets $P = \{p_{0}, p_{1}, ..., p_{n}\}$ where $p_{i} =
-Packetizer(t_{i})~\forall i \in [0 : n]$.
+            Let us consider a system with four cores $c_0, \ldots, c_3$ sending
+            transactions $T = \{t_{0}, t_{1}, ..., t_{n}\}$ to the \schim module.
+            Consequently, the latter boasts four queues (noted $Q = \{q_{0},
+            q_{1}, q_{2}, q_{3}\}$) buffering the transactions under the form of
+            packets $P = \{p_{0}, p_{1}, ..., p_{n}\}$ where $p_{i} =
+            Packetizer(t_{i})~\forall i \in [0 : n]$.
 
-In the present example, we will assume $t_{1}$ as being the
-transaction under analysis.  The latter is emitted by $c_{2}$ in
-direction of the \schim module.  The packetizer receives this
-transaction and, once the AXI protocol completed, transform it into an
-equivalent packet $p_{1} = Packetizer(t_{1})$.  Following this
-transformation, the newly created packet is forwarded to the
-dispatcher which, thanks to the emitter's id embedded within the
-transaction, is re-routed to the corresponding queue $q_{2}$ (since
-emitted by $c_{2}$).  After the insertion of $p_{1}$ in $q_{2}$, the
-state of the queuing domain is as follows: $q_{0}$ has two packets
-$p_{0}$ and $p_{k}$ and $q_{2}$ only has $p_{1}$.  At this point,
-$q_{0}$ is considered for scheduling by the scheduling domain.  In
-consequence, $p_{0}$ is forwarded to the serializer through the
-selector.  Simultaneously to the reception of the packet by the
-serializer, the latter receives an activation signal from the
-scheduling domain informing the serializer that the packet is valid
-and that a transaction can be started.  Similarly to the packetizer,
-the serializer will transform the packet $p_{0}$ back to its initial
-AXI transaction form $t_{0} = Serializer(p_{0})$.  Thereafter, once
-the $t_{0}$ has been sent, the serializer will inform the scheduling
-domain via a signal, that he is ready to accept the next packet as
-input.  Upon the reception of this signal, the scheduling domain will
-both re-direct the latter to the queue of the previous packet to
-indicate that it has been consumed and change the selected queue
-according to the scheduling policy so that the first packet of this
-queue can be forwarded to the serializer through the selector module.
-In the present example, the "consumed" signal forwarded by the
-scheduler is sent to $q_{0}$ which is then empty.  At this instant,
-two scenarios are possible:
+            In the present example, we will assume $t_{1}$ as being the
+            transaction under analysis.  The latter is emitted by $c_{2}$ in
+            direction of the \schim module.  The packetizer receives this
+            transaction and, once the AXI protocol completed, transform it into an
+            equivalent packet $p_{1} = Packetizer(t_{1})$.  Following this
+            transformation, the newly created packet is forwarded to the
+            dispatcher which, thanks to the emitter's id embedded within the
+            transaction, is re-routed to the corresponding queue $q_{2}$ (since
+            emitted by $c_{2}$).  After the insertion of $p_{1}$ in $q_{2}$, the
+            state of the queuing domain is as follows: $q_{0}$ has two packets
+            $p_{0}$ and $p_{k}$ and $q_{2}$ only has $p_{1}$.  At this point,
+            $q_{0}$ is considered for scheduling by the scheduling domain.  In
+            consequence, $p_{0}$ is forwarded to the serializer through the
+            selector.  Simultaneously to the reception of the packet by the
+            serializer, the latter receives an activation signal from the
+            scheduling domain informing the serializer that the packet is valid
+            and that a transaction can be started.  Similarly to the packetizer,
+            the serializer will transform the packet $p_{0}$ back to its initial
+            AXI transaction form $t_{0} = Serializer(p_{0})$.  Thereafter, once
+            the $t_{0}$ has been sent, the serializer will inform the scheduling
+            domain via a signal, that he is ready to accept the next packet as
+            input.  Upon the reception of this signal, the scheduling domain will
+            both re-direct the latter to the queue of the previous packet to
+            indicate that it has been consumed and change the selected queue
+            according to the scheduling policy so that the first packet of this
+            queue can be forwarded to the serializer through the selector module.
+            In the present example, the "consumed" signal forwarded by the
+            scheduler is sent to $q_{0}$ which is then empty.  At this instant,
+            two scenarios are possible:
 
-\begin{enumerate}
-\item $q_{0}$ is still considered for scheduling following the
-  selected scheduling policy. Therefore, as $q_{0}$ is empty, it
-  outputs an "empty" signal received by the scheduling domain.  The
-  latter then decides to not send any activation signal to the
-  serializer because there is nothing left to transmit in the selected
-  queue.  In other words, the access to the main memory is being
-  stalled on purpose by the scheduling policy i.e. the scheduling
-  policy is not work conserving.  For instance, such a scenario could
-  happen in the case of TDMA or if all the queues are empty.  The
-  logic will resume as soon as the selected queue is filled.
-\item $q_{2}$ is now considered instead of $q_{0}$ for scheduling.  In
-  this case, the "consumed" signal is repeated to $q_{0}$ while the
-  queue ID changes in order to select $q_{2}$.  This results in the
-  packet contained inside $q_{1}$ to be forwarded to the selector.
-\end{enumerate}
-
+            \begin{enumerate}
+            \item $q_{0}$ is still considered for scheduling following the
+              selected scheduling policy. Therefore, as $q_{0}$ is empty, it
+              outputs an "empty" signal received by the scheduling domain.  The
+              latter then decides to not send any activation signal to the
+              serializer because there is nothing left to transmit in the selected
+              queue.  In other words, the access to the main memory is being
+              stalled on purpose by the scheduling policy i.e. the scheduling
+              policy is not work conserving.  For instance, such a scenario could
+              happen in the case of TDMA or if all the queues are empty.  The
+              logic will resume as soon as the selected queue is filled.
+            \item $q_{2}$ is now considered instead of $q_{0}$ for scheduling.  In
+              this case, the "consumed" signal is repeated to $q_{0}$ while the
+              queue ID changes in order to select $q_{2}$.  This results in the
+              packet contained inside $q_{1}$ to be forwarded to the selector.
+            \end{enumerate}
