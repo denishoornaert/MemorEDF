@@ -52,6 +52,7 @@
 
         
     \subsection{Embedded Schedulers}
+        All the embedded schedulers included in the scheduling domain share a common interface, making the integration of a new scheduler seamless. As inputs, a scheduler module has a manual reset signal that can be triggered through the configuration port, a vector of bits each indicating whether the associated queue is empty and a signal indicating if the latest transaction scheduled as been consumed. Alongside these inputs, the scheduling modules also have access to all the configuration registers listed in Table \ref{tab:configuration_port_structure}. The module has for output the ID of the queue considered for scheduling and a signal stating whether the ID is valid.
         
         \subsubsection{Fixed Priority}
             The Fixed Priority scheduling module aims at enforcing prioritization of the traffic of the cores. The priority ordering is explicitly defined by the user through the configuration port. While SchIM only has four queues, 16 different levels of priority are offered. Note that, as it stands, the ordering is strict, meaning that two cores cannot be assigned with the same priority.
