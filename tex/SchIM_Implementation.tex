@@ -3,6 +3,16 @@
 
     The present section exposes how SchIM interacts with the remaining of the systems in \ref{subsec:communication-scheme}, how its internal logic enforces transaction scheduling policies in \ref{subsec:micro-arch} and finally, an example of the transaction life cycle within the SchIM module is provided in \ref{subsec:transaction-life-cycle}.
 
+%% RM: The following belongs to the implmentation IMHO
+%% Like any other interrupt source in the system, a unique ID number
+%% identifies each of the PL-PS interrupts lines. Hence, by providing
+%% proper handlers associated with specific interrupt ID lines and
+%% unmasking them, PL can request a desired service routine from the
+%% PS. Nevertheless, as PS is buttressed by Arm Cortex-A53 Based
+%% Application Processing Unit (APU), the interrupt controller supports
+%% security extension to manage secure and non-secure interrupts grouped
+%% by ARM TrustZone.
+    
     \subsection{Altered communication scheme}
         \label{subsec:communication-scheme}
         In order to achieve the objective of re-ordering transactions, one must alter the standard AXI communication scheme explained in the subsection \ref{subsec:axi_transaction_scheme}.
