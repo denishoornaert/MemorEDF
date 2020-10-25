@@ -39,14 +39,10 @@
     The subfigures 2 and 3 of Figure \ref{fig:schim_behaviour_tdma} clearly show the behaviour expected from a TDMA schedule. In fact, one can clearly see in the latter that transactions originating from one core are only being repeated out of the \schim module during a well defined time slot (here, our 512 clock cycles period). Moreover, queues are scheduled one after the other in a periodic fashion.
     In the subfigure 2 of Figure \ref{fig:schim_behaviour_tdma}, we can observe a similar pattern, with transactions arriving only during the TDMA slot associated to their queue (and indirectly core). Globally, the rate at which queues receive transactions is steady and constant. The small variations can be explained by different factors such as the coarseness of the FIQ feedback regulation and the scheduling happening on the hypervisor or OS levels.
     
-    
-    \begin{enumerate}
-      \item MG
-        \begin{itemize}
-          \item 
-        \end{itemize}
-    \end{enumerate}    
-    \begin{figure}[!ht]
+       The trace snapshot for the TS policy has been obtained with the minimal inter-arrival period set to 256 clock cycles for all the cores. Sinilarly to the TDMA experiment, such period has been set arbitrarily in order to improve teh clarity of the trace snapshot displayed in Figure \ref{fig:schim_behaviour_mg}.
+       Thanks to the subfigure 3 of Figure \ref{fig:schim_behaviour_mg}, we can see that under an important traffic load, the TS mode of \schim is able to shape the traffic. In the present case, it introduces a minimal time distancing between two transactions originating from a smae core.
+       Roughly, the same pattern can be observed in subfigure 2 of Figure \ref{fig:schim_behaviour_mg}. However, there are two exceptions. First, one queue can receive more than one transaction. This is due to the coarseness of the FIQ feedback regulation. Secondly, some queues seem to be prioritized. This can be explained by the fact that in the TS scheduler implementation, ties between valid transactions are resolved by applying a FP policy. In this experiment, the \schim module being constantly under pressure, there are always ties between the queues and FP is always applied.
+    \begin{figure}[]
       \centering
       \begin{subfigure}{0.5\textwidth}
         \centering
@@ -71,7 +67,7 @@
         \caption{TS with min. period of 256 clock cycles}
         \label{fig:schim_behaviour_mg}
       \end{subfigure}
-      \caption{Trace snapshot of SchIM for the three implemented policies}
+      \caption{Trace snapshots of SchIM for FP (\ref{fig:schim_behaviour_fp}), TDMA (\ref{fig:schim_behaviour_tdma}) and TS (\ref{fig:schim_behaviour_mg})}
       \label{fig:schim_behaviour}
     \end{figure}
 
