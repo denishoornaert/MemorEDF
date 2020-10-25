@@ -26,17 +26,11 @@
     \end{figure}
 
   \subsection{Internal Behaviour of SchIM}
-    \label{subsec:internal-behaviour-of-schim}
-    Here, show and emphasize on the behaviour of SchIM with Fig.\ref{fig:schim_behaviour}
+    \label{subsec:internal-behaviour-of-schim}    
+    As mentioned earlier, the next objective is to verify the correct behaviour of our scheduling policies at the granularity of a clock cycle by observing the inputs, the outputs and the internal signals and registers of the \schim module.
+    This is made possible thanks to the \emph{Integrated Logic Analyser} (or ILA) provided by Xilinx \cite{Xilinx-ILA}. The latter IP can be directly implemented on the PL side, alongside the \schim IP, and is able to probe and signals and to store them in a local memory. For this experiment, the desired signals have been probed and captured during a window of 16384 contiguous clock cycles. Then, the information has been extracted by post-processing the data.
+    To characterise the behaviour of the three different policies, the ILA has been used to collect (i) the amount of transactions being buffered in the queues at each clock cycle (subfigure 1 in Figure \ref{fig:schim_behaviour_fp}, \ref{fig:schim_behaviour_tdma}, \ref{fig:schim_behaviour_mg}), (ii) the rate at which queues receive new transactions from the cores cluster (subfigure 2 in Figure \ref{fig:schim_behaviour_fp}, \ref{fig:schim_behaviour_tdma}, \ref{fig:schim_behaviour_mg}) and (iii) the queues ID of each transaction repeated by the \schim module (subfigure 3 in Figure \ref{fig:schim_behaviour_fp}, \ref{fig:schim_behaviour_tdma}, \ref{fig:schim_behaviour_mg}).
     \begin{enumerate}
-      \item Description of the figures
-        \begin{itemize}
-          \item objective
-          \item technical details on how
-          \item Subfigure 1
-          \item Subfigure 2
-          \item Subfigure 3
-        \end{itemize}
       \item FP
         \begin{itemize}
           \item 
@@ -49,9 +43,8 @@
         \begin{itemize}
           \item 
         \end{itemize}
-    \end{enumerate}
-    \todo[inline]{Here, we use the trace snapshots}
-    \begin{figure}
+    \end{enumerate}    
+    \begin{figure}[!ht]
       \centering
       \begin{subfigure}{0.5\textwidth}
         \centering
@@ -60,7 +53,7 @@
         \caption{FP with ordering $C_{0} \succ C_{1} \succ C_{2} \succ C_{3}$}
         \label{fig:schim_behaviour_fp}
       \end{subfigure}
-      %\hfill
+      \vfill
       \begin{subfigure}{0.5\textwidth}
         \centering
         % include second image
@@ -68,7 +61,7 @@
         \caption{TDMA with slots of 512 clock cycles}
         \label{fig:schim_behaviour_tdma}
       \end{subfigure}
-      %\hfill
+      \vfill
       \begin{subfigure}{0.5\textwidth}
         \centering
         % include second image
@@ -78,7 +71,6 @@
       \end{subfigure}
       \caption{Trace snapshot of SchIM for the three implemented policies}
       \label{fig:schim_behaviour}
-      \todo[inline]{TODO: The plots have to be reworked.}
     \end{figure}
 
   \subsection{Memory Isolation}
