@@ -1,3 +1,4 @@
-\section{Overhead}
-    \todo[inline]{DH: Is this section still relevant ?}
-    \subsection{Discussion}
+\section{Discussion}
+    When comparing the throughput that is experienced by the cores, the normal route always provides a higher throughput in comparison to the the loop-back based path.
+    However, when only comparing those loop-back based paths, we can see that the price to pay for having \schim is largely compensated by the memory isolation the latter enables.
+    In general, using redirecting the cores traffic toward the PL side with \schim is interesting in combination with techniques such \textit{address bleaching} and \textit{zero-copy recoloring}.

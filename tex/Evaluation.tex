@@ -1,49 +1,70 @@
 \section{Evaluation}
 
-We have performed a full system implementation on a Xilinx ZCU102 development board, featuring a Xilinx Zynq UlraScale+ XCZU9EG SoC. For this work, we utilize a combination of synthetic and real benchmarks. Our synthetic benchmark.
-\todo[inline]{
-  Talk about IO intensive and memory intensive benchmarks to be designed....
-  We also include a study of the behavior of real applications from the San Diego Vision Benchmark Suite (SD-VBS) \cite{SD-VBS}, which comes with multiple input sizes....
-}
-\todo[inline]{
-    DH: Maybe we could use AES from MiBench ?
-}
+  The present section aims at evaluating on a COTS platform the benefits brought by SchIM (w.r.t. memory isolation) and to demonstrate the good behaviour of the different embedded policies. Therefore, we have integrated the SchIM IP on the PL side of a Xilinx ZCU102 development board, featuring a Xilinx Zynq UlraScale+ XCZU9EG SoC. For this work, we evaluate SchIM using synthetic benchmarks, real benchmarks issued from the San Diego Vision Benchmark Suite (SD-VBS) \cite{SD-VBS} and combinations of the two.
+  
+  The present section is organised as follows. Firstly, in subsection \ref{subsection:considered-architecture}, the exact SchIM configuration on the ZCU102 development board is discussed. Thereafter, a full assessment of the board capabilities with and without SchIM is provided in subsection \ref{subsec:platform-capabilities-and-performance-degradation}. In subsection \ref{subsec:internal-behaviour-of-schim}, an analysis of the SchIM module behaviour is presented. Finally, a demonstration of the memory isolation enabled by SchIM using real benchmark applications is provided.
 
-As mentioned earlier, the high-performance master ports, namely HPMs, serve as a gateway from the PS to the PL. We implemented our scheduler IP, SchIM, responding under the physical addresses of HPM0 right after the PS. By doing so, any transaction toward the PL has to go through the SchIM. Hence, all memory requests yield to the scheduling policy being enforced by the scheduler. Design features of SchIM implementation and configuration interface are detailed in section ??.
+  \subsection{Considered architecture}
+    \label{subsection:considered-architecture}
 
-
-At the preprocessing stages, an AXI Performance Monitor (APM) unit connected to the bus interface between the HPM0 and the scheduler. It is crucial to affirm that this medium does not affect the transaction flow toward the PL.  APMs are powerful tools available in the PS and instantiable in the PL capable of measuring primary performance metrics (for AXI4, AXI4-Lite, or AXI4-Stream-based systems) such as bus latency for specific master/slave or amount of memory traffic for the particular duration. Moreover, APM offers the functionality of logging the necessary information about data transfers between any master and slave communicating in the AXI protocol. In this work, we program APMs to profile the behavior of the benchmarks to analyze the task's deadline. SchIM employs profiled information on task deadlines to make scheduling decisions (e.g., enforce EDF policy) for hard real-time jobs.
-
-  \subsection{Performance degradation}
-
-  \subsection{Platform Capabilities}
-    Here, discuss Fig.\ref{fig:bandwidth_comparison}
-    \todo[inline]{Broad evaluation of the bandwidth offer by the ZCU102 depending on the route considered.}
+  \subsection{Platform Capabilities and performance degradation}
+    \label{subsec:platform-capabilities-and-performance-degradation}
+    Intuitively and as discussed in \cite{PLIM20}, redirecting the traffic coming from the cores cluster to the PL side has a cost. In fact, the PL side running at a lower frequency and being further away on the System-on-Chip, one core will experience both a bigger latency and a smaller throughput. On the other hand, by redirecting the traffic to the PL side, we can achieve higher system predictability.
+    
+    In order to weight up the pro and the cons of these two orthogonal objectives, we have computed the throughput of one \emph{core under analysis}, here core 0 (noted $C_{0}$), for different configurations. The result of this experiment is display in Figure \ref{fig:bandwidth_comparison}. The configurations are a combination of a varying amount of cores competing (x axis) and different path between the cores cluster to the main memory (the different bars). More accurately, we consider five paths (i) all the cores target the main memory (referred to as \emph{Normal Route}), (ii) all the cores target a single HPM port, like they would in PLIM \cite{PLIM20} (referred to as \emph{PL Loop-back}), (iii) all the cores target the \schim IP configured to apply FP (referred to as \emph{SchIM FP}), (iv) all the cores target the \schim IP configured to apply TDMA (referred to as \emph{TDMA}) and (v) all the cores target the \schim IP configured to apply TS (referred to as \emph{SchIM MG}). These configurations are compared with respect to the throughput (expressed in MBps) that the core under analysis (i.e., core 0) experiences (y axis).
+    
+    From the Figure \ref{fig:bandwidth_comparison}, one can observe that in general, the throughput experienced by the core under analysis (i.e., $C_{0}$) is high and that, regardless of the contention level, the bandwidth remains high. As mentioned earlier, redirecting the cores traffic through the PL side has a cost. In fact, in the case with no contention (the left most bar cluster), the bandwidth experienced by $C_{0}$ when redirecting the traffic to a simple loop-back, is four times smaller than the normal route.
+    Using the left most bar cluster, one can also observe the overhead introduced by having \schim on the memory loop-back. The overhead is approximatly of ?? MBps.
+    While the throughput in the case of a \emph{PL loop-back} is bigger, it also falls as soon as the contention level increases.
+    On the other hand, the \schim IP manages to preserve the same bandwidth, with only small interferences being observed in the most challenging scenario (the right most bar cluster). In other words, \schim guarantees isolation of the cores w.r.t. the bus usage.
+     
     \begin{figure}
       \centering
       \includegraphics[scale=0.5]{images/bw_comparisons.pdf}
       \caption{Board bandwidth}
       \label{fig:bandwidth_comparison}
-      \todo[inline]{TODO: outdated version. Has to be repeated for cached transactions only with the latest version of SchIM.}
     \end{figure}
 
   \subsection{Internal Behaviour of SchIM}
+    \label{subsec:internal-behaviour-of-schim}
     Here, show and emphasize on the behaviour of SchIM with Fig.\ref{fig:schim_behaviour}
+    \begin{enumerate}
+      \item Description of the figures
+        \begin{itemize}
+          \item objective
+          \item technical details on how
+          \item Subfigure 1
+          \item Subfigure 2
+          \item Subfigure 3
+        \end{itemize}
+      \item FP
+        \begin{itemize}
+          \item 
+        \end{itemize}
+      \item TDMA
+        \begin{itemize}
+          \item 
+        \end{itemize}
+      \item MG
+        \begin{itemize}
+          \item 
+        \end{itemize}
+    \end{enumerate}
     \todo[inline]{Here, we use the trace snapshots}
     \begin{figure}
       \centering
       \begin{subfigure}{0.5\textwidth}
         \centering
         % include first image
-        \includegraphics[scale=0.55]{images/iladata_fp_3_0f0e0d0c_20_3.png}
-        \caption{FP with ordering $C_{3} \succ C_{2} \succ C_{1} \succ C_{0}$}
+        \includegraphics[scale=0.55]{images/SchIM_FP_buffering.pdf}
+        \caption{FP with ordering $C_{0} \succ C_{1} \succ C_{2} \succ C_{3}$}
         \label{fig:schim_behaviour_fp}
       \end{subfigure}
       %\hfill
       \begin{subfigure}{0.5\textwidth}
         \centering
         % include second image
-        \includegraphics[scale=0.55]{images/iladata_tdma_3_3_512_512_1.png}
+        \includegraphics[scale=0.55]{images/SchIM_TDMA_buffering.pdf}
         \caption{TDMA with slots of 512 clock cycles}
         \label{fig:schim_behaviour_tdma}
       \end{subfigure}
@@ -51,8 +72,8 @@ At the preprocessing stages, an AXI Performance Monitor (APM) unit connected to 
       \begin{subfigure}{0.5\textwidth}
         \centering
         % include second image
-        \includegraphics[scale=0.55]{images/iladata_mg_3_128_128_3.png}
-        \caption{MG with min. period of 128 clock cycles}
+        \includegraphics[scale=0.55]{images/SchIM_MG_buffering.pdf}
+        \caption{MG with min. period of 256 clock cycles}
         \label{fig:schim_behaviour_mg}
       \end{subfigure}
       \caption{Trace snapshot of SchIM for the three implemented policies}
