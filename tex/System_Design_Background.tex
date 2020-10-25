@@ -1,4 +1,4 @@
-\section{System Background}
+\section{Background Concepts}
 
 In this section, we introduce some fundamental concepts necessary to
 understand the overall system design and the class of platforms
@@ -45,6 +45,53 @@ the PL to the generic interrupt controller (GIC,
 Section~\ref{sec:FIQ_regul}, the presence of PS-PL interrupt lines is
 crucial to build PL-assisted memory traffic regulation.
 
+\subsection{Advanced eXtensible Interface (AXI)}
+\label{subsec:axi_transaction_scheme}
+The vast majority of PS-PL platforms currently available are
+ARM-based. This is also the case for the platform we used for our
+evaluation, namely the Xilinx Zynq UltraScale+ MPSoC. Thus, we briefly
+introduce the communication protocol used of on-chip communication in
+ARM-based SoCs, namely the Advanced eXtensible Interface (AXI). The
+AXI is a open specification bus protocol~\cite{ARM-AXI} used for
+high-bandwidth data exchanges between on-chip subsystems --- such as
+cache controllers, memory controllers, DMAs, PL modules. It is also
+used in the PS-PL platforms of reference to exchange data on the
+aforementioned HPM/HPS ports.
+
+The AXI protocol is based on the master-slave duality. A master AXI
+interface can initiate transactions toward a connected slave
+interface.  The latter provides a response to master-initiated
+requests.  Masters and the slaves communicate with each other through
+five different channels named AW (address write), W (write), B (write
+acknowledgment), AR (address read) and R (read) as illustrated in
+Fig.~\ref{fig:axi_transaction_scheme_figure}.
+
+A write transaction begins with an address phase \circled{1} where the
+channel AW is used to transmit the meta-data of the transaction, such
+as the destination address, the transaction ID, the cacheability
+attributes, the type/length of the burst and so on.  Upon the
+completion of this phase, follows the data phase \circled{2} which
+consists in the transmission of the data payload to be written through
+the W channel.  A successful write transaction is concluded by the
+response phase \circled{3} that occurs on the B channel.
+
+The transmission of a read transaction is carried out in a similar
+way.  The address phase \circled{1'} is transmitted through the
+equivalent AR channel and is directly followed by the data phase
+\circled{2'}.  A response initiated by the slave follows where the
+read data is transferred over the R channel. The protocol is
+asynchronous because different phases of different transactions can
+interleave on any AXI bus segment. Hence, multiple outstanding
+transactions can be emitted by a single master and the receipt of
+out-of-order responses is possible.
+
+\begin{figure}
+  \centering
+  \input{tikz/axi_transaction_scheme.tex}
+  \caption{Caption}
+  \label{fig:axi_transaction_scheme_figure}
+\end{figure}
+
 \subsection{Programmable Logic In-the-Middle}
 In this work, we leverage the ability to route main memory traffic
 originated by the CPUs through the PL. This technique is known as
@@ -74,15 +121,13 @@ called the \emph{PL loop-back}, or simply \emph{loop-back}, which is
 highlighted in purple in \circledfig{fig:PS-PL-diagram}{7}. The
 advantage of PLIM is that transactions on the loop-back route can be
 inspected, blocked, re-routed, and in general managed by custom
-re-programmable logic.
+re-programmable logic. Importantly, switching from the direct to the
+loop-back route can be done dynamically at runtime so that the
+overhead of PLIM can be avoided if deemed detrimental for the
+application under analysis.
 
 Because in this paper we leverage the PLIM approach to perform memory
 scheduling, we call our module the \schimL, or \schim for short.
-
-%% It is possible to act on the characteristics of the traffic that now
-%% traverses the PL. For example, in the PL, it is possible to direct the
-%% transaction to arbitrary modules before, eventually, redirecting it
-%% back to PS and the memory controller, ultimately.
 
 %% The application's memory traffic is intercepted by dispatching them to
 %% leave the PS to enter the PL. Intercepted transactions are then
@@ -119,89 +164,3 @@ scheduling, we call our module the \schimL, or \schim for short.
 %% needed. Conventional replacement policies for associative caches are
 %% LRU, PLRU, FIFO, round-robin, and random.
 
-\subsection{Jailhouse, the partitioning Hypervisor}
-Jailhouse is a well-known open-source partitioning
-hypervisor \footnote{The source code is available at
-  \url{https://github.com/siemens/jailhouse.git}.} based on Linux,
-with a prominent levity due to focusing on software-based partitioning
-of only a handful of essential resources, i.e., on-chip resources like
-CPUs, memory regions, I/O devices, and skipping any virtual
-scheduling.
-
-In Jailhouse's nomenclature, Virtual Machines (VMs) are referred to as
-inmate cells where Jailhouse already supports colored mappings. An
-inmate can be either a bare-metal application or any operating system
-like Linux, each programmed to see a contiguous Intermediate Physical
-Address (IPA) space. At the second stage, Jailhouse maps IPAs of
-different cells to Physical Addresses (PAs) with a configurable color
-specification. By doing so, Jailhouse supports the notion of temporal
-partitioning wherein, by assigning a collection of non-overlapping
-sets of processors to colored inmates, those cells cannot access a
-(physical) address beyond their own address space resulting in
-interference prevention.
-
-Jailhouse gets enabled on top of a Linux, called root-cell, and uses a
-configuration file associated with it to split off parts of the
-system's resources and assign them to desired cells. Last but not
-least, Jailhouse is especially useful since one can circumvent the
-TrustZone switches in any ARM-adapted OS (e.g., Linux), exploiting the
-hypervisor calls.
-
-\subsection{From Last-Level Cache to PL}
-As illustrated in Fig. \ref{fig:PS-PL-diagram}, the considered system
-features a Last-Level of Cache (or LLC) shared between the four cores
-of the cluster. In the occurrence of a cache miss, the LLC controller
-proceeds to access the targeted memory region by emitting an AXI
-transaction. The exact size of the transaction (i.e., the amount of
-burst) will vary depending on the size of the cache lines and the
-width of the bus. The LLC acting as an intermediate and independent
-module, it emits transactions that are not directly related to a
-specific core. For instance, in the case of a cache line eviction, the
-decision of which line to evict is done by the LLC controller
-alone. In consequence, the emitted transactions do not carry the
-information about the requesting cores as the LLC controller is the
-only master. On ARM Cortex-A53 \ref{ARM-cortex-A53}, write
-transactions (AWID) and read transactions (ARID) are respectivelly
-tagged with IDs \verb|0b1xxxx| and \verb|0b1xxxnn| where \verb|xxxx|
-is any number and \verb|nn| is the core ID.
-
-\subsection{Advanced eXtensible Interface (AXI)}
-\label{subsec:axi_transaction_scheme}
-The Advanced eXtensible Interface (or AXI for short) is a widely
-spread open specification bus protocol proposed by ARM \cite{ARM-AXI}
-and exploited by Xilinx to interface both the PL side and the PS
-side.\\ The AXI protocol is based on the master-slave
-duality. Typically, the former is in charge of instantiating
-transactions directed to any of the slaves composing the system.  On
-the other hand, the latter, does not emit any transaction but receive
-the requests emitted by a master and answer them.  The masters and the
-slaves communicate between each other through five different channels
-named AW, W, B, AR and R as illustrated in figure
-\ref{fig:axi_transaction_scheme_figure}.  A write transaction will
-start first by its address phase \circled{1}.  That is, the
-transmission through the channel AW of meta-data regarding the
-transaction such as the destination address, the transaction ID, the
-amount of bursts and so on.  Upon the completion of this phase,
-follows the data phase \circled{2} which, as its name suggests it,
-consists in the transmission of the payload itself through the W
-channel.  Thereafter, comes the response phase \circled{3} performed
-on the B channel.  This phase, the only one being initiated by the
-slave, is used to inform the master whether the transaction has been
-completed successfully.  The transmission of a read transaction is
-carried out in a similar way.  In fact, as for the writing, the
-address phase \circled{1'} is transmitted through the equivalent
-channel called AR and is directly followed by the data phase
-\circled{2'}.  However, unlike the writing scheme, the data being
-fetched, the data phase is instantiated by the slave.  The reading
-response phase is performed simultaneously and is thus merge within
-the R channel.\\ The protocol is said to be asynchronous as
-transaction behaves similarly to packets each having a dedicated ID.
-Hence, multiple outstanding transactions can be emitted successively
-by a single master which can managed them in an out-of-order manner.
-
-\begin{figure}
-  \centering
-  \input{tikz/axi_transaction_scheme.tex}
-  \caption{Caption}
-  \label{fig:axi_transaction_scheme_figure}
-\end{figure}
