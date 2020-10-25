@@ -1,4 +1,8 @@
 \section{Discussion}
-    When comparing the throughput that is experienced by the cores, the normal route always provides a higher throughput in comparison to the the loop-back based path.
-    However, when only comparing those loop-back based paths, we can see that the price to pay for having \schim is largely compensated by the memory isolation the latter enables.
+    \subsection{Globally}
+      When comparing the throughput that is experienced by the cores, the normal route always provides a higher throughput in comparison to the the loop-back based path.
+      However, when only comparing those loop-back based paths, we can see that the price to pay for having \schim is largely compensated by the memory isolation the latter enables.
     In general, using redirecting the cores traffic toward the PL side with \schim is interesting in combination with techniques such \textit{address bleaching} and \textit{zero-copy recoloring}.
+    
+    \subsection{FIQ based regulation}
+      The coarseness of the FIQ feedback based regulation is obvious in the present case. In fact, eventhough all the queues have been assigned a threshold of 1, subfigure 1 of Figure \ref{fig:schim_behaviour_tdma} highlights the fact that this threshold is often exceeded. The worst case being queue 3 exceeding the threshold by 5 in the right side of the plot.
