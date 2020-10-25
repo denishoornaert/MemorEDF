@@ -10,3 +10,18 @@
             \item FRED Framework from Sant'Anna
      \end{itemize}
    
+As multiple processors share individual shared recourses like memory, arbitration can occur at multiple levels of the system. Previous work in this area has traditionally been classified into \textbf{hardware-based}  and \textbf{software-based} techniques or the combination of the two \cite{assayad2010scheduler},\cite{morton2004hardware}. 
+
+Toward achieving better and more predictable performance, a large body of works has addressed the problem by advancing novel hardware redesigns \cite{mutlu2007memory}, \cite{mutlu2007stall} , \cite{mutlu2008parallelism}, \cite{nesbit2006fair}  \cite{cho2005scheduler}, \cite{usui2016dash},\cite{ferri2011soc},\cite{zagan2017cpu},\cite{zhou2016mitts}, \cite{rafique2007effective}, \cite{gupta2010hardware}, \cite{moscibroda2008distributed}, \cite{kuacharoen2003configurable} mostly at the controller level. Hardware scheduler typically accelerates system performance at the cost of grown hardware resources, inflexibility, and integration hassle. Earlier endeavor by Åkesson et al. \cite{akesson2007predator}, \cite{akesson2010predictable} and Paolieri et al. \cite{paolieri2009analyzable} attains timing predictability through dynamically scheduling precomputed sequences of SDRAM commands. MEDUSA \cite{valsan2015medusa} exercises a two-level scheduling algorithm at the DRAM controller to render strong timing predictability. Another related study is a work done by Tang et al. in \cite{tang2014hardware}, wherein authors prototyped a configurable Task-Queue-based scheduler that fits various scheduling algorithms FPGA.
+
+
+A plethora of techniques have approached by proposing software-only resolutions to alleviate performance interference.
+SOFTWARE: ATLAS? / TCM -> fairness / OS-level techniques 
+\todo[inline]{SR: to be completed}
+
+Nevertheless, recently, with the advent of the fresh class of commercially available SoCs, integrated with a programmable logic (PL), there is a new third class of regulation.
+\todo[inline]{SR: to be completed}
+
+
+What sets this work apart from the literature surveyed above is
+(1) \schim applies to new and traditional COTS system without introducing any hardware modification. Hence, keeping the intact systems while (2) providing a safe sandbox to test feasibility and realization of desired scheduling policies by providing (3) comprehensive run-time configuration interface to select between desired supported policies plus an option of bypassing the scheduler entirely.
