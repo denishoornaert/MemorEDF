@@ -38,12 +38,9 @@
     The trace snapshot displayed in Figure \ref{fig:schim_behaviour_tdma} has been obtained by configuring the \schim module in TDMA mode. For the sake of clarity, a period of 512 clock cycles have been set for ech core. In addition, the threshold of each core has been set to 1.
     The subfigures 2 and 3 of Figure \ref{fig:schim_behaviour_tdma} clearly show the behaviour expected from a TDMA schedule. In fact, one can clearly see in the latter that transactions originating from one core are only being repeated out of the \schim module during a well defined time slot (here, our 512 clock cycles period). Moreover, queues are scheduled one after the other in a periodic fashion.
     In the subfigure 2 of Figure \ref{fig:schim_behaviour_tdma}, we can observe a similar pattern, with transactions arriving only during the TDMA slot associated to their queue (and indirectly core). Globally, the rate at which queues receive transactions is steady and constant. The small variations can be explained by different factors such as the coarseness of the FIQ feedback regulation and the scheduling happening on the hypervisor or OS levels.
-    The coarseness of the FIQ feedback based regulation is obvious in the present case. In fact, eventhough all the queues have been assigned a threshold of 1, subfigure 1 of Figure \ref{fig:schim_behaviour_tdma} highlights the fact that this threshold is often exceeded. The worst case being queue 3 exceeding the threshold by 5 in the right side of the plot.
+    
+    
     \begin{enumerate}
-      \item TDMA
-        \begin{itemize}
-          \item 
-        \end{itemize}
       \item MG
         \begin{itemize}
           \item 
