@@ -1,5 +1,13 @@
 \section{Design Goals and Overview}\label{sec:overview}
 
+\begin{figure*}
+  \centering
+  \includegraphics[width=0.8\textwidth]{images/SchIM_diagram.png}
+  \caption{Internal logic organization of the \schim connected to the
+    PS through the HPM, LPM and HPS ports.}
+  \label{fig:MemorEDF_module_schema}
+\end{figure*}
+
 %% General introduction about the SchIM
 In this section, we introduce the proposed \schim design and describe
 the overarching goals of this work. We then provide a bird's-eye view
@@ -89,20 +97,19 @@ CPU-generated memory transactions are handled by the \schim.
 %% this on intact COTS to conduct an analysis of feasibility, challenges
 %% and performance.
 
-Figure~\ref{fig:block_diagram} provides an overview of the location of
-the \schim within the main components of the target platform. The
-highlighted {\bf COLOR} path depicts the route that memory requests
-originated by the CPUs follow when the SchIM is used. Application
-memory requests can reach the \schim through multiple
-interfaces. Without loss of generality, we consider a \schim instance
-with two arrival lanes, which are labeled as \axiin{1} and \axiin{2}
-in Figure~\ref{fig:block_diagram}. The \schim then forwards the
-received transactions towards main memory through the \axiout{3}
+\fig{fig:PS-PL-diagram} provides an overview of the location of the
+\schim in the reference platform, while its internal organization is
+visible in \fig{fig:MemorEDF_module_schema}. Application memory
+requests reach the \schim the aforementioned HPM ports. Without loss
+of generality, we consider a \schim instance with two arrival lanes,
+which are labeled as \axiin{1} and \axiin{2} in
+\fig{fig:MemorEDF_module_schema}. The \schim then forwards the
+received transactions towards main memory through the \axiout{}
 interface. A more detailed view of the \schim module is provided in
-Figure~\ref{fig:MemorEDF_module_schema} where the same convention is
-used to identify input and output ports. In addition, as shown in
-Figure~\ref{fig:MemorEDF_module_schema}, a fourth \axiconf{4} port is
-used to configure the \schim module from the PS.
+\fig{fig:MemorEDF_module_schema} where the same convention is used to
+identify input and output ports. In addition, as shown in
+\fig{fig:MemorEDF_module_schema}, a fourth \axiconf{} port is used to
+configure the \schim from the PS.
 
 %% The objective of the module is to arbitrate the access of the bus to
 %% the main memory between the different cores of the PS side at the
@@ -130,12 +137,11 @@ three different domains, namely (i) the \emph{interfacing domain},
 (ii) the \emph{queuing domain}, and (iii) the \emph{scheduling
   domain}.
 
-\par{\bf The interfacing domain} encompasses the sub-modules in charge
-of interfacing the core logic of the \schim with the rest of the
-system using the AXI protocol.  This domain is comprised of three
-sub-modules. These are (i) the \emph{packetizer}, (ii) the
-\emph{serializer}, and (iii) the previously mentioned configuration
-interface.
+\par{\bf The interfacing domain} encompasses the sub-modules to
+interface the core logic of the \schim with the rest of the system
+using the AXI protocol.  This is comprised of three sub-modules. These
+are (i) the \emph{packetizer(s)}, (ii) the \emph{serializer}, and
+(iii) the previously mentioned \emph{configuration} interface.
 
 The PS-facing end of the {\bf packetizer} offers an AXI slave port to
 accept new incoming transactions. Upon receipt, this module transforms
@@ -158,13 +164,13 @@ be routed to the main memory controller.
 
 \par{\bf The queuing domain} handles how packets are stored between
 receipt and re-trasnmission. This domain is comprised of (i) the
-dispatcher module, (ii) the transaction queues, and (iii) the selector
-module.
+\emph{dispatcher} module, (ii) the \emph{transaction queues}, and
+(iii) the \emph{selector} module.
 
 The use of {\bf multiple transaction queues} is necessary to
-differentiate the traffic of the CPU cores and perform scheduling. As
-such, the \schim associates a queue to each of the active cores ---
-four in the platform of reference.
+differentiate the traffic of the CPUs and perform scheduling. As such,
+the \schim associates a queue to each of the active cores --- four in
+the platform of reference.
 %% Therefore, in order to cancel the Round Robin arbitration policy
 %% applied in the PS side and in order to avoid that one high priority
 %% core is stalled by a lower priority one, each core is granted a queue
@@ -172,28 +178,30 @@ four in the platform of reference.
 The queues implemented in the \schim not only act as a holding space
 for in-flight memory transactions.  They also (a) provide information
 to the scheduling domain regarding their current state, and (b) they
-can generate a congestion control signal to the associated CPU core.
+can generate a congestion control signal to the associated CPU
+core.
 
-As suggested by figure \ref{fig:MemorEDF_module_schema}, transactions
-are categorized and enqueued based on the source of traffic. The {\bf
+Congestion control is important because memory transactions originated
+at the LLC controller follow the same route to the \schim regardless
+of the originating CPU. Typically, the total number of outstanding
+transactions that the cores can emit exceeds the capacity of the
+queuing elements on the loop-back route. Hence, if the memory traffic
+of a low-priority CPU is temporarily held, the uncontrolled queue
+buildup causes head-of-line blocking, resulting in priority
+inversion. Importantly, what described is true also for the normal
+route and it is a direct consequence of the best-effort nature of
+traditional multi-core memory buses. The \schim allows the user to
+specify a configurable threshold on the occupancy of the queues that,
+when reached, issues a regulation signal to the corresponding CPU. We
+describe in greater detail how congestion control was implemented on
+the target platform in Section~\ref{sec:pl-to-ps-feedback}.
+
+As suggested by \fig{fig:MemorEDF_module_schema}, transactions are
+categorized and enqueued based on the source of traffic. The {\bf
   dispatcher} module performs the matching between an incoming
 transaction and the destination queue. Similarly, transactions are
 dequeued by the {\bf selector} module and sent directly to the output
-of the \schim following the decisions of the scheduling
-domain.
-
-\todo[inline]{RM:Briefly mention about the head-of-line blocking and
-  regulation mechanism} Additional important details about the
-categorization and congestion control mechanisms enacted in the
-queueing domain are provided in
-Section~\ref{sec:schim_implementation}.
-
-\begin{figure*}
-  \centering
-  \includegraphics[width=0.8\textwidth]{images/SchIM_diagram.png}
-  \caption{Caption}
-  \label{fig:MemorEDF_module_schema}
-\end{figure*}
+of the \schim following the decisions of the scheduling domain.
 
 \par{\bf The scheduling domain} encompasses all the sub-modules that
 enable arbitration of transactions issued by the different cores of
