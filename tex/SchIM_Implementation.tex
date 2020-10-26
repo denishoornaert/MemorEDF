@@ -128,6 +128,9 @@ response phase \circled{4'} is not intercepted by SchIM.
   \label{fig:SchIM_transaction_scheme_figure}
 \end{figure}
 
+\subsection{Queueing Domain}
+\todo[inline]{DH: Speak about the constrains. For instance, queues store both read and write packets such that the order at which transactions arrived is guaranteed (we do not only rely on the LLC to ensure the data integrity). This implies that each slot of the queues have the same size whether they contain read or write packets. Mention that due to the Altered communication scheme, each slot needs to be big enough to store both the address phase data and the data phase data of an AXI write transaction. Since we desire to use \schim after the LLC, we have to make sure that each slot is capable of storing a full cache line and it meta data. The depth of each queue is determined by looking at the maximal amount of outstanding transactions (both in read and write) a master can handle.}
+
 \subsection{Configuring and reprogramming SchIM}
 \begin{table}[!ht]
   \centering
@@ -208,13 +211,13 @@ information forwarded to the remaining of the system will be the core
 id corresponding to the interval.  \todo[inline]{DH: @DH TODO improve
   description!}
 
-\subsubsection{MemGuard}
-The proposed MemGuard transaction scheduling policy is inspired by the
-Software-based bus regulation technique ??. The latter has been proved
-to ensure memory isolation for all the cores involved. Unlike the
-original MemGuard, the proposed version does not rely on memory
-budgets and replenishment periods. Instead, it enforces inter-arrival
-time (i.e. a guaranteed minimal period) between two consecutive
+\subsubsection{Traffic Shapping}
+The proposed \emph{Traffic Shapping} (or TS) transaction scheduling 
+policy is inspired by the Software-based bus regulation technique ??. 
+The latter has been proved to ensure memory isolation for all the cores 
+involved. Unlike the original MemGuard, the proposed version does not 
+rely on memory budgets and replenishment periods. Instead, it enforces 
+inter-arrival time (i.e. a guaranteed minimal period) between two consecutive
 transactions emitted by a given core. This distinguishes our approach
 from \cite{Farshchi2020BRUBR}.
 
@@ -289,4 +292,3 @@ two scenarios are possible:
   queue ID changes in order to select $q_{2}$.  This results in the
   packet contained inside $q_{1}$ to be forwarded to the selector.
 \end{enumerate}
-
