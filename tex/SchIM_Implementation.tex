@@ -101,6 +101,31 @@ response phase \circled{4'} is not intercepted by SchIM.
   \label{fig:SchIM_transaction_scheme_figure}
 \end{figure}
 
+\subsection{Queueing Domain}
+At the heart of the queueing domain, lies the queues. They work as FIFOs. 
+However, instead of inserting the new data at the back of the queue, 
+the new data is always inserted as close as possible to the front of the 
+queue. This mechanism helps avoiding gaps within the queues prevent the 
+lost of few clock cycles that would be required to move the data from 
+the back to the front. Form the authors experiments, saving clock cycles 
+in \schim is vital to keep the final bandwidth as high as possible.
+
+Furthermore, the queues have been designed to deal with three constrains.
+Firstly, the queues store both read and write packets such that the order 
+at which transactions arrived is guaranteed. This implies that each slot 
+of the queues have the same size whether they contain read or write packets.
+Secondly, due to the Altered communication scheme (see section 
+\ref{subsec:communication-scheme}), each slot needs to be big enough to 
+store both the address phase data and the data phase data of an AXI write 
+transaction (678 bits).
+Thirdly, since we desire to use \schim after the LLC, we have to make sure 
+that each slot is capable of storing a full cache line and its meta data. 
+The depth of each queue is determined by considering the worst case scenario. 
+The latter consists in having to handle simultaneously the maximal amount of 
+outstanding read and write transactions. In the case of the Xilinx ZCU102 
+development board, each queue is 16 slots deep as each HPM ports buffer 
+cannot handle more than 8 transactions of each type \cite{Xilinx-ULTRASCALE-TRM}.
+
 \subsection{LLC-\schim Interface and Traffic Accounting}
 As illustrated in Fig. \ref{fig:PS-PL-diagram}, the considered system
 features an LLC shared between the four cores of the PS. For a
@@ -332,4 +357,3 @@ two scenarios are possible:
   queue ID changes in order to select $q_{2}$.  This results in the
   packet contained inside $q_{1}$ to be forwarded to the selector.
 \end{enumerate}
-
