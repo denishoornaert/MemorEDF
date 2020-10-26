@@ -170,9 +170,10 @@ instance, in the platform of reference, the HPMs emit 16-bit AXI IDs,
 while the HPS AXI ID bit-width is 6 bits. Therefore, the \schim also
 acts as an AXI ID translator.
 
-In the considered platform, the AXI ID emitted by the ARM Cortex-A53
-LLC controller~\cite{ARM-cortex-A53} is the only master for write and
-read transactions are \verb|0b1xxxnn| and \verb|0b1xxxx|,
+In the considered platform, the AXI ID is emitted by the LLC
+controller inside the multi-core ARM Cortex-A53
+cluster~\cite{ARM-cortex-A53}. The only master for write and read
+transactions are \verb|0b1xxxnn| and \verb|0b1xxxx|,
 respectively. Here, \verb|x| are variable values and \verb|nn| encode
 the core ID. \todo[inline]{RM: incomplete! Please fix with actual IDs}
 
@@ -212,62 +213,63 @@ the core ID. \todo[inline]{RM: incomplete! Please fix with actual IDs}
   \end{tabular}
 \end{table}
 
-\subsection{Scheduling Interface and Implemented Policies}
-All the embedded schedulers included in the scheduling domain share a
-common interface, making the integration of a new scheduler
-seamless. As inputs, a scheduler module has a manual reset signal that
-can be triggered through the configuration port, a vector of bits each
-indicating whether the associated queue is empty and a signal
-indicating if the latest transaction scheduled as been
-consumed. Alongside these inputs, the scheduling modules also have
-access to all the configuration registers listed in Table
-\ref{tab:configuration_port_structure}. The module has for output the
-ID of the queue considered for scheduling and a signal stating whether
-the ID is valid.
+\subsection{Scheduling Interface and Implemented Policies}\label{sec:sched_interf}
+All the memory schedulers included in the scheduling domain share a
+common interface, to ease the integration of a new scheduler. In terms
+of input signals a generic scheduler module must define (1) a manual
+reset signal that can be triggered through the configuration port; (2)
+a vector of bits where each bit indicates whether the associated queue
+is empty; and (3) a signal indicating if the last scheduled
+transaction as been consumed. Alongside these inputs, the scheduling
+modules have also access to all the configuration registers listed in
+Table~\ref{tab:configuration_port_structure}. In terms of outputs a
+\schim scheduler must define (1) a signal to the selector indicating
+the queue considered for scheduling; and (2) a signal stating whether
+the current scheduling decision is valid. We hereby review the initial
+set of memory scheduling policies implemented in the \schim.
 
 \subsubsection{Fixed Priority}
-The Fixed Priority scheduling module aims at enforcing prioritization
-of the traffic of the cores. The priority ordering is explicitly
-defined by the user through the configuration port. While SchIM only
-has four queues, 16 different levels of priority are offered. Note
-that, as it stands, the ordering is strict, meaning that two cores
-cannot be assigned with the same priority.
+The FP scheduling module aims at enforcing strict prioritization of
+cores' memory traffic. The priority ordering is explicitly defined by
+the user through the configuration port. While the \schim only has
+four queues, 16 different levels of priority are offered. The ordering
+must be strict, meaning that two cores cannot be assigned with the
+same priority.
 
-The FP scheduling module only needs two information: the priority
-associated with each queue and whether a given queue contains at least
-one buffered transaction. Intuitively, the module logic consists in
-always considering the highest priority hence, a argmax function is
-implemented. However, lower priority queues must also be considered
-when higher priority queue do not have transactions. Consequently, the
-user defined priority is temporarily considered as 0 when its
-corresponding queue does not contain transaction.
+The FP scheduling module only needs two pieces of information. That is
+(1) the priority associated with each queue and (2) whether a given
+queue contains at least one buffered transaction. The module logic
+always selects the queue with the highest priority. Lower priority
+queues are considered when higher priority queues do not have
+transactions. This is done by internally setting the user defined
+priority of a queue as 0 when the corresponding queue is empty.
 
 \subsubsection{Time Division Multiple Access}
-The Time Division Multiple Access (or TDMA) scheduling module provided
-by SchIM is a non-work conserving policy that splits the bus usage
-between the cores for given periods (also referred to as slots). The
-proposed embedded TDMA module enables the user to specify a different
-TDMA slot size for each core. The periods are expressed in clock
-cycles, enabling a fine grained granularity. The configuration port
-enables the end-user to specify and change the periods at runtime.
+The TDMA memory scheduler is a non-work conserving policy that
+operates by defining a per-core time \emph{slot} during which the core
+has exclusive access to main memory.  The slots are expressed in PL
+clock cycles, to maximize granularity. The configuration port can be
+used to specify and change the slots specifications at runtime.
 
-The implementation of the modules relies on a single register used as
-a counter. In fact, we use this register to count the time elapsed in
-the current TDMA hyper-period (i.e., the sum of all the cores period)
-and is reset to 0 once this hyper-period reached. Alongside this
-register, a logic is there to determine in which core slot the counter
-actually is and to forward the information to the queue selector. The
-logic is able to determine the core to schedule by summing the period
-of each previous cores. Provided that the current value of the
-counting register is contain between the sum of the previous periods
-and the sum of the previous periods and the current one, the
-information forwarded to the remaining of the system will be the core
-id corresponding to the interval.  \todo[inline]{DH: @DH TODO improve
-  description!}
+The implementation of the module uses a counter register to track the
+time elapsed in the current TDMA major frame --- defined as the sum of
+all the cores' slots. It is reset to 0 at the beginning of a new major
+frame. Using the time-tracking register, the module determines to
+which core the current slot belongs, and forwards the information to
+the queue selector. This is done by summing up the length of all the
+previous slots, and determining if the current time falls within the
+interval of the considered core's slot.
+
+%% Provided that the current value of the counting
+%% register is contain between the sum of the previous periods and the
+%% sum of the previous periods and the current one, the information
+%% forwarded to the remaining of the system will be the core id
+%% corresponding to the interval.  \todo[inline]{DH: @DH TODO improve
+%%   description!}
 
 \subsubsection{Traffic Shaping (TS)}
 The proposed TS transaction scheduling policy operates by defining a
-minimum inter-arrival time that needs to elapse between any two
+minimum inter-arrival time (MIT) that needs to elapse between any two
 consecutive transactions from the same CPU. A transaction that arrives
 before sufficient time has elapsed since the previous one is held by
 the \schim until the aforementioned property is respected.
@@ -289,13 +291,15 @@ The described TS policy is similar to the ARM QoS regulation mechanism
 that is available at the level of interconnect for hardware
 accelerators~\cite{QoS-301, QoS-400, ewarp_rtss20}. It is also
 similar, at least in principle, to software-based memory regulation
-techniques such as MemGuard~\ref{memguard}. Yet, TS operates
+techniques such as MemGuard~\cite{memguard}. Yet, TS operates
 differently from the hardware implementations of MemGuard-like
 regulation that have been proposed so far in~\cite{MITTS,
   Farshchi2020BRUBR}. Indeed, our TS scheduler does not rely on memory
 budgets and replenishment periods. Instead, it provides memory
 bandwidth enforcement at the granularity of individual memory
-transactions.
+transactions. This also differentiates the TS policy in the \schim
+from the \emph{transaction supervisor} proposed
+in~\cite{hyperconnect_dac20}.
 
 \subsection{Transactions Life Cycle}
 \label{subsec:transaction-life-cycle}
