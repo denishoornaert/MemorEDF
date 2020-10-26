@@ -1,17 +1,46 @@
 \section{Introduction}
 
 
+PS-PL platforms are surging in popularity among manufacturers,
+researchers and industry practitioners, with commercially available
+ARM-based products offered by, most notably, Intel~\cite{stratix10}
+and Xilinx~\cite{ultrascale+}. A pilot large-scale, high-performance
+PS-PL system is the Enzian platform~\cite{enzian20} being rolled out
+by ETH Zurich\footnote{Also see
+  \url{http://enzian.systems/}}. Recently, a RISC-V-based solution has
+been made available by Microsemi --- the PolarFire
+SoC~\cite{icikle_kit}. \todo[inline]{RM: we might want to move this
+  part to the intro instead.}
+
 This paper makes the following contributions:
-1) We demonstrate that without any modification to the SoC circuitry, a configurable module could be interposed between the core and memory controller to perform traffic shaping. The proposed module operates at the granularity of transactions based on their interarrival time.
-2) We perform transaction-level memory scheduling in configurable hardware. Various scheduling policies implemented in the module and could be configured at run-time.
 
-3) A groundbreaking view on memory access scheduling, namely MemorEDF, has been proposed. In this method, the memory is viewed as a single resource .....
+1) We demonstrate that without any modification to the SoC circuitry,
+a configurable module could be interposed between the core and memory
+controller to perform traffic shaping. The proposed module operates at
+the granularity of transactions based on their interarrival time.
 
-4) We provide a run-time profiling interface to log the transaction-level behavior of an application. Recorded data exploited to make and enforce efficient scheduling decisions for EDF and LLF policies.
+2) We perform transaction-level memory scheduling in configurable
+hardware. Various scheduling policies implemented in the module and
+could be configured at run-time.
 
-5) This work implement a sandbox framework to test scheduling platforms on real hardware. Newly proposed scheduling techniques can be evaluated against the actual device, without rewiring the platform.
+3) A groundbreaking view on memory access scheduling, namely MemorEDF,
+has been proposed. In this method, the memory is viewed as a single
+resource .....
 
-6) We implement and evaluate a full-stack design that includes the memory scheduler hardware module. Using this implementation, we analyze several well-known scheduling algorithms, namely, Earliest Deadline First (EDF), Least Laxity First (LLF), Time-division multipleaccess (TDMA).
+4) We provide a run-time profiling interface to log the
+transaction-level behavior of an application. Recorded data exploited
+to make and enforce efficient scheduling decisions for EDF and LLF
+policies.
+
+5) This work implement a sandbox framework to test scheduling
+platforms on real hardware. Newly proposed scheduling techniques can
+be evaluated against the actual device, without rewiring the platform.
+
+6) We implement and evaluate a full-stack design that includes the
+memory scheduler hardware module. Using this implementation, we
+analyze several well-known scheduling algorithms, namely, Earliest
+Deadline First (EDF), Least Laxity First (LLF), Time-division
+multipleaccess (TDMA).
 
 
 

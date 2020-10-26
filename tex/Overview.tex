@@ -73,8 +73,8 @@ carefully determined and reasoned upon. Because the \schim follows a
 PLIM approach, transactions can be selectively sent to the \schim for
 scheduling. It is always possible, however, to dynamically exclude the
 \schim and instead route transactions directly to main memory. For the
-purpose of this paper, however, we mainly consider a setup in which
-all the CPU-generated memory transactions are handled by the \schim.
+purpose of this paper we consider a setup in which all the
+CPU-generated memory transactions are handled by the \schim.
 
 %% First and foremost, SchIM follows a selective and dynamic re-routing
 %% policy settled at the run-time, meaning that provided a proper routing
@@ -125,10 +125,6 @@ used to configure the \schim module from the PS.
 
 
 %% Micro-architecture and first list of modules
-
-\subsection{Micro-architecture}
-\label{subsec:micro-arch}
-
 The \schim module is composed of a number of sub-modules grouped into
 three different domains, namely (i) the \emph{interfacing domain},
 (ii) the \emph{queuing domain}, and (iii) the \emph{scheduling
@@ -186,8 +182,10 @@ dequeued by the {\bf selector} module and sent directly to the output
 of the \schim following the decisions of the scheduling
 domain.
 
-Additional important details about the categorization and congestion
-control mechanisms enacted in the queueing domain are provided in
+\todo[inline]{RM:Briefly mention about the head-of-line blocking and
+  regulation mechanism} Additional important details about the
+categorization and congestion control mechanisms enacted in the
+queueing domain are provided in
 Section~\ref{sec:schim_implementation}.
 
 \begin{figure}
