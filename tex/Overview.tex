@@ -112,16 +112,16 @@ used to configure the \schim module from the PS.
 %% which inter-core transactions are being repeated is decided by an
 %% embedded on-chip hardware scheduler.
 
-\begin{figure}
-  \centering
-  \input{tikz/SchIM_overview.tex}
-  \caption{High-level block design of the proposed \schim
-    module. \emph{RM: we need to replace this picture with one that
-      provides more details about the main blocks of the platforms. We
-      also do not need to include the bleacher as it is not
-      fundamental for the operation of the \schim.}}
-  \label{fig:SchIM_overview_schema}
-\end{figure}
+%% \begin{figure}
+%%   \centering
+%%   \input{tikz/SchIM_overview.tex}
+%%   \caption{High-level block design of the proposed \schim
+%%     module. \emph{RM: we need to replace this picture with one that
+%%       provides more details about the main blocks of the platforms. We
+%%       also do not need to include the bleacher as it is not
+%%       fundamental for the operation of the \schim.}}
+%%   \label{fig:SchIM_overview_schema}
+%% \end{figure}
 
 
 %% Micro-architecture and first list of modules
@@ -188,12 +188,12 @@ categorization and congestion control mechanisms enacted in the
 queueing domain are provided in
 Section~\ref{sec:schim_implementation}.
 
-\begin{figure}
+\begin{figure*}
   \centering
-  \includegraphics[scale=0.08]{images/MemorEDF_module_schema.png}
+  \includegraphics[width=0.8\textwidth]{images/SchIM_diagram.png}
   \caption{Caption}
   \label{fig:MemorEDF_module_schema}
-\end{figure}
+\end{figure*}
 
 \par{\bf The scheduling domain} encompasses all the sub-modules that
 enable arbitration of transactions issued by the different cores of
