@@ -1,9 +1,9 @@
 \section{Related Work}\label{sec:relwork}
-There is a wide consensus that memory resources represent the main
+There is a broad consensus that memory resources represent the main
 performance bottleneck in modern multi-core processors. The
 observation has sparked a host of research works addressing the
 problem from multiple angles~\cite{temp_reg_survey}. In this context,
-the works that represent the inspiration for our \schim fall in two
+the works representing the inspiration for our \schim fall in two
 macro-categories, namely \textbf{hardware-based} and
 \textbf{software-based} techniques for main memory traffic management.
 
@@ -43,15 +43,14 @@ In addition to the two categories surveyed above, perhaps the most
 closely related works are those that explored memory isolation
 techniques in PS-PL platforms. The work
 in~\cite{gracioli2019designing} demonstrated that the PL-side can be
-used to define private memory storage, control and bus units to
-strongly isolate high-criticality workload. A number of techniques
+used to define private memory storage, control, and bus units to strongly isolate high-criticality workload. A number of techniques
 developed as part of the FRED framework~\cite{fred_ssup} put an
 emphasis on memory traffic arbitration and management for in-PL
 accelerators~\cite{fred_hyperconnect, fred_abe}. The AXI
 HyperConnect~\cite{fred_hyperconnect} is perhaps the component most
-similar to the \schim in terms of high-level design. The two are
-however substantially different as the \schim is designed to manage
-the memory traffic of embedded CPUs.
+similar to the \schim in terms of high-level design. However, both are
+substantially different as the \schim is designed to manage
+embedded CPUs' memory traffic.
 
 Compared to the literature reviewed above, what sets this work apart
 are the following aspects. (1) Our \schim applies to existing PS-PL
