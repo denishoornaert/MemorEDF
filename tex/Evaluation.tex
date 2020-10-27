@@ -83,7 +83,9 @@
     \end{figure}
 
   \subsection{Memory Isolation}
-    To evaluate the capability of \schim to ensure the memory isolation of the cores, an experiment consisting in comparing the execution time of one core when running one benchmark alone (also referred to as \emph{Solo}) and when running alongside memory bombs (also referred to as \emph{Stressed}). The ratio of the latter and the former indicates whether (and to which extent) the execution time of the benchmark suffered from inter-core interferences. Typically, a ratio of 1 denotes a perfect isolation. The benchmarks listed in Table \ref{tab:isolation_ratio} have been chosen as their are \emph{Memory Bound}. 
+    To evaluate the capability of \schim to ensure the memory isolation of the cores, an experiment consisting in comparing the execution time of one core when running one benchmark alone (also referred to as \emph{Solo}) and when running alongside memory bombs (also referred to as \emph{Stressed}). The ratio of the latter and the former indicates whether (and to which extent) the execution time of the benchmark suffered from inter-core interferences. Typically, a ratio of 1 denotes a perfect isolation. The benchmarks listed in Table \ref{tab:isolation_ratio} have been chosen as their are \emph{Memory Bound}.
+    
+    The Loop-back path is used as a baseline for this experiment. Its ratios, displayed in the left most column of Table \ref{tab:isolation_ratio}, highlight the sensitivity of both disparity and mser benchmarks to inter-core interferences, with ratios of respectively 1.46 and 1.59. On the other hand, texture synthesis and localization naturally do not suffer from inter-core interference. In comparison, the TDMA scheduler manages to guarantee the isolation of the core under analysis. In fact, the ratio of all the benchmark tested lie in the vicinity of 1.0, with a maximum inter-core interference of 7\%. Similarly, the TS scheduler is also capable of ensuring a sound isolation of the core under analysis.
     \begin{table}[]
       \centering
       \caption{Inter-core Interference Ratios}
