@@ -25,7 +25,7 @@
     In order to weight up the pro and the cons of these two orthogonal objectives, we have computed the throughput of one \emph{core under analysis}, here core 0 (noted $C_{0}$), for each of the aforementioned paths under all the possible levels of contention. The result of this experiment is display in Figure \ref{fig:bandwidth_comparison}.
     
     From the Figure \ref{fig:bandwidth_comparison}, one can observe that in general, the throughput experienced by the core under analysis (i.e., $C_{0}$) is high and that, regardless of the contention level, the bandwidth remains high. As mentioned earlier, redirecting the cores traffic through the PL side has a cost. In fact, in the case with no contention (the left most bar cluster), the bandwidth experienced by $C_{0}$ when redirecting the traffic to a simple loop-back, is four times smaller than the normal route.
-    Using the left most bar cluster, one can also observe the overhead introduced by having \schim on the memory loop-back. The overhead is approximately of ?? MBps.
+    Using the left most bar cluster, one can also observe the overhead introduced by having \schim on the memory loop-back. The overhead is approximately of 185~MBps.
     While the throughput in the case of a \emph{PL loop-back} is bigger, it also falls as soon as the contention level increases.
     On the other hand, the \schim IP manages to preserve the same bandwidth, with only small interferences being observed in the most challenging scenario (the right most bar cluster). In other words, \schim guarantees isolation of the cores with respect to the bus usage.
      

@@ -16,7 +16,7 @@ platform with four CPUs denoted as $C_0, C_1, C_2$, and $C_3$.
 \begin{figure}[t]
   \centering
   \includegraphics[width=0.9\linewidth]{images/system_blocks.png}
-  \caption{Block diagram of generic PS-PL reference platform.}
+  \caption{PS-PL interconnect block diagram}
   \label{fig:PS-PL-diagram}
 \end{figure}
 
@@ -121,9 +121,9 @@ scheduling, hence, we call our module the \schimL, or \schim for short.
 The vast majority of PS-PL platforms currently available are
 ARM-based. This is also the case for the platform we used for our
 evaluation, namely the Xilinx Zynq UltraScale+ MPSoC. Thus, we briefly
-introduce the communication protocol used of on-chip communication in
+introduce the communication protocol used for on-chip communication in
 ARM-based SoCs, namely the Advanced eXtensible Interface (AXI). The
-AXI is a open specification bus protocol~\cite{ARM-AXI} used for
+AXI is an open specification bus protocol~\cite{ARM-AXI} used for
 high-bandwidth data exchanges between on-chip subsystems --- such as
 cache controllers, memory controllers, DMAs, PL modules. It is also
 used in the PS-PL platforms of reference to exchange data on the
@@ -131,20 +131,18 @@ aforementioned HPM/HPS ports.
 
 The AXI protocol is based on the master-slave duality. A master AXI
 interface can initiate transactions toward a connected slave
-interface.  The latter provides a response to master-initiated
+interface.  The latter responds master-initiated
 requests.  Masters and the slaves communicate with each other through
 five different channels named AW (address write), W (write), B (write
-acknowledgment), AR (address read) and R (read) as illustrated in
+acknowledgment), AR (address read) and R (read), as illustrated in
 Fig.~\ref{fig:axi_transaction_scheme_figure}.
 
 A write transaction begins with an address phase \circled{1} where the
-channel AW is used to transmit the meta-data of the transaction, such
-as the destination address, the transaction ID, the cacheability
-attributes, the type/length of the burst and so on.  Upon the
-completion of this phase, follows the data phase \circled{2} which
-consists in the transmission of the data payload to be written through
-the W channel.  A successful write transaction is concluded by the
-response phase \circled{3} that occurs on the B channel.
+channel AW is used to transmit the transaction's meta-data, such
+as the destination address, the transaction ID, and the cacheability
+attributes the type/length of the burst, and so on.  Upon completing this phase, follows the data phase \circled{2}, which
+consists of the transmission of the data payload to be written through
+the W channel.  The response phase \circled{3} concludes a successful write transaction that occurs on the B channel.
 
 The transmission of a read transaction is carried out in a similar
 way.  The address phase \circled{1'} is transmitted through the
@@ -159,6 +157,6 @@ out-of-order responses is possible.
 \begin{figure}
   \centering
   \input{tikz/axi_transaction_scheme.tex}
-  \caption{Communication channels in master/slave AXI ports.}
+  \caption{Caption}
   \label{fig:axi_transaction_scheme_figure}
 \end{figure}
