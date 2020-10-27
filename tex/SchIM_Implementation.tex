@@ -149,15 +149,15 @@ incorrect.
 To ensure fair accounting for both read and write traffic, we rely on
 cache partitioning through coloring. As studied in a number of
 previous works, cache coloring is easy to implement at the hypervisor
-level~\cite{biondi_xvisor, cmu_virtpart, detvrt_rtas19}. In our system
-setup, we leverage the support Jailhouse already provides. The
-standard support has been extended to support booting a Linux inmate
-over colored memory. Cache partitioning allows us to establish a
-1-to-1 relationship between any read/write transaction traversing the
-\schim and the originating CPU. Moreover, with cache coloring in
-place, the \schim uses the color bits in the address of the memory
-transactions (AR and AW channels) --- instead of the AXI ID bits ---
-to differentiate between the traffic of the various cores.
+level~\cite{xvisor2018, cachepart, determ_virt}. In our system setup,
+we leverage the support Jailhouse already provides. The standard
+support has been extended to support booting a Linux inmate over
+colored memory. Cache partitioning allows us to establish a 1-to-1
+relationship between any read/write transaction traversing the \schim
+and the originating CPU. Moreover, with cache coloring in place, the
+\schim uses the color bits in the address of the memory transactions
+(AR and AW channels) --- instead of the AXI ID bits --- to
+differentiate between the traffic of the various cores.
 
 Finally, recall that the \schim forwards transactions between HPM and
 HPS ports. These ports follow the asynchronous AXI protocol that
@@ -290,17 +290,17 @@ arbitration defined by the user.
 
 The described TS policy is similar to the ARM QoS regulation mechanism
 that is available at the level of interconnect for hardware
-accelerators~\cite{QoS-301, QoS-400, ewarp_rtss20}. It is also
-similar, at least in principle, to software-based memory regulation
-techniques such as MemGuard~\cite{memguard}. Yet, TS operates
-differently from the hardware implementations of MemGuard-like
-regulation that have been proposed so far in~\cite{MITTS,
+accelerators~\cite{qos-400, ewarp2020rtss}. It is also similar, at
+least in principle, to software-based memory regulation techniques
+such as MemGuard~\cite{memguard2013}. Yet, TS operates differently
+from the hardware implementations of MemGuard-like regulation that
+have been proposed so far in~\cite{zhou2016mitts,
   Farshchi2020BRUBR}. Indeed, our TS scheduler does not rely on memory
 budgets and replenishment periods. Instead, it provides memory
 bandwidth enforcement at the granularity of individual memory
 transactions. This also differentiates the TS policy in the \schim
 from the \emph{transaction supervisor} proposed
-in~\cite{hyperconnect_dac20}.
+in~\cite{fred_hyperconnect}.
 
 \subsection{Transactions Life Cycle}
 \label{subsec:transaction-life-cycle}
