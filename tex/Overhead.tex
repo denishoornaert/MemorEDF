@@ -6,3 +6,5 @@
     
     \subsection{FIQ based regulation}
       The coarseness of the FIQ feedback based regulation is obvious in the present case. In fact, eventhough all the queues have been assigned a threshold of 1, subfigure 1 of Figure \ref{fig:schim_behaviour_tdma} highlights the fact that this threshold is often exceeded. The worst case being queue 3 exceeding the threshold by 5 in the right side of the plot.
+      
+      The thresholds used for the FIQ regulation require to be fine tuned manually by the user. Future extension of the \schim scheduler should be able to dynamically adapt the threshold in order to maximize the performance and improve the cores isolation.
