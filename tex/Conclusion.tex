@@ -9,17 +9,23 @@
 In the present article we introduced the \schim, a memory transactions
 scheduler framework that can be integrated in commercially available
 platforms featuring a tightly coupled processing system and
-programmable logic. Through a set of experiments, we assessed the
-capabilities of the framework and demonstrated the correct behaviour
-of the proposed scheduling policies, namely Fixed Priority, Time
-Division Multiple Access and Traffic Shaping. Finally, we showed using
-a suite of real-world benchmarks that the \schim is capable of
-enforcing strong temporal isolation in spite of heavy memory
-contention.
-    
-The authors see the proposed \schim as a stepping stone for predictive
-memory scheduling. The proposed framework having been design with
-extensibility in mind, advanced integration in commercially available
-platform as well as advanced scheduling techniques are few of many
-possible future directions. Especially, \schim is seen by the authors
-as the first step toward profile-based memory access scheduling.
+programmable logic. A full-system implementation in a commercially
+available PS-PL platform has been detailed, which encompasses the
+accompanying software stack and the platform-specific integration
+steps has been detailed in as well as advanced scheduling techniques
+are few of many possible future directions.
+
+Through a set of experiments, we assessed the capabilities of the
+framework and demonstrated the correct behaviour of the proposed
+scheduling policies, namely Fixed Priority, Time Division Multiple
+Access and Traffic Shaping. Finally, we showed using a suite of
+real-world benchmarks that the \schim is capable of enforcing strong
+temporal isolation in spite of heavy memory contention.
+
+The authors see the proposed \schim as a stepping stone to propose,
+test, and validate novel memory scheudling policy to be tested on
+embedded platforms with realistic performance and complex
+workload. For this reason, the \schim has been designed to be
+open-source and with extensibility in mind.  Especially, we strongly
+envision that the \schim could represent a stepping-stone toward
+profile-based memory traffic scheduling.
