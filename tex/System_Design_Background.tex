@@ -52,7 +52,7 @@ achieved, one needs to understand how memory accesses are routed in PS-PL platfo
 that results in an LLC miss is routed directly to main memory if its
 physical address falls within the aperture, say the address range
 $[A,B]$ handled by the DRAM controller. We refer to this as the
-\emph{direct route}, depicted in \circledfig{fig:PS-PL-diagram}{5} and
+\emph{normal route}, depicted in \circledfig{fig:PS-PL-diagram}{5} and
 highlighted in yellow.
 
 Conversely, generic memory access resulting from an LLC cache miss
@@ -142,7 +142,7 @@ channel AW is used to transmit the transaction's meta-data, such
 as the destination address, the transaction ID, and the cacheability
 attributes the type/length of the burst, and so on.  Upon completing this phase, follows the data phase \circled{2}, which
 consists of the transmission of the data payload to be written through
-the W channel.  The response phase \circled{3} concludes a successful write transaction that occurs on the B channel.
+the W channel.  The response phase \circled{3} concludes a successful write transaction and occurs on the B channel.
 
 The transmission of a read transaction is carried out in a similar
 way.  The address phase \circled{1'} is transmitted through the
