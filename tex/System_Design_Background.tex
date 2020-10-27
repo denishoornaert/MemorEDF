@@ -16,7 +16,7 @@ platform with four CPUs denoted as $C_0, C_1, C_2$, and $C_3$.
 \begin{figure}[t]
   \centering
   \includegraphics[width=0.9\linewidth]{images/system_blocks.png}
-  \caption{Block diagram of generic PS-PL reference platform.}
+  \caption{PS-PL interconnect block diagram}
   \label{fig:PS-PL-diagram}
 \end{figure}
 
@@ -27,17 +27,17 @@ channels follow a master-slave paradigm. Specifically,
 high-performance masters (HPM, \circledfig{fig:PS-PL-diagram}{1}) and
 high-performance slaves (HPS, \circledfig{fig:PS-PL-diagram}{2}) send
 and receive transactions to and from the PL,
-respectively. Additionally there exist programmable interrupt request
+respectively. Additionally, there exist programmable interrupt request
 (IRQ) lines (see \circledfig{fig:PS-PL-diagram}{3}) that can be driven
 by the PL and are connected to the interrupt controller
 (\circledfig{fig:PS-PL-diagram}{4}) inside the PS. As we discuss in
 Section~\ref{sec:pl-to-ps-feedback}, the presence of PS-PL interrupt
-lines is crucial to build PL-assisted memory traffic regulation.
+lines is crucial to building PL-assisted memory traffic regulation.
 
 Note also that there might exist PS-PL data ports that are routed
 through a secondary interconnect
 (\circledfig{fig:PS-PL-diagram}{8}). These can generally sustain less
-throughput compared to HPS ports, hence we refer to them as
+throughput compared to HPS ports; hence we refer to them as
 low-performance masters (LPM, \circledfig{fig:PS-PL-diagram}{9}). LPM
 ports are useful to perform memory-mapped configuration of PL modules.
 
@@ -45,20 +45,21 @@ ports are useful to perform memory-mapped configuration of PL modules.
 In this work, we leverage the ability to route main memory traffic
 originated by the CPUs through the PL. This technique is known as
 Programmable Logic In-the-Middle, or PLIM for short. PLIM was
-originally proposed in~\cite{PLIM20}. To understand how PLIM can be
-achieved on PS-PL platforms it is important to understand how memory
-accesses are routed in such platforms. Any CPU-generated memory access
+originally proposed in~\cite{PLIM20}. To fully grasp how PLIM can be
+achieved, one needs to understand how memory accesses are routed in PS-PL platforms.
+
+ Any CPU-generated memory access
 that results in an LLC miss is routed directly to main memory if its
 physical address falls within the aperture, say the address range
 $[A,B]$ handled by the DRAM controller. We refer to this as the
 \emph{direct route}, depicted in \circledfig{fig:PS-PL-diagram}{5} and
 highlighted in yellow.
 
-Conversely, a generic memory access resulting from an LLC cache miss
+Conversely, generic memory access resulting from an LLC cache miss
 will be sent on an HPM port if the corresponding physical address
-falls within other range, say $[C,D]$. One can then insert (1) a
+falls within another range, say $[C,D]$. One can then insert (1) a
 lightweight layer of virtualization to map all the physical addresses
-of a guest OS to the PL, i.e. to fall in the range $[C,D]$; and (2) an
+of a guest OS to the PL, i.e., to fall in the range $[C,D]$; and (2) an
 address translator in the PL that re-bases request physical addresses
 to access main memory and relays back the data payload to the
 requesting CPU(s). In other words, one can find a constant $k$ such
@@ -77,8 +78,8 @@ logic. Importantly, switching from the direct to the loop-back route
 can be done dynamically at runtime so that the overhead of PLIM can be
 avoided if deemed detrimental for the application under analysis.
 
-Because in this paper we leverage the PLIM approach to perform memory
-scheduling, we call our module the \schimL, or \schim for short.
+In this paper, we leverage the PLIM approach to perform memory
+scheduling, hence, we call our module the \schimL, or \schim for short.
 
 %% The application's memory traffic is intercepted by dispatching them to
 %% leave the PS to enter the PL. Intercepted transactions are then
@@ -120,9 +121,9 @@ scheduling, we call our module the \schimL, or \schim for short.
 The vast majority of PS-PL platforms currently available are
 ARM-based. This is also the case for the platform we used for our
 evaluation, namely the Xilinx Zynq UltraScale+ MPSoC. Thus, we briefly
-introduce the communication protocol used of on-chip communication in
+introduce the communication protocol used for on-chip communication in
 ARM-based SoCs, namely the Advanced eXtensible Interface (AXI). The
-AXI is a open specification bus protocol~\cite{ARM-AXI} used for
+AXI is an open specification bus protocol~\cite{ARM-AXI} used for
 high-bandwidth data exchanges between on-chip subsystems --- such as
 cache controllers, memory controllers, DMAs, PL modules. It is also
 used in the PS-PL platforms of reference to exchange data on the
@@ -130,20 +131,18 @@ aforementioned HPM/HPS ports.
 
 The AXI protocol is based on the master-slave duality. A master AXI
 interface can initiate transactions toward a connected slave
-interface.  The latter provides a response to master-initiated
+interface.  The latter responds master-initiated
 requests.  Masters and the slaves communicate with each other through
 five different channels named AW (address write), W (write), B (write
-acknowledgment), AR (address read) and R (read) as illustrated in
+acknowledgment), AR (address read) and R (read), as illustrated in
 Fig.~\ref{fig:axi_transaction_scheme_figure}.
 
 A write transaction begins with an address phase \circled{1} where the
-channel AW is used to transmit the meta-data of the transaction, such
-as the destination address, the transaction ID, the cacheability
-attributes, the type/length of the burst and so on.  Upon the
-completion of this phase, follows the data phase \circled{2} which
-consists in the transmission of the data payload to be written through
-the W channel.  A successful write transaction is concluded by the
-response phase \circled{3} that occurs on the B channel.
+channel AW is used to transmit the transaction's meta-data, such
+as the destination address, the transaction ID, and the cacheability
+attributes the type/length of the burst, and so on.  Upon completing this phase, follows the data phase \circled{2}, which
+consists of the transmission of the data payload to be written through
+the W channel.  The response phase \circled{3} concludes a successful write transaction that occurs on the B channel.
 
 The transmission of a read transaction is carried out in a similar
 way.  The address phase \circled{1'} is transmitted through the
@@ -158,6 +157,6 @@ out-of-order responses is possible.
 \begin{figure}
   \centering
   \input{tikz/axi_transaction_scheme.tex}
-  \caption{Communication channels in master/slave AXI ports.}
+  \caption{Caption}
   \label{fig:axi_transaction_scheme_figure}
 \end{figure}
