@@ -1,10 +1,8 @@
 \section{Discussion}
-    \subsection{Globally}
       When comparing the throughput that is experienced by the cores, the normal route always provides a higher throughput in comparison to the the loop-back based path.
-      However, when only comparing those loop-back based paths, we can see that the price to pay for having \schim is largely compensated by the memory isolation the latter enables.
-    In general, using redirecting the cores traffic toward the PL side with \schim is interesting in combination with techniques such as  \textit{address bleaching} and \textit{zero-copy recoloring}.
+      However, when only comparing those loop-back based paths, we can see that the price to pay for having \schim is largely compensated by the memory isolation the latter provides.
+    In general, redirecting the cores traffic toward the PL side with \schim is interesting in combination with techniques such as  \textit{address bleaching} and \textit{zero-copy recoloring}.
     
-    \subsection{FIQ based regulation}
-      The coarseness of the FIQ feedback based regulation is obvious in the present case. In fact, eventhough all the queues have been assigned a threshold of 1, subfigure 1 of Figure \ref{fig:schim_behaviour_tdma} highlights the fact that this threshold is often exceeded. The worst case being queue 3 exceeding the threshold by 5 in the right side of the plot.
+    The PL-to-PS feedback is an interesting regulating mechanism. Moreover, it is totally transparent to the hypervisor's inmates and uses the fastest route possible to communicate with the PS side. Nonetheless, this feedback mechanism is coarse. The subfigure 1 of Figure \ref{fig:schim_behaviour_tdma} highlights this problem. In fact, even though all the queues have been assigned a threshold of 1,  this threshold is often exceeded. The worst case being queue 3 exceeding the threshold by 5 in the right side of the plot.
       
-      The thresholds used for the FIQ regulation require to be fine tuned manually by the user. Future extension of the \schim scheduler should be able to dynamically adapt the threshold in order to maximize the performance and improve the cores isolation.
+    The thresholds used for the FIQ regulation require to be fine tuned manually by the user. Future extension of the \schim should include schedulers capable of dynamically adapting the thresholdd in order to maximize the performance and improve the cores isolation.
