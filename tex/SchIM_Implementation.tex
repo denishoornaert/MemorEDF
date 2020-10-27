@@ -63,9 +63,7 @@ Jailhouse code for our full system implementation\footnote{The
 %% TrustZone switches in any ARM-adapted OS (e.g., Linux), exploiting the
 %% hypervisor calls.
 
-\subsection{Altered communication scheme}
-\label{subsec:communication-scheme}
-
+\subsection{Altered communication scheme}\label{sec:communication-scheme}
 In order to achieve the objective of re-ordering transactions, one
 must alter the standard AXI communication scheme explained in the
 Section~\ref{subsec:axi_transaction_scheme}.  To this end, we
@@ -97,7 +95,7 @@ response phase \circled{4'} is not intercepted by SchIM.
 \begin{figure}
   \centering
   \input{tikz/SchIM_transaction_scheme.tex}
-  \caption{Caption}
+  \caption{AXI communication with mediated by the \schim.}
   \label{fig:SchIM_transaction_scheme_figure}
 \end{figure}
 
@@ -113,19 +111,21 @@ in \schim is vital to keep the final bandwidth as high as possible.
 Furthermore, the queues have been designed to deal with three
 constrains.  Firstly, the queues store both read and write packets
 such that the order at which transactions arrived is guaranteed. This
-implies that each slot of the queues have the same size whether they
-contain read or write packets.  Secondly, due to the Altered
-communication scheme (see Section~\ref{subsec:communication-scheme}),
-each slot needs to be big enough to store both the address phase data
-and the data phase data of an AXI write transaction (678 bits).
-Thirdly, since we desire to use \schim after the LLC, we have to make
-sure that each slot is capable of storing a full cache line and its
-meta data.  The depth of each queue is determined by considering the
-worst case scenario.  The latter consists in having to handle
-simultaneously the maximal amount of outstanding read and write
-transactions. In the case of the Xilinx ZCU102 development board, each
-queue is 16 slots deep as each HPM ports buffer cannot handle more
-than 8 transactions of each type \cite{Xilinx-ULTRASCALE-TRM}.
+implies that all the queue slots have the same size regardless of
+whether they contain read or write packets.  Secondly, due to the
+altered communication scheme (see
+Section~\ref{sec:communication-scheme}), each slot needs to be large
+enough to store both the address phase payload and the corresponding
+data of an AXI write transaction (678~bits).  Third, since the \schim
+is located after the LLC, we have to make sure that each slot is
+capable of storing a full cache line and its meta data.  The depth of
+each queue is determined by considering the worst-case scenario.  The
+latter consists in having to handle simultaneously the maximum number
+of outstanding read and write transactions. Our \schim instance on the
+considered Xilinx UltraScale+ platform was configured with queues that
+are 16 slots in depth. Indeed, the HPM ports in this platform cannot
+handle more than 8 transactions of each
+type~\cite{Xilinx-ULTRASCALE-TRM}.
 
 \subsection{LLC-\schim Interface and Traffic Accounting}
 As illustrated in \fig{fig:PS-PL-diagram}, the considered system
