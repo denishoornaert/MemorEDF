@@ -1,7 +1,94 @@
 \section{Related Work}
-    \todo[inline]{Ask Tomasz and Gero for their ECRTS article}
-    \todo[inline]{We should look at this paper "BRU: Bandwidth Regulation Unit for Real-Time Multicore Processors"}
-    Citation list:
+There is a wide consensus that memory resources represent the main
+performance bottleneck in modern multi-core processors. The
+observation has sparked a host of research works addressing the
+problem from multiple angles~\cite{temp_reg_survey}. In this context,
+the works that represent the inspiration for our \schim fall in two
+macro-categories, namely \textbf{hardware-based} and
+\textbf{software-based} techniques for main memory traffic management.
+
+The first category includes a large body of works aimed at achieving
+better and/or more predictable performance by advancing novel hardware
+redesigns. The works in \cite{mutlu2007stall, mutlu2008parallelism,
+  nesbit2006fair} strive to construct high-performance and fair memory
+schedulers. The addition of software-controlled memory deadlines and
+transactional semantics where explored in~\cite{usui2016dash} and
+\cite{ferri2011soc}, respectively. Next, the work by Åkesson et
+al.~\cite{akesson2007predator, akesson2010predictable} and Paolieri et
+al.~\cite{paolieri2009analyzable} attains timing predictability
+through careful scheduling of SDRAM commands. Finally, the MEDUSA DRAM
+controller~\cite{valsan2015medusa, detmem2018} implements a two-tiers
+scheduler at the DRAM controller to ensure predictability when
+accessing memory areas where access time strongly impact application
+performance. Finally, the hardware designs proposed in
+\cite{zhou2016mitts, rafique2007effective, Farshchi2020BRUBR} put
+their emphasis on main memory bandwidth partitioning; clever dynamic
+pipelining is further explored in~\cite{drambulism2020rtas} to better
+balance average performance and determinism.
+
+Among the software-based techniques are the mechanisms that stemmed
+from MemGuard, originally proposed in~\cite{memguard2013} and that
+rely on broadly available performance counters to regulate the
+bandwidth extracted by individual CPUs. Later extensions to jointly
+consider regulation and cache partitioning~\cite{holistic}, to
+mitigate contention over miss status holding registers~\cite{taming},
+and to expose control over memory bandwidth as a lockable
+resource~\cite{bwlock} were proposed. Software-based memory throttling
+has also been implemented at the hypervisor-level~\cite{xvisor2018,
+  ewarp2020rtss}. Remarkably, the work in~\cite{ewarp2020rtss}
+combines regulation mechanisms for CPU and embedded accelerators
+through the ARM QoS extensions~\cite{qos-400}.
+
+In addition to the two categories surveyed above, perhaps the most
+closely related works are those that explored memory isolation
+techniques in PS-PL platforms. The work in~\cite{pspl_mixcrit}
+demonstrated that the PL-side can be used to define private memory
+storage, control and bus units to strongly isolate high-criticality
+workload. A number of techniques developed as part of the FRED
+framework~\cite{fred_ssup} put an emphasis on memory traffic
+arbitration and management for in-PL
+accelerators~\cite{fred_hyperconnect, fred_abu, fred_abe}. Among them,
+the AXI HyperConnect~\cite{fred_hyperconnect} is the most similar to
+the \schim in terms of high-level design. The two are however
+substantially different as the \schim is designed to manage the memory
+traffic of embedded CPUs.
+
+Compared to the literature reviewed above, what sets this work apart
+are the following aspects. (1) Our \schim applies to existing PS-PL
+commercial systems without introducing any hardware modification; (2)
+it allows management in the PL of memory traffic originated by the
+embedded CPUs residing in the PS; (3) it provides the framework to
+test the feasibility and performance of custom memory scheduling
+policies; and (4) it is designed such that multiple schedulers can
+coexist, be activated, and configured at runtime.
+
+%% Other works such as~\cite{memguard2013, bwlockyun2017, xvisor2018}
+%% focus on implementable mechanisms to regulate/throttle the bandwidth
+%% of other low criticality tasks with the goal of reducing contention
+%% and improving performance isolation. The first work in this sense
+%% was~\cite{memguard2013}, where budget-based bandwidth enforcement is
+%% proposed. The work in~\cite{bwlockyun2017} builds on this technique by
+%% allowing high-priority tasks to acquire a ``bandwidth lock'' on the
+%% memory controller. These techniques have also been shown to be
+%% implementable at the hypervisor level~\cite{xvisor2018,
+%%   cachepart}. Recently, there have been important efforts to control,
+%% account, and ultimately integrate the behavior of accelerators into
+%% real-time systems. The work in \cite{biondifpga2017} lays the
+%% groundwork for managing hardware accelerator defined in FPGA,
+%% while~\cite{houdek2017towards} touches on the topic of non-CPU
+%% components regulated via platform-specific throttling mechanisms. In
+%% many ways, \sname builds on top of the seminal results achieved in
+%% this context and complements the CPU-centric management by integrating
+%% traditional accelerators (e.g., DMAs, GPUs) in the picture.
+%% mostly at the controller level. Hardware scheduler typically
+%% accelerates system performance at the cost of grown hardware
+%% resources, inflexibility, and integration hassle. 
+
+
+\begin{comment}
+\todo[inline]{Ask Tomasz and Gero for their ECRTS article}
+\todo[inline]{We should look at this paper "BRU: Bandwidth Regulation
+  Unit for Real-Time Multicore Processors"} Citation list:
     \begin{itemize}
             \item PREM
             \item MemGuard
@@ -9,19 +96,11 @@
             \item Three Phase Model
             \item FRED Framework from Sant'Anna
      \end{itemize}
-   
-As multiple processors share individual shared recourses like memory, arbitration can occur at multiple levels of the system. Previous work in this area has traditionally been classified into \textbf{hardware-based}  and \textbf{software-based} techniques or the combination of the two \cite{assayad2010scheduler},\cite{morton2004hardware}. 
-
-Toward achieving better and more predictable performance, a large body of works has addressed the problem by advancing novel hardware redesigns \cite{mutlu2007memory}, \cite{mutlu2007stall} , \cite{mutlu2008parallelism}, \cite{nesbit2006fair}  \cite{cho2005scheduler}, \cite{usui2016dash},\cite{ferri2011soc},\cite{zagan2017cpu},\cite{zhou2016mitts}, \cite{rafique2007effective}, \cite{gupta2010hardware}, \cite{moscibroda2008distributed}, \cite{kuacharoen2003configurable} mostly at the controller level. Hardware scheduler typically accelerates system performance at the cost of grown hardware resources, inflexibility, and integration hassle. Earlier endeavor by Åkesson et al. \cite{akesson2007predator}, \cite{akesson2010predictable} and Paolieri et al. \cite{paolieri2009analyzable} attains timing predictability through dynamically scheduling precomputed sequences of SDRAM commands. MEDUSA \cite{valsan2015medusa} exercises a two-level scheduling algorithm at the DRAM controller to render strong timing predictability. Another related study is a work done by Tang et al. in \cite{tang2014hardware}, wherein authors prototyped a configurable Task-Queue-based scheduler that fits various scheduling algorithms FPGA.
-
-
 A plethora of techniques have approached by proposing software-only resolutions to alleviate performance interference.
 SOFTWARE: ATLAS? / TCM -> fairness / OS-level techniques 
 \todo[inline]{SR: to be completed}
 
 Nevertheless, recently, with the advent of the fresh class of commercially available SoCs, integrated with a programmable logic (PL), there is a new third class of regulation.
 \todo[inline]{SR: to be completed}
+\end{comment}
 
-
-What sets this work apart from the literature surveyed above is
-(1) \schim applies to new and traditional COTS system without introducing any hardware modification. Hence, keeping the intact systems while (2) providing a safe sandbox to test feasibility and realization of desired scheduling policies by providing (3) comprehensive run-time configuration interface to select between desired supported policies plus an option of bypassing the scheduler entirely.
