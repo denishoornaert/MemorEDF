@@ -5,16 +5,13 @@ understand the overall system design and the class of platforms
 targeted by this work.
 
 \subsection{Hybrid Multi-Core Platforms with Programmable Logic}
-This work targets a class of embedded platforms that include
-traditional full-speed embedded CPUs and programmable logic on the
-same chip. This organization naturally defines two macro-domains,
-namely the Processing Subsystem (PS) and the Programmable Logic
-(PL). The PS encompasses a multi-core processor with a multi-level
-cache hierarchy and a main memory (DRAM) controller. We use PS-PL
-platforms to refer to this class of SoC for the reminder of this
-work. A simplified block diagram for a reference PS-PL organization is
+This work targets the aforementioned class of embedded multi-core
+platforms with programmable logic---i.e., PS-PL platforms. In such
+platforms, the PS encompasses a multi-core processor with a
+multi-level cache hierarchy and a main memory (DRAM) controller.  A
+simplified block diagram for a reference PS-PL organization is
 illustrated in Fig.~\ref{fig:PS-PL-diagram}. The figure considers a
-platform with four CPUs denoted as $C_0, C_1, C_2$, and $C_3$. 
+platform with four CPUs denoted as $C_0, C_1, C_2$, and $C_3$.
 
 \begin{figure}[t]
   \centering
