@@ -2,15 +2,16 @@
 
   The present section aims at evaluating on a COTS platform the benefits brought by SchIM (w.r.t. memory isolation) and to demonstrate the good behaviour of the different embedded policies.
   %Therefore, we have integrated the SchIM IP on the PL side of a Xilinx ZCU102 development board, featuring a Xilinx Zynq UlraScale+ XCZU9EG SoC.
-  For this work, we evaluate SchIM using synthetic benchmarks, real benchmarks issued from the San Diego Vision Benchmark Suite (SD-VBS) \cite{SD-VBS} and combinations of the two. \todo[inline]{RM: move all the platform detailes to the impl. section}
+  %\todo[inline]{RM: move all the platform detailes to the impl. section}
   
   The present section is organised as follows. Firstly, in subsection \ref{subsection:considered-architecture}, the exact SchIM configuration on the ZCU102 development board is discussed. Thereafter, a full assessment of the board capabilities with and without SchIM is provided in subsection \ref{subsec:platform-capabilities-and-performance-degradation}. In subsection \ref{subsec:internal-behaviour-of-schim}, an analysis of the SchIM module behaviour is presented. Finally, a demonstration of the memory isolation enabled by SchIM using real benchmark applications is provided.
 
 \todo[inline]{RM: Add an experimental setup subsection to describe:
   benchmarks, different routes that will be tests, parameters of the schedulers }
   
-  \subsection{Evaluation Setup}
-  \label{subsection:considered-architecture}
+  \subsection{Experimental Setup}
+    \label{subsection:considered-architecture}
+    For this set of experiemtns, \schim has been evaluated by using synthetic benchmarks (or \emph{Memory Bombs}), real benchmarks issued from the San Diego Vision Benchmark Suite (SD-VBS) \cite{SD-VBS} (more specifically, the most \emph{Memory Bound} ones, deemed as \emph{VGA}) and combinations of the two.
 %  \todo[inline]{RM: this part is a bit redundant with the implementation section. We can remove this seciton and only keep the description of the routes we are gonna test. See above}
 %    The COTS platform used for the following set of experiments, the Xilinx ZCU102 development board, features four cores which, with the LLC, composed the cores cluster. While the \schim can be configured to handle many more masters, in the present set of experiments, only the cores composing this cluster competes for main memory access. Consequently, the \schim module has been configured with four queues (one for each master) as shown in Figure \ref{fig:MemorEDF_module_schema}. Following the discussion in section \ref{sec:pl-to-ps-feedback}, \schim has been configured with two slave ports. Finally, the frequency of the PL side has been pushed to 250~MHz.
 
@@ -45,11 +46,11 @@
     As emphasized by the subfigure 2 of Figure \ref{fig:schim_behaviour_fp}, the FP scheduler is able to prioritize the traffic of one core at the expense of the others according to the priorities assignment. Furthermore, one can observe that the rate at which the queues receive new transactions from their associated core is proportional to the priority place in the priority ordering.
     Finally, the third subfigure of Figure \ref{fig:schim_behaviour_fp} confirms the correct behaviour of the FP policy. Thanks to the heat map, one can clearly see that the cores with the highest priority also feature the highest density of transactions at the output of \schim.
     
-    The trace snapshot displayed in Figure \ref{fig:schim_behaviour_tdma} has been obtained by configuring the \schim module in TDMA mode. For the sake of clarity, a period of 512 clock cycles have been set for ech core. In addition, the threshold of each core has been set to 1.
+    The trace snapshot displayed in Figure \ref{fig:schim_behaviour_tdma} has been obtained by configuring the \schim module in TDMA mode. For the sake of clarity, a period of 512 clock cycles have been set for each core. In addition, the threshold of each core has been set to 1.
     The subfigures 2 and 3 of Figure \ref{fig:schim_behaviour_tdma} clearly show the behaviour expected from a TDMA schedule. In fact, one can clearly see in the latter that transactions originating from one core are only being repeated out of the \schim module during a well defined time slot (here, our 512 clock cycles period). Moreover, queues are scheduled one after the other in a periodic fashion.
     In the subfigure 2 of Figure \ref{fig:schim_behaviour_tdma}, we can observe a similar pattern, with transactions arriving only during the TDMA slot associated to their queue (and indirectly core). Globally, the rate at which queues receive transactions is steady and constant. The variations can be explained by different factors such as the coarseness of the FIQ feedback regulation and the scheduling happening on the hypervisor.
     
-       The trace snapshot for the TS policy has been obtained with the minimal inter-arrival period set to 256 clock cycles for all the cores. Sinilarly to the TDMA experiment, such period has been set arbitrarily in order to improve teh clarity of the trace snapshot displayed in Figure \ref{fig:schim_behaviour_mg}.
+       The trace snapshot for the TS policy has been obtained with the minimal inter-arrival period set to 256 clock cycles for all the cores. Sinilarly to the TDMA experiment, such period has been set arbitrarily in order to improve the clarity of the trace snapshot displayed in Figure \ref{fig:schim_behaviour_mg}.
        Thanks to the subfigure 3 of Figure \ref{fig:schim_behaviour_mg}, we can see that under an important traffic load, the TS mode of \schim is able to shape the traffic. In the present case, it introduces a minimal time distancing between two transactions originating from a smae core.
        Roughly, the same pattern can be observed in subfigure 2 of Figure \ref{fig:schim_behaviour_mg}. However, there are two exceptions. First, one queue can receive more than one transaction. This is due to the coarseness of the FIQ feedback regulation. Secondly, some queues seem to be prioritized. This can be explained by the fact that in the TS scheduler implementation, ties between valid transactions are resolved by applying a FP policy. In this experiment, the \schim module being constantly under pressure, there are always ties between the queues and FP is always applied.
     \begin{figure}[]
@@ -82,9 +83,21 @@
     \end{figure}
 
   \subsection{Memory Isolation}
-    Here, prove that SchIM enables us to isolate the cores. We need a bunch of benchmarks competing with mem-bombs on the remaining cores. We will try:
-    \begin{itemize}
-      \item FP:~ The benchmark running alone with the highest priority VS. the same setup with mem-bombs
-      \item TDMA:~ The benchmark running alone with all the cores having a slot of the same size VS. the same setup with mem-bombs
-      \item MG:~ The benchmark running alone with all the cores having a given periodicity VS. the same setup with mem-bombs
-    \end{itemize}
+    To evaluate the capability of \schim to ensure the memory isolation of the cores, an experiment consisting in comparing the execution time of one core when running one benchmark alone (also referred to as \emph{Solo}) and when running alongside memory bombs (also referred to as \emph{Stressed}). The ratio of the latter and the former indicates whether (and to which extent) the execution time of the benchmark suffered from inter-core interferences. Typically, a ratio of 1 denotes a perfect isolation. The benchmarks listed in Table \ref{tab:isolation_ratio} have been chosen as their are \emph{Memory Bound}. 
+    \begin{table}[]
+      \centering
+      \caption{Inter-core Interference Ratios}
+      \label{tab:isolation_ratio}
+      \begin{tabular}{|c||c|c|c|c|}
+      \hline
+      \multirow{2}{*}{Benchmark} & \multicolumn{4}{c|}{Paths}                          \\ \cline{2-5} 
+                                 & Loop-back & \schim TDMA & \schim TS & \schim FP \\ \hline\hline
+      stitch                     & $1.14$    & $1.06$      & $0.98$    & $1.16$    \\ \hline
+      texture synth.             & $1.03$    & $1.02$      & $1.0$     & $1.03$    \\ \hline
+      disparity                  & $1.46$    & $1.07$      & $0.96$    & $1.46$    \\ \hline
+      tracking                   & $1.13$    & $1.05$      & $0.97$    & $1.13$    \\ \hline
+      localization               & $1.02$    & $1.01$      & $1.0$     & $1.02$    \\ \hline
+      mser                       & $1.59$    & $1.06$      & $0.98$    & $1.56$    \\ \hline
+      sift                       & $1.14$    & $1.04$      & $0.97$    & $1.14$    \\ \hline
+      \end{tabular}
+    \end{table}
