@@ -24,12 +24,12 @@ and the Programmable Logic (PL), hence the name. PS-PL platforms
 establish a good trade-off between specialization, raw performance,
 and mission-specific re-configurability. The current generation of
 commercially available PS-PL platforms is dominated by ARM-based
-products offered by, most notably, Intel~\cite{stratix10} and
-Xilinx~\cite{ultrascale+}. A pilot large-scale, high-performance PS-PL
-system is the Enzian platform~\cite{enzian20} being rolled out by ETH
+products offered by, most notably, Intel~\cite{intel_stratix10} and
+Xilinx~\cite{zynq_ultrascale}. A pilot large-scale, high-performance PS-PL
+system is the Enzian platform~\cite{enzian2020cidr} being rolled out by ETH
 Zurich\footnote{Also see \url{http://enzian.systems/}}. Furthermore, a
 RISC-V-based solution has been recently made available by Microsemi
-with their PolarFire SoC~\cite{icikle_kit}. 
+with their PolarFire SoC~\cite{microsemi_polarfire}. 
 
 From a real-time perspective, the co-existence of traditional CPUs and
 a tightly-coupled block of PL has implications that are deeper than
@@ -59,7 +59,7 @@ determinism over memory performance is required. The \schim can be
 used to analyze the behavior of realistic workload in a multitude of
 what-if memory management use-cases. We note that such kind of
 analysis was previously possible only through full-system simulation
-or by synthesizing the entire SoC on FPGA--- that is with a soft-core
+or by synthesizing the entire SoC on FPGA---that is with a soft-core
 implementation.
 
 In short, this paper makes the following contributions. (1) We

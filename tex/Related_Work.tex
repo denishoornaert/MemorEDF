@@ -30,28 +30,28 @@ Among the software-based techniques are the mechanisms that stemmed
 from MemGuard, originally proposed in~\cite{memguard2013} and that
 rely on broadly available performance counters to regulate the
 bandwidth extracted by individual CPUs. Later extensions to jointly
-consider regulation and cache partitioning~\cite{holistic}, to
-mitigate contention over miss status holding registers~\cite{taming},
-and to expose control over memory bandwidth as a lockable
-resource~\cite{bwlock} were proposed. Software-based memory throttling
-has also been implemented at the hypervisor-level~\cite{xvisor2018,
-  ewarp2020rtss}. Remarkably, the work in~\cite{ewarp2020rtss}
-combines regulation mechanisms for CPU and embedded accelerators
-through the ARM QoS extensions~\cite{qos-400}.
+consider regulation and cache partitioning~\cite{holistic2019rtas} and
+to expose control over memory bandwidth as a lockable
+resource~\cite{bwlockyun2017} were proposed. Software-based memory
+throttling has also been implemented at the
+hypervisor-level~\cite{xvisor2018, ewarp2020rtss}. Remarkably, the
+work in~\cite{ewarp2020rtss} combines regulation mechanisms for CPU
+and embedded accelerators through the ARM QoS
+extensions~\cite{qos-400}.
 
 In addition to the two categories surveyed above, perhaps the most
 closely related works are those that explored memory isolation
-techniques in PS-PL platforms. The work in~\cite{pspl_mixcrit}
-demonstrated that the PL-side can be used to define private memory
-storage, control and bus units to strongly isolate high-criticality
-workload. A number of techniques developed as part of the FRED
-framework~\cite{fred_ssup} put an emphasis on memory traffic
-arbitration and management for in-PL
-accelerators~\cite{fred_hyperconnect, fred_abu, fred_abe}. Among them,
-the AXI HyperConnect~\cite{fred_hyperconnect} is the most similar to
-the \schim in terms of high-level design. The two are however
-substantially different as the \schim is designed to manage the memory
-traffic of embedded CPUs.
+techniques in PS-PL platforms. The work
+in~\cite{gracioli2019designing} demonstrated that the PL-side can be
+used to define private memory storage, control and bus units to
+strongly isolate high-criticality workload. A number of techniques
+developed as part of the FRED framework~\cite{fred_ssup} put an
+emphasis on memory traffic arbitration and management for in-PL
+accelerators~\cite{fred_hyperconnect, fred_abe}. The AXI
+HyperConnect~\cite{fred_hyperconnect} is perhaps the component most
+similar to the \schim in terms of high-level design. The two are
+however substantially different as the \schim is designed to manage
+the memory traffic of embedded CPUs.
 
 Compared to the literature reviewed above, what sets this work apart
 are the following aspects. (1) Our \schim applies to existing PS-PL
