@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="TB_Mapper_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="TB_Mapper" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="700342423fs"></ZoomEndTime>
+      <Cursor1Time time="90000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="259"></NameColumnWidth>
+      <ValueColumnWidth column_width="173"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="15" />
+   <wvobject type="logic" fp_name="/TB_Mapper/map/clock">
+      <obj_property name="ElementShortName">clock</obj_property>
+      <obj_property name="ObjectShortName">clock</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_Mapper/map/reset">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_Mapper/map/id_1">
+      <obj_property name="ElementShortName">id_1[5:0]</obj_property>
+      <obj_property name="ObjectShortName">id_1[5:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_Mapper/map/port_1">
+      <obj_property name="ElementShortName">port_1[0:0]</obj_property>
+      <obj_property name="ObjectShortName">port_1[0:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_Mapper/map/valid_1">
+      <obj_property name="ElementShortName">valid_1</obj_property>
+      <obj_property name="ObjectShortName">valid_1</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_Mapper/map/id_2">
+      <obj_property name="ElementShortName">id_2[5:0]</obj_property>
+      <obj_property name="ObjectShortName">id_2[5:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_Mapper/map/port_2">
+      <obj_property name="ElementShortName">port_2[0:0]</obj_property>
+      <obj_property name="ObjectShortName">port_2[0:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_Mapper/map/valid_2">
+      <obj_property name="ElementShortName">valid_2</obj_property>
+      <obj_property name="ObjectShortName">valid_2</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_Mapper/map/look_after">
+      <obj_property name="ElementShortName">look_after[5:0]</obj_property>
+      <obj_property name="ObjectShortName">look_after[5:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_Mapper/map/came_from">
+      <obj_property name="ElementShortName">came_from[0:0]</obj_property>
+      <obj_property name="ObjectShortName">came_from[0:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_Mapper/map/origins">
+      <obj_property name="ElementShortName">origins[63:0]</obj_property>
+      <obj_property name="ObjectShortName">origins[63:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_Mapper/map/mask_1">
+      <obj_property name="ElementShortName">mask_1[63:0]</obj_property>
+      <obj_property name="ObjectShortName">mask_1[63:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_Mapper/map/mask_2">
+      <obj_property name="ElementShortName">mask_2[63:0]</obj_property>
+      <obj_property name="ObjectShortName">mask_2[63:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_Mapper/map/ID_WIDTH">
+      <obj_property name="ElementShortName">ID_WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ID_WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_Mapper/map/NUMBER_OF_PORTS">
+      <obj_property name="ElementShortName">NUMBER_OF_PORTS[31:0]</obj_property>
+      <obj_property name="ObjectShortName">NUMBER_OF_PORTS[31:0]</obj_property>
+   </wvobject>
+</wave_config>

@@ -1,0 +1,32 @@
+{
+   ExpandedHierarchyInLayout: "",
+   guistr: "# # String gsaved with Nlview 6.6.11  2017-06-12 bk=1.3860 VDI=40 GEI=35 GUI=JA:1.6
+#  -string -flagsOSRD
+preplace port Q_2_kill_the_core_0 -pg 1 -y 290 -defaultsOSRD
+preplace port Q_1_kill_the_core_0 -pg 1 -y 270 -defaultsOSRD
+preplace port Q_0_kill_the_core_0 -pg 1 -y 250 -defaultsOSRD
+preplace port Q_3_kill_the_core_0 -pg 1 -y 310 -defaultsOSRD
+preplace port aresetn_0 -pg 1 -y 80 -defaultsOSRD
+preplace port aclk_0 -pg 1 -y 20 -defaultsOSRD
+preplace inst MemorEDF_0 -pg 1 -lvl 2 -y 270 -defaultsOSRD
+preplace inst axi_vip_0 -pg 1 -lvl 1 -y 190 -defaultsOSRD
+preplace inst axi_vip_1 -pg 1 -lvl 3 -y 100 -defaultsOSRD
+preplace inst axi_vip_2 -pg 1 -lvl 1 -y 70 -defaultsOSRD
+preplace inst axi_vip_3 -pg 1 -lvl 1 -y 300 -defaultsOSRD
+preplace netloc axi_vip_3_M_AXI 1 1 1 260
+preplace netloc MemorEDF_0_m00_axi 1 2 1 560
+preplace netloc MemorEDF_0_Q_1_kill_the_core 1 2 2 NJ 270 NJ
+preplace netloc MemorEDF_0_Q_0_kill_the_core 1 2 2 NJ 250 NJ
+preplace netloc axi_vip_0_M_AXI 1 1 1 N
+preplace netloc MemorEDF_0_Q_3_kill_the_core 1 2 2 NJ 310 NJ
+preplace netloc MemorEDF_0_Q_2_kill_the_core 1 2 2 NJ 290 NJ
+preplace netloc aresetn_0_1 1 0 3 20 130 250 120 NJ
+preplace netloc axi_vip_2_M_AXI 1 1 1 230
+preplace netloc aclk_0_1 1 0 3 30 10 240 100 NJ
+levelinfo -pg 1 0 130 410 660 780 -top 0 -bot 420
+",
+}
+{
+   da_board_cnt: "1",
+   da_clkrst_cnt: "10",
+}

@@ -1,0 +1,13 @@
+--- include/uapi/asm-generic/mman-common.h
++++ include/uapi/asm-generic/mman-common.h
+@@ -18,7 +18,10 @@
+ #define MAP_PRIVATE	0x02		/* Changes are private */
+ #define MAP_TYPE	0x0f		/* Mask for type of mapping */
+ #define MAP_FIXED	0x10		/* Interpret addr exactly */
++
+ #define MAP_ANONYMOUS	0x20		/* don't use a file */
++#define MAP_CACHED  0x40 /* Map as cacheable */
++#define MAP_OC_INC  0x80 /* Map as Outer Cacheable, Inner non-cacheable */
+ #ifdef CONFIG_MMAP_ALLOW_UNINITIALIZED
+ # define MAP_UNINITIALIZED 0x4000000	/* For anonymous mmap, memory could be uninitialized */
+ #else

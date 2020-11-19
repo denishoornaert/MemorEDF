@@ -1,0 +1,16 @@
+{
+   ExpandedHierarchyInLayout: "",
+   guistr: "# # String gsaved with Nlview 6.6.11  2017-06-12 bk=1.3860 VDI=40 GEI=35 GUI=JA:1.6
+#  -string -flagsOSRD
+preplace inst vio_0 -pg 1 -lvl 1 -y -10 -defaultsOSRD
+preplace inst zynq_ultra_ps_e_0 -pg 1 -lvl 2 -y 130 -defaultsOSRD
+preplace inst system_ila_0 -pg 1 -lvl 3 -y 20 -defaultsOSRD
+preplace netloc zynq_ultra_ps_e_0_pl_clk0 1 0 3 20 40 250 40 880
+preplace netloc vio_0_probe_out0 1 1 2 240 30 N
+levelinfo -pg 1 0 130 570 960 1050 -top -70 -bot 380
+",
+}
+{
+   da_axi4_cnt: "1",
+   da_zynq_ultra_ps_e_cnt: "1",
+}

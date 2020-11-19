@@ -1,0 +1,178 @@
+From 9c4d9e1b9164dd13f683f166d5b9fdc90a16257d Mon Sep 17 00:00:00 2001
+From: Ayoosh Bansal <ayooshb2@illinois.edu>
+Date: Mon, 2 Apr 2018 12:59:02 -0500
+Subject: [PATCH 2/2] mmap patch to support CACHED and OC_INC memory
+
+---
+ arch/arm64/include/asm/memory.h        |  4 ++-
+ arch/arm64/include/asm/pgtable-prot.h  |  1 +
+ arch/arm64/mm/proc.S                   |  6 +++--
+ include/linux/mm.h                     |  4 +++
+ include/uapi/asm-generic/mman-common.h |  3 +++
+ mm/mmap.c                              | 47 ++++++++++++++++++++++++++++++++++
+ 6 files changed, 62 insertions(+), 3 deletions(-)
+
+diff --git a/arch/arm64/include/asm/memory.h b/arch/arm64/include/asm/memory.h
+index b71086d..51008e1 100644
+--- a/arch/arm64/include/asm/memory.h
++++ b/arch/arm64/include/asm/memory.h
+@@ -127,8 +127,10 @@
+ #define MT_DEVICE_nGnRE		1
+ #define MT_DEVICE_GRE		2
+ #define MT_NORMAL_NC		3
+-#define MT_NORMAL		4
++#define MT_NORMAL           4
+ #define MT_NORMAL_WT		5
++#define MT_NORMAL_OC_INC    6
++#define MT_MASK             7
+ 
+ /*
+  * Memory types for Stage-2 translation
+diff --git a/arch/arm64/include/asm/pgtable-prot.h b/arch/arm64/include/asm/pgtable-prot.h
+index 2142c77..ae963e6 100644
+--- a/arch/arm64/include/asm/pgtable-prot.h
++++ b/arch/arm64/include/asm/pgtable-prot.h
+@@ -42,6 +42,7 @@
+ #define PROT_NORMAL_NC		(PROT_DEFAULT | PTE_PXN | PTE_UXN | PTE_DIRTY | PTE_WRITE | PTE_ATTRINDX(MT_NORMAL_NC))
+ #define PROT_NORMAL_WT		(PROT_DEFAULT | PTE_PXN | PTE_UXN | PTE_DIRTY | PTE_WRITE | PTE_ATTRINDX(MT_NORMAL_WT))
+ #define PROT_NORMAL		(PROT_DEFAULT | PTE_PXN | PTE_UXN | PTE_DIRTY | PTE_WRITE | PTE_ATTRINDX(MT_NORMAL))
++#define PROT_NORMAL_OC_INC	(PROT_DEFAULT | PTE_PXN | PTE_UXN | PTE_DIRTY | PTE_WRITE | PTE_ATTRINDX(MT_NORMAL_OC_INC))
+ 
+ #define PROT_SECT_DEVICE_nGnRE	(PROT_SECT_DEFAULT | PMD_SECT_PXN | PMD_SECT_UXN | PMD_ATTRINDX(MT_DEVICE_nGnRE))
+ #define PROT_SECT_NORMAL	(PROT_SECT_DEFAULT | PMD_SECT_PXN | PMD_SECT_UXN | PMD_ATTRINDX(MT_NORMAL))
+diff --git a/arch/arm64/mm/proc.S b/arch/arm64/mm/proc.S
+index 352c73b..7a267dc 100644
+--- a/arch/arm64/mm/proc.S
++++ b/arch/arm64/mm/proc.S
+@@ -199,15 +199,17 @@ ENTRY(__cpu_setup)
+ 	 *   DEVICE_nGnRE	001	00000100
+ 	 *   DEVICE_GRE		010	00001100
+ 	 *   NORMAL_NC		011	01000100
+-	 *   NORMAL		100	11111111
++	 *   NORMAL	        100	11111111
+ 	 *   NORMAL_WT		101	10111011
++     *   NORMAL_OC_INC  110 11110100
+ 	 */
+ 	ldr	x5, =MAIR(0x00, MT_DEVICE_nGnRnE) | \
+ 		     MAIR(0x04, MT_DEVICE_nGnRE) | \
+ 		     MAIR(0x0c, MT_DEVICE_GRE) | \
+ 		     MAIR(0x44, MT_NORMAL_NC) | \
+ 		     MAIR(0xff, MT_NORMAL) | \
+-		     MAIR(0xbb, MT_NORMAL_WT)
++		     MAIR(0xbb, MT_NORMAL_WT) | \
++             MAIR(0xF4, MT_NORMAL_OC_INC)
+ 	msr	mair_el1, x5
+ 	/*
+ 	 * Prepare SCTLR
+diff --git a/include/linux/mm.h b/include/linux/mm.h
+index a92c8d7..4f0b8c9 100644
+--- a/include/linux/mm.h
++++ b/include/linux/mm.h
+@@ -197,6 +197,7 @@ extern unsigned int kobjsize(const void *objp);
+ #define VM_NOHUGEPAGE	0x40000000	/* MADV_NOHUGEPAGE marked this vma */
+ #define VM_MERGEABLE	0x80000000	/* KSM may merge identical pages */
+ 
++
+ #ifdef CONFIG_ARCH_USES_HIGH_VMA_FLAGS
+ #define VM_HIGH_ARCH_BIT_0	32	/* bit only usable on 64-bit architectures */
+ #define VM_HIGH_ARCH_BIT_1	33	/* bit only usable on 64-bit architectures */
+@@ -208,6 +209,9 @@ extern unsigned int kobjsize(const void *objp);
+ #define VM_HIGH_ARCH_3	BIT(VM_HIGH_ARCH_BIT_3)
+ #endif /* CONFIG_ARCH_USES_HIGH_VMA_FLAGS */
+ 
++#define VM_CACHED	VM_ARCH_1	/*  */
++#define VM_OC_INC	VM_ARCH_2	/*  */
++
+ #if defined(CONFIG_X86)
+ # define VM_PAT		VM_ARCH_1	/* PAT reserves whole VMA at once (x86) */
+ #if defined (CONFIG_X86_INTEL_MEMORY_PROTECTION_KEYS)
+diff --git a/include/uapi/asm-generic/mman-common.h b/include/uapi/asm-generic/mman-common.h
+index 8c27db0..e61d97c 100644
+--- a/include/uapi/asm-generic/mman-common.h
++++ b/include/uapi/asm-generic/mman-common.h
+@@ -18,7 +18,10 @@
+ #define MAP_PRIVATE	0x02		/* Changes are private */
+ #define MAP_TYPE	0x0f		/* Mask for type of mapping */
+ #define MAP_FIXED	0x10		/* Interpret addr exactly */
++
+ #define MAP_ANONYMOUS	0x20		/* don't use a file */
++#define MAP_CACHED  0x40 /* Map as cacheable */
++#define MAP_OC_INC  0x80 /* Map as Outer Cacheable, Inner non-cacheable */
+ #ifdef CONFIG_MMAP_ALLOW_UNINITIALIZED
+ # define MAP_UNINITIALIZED 0x4000000	/* For anonymous mmap, memory could be uninitialized */
+ #else
+diff --git a/mm/mmap.c b/mm/mmap.c
+index 1af87c1..83a0af4 100644
+--- a/mm/mmap.c
++++ b/mm/mmap.c
+@@ -1447,6 +1447,14 @@ unsigned long do_mmap(struct file *file, unsigned long addr,
+ 			vm_flags |= VM_NORESERVE;
+ 	}
+ 
++    if (flags & MAP_CACHED) {
++        vm_flags |= VM_CACHED;
++    }
++
++    if (flags & MAP_OC_INC) {
++        vm_flags |= VM_OC_INC;
++    }
++
+ 	addr = mmap_region(file, addr, len, vm_flags, pgoff);
+ 	if (!IS_ERR_VALUE(addr) &&
+ 	    ((vm_flags & VM_LOCKED) ||
+@@ -1582,6 +1590,37 @@ static inline int accountable_mapping(struct file *file, vm_flags_t vm_flags)
+ 	return (vm_flags & (VM_NORESERVE | VM_SHARED | VM_WRITE)) == VM_WRITE;
+ }
+ 
++struct page_change_data {
++    pgprot_t set_mask;
++    pgprot_t clear_mask;
++};
++
++static int change_page_range(pte_t *ptep, pgtable_t token, unsigned long addr,
++                                     void *data)
++{
++    struct page_change_data *cdata = data;
++    pte_t pte = *ptep;
++
++    pte = clear_pte_bit(pte, cdata->clear_mask);
++    pte = set_pte_bit(pte, cdata->set_mask);
++
++    set_pte(ptep, pte);
++    return 0;
++}
++
++static int __change_memory_common_mm(struct vm_area_struct * vma,
++        pgprot_t set_mask, pgprot_t clear_mask)
++{
++    struct page_change_data data;
++    int ret;
++
++    data.set_mask = set_mask;
++    data.clear_mask = clear_mask;
++    ret = apply_to_page_range(vma->vm_mm, vma->vm_start,
++            vma->vm_end - vma->vm_start, change_page_range, &data);
++    return ret;
++}
++
+ unsigned long mmap_region(struct file *file, unsigned long addr,
+ 		unsigned long len, vm_flags_t vm_flags, unsigned long pgoff)
+ {
+@@ -1724,6 +1763,14 @@ unsigned long mmap_region(struct file *file, unsigned long addr,
+ 
+ 	vma_set_page_prot(vma);
+ 
++    if (vm_flags & VM_CACHED) {
++        __change_memory_common_mm(vma, __pgprot(PTE_ATTRINDX(MT_NORMAL)), __pgprot(PTE_ATTRINDX(MT_MASK)));
++    }
++
++    if (vm_flags & VM_OC_INC) {
++        __change_memory_common_mm(vma, __pgprot(PTE_ATTRINDX(MT_NORMAL_OC_INC)), __pgprot(PTE_ATTRINDX(MT_MASK)));
++    }
++
+ 	return addr;
+ 
+ unmap_and_free_vma:
+-- 
+2.7.4
+
