@@ -2,3 +2,7 @@
 	path = Petalinux-v2018.3
 	url = https://github.com/denishoornaert/Petalinux-v2018.3.git
 	branch = main
+[submodule "jailhouse-rt"]
+	path = jailhouse-rt
+	url = https://github.com/rntmancuso/jailhouse-rt.git
+	branch = wip/fiq
