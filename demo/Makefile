@@ -1,7 +1,7 @@
 COMPILER_ARM = aarch64-linux-gnu-gcc
 FLAGS = -lpthread -lrt
 
-all: fp_read fp_write fp_write_once spam config_schim_tdma tdma_read tdma_write poke populate contention mg_read mg_write getid getid+1 getid32 getid32+1 colouring_test periodic_freeze brainfreeze config_schim_fp
+all: init fp_read fp_write fp_write_once spam config_schim_tdma tdma_read tdma_write poke populate contention mg_read mg_write getid getid+1 getid32 getid32+1 colouring_test periodic_freeze brainfreeze config_schim_fp
 
 periodic_freeze: src/periodic_freeze.c objects/tool.o
 	$(COMPILER_ARM) src/periodic_freeze.c -o exec/periodic_freeze.out $(FLAGS) objects/tool.o
@@ -65,6 +65,10 @@ spam: src/brainfreeze.c objects/tool.o
 
 objects/tool.o: include/tool.h src/tool.c
 	$(COMPILER_ARM) -c src/tool.c -o objects/tool.o $(FLAGS)
+
+init:
+	mkdir -p exec
+	mkdir -p objects
 
 clean:
 	rm -f exec/*.out
