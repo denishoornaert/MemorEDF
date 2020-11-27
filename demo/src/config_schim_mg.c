@@ -39,7 +39,7 @@ int main(int argc, char** argv) {
     struct configuration* config = mmap((void*)0, LPD0_SIZE, PROT_EXEC|PROT_READ|PROT_WRITE, MAP_SHARED, lpd_fd, LPD0_ADDR);
 
 
-    // Set the period registers (default: 0x002faf08)
+    // Set the period registers
     (*config).periods[0] = 0x00000000;
     (*config).periods[1] = 0x00000000;
     (*config).periods[2] = 0x00000000;
