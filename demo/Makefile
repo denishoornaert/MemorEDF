@@ -1,7 +1,7 @@
 COMPILER_ARM = aarch64-linux-gnu-gcc
 FLAGS = -lpthread -lrt
 
-all: init fp_read fp_write config_schim_tdma tdma_read tdma_write poke populate mg_read mg_write config_schim_fp
+all: init fp_read fp_write config_schim_tdma tdma_read tdma_write poke populate ts_read ts_write config_schim_fp
 
 config_schim_fp: src/config_schim_fp.c objects/tool.o
 	$(COMPILER_ARM) src/config_schim_fp.c -o exec/config_schim_fp.out $(FLAGS) objects/tool.o
@@ -21,11 +21,11 @@ fp_read: src/fp_read.c objects/tool.o
 fp_write: src/fp_write.c objects/tool.o
 	$(COMPILER_ARM) src/fp_write.c -o exec/fp_write.out $(FLAGS) objects/tool.o
 
-mg_read: src/mg_read.c objects/tool.o
-	$(COMPILER_ARM) src/mg_read.c -o exec/mg_read.out $(FLAGS) objects/tool.o
+ts_read: src/ts_read.c objects/tool.o
+	$(COMPILER_ARM) src/ts_read.c -o exec/ts_read.out $(FLAGS) objects/tool.o
 
-mg_write: src/mg_write.c objects/tool.o
-	$(COMPILER_ARM) src/mg_write.c -o exec/mg_write.out $(FLAGS) objects/tool.o
+ts_write: src/ts_write.c objects/tool.o
+	$(COMPILER_ARM) src/ts_write.c -o exec/ts_write.out $(FLAGS) objects/tool.o
 
 poke: src/poke.c objects/tool.o
 	$(COMPILER_ARM) src/poke.c -o exec/poke.out $(FLAGS) objects/tool.o
