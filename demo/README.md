@@ -126,12 +126,26 @@ exec/populate.out a0000000 2048
 ### Blast fake colored
 **Remarks:**
  - Assume to be run on core 0 (coloring: ```0xf000``` see ```doc/```)
+ - Does not measure anything (see [Spam fake colored](#spam-fake-colored) for that)
 
  Usage
  ```bash
- exec/spam_fake_colored.out <address-40bit-hex> <mode-either-r-or-w>
+ exec/blast_fake_colored.out <address-40bit-hex> <mode-either-r-or-w>
  ```
  For instance
  ```bash
- exec/spam_fake_colored.out 1000000000 r
+ exec/blast_fake_colored.out 1000000000 r
  ```
+
+### Spam fake colored
+**Remarks:**
+- Assume to be run on core 0 (coloring: ```0xf000``` see ```doc/```)
+
+Usage
+```bash
+exec/spam_fake_colored.out <address-40bit-hex> <mode-either-r-or-w>
+```
+For instance
+```bash
+exec/spam_fake_colored.out 1000000000 r
+```
