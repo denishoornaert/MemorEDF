@@ -1,5 +1,18 @@
 # Demos
 
+#### Content
+1. [SchIM module configurator](#schim-module-configurators)
+    1. [Time Disiion Multiple Access](#time-division-multiple-access)
+    2. [Traffic shaping](#traffic-shaping)
+    3. [Fixed Priority](#fixed-priority)
+2. [Schedulers synthetic benchmarks](#schedulers-synthetic-benchmarks)
+    1. [Time Disiion Multiple Access](#time-division-multiple-access)
+    2. [Traffic shaping](#traffic-shaping)
+    3. [Fixed Priority](#fixed-priority)
+3. [Utils](#utils)
+    1. [Poke](#poke)
+    2. [Populate](#populate)
+
 ## Organisation
 The present folder's organisation is as follows:
  - ```exec/``` contains the executables
