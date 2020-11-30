@@ -1,13 +1,16 @@
 COMPILER_ARM = aarch64-linux-gnu-gcc
 FLAGS = -lpthread -lrt
 
-all: init blast_fake_colored spam_fake_colored fp_read fp_write config_schim_tdma tdma_read tdma_write poke populate ts_read ts_write config_schim_fp
+all: init blast_fake_colored spam_fake_colored fp_read fp_write config_schim_tdma tdma_read tdma_write poke populate ts_read ts_write config_schim_fp config_schim_ts
 
 config_schim_fp: src/config_schim_fp.c objects/tool.o
 	$(COMPILER_ARM) src/config_schim_fp.c -o exec/config_schim_fp.out $(FLAGS) objects/tool.o
 
 config_schim_tdma: src/config_schim_tdma.c objects/tool.o
 	$(COMPILER_ARM) src/config_schim_tdma.c -o exec/config_schim_tdma.out $(FLAGS) objects/tool.o
+
+config_schim_ts: src/config_schim_ts.c objects/tool.o
+	$(COMPILER_ARM) src/config_schim_ts.c -o exec/config_schim_ts.out $(FLAGS) objects/tool.o
 
 tdma_read: src/tdma_read.c objects/tool.o
 	$(COMPILER_ARM) src/tdma_read.c -o exec/tdma_read.out $(FLAGS) objects/tool.o
