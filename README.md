@@ -9,7 +9,7 @@
  - ```boot/``` pre-built version of Linux and bitstream
  - ```rootfs/``` pre-compiled version of the home directory required for the experiments
  - ```init_submodules.sh``` script in charge of recursively clone the sub-repositories
- - ```quick_deploy.sh``` script to ease the deployment. Currently copy around the programs from demo
+ - ```quick_deploy.sh``` script to ease the deployment. Currently copy around the programs from demo [here](#quick-deploy-script)
 
 ## Requirements
 
@@ -19,12 +19,47 @@
 
 ## Setting-up
 
-At first time, run
+Firstly, run the following line in order to setup your local repository
 ```bash
 ./init_submodules.sh
 ```
 
-Setting up the rootfs can be done with
+Secondly, modify the ```deploy.config``` file to suit your local configuration.
+
+Thirdly, build the complete project and copy it to the SD-card with the following command
 ```bash
-./quick_deploy.sh
+./quick_deploy.sh --petalinux clean,build,copy --programs clean,build,copy --jailhouse clean,build,copy
+```
+**Remark:** the ```quick_deplpoy.sh``` can be used later on to independently build, clean or copy parts of the projects. Further information can be found [here](#quick-deploy-script).
+
+## Quick deploy script
+```
+Usage: quick_deploy.sh [OPTION [ACTION,...]]
+
+Options:
+    --programs  [ACTION,...]        Indicates what actions to perform regarding
+                                    the programs located in demo/
+    --petalinux [ACTION,...]        Indicates what actions to perform regarding
+                                    the petalinux project
+    --jailhouse [ACTION,...]        Indicates what actions to perform regarding
+                                    the jailhouse-rt project
+    --petalinux-path                Indicates the path to the Petalinux project
+                                    in use (Note: if not specified, default path
+                                    is taken from deploy.config)
+    --boot-path                     Indicates the path to the SD card boot
+                                    partition (Note: if not specified, default
+                                    path is taken from deploy.config)
+    --root-path                     Indicates the path to the SD card root FS
+                                    partition (Note: if not specified, default
+                                    path is taken from deploy.config)
+
+Actions:
+    clean                           Clean the targeted project (Note: always
+                                    performed first when called alongside other
+                                    actions)
+    build                           Build the targeted project (Note: always
+                                    performed after a clean and before a copy if
+                                    any)
+    copy                            Copy the outcome of the targeted project to
+                                    the relevant path
 ```
