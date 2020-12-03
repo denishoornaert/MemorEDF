@@ -71,7 +71,6 @@ if [[ $petalinux_copy ]]; then
     ## To boot partition
     cp $path_to_petalinux$project/images/linux/BOOT.BIN boot/
     cp $path_to_petalinux$project/images/linux/Image boot/
-    cp $path_to_petalinux$project/images/linux/system.dtb boot/
     ## Decompress .cpio
     current_path=`pwd`
     cd $path_to_rootfs
