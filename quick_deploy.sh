@@ -10,13 +10,13 @@ eval set --$opts
 while true; do
     case "$1" in
     --petalinux)
-        options=(`echo $2 | tr ',' ' '`)
+        options=(`echo -e $2 | tr ',' ' '`)
         for i in "${options[@]}"; do declare ${1:2}"_"$i=true; done;;
     --jailhouse)
-        options=(`echo $2 | tr ',' ' '`)
+        options=(`echo -e $2 | tr ',' ' '`)
         for i in "${options[@]}"; do declare ${1:2}"_"$i=true; done;;
     --programs)
-        options=(`echo $2 | tr ',' ' '`)
+        options=(`echo -e $2 | tr ',' ' '`)
         for i in "${options[@]}"; do declare ${1:2}"_"$i=true; done;;
     --petalinux-path)
         path_to_petalinux=$2;;
@@ -42,7 +42,7 @@ if [[ $petalinux_clean ]]; then
 fi
 
 if [[ $petalinux_build ]]; then
-    echo "[SchIM Deploy] Buidling the Petalinux project"
+    echo -e "${info}[SchIM Deploy] Buidling the Petalinux project${norm}"
     # Build petalinux
     current_path=`pwd`
     cd $path_to_petalinux
@@ -52,7 +52,7 @@ if [[ $petalinux_build ]]; then
 fi
 
 if [[ $petalinux_package ]]; then
-    echo "[SchIM Deploy] Packaging the Petalinux project"
+    echo -e "${info}[SchIM Deploy] Packaging the Petalinux project${norm}"
     # package petalinux
     current_path=`pwd`/
     cd $path_to_petalinux
@@ -62,7 +62,7 @@ if [[ $petalinux_package ]]; then
 fi
 
 if [[ $petalinux_copy ]]; then
-    echo "[SchIM Deploy] Copying the Petalinux project to the SD-card"
+    echo -e "${info}[SchIM Deploy] Copying the Petalinux project to the SD-card${norm}"
     # Copy petalinux kernel
     ## To SD-card
     sudo cp $path_to_petalinux$project/images/linux/BOOT.BIN $path_to_boot
@@ -80,7 +80,7 @@ if [[ $petalinux_copy ]]; then
 fi
 
 if [[ $programs_clean ]]; then
-    echo "[SchIM Deploy] Cleaning the custom programs"
+    echo -e "${info}[SchIM Deploy] Cleaning the custom programs${norm}"
     # Clean custom programs
     cd demo/
     make clean
@@ -88,7 +88,7 @@ if [[ $programs_clean ]]; then
 fi
 
 if [[ $programs_build ]]; then
-    echo "[SchIM Deploy] Building the custom programs"
+    echo -e "${info}[SchIM Deploy] Building the custom programs${norm}"
     # Build custom programs
     cd demo/
     make
@@ -105,13 +105,13 @@ if [[ $programs_build ]]; then
 fi
 
 if [[ $programs_copy ]]; then
-    echo "[SchIM Deploy] Copying the custom programs to the SD-card"
+    echo -e "${info}[SchIM Deploy] Copying the custom programs to the SD-card${norm}"
     # Copy rootfs/ to SD card
     sudo cp -r rootfs/* $path_to_rootfs/home/root/
 fi
 
 if [[ $jailhouse_clean ]]; then
-    echo "[SchIM Deploy] Cleaning the jailhouse-rt project"
+    echo -e "${info}[SchIM Deploy] Cleaning the jailhouse-rt project${norm}"
     # Clean jailhouse-rt
     cd $path_to_jailhouse
     make clean
@@ -119,7 +119,7 @@ if [[ $jailhouse_clean ]]; then
 fi
 
 if [[ $jailhouse_build ]]; then
-    echo "[SchIM Deploy] Building the jailhouse-rt project"
+    echo -e "${info}[SchIM Deploy] Building the jailhouse-rt project${norm}"
     # Create necessary file
     touch $path_to_jailhouse/include/jailhouse/config.h
     printf "#define CONFIG_MACH_ZYNQMP_ZCU102 1\n#if CONFIG_MACH_ZYNQMP_ZCU102 == 1\n#define CONFIG_TRACE_ERROR 1\n#define CONFIG_ARM_GIC_V2 1\n#endif /* CONFIG_MACH_ZYNQMP_ZCU102 */\n" > $path_to_jailhouse/include/jailhouse/config.h
@@ -130,7 +130,7 @@ if [[ $jailhouse_build ]]; then
 fi
 
 if [[ $jailhouse_copy ]]; then
-    echo "[SchIM Deploy] Copying the jailhouse-rt project to the SD-card"
+    echo -e "${info}[SchIM Deploy] Copying the jailhouse-rt project to the SD-card${norm}"
     # Copy jailhouse-rt
     sudo cp -r $path_to_jailhouse $path_to_rootfs/home/root/
 fi
