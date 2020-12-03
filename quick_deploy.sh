@@ -63,14 +63,17 @@ fi
 
 if [[ $petalinux_copy ]]; then
     echo -e "${info}[SchIM Deploy] Copying the Petalinux project to the SD-card${norm}"
-    # Copy petalinux kernel
-    ## To SD-card
-    sudo cp $path_to_petalinux$project/images/linux/BOOT.BIN $path_to_boot
-    sudo cp $path_to_petalinux$project/images/linux/Image $path_to_boot
-    sudo cp $path_to_petalinux$project/images/linux/rootfs.cpio $path_to_rootfs
-    ## To boot partition
+    # Copy petalinux Image
+    ## To pre-built boot partition
     cp $path_to_petalinux$project/images/linux/BOOT.BIN boot/
     cp $path_to_petalinux$project/images/linux/Image boot/
+    ## To SD-card
+    sudo cp boot/BOOT.BIN $path_to_boot
+    sudo cp boot/Image $path_to_boot
+    sudo cp boot/system.dtb $path_to_boot
+    # Copy .cpio of rootfs
+    ## to SD-cad
+    sudo cp $path_to_petalinux$project/images/linux/rootfs.cpio $path_to_rootfs
     ## Decompress .cpio
     current_path=`pwd`
     cd $path_to_rootfs
