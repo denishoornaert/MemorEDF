@@ -18,17 +18,32 @@
  - A Xilinx ZCU102
 
 ## Setting-up
-
-Firstly, run the following line in order to setup your local repository
+Run the following line in order to setup your local repository
 ```bash
 ./init_submodules.sh
 ```
 
-Secondly, modify the ```deploy.config``` file to suit your local configuration.
+### Petalinux
+ 1. Create a petalinux project
+ 2. Configure the petalinux project such that it considers our custom ATF and petalinux kernel
+    ```bash
+    petalinux-config
+    ```
+ 3. Configure the kernel such that ```OVERLAYS``` and ```KALLSYMS``` flags are set.
 
-Thirdly, build the complete project and copy it to the SD-card with the following command
+### Remaining
+
+Modify the ```deploy.config``` file to suit your local configuration.
+
+Source Petalinux manually
 ```bash
-./quick_deploy.sh --petalinux clean,build,copy --programs clean,build,copy --jailhouse clean,build,copy
+source path/to/petalinux/settings.sh
+```
+**Remark:** this is only required when using the ```petalinux``` option of the ```quick_deploy``` [script](#quick-deploy-script).
+
+Build the complete project and copy it to the SD-card with the following command
+```bash
+./quick_deploy.sh --petalinux build,package,copy --programs clean,build,copy --jailhouse clean,build,copy
 ```
 **Remark:** the ```quick_deplpoy.sh``` can be used later on to independently build, clean or copy parts of the projects. Further information can be found [here](#quick-deploy-script).
 
@@ -62,4 +77,5 @@ Actions:
                                     any)
     copy                            Copy the outcome of the targeted project to
                                     the relevant path
+    package                         Petalinux only
 ```
