@@ -29,7 +29,20 @@ Run the following line in order to setup your local repository
     ```bash
     petalinux-config
     ```
- 3. Configure the kernel such that ```OVERLAYS``` and ```KALLSYMS``` flags are set.
+ 3. Configure the kernel such that ```OVERLAYS``` and ```KALLSYMS``` flags are set. The exact path to activate the former is
+ ```
+General setup --->
+        Configure standard kernel feature (expert users) --->
+            Load all symbols for debbuging/ksymoops
+
+ ```
+ while the former is
+ ```
+Device Drivers --->
+        Device Tree and Open Firmware support --->
+            Device Tree overlays
+
+ ```
 
 ### Remaining
 
