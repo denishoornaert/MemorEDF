@@ -1,5 +1,11 @@
 # MemorEDF-Demonstration
 
+![Revison](https://img.shields.io/badge/Revision-1.0-yellow)
+![Tested](https://img.shields.io/badge/Tested-Yes-green)
+![Synthesisable](https://img.shields.io/badge/Synthesis-Yes-green)
+![Deployed](https://img.shields.io/badge/Deployed-Yes-green)
+
+
 ## Organization
 
  - ```ARM-Trusted-Firmware-FIQ/``` contains the custom (and required) ARM ATF version
@@ -13,9 +19,10 @@
 
 ## Requirements
 
- - Petalinux 2018.3
- - SD card with a boot partition of at least 1GB and and a root partition
  - A Xilinx ZCU102
+ - Petalinux 2018.3
+ - ZCU102 BSP version 2018.3
+ - SD card with a boot partition of at least 1GB and and a root partition
 
 ## Setting-up
 Run the following line in order to setup your local repository
@@ -46,15 +53,17 @@ Device Drivers --->
 
 ### Remaining
 
-Modify the ```deploy.config``` file to suit your local configuration.
+ 1. Modify the ```deploy.config``` file to suit your local configuration.
 
-Source Petalinux manually
+ 2. Source Petalinux manually
 ```bash
 source path/to/petalinux/settings.sh
 ```
 **Remark:** this is only required when using the ```petalinux``` option of the ```quick_deploy``` [script](#quick-deploy-script).
 
-Build the complete project and copy it to the SD-card with the following command
+ 3. Make sure to be at the root folder of the project.
+
+ 4. Build the complete project and copy it to the SD-card with the following command
 ```bash
 ./quick_deploy.sh --petalinux build,package,copy --programs clean,build,copy --jailhouse clean,build,copy
 ```
