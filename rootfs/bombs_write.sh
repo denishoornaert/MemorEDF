@@ -1,7 +1,7 @@
 #!/bin/bash
 
-jh_path=/home/root/jailhouse-rt
-comm_base=0x60700000
+source jailhouse.config
+
 off=0
 
 size=0x400000
@@ -10,14 +10,14 @@ mg_budget=0
 
 while getopts "s:vm:" options
 do
-	case "${options}" in 
-	s) 
+	case "${options}" in
+	s)
 	   size=${OPTARG}
 	   ;;
 	v)
 	   verbose=1
 	   ;;
-	m) 
+	m)
     	   mg_budget=${OPTARG}
 	   ;;
 	esac
@@ -36,9 +36,7 @@ do
     	devmem $((comm_base + off)) 32 0x0d
 	usleep 500000
     else
-        devmem $((comm_base + off)) 32 0x5 
+        devmem $((comm_base + off)) 32 0x5
     fi
     off=$((off + 4096))
 done
-
-

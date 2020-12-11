@@ -1,7 +1,6 @@
 #!/bin/bash
 
-jh_path=/home/root/jailhouse-rt
-img_path=/home/root/inmate_imgs
+source jailhouse.config
 
 cd $jh_path
 

@@ -1,7 +1,7 @@
 #!/bin/bash
 
-jh_path=/home/root/jailhouse-rt-fiq_enabled
-comm_base=0x820000000
+source jailhouse.config
+
 off=0
 for i in $(seq 0 $1)
 do

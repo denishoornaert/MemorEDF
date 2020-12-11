@@ -2,8 +2,8 @@
 
 ./config_schim_tdma.out $1 $2 $3 $4 $5 $6 $7 $8
 
-jh_path=/home/root/jailhouse-rt-fiq_enabled
-comm_base=0x820000000
+source jailhouse.config
+
 off=0
 for i in $(seq 0 2)
 do

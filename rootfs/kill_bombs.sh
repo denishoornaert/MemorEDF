@@ -1,7 +1,7 @@
 #!/bin/bash
 
-jh_path=/home/root/jailhouse-rt
-comm_base=0x060700000
+source jailhouse.config
+
 off=0
 
 for i in $(seq 1 2)
@@ -11,4 +11,3 @@ done
 
 echo "LIST OF CELLS:"
 $jh_path/tools/jailhouse cell list
-
