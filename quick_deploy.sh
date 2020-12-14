@@ -31,7 +31,8 @@ while true; do
     shift
 done
 
-sudo echo ""
+# Aim at asking sudo right without printing anything
+sudo printf ""
 
 if [[ $petalinux_clean ]]; then
     echo -e "${info}[SchIM Deploy] Cleaning the Petalinux project${norm}"
