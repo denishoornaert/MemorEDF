@@ -9,7 +9,7 @@ prefix=-col
 if [ $mode = "main-route" ]; then
     prefix=-col-main-route
 elif [ $mode = "dual-slave" ]; then
-    prefix=-col-dual-slave
+    prefix=-col-dual-slave-cached
 elif [ $mode = "simple-loop-back" ]; then
     prefix=-col-simple-loop-back
 else
