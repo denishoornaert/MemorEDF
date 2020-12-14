@@ -50,10 +50,10 @@ SchIM_TDMA = [
     np.average(read("SchIM_TDMA/4_cores.csv", 1))
 ]
 SchIM_MG = [
-    np.average(read("SchIM_MG/1_cores.csv", 1)),
-    np.average(read("SchIM_MG/2_cores.csv", 1)),
-    np.average(read("SchIM_MG/3_cores.csv", 1)),
-    np.average(read("SchIM_MG/4_cores.csv", 1))
+    np.average(read("SchIM_TS/1_cores.csv", 1)),
+    np.average(read("SchIM_TS/2_cores.csv", 1)),
+    np.average(read("SchIM_TS/3_cores.csv", 1)),
+    np.average(read("SchIM_TS/4_cores.csv", 1))
 ]
 
 bar_width = 0.2
