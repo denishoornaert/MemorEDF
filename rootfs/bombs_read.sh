@@ -1,6 +1,7 @@
 #!/bin/bash
 
 source jailhouse.config
+source experiences/profile.config
 
 off=0
 
@@ -23,7 +24,7 @@ do
 	esac
 done
 
-for i in $(seq 1 2)
+for i in $(seq $first_bomb $last_bomb)
 do
     # Stop any activity in the mem. bomb
 
