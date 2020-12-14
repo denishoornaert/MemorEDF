@@ -113,6 +113,8 @@ if [[ $programs_copy ]]; then
     echo -e "${info}[SchIM Deploy] Copying the custom programs to the SD-card${norm}"
     # Copy rootfs/ to SD card
     sudo cp -r rootfs/* $path_to_rootfs/home/root/
+    ## Explicitely copy the .bashrc file
+    sudo cp rootfs/.bashrc $path_to_rootfs/home/root/
 fi
 
 if [[ $jailhouse_clean ]]; then
@@ -138,4 +140,10 @@ if [[ $jailhouse_copy ]]; then
     echo -e "${info}[SchIM Deploy] Copying the jailhouse-rt project to the SD-card${norm}"
     # Copy jailhouse-rt
     sudo cp -r $path_to_jailhouse $path_to_rootfs/home/root/
+    # Install Jailhouse
+    sudo cp $path_to_jailhouse/driver/jailhouse.ko $path_to_rootfs/lib/modules/${linux_kernel_version}/
+    sudo cp $path_to_jailhouse/tools/jailhouse $path_to_rootfs/bin
+    sudo cp $path_to_jailhouse/tools/jailhouse-cell-linux $path_to_rootfs/bin
+    sudo mkdir -p $path_to_rootfs/lib/firmware
+    sudo cp $path_to_jailhouse/hypervisor/jailhouse.bin $path_to_rootfs/lib/firmware
 fi
