@@ -2,17 +2,15 @@
 
 set -e
 source jailhouse.config
+source experiences/profile.config
 
-mode="main-route"
-first_bomb=1
-last_bomb=3
 prefix=-col
 
-if [[ $mode -eq "main-route" ]]; then
+if [ $mode = "main-route" ]; then
     prefix=-col-main-route
-elif [[ $mode -eq "dual-slave" ]]; then
+elif [ $mode = "dual-slave" ]; then
     prefix=-col-dual-slave
-elif [[ $mode -eq "simple-loop-back" ]]; then
+elif [ $mode = "simple-loop-back" ]; then
     prefix=-col-simple-loop-back
 else
     echo "No mode matching! (Abort)"
