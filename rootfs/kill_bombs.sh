@@ -1,10 +1,11 @@
 #!/bin/bash
 
 source jailhouse.config
+source experiences/profile.config
 
 off=0
 
-for i in $(seq 1 2)
+for i in $(seq $first_bomb $last_bomb)
 do
     $jh_path/tools/jailhouse cell destroy $i
 done
