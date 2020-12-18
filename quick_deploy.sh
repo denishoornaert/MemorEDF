@@ -113,8 +113,6 @@ if [[ $programs_copy ]]; then
     echo -e "${info}[SchIM Deploy] Copying the custom programs to the SD-card${norm}"
     # Copy rootfs/ to SD card
     sudo cp -r rootfs/* $path_to_rootfs/home/root/
-    ## Explicitely copy the .bashrc file
-    sudo cp rootfs/.bashrc $path_to_rootfs/home/root/
 fi
 
 if [[ $jailhouse_clean ]]; then
