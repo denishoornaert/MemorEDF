@@ -7,6 +7,15 @@ source ~/common/jailhouse.config
 cp $1 ~/experiences/profile.config
 source ~/experiences/profile.config
 
+# Load the jailhouse root cell for SchIM
+if (lsmod | grep "jailhouse" &> /dev/null)
+then
+    :; # do nothing
+else
+    insmod $jh_path/driver/jailhouse.ko
+    jailhouse enable $jh_path/configs/arm64/schim-root.cell
+fi
+
 # Configure SchIM acording to the experiment profile
 if [ "$scheduling_policy" = "fp" ]; then
     ~/common/config_schim_"$scheduling_policy".out $priorities $threshold_core_0 $threshold_core_1 $threshold_core_2 $threshold_core_3
@@ -22,9 +31,9 @@ else
 fi
 
 # Load colored Memory Bomb cells
-~/load_col_bombs.sh >> /dev/null
+~/common/load_col_bombs.sh >> /dev/null
 # Start Memory Bombs in either Read or Write mode
-~/bombs_"$bombing_mode".sh >> /dev/null
+~/common/bombs_"$bombing_mode".sh >> /dev/null
 # If not yet created, creates the destination directory
 mkdir -p $dest_dir
 
@@ -45,7 +54,7 @@ for (( i = $((last_bomb+1)); i > 1; i-- )); do
         exit 1
     fi
     # Kill one cell
-    ${jh_path}/tools/jailhouse cell destroy $((i-1)) >> /dev/null
+    jailhouse cell destroy $((i-1)) >> /dev/null
 done
 # Run alone
 # Create output raw data file
