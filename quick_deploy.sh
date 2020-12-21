@@ -105,6 +105,7 @@ if [[ $programs_build ]]; then
     cp demo/exec/config_schim_ts.out rootfs/common/
     ## Spam to synthetic
     cp demo/exec/spam_fake_colored.out rootfs/synthetic/
+    cp demo/exec/threshold_bw.out rootfs/synthetic/
     ## Blast to benchmarks
     cp demo/exec/blast_fake_colored.out rootfs/benchmarks/
 fi
@@ -137,11 +138,14 @@ fi
 if [[ $jailhouse_copy ]]; then
     echo -e "${info}[SchIM Deploy] Copying the jailhouse-rt project to the SD-card${norm}"
     # Copy jailhouse-rt
-    sudo cp -r $path_to_jailhouse $path_to_rootfs/home/root/
+    sudo cp -r $path_to_jailhouse $path_to_rootfs/home/root/ # TODO useful
     # Install Jailhouse
     sudo cp $path_to_jailhouse/driver/jailhouse.ko $path_to_rootfs/lib/modules/${linux_kernel_version}/
     sudo cp $path_to_jailhouse/tools/jailhouse $path_to_rootfs/bin
     sudo cp $path_to_jailhouse/tools/jailhouse-cell-linux $path_to_rootfs/bin
     sudo mkdir -p $path_to_rootfs/lib/firmware
     sudo cp $path_to_jailhouse/hypervisor/jailhouse.bin $path_to_rootfs/lib/firmware
+    sudo cp -r $path_to_jailhouse/pyjailhouse/ $path_to_rootfs/usr/lib/python2.7/
 fi
+#sudo cp python/* /media/denis/rootfs1/usr/bin/
+#sudo cp libpython/ /media/denis/rootfs1/usr/lib/
