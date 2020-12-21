@@ -21,13 +21,15 @@
 
 module Scheduler
     #(
-        parameter NUMBER_OF_QUEUES     = 4,
-        parameter REGISTER_SIZE        = 32,
-        parameter PRIORITY_SIZE        = 4,
-        parameter TDMA_ENABLED         = 1,
-        parameter EDF_ENABLED          = 1,
-        parameter FP_ENABLED           = 1,
-        parameter MG_ENABLED           = 1
+        parameter NUMBER_OF_QUEUES       = 4,
+        parameter REGISTER_SIZE          = 32,
+        parameter PRIORITY_SIZE          = 4,
+        parameter TDMA_ENABLED           = 1,
+        parameter EDF_ENABLED            = 1,
+        parameter FP_ENABLED             = 1,
+        parameter MG_ENABLED             = 1,
+        parameter PRNG_FIBONACCI_ENABLED = 1,
+        parameter PRNG_GALLOIS_ENABLED   = 1
     )
     (
         clock,
@@ -48,7 +50,7 @@ module Scheduler
         enable
     );
 
-    localparam NUMBER_OF_SCHEDULERS = TDMA_ENABLED + EDF_ENABLED + FP_ENABLED + MG_ENABLED;
+    localparam NUMBER_OF_SCHEDULERS = TDMA_ENABLED + EDF_ENABLED + FP_ENABLED + MG_ENABLED + PRNG_FIBONACCI_ENABLED + PRNG_GALLOIS_ENABLED;
 
     // Definition of the module IOs
     input                                                clock;
@@ -215,6 +217,28 @@ module Scheduler
             .consumed(hasBeenConsumed),
             .valid(schedulers_to_selector_valid[3]),
             .selection(schedulers_to_selector_selection[3])
+        );
+    end
+    
+    if(PRNG_FIBONACCI_ENABLED)
+    begin
+        LFSR16 #() fibonacci (
+            .clock(clock),
+            .reset(reset),
+            .empty(empty),
+            .valid(schedulers_to_selector_valid[4]),
+            .selection(schedulers_to_selector_selection[4])
+        );
+    end
+    
+    if(PRNG_GALLOIS_ENABLED)
+    begin
+        Gallois16 #() gallois (
+            .clock(clock),
+            .reset(reset),
+            .empty(empty),
+            .valid(schedulers_to_selector_valid[5]),
+            .selection(schedulers_to_selector_selection[5])
         );
     end
 
