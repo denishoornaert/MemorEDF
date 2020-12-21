@@ -1,0 +1,4 @@
+rootfs/benchmarks/Image.inmate filter=lfs diff=lfs merge=lfs -text
+rootfs/benchmarks/rootfs.cpio.auto.sudo filter=lfs diff=lfs merge=lfs -text
+python/** filter=lfs diff=lfs merge=lfs -text
+libpython/** filter=lfs diff=lfs merge=lfs -text
