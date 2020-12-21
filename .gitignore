@@ -52,12 +52,13 @@ Mkfile.old
 dkms.conf
 
 # VERILOG/VIVADO related files
+rtl/MemorEDF/
 rtl/MemorEDF/MemorEDF.sim/*
-trl/MemorEDF/MemorEDF.ip_user_files/*
+rtl/MemorEDF/MemorEDF.ip_user_files/*
 *.log
 
 rtl/Fiq/Fiq.sim/*
-trl/Fiq/Fiq.ip_user_files/*
+rtl/Fiq/Fiq.ip_user_files/*
 *.log
 
 boot/
