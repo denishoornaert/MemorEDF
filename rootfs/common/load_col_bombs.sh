@@ -6,11 +6,11 @@ source ~/experiences/profile.config
 
 prefix=-col
 
-if [ $mode = "main-route" ]; then
+if [ "$mode" = "main-route" ]; then
     prefix=-col-main-route
-elif [ $mode = "dual-slave" ]; then
+elif [ "$mode" = "dual-slave" ]; then
     prefix=-col-dual-slave-cached
-elif [ $mode = "simple-loop-back" ]; then
+elif [ "$mode" = "simple-loop-back" ]; then
     prefix=-col-simple-loop-back
 else
     echo "No target matching! (Abort)"
