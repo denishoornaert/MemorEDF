@@ -13,6 +13,8 @@ proc init_gui { IPINST } {
   ipgui::add_param $IPINST -name "TDMA_ENABLED" -parent ${Scheduling_policies}
   ipgui::add_param $IPINST -name "FP_ENABLED" -parent ${Scheduling_policies}
   ipgui::add_param $IPINST -name "MG_ENABLED" -parent ${Scheduling_policies}
+  ipgui::add_param $IPINST -name "PRNG_FIBONACCI_ENABLED" -parent ${Scheduling_policies}
+  ipgui::add_param $IPINST -name "PRNG_GALLOIS_ENABLED" -parent ${Scheduling_policies}
 
   #Adding Group
   set Elements_size [ipgui::add_group $IPINST -name "Elements size" -parent ${Page_0}]
@@ -31,16 +33,11 @@ proc init_gui { IPINST } {
   #Adding Group
   set Classes [ipgui::add_group $IPINST -name "Classes" -parent ${AXI_parameters} -layout horizontal]
   #Adding Group
-  set Master_port [ipgui::add_group $IPINST -name "Master port" -parent ${Classes}]
-  ipgui::add_param $IPINST -name "C_M00_AXI_ADDR_WIDTH" -parent ${Master_port} -widget comboBox
-  ipgui::add_param $IPINST -name "C_M00_AXI_DATA_WIDTH" -parent ${Master_port} -widget comboBox
-  ipgui::add_param $IPINST -name "C_M00_AXI_ID_WIDTH" -parent ${Master_port}
-  ipgui::add_param $IPINST -name "C_M00_AXI_AWUSER_WIDTH" -parent ${Master_port}
-  ipgui::add_param $IPINST -name "C_M00_AXI_ARUSER_WIDTH" -parent ${Master_port}
-  ipgui::add_param $IPINST -name "C_M00_AXI_BURST_LEN" -parent ${Master_port}
-
+  set Slaves [ipgui::add_group $IPINST -name "Slaves" -parent ${Classes}]
+  set_property tooltip {Slaves} ${Slaves}
   #Adding Group
-  set Slave_port [ipgui::add_group $IPINST -name "Slave port" -parent ${Classes}]
+  set Slave_port [ipgui::add_group $IPINST -name "Slave port" -parent ${Slaves} -display_name {Slave port 1}]
+  set_property tooltip {Slave port 1} ${Slave_port}
   ipgui::add_param $IPINST -name "C_S00_AXI_ADDR_WIDTH" -parent ${Slave_port} -widget comboBox
   ipgui::add_param $IPINST -name "C_S00_AXI_DATA_WIDTH" -parent ${Slave_port} -widget comboBox
   ipgui::add_param $IPINST -name "C_S00_AXI_ID_WIDTH" -parent ${Slave_port}
@@ -48,12 +45,36 @@ proc init_gui { IPINST } {
   ipgui::add_param $IPINST -name "C_S00_AXI_ARUSER_WIDTH" -parent ${Slave_port}
 
   #Adding Group
-  set Config_port [ipgui::add_group $IPINST -name "Config port" -parent ${Classes}]
+  set Slave_port_2 [ipgui::add_group $IPINST -name "Slave port 2" -parent ${Slaves}]
+  set_property tooltip {Slave port 2} ${Slave_port_2}
+  ipgui::add_param $IPINST -name "C_S02_AXI_ADDR_WIDTH" -parent ${Slave_port_2}
+  ipgui::add_param $IPINST -name "C_S02_AXI_DATA_WIDTH" -parent ${Slave_port_2}
+  ipgui::add_param $IPINST -name "C_S02_AXI_ID_WIDTH" -parent ${Slave_port_2}
+  ipgui::add_param $IPINST -name "C_S02_AXI_AWUSER_WIDTH" -parent ${Slave_port_2}
+  ipgui::add_param $IPINST -name "C_S02_AXI_ARUSER_WIDTH" -parent ${Slave_port_2}
+
+  #Adding Group
+  set Config_port [ipgui::add_group $IPINST -name "Config port" -parent ${Slaves}]
   ipgui::add_param $IPINST -name "C_S01_AXI_ADDR_WIDTH" -parent ${Config_port} -widget comboBox
   ipgui::add_param $IPINST -name "C_S01_AXI_DATA_WIDTH" -parent ${Config_port} -widget comboBox
   ipgui::add_param $IPINST -name "C_S01_AXI_ID_WIDTH" -parent ${Config_port}
   ipgui::add_param $IPINST -name "C_S01_AXI_AWUSER_WIDTH" -parent ${Config_port}
   ipgui::add_param $IPINST -name "C_S01_AXI_ARUSER_WIDTH" -parent ${Config_port}
+
+
+  #Adding Group
+  set Masters [ipgui::add_group $IPINST -name "Masters" -parent ${Classes}]
+  set_property tooltip {Masters} ${Masters}
+  #Adding Group
+  set Master_port [ipgui::add_group $IPINST -name "Master port" -parent ${Masters} -display_name {Master port 1}]
+  set_property tooltip {Master port 1} ${Master_port}
+  ipgui::add_param $IPINST -name "C_M00_AXI_ADDR_WIDTH" -parent ${Master_port} -widget comboBox
+  ipgui::add_param $IPINST -name "C_M00_AXI_DATA_WIDTH" -parent ${Master_port} -widget comboBox
+  ipgui::add_param $IPINST -name "C_M00_AXI_ID_WIDTH" -parent ${Master_port}
+  ipgui::add_param $IPINST -name "C_M00_AXI_AWUSER_WIDTH" -parent ${Master_port}
+  ipgui::add_param $IPINST -name "C_M00_AXI_ARUSER_WIDTH" -parent ${Master_port}
+  ipgui::add_param $IPINST -name "C_M00_AXI_BURST_LEN" -parent ${Master_port}
+
 
 
 
@@ -312,6 +333,24 @@ proc validate_PARAM_VALUE.PRIORITY_SIZE { PARAM_VALUE.PRIORITY_SIZE } {
 	return true
 }
 
+proc update_PARAM_VALUE.PRNG_FIBONACCI_ENABLED { PARAM_VALUE.PRNG_FIBONACCI_ENABLED } {
+	# Procedure called to update PRNG_FIBONACCI_ENABLED when any of the dependent parameters in the arguments change
+}
+
+proc validate_PARAM_VALUE.PRNG_FIBONACCI_ENABLED { PARAM_VALUE.PRNG_FIBONACCI_ENABLED } {
+	# Procedure called to validate PRNG_FIBONACCI_ENABLED
+	return true
+}
+
+proc update_PARAM_VALUE.PRNG_GALLOIS_ENABLED { PARAM_VALUE.PRNG_GALLOIS_ENABLED } {
+	# Procedure called to update PRNG_GALLOIS_ENABLED when any of the dependent parameters in the arguments change
+}
+
+proc validate_PARAM_VALUE.PRNG_GALLOIS_ENABLED { PARAM_VALUE.PRNG_GALLOIS_ENABLED } {
+	# Procedure called to validate PRNG_GALLOIS_ENABLED
+	return true
+}
+
 proc update_PARAM_VALUE.QUEUE_LENGTH { PARAM_VALUE.QUEUE_LENGTH } {
 	# Procedure called to update QUEUE_LENGTH when any of the dependent parameters in the arguments change
 }
@@ -493,5 +532,15 @@ proc update_MODELPARAM_VALUE.C_S02_AXI_AWUSER_WIDTH { MODELPARAM_VALUE.C_S02_AXI
 proc update_MODELPARAM_VALUE.C_S02_AXI_ARUSER_WIDTH { MODELPARAM_VALUE.C_S02_AXI_ARUSER_WIDTH PARAM_VALUE.C_S02_AXI_ARUSER_WIDTH } {
 	# Procedure called to set VHDL generic/Verilog parameter value(s) based on TCL parameter value
 	set_property value [get_property value ${PARAM_VALUE.C_S02_AXI_ARUSER_WIDTH}] ${MODELPARAM_VALUE.C_S02_AXI_ARUSER_WIDTH}
+}
+
+proc update_MODELPARAM_VALUE.PRNG_FIBONACCI_ENABLED { MODELPARAM_VALUE.PRNG_FIBONACCI_ENABLED PARAM_VALUE.PRNG_FIBONACCI_ENABLED } {
+	# Procedure called to set VHDL generic/Verilog parameter value(s) based on TCL parameter value
+	set_property value [get_property value ${PARAM_VALUE.PRNG_FIBONACCI_ENABLED}] ${MODELPARAM_VALUE.PRNG_FIBONACCI_ENABLED}
+}
+
+proc update_MODELPARAM_VALUE.PRNG_GALLOIS_ENABLED { MODELPARAM_VALUE.PRNG_GALLOIS_ENABLED PARAM_VALUE.PRNG_GALLOIS_ENABLED } {
+	# Procedure called to set VHDL generic/Verilog parameter value(s) based on TCL parameter value
+	set_property value [get_property value ${PARAM_VALUE.PRNG_GALLOIS_ENABLED}] ${MODELPARAM_VALUE.PRNG_GALLOIS_ENABLED}
 }
 
