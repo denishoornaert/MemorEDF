@@ -1,7 +1,7 @@
 COMPILER_ARM = aarch64-linux-gnu-gcc
 FLAGS = -lpthread -lrt
 
-all: init blast_fake_colored spam_fake_colored fp_read fp_write config_schim_tdma tdma_read tdma_write poke populate ts_read ts_write config_schim_fp config_schim_ts
+all: init threshold_bw blast_fake_colored spam_fake_colored fp_read fp_write config_schim_tdma tdma_read tdma_write poke populate ts_read ts_write config_schim_fp config_schim_ts
 
 config_schim_fp: src/config_schim_fp.c objects/tool.o
 	$(COMPILER_ARM) src/config_schim_fp.c -o exec/config_schim_fp.out $(FLAGS) objects/tool.o
@@ -44,6 +44,9 @@ spam_fake_colored: src/spam_fake_colored.c objects/tool.o
 
 blast_fake_colored: src/blast_fake_colored.c objects/tool.o
 	$(COMPILER_ARM) src/blast_fake_colored.c -o exec/blast_fake_colored.out $(FLAGS) objects/tool.o
+
+threshold_bw: src/threshold_bw.c objects/tool.o
+	$(COMPILER_ARM) src/threshold_bw.c -o exec/threshold_bw.out $(FLAGS) objects/tool.o
 
 objects/tool.o: include/tool.h src/tool.c
 	$(COMPILER_ARM) -c src/tool.c -o objects/tool.o $(FLAGS)
