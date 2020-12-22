@@ -30,15 +30,15 @@ module Gallois16 #(
         output wire                                  valid,
         output wire [$clog2(NUMBER_OF_QUEUES)-1 : 0] selection
     );
-    localparam PRIORITY_SIZE = $clog2(NUMBER_OF_QUEUES)+1;
+    localparam PRIORITY_SIZE = $clog2(NUMBER_OF_QUEUES);
 
-    reg                              [STATE_WIDTH-1 : 0] state;
-    reg  [(2*NUMBER_OF_QUEUES)-1 : 0][STATE_WIDTH-1 : 0] pristine_priorities;
-    wire     [NUMBER_OF_QUEUES-1 : 0][STATE_WIDTH-1 : 0] priorities;
+    reg                                [STATE_WIDTH-1 : 0] state;
+    reg  [(2*NUMBER_OF_QUEUES)-1 : 0][PRIORITY_SIZE-1 : 0] pristine_priorities;
+    wire     [NUMBER_OF_QUEUES-1 : 0][PRIORITY_SIZE-1 : 0] priorities;
     
     assign valid = |(~empty);
 
-    assign priorities = (pristine_priorities >> ((state%NUMBER_OF_QUEUES)*STATE_WIDTH));
+    assign priorities = (pristine_priorities >> ((state%NUMBER_OF_QUEUES)*PRIORITY_SIZE));
 
     always @(posedge clock)
     begin
