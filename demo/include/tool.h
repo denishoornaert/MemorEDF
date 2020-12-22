@@ -4,10 +4,12 @@
 #include <time.h>
 
 enum scheduler {
-    tdma = 0,
-    edf  = 1,
-    fp   = 2,
-    mg   = 3
+    tdma    = 0,
+    edf     = 1,
+    fp      = 2,
+    mg      = 3,
+    fibo    = 4,
+    gallois = 5
 };
 
 struct configuration {
