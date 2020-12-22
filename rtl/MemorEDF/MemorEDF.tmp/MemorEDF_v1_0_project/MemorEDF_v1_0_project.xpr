@@ -3,10 +3,10 @@
 <!--                                                         -->
 <!-- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="35" Path="/home/duck/Github/cached_memoredf/rtl/MemorEDF/MemorEDF.tmp/MemorEDF_v1_0_project/MemorEDF_v1_0_project.xpr">
+<Project Version="7" Minor="35" Path="/home/denis/github/MemorEDF/rtl/MemorEDF/MemorEDF.tmp/MemorEDF_v1_0_project/MemorEDF_v1_0_project.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
-    <Option Name="Id" Val="d47b0d0f4d5d45fe8deb6d2314f2fd4b"/>
+    <Option Name="Id" Val="7190a1e8b00b47e881a1c26c85328ce6"/>
     <Option Name="Part" Val="xczu9eg-ffvb1156-2-e"/>
     <Option Name="CompiledLibDir" Val="$PCACHEDIR/compile_simlib"/>
     <Option Name="CompiledLibDirXSim" Val=""/>
@@ -94,6 +94,18 @@
         </FileInfo>
       </File>
       <File Path="$PPRDIR/../../../ip_repo/MemorEDF/src/FP.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../../../ip_repo/MemorEDF/src/Gallois16.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../../../ip_repo/MemorEDF/src/LFSR16.sv">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>

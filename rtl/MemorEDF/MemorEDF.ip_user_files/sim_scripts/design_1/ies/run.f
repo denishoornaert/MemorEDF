@@ -7,24 +7,26 @@
   "/opt/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_VCOMP.vhd" \
 -endlib
 -makelib ies_lib/xil_defaultlib -sv \
-  "../../../bd/design_1/ipshared/48cd/src/Combinatorial_Dispatcher.sv" \
-  "../../../bd/design_1/ipshared/48cd/src/Combinatorial_FP.sv" \
-  "../../../bd/design_1/ipshared/48cd/src/Combinatorial_Selector.sv" \
-  "../../../bd/design_1/ipshared/48cd/src/ConfigurationPort.sv" \
-  "../../../bd/design_1/ipshared/48cd/src/Dispatcher.sv" \
-  "../../../bd/design_1/ipshared/48cd/src/EDF.sv" \
-  "../../../bd/design_1/ipshared/48cd/src/FP.sv" \
-  "../../../bd/design_1/ipshared/48cd/src/Mapper.sv" \
-  "../../../bd/design_1/ipshared/48cd/src/MaxSelector.sv" \
-  "../../../bd/design_1/ipshared/48cd/src/MemGuard.sv" \
-  "../../../bd/design_1/ipshared/48cd/src/NonAXIDomain.sv" \
-  "../../../bd/design_1/ipshared/48cd/src/Packetizer.sv" \
-  "../../../bd/design_1/ipshared/48cd/src/Queue.sv" \
-  "../../../bd/design_1/ipshared/48cd/src/Scheduler.sv" \
-  "../../../bd/design_1/ipshared/48cd/src/Selector.sv" \
-  "../../../bd/design_1/ipshared/48cd/src/Seralizer.sv" \
-  "../../../bd/design_1/ipshared/48cd/src/TDMA.sv" \
-  "../../../bd/design_1/ipshared/48cd/src/MemorEDF.sv" \
+  "../../../bd/design_1/ipshared/7c95/src/Combinatorial_Dispatcher.sv" \
+  "../../../bd/design_1/ipshared/7c95/src/Combinatorial_FP.sv" \
+  "../../../bd/design_1/ipshared/7c95/src/Combinatorial_Selector.sv" \
+  "../../../bd/design_1/ipshared/7c95/src/ConfigurationPort.sv" \
+  "../../../bd/design_1/ipshared/7c95/src/Dispatcher.sv" \
+  "../../../bd/design_1/ipshared/7c95/src/EDF.sv" \
+  "../../../bd/design_1/ipshared/7c95/src/FP.sv" \
+  "../../../bd/design_1/ipshared/7c95/src/Gallois16.sv" \
+  "../../../bd/design_1/ipshared/7c95/src/LFSR16.sv" \
+  "../../../bd/design_1/ipshared/7c95/src/Mapper.sv" \
+  "../../../bd/design_1/ipshared/7c95/src/MaxSelector.sv" \
+  "../../../bd/design_1/ipshared/7c95/src/MemGuard.sv" \
+  "../../../bd/design_1/ipshared/7c95/src/NonAXIDomain.sv" \
+  "../../../bd/design_1/ipshared/7c95/src/Packetizer.sv" \
+  "../../../bd/design_1/ipshared/7c95/src/Queue.sv" \
+  "../../../bd/design_1/ipshared/7c95/src/Scheduler.sv" \
+  "../../../bd/design_1/ipshared/7c95/src/Selector.sv" \
+  "../../../bd/design_1/ipshared/7c95/src/Seralizer.sv" \
+  "../../../bd/design_1/ipshared/7c95/src/TDMA.sv" \
+  "../../../bd/design_1/ipshared/7c95/src/MemorEDF.sv" \
   "../../../bd/design_1/ip/design_1_MemorEDF_0_0/sim/design_1_MemorEDF_0_0.sv" \
 -endlib
 -makelib ies_lib/xil_defaultlib \
