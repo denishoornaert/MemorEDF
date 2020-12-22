@@ -267,7 +267,7 @@ module MemorEDF #
         output wire                                 Q_3_kill_the_core
 	);
 
-	localparam NUMBER_OF_SCHEDULERS = TDMA_ENABLED + EDF_ENABLED + FP_ENABLED + MG_ENABLED;
+	localparam NUMBER_OF_SCHEDULERS = TDMA_ENABLED + EDF_ENABLED + FP_ENABLED + MG_ENABLED + PRNG_FIBONACCI_ENABLED + PRNG_GALLOIS_ENABLED;
 
     // Internal routing
     wire            [DATA_SIZE-1 : 0] packetizer_1_to_dispatcher_packet;
