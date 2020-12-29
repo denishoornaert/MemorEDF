@@ -61,7 +61,7 @@ xil_axi_ulong b_addr4   = 40'h040000c000;
 bit [127 : 0] data_wr1    = 128'h00000020000000200000002000000020; // ABITRARY PERIOD
 bit [127 : 0] data_wr2    = 128'h00000007000000070000000700000007; // ARBITRRY THRESHOLD
 bit [127 : 0] data_wr3    = 128'h0000002200000022000000220f0e0d0c; // MITS[2 : 0], Priorities
-bit [127 : 0] data_wr4    = 128'h00000000000000060000000000000022; // reset, mode, hyperperiod, MITS[3]
+bit [127 : 0] data_wr4    = 128'h00000000000000030000000000000022; // reset, mode, hyperperiod, MITS[3]
 
 xil_axi_size_t size = XIL_AXI_SIZE_16BYTE;//3'b111;
 xil_axi_burst_t fixed = XIL_AXI_BURST_TYPE_FIXED;//2'b00;

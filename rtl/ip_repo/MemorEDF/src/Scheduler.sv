@@ -208,14 +208,15 @@ module Scheduler
     begin
         MemGuard #(
             .NUMBER_OF_QUEUES(NUMBER_OF_QUEUES),
-            .REGISTER_SIZE(REGISTER_SIZE)
+            .REGISTER_SIZE(REGISTER_SIZE),
+            .PRIORITY_SIZE(PRIORITY_SIZE)
         ) mg (
             .clock(clock),
             .reset(reset|force_reset),
             .budgets(budgets),
             .priorities_input(priorities),
             .empty(empty),
-            .consumed(hasBeenConsumed),
+            .update((~pending_transaction & ~empty[selected_queue] & valid)),//.consumed(hasBeenConsumed),
             .valid(schedulers_to_selector_valid[3]),
             .selection(schedulers_to_selector_selection[3])
         );

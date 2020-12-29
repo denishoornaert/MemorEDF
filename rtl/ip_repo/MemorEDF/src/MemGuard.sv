@@ -22,7 +22,8 @@
 
 module MemGuard #(
         parameter NUMBER_OF_QUEUES = 4,
-        parameter REGISTER_SIZE    = 4
+        parameter REGISTER_SIZE    = 4,
+        parameter PRIORITY_SIZE    = 4
     )
     (
         clock,
@@ -30,11 +31,11 @@ module MemGuard #(
         budgets,
         priorities_input,
         empty,
-        consumed,
+        //consumed,
+        update,
         valid,
         selection
     );
-    localparam PRIORITY_SIZE = $clog2(NUMBER_OF_QUEUES)+1;
     
     // Input definition
     input  wire                                                clock;
@@ -42,12 +43,40 @@ module MemGuard #(
     input  wire [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] budgets;
     input  wire [NUMBER_OF_QUEUES-1 : 0] [PRIORITY_SIZE-1 : 0] priorities_input;
     input  wire                       [NUMBER_OF_QUEUES-1 : 0] empty;
-    input  wire                       [NUMBER_OF_QUEUES-1 : 0] consumed;
+    //input  wire                       [NUMBER_OF_QUEUES-1 : 0] consumed;
+    input  wire                                                update;
     
     // Output definition
     output reg                                   valid;
     output wire [$clog2(NUMBER_OF_QUEUES)-1 : 0] selection;
     
+    wire                                                hasBeenUpdated;
+    reg                                                 update_ff;
+    assign hasBeenUpdated = (~update)&update_ff;
+    
+    reg                [$clog2(NUMBER_OF_QUEUES)-1 : 0] last_selected;
+    
+    always @(posedge clock)
+    begin
+        if(reset)
+        begin
+            update_ff <= 0;
+        end
+        else
+        begin
+            update_ff <= update;
+        end
+    end
+    
+    always @(posedge clock)
+    begin
+        if(reset)
+        begin
+            last_selected <= 0;
+        end
+        else if (update)
+            last_selected <= selection;
+    end
     
     // Registers tracking the amount of transactions already performed for each queue
     reg  [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] core_counter;
@@ -104,7 +133,7 @@ module MemGuard #(
             integer i;
             for(i = 0; i < NUMBER_OF_QUEUES; i = i + 1)
             begin
-                if(consumed[i] | (budgets[i] == 0))
+                if(hasBeenUpdated & ((last_selected == i) | (budgets[i] == 0)))
                 begin
                     core_active[i] <= 0;
                     core_counter[i] <= 0;

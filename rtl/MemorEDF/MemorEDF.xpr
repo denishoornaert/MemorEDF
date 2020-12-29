@@ -33,20 +33,20 @@
     <Option Name="DSAVendor" Val="xilinx"/>
     <Option Name="DSABoardId" Val="zcu102"/>
     <Option Name="DSANumComputeUnits" Val="60"/>
-    <Option Name="WTXSimLaunchSim" Val="1072"/>
+    <Option Name="WTXSimLaunchSim" Val="1078"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="349"/>
-    <Option Name="WTModelSimExportSim" Val="349"/>
-    <Option Name="WTQuestaExportSim" Val="349"/>
-    <Option Name="WTIesExportSim" Val="349"/>
-    <Option Name="WTVcsExportSim" Val="349"/>
-    <Option Name="WTRivieraExportSim" Val="349"/>
-    <Option Name="WTActivehdlExportSim" Val="349"/>
+    <Option Name="WTXSimExportSim" Val="352"/>
+    <Option Name="WTModelSimExportSim" Val="352"/>
+    <Option Name="WTQuestaExportSim" Val="352"/>
+    <Option Name="WTIesExportSim" Val="352"/>
+    <Option Name="WTVcsExportSim" Val="352"/>
+    <Option Name="WTRivieraExportSim" Val="352"/>
+    <Option Name="WTActivehdlExportSim" Val="352"/>
     <Option Name="GenerateIPUpgradeLog" Val="TRUE"/>
     <Option Name="XSimRadix" Val="hex"/>
     <Option Name="XSimTimeUnit" Val="ns"/>
@@ -66,11 +66,11 @@
         <CompFileExtendedInfo CompFileName="design_2.bd" FileRelPathName="ip/design_2_AXI_PerfectTranslator_0_0/design_2_AXI_PerfectTranslator_0_0.xci">
           <Proxy FileSetName="design_2_AXI_PerfectTranslator_0_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="design_2.bd" FileRelPathName="ip/design_2_zynq_ultra_ps_e_0_0/design_2_zynq_ultra_ps_e_0_0.xci">
-          <Proxy FileSetName="design_2_zynq_ultra_ps_e_0_0"/>
-        </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="design_2.bd" FileRelPathName="ip/design_2_rst_ps8_0_99M_0/design_2_rst_ps8_0_99M_0.xci">
           <Proxy FileSetName="design_2_rst_ps8_0_99M_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="design_2.bd" FileRelPathName="ip/design_2_zynq_ultra_ps_e_0_0/design_2_zynq_ultra_ps_e_0_0.xci">
+          <Proxy FileSetName="design_2_zynq_ultra_ps_e_0_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="design_2.bd" FileRelPathName="ip/design_2_system_ila_0_1/design_2_system_ila_0_1.xci">
           <Proxy FileSetName="design_2_system_ila_0_1"/>
