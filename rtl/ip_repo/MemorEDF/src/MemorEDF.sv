@@ -36,6 +36,7 @@ module MemorEDF #
         parameter integer MG_ENABLED             = 1,
         parameter integer PRNG_FIBONACCI_ENABLED = 1,
         parameter integer PRNG_GALLOIS_ENABLED   = 1,
+        parameter integer AGING_ENABLED          = 1,
 		// Parameters of Axi Slave Bus Interface S00_AXI
 		parameter integer C_S00_AXI_ID_WIDTH	 = 16,
 		parameter integer C_S00_AXI_DATA_WIDTH	 = 128,

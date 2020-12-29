@@ -48,7 +48,7 @@
 
 
 // IP VLNV: user.org:user:MemorEDF:1.0
-// IP Revision: 335
+// IP Revision: 341
 
 `timescale 1ns/1ps
 
@@ -620,7 +620,8 @@ output wire Q_3_kill_the_core;
     .C_S02_AXI_AWUSER_WIDTH(16),
     .C_S02_AXI_ARUSER_WIDTH(16),
     .PRNG_FIBONACCI_ENABLED(1'B1),
-    .PRNG_GALLOIS_ENABLED(1'B1)
+    .PRNG_GALLOIS_ENABLED(1'B1),
+    .AGING_ENABLED(1'B1)
   ) inst (
     .s00_axi_aclk(s00_axi_aclk),
     .s00_axi_aresetn(s00_axi_aresetn),

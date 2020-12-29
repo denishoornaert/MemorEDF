@@ -6,7 +6,7 @@
 <Project Version="7" Minor="35" Path="/home/denis/github/MemorEDF/rtl/MemorEDF/MemorEDF.tmp/MemorEDF_v1_0_project/MemorEDF_v1_0_project.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
-    <Option Name="Id" Val="87704f42abf24c51a8fd13b49ef8520d"/>
+    <Option Name="Id" Val="1ca86521f30f419984ee352c45540164"/>
     <Option Name="Part" Val="xczu9eg-ffvb1156-2-e"/>
     <Option Name="CompiledLibDir" Val="$PCACHEDIR/compile_simlib"/>
     <Option Name="CompiledLibDirXSim" Val=""/>
@@ -57,6 +57,13 @@
   <FileSets Version="1" Minor="31">
     <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
       <Filter Type="Srcs"/>
+      <File Path="$PPRDIR/../../../ip_repo/MemorEDF/src/Aging.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PPRDIR/../../../ip_repo/MemorEDF/src/Combinatorial_Dispatcher.sv">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>

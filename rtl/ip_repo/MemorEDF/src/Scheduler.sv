@@ -29,7 +29,8 @@ module Scheduler
         parameter FP_ENABLED             = 1,
         parameter MG_ENABLED             = 1,
         parameter PRNG_FIBONACCI_ENABLED = 1,
-        parameter PRNG_GALLOIS_ENABLED   = 1
+        parameter PRNG_GALLOIS_ENABLED   = 1,
+        parameter AGING_ENABLED          = 1
     )
     (
         clock,
@@ -50,7 +51,7 @@ module Scheduler
         enable
     );
 
-    localparam NUMBER_OF_SCHEDULERS = TDMA_ENABLED + EDF_ENABLED + FP_ENABLED + MG_ENABLED + PRNG_FIBONACCI_ENABLED + PRNG_GALLOIS_ENABLED;
+    localparam NUMBER_OF_SCHEDULERS = TDMA_ENABLED + EDF_ENABLED + FP_ENABLED + MG_ENABLED + PRNG_FIBONACCI_ENABLED + PRNG_GALLOIS_ENABLED + AGING_ENABLED;
 
     // Definition of the module IOs
     input                                                clock;
@@ -222,7 +223,10 @@ module Scheduler
     
     if(PRNG_FIBONACCI_ENABLED)
     begin
-        LFSR16 #() fibonacci (
+        LFSR16 #(
+            .STATE_WIDTH(16),
+            .NUMBER_OF_QUEUES(NUMBER_OF_QUEUES)
+        ) fibonacci (
             .clock(clock),
             .reset(reset),
             .empty(empty),
@@ -233,12 +237,30 @@ module Scheduler
     
     if(PRNG_GALLOIS_ENABLED)
     begin
-        Gallois16 #() gallois (
+        Gallois16 #(
+            .STATE_WIDTH(16),
+            .NUMBER_OF_QUEUES(NUMBER_OF_QUEUES)
+        ) gallois (
             .clock(clock),
             .reset(reset),
             .empty(empty),
             .valid(schedulers_to_selector_valid[5]),
             .selection(schedulers_to_selector_selection[5])
+        );
+    end
+    
+    if(AGING_ENABLED)
+    begin
+        Aging #(
+            .NUMBER_OF_QUEUES(NUMBER_OF_QUEUES),
+            .REGISTER_SIZE(REGISTER_SIZE)
+        ) aging (
+            .clock(clock),
+            .reset(reset),
+            .empty(empty),
+            .update((~pending_transaction & ~empty[selected_queue] & valid)),//.consume(hasBeenConsumed),
+            .valid(schedulers_to_selector_valid[6]),
+            .selection(schedulers_to_selector_selection[6])
         );
     end
 
