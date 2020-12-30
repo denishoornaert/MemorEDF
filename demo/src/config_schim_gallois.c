@@ -16,6 +16,15 @@
 
 
 int main(int argc, char** argv) {
+    unsigned c0_threshold;
+    unsigned c1_threshold;
+    unsigned c2_threshold;
+    unsigned c3_threshold;
+
+    sscanf(argv[2], "%u", &c0_threshold);
+    sscanf(argv[3], "%u", &c1_threshold);
+    sscanf(argv[4], "%u", &c2_threshold);
+    sscanf(argv[5], "%u", &c3_threshold);
 
     int lpd_fd  = open_fd();
 
@@ -27,10 +36,10 @@ int main(int argc, char** argv) {
     (*config).periods[2] = 0x00000000;
     (*config).periods[3] = 0x00000000;
     // Set the deadline registers
-    (*config).deadlines[0] = 0x00000000;
-    (*config).deadlines[1] = 0x00000000;
-    (*config).deadlines[2] = 0x00000000;
-    (*config).deadlines[3] = 0x00000000;
+    (*config).deadlines[0] = c0_threshold;
+    (*config).deadlines[1] = c1_threshold;
+    (*config).deadlines[2] = c2_threshold;
+    (*config).deadlines[3] = c3_threshold;
     // Set the priorities register
     (*config).priorities = 0x00000000;
     // Set the budget registers
