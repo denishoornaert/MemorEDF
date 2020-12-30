@@ -17,7 +17,7 @@ def read(filepath, skip):
 
 
 
-x = np.array([i*1.5 for i in range(4)])
+x = np.array([i*2 for i in range(4)])
 x_labels = [
     '$\{C_{0}\}$',
     '$\{C_{0}, C_{1}\}$',
