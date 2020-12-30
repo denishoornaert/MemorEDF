@@ -9,7 +9,8 @@ enum scheduler {
     fp      = 2,
     mg      = 3,
     fibo    = 4,
-    gallois = 5
+    gallois = 5,
+    aging   = 6
 };
 
 struct configuration {
