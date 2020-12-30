@@ -1,7 +1,7 @@
 //Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-//Date        : Thu Oct 22 22:19:23 2020
+//Date        : Wed Dec 30 11:20:00 2020
 //Host        : CELSIUS running 64-bit Ubuntu 16.04.7 LTS
 //Command     : generate_target design_2.bd
 //Design      : design_2
