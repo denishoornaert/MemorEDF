@@ -21,10 +21,10 @@ int main(int argc, char** argv) {
     unsigned c2_threshold;
     unsigned c3_threshold;
 
-    sscanf(argv[2], "%u", &c0_threshold);
-    sscanf(argv[3], "%u", &c1_threshold);
-    sscanf(argv[4], "%u", &c2_threshold);
-    sscanf(argv[5], "%u", &c3_threshold);
+    sscanf(argv[1], "%u", &c0_threshold);
+    sscanf(argv[2], "%u", &c1_threshold);
+    sscanf(argv[3], "%u", &c2_threshold);
+    sscanf(argv[4], "%u", &c3_threshold);
 
     int lpd_fd  = open_fd();
 
