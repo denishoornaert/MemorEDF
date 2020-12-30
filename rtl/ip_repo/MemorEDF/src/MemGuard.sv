@@ -98,7 +98,7 @@ module MemGuard #(
     ) fp (
         .clock(clock),
         .reset(reset),
-        .priorities(priorities),
+        .priorities(priorities_input),
         .empty(empty),
         .selection(selection)
     );

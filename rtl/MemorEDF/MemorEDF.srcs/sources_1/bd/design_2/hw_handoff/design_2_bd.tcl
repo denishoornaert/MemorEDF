@@ -183,24 +183,18 @@ proc create_root_design { parentCell } {
  ] [get_bd_intf_pins /MemorEDF_0/m00_axi]
 
   set_property -dict [ list \
-   CONFIG.SUPPORTS_NARROW_BURST {1} \
    CONFIG.NUM_READ_OUTSTANDING {2} \
    CONFIG.NUM_WRITE_OUTSTANDING {2} \
-   CONFIG.MAX_BURST_LENGTH {256} \
  ] [get_bd_intf_pins /MemorEDF_0/s00_axi]
 
   set_property -dict [ list \
-   CONFIG.SUPPORTS_NARROW_BURST {1} \
    CONFIG.NUM_READ_OUTSTANDING {2} \
    CONFIG.NUM_WRITE_OUTSTANDING {2} \
-   CONFIG.MAX_BURST_LENGTH {256} \
  ] [get_bd_intf_pins /MemorEDF_0/s01_axi]
 
   set_property -dict [ list \
-   CONFIG.SUPPORTS_NARROW_BURST {1} \
    CONFIG.NUM_READ_OUTSTANDING {2} \
    CONFIG.NUM_WRITE_OUTSTANDING {2} \
-   CONFIG.MAX_BURST_LENGTH {256} \
  ] [get_bd_intf_pins /MemorEDF_0/s02_axi]
 
   # Create instance: rst_ps8_0_99M, and set properties
