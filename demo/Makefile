@@ -1,7 +1,7 @@
 COMPILER_ARM = aarch64-linux-gnu-gcc
 FLAGS = -lpthread -lrt
 
-all: init threshold_bw blast_fake_colored spam_fake_colored fp_read fp_write config_schim_tdma tdma_read tdma_write poke populate ts_read ts_write config_schim_fp config_schim_ts
+all: init threshold_bw blast_fake_colored spam_fake_colored fp_read fp_write config_schim_tdma tdma_read tdma_write poke populate ts_read ts_write config_schim_fp config_schim_ts config_schim_fibo config_schim_gallois config_schim_aging
 
 config_schim_fp: src/config_schim_fp.c objects/tool.o
 	$(COMPILER_ARM) src/config_schim_fp.c -o exec/config_schim_fp.out $(FLAGS) objects/tool.o
@@ -11,6 +11,15 @@ config_schim_tdma: src/config_schim_tdma.c objects/tool.o
 
 config_schim_ts: src/config_schim_ts.c objects/tool.o
 	$(COMPILER_ARM) src/config_schim_ts.c -o exec/config_schim_ts.out $(FLAGS) objects/tool.o
+
+config_schim_fibo: src/config_schim_fibo.c objects/tool.o
+	$(COMPILER_ARM) src/config_schim_fibo.c -o exec/config_schim_fibo.out $(FLAGS) objects/tool.o
+
+config_schim_gallois: src/config_schim_gallois.c objects/tool.o
+	$(COMPILER_ARM) src/config_schim_gallois.c -o exec/config_schim_gallois.out $(FLAGS) objects/tool.o
+
+config_schim_aging: src/config_schim_aging.c objects/tool.o
+	$(COMPILER_ARM) src/config_schim_aging.c -o exec/config_schim_aging.out $(FLAGS) objects/tool.o
 
 tdma_read: src/tdma_read.c objects/tool.o
 	$(COMPILER_ARM) src/tdma_read.c -o exec/tdma_read.out $(FLAGS) objects/tool.o
