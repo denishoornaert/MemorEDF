@@ -25,6 +25,12 @@ elif [ "$scheduling_policy" = "ts" ]; then
     ~/common/config_schim_"$scheduling_policy".out $mit_core_0 $mit_core_1 $mit_core_2 $mit_core_3 $threshold_core_0 $threshold_core_1 $threshold_core_2 $threshold_core_3
 elif [ "$scheduling_policy" = "NA" ]; then
     : # No policy is available: Do nothing
+elif [ "$scheduling_policy" = "fibo" ]; then
+    ~/common/config_schim_"$scheduling_policy".out $threshold_core_0 $threshold_core_1 $threshold_core_2 $threshold_core_3
+elif [ "$scheduling_policy" = "gallois" ]; then
+    ~/common/config_schim_"$scheduling_policy".out $threshold_core_0 $threshold_core_1 $threshold_core_2 $threshold_core_3
+elif [ "$scheduling_policy" = "aging" ]; then
+    ~/common/config_schim_"$scheduling_policy".out $threshold_core_0 $threshold_core_1 $threshold_core_2 $threshold_core_3
 else
     echo "Invalid policy set in "${1}" ("${scheduling_policy}") -> Abort!"
     exit 1
