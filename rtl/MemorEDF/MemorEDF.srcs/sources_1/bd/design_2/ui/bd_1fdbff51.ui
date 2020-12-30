@@ -9,18 +9,18 @@ preplace inst MemorEDF_0 -pg 1 -lvl 2 -y 280 -defaultsOSRD
 preplace inst xlconcat_0 -pg 1 -lvl 3 -y 380 -defaultsOSRD
 preplace inst system_ila_0 -pg 1 -lvl 3 -y -40 -defaultsOSRD
 preplace netloc MemorEDF_0_m00_axi 1 2 1 1070
-preplace netloc zynq_ultra_ps_e_0_pl_clk0 1 0 3 20 90 670 90 1110
-preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM0_FPD 1 1 2 680 -60 NJ
+preplace netloc zynq_ultra_ps_e_0_pl_clk0 1 0 3 20 85 670 90 1110
+preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM0_FPD 1 1 2 690 -60 NJ
 preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM0_LPD 1 1 1 680
 preplace netloc MemorEDF_0_Q_1_kill_the_core 1 2 1 1090
-preplace netloc AXI_PerfectTranslator_0_M00_AXI 1 0 4 40 110 NJ 110 NJ 110 1500
+preplace netloc AXI_PerfectTranslator_0_M00_AXI 1 0 4 40 105 680J 110 NJ 110 1500
 preplace netloc MemorEDF_0_Q_0_kill_the_core 1 2 1 1110
 preplace netloc rst_ps8_0_99M_peripheral_aresetn 1 1 2 690 430 1100
 preplace netloc MemorEDF_0_Q_3_kill_the_core 1 2 1 1070
 preplace netloc xlconcat_0_dout 1 0 4 10 70 NJ 70 NJ 70 1510
 preplace netloc MemorEDF_0_Q_2_kill_the_core 1 2 1 1080
-preplace netloc zynq_ultra_ps_e_0_pl_resetn0 1 0 2 30 100 660
-preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM1_FPD 1 1 2 690 -40 NJ
+preplace netloc zynq_ultra_ps_e_0_pl_resetn0 1 0 2 30 95 660
+preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM1_FPD 1 1 2 700 -40 NJ
 levelinfo -pg 1 -10 350 913 1326 1530 -top -130 -bot 590
 ",
 }
