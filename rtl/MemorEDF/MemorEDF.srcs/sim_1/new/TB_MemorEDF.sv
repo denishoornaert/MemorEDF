@@ -60,8 +60,8 @@ xil_axi_ulong b_addr4   = 40'h040000c000;
 //  indices                      76543210765432107654321076543210
 bit [127 : 0] data_wr1    = 128'h00000020000000200000002000000020; // ABITRARY PERIOD
 bit [127 : 0] data_wr2    = 128'h00000007000000070000000700000007; // ARBITRRY THRESHOLD
-bit [127 : 0] data_wr3    = 128'h0000002200000022000000220f0e0d0c; // MITS[2 : 0], Priorities
-bit [127 : 0] data_wr4    = 128'h00000000000000030000000000000022; // reset, mode, hyperperiod, MITS[3]
+bit [127 : 0] data_wr3    = 128'h0000000b00000020000000080f0e0d0c; // MITS[2 : 0], Priorities
+bit [127 : 0] data_wr4    = 128'h00000000000000030000000000000060; // reset, mode, hyperperiod, MITS[3]
 
 xil_axi_size_t size = XIL_AXI_SIZE_16BYTE;//3'b111;
 xil_axi_burst_t fixed = XIL_AXI_BURST_TYPE_FIXED;//2'b00;
@@ -90,7 +90,7 @@ design_1_axi_vip_1_0_slv_mem_t  slv_mem_agent;
 always @(posedge aclk)
 begin
     #520ns;
-    b_master_agent.send_multi_wrbursts(    
+    b_master_agent.send_multi_rdbursts(    
         8,          // input     xil_axi_uint      num_xfers,
         b_addr1,    // input     xil_axi_ulong     start_addr,
         16'h018d,   // input     xil_axi_uint      myid ,
@@ -152,7 +152,7 @@ initial begin
     
     // WRITE PHASE
     #20ns
-    c_master_agent.send_multi_wrbursts(    
+    c_master_agent.send_multi_rdbursts(    
         8,          //input     xil_axi_uint       num_xfers,
         b_addr3,    //input     xil_axi_ulong      start_addr,
         16'h01ad,   //input     xil_axi_uint       myid ,

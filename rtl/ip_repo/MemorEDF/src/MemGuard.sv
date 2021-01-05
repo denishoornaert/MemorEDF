@@ -50,9 +50,13 @@ module MemGuard #(
     output reg                                   valid;
     output wire [$clog2(NUMBER_OF_QUEUES)-1 : 0] selection;
     
-    wire                                                hasBeenUpdated;
+    reg                        [NUMBER_OF_QUEUES-1 : 0] hasBeenUpdated;
     reg                                                 update_ff;
-    assign hasBeenUpdated = (~update)&update_ff;
+//    genvar q;
+//    for (q = 0; q < NUMBER_OF_QUEUES; q += 1)
+//    begin
+//        assign hasBeenUpdated = (~update)&update_ff&(last_selected == i);
+//    end
     
     reg                [$clog2(NUMBER_OF_QUEUES)-1 : 0] last_selected;
     
@@ -88,8 +92,8 @@ module MemGuard #(
     genvar i;
     for(i = 0; i < NUMBER_OF_QUEUES; i = i + 1)
     begin
-        //assign priorities[i] = (core_active[i])? priorities_input[i] : 0;
-        assign priorities[i] = (core_active[i])? i+1 : 0;
+        assign priorities[i] = (core_active[i])? priorities_input[i] : 0;
+        //assign priorities[i] = (core_active[i])? i+1 : 0;
     end 
     
     Combinatorial_FP #(
@@ -98,7 +102,7 @@ module MemGuard #(
     ) fp (
         .clock(clock),
         .reset(reset),
-        .priorities(priorities_input),
+        .priorities(priorities),
         .empty(empty),
         .selection(selection)
     );
@@ -133,7 +137,7 @@ module MemGuard #(
             integer i;
             for(i = 0; i < NUMBER_OF_QUEUES; i = i + 1)
             begin
-                if(hasBeenUpdated & ((last_selected == i) | (budgets[i] == 0)))
+                if((hasBeenUpdated[i] & core_active[i]) | (budgets[i] == 0))
                 begin
                     core_active[i] <= 0;
                     core_counter[i] <= 0;
@@ -142,6 +146,33 @@ module MemGuard #(
                 begin
                     core_active[i] <= (core_counter[i] >= budgets[i]);
                     core_counter[i] <= core_counter[i] + (core_counter[i] <= budgets[i]);
+                end
+            end
+        end
+    end
+    
+    always @(posedge clock)
+    begin
+        if(reset)
+        begin
+            integer i;
+            for(i = 0; i < NUMBER_OF_QUEUES; i = i + 1)
+            begin
+                hasBeenUpdated[i] <= 0;           
+            end
+        end
+        else
+        begin
+            integer i;
+            for(i = 0; i < NUMBER_OF_QUEUES; i = i + 1)
+            begin
+                if((hasBeenUpdated[i] & core_active[i]) | (budgets[i] == 0))
+                begin
+                    hasBeenUpdated[i] <= 0;           
+                end
+                else if(~hasBeenUpdated[i])
+                begin
+                    hasBeenUpdated[i] <= (~update)&update_ff&(last_selected == i);                    
                 end
             end
         end
