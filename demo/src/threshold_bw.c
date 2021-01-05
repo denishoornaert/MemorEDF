@@ -14,6 +14,16 @@
 #include "../include/tool.h"
 
 int main(int argc, char** argv) {
+    unsigned priorities = 0x0c0d0e0f;
+    unsigned c0_slot_size;
+    unsigned c1_slot_size;
+    unsigned c2_slot_size;
+    unsigned c3_slot_size;
+    sscanf(argv[1], "%u", &c0_slot_size);
+    sscanf(argv[2], "%u", &c1_slot_size);
+    sscanf(argv[3], "%u", &c2_slot_size);
+    sscanf(argv[4], "%u", &c3_slot_size);
+    //sscanf(argv[1], "%x", &priorities);
 
     int lpd_fd  = open_fd();
     int hpm_fd  = open_fd();
@@ -32,16 +42,16 @@ int main(int argc, char** argv) {
     (*config).deadlines[2] = 0x00000000;
     (*config).deadlines[3] = 0x00000000;
     // Set the priorities register
-    (*config).priorities = 0x0c0d0e0f;
+    (*config).priorities = priorities;
     // Set the budget registers
-    (*config).budgets[0] = 0x00000000;
-    (*config).budgets[1] = 0x00000000;
-    (*config).budgets[2] = 0x00000000;
-    (*config).budgets[3] = 0x00000000;
+    (*config).budgets[0] = c0_slot_size;
+    (*config).budgets[1] = c1_slot_size;
+    (*config).budgets[2] = c2_slot_size;
+    (*config).budgets[3] = c3_slot_size;
     // Set the hyper period register
     (*config).hyperperiod = 0x00000000;
     // Set the scheduler
-    (*config).scheduler = fp;
+    (*config).scheduler = mg;//fp;
 
     // Set the CPU
     cpu_set_t mask;
@@ -54,8 +64,11 @@ int main(int argc, char** argv) {
     unsigned k = 0;
 
     for (unsigned threshold = 0; threshold < 9; threshold++) {
-        // Update threshold
+        // Update thresholds
         (*config).deadlines[0] = threshold;
+        (*config).deadlines[1] = threshold;
+        (*config).deadlines[2] = threshold;
+        (*config).deadlines[3] = threshold;
 
         for (size_t j = 0; j < 100; j++) {
             struct timespec time1, time2;
