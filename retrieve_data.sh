@@ -9,15 +9,15 @@ sudo cp ${path_to_rootfs}/home/root/synthetic/SchIM_FP/3_cores.csv script/bw_com
 sudo cp ${path_to_rootfs}/home/root/synthetic/SchIM_FP/2_cores.csv script/bw_comparisons/SchIM_FP/
 sudo cp ${path_to_rootfs}/home/root/synthetic/SchIM_FP/1_cores.csv script/bw_comparisons/SchIM_FP/
 
-sudo cp ${path_to_rootfs}/home/root/synthetic/SchIM_TDMA/4_cores.csv script/bw_comparisons/SchIM_FP/
-sudo cp ${path_to_rootfs}/home/root/synthetic/SchIM_TDMA/3_cores.csv script/bw_comparisons/SchIM_FP/
-sudo cp ${path_to_rootfs}/home/root/synthetic/SchIM_TDMA/2_cores.csv script/bw_comparisons/SchIM_FP/
-sudo cp ${path_to_rootfs}/home/root/synthetic/SchIM_TDMA/1_cores.csv script/bw_comparisons/SchIM_FP/
+sudo cp ${path_to_rootfs}/home/root/synthetic/SchIM_TDMA/4_cores.csv script/bw_comparisons/SchIM_TDMA/
+sudo cp ${path_to_rootfs}/home/root/synthetic/SchIM_TDMA/3_cores.csv script/bw_comparisons/SchIM_TDMA/
+sudo cp ${path_to_rootfs}/home/root/synthetic/SchIM_TDMA/2_cores.csv script/bw_comparisons/SchIM_TDMA/
+sudo cp ${path_to_rootfs}/home/root/synthetic/SchIM_TDMA/1_cores.csv script/bw_comparisons/SchIM_TDMA/
 
-sudo cp ${path_to_rootfs}/home/root/synthetic/SchIM_TS/4_cores.csv script/bw_comparisons/SchIM_FP/
-sudo cp ${path_to_rootfs}/home/root/synthetic/SchIM_TS/3_cores.csv script/bw_comparisons/SchIM_FP/
-sudo cp ${path_to_rootfs}/home/root/synthetic/SchIM_TS/2_cores.csv script/bw_comparisons/SchIM_FP/
-sudo cp ${path_to_rootfs}/home/root/synthetic/SchIM_TS/1_cores.csv script/bw_comparisons/SchIM_FP/
+sudo cp ${path_to_rootfs}/home/root/synthetic/SchIM_TS/4_cores.csv script/bw_comparisons/SchIM_TS/
+sudo cp ${path_to_rootfs}/home/root/synthetic/SchIM_TS/3_cores.csv script/bw_comparisons/SchIM_TS/
+sudo cp ${path_to_rootfs}/home/root/synthetic/SchIM_TS/2_cores.csv script/bw_comparisons/SchIM_TS/
+sudo cp ${path_to_rootfs}/home/root/synthetic/SchIM_TS/1_cores.csv script/bw_comparisons/SchIM_TS/
 
 sudo cp ${path_to_rootfs}/home/root/synthetic/main_route/4_cores.csv script/bw_comparisons/main_route/
 sudo cp ${path_to_rootfs}/home/root/synthetic/main_route/3_cores.csv script/bw_comparisons/main_route/
@@ -38,3 +38,43 @@ sudo cp ${path_to_rootfs}/home/root/synthetic/SchIM_Gallois/4_cores.csv script/b
 sudo cp ${path_to_rootfs}/home/root/synthetic/SchIM_Gallois/3_cores.csv script/bw_comparisons/SchIM_Gallois/
 sudo cp ${path_to_rootfs}/home/root/synthetic/SchIM_Gallois/2_cores.csv script/bw_comparisons/SchIM_Gallois/
 sudo cp ${path_to_rootfs}/home/root/synthetic/SchIM_Gallois/1_cores.csv script/bw_comparisons/SchIM_Gallois/
+
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/prio_1/1_cores.csv script/threshold_bw/prio_1/
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/prio_1/2_cores.csv script/threshold_bw/prio_1/
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/prio_1/3_cores.csv script/threshold_bw/prio_1/
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/prio_1/4_cores.csv script/threshold_bw/prio_1/
+
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/prio_2/1_cores.csv script/threshold_bw/prio_2/
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/prio_2/2_cores.csv script/threshold_bw/prio_2/
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/prio_2/3_cores.csv script/threshold_bw/prio_2/
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/prio_2/4_cores.csv script/threshold_bw/prio_2/
+
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/prio_3/1_cores.csv script/threshold_bw/prio_3/
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/prio_3/2_cores.csv script/threshold_bw/prio_3/
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/prio_3/3_cores.csv script/threshold_bw/prio_3/
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/prio_3/4_cores.csv script/threshold_bw/prio_3/
+
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/prio_4/1_cores.csv script/threshold_bw/prio_4/
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/prio_4/2_cores.csv script/threshold_bw/prio_4/
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/prio_4/3_cores.csv script/threshold_bw/prio_4/
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/prio_4/4_cores.csv script/threshold_bw/prio_4/
+
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/mit_1/1_cores.csv script/threshold_bw/mit_1/
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/mit_1/2_cores.csv script/threshold_bw/mit_1/
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/mit_1/3_cores.csv script/threshold_bw/mit_1/
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/mit_1/4_cores.csv script/threshold_bw/mit_1/
+
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/mit_2/1_cores.csv script/threshold_bw/mit_2/
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/mit_2/2_cores.csv script/threshold_bw/mit_2/
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/mit_2/3_cores.csv script/threshold_bw/mit_2/
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/mit_2/4_cores.csv script/threshold_bw/mit_2/
+
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/mit_3/1_cores.csv script/threshold_bw/mit_3/
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/mit_3/2_cores.csv script/threshold_bw/mit_3/
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/mit_3/3_cores.csv script/threshold_bw/mit_3/
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/mit_3/4_cores.csv script/threshold_bw/mit_3/
+
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/mit_4/1_cores.csv script/threshold_bw/mit_4/
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/mit_4/2_cores.csv script/threshold_bw/mit_4/
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/mit_4/3_cores.csv script/threshold_bw/mit_4/
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/mit_4/4_cores.csv script/threshold_bw/mit_4/
