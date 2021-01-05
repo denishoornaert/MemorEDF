@@ -20,7 +20,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='/home/denis/github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/impl_1'
+HD_PWD='/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/impl_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
