@@ -17,7 +17,8 @@ def read(filepath, skip):
 
 linestyles = ['-', '--', '-.', ':']
 coord = [(0, 0), (0, 1), (1, 0), (1, 1)]
-mits = [8, 16, 24, 32]
+mits = [4, 8, 16, 32]
+priorities_labels = ["Lowest", "Third highest", "Second highest", "Highest"]
 
 #if (__name__ == '__main__'):
 #    for prio in range(1, 5, 1):
@@ -47,13 +48,13 @@ mits = [8, 16, 24, 32]
 #    plt.savefig("threshold.png")
 
 #if (__name__ == '__main__'):
-#    fig, axs = plt.subplots(2, 2)
+#    fig, axs = plt.subplots(2, 2, figsize=(10.5, 8))
 #
 #    for prio in range(1, 5, 1):
-#        axs[coord[prio-1][0], coord[prio-1][1]].set_title("Priority = "+str(prio))
+#        axs[coord[prio-1][0], coord[prio-1][1]].set_title("CUA priority: "+priorities_labels[prio-1])
 #        axs[coord[prio-1][0], coord[prio-1][1]].set_ylim([0, 700])
-#        for i in range(1, 5, 1):
-#            data = read("prio_"+str(prio)+"/"+str(i)+"_cores.csv", 1)
+#        for core in range(1, 5, 1):
+#            data = read("prio_"+str(prio)+"/"+str(core)+"_cores.csv", 1)
 #
 #            x = list(data.keys())
 #            x.sort()
@@ -66,7 +67,10 @@ mits = [8, 16, 24, 32]
 #            y = y[1:]+[y[0]]
 #            e = e[1:]+[e[0]]
 #
-#            axs[coord[prio-1][0], coord[prio-1][1]].errorbar(x, y, yerr=e, label=str(i)+" cores")
+#            axs[coord[prio-1][0], coord[prio-1][1]].errorbar(x, y, yerr=e, label="Contention level: "+str(core)+" core"+("s" if (core > 1) else " (Solo)"))
+#
+#            axs[coord[core-1][0], coord[core-1][1]].set_xticks(x)
+#            axs[coord[core-1][0], coord[core-1][1]].set_xticklabels([str(x[j]) for j in range(1,9)]+["Disabled"])
 #
 #    for ax in axs.flat:
 #        ax.set(xlabel="Threshold", ylabel="Bandwidth (MBps)")
@@ -75,19 +79,22 @@ mits = [8, 16, 24, 32]
 #    for ax in axs.flat:
 #        ax.label_outer()
 #
-#    axs[0, 1].legend(bbox_to_anchor=(1.05, 1), loc='upper left')
+#    fig.suptitle("Using FP, bandwidth experienced by the Core Under Analysis (CUA) for different levels\nof contention and thresholds", fontsize=16)
 #
-#    fig.set_size_inches(16, 10)
-#    fig.savefig("threshold.png")
+#    handles, labels = axs[1, 1].get_legend_handles_labels()
+#    fig.legend(handles, labels, loc='lower center', ncol=5,)
+#
+#    fig.savefig("threshold_fp_rev.pdf", dpi=300)
+#    fig.savefig("threshold_fp_rev.png", dpi=300)
 
 #if (__name__ == '__main__'):
-#    fig, axs = plt.subplots(2, 2)
+#    fig, axs = plt.subplots(2, 2, figsize=(10.5, 8))
 #
-#    for i in range(1, 5, 1):
-#        axs[coord[i-1][0], coord[i-1][1]].set_title("Cores = "+str(i))
-#        axs[coord[i-1][0], coord[i-1][1]].set_ylim([0, 700])
+#    for core in range(1, 5, 1):
+#        axs[coord[core-1][0], coord[core-1][1]].set_title("Contention level: "+str(core)+" core"+("s" if (core > 1) else " (Solo)"))
+#        axs[coord[core-1][0], coord[core-1][1]].set_ylim([0, 700])
 #        for prio in range(1, 5, 1):
-#            data = read("prio_"+str(prio)+"/"+str(i)+"_cores.csv", 1)
+#            data = read("prio_"+str(prio)+"/"+str(core)+"_cores.csv", 1)
 #
 #            x = list(data.keys())
 #            x.sort()
@@ -100,10 +107,10 @@ mits = [8, 16, 24, 32]
 #            y = y[1:]+[y[0]]
 #            e = e[1:]+[e[0]]
 #
-#            axs[coord[i-1][0], coord[i-1][1]].errorbar(x, y, yerr=e, label="prio ="+str(prio))
+#            axs[coord[core-1][0], coord[core-1][1]].errorbar(x, y, yerr=e, label=priorities_labels[prio-1]+" priority")
 #
-#            axs[coord[i-1][0], coord[i-1][1]].set_xticks(x)
-#            axs[coord[i-1][0], coord[i-1][1]].set_xticklabels([str(x[j]) for j in range(1,9)]+["Disabled"])
+#            axs[coord[core-1][0], coord[core-1][1]].set_xticks(x)
+#            axs[coord[core-1][0], coord[core-1][1]].set_xticklabels([str(x[j]) for j in range(1,9)]+["Disabled"])
 #
 #    for ax in axs.flat:
 #        ax.set(xlabel="Threshold", ylabel="Bandwidth (MBps)")
@@ -112,15 +119,18 @@ mits = [8, 16, 24, 32]
 #    for ax in axs.flat:
 #        ax.label_outer()
 #
-#    axs[0, 1].legend(bbox_to_anchor=(1.05, 1), loc='upper left')
+#    fig.suptitle("Using FP, bandwidth experienced by the cores for different levels\nof contention and thresholds", fontsize=16)
 #
-#    fig.set_size_inches(16, 10)
-#    fig.savefig("threshold.png")
+#    handles, labels = axs[1, 1].get_legend_handles_labels()
+#    fig.legend(handles, labels, loc='lower center', ncol=5,)
+#
+#    fig.savefig("threshold_fp.pdf", dpi=300)
+#    fig.savefig("threshold_fp.png", dpi=300)
 
 #if (__name__ == '__main__'):
 #    for prio in range(1, 2, 1):
-#        for i in range(1, 5, 1):
-#            data = read("mit_"+str(prio)+"/"+str(i)+"_cores.csv", 1)
+#        for core in range(1, 5, 1):
+#            data = read("mit_"+str(prio)+"/"+str(core)+"_cores.csv", 1)
 #
 #            x = list(data.keys())
 #            x.sort()
@@ -133,7 +143,7 @@ mits = [8, 16, 24, 32]
 #            y = y[1:]+[y[0]]
 #            e = e[1:]+[e[0]]
 #
-#            plt.errorbar(x, y, yerr=e, label=str(i)+" cores - mit "+str(prio), linestyle=linestyles[prio-1])
+#            plt.errorbar(x, y, yerr=e, label=str(core)+" cores"+str(prio), linestyle=linestyles[prio-1])
 #
 #    plt.xticks(x, labels=[str(x[i]) for i in range(1,9)]+["Disabled"])
 #
@@ -145,10 +155,10 @@ mits = [8, 16, 24, 32]
 #    plt.savefig("threshold.png")
 
 if (__name__ == '__main__'):
-    fig, axs = plt.subplots(2, 2)
+    fig, axs = plt.subplots(2, 2, figsize=(10.5, 8))
 
     for core in range(1, 5, 1):
-        axs[coord[core-1][0], coord[core-1][1]].set_title("Cores = "+str(core))
+        axs[coord[core-1][0], coord[core-1][1]].set_title("Contention level: "+str(core)+" core"+("s" if (core > 1) else " (Solo)"))
         axs[coord[core-1][0], coord[core-1][1]].set_ylim([0, 700])
         for mit in range(1, 5, 1):
             data = read("mit_"+str(mit)+"/"+str(core)+"_cores.csv", 1)
@@ -164,7 +174,7 @@ if (__name__ == '__main__'):
             y = y[1:]+[y[0]]
             e = e[1:]+[e[0]]
 
-            axs[coord[core-1][0], coord[core-1][1]].errorbar(x, y, yerr=e, label="MIT ="+str(mits[mit-1]))
+            axs[coord[core-1][0], coord[core-1][1]].errorbar(x, y, yerr=e, label="MIT = "+str(mits[mit-1]))
 
             axs[coord[core-1][0], coord[core-1][1]].set_xticks(x)
             axs[coord[core-1][0], coord[core-1][1]].set_xticklabels([str(x[j]) for j in range(1,9)]+["Disabled"])
@@ -176,7 +186,12 @@ if (__name__ == '__main__'):
     for ax in axs.flat:
         ax.label_outer()
 
-    axs[0, 1].legend(bbox_to_anchor=(1.05, 1), loc='upper left')
+    #axs[1, 1].legend(loc='upper center', bbox_to_anchor=(0.5, -0.2))#bbox_to_anchor=(1.05, 1), loc='upper left')
 
-    fig.set_size_inches(16, 10)
-    fig.savefig("threshold.png")
+    fig.suptitle("Using TS, bandwidth experienced by the cores for different levels\nof contention and thresholds", fontsize=16)
+
+    handles, labels = axs[1, 1].get_legend_handles_labels()
+    fig.legend(handles, labels, loc='lower center', ncol=5,)#, bbox_to_anchor=(0.0, -0.2))
+
+    fig.savefig("threshold_bw.pdf", dpi=300)
+    fig.savefig("threshold_bw.png", dpi=300)
