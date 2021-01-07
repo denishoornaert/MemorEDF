@@ -1,7 +1,7 @@
 COMPILER_ARM = aarch64-linux-gnu-gcc
 FLAGS = -lpthread -lrt
 
-all: init threshold_bw blast_fake_colored spam_fake_colored fp_read fp_write config_schim_tdma tdma_read tdma_write poke populate ts_read ts_write config_schim_fp config_schim_ts config_schim_fibo config_schim_gallois config_schim_aging
+all: init threshold_bw blast_fake_colored spam_fake_colored fp_read fp_write config_schim_tdma tdma_read tdma_write poke populate ts_read ts_write config_schim_fp config_schim_ts config_schim_fibo config_schim_gallois config_schim_aging threshold_bw_tdma threshold_bw_aging threshold_bw_fibo threshold_bw_gallois
 
 config_schim_fp: src/config_schim_fp.c objects/tool.o
 	$(COMPILER_ARM) src/config_schim_fp.c -o exec/config_schim_fp.out $(FLAGS) objects/tool.o
@@ -56,6 +56,18 @@ blast_fake_colored: src/blast_fake_colored.c objects/tool.o
 
 threshold_bw: src/threshold_bw.c objects/tool.o
 	$(COMPILER_ARM) src/threshold_bw.c -o exec/threshold_bw.out $(FLAGS) objects/tool.o
+
+threshold_bw_tdma: src/threshold_bw_tdma.c objects/tool.o
+	$(COMPILER_ARM) src/threshold_bw_tdma.c -o exec/threshold_bw_tdma.out $(FLAGS) objects/tool.o
+
+threshold_bw_aging: src/threshold_bw_aging.c objects/tool.o
+	$(COMPILER_ARM) src/threshold_bw_aging.c -o exec/threshold_bw_aging.out $(FLAGS) objects/tool.o
+
+threshold_bw_fibo: src/threshold_bw_fibo.c objects/tool.o
+	$(COMPILER_ARM) src/threshold_bw_fibo.c -o exec/threshold_bw_fibo.out $(FLAGS) objects/tool.o
+
+threshold_bw_gallois: src/threshold_bw_gallois.c objects/tool.o
+	$(COMPILER_ARM) src/threshold_bw_gallois.c -o exec/threshold_bw_gallois.out $(FLAGS) objects/tool.o
 
 objects/tool.o: include/tool.h src/tool.c
 	$(COMPILER_ARM) -c src/tool.c -o objects/tool.o $(FLAGS)
