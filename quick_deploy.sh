@@ -108,6 +108,8 @@ if [[ $programs_build ]]; then
     cp demo/exec/threshold_bw.out rootfs/synthetic/
     ## Blast to benchmarks
     cp demo/exec/blast_fake_colored.out rootfs/benchmarks/
+    ## Brainfreeze related programs
+    cp demo/exec/poke_brainfreeze.out rootfs/brainfreeze/
 fi
 
 if [[ $programs_copy ]]; then
