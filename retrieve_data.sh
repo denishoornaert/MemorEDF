@@ -78,3 +78,38 @@ sudo cp ${path_to_rootfs}/home/root/synthetic/bw/mit_4/1_cores.csv script/thresh
 sudo cp ${path_to_rootfs}/home/root/synthetic/bw/mit_4/2_cores.csv script/threshold_bw/mit_4/
 sudo cp ${path_to_rootfs}/home/root/synthetic/bw/mit_4/3_cores.csv script/threshold_bw/mit_4/
 sudo cp ${path_to_rootfs}/home/root/synthetic/bw/mit_4/4_cores.csv script/threshold_bw/mit_4/
+
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/period_1/1_cores.csv script/threshold_bw/period_1/
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/period_1/2_cores.csv script/threshold_bw/period_1/
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/period_1/3_cores.csv script/threshold_bw/period_1/
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/period_1/4_cores.csv script/threshold_bw/period_1/
+
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/period_2/1_cores.csv script/threshold_bw/period_2/
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/period_2/2_cores.csv script/threshold_bw/period_2/
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/period_2/3_cores.csv script/threshold_bw/period_2/
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/period_2/4_cores.csv script/threshold_bw/period_2/
+
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/period_3/1_cores.csv script/threshold_bw/period_3/
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/period_3/2_cores.csv script/threshold_bw/period_3/
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/period_3/3_cores.csv script/threshold_bw/period_3/
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/period_3/4_cores.csv script/threshold_bw/period_3/
+
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/period_4/1_cores.csv script/threshold_bw/period_4/
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/period_4/2_cores.csv script/threshold_bw/period_4/
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/period_4/3_cores.csv script/threshold_bw/period_4/
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/period_4/4_cores.csv script/threshold_bw/period_4/
+
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/aging/1_cores.csv script/threshold_bw/aging/
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/aging/2_cores.csv script/threshold_bw/aging/
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/aging/3_cores.csv script/threshold_bw/aging/
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/aging/4_cores.csv script/threshold_bw/aging/
+
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/fibo/1_cores.csv script/threshold_bw/fibo/
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/fibo/2_cores.csv script/threshold_bw/fibo/
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/fibo/3_cores.csv script/threshold_bw/fibo/
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/fibo/4_cores.csv script/threshold_bw/fibo/
+
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/gallois/1_cores.csv script/threshold_bw/gallois/
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/gallois/2_cores.csv script/threshold_bw/gallois/
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/gallois/3_cores.csv script/threshold_bw/gallois/
+sudo cp ${path_to_rootfs}/home/root/synthetic/bw/gallois/4_cores.csv script/threshold_bw/gallois/
