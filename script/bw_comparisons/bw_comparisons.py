@@ -65,7 +65,10 @@ ax.bar(x+(+0*bar_width), SchIM_FP,         width=bar_width, align="center", labe
 ax.bar(x+(+1*bar_width), SchIM_TDMA,       width=bar_width, align="center", label="SchIM TDMA")
 ax.bar(x+(+2*bar_width), SchIM_MG,         width=bar_width, align="center", label="SchIM TS")
 
-print(simple_loop_back[0]-SchIM_FP[0])
+print("0)\t", simple_loop_back[0])
+print("1)\t", simple_loop_back[1])
+print("2)\t", simple_loop_back[2])
+print("3)\t", simple_loop_back[3])
 
 plt.xlabel("Set of cores contending")
 plt.xticks(x, x_labels)
