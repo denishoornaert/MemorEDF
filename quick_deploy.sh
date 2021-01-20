@@ -151,3 +151,5 @@ if [[ $jailhouse_copy ]]; then
 fi
 #sudo cp python/* /media/denis/rootfs1/usr/bin/
 #sudo cp libpython/ /media/denis/rootfs1/usr/lib/
+
+notify-send -u normal "Quick deploy is done" "The SchIM project has been successfully deployed!"
