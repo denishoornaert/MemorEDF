@@ -42,11 +42,12 @@ usleep 500000
 
 mits="1024 32768 131072 524288"
 
+mkdir -p ~/benchmarks/results/
+
 for mit in ${mits[@]}
 do
-    cd ~/benchmarks/root-cell/
-    mkdir -p ~/benchmarks/root-cell/results/
     touch ~/benchmarks/results/bench_ts_${mit}.csv
     ~/common/config_schim_ts.out ${mit} ${mit} ${mit} ${mit} 0 0 0 0
+    cd ~/benchmarks/root-cell/
     ./run_all_sdvbs.sh ~/benchmarks/results/bench_ts_${mit}.csv
 done
