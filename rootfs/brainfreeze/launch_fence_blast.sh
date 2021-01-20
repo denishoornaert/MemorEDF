@@ -22,7 +22,7 @@ $jh_path/tools/jailhouse cell create $jh_path/configs/arm64/cpu-brain-freeze-col
 
 sleep 1
 $jh_path/tools/jailhouse cell load --name "cbf-col-mem-bomb-0" $jh_path/inmates/demos/arm64/cbf-mem-bomb-fence.bin
-devmem $((comm_base + off)) 32 0)
+devmem $((comm_base + off)) 32 0
 $jh_path/tools/jailhouse cell start --name "cbf-col-mem-bomb-0"
 
 echo "LIST OF CELLS:"
@@ -39,3 +39,14 @@ devmem $((comm_base + off + 8)) 32 $mg_budget
 usleep 500000
 devmem $((comm_base + off)) 32 0x0b
 usleep 500000
+
+mits="1024 32768 131072 524288"
+
+for mit in ${mits[@]}
+do
+    cd ~/benchmarks/root-cell/
+    mkdir -p ~/benchmarks/root-cell/results/
+    touch ~/benchmarks/results/bench_ts_${mit}.csv
+    ~/common/config_schim_ts.out ${mit} ${mit} ${mit} ${mit} 0 0 0 0
+    ./run_all_sdvbs.sh ~/benchmarks/results/bench_ts_${mit}.csv
+done
