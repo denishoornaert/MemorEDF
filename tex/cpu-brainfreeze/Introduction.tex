@@ -1,1 +1,9 @@
 \section{Introduction}
+    \begin{itemize}
+        \item In modern Heterogenuous Mutli-core Systems, caches are an angular piece of hardware as they efficiently bridge the gap between the speed of the connected execution units and the main memory.
+        \item With the time, shared last-level of caches architecture has evolved to the point they are now capable of managing transactions to the main memory transparently. A technic known as non-blocking.
+        \item While providing top of the line performances, this complex machinery is unpredictable, a source of concern for safety critical hard real-time systems.
+        \item In addition to well known sources of unpredictability such as the inter-core eviction, recent research have highlighted that internal component such as the Miss-Status-Holding-Register (or MSHR) can introduce substantial inter-core interferences in certain circumstances.
+        \item Previous research put in evidence that such situation occur solely under high write loads.
+        \item The present article shows that the under certain circumstances, a single read transaction is also capable of jeoparding the system predictability and even fully block all the masters connected to the last-level of cache.
+    \end{itemize}
