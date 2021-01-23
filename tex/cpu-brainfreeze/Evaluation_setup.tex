@@ -41,3 +41,15 @@ void do_reads(void) {
 
     \subsection{AXI-Resistor IP}
         \label{subsec:axi-resistor}
+        \begin{figure}
+            \centering
+            \includegraphics[scale=0.11]{images/AXI-Resistor.png}
+            \caption{}
+            \label{fig:axi_resistor}
+        \end{figure}
+
+        The AXI-resistor IP is a PLIM module \cite{PLIM20}, meaning that it is a module located on the PL side that sits between the core cluster and the DRAM controller. By targeting, the HPM port adddress space, the cores indirectly access the main memory as transactions received by a PLIM module are redirected toward the DRAM controller.  For our experiment, the AXI-Resistor is used as a slow cacheable memory target.
+
+        Architecturally, the AXI-Resistor is simply composed of a queue buffering the the address phases of the incomming AXI transactions \cite{ARM-AXI} (the response phase is not intercepted) and a timer releasing the address phase stored in the head of the queue with a given minimun inter-arrival period (or MIT). Thanks to a configuration port accessible via the purple path in Figure \ref{fig:system_schematic}, the MIT can be reprogrammed at run-time.
+
+        Because each the address phase of each transaction is intercepted by the the AXI-Resistor before arriving to the DRAM controller, the latter is unaware of the transaction and no internal mechanism is activated.
