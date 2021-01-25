@@ -1,1 +1,10 @@
 \section{Discussion}
+    Non-blocking cache are advertised as cache units capable of both increasing the cache hit-rate and managing mulmtiple simultaneous memory accessses created by the cores in a seamless fashion (i.e. without stalling the whole core cluster at each miss) unless either one of the MSHR or the write-back unit  is full. Nothing in the non-blocking cache descripotiona and architecture suggests that a single outstanding read transaction could introduce inter-core interferences. However, our experiment tends to show the exact opposite.
+
+    This would sugest that applying simultaneously to partition the cache (e.g. cache coloring), to manage the shared cache units (e.g. Heechul paper with OS tool\cite{}) and to shape the traffic on the bus (e.g. Memguard \cite{}) is not enough, as in some very specific case such as the one presented in this article, something would fundeementally prevent it.\\
+
+    The authors acknowledge that the described phenomenon is unlikely to happen in a normal situation (i.e. all the inmates target the main memory), and if it does, the consequences are negligeable. Nonetheless, this experiment has the merit of pinpointing a malfunction in the last level of cache controller of the ARM Cortex-A53. It is also a reminder of the gap between the theoretical models, the hardware behaviour expectations and the real behaviour of the hardware.
+
+     The experiment also sheds light on the importance of selecting trustable third party IPs and designing correctly IPs if they aim to be cacheable target memories. Any bus slaves must be designed carefully in order to provide fast answers. This is specially the case ofr PLIM modules which aim at being cacheable targets.\\
+
+     Finally, software stacks provided with SoCs featuring a tightly integrated programmable logic must ensure that the latter can only be reprogrammed by a trusted actor as simply holding a single cached read transaction can indefinitely stall the whole core cluster.
