@@ -1,12 +1,10 @@
 \section{Conclusion}
     \begin{itemize}
-        \item The authors acknowledge that the described phenomenon is unlikely to happen in a mainstream platform, or if it happens, the consequences are negligeable. Nonethless, this experiment has the merit of pinpointing a malfunction in the last level of cache controller of the ARM Cortex-A53. The experiment also shed light on the importance of selecting trustable 3thr party IPs and designing correctly IPs if they are cacheable target memories.
         \item Such system, under strict conditions cannot quarantee QoS nor Mixed-criticality levels.
         \item In contrast to what has been previously reported, read intensive applications can also become a threat for the system predictability.
-        \item Bus slaves must be designed carefully to provide fast answers. More specifically, SoCs featuring a tightly integrated FPGA must ensure that the FPGA can only be reprogrammed by a trusted actor as simply holding a single transaction can indefinitely stall the whole core cluster.
     \end{itemize}
-
     \subsection{Future works}
         \begin{itemize}
             \item Study if the same impact can be found with the attacker targeting a scratch pad memory which frequency could be modify.
+            \item Investigate whether this phenomenom can also be observed in other, more recent, ARM core families.
         \end{itemize}
