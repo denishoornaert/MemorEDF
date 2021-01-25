@@ -34,17 +34,17 @@
         The design of the attacker (i.e. the read memory bomb) must be thought carefully, even with the aforementioned precautions. In fact, let alone a read memory bomb will steadily fetch data and will fill its last level of cache partition. At one point, one of these fetches will provoke a cache line eviction. If not under control, these cache line evictions will generate write back transaction that will accumulate in the MSHR, potentially leading to the phenomenon reported by \cite{Heechul_DDOS_attacks_on_shared_cache}.
 
 
-        \begin{lstlisting}[language=C, caption={Read memory-bomb code}, label={lst:bomb_listing}, basicstyle=\small, captionpos=b]
-void do_reads(void) {
-    crc = 0;
-    for (int i = 0; i < size; i += LINE_SIZE) {
-        crc += buffer[i];
-        __dsb(SY);
-    }
-}
-        \end{lstlisting}
+%        \begin{lstlisting}[language=C, caption={Read memory-bomb code}, label={lst:bomb_listing}, basicstyle=\small, captionpos=b]
+%void do_reads(void) {
+%    crc = 0;
+%    for (int i = 0; i < size; i += LINE_SIZE) {
+%        crc += buffer[i];
+%        __dsb(SY);
+%    }
+%}
+%        \end{lstlisting}
 
-        This side effect can only be avoided by throttling down the attacker core. We enforce this by following each read request by a \emph{Data Synchronisation Barrier} (or \texttt{DSB}) as shown in Listing \ref{lst:bomb_listing}. Doing so ensures that at most, only one read transaction toward the AXI-Resistor will be emited at a time. Subsequently, it guarantees that there is never more than one write back transaction linked to the attacker in the MSHR.
+        This side effect can only be avoided by throttling down the attacker core. We enforce this by following each read request by a \emph{Data Synchronisation Barrier} (or \texttt{DSB}). Doing so ensures that at most one read transaction toward the AXI-Resistor will be emited at a time. Subsequently, it guarantees that there is never more than one write back transaction linked to the attacker in the MSHR.
 
     \subsection{AXI-Resistor IP}
         \label{subsec:axi-resistor}
