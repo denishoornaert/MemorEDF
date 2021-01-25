@@ -26,4 +26,6 @@
 
     As display in Figure \ref{fig:cpu-brainfreeze-interference-results}, the victim inmate, while running the localization benchmark, suffers from little to no interference from the attacker. The only noticeable increase in execution time is for a \emph{vga} input size and a MIT of $2^{19}$, where the victim suffers from a $150\%$ increase of computation time.
     On the other hand, when running mser, a well known memory bound benchmark, noticeable increases in execution time are observed, with a factor of 10 observed for the \emph{sim} input size.
-    For both sift and tracking spikes in execution time are observed. Eventhough, there is no clear pattern with respect to the input sizes, increase in execution time happen for MITs of $2^{17}$ and $2^{19}$.
+    For both sift and tracking spikes in execution time are observed. Eventhough, there is no clear pattern with respect to the input sizes, increase in execution time happen for MITs of $2^{17}$ and $2^{19}$.\\
+
+    Interrestingly, configuring the AXI-Resistor in such a way that it would accept the read trasaction, but never answer systematically, leads to the whole system being suspended undefinitely. This can effectively be considered as a Denial-of-Service attack.
