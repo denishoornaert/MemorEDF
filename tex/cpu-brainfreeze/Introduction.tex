@@ -6,7 +6,7 @@
     Unfortunately, while non-blocking shared caches offer great average perfomance, their behaviour is opaque and unpredictable.
     Dealing with the cache behaviour is of the utmost importance for safety critical hard Real-Time systems where timing constraints must be respected and guaranteed.
     A great deal of research has been conducted on cache management for Real-Time applications on MPSoCs.
-    The two main sources of unpredictability imputed to the last-level of cache are (1) the inter-core cache line eviction and (2) the opaque management of internaly shared resources.
+    The two main sources of unpredictability imputed to the \emph{last-level of cache} (LLC) are (1) the inter-core cache line eviction and (2) the opaque management of internaly shared resources.
     %
     The inter-core cache line eviction is a well studied source of unpredictability that arises when the memory accesses of two independent cores lead to the eviction of each others cache line in a destructive way.
     Such source of unpredictability can be addressed and mitigated by enforcing the \emph{spacial isolation} of the cores \cite{Mancuso2013RealtimeCM, 6755286}.
