@@ -1,5 +1,13 @@
 \section{Related work}
-    \begin{itemize}
-        \item \cite{Heechul_taming_non_blocking_caches} Tmaing non blocking cache blablabla
-        \item \cite{Heechul_DDOS_attacks_on_shared_cache} DDOD: attacks on shared cahe blablabla
-    \end{itemize}
+    An important amount of research hass focused on addressing the challenges of isolating the the execution time of cores sharing the same cache.
+    Most of this research \cite{Mancuso2013RealtimeCM, 6755286} has aimed at \emph{spacially isolate} the cores (i.e. avoiding inter-core cache line eviction by constraining each core dta and instruction in a specific region of the shared cache). Hardware based solutions such as \emph{lockdown per way} \cite{Giovani_cahe_partitioning_survey} are efficient, but not integrated in every platforms.
+    On the other hand, software based solutions such as cache coloring \cite{} can be deployed in most plattforms, but comes at the cost of increased memory space requirements.
+
+    However, recent research \cite{Valsan2017AddressingIC, Heechul_DDOS_attacks_on_shared_cache} have highlighted that, while cache partitioning is successful in most cases, in extreme cases, conttention on shared internal units such as the MSHRs or the write-back unit can also introduce substential inter-core interferences.
+    In \cite{Valsan2017AddressingIC}, the authors evaluate the impact of inttercore intterferrence originated by the MSHRs on multiple platforms and propose a solution to eliminate this contention. The solution is based on a combination of a small hardware module and an OS-level controller.
+    Their experiments show that the execution time of independent cores could be increased respectivelly by a factor of 10.6 and 21.3 under read and write workloads.
+    By the mean of simulation, they prove that their approach is successful at providing tthe best overall throughput for each core while suppressing the inter-core interference caused by the MSHRs.
+    % Running applicative benchmarks, increas in execution time of a factor of 6.4 have been observed.
+    \cite{Heechul_DDOS_attacks_on_shared_cache} investigates the contention in caches caused by shared internal units in the case of \emph{Denial-of-service} (DOS) attacks and propose an OS-level solution enabling finer management of the system bandwidth.
+    In contrast to \cite{Valsan2017AddressingIC}, the internal unitt studied and exploitted is the write-back unit.
+    They report that, by exploiting this unit efficiently, one can increase the execution time of a task by a factor of 346.
