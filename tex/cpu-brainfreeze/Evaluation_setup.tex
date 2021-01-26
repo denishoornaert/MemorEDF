@@ -9,13 +9,13 @@
     \begin{figure*}
         \centering
         \includegraphics[scale=0.56]{images/Evaluation_setup.pdf}
-        \caption{}
+        \caption{Schematic view of the considered setup with the partitioning of the core cluster (both cores and Last-level of cache) on the left, the different path taken by the transactions highlighted in purple, orange and red, and the AXI-Resistor. on the right.}
         \label{fig:system_schematic}
     \end{figure*}
     For our experiment, we use the Xilinx ZCU102 develpment board \cite{Xilinx-ULTRASCALE-TRM}, a platform associating a tarditional Processing System (or PS) with a tightly integrated Programmable Logic (or PL). Figure \ref{fig:system_schematic} offers a schematic representation of the platform.
-    The PS side features four ARM Cortex-A53 cores \cite{ARM-cortex-A53} connected altogether thanks to a shared last-level of cache of 1MB. These resources are shared between two actors: a \emph{victim} and a \emph{attacker}. On the other hand, the PL side is programmed with a custom IP\footnote{Intelectual Property} called AXI-Resistor (more details in section \ref{subsec:axi-resistor}). In a PLIM module fashion \cite{PLIM20}, the latter is connected to both the PS side and the DRAM controller thanks to the HPM and the HP ports respectivelly. The AXI-Resistor will be used as the slow memory target.
+    The PS side features four ARM Cortex-A53 cores \cite{ARM-cortex-A53} connected altogether thanks to a shared last-level of cache of 1MB. These resources are shared between two actors: a \emph{victim} and a \emph{attacker}. On the other hand, the PL side is programmed with a custom IP\footnote{Intelectual Property} called AXI-Resistor (more details in section \ref{subsec:axi-resistor}). In a PLIM\footnote{Programmable Logic In the Middle} module fashion \cite{PLIM20}, the latter is connected to both the PS side and the DRAM controller thanks to the HPM and the HP ports respectivelly. The AXI-Resistor will be used as the slow memory target.
 
-    In the present scenario, the victim executes a set of tasks addressing directly the main memory (i.e. the path highlited in red in Figure \ref{fig:system_schematic}), whereas the attacker targets the AXI-Resistor with read transactions.\\
+    In the present scenario, the victim executes a set of tasks addressing directly the main memory (i.e. the path highlited in red in Figure \ref{fig:system_schematic}), whereas the attacker mainly targets the AXI-Resistor with read transactions.\\
 
     This section presents the technical details of the different components and actors of the experiments. Further details regarding the organization of the PS side are given in section \ref{subsec:processing_system_organization}. In section \ref{subsec:attacker_reading_memory_bomb}, a description of the attacker is given. Finally, a complete description of the AXI-Resistor is given section \ref{subsec:axi-resistor}.
 
