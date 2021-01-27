@@ -71,7 +71,10 @@
 \maketitle
 
 \begin{abstract}
-    Experiment performed on a real PS-PL platform using the San-Diego Vision Benchamrk Suite
+    In modern real-time multicore systems, understanding and adequatly managing shared caches is important to ensure the temporal isolation of critical tasks.
+    Recent research have identify and extensively study the sources of unpredictability imputable to shared caches, heavily promoting techniques such as cache partitioning and internal sub-component management.
+
+    In this article, we highlight the existence of an enigmatic source of inter-core interferences. Experiments realised on a development board show that benchmarks (issued from the San-Diego Vision Benchmark Suite) can see their execution time multiplied by 10. The same experiment shows that for extreme cases the core cluster can be stalled indefinitely.
 \end{abstract}
 
 \begin{IEEEkeywords}

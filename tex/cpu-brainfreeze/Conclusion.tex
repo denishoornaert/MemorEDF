@@ -1,10 +1,6 @@
 \section{Conclusion}
-    \begin{itemize}
-        \item Such system, under strict conditions cannot quarantee QoS nor Mixed-criticality levels.
-        \item In contrast to what has been previously reported, read intensive applications can also become a threat for the system predictability.
-    \end{itemize}
-    \subsection{Future works}
-        \begin{itemize}
-            \item Study if the same impact can be found with the attacker targeting a scratch pad memory which frequency could be modify.
-            \item Investigate whether this phenomenom can also be observed in other, more recent, ARM core families.
-        \end{itemize}
+    In this article, we have highlighted the existence of an enigmatic source of inter-core interference on the ARM Cortex-A53 caused by isolated unserved read transactions.
+    The interference has been observed to increase the execution time of co-running inmate by a factor of 11 despite all the precautions taken to eliminate known sources of interferences.
+    Even worst, the experiment shows that in the most extreme case, the whole core cluster can be stalled, jeopading any isolation and putting the satefy of the system at risk.
+
+    Future works will focus on strenghtening the experimental setup, on narrowing down the scope of potential sources of the observed interference and propose a solution to prevent it. In addition, authors plan to experiment with other wide spread ARM Cortex models to see if the issue is specific to the A53 model.
