@@ -1,9 +1,10 @@
 \section{Discussion}
-    Non-blocking caches are advertised as cache units capable of hiding the cache hit-miss penalty and managing multiple simultaneous memory accessses created by the cores in a seamless fashion (i.e. without stalling the whole core cluster at each miss) unless all the MSHRs are used or the write-back unit buffer is full. Nothing in the non-blocking cache architecture suggests that a single outstanding read transaction could introduce inter-core interferences. However, our experiment tends to show the opposite.
+    Non-blocking caches are advertised as cache units capable of hiding the cache hit-miss penalty and managing multiple simultaneous memory accesses created by the cores in a seamless fashion (i.e. without stalling the whole core cluster at each miss) unless all the MSHRs are used or the write-back unit buffer is full.
+    Nothing in the non-blocking cache architecture suggests that a single outstanding read transaction could introduce inter-core interferences. However, our experiment tends to show the opposite.
 
     While the exact source of the observed inter-core interferences is unclear to the authors, all the precautions taken during the experiment (i.e. isolation of the inmates and partition of the cache) and the result tend to suggest that the source originates from the LLC controller itself.
 
-    The authors acknowledge that the described phenomenon is unlikely to occur in a normal situation (i.e. all the inmates target the main memory), and if it does, the consequences should be negligeable.
+    The authors acknowledge that the described phenomenon is unlikely to occur in a normal situation (i.e. all the inmates target the main memory), and if it does, the consequences should be negligible.
     Nonetheless, this experiment has the merit of pinpointing a malfunction in the LLC controller of the ARM Cortex-A53.
     It is a reminder of the gap between the theoretical models, the hardware behaviour expectations and the real behaviour of the hardware.
 

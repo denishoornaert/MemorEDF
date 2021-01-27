@@ -7,7 +7,7 @@
         \label{fig:system_schematic}
     \end{figure*}
 
-    As a model, we consider a PS-PL system where the Processing System must features at least two cores and a shared non-blocking LLC.
+    As a model, we consider a PS-PL system where the Processing System must feature at least two cores and a shared non-blocking LLC.
     The PL side is programmed with a PLIM module called AXI-Resistor, which will act as a slow cacheable memory target (more details in section \ref{subsec:axi-resistor}).
     The platform resources are shared between two actors: a \emph{victim} and a \emph{attacker}.
     In the present scenario, the victim executes a set of tasks addressing directly the main memory (i.e. the path highlighted in red in Figure \ref{fig:system_schematic}), whereas the attacker mainly targets the AXI-Resistor with read transactions.
@@ -16,19 +16,19 @@
     This section presents the details of the different components and actors of the experiment.
     Further details regarding the organization of the PS side are given in section \ref{subsec:processing_system_organization}.
     In section \ref{subsec:attacker_reading_memory_bomb}, a description of the attacker is given.
-    Finally, implmentation and characteristics of the AXI-Resistor are discussed in section \ref{subsec:axi-resistor}.
+    Finally, the implementation and the characteristics of the AXI-Resistor are discussed in section \ref{subsec:axi-resistor}.
 
     \subsection{Processing System Organization}
         \label{subsec:processing_system_organization}
         As previously mentioned, the PS side and especially the core cluster is shared by both the victim and the attacker.
-        We assume a partitioned system where each actor is assigned a given set of cores and a parivate partition of the LLC.
+        We assume a partitioned system where each actor is assigned a given set of cores and a private partition of the LLC.
         Consequently, each actor is independent, ensuring that the observed delays cannot be imputed to either a common software stack or inter-core cache line evictions.
 
         On one hand, we define our victim actor as a set of trusted applications and controllers having to meet certain deadlines.
         On the other hand, we define our attacker actor as a lightweight application in charge of emitting sequential read transactions toward the desired target.
         As shown by the Figure \ref{fig:system_schematic}, the attacker splits its private partition of the LLC in two.
-        The first one half allows the attacker to access the main memory where its code is located (via the path highlighted in red in Figure \ref{fig:system_schematic}) and the second half is dedicated to the data read from AXI-Resistor (the orange path in Figure \ref{fig:system_schematic}).
-        Isolating the two address space is important as it enables a high control over the amount of transactions targetting the AXI-Resistor.
+        The first one half allows the attacker to access the main memory, where its code is located (via the path highlighted in red in Figure \ref{fig:system_schematic}) and the second half is dedicated to the data read from AXI-Resistor (the orange path in Figure \ref{fig:system_schematic}).
+        Isolating the two address space is important as it enables a high control over the amount of transactions targeting the AXI-Resistor.
 
         Globally, the actors are perfectly isolated.
         The only exception being that the attacker also access the main memory to fetch its code.
@@ -42,15 +42,15 @@
         In this situation the non-blocking cache controller will stop the whole machinery, leading to the phenomenon reported by \cite{Heechul_DDOS_attacks_on_shared_cache}.
         %
         This effect can only be avoided by throttling down the attacker core.
-        We enforce this by following each read request by a \emph{Data Synchronisation Barrier} (\texttt{DSB}).
-        This ensures that at each instant, there will not be more than one transaction in direction of the AXI-Resistor and, by extension, it guarantees that only one MSHR is occupied by the attacker actor.
+        We enforce this by following each read request by a \emph{Data Synchronization Barrier} (\texttt{DSB}).
+        This ensures that at each instant, there will not be more than one transaction targeting the AXI-Resistor and, by extension, it guarantees that only one MSHR is occupied by the attacker actor.
 
     \subsection{AXI-Resistor IP}
         \label{subsec:axi-resistor}
         The AXI-resistor IP is a PLIM module \cite{PLIM20} used to act as a slow cacheable memory target in our system model.
-        Typically, the IP accepts every read transaction comming from the core cluster via the HPM port, buffers them and only release them oneby one in direction of the DRAM controller after a minimal inter-arrival time (MIT) expressed in clock cycles (CC).
+        Typically, the IP accepts every read transaction coming from the core cluster via the HPM port, buffers them and only release them one by one in direction of the DRAM controller after a minimal inter-arrival time (MIT) expressed in clock cycles (CC).
         This data path is highlighted in orange in Figure \ref{fig:system_schematic}.
-        Because each transaction is intercepted by the the AXI-Resistor before arriving to the DRAM controller, the latter is unaware of the transaction and no internal mechanism is activated, suppressing potential interference at the level of the DRAM controller.
+        Because each transaction is intercepted by the AXI-Resistor before arriving to the DRAM controller, the latter is unaware of the transaction and no internal mechanism is activated, suppressing potential interference at the level of the DRAM controller.
 
         The AXI-Resistor is composed of three ports: one slave port accepting transaction from the core cluster, one configuration port and one master port repeating the transactions out of the IP.
         Arriving transactions are buffered within the AXI-Resistor thanks to a queue (see \emph{Addresss Phase Lane} on the right of Figure \ref{fig:system_schematic}).
