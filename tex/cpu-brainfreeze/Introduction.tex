@@ -20,5 +20,5 @@
     In this article, we show the existence of a third source of inter-core interference linked to the speed at which the cacheable target memory reacts on the ARM Cortex-A53 \cite{ARM-cortex-A53}.
     In other words, if a target memory acknowledges the transaction, but waits to deliver the response, the execution time of tasks running on independent cores (co-runners) can be impacted.
     Our experiments show that a co-running task can see its execution being increased by a factor of 10.
-    Furthermore, we show that if this single read transaction is acknowledged by the target memory, but the latter never provides a response, the whole core cluster is frozen indefinitely.
+    Furthermore, we show that if a single read transaction is acknowledged by the target memory, but the latter never provides a response, the whole core cluster is frozen indefinitely.
     To the best of our knowledge, this is the first report demonstrating that a core cluster can be subject to interferences caused by an isolated and delayed read transaction.
