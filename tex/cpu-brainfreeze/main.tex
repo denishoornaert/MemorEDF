@@ -74,8 +74,6 @@
 %    }
 %    \IEEEauthorblockA{
 %        \IEEEauthorrefmark{1}\textit{Technical University of Munich}~~~~\IEEEauthorrefmark{2}\textit{Boston University}\\
-%        %\IEEEauthorrefmark{1}\textit{Department of Mechanical Engineering, Technical University of Munich}\\
-%        %\IEEEauthorrefmark{2}\textit{Department of Mobility Engineering, Federal University of Santa Catarina}\\
 %        \{denis.hoornaert, mcaccamo\}@tum.de, \{shahin, rmancuso\}@bu.edu
 %    }
 
@@ -86,9 +84,9 @@
 
 \begin{abstract}
     In modern real-time multicore systems, understanding and adequately managing shared caches is important to ensure the temporal isolation of critical tasks.
-    Recent research has identify and extensively study the sources of unpredictability imputable to shared caches, heavily promoting techniques such as cache partitioning and internal sub-component management.
+    Recent research has identified and extensively studied the sources of unpredictability imputable to shared caches, heavily promoting techniques such as cache partitioning and internal resources management.
 
-    In this article, we highlight the existence of an enigmatic source of inter-core interferences. Experiments realised on a development board show that benchmarks (issued from the San-Diego Vision Benchmark Suite) can see their execution time multiplied by 10. The same experiment shows that for extreme cases the core cluster can be stalled indefinitely.
+    In this article, we highlight the existence of an enigmatic source of inter-core interference: the CPU-brainfreeze. Experiments realised on a development board show that benchmarks (selected from the San-Diego Vision Benchmark Suite) can exhibit up to a 10-fold increase in their execution time. The same experiment shows that for extreme cases the core cluster can be stalled indefinitely.
 \end{abstract}
 
 \begin{IEEEkeywords}
