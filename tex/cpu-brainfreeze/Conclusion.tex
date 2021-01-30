@@ -7,6 +7,6 @@
 
     In this article, we have highlighted the existence of an enigmatic source of inter-core interference in the ARM Cortex-A53 clusters caused by isolated and delayed read transactions.
     The interference increases the execution time of co-runners by a factor of 10 in the worst case despite all the precautions taken to eliminate known sources of interferences.
-    Even worst, the experiment shows that in the most extreme case, the whole core cluster can be stalled, jeopardizing any isolation and putting the safety of the system at risk.
+    Even worst, the experiment shows that in the most extreme case, the whole core cluster can be stalled, jeopardizing any isolation.
 
     Extensions of this work will focus on strengthening the experimental setup, narrowing down the scope of potential sources of the observed interference, and propose a solution to prevent it. In addition, the authors plan to experiment with other wide-spread ARM Cortex CPUs to see whether the issue is specific to the A53 model.

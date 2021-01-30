@@ -1,12 +1,5 @@
 \section{System Model}
     \label{sec:system_model}
-    \begin{figure*}
-        \centering
-        \includegraphics[scale=0.56]{images/Evaluation_setup.pdf}
-%        \caption{Schematic view of the considered setup with the partitioning of the core cluster (both cores and LLC) on the left, the different path taken by the transactions highlighted in cyan, orange and red, and the AXI-Resistor. on the right.}
-        \caption{Schematic view of the system model with the partitioned core cluster, the different data paths and the AXI-Resistor.}
-        \label{fig:system_schematic}
-    \end{figure*}
 
 %    As a model, we consider a PS-PL system where the processing system must feature at least two cores and a shared non-blocking LLC.
 %    The PL side is programmed with a PLIM module called the AXI-Resistor as depicted in Figure \ref{fig:system_schematic}, which will act as a slow cacheable memory target (more details in Section \ref{subsec:axi-resistor}).
@@ -14,49 +7,72 @@
 %    In the present scenario, the victim executes a set of tasks addressing directly the main memory (i.e. the path highlighted in red in Figure \ref{fig:system_schematic}), whereas the attacker mainly targets the AXI-Resistor with read transactions.
 %    Figure \ref{fig:system_schematic} offers a schematic representation of the platform and how it is used for the experiment.
 
-    As a model, we consider a PS-PL system where the processing system must feature at least two cores and a shared non-blocking LLC.
-    The PL side is programmed with a PLIM module called the AXI-Resistor as depicted in Figure \ref{fig:system_schematic}, which will act as a slow cacheable memory target (more details in Section \ref{subsec:axi-resistor}).
-    The platform resources are shared between two actors: a \emph{victim} and an \emph{attacker}.
-    In the present scenario, the victim executes a set of tasks addressing the main memory (i.e., the path highlighted in red in Figure \ref{fig:system_schematic}), whereas the attacker mainly targets the AXI-Resistor with read transactions.
-    Figure \ref{fig:system_schematic} offers a schematic representation of the platform and its use for the experiment.
+%    As a model, we consider a PS-PL system where the processing system must feature at least two cores and a shared non-blocking LLC.
+
+%    As displayed in Figure \ref{fig:system_schematic}, the system model is a PS-PL system where the processing system is composed of four cores and a shared non-blocking LLC.
+%    The PL side is programmed with a PLIM module, called the AXI-Resistor, which acts as a slow cacheable memory target (more details in Section \ref{subsec:axi-resistor}).
+%    The platform resources are shared between two actors: a \emph{victim} and an \emph{attacker}.
+%    In our scenario, the victim executes a set of tasks addressing the main memory (i.e., the path highlighted in red in Figure \ref{fig:system_schematic}), whereas the attacker mainly targets the AXI-Resistor with read transactions.
+%%    Figure \ref{fig:system_schematic} offers a schematic representation of the platform and its use for the experiment.
+
+    The system model assumed in this paper is composed of two isolated actors: a \emph{victim} and an \emph{attacker}.
+    On one hand, the victim is defined as a set of trusted applications having to meet specific deadlines.
+    On the other hand, the attacker is a lightweight application in charge of disturbing the victim.
+    The attack consists in a continuous flow of single sequential read transactions emitted towards a slow memory, the AXI-Resistor.
+
+    This section is divided into three parts, each giving further details on the system model components.
+    First, in Section \ref{subsec:processing_system_organization} details regarding the isolation of the actors are given.
+    Secondly, a complete description of the attacker's design is provided in Section \ref{subsec:attacker_design}.
+    Finally, Section \ref{subsec:axi-resistor} explains the AXI-Resistor architecture and mechanism.
+
+    \subsection{Processing System Organization}
+        \label{subsec:processing_system_organization}
+        As displayed in Figure \ref{fig:system_schematic}, the actors are located on the same core cluster but are allocated non-overlapping sets of resources.
+        In other words, they run on different cores and have private LLC partitions.
+        This measure enforces the independence of the two actors and ensures that the observed interference cannot be imputed to either a common software stack or inter-core cache line evictions.
+        Moreover, the private LLC partition of the attacker is subdivided into two.
+        The first half allows the attacker to access the main memory, where its code is located (via the red path in Figure \ref{fig:system_schematic}), whereas the second half is dedicated to the data read through the AXI-Resistor (via the orange route in Figure \ref{fig:system_schematic}).
+
+        Assuming the attacker accesses to the main memory introduce little to no inter-core interference, the two actors can be deemed as properly isolated.
 
 %    This Section presents the details of the different components and actors of the experiment.
 %    Further details regarding the organization of the PS side are given in Section \ref{subsec:processing_system_organization}.
 %    In section \ref{subsec:attacker_reading_memory_bomb}, a description of the attacker is given.
 %    Finally, the implementation and the characteristics of the AXI-Resistor are discussed in Section \ref{subsec:axi-resistor}.
 
-    \subsection{Processing System Organization}
-        \label{subsec:processing_system_organization}
-%        As previously mentioned, the PS side and especially the core cluster is shared by both the victim and the attacker.
-%        We assume a partitioned system where each actor is assigned a given set of cores and a private partition of the LLC.
-%        Consequently, each actor is independent, ensuring that the observed delays cannot be imputed to either a common software stack or inter-core cache line evictions.
+%    \subsection{Processing System Organization}
+%        \label{subsec:processing_system_organization}
+%%        As previously mentioned, the PS side and especially the core cluster is shared by both the victim and the attacker.
+%%        We assume a partitioned system where each actor is assigned a given set of cores and a private partition of the LLC.
+%%        Consequently, each actor is independent, ensuring that the observed delays cannot be imputed to either a common software stack or inter-core cache line evictions.
+%%
+%%        On one hand, we define our victim actor as a set of trusted applications and controllers having to meet certain deadlines.
+%%        On the other hand, we define our attacker actor as a lightweight application in charge of emitting sequential read transactions toward the desired target.
+%%        As shown in Figure \ref{fig:system_schematic}, the attacker splits its private partition of the LLC in two.
+%%        The first one half allows the attacker to access the main memory, where its code is located (via the path highlighted in red in Figure \ref{fig:system_schematic}) and the second half is dedicated to the data read through the AXI-Resistor (the orange path in Figure \ref{fig:system_schematic}).
+%%        Isolating the two address spaces is important as it enables a direct control over the amount of transactions targeting the AXI-Resistor.
+%%
+%%        Globally, the actors are perfectly isolated.
+%%        The only exception being that the attacker also access the main memory to fetch its code.
+%%        Nonetheless, this should introduce little or no inter-core interference.
 %
-%        On one hand, we define our victim actor as a set of trusted applications and controllers having to meet certain deadlines.
+%        To enforce the independence of the victim and the attacker actors, we partition the the PS side by assigning them a specific set of cores and a private cache partition.
+%        This measure ensures that the observed delays cannot be imputed to either a common software stack or inter-core cache line evictions.
+%
+%        On one hand, we define our victim actor as a set of trusted applications and controllers having to meet specific deadlines.
 %        On the other hand, we define our attacker actor as a lightweight application in charge of emitting sequential read transactions toward the desired target.
 %        As shown in Figure \ref{fig:system_schematic}, the attacker splits its private partition of the LLC in two.
-%        The first one half allows the attacker to access the main memory, where its code is located (via the path highlighted in red in Figure \ref{fig:system_schematic}) and the second half is dedicated to the data read through the AXI-Resistor (the orange path in Figure \ref{fig:system_schematic}).
-%        Isolating the two address spaces is important as it enables a direct control over the amount of transactions targeting the AXI-Resistor.
+%        The first half allows the attacker to access the main memory, where its code is located (via the path highlighted in red in Figure \ref{fig:system_schematic}). The second half is dedicated to the data read through the AXI-Resistor (the orange path in Figure \ref{fig:system_schematic}).
+%        Isolating the two address spaces enables a precise control over the number of transactions targeting the AXI-Resistor.
 %
-%        Globally, the actors are perfectly isolated.
-%        The only exception being that the attacker also access the main memory to fetch its code.
-%        Nonetheless, this should introduce little or no inter-core interference.
+%%        Globally, the actors are perfectly isolated.
+%%        The only exception is that the attacker also accesses the main memory to fetch its code.
+%%        Nonetheless, this should introduce little or no inter-core interference.
+%
+%        Assuming the attacker's accesses to the main memory introduce little to no inter-core interference, the two actors can be deemed as properly isolated.
 
-        As previously mentioned, the PS side is shared by both the victim and the attacker.
-        We assume a partitioned system where each actor is assigned a given set of cores and a private partition of the LLC.
-        Consequently, each actor is independent, ensuring that the observed delays cannot be imputed to either a common software stack or inter-core cache line evictions.
-
-        On one hand, we define our victim actor as a set of trusted applications and controllers having to meet specific deadlines.
-        On the other hand, we define our attacker actor as a lightweight application in charge of emitting sequential read transactions toward the desired target.
-        As shown in Figure \ref{fig:system_schematic}, the attacker splits its private partition of the LLC in two.
-        The first half allows the attacker to access the main memory, where its code is located (via the path highlighted in red in Figure \ref{fig:system_schematic}). The second half is dedicated to the data read through the AXI-Resistor (the orange path in Figure \ref{fig:system_schematic}).
-        Isolating the two address spaces enables a precise control over the number of transactions targeting the AXI-Resistor.
-
-        Globally, the actors are perfectly isolated.
-        The only exception is that the attacker also accesses the main memory to fetch its code.
-        Nonetheless, this should introduce little or no inter-core interference.
-
-    \subsection{Attacker - Reading Memory Bomb}
-        \label{subsec:attacker_reading_memory_bomb}
+    \subsection{Attacker's Design}
+        \label{subsec:attacker_design}
 %        Even with the aforementioned precautions, the design of the attacker (i.e. the read memory bomb) must be thought carefully.
 %        In fact, if not under control a read memory bomb will steadily fetch data, creating many cache-misses.
 %        Following the non-blocking cache mechanism, these cache-misses will be inserted in one of the available MSHRs until all of them are used.
@@ -66,14 +82,14 @@
 %        We enforce this by following each read request by a \emph{Data Synchronization Barrier} (\texttt{DSB}).
 %        This ensures that at each instant, there will not be more than one transaction targeting the AXI-Resistor and, by extension, it guarantees at most one MSHR is occupied by the attacker actor.
 
-        Even with the aforementioned precautions, the design of the attacker (i.e., the read memory bomb) must be thought carefully.
-        In fact, if not under control, a read memory bomb will steadily fetch data, creating many cache-misses.
+        Even with the aforementioned precautions, the design of the attacker must be thought carefully. % (i.e., the read memory bomb)
+        As, if not under control, a read memory bomb will steadily fetch data, creating many cache-misses.
         Following the non-blocking cache mechanism, these cache-misses will be inserted in one of the available MSHRs until all of them are used.
-        In this situation, the non-blocking cache controller will stop the whole machinery, leading to the phenomenon reported by \cite{Heechul_DDOS_attacks_on_shared_cache}.
+        In this situation, the non-blocking cache controller will stop the whole machinery, leading to the phenomenon reported by \cite{Valsan2017AddressingIC}.
 
-        This effect can only be avoided by throttling down the attacker core.
+        This effect can only be avoided by throttling down the attacker's core.
         We enforce this by following each read request by a \emph{Data Synchronization Barrier} (\texttt{DSB}).
-        This instruction ensures that at each instant, there will not be more than one transaction targeting the AXI-Resistor and, by extension, it guarantees at most one MSHR is occupied by the attacker actor.
+        This instruction ensures that at each instant, there will not be more than one transaction targeting the AXI-Resistor and, by extension, it guarantees at most one MSHR is occupied by the attacker.
 
     \subsection{AXI-Resistor IP}
         \label{subsec:axi-resistor}
@@ -90,15 +106,26 @@
 %        Once a read request has been served by the DRAM controller, the read data is sent back to the core cluster through the AXI-Resistor.
 %        This phase is not buffered by the IP as shown in Figure \ref{fig:system_schematic} (see \emph{Response Phase Lane}).
 
-        In our system model, the AXI-resistor IP is a PLIM module \cite{PLIM20} used to act as a slow cacheable memory target.
-        Typically, the IP accepts every read transaction coming from the core cluster via the HPM port, buffers them, and only releases them one by one toward the DRAM controller.
-        Releases are spaced by a minimal inter-arrival time (MIT) expressed in clock cycles (CC).
-        This data path is highlighted in orange in Figure \ref{fig:system_schematic}.
-        Because the AXI-Resistor intercepts each transaction before they reach the DRAM controller, the latter is unaware of the transactions. Consequently, no internal mechanism is activated, suppressing potential interference induced by the DRAM controller.
+%        In our system model, the AXI-resistor IP is a PLIM module \cite{PLIM20} used to act as a slow cacheable memory target.
+%        Typically, the IP accepts every read transaction coming from the core cluster via the HPM port, buffers them, and only releases them one by one toward the DRAM controller.
+%        Transaction releases are seperated by a minimal inter-arrival time (MIT) expressed in clock cycles (CC).
+%        This data path is highlighted in orange in Figure \ref{fig:system_schematic}.
+%        Because the AXI-Resistor intercepts each transaction before they reach the DRAM controller, the latter is unaware of the transactions.
+%        Consequently, no internal mechanism is activated, suppressing potential interference induced by the DRAM controller.
+%
+%        The AXI-Resistor is composed of three ports: one slave port accepting transactions from the core cluster, one configuration port (blue route in Figure \ref{fig:system_schematic}), and one master port relaying the transactions out of the IP.
+%        Arriving transactions are buffered within the AXI-Resistor thanks to a queue (see \emph{Addresss Phase Lane} on the right of Figure \ref{fig:system_schematic}).
+%        The transaction stored at the head of the queue is released according to a timer.
+%        The period of this timer is reprogrammable at run-time thanks to the configuration port.
+%        Once the DRAM controller has served a read request, the data read is sent back to the core cluster through the AXI-Resistor.
+%        This phase is not buffered by the IP as shown in Figure \ref{fig:system_schematic} (see \emph{Response Phase Lane}).
 
-        The AXI-Resistor is composed of three ports: one slave port accepting transactions from the core cluster, one configuration port (blue route in Figure \ref{fig:system_schematic}), and one master port relaying the transactions out of the IP.
-        Arriving transactions are buffered within the AXI-Resistor thanks to a queue (see \emph{Addresss Phase Lane} on the right of Figure \ref{fig:system_schematic}).
-        The transaction stored at the head of the queue is released according to a timer.
-        The period of this timer is reprogrammable at run-time thanks to the configuration port.
-        Once the DRAM controller has served a read request, the data read is sent back to the core cluster through the AXI-Resistor.
-        This phase is not buffered by the IP as shown in Figure \ref{fig:system_schematic} (see \emph{Response Phase Lane}).
+    In our system model, the AXI-Resistor is a PLIM module \cite{PLIM20} located on the secondary route to the main memory (see the orange route in Figure \ref{fig:system_schematic}) and used to act as a slow cacheable target memory.
+    In addition, the AXI-Resistor also prevents any potential interference introduced by the DRAM controller as the former intercepts every transaction before they reach the latter.
+
+    The mechanism enabling the characteristics mentioned just above is the following.
+    Upon the reception of a read transaction coming from the core cluster via the HPM port, the IP inserts this transaction within a queue where it waits to be relayed out of the AXI-Resistor.
+    The decision to relay the transaction stored at the head of the queue to the DRAM controller is done according to a timer.
+    The latter is located within the AXI-Resistor (see \emph{Configuration} in Figure \ref{fig:system_schematic}) and, from the DRAM controller perspective, enforces a minimal inter-arrival time (MIT) between two consecutive transactions.
+    The MIT is expressed in clock cycles (CC) and is dynamically reprogrammable thanks to a configuration port accessible by all cores with uncached transactions (see the cyan route in Figure \ref{fig:system_schematic}).
+%        In contrast to the transactions heading to the DRAM controller via the AXI-Resistor, transactions served by the DRAM controller and returning to the core cluster traverse the AXI-Resistor without being buffered (see \emph{Response Phase Lane} in Figure \ref{fig:system_schematic}).

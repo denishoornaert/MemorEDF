@@ -8,13 +8,16 @@
 %    Nonetheless, this experiment has the merit of pinpointing a clear issue in the design of the LLC controller in ARM Cortex-A53 clusters.
 %    It is a reminder of the gap between the theoretical models, expectations on the hardware and the real behaviour of the hardware.
 
-    Non-blocking caches are advertised as capable of hiding the cache-miss penalty and managing multiple simultaneous memory accesses seamlessly unless either all the MSHRs are in use or the write-back unit buffer is full.
-    Nothing in the non-blocking cache architecture suggests that a single outstanding read transaction could introduce inter-core interferences. However, our experiment suggests otherwise.
+    Non-blocking caches are advertised as capable of seamlessly hiding the cache-miss penalty and managing multiple simultaneous memory accesses unless either all the MSHRs are occupied or if the write-back unit buffer is full.
+    A priori, nothing in the non-blocking cache architecture suggests that a single outstanding read transaction could introduce inter-core interference.
+    However, our experiments suggest otherwise.
 
-    While the exact source of the observed inter-core interference is unclear to the authors, all the precautions taken during the experiment (i.e., isolation of the inmates and partition of the cache) and the result suggests that the source originates from the LLC controller itself.
+%    With the ARM Cortex-A53 \cite{ARM-cortex-A53} reported issuing capability of up to 37 transactions, the fact that a single unserved transaction occupying one MSHR is capable of introducing substantial inter-core interference is an unexpected result.
+
+    While the exact source of the observed inter-core interference is unclear to the authors, all the precautions taken during the experiment (i.e., isolation of the inmates and partition of the cache) and the result suggest that the source originates from the LLC controller itself.
 
     The authors acknowledge that the described phenomenon is unlikely to occur in a normal situation (i.e., all the inmates target the main memory), and if it does, the consequences should be negligible.
-    Nonetheless, this experiment has the merit of pinpointing a clear issue in the LLC controller design in ARM Cortex-A53 clusters.
+    Nonetheless, this experiment has the merit of pinpointing a clear issue in the LLC controller design in ARM Cortex-A53 clusters \cite{ARM-cortex-A53}.
     It is a reminder of the gap between the theoretical models, the expectations on the hardware, and real-world behavior.
 
 
