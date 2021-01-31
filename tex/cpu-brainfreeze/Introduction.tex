@@ -46,7 +46,7 @@
     In other words, if a target memory acknowledges a transaction coming from one core but waits to deliver the response, the execution time of tasks running on independent cores (co-runners) is impacted.
     Experiments performed on the ARM Cortex-A53 core cluster \cite{ARM-cortex-A53} show that a co-running task can see its execution time multiplied up to 10 times.
     Furthermore, we show that if the target memory acknowledges a single read transaction but never provides a response, the whole core cluster is frozen indefinitely.
-    Considering the advertised Memory-Level-Parallelism of modern core clusters such as the ARM Cortex-A53, such a result is unexpected and counterintuitive.
+    Considering the advertised Memory-Level-Parallelism of modern core clusters such as the ARM Cortex-A53, such a result is unexpected and counter-intuitive.
 
 %    To the best of our knowledge, this is the first report demonstrating that a core cluster is subject to interferences caused by isolated and delayed read transactions.
 

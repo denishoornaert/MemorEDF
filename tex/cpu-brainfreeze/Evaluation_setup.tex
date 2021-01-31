@@ -82,7 +82,7 @@
 %        We enforce this by following each read request by a \emph{Data Synchronization Barrier} (\texttt{DSB}).
 %        This ensures that at each instant, there will not be more than one transaction targeting the AXI-Resistor and, by extension, it guarantees at most one MSHR is occupied by the attacker actor.
 
-        Even with the aforementioned precautions, the design of the attacker must be thought carefully. % (i.e., the read memory bomb)
+        Even with the precautions mentioned in Section \ref{subsec:processing_system_organization} (i.e., actors isolation), the design of the attacker must be thought carefully to highlight the CPU-brainfreeze. % (i.e., the read memory bomb)
         As, if not under control, a read memory bomb will steadily fetch data, creating many cache-misses.
         Following the non-blocking cache mechanism, these cache-misses will be inserted in one of the available MSHRs until all of them are used.
         In this situation, the non-blocking cache controller will stop the whole machinery, leading to the phenomenon reported by \cite{Valsan2017AddressingIC}.

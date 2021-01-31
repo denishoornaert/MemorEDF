@@ -24,7 +24,7 @@
     In \cite{Valsan2017AddressingIC}, the authors evaluate the impact of inter-core interference originated at the MSHRs on multiple platforms and propose a solution to eliminate this contention. The solution is based on a combination of a small hardware module and an OS-level controller.
     Their experiments show that, if left unmanaged, the execution time of independent cores is multiplied respectively by 10.6 and 21.3 under read and write workloads.
     Via simulation, they prove that their approach successfully provides the best overall throughput for each core while mitigating the inter-core interference caused by the MSHRs.
-    \cite{Heechul_DDOS_attacks_on_shared_cache} investigates the contention in caches caused by shared internal units in the case of \emph{Denial-of-service} (DOS) attacks and propose an OS-level solution enabling finer management of the system bandwidth.
+    Similarly, \cite{Heechul_DDOS_attacks_on_shared_cache} investigates the contention in caches caused by shared internal units in the case of \emph{Denial-of-service} (DOS) attacks and propose an OS-level solution enabling finer management of the system bandwidth.
     In contrast to \cite{Valsan2017AddressingIC}, the internal unit studied and exploited is the write-back unit.
     They report that, by exploiting this unit efficiently, one can increase the execution time of a victim task by a factor of 346.
 
