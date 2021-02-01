@@ -18,12 +18,12 @@
     The system model assumed in this paper is composed of two isolated actors: a \emph{victim} and an \emph{attacker}.
     On one hand, the victim is defined as a set of trusted \emph{hard real-time tasks} (HRTs).
     On the other hand, the attacker is a lightweight application in charge of disturbing the victim.
-    The attack consists in a continuous flow of single sequential read transactions emitted towards a slow memory, the AXI-Resistor.
+    The attack consists in a continuous flow of single sequential read transactions emitted towards a slow memory, the AXI-Regulator\footnote{\emph{Advanced eXtensible Interface (AXI)}, the bus communication protocol used for PS-PL communications}.
 
     This section is divided into three parts, each giving further details on the system model components.
     First, in Section \ref{subsec:processing_system_organization} details regarding the isolation of the actors are given.
     Secondly, a complete description of the attacker's design is provided in Section \ref{subsec:attacker_design}.
-    Finally, Section \ref{subsec:axi-resistor} explains the AXI-Resistor architecture and mechanism.
+    Finally, Section \ref{subsec:axi-regulator} explains the AXI-Regulator architecture and mechanism.
 
     \subsection{Processing System Organization}
         \label{subsec:processing_system_organization}
@@ -31,7 +31,7 @@
         In other words, they run on different cores and have private LLC partitions.
         This measure enforces the independence of the two actors and ensures that the observed interference cannot be imputed to either a common software stack or inter-core cache line evictions.
         Moreover, the private LLC partition of the attacker is subdivided into two.
-        The first half allows the attacker to access the main memory, where its code is located (via the red path in Figure \ref{fig:system_schematic}), whereas the second half is dedicated to the data read through the AXI-Resistor (via the orange route in Figure \ref{fig:system_schematic}).
+        The first half allows the attacker to access the main memory, where its code is located (via the red path in Figure \ref{fig:system_schematic}), whereas the second half is dedicated to the data read through the AXI-Regulator (via the orange route in Figure \ref{fig:system_schematic}).
 
         Assuming the attacker accesses to the main memory introduce little to no inter-core interference, the two actors can be deemed as properly isolated.
 
@@ -83,16 +83,16 @@
 %        This ensures that at each instant, there will not be more than one transaction targeting the AXI-Resistor and, by extension, it guarantees at most one MSHR is occupied by the attacker actor.
 
         Even with the precautions mentioned in Section \ref{subsec:processing_system_organization} (i.e., actors isolation), the design of the attacker must be thought carefully to highlight the CPU-brainfreeze. % (i.e., the read memory bomb)
-        As, if not under control, a read memory bomb will steadily fetch data, creating many cache-misses.
+        Because, if not under control, a read memory bomb will steadily fetch data, creating many cache-misses.
         Following the non-blocking cache mechanism, these cache-misses will be inserted in one of the available MSHRs until all of them are used.
         In this situation, the non-blocking cache controller will stop the whole machinery, leading to the phenomenon reported by \cite{Valsan2017AddressingIC}.
 
         This effect can only be avoided by throttling down the attacker's core.
         We enforce this by following each read request by a \emph{Data Synchronization Barrier} (\texttt{DSB}).
-        This instruction ensures that at each instant, there will not be more than one transaction targeting the AXI-Resistor and, by extension, it guarantees at most one MSHR is occupied by the attacker.
+        This instruction ensures that at each instant, there will not be more than one transaction targeting the AXI-Regulator and, by extension, it guarantees at most one MSHR is occupied by the attacker.
 
-    \subsection{AXI-Resistor IP}
-        \label{subsec:axi-resistor}
+    \subsection{AXI-Regulator IP}
+        \label{subsec:axi-regulator}
 %        In our system model, the AXI-resistor IP is a PLIM module \cite{PLIM20} used to act as a slow cacheable memory target.
 %        Typically, the IP accepts every read transaction coming from the core cluster via the HPM port, buffers them and only release them one by one in direction of the DRAM controller.
 %        Releases are spaced by a minimal inter-arrival time (MIT) expressed in clock cycles (CC).
@@ -120,12 +120,12 @@
 %        Once the DRAM controller has served a read request, the data read is sent back to the core cluster through the AXI-Resistor.
 %        This phase is not buffered by the IP as shown in Figure \ref{fig:system_schematic} (see \emph{Response Phase Lane}).
 
-    In our system model, the AXI-Resistor is a PLIM module \cite{PLIM20} located on the secondary route to the main memory (see the orange route in Figure \ref{fig:system_schematic}) and used to act as a slow cacheable target memory.
-    In addition, the AXI-Resistor also prevents any potential interference introduced by the DRAM controller as the former intercepts every transaction before they reach the latter.
+    In our system model, the AXI-Regulator is a PLIM module \cite{PLIM20} located on the secondary route to the main memory (see the orange route in Figure \ref{fig:system_schematic}) and used to act as a slow cacheable target memory.
+    In addition, the AXI-Regulator also prevents any potential interference introduced by the DRAM controller as the former intercepts every transaction before they reach the latter.
 
     The mechanism enabling the characteristics mentioned just above is the following.
-    Upon the reception of a read transaction coming from the core cluster via the HPM port, the IP inserts this transaction within a queue where it waits to be relayed out of the AXI-Resistor.
+    Upon the reception of a read transaction coming from the core cluster via the HPM port, the IP inserts this transaction within a queue where it waits to be relayed out of the AXI-Regulator.
     The decision to relay the transaction stored at the head of the queue to the DRAM controller is done according to a timer.
-    The latter is located within the AXI-Resistor (see \emph{Configuration} in Figure \ref{fig:system_schematic}) and, from the DRAM controller perspective, enforces a minimal inter-arrival time (MIT) between two consecutive transactions.
+    The latter is located within the AXI-Regulator (see \emph{Configuration} in Figure \ref{fig:system_schematic}) and, from the DRAM controller perspective, enforces a minimal inter-arrival time (MIT) between two consecutive transactions.
     The MIT is expressed in clock cycles (CC) and is dynamically reprogrammable thanks to a configuration port accessible by all cores with uncached transactions (see the cyan route in Figure \ref{fig:system_schematic}).
 %        In contrast to the transactions heading to the DRAM controller via the AXI-Resistor, transactions served by the DRAM controller and returning to the core cluster traverse the AXI-Resistor without being buffered (see \emph{Response Phase Lane} in Figure \ref{fig:system_schematic}).
