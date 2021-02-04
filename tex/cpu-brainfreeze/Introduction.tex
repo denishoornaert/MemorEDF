@@ -1,0 +1,55 @@
+\section{Introduction}
+%    In modern high-performance mutliprocessor system-on-a-chips (MPSoCs), caches have become a crucial piece of hardware bridging the gap between the speed of the processing elements and the main memory.
+%    With the growing demand for high-performance systems, shared caches have evolved to accommodate for several concurrent accesses to main memory and hide the cache-miss penalty.
+%    These caches are referred to as \emph{non-blocking}.
+%
+%    Unfortunately, while non-blocking shared caches offer high average bandwidth, their behaviour is opaque and unpredictable.
+%    Understanding the cache behaviour is of the utmost importance for safety critical hard real-time systems where timing constraints must be respected and guaranteed.
+%    %For instance, the \emph{Federal Aviation Administration} (FAA) \cite{faa} still recommends the use of single core platform until a sound analysis of the interference channels has been conducted.
+%    For instance, the \emph{Federal Aviation Administration} (FAA) mandates the use of a single processor unless the impact of all the temporal interference channels existing in multi-core platforms can be appropriately identified, mitigated or bounded.
+%
+%    A great deal of research has been conducted on cache management for real-time applications on MPSoCs.
+%    The two main sources of unpredictability imputed to the \emph{last-level cache} (LLC) are (1) the inter-core cache line eviction and (2) the opaque management of internally shared resources.
+%    %
+%    The inter-core cache line eviction is a well studied source of unpredictability that arises when the memory accesses of two independent cores lead to the eviction of each other cache lines in a destructive way.
+%    Such source of unpredictability can be prevented by enforcing the \emph{spatial isolation} of the cores through \emph{way-based} or \emph{set-based} partitioning \cite{Mancuso2013RealtimeCM, 6755286, Giovani_cahe_partitioning_survey}.
+%    %
+%    Inter-core interferences caused by internal shared resources such as the \emph{Miss-Status-Holding-Registers} or the \emph{write-back} unit have been recently studied in \cite{Valsan2017AddressingIC, Heechul_DDOS_attacks_on_shared_cache}.
+%    If left unmanaged, the contention on these resources can create important interferences even if the cores are spatially isolated.\\
+
+%    In this article, we show the existence of a third source of inter-core interference linked to the speed at which the cacheable target memory reacts.% on the ARM Cortex-A53 \cite{ARM-cortex-A53}.
+%    In other words, if a target memory acknowledges the transaction, but waits to deliver the response, the execution time of tasks running on independent cores (co-runners) can be impacted.
+%    Our experiments show that a co-running task can see its execution being increased by a factor of 10.
+%    Furthermore, we show that if a single read transaction is acknowledged by the target memory, but the latter never provides a response, the whole core cluster is frozen indefinitely.
+%    To the best of our knowledge, this is the first report demonstrating that a core cluster can be subject to interferences caused by an isolated and delayed read transaction.
+
+    In modern high-performance mutliprocessor system-on-a-chips (MPSoCs), caches have become an essential piece of hardware bridging the gap between the speed of the processing elements and the main memory.
+%    With the growing demand for high-performance systems, shared caches have evolved to accommodate several concurrent accesses to main memory and hide the cache-miss penalty.
+%    These caches are referred to as \emph{non-blocking}.
+    The growing demand for high-performance system has engendered the emergence of \emph{non-blocking caches}, a type of shared cache capable of accommodating several concurrent accesses to main memory and hiding the cache-miss penalty.
+
+    Unfortunately, while non-blocking shared caches offer high average bandwidth, their behavior is opaque and unpredictable.
+    Understanding the cache behavior is of the utmost importance for safety-critical hard real-time systems where timing constraints must be respected and guaranteed.
+    %For instance, the \emph{Federal Aviation Administration} (FAA) \cite{faa} still recommends the use of single core platforms until a sound analysis of the interference channels has been conducted.
+    For instance, the \emph{Federal Aviation Administration} (FAA) mandates the use of a single processor unless the impact of all the temporal interference channels existing in multi-core platforms can be appropriately identified, mitigated, or bounded.
+
+    A great deal of research has been conducted on cache management for real-time applications on MPSoCs.
+    The two main sources of unpredictability imputed to the \emph{last-level cache} (LLC) are (1) the inter-core cache line eviction and (2) the opaque management of shared internal resources.
+
+    The inter-core cache line eviction is a well-studied source of unpredictability that arises when the memory accesses of two independent cores lead to the eviction of each other cache lines in a destructive way.
+    Such source of unpredictability can be prevented by enforcing the \emph{spatial isolation} of the cores through \emph{way-based} or \emph{set-based} partitioning \cite{Mancuso2013RealtimeCM, 6755286, Giovani_cahe_partitioning_survey}.
+
+    Inter-core interferences caused by shared internal resources such as the \emph{Miss-Status-Holding-Registers} or the \emph{write-back} unit have been recently studied in \cite{Valsan2017AddressingIC, Heechul_DDOS_attacks_on_shared_cache}.
+    If left unmanaged, the contention on these resources can create significant interferences even if the cores are spatially isolated.\\
+
+    In this article, we show the existence of a third source of inter-core interference linked to the speed at which the cacheable target memory reacts.
+    In other words, if a target memory acknowledges a transaction coming from one core but waits to deliver the response, the execution time of tasks running on independent cores (co-runners) is impacted.
+    Experiments performed on the ARM Cortex-A53 core cluster \cite{ARM-cortex-A53} show that a co-running task can see its execution time multiplied up to 10 times.
+    Furthermore, we show that if the target memory acknowledges a single read transaction but never provides a response, the whole core cluster is frozen indefinitely.
+    Considering the advertised Memory-Level-Parallelism of modern core clusters such as the ARM Cortex-A53, such a result is unexpected and counter-intuitive.
+
+%    To the best of our knowledge, this is the first report demonstrating that a core cluster is subject to interferences caused by isolated and delayed read transactions.
+
+    To the best of our knowledge, this article is the first to report inter-core interference caused by isolated and unserved read transactions.
+
+    %With the ARM Cortex-A53 \cite{ARM-cortex-A53} reported issuing capability of up to 37 transactions, the fact that a single unserved transaction occupying one MSHR is capable of introducing substantial inter-core interference is a surprising and result.

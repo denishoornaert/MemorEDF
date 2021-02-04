@@ -1,0 +1,109 @@
+\subsection{PL-to-PS Feedback}
+\label{sec:pl-to-ps-feedback}
+Each of the HPM ports interfacing the PS and the PL sides (HPM1 and
+HPM2) have two dedicated queues for read and write transactions. Since
+transactions are being buffered inside \schim as well as in these port
+buffers, head-of-line blocking can happen. Head-of-the-line blocking
+is harmful for performance; and can cancel out the benefits of
+transaction scheduling performed by the \schim. For instance, in the
+case of a non work-conserving policy (e.g., TDMA), if the HPM port
+queue gets filled with transaction coming for the same core, no other
+transaction will be able to reach the \schim and thus be considered
+for scheduling. This implies that no transaction would be scheduled
+until the end of the active core's TDMA slot. On the other hand, for
+work-conserving policies (e.g., FP) in the presence of head-of-line
+blocking, the decisions being taken by \schim would directly depend on
+the order at which transactions are emitted by the HPM port buffer.
+
+In both cases, one must prevent the cores from saturating the HPM port
+buffers. In order to avoid such situation, we implemented a feedback
+scheme aimed at slowing down the cores when necessary. As we mentioned
+in the context of \fig{fig:MemorEDF_module_schema}, the \schim's
+queues are associated a programmable threshold. Whenever the queue
+occupancy reaches (or exceeds) the associated threshold, a per-core
+interrupt line is asserted from the PL to the PS side. When received,
+the interrupt is treated by the platform software as a \emph{fast
+  interrupt request} (FIQ) and directly handled by the
+hypervisor---invisible to any guest OS. The advantage of using FIQs
+instead of regular IRQs is the significantly reduced handling
+latency~\cite{fiq_results}. Minor modifications to the TrustZone
+monitor were necessary to correctly configure FIQ handling. To
+minimize overhead, the installed FIQ handler only executes two
+assembly instructions. These are (1) a \texttt{dsb} memory barrier
+that stops the core until all the outstanding memory transactions have
+been completed, and (2) a \texttt{eret} instruction to exit the FIQ
+context. There is not need to save/restore any register because FIQs
+have banked syndrome/status registers and because no general purpose
+register is modified in the handler.
+
+Ideally, the available space in the HPM buffers should be shared
+evenly between the cores. Since each HPM port has a buffer with a
+depth of 8+8 transactions, each core should occupy at most 2 slots in
+each buffer. Unfortunately, our experiments highlighted that the
+control over amount of transactions buffered by each core is
+imperfect. Often times, the selected threshold is exceeded by up to
+two transactions. This is the main reason why we propose a dual-ported
+\schim which uses both the available HPM ports. Indeed, by assigning
+two cores on each of the ports, the ideal threshold on maximum amount
+buffered transactions can be doubled. The increase provides enough
+room to compensate for imperfections in the micro-regulation performed
+with PL-to-PS FIQ delivery.
+
+\begin{comment}
+    \subsection{Transactions Life Cycle}
+\label{subsec:transaction-life-cycle}
+
+Let us consider a system with four cores $c_0, \ldots, c_3$ sending
+transactions $T = \{t_{0}, t_{1}, ..., t_{n}\}$ to the \schim module.
+Consequently, the latter boasts four queues (noted $Q = \{q_{0},
+q_{1}, q_{2}, q_{3}\}$) buffering the transactions under the form of
+packets $P = \{p_{0}, p_{1}, ..., p_{n}\}$ where $p_{i} =
+Packetizer(t_{i})~\forall i \in [0 : n]$.
+
+In the present example, we will assume $t_{1}$ as being the
+transaction under analysis.  The latter is emitted by $c_{2}$ in
+direction of the \schim module.  The packetizer receives this
+transaction and, once the AXI protocol completed, transform it into an
+equivalent packet $p_{1} = Packetizer(t_{1})$.  Following this
+transformation, the newly created packet is forwarded to the
+dispatcher which, thanks to the emitter's id embedded within the
+transaction, is re-routed to the corresponding queue $q_{2}$ (since
+emitted by $c_{2}$).  After the insertion of $p_{1}$ in $q_{2}$, the
+state of the queuing domain is as follows: $q_{0}$ has two packets
+$p_{0}$ and $p_{k}$ and $q_{2}$ only has $p_{1}$.  At this point,
+$q_{0}$ is considered for scheduling by the scheduling domain.  In
+consequence, $p_{0}$ is forwarded to the serializer through the
+selector.  Simultaneously to the reception of the packet by the
+serializer, the latter receives an activation signal from the
+scheduling domain informing the serializer that the packet is valid
+and that a transaction can be started.  Similarly to the packetizer,
+the serializer will transform the packet $p_{0}$ back to its initial
+AXI transaction form $t_{0} = Serializer(p_{0})$.  Thereafter, once
+the $t_{0}$ has been sent, the serializer will inform the scheduling
+domain via a signal, that he is ready to accept the next packet as
+input.  Upon the reception of this signal, the scheduling domain will
+both re-direct the latter to the queue of the previous packet to
+indicate that it has been consumed and change the selected queue
+according to the scheduling policy so that the first packet of this
+queue can be forwarded to the serializer through the selector module.
+In the present example, the "consumed" signal forwarded by the
+scheduler is sent to $q_{0}$ which is then empty.  At this instant,
+two scenarios are possible:
+
+\begin{enumerate}
+\item $q_{0}$ is still considered for scheduling following the
+  selected scheduling policy. Therefore, as $q_{0}$ is empty, it
+  outputs an "empty" signal received by the scheduling domain.  The
+  latter then decides to not send any activation signal to the
+  serializer because there is nothing left to transmit in the selected
+  queue.  In other words, the access to the main memory is being
+  stalled on purpose by the scheduling policy i.e. the scheduling
+  policy is not work conserving.  For instance, such a scenario could
+  happen in the case of TDMA or if all the queues are empty.  The
+  logic will resume as soon as the selected queue is filled.
+\item $q_{2}$ is now considered instead of $q_{0}$ for scheduling.  In
+  this case, the "consumed" signal is repeated to $q_{0}$ while the
+  queue ID changes in order to select $q_{2}$.  This results in the
+  packet contained inside $q_{1}$ to be forwarded to the selector.
+\end{enumerate}
+\end{comment}

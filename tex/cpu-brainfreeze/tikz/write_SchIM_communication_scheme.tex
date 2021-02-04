@@ -1,0 +1,19 @@
+\begin{tikzpicture}[scale=0.6, every node/.style={scale=0.6}]
+    % States
+    \draw[fill={rgb:black,1;white,7}] ( 0.0, 0.0) rectangle ( 2.0, 2.0) node[pos=.5] {PS};
+    \draw[fill={rgb:black,1;white,7}] ( 4.0, 0.0) rectangle ( 6.0, 2.0) node[pos=.5] {SchIM};
+    \draw[fill={rgb:black,1;white,7}] ( 8.0, 0.0) rectangle (10.0, 2.0) node[pos=.5] {Memory};
+    % Edges
+    % PS to SchIM Address phase
+    \draw[-{Stealth}] (2.00, 1.70) -- (4.00, 1.70) node[pos=.5] {1};
+    % PS to SchIM Data phase
+    \draw[-{Stealth}] (2.00, 1.20) -- (4.00, 1.20) node[pos=.5] {2};
+    % PS to SchIM
+    \draw[{Stealth}-] (2.00, 0.30) -- (4.00, 0.30) node[pos=.5] {3};
+    % SchIM to Memory Address phase
+    \draw[-{Stealth}] (6.00, 1.70) -- (8.00, 1.70) node[pos=.5] {4};
+    % SchIM to Memory Data phase
+    \draw[-{Stealth}] (6.00, 1.20) -- (8.00, 1.20) node[pos=.5] {5};
+    % SchIM to Memory
+    \draw[{Stealth}-] (6.00, 0.30) -- (8.00, 0.30) node[pos=.5] {6};
+\end{tikzpicture}

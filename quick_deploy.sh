@@ -115,6 +115,8 @@ if [[ $programs_build ]]; then
     cp demo/exec/threshold_bw_gallois.out rootfs/synthetic/
     ## Blast to benchmarks
     cp demo/exec/blast_fake_colored.out rootfs/benchmarks/
+    ## Brainfreeze related programs
+    cp demo/exec/poke_brainfreeze.out rootfs/brainfreeze/
 fi
 
 if [[ $programs_copy ]]; then
@@ -156,3 +158,5 @@ if [[ $jailhouse_copy ]]; then
 fi
 #sudo cp python/* /media/denis/rootfs1/usr/bin/
 #sudo cp libpython/ /media/denis/rootfs1/usr/lib/
+
+notify-send -u normal "Quick deploy is done" "The SchIM project has been successfully deployed!"

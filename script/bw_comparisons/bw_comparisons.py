@@ -86,7 +86,10 @@ ax.bar(x+(+1.5*bar_width), SchIM_Fibo,       width=bar_width, align="center", la
 ax.bar(x+(+2.5*bar_width), SchIM_Gallois,    width=bar_width, align="center", label="SchIM Gallois")
 ax.bar(x+(+3.5*bar_width), SchIM_Aging,      width=bar_width, align="center", label="SchIM Aging")
 
-print(simple_loop_back[0]-SchIM_FP[0])
+print("0)\t", simple_loop_back[0])
+print("1)\t", simple_loop_back[1])
+print("2)\t", simple_loop_back[2])
+print("3)\t", simple_loop_back[3])
 
 plt.xlabel("Set of cores contending")
 plt.xticks(x, x_labels)
