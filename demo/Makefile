@@ -1,7 +1,7 @@
 COMPILER_ARM = aarch64-linux-gnu-gcc
 FLAGS = -lpthread -lrt
 
-all: init threshold_bw blast_fake_colored spam_fake_colored fp_read fp_write config_schim_tdma tdma_read tdma_write poke populate ts_read ts_write config_schim_fp config_schim_ts
+all: init threshold_bw blast_fake_colored spam_fake_colored fp_read fp_write config_schim_tdma tdma_read tdma_write poke populate ts_read ts_write config_schim_fp config_schim_ts poke_brainfreeze brainfreeze
 
 config_schim_fp: src/config_schim_fp.c objects/tool.o
 	$(COMPILER_ARM) src/config_schim_fp.c -o exec/config_schim_fp.out $(FLAGS) objects/tool.o
@@ -38,6 +38,9 @@ populate: src/populate.c objects/tool.o
 
 brainfreeze: src/brainfreeze.c objects/tool.o
 	$(COMPILER_ARM) src/brainfreeze.c -o exec/brainfreeze.out $(FLAGS) objects/tool.o
+
+poke_brainfreeze: src/poke_brainfreeze.c objects/tool.o
+	$(COMPILER_ARM) src/poke_brainfreeze.c -o exec/poke_brainfreeze.out $(FLAGS) objects/tool.o
 
 spam_fake_colored: src/spam_fake_colored.c objects/tool.o
 	$(COMPILER_ARM) src/spam_fake_colored.c -o exec/spam_fake_colored.out $(FLAGS) objects/tool.o
