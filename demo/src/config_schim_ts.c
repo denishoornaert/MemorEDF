@@ -50,7 +50,7 @@ int main(int argc, char** argv) {
     (*config).deadlines[2] = c2_threshold;
     (*config).deadlines[3] = c3_threshold;
     // Set the priorities register
-    (*config).priorities = 0x0f0e0d0c;
+    (*config).priorities = 0x0c0d0e0f;
     // Set the budget registers
     (*config).budgets[0] = c0_slot_size;
     (*config).budgets[1] = c1_slot_size;

@@ -1563,7 +1563,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>b6a19aed</spirit:value>
+            <spirit:value>33abb00a</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1579,7 +1579,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>b6a19aed</spirit:value>
+            <spirit:value>33abb00a</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1608,7 +1608,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>4c4983f6</spirit:value>
+            <spirit:value>357924d1</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -4646,6 +4646,21 @@
         <spirit:displayName>C S02 Axi Aruser Width</spirit:displayName>
         <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_S02_AXI_ARUSER_WIDTH">16</spirit:value>
       </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>PRNG_FIBONACCI_ENABLED</spirit:name>
+        <spirit:displayName>Prng Fibonacci Enabled</spirit:displayName>
+        <spirit:value spirit:format="bool" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.PRNG_FIBONACCI_ENABLED">true</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>PRNG_GALLOIS_ENABLED</spirit:name>
+        <spirit:displayName>Prng Gallois Enabled</spirit:displayName>
+        <spirit:value spirit:format="bool" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.PRNG_GALLOIS_ENABLED">true</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>AGING_ENABLED</spirit:name>
+        <spirit:displayName>Aging Enabled</spirit:displayName>
+        <spirit:value spirit:format="bool" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.AGING_ENABLED">true</spirit:value>
+      </spirit:modelParameter>
     </spirit:modelParameters>
   </spirit:model>
   <spirit:choices>
@@ -4670,6 +4685,10 @@
   <spirit:fileSets>
     <spirit:fileSet>
       <spirit:name>xilinx_anylanguagesynthesis_view_fileset</spirit:name>
+      <spirit:file>
+        <spirit:name>src/Aging.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+      </spirit:file>
       <spirit:file>
         <spirit:name>src/Combinatorial_Dispatcher.sv</spirit:name>
         <spirit:fileType>systemVerilogSource</spirit:fileType>
@@ -4696,6 +4715,14 @@
       </spirit:file>
       <spirit:file>
         <spirit:name>src/FP.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/Gallois16.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/LFSR16.sv</spirit:name>
         <spirit:fileType>systemVerilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -4741,11 +4768,15 @@
       <spirit:file>
         <spirit:name>src/MemorEDF.sv</spirit:name>
         <spirit:fileType>systemVerilogSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_4b7c2e80</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_e03f5b75</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
       <spirit:name>xilinx_anylanguagebehavioralsimulation_view_fileset</spirit:name>
+      <spirit:file>
+        <spirit:name>src/Aging.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+      </spirit:file>
       <spirit:file>
         <spirit:name>src/Combinatorial_Dispatcher.sv</spirit:name>
         <spirit:fileType>systemVerilogSource</spirit:fileType>
@@ -4772,6 +4803,14 @@
       </spirit:file>
       <spirit:file>
         <spirit:name>src/FP.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/Gallois16.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/LFSR16.sv</spirit:name>
         <spirit:fileType>systemVerilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -4835,7 +4874,7 @@
       <spirit:file>
         <spirit:name>xgui/MemorEDF_v1_0.tcl</spirit:name>
         <spirit:fileType>tclSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_4c4983f6</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_357924d1</spirit:userFileType>
         <spirit:userFileType>XGUI_VERSION_2</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
@@ -4869,7 +4908,7 @@
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>TDMA_ENABLED</spirit:name>
-      <spirit:displayName>TDMA enabled</spirit:displayName>
+      <spirit:displayName>TDMA Enabled</spirit:displayName>
       <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.TDMA_ENABLED">true</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
@@ -4921,6 +4960,13 @@
       <spirit:name>C_M00_AXI_BURST_LEN</spirit:name>
       <spirit:displayName>C M00 Axi Burst Len</spirit:displayName>
       <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_M00_AXI_BURST_LEN">4</spirit:value>
+      <spirit:vendorExtensions>
+        <xilinx:parameterInfo>
+          <xilinx:enablement>
+            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.C_M00_AXI_BURST_LEN">false</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:parameterInfo>
+      </spirit:vendorExtensions>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>C_M00_AXI_ID_WIDTH</spirit:name>
@@ -5001,6 +5047,21 @@
       <spirit:displayName>C S02 Axi Aruser Width</spirit:displayName>
       <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_S02_AXI_ARUSER_WIDTH">16</spirit:value>
     </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>PRNG_FIBONACCI_ENABLED</spirit:name>
+      <spirit:displayName>PRNG Fibonacci Enabled</spirit:displayName>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.PRNG_FIBONACCI_ENABLED">true</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>PRNG_GALLOIS_ENABLED</spirit:name>
+      <spirit:displayName>PRNG Gallois Enabled</spirit:displayName>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.PRNG_GALLOIS_ENABLED">true</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>AGING_ENABLED</spirit:name>
+      <spirit:displayName>Aging Enabled</spirit:displayName>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.AGING_ENABLED">true</spirit:value>
+    </spirit:parameter>
   </spirit:parameters>
   <spirit:vendorExtensions>
     <xilinx:coreExtensions>
@@ -5031,10 +5092,10 @@
       </xilinx:taxonomies>
       <xilinx:displayName>MemorEDF_v1_0</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>330</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2020-10-22T20:15:42Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>353</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2021-01-05T22:32:27Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
-        <xilinx:tag xilinx:name="user.org:user:MemorEDF:1.0_ARCHIVE_LOCATION">/home/duck/Github/cached_memoredf/rtl/ip_repo/MemorEDF</xilinx:tag>
+        <xilinx:tag xilinx:name="user.org:user:MemorEDF:1.0_ARCHIVE_LOCATION">/home/denis/github/MemorEDF/rtl/ip_repo/MemorEDF</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
@@ -5042,10 +5103,10 @@
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="656b7e28"/>
       <xilinx:checksum xilinx:scope="addressSpaces" xilinx:value="63bb48fa"/>
       <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="fded6df7"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="fc4560ca"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="9ce15896"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="1a513272"/>
-      <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="07b55574"/>
-      <xilinx:checksum xilinx:scope="parameters" xilinx:value="d852dbdd"/>
+      <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="1010323b"/>
+      <xilinx:checksum xilinx:scope="parameters" xilinx:value="0876440c"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>
 </spirit:component>

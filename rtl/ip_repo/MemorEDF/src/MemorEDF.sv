@@ -34,6 +34,9 @@ module MemorEDF #
         parameter integer EDF_ENABLED            = 1,
         parameter integer FP_ENABLED             = 1,
         parameter integer MG_ENABLED             = 1,
+        parameter integer PRNG_FIBONACCI_ENABLED = 1,
+        parameter integer PRNG_GALLOIS_ENABLED   = 1,
+        parameter integer AGING_ENABLED          = 1,
 		// Parameters of Axi Slave Bus Interface S00_AXI
 		parameter integer C_S00_AXI_ID_WIDTH	 = 16,
 		parameter integer C_S00_AXI_DATA_WIDTH	 = 128,
@@ -265,7 +268,7 @@ module MemorEDF #
         output wire                                 Q_3_kill_the_core
 	);
 
-	localparam NUMBER_OF_SCHEDULERS = TDMA_ENABLED + EDF_ENABLED + FP_ENABLED + MG_ENABLED;
+	localparam NUMBER_OF_SCHEDULERS = TDMA_ENABLED + EDF_ENABLED + FP_ENABLED + MG_ENABLED + PRNG_FIBONACCI_ENABLED + PRNG_GALLOIS_ENABLED;
 
     // Internal routing
     wire            [DATA_SIZE-1 : 0] packetizer_1_to_dispatcher_packet;

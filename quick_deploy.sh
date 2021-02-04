@@ -103,9 +103,16 @@ if [[ $programs_build ]]; then
     cp demo/exec/config_schim_tdma.out rootfs/common/
     cp demo/exec/config_schim_fp.out rootfs/common/
     cp demo/exec/config_schim_ts.out rootfs/common/
+    cp demo/exec/config_schim_fibo.out rootfs/common/
+    cp demo/exec/config_schim_gallois.out rootfs/common/
+    cp demo/exec/config_schim_aging.out rootfs/common/
     ## Spam to synthetic
     cp demo/exec/spam_fake_colored.out rootfs/synthetic/
     cp demo/exec/threshold_bw.out rootfs/synthetic/
+    cp demo/exec/threshold_bw_tdma.out rootfs/synthetic/
+    cp demo/exec/threshold_bw_aging.out rootfs/synthetic/
+    cp demo/exec/threshold_bw_fibo.out rootfs/synthetic/
+    cp demo/exec/threshold_bw_gallois.out rootfs/synthetic/
     ## Blast to benchmarks
     cp demo/exec/blast_fake_colored.out rootfs/benchmarks/
     ## Brainfreeze related programs

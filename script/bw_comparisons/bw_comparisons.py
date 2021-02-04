@@ -17,7 +17,7 @@ def read(filepath, skip):
 
 
 
-x = np.array([i*1.5 for i in range(4)])
+x = np.array([i*2 for i in range(4)])
 x_labels = [
     '$\{C_{0}\}$',
     '$\{C_{0}, C_{1}\}$',
@@ -49,21 +49,42 @@ SchIM_TDMA = [
     np.average(read("SchIM_TDMA/3_cores.csv", 1)),
     np.average(read("SchIM_TDMA/4_cores.csv", 1))
 ]
-SchIM_MG = [
+SchIM_TS = [
     np.average(read("SchIM_TS/1_cores.csv", 1)),
     np.average(read("SchIM_TS/2_cores.csv", 1)),
     np.average(read("SchIM_TS/3_cores.csv", 1)),
     np.average(read("SchIM_TS/4_cores.csv", 1))
 ]
+SchIM_Fibo = [
+    np.average(read("SchIM_Fibo/1_cores.csv", 1)),
+    np.average(read("SchIM_Fibo/2_cores.csv", 1)),
+    np.average(read("SchIM_Fibo/3_cores.csv", 1)),
+    np.average(read("SchIM_Fibo/4_cores.csv", 1))
+]
+SchIM_Gallois = [
+    np.average(read("SchIM_Gallois/1_cores.csv", 1)),
+    np.average(read("SchIM_Gallois/2_cores.csv", 1)),
+    np.average(read("SchIM_Gallois/3_cores.csv", 1)),
+    np.average(read("SchIM_Gallois/4_cores.csv", 1))
+]
+SchIM_Aging = [
+    np.average(read("SchIM_Aging/1_cores.csv", 1)),
+    np.average(read("SchIM_Aging/2_cores.csv", 1)),
+    np.average(read("SchIM_Aging/3_cores.csv", 1)),
+    np.average(read("SchIM_Aging/4_cores.csv", 1))
+]
 
 bar_width = 0.2
 
 fig, ax = plt.subplots(1)
-ax.bar(x+(-2*bar_width), normal_route,     width=bar_width, align="center", label="Normal Route")
-ax.bar(x+(-1*bar_width), simple_loop_back, width=bar_width, align="center", label="PL Loop-back")
-ax.bar(x+(+0*bar_width), SchIM_FP,         width=bar_width, align="center", label="SchIM FP")
-ax.bar(x+(+1*bar_width), SchIM_TDMA,       width=bar_width, align="center", label="SchIM TDMA")
-ax.bar(x+(+2*bar_width), SchIM_MG,         width=bar_width, align="center", label="SchIM TS")
+ax.bar(x+(-3.5*bar_width), normal_route,     width=bar_width, align="center", label="Normal Route")
+ax.bar(x+(-2.5*bar_width), simple_loop_back, width=bar_width, align="center", label="PL Loop-back")
+ax.bar(x+(-1.5*bar_width), SchIM_FP,         width=bar_width, align="center", label="SchIM FP")
+ax.bar(x+(-0.5*bar_width), SchIM_TDMA,       width=bar_width, align="center", label="SchIM TDMA")
+ax.bar(x+(+0.5*bar_width), SchIM_TS,         width=bar_width, align="center", label="SchIM TS")
+ax.bar(x+(+1.5*bar_width), SchIM_Fibo,       width=bar_width, align="center", label="SchIM Fibo")
+ax.bar(x+(+2.5*bar_width), SchIM_Gallois,    width=bar_width, align="center", label="SchIM Gallois")
+ax.bar(x+(+3.5*bar_width), SchIM_Aging,      width=bar_width, align="center", label="SchIM Aging")
 
 print("0)\t", simple_loop_back[0])
 print("1)\t", simple_loop_back[1])

@@ -60,33 +60,27 @@ proc step_failed { step } {
   close $ch
 }
 
-set_msg_config -id {HDL-1065} -limit 10000
 
 start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
-  set_param power.enableLutRouteBelPower 1
-  set_param power.enableCarry8RouteBelPower 1
-  set_param power.enableUnconnectedCarry8PinPower 1
-  set_param xicom.use_bs_reader 1
-  set_param tcl.collectionResultDisplayLimit 0
   create_project -in_memory -part xczu9eg-ffvb1156-2-e
   set_property board_part xilinx.com:zcu102:part0:3.1 [current_project]
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
-  set_property webtalk.parent_dir /home/duck/Github/cached_memoredf/rtl/MemorEDF/MemorEDF.cache/wt [current_project]
-  set_property parent.project_path /home/duck/Github/cached_memoredf/rtl/MemorEDF/MemorEDF.xpr [current_project]
-  set_property ip_repo_paths /home/duck/Github/cached_memoredf/rtl/ip_repo [current_project]
-  set_property ip_output_repo /home/duck/Github/cached_memoredf/rtl/MemorEDF/MemorEDF.cache/ip [current_project]
+  set_property webtalk.parent_dir /home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.cache/wt [current_project]
+  set_property parent.project_path /home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.xpr [current_project]
+  set_property ip_repo_paths /home/duck/Github/MemorEDF/rtl/ip_repo [current_project]
+  set_property ip_output_repo /home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
-  add_files -quiet /home/duck/Github/cached_memoredf/rtl/MemorEDF/MemorEDF.runs/synth_1/design_2_wrapper.dcp
+  add_files -quiet /home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.runs/synth_1/design_2_wrapper.dcp
   set_msg_config -source 4 -id {BD 41-1661} -limit 0
   set_param project.isImplRun true
-  add_files /home/duck/Github/cached_memoredf/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/design_2.bd
+  add_files /home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/design_2.bd
   set_param project.isImplRun false
-  read_xdc /home/duck/Github/cached_memoredf/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc
+  read_xdc /home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc
   set_param project.isImplRun true
   link_design -top design_2_wrapper -part xczu9eg-ffvb1156-2-e
   set_param project.isImplRun false

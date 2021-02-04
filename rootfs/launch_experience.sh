@@ -25,6 +25,12 @@ elif [ "$scheduling_policy" = "ts" ]; then
     ~/common/config_schim_"$scheduling_policy".out $mit_core_0 $mit_core_1 $mit_core_2 $mit_core_3 $threshold_core_0 $threshold_core_1 $threshold_core_2 $threshold_core_3
 elif [ "$scheduling_policy" = "NA" ]; then
     : # No policy is available: Do nothing
+elif [ "$scheduling_policy" = "fibo" ]; then
+    ~/common/config_schim_"$scheduling_policy".out $threshold_core_0 $threshold_core_1 $threshold_core_2 $threshold_core_3
+elif [ "$scheduling_policy" = "gallois" ]; then
+    ~/common/config_schim_"$scheduling_policy".out $threshold_core_0 $threshold_core_1 $threshold_core_2 $threshold_core_3
+elif [ "$scheduling_policy" = "aging" ]; then
+    ~/common/config_schim_"$scheduling_policy".out $threshold_core_0 $threshold_core_1 $threshold_core_2 $threshold_core_3
 else
     echo "Invalid policy set in "${1}" ("${scheduling_policy}") -> Abort!"
     exit 1
@@ -34,8 +40,10 @@ fi
 ~/common/load_col_bombs.sh >> /dev/null
 # Start Memory Bombs in either Read or Write mode
 ~/common/bombs_"$bombing_mode".sh >> /dev/null
-# If not yet created, creates the destination directory
-mkdir -p $dest_dir
+if [ "${type}" != "trace"]; then
+    # If not yet created, creates the destination directory
+    mkdir -p $dest_dir
+fi
 
 # Run synthetic bench with different level of contention
 for (( i = $((last_bomb+1)); i > 1; i-- )); do
@@ -44,11 +52,16 @@ for (( i = $((last_bomb+1)); i > 1; i-- )); do
     if [ "${type}" == "synthetic" ]; then
         # Generate and redirect data
         ~/synthetic/spam_fake_colored.out $core_0_target_address ${bombing_mode:0:1} ${samples} > ${dest_dir}/${i}_cores.csv
+    if [ "${type}" == "trace" ]; then
+        # Generate and redirect data
+        ~/benchmarks/blast_fake_colored.out $core_0_target_address ${bombing_mode:0:1} ${samples}
+        # Exit loop
+        ${i} = 0;
     elif [ "${type}" == "linux" ]; then
         # Start the linux inmate
         ~/common/linux-automated-dualport.sh
         # Start the fake Memory Bomb
-        ~/synthetic/blast_fake_colored.out $core_0_target_address ${bombing_mode:0:1} ${samples}
+        ~/benchmarks/blast_fake_colored.out $core_0_target_address ${bombing_mode:0:1} ${samples}
     else
         echo "Invalid type of experiments set in "${1}" ("${type}") -> Abort!"
         exit 1
@@ -56,8 +69,11 @@ for (( i = $((last_bomb+1)); i > 1; i-- )); do
     # Kill one cell
     jailhouse cell destroy $((i-1)) >> /dev/null
 done
-# Run alone
-# Create output raw data file
-touch ${dest_dir}/1_cores.csv
-# Generate and redirect data
-~/synthetic/spam_fake_colored.out ${core_0_target_address} ${bombing_mode:0:1} ${samples} > ${dest_dir}/1_cores.csv
+
+if [ "${type}" != "trace"]; then
+    # Run alone
+    # Create output raw data file
+    touch ${dest_dir}/1_cores.csv
+    # Generate and redirect data
+    ~/synthetic/spam_fake_colored.out ${core_0_target_address} ${bombing_mode:0:1} ${samples} > ${dest_dir}/1_cores.csv
+fi

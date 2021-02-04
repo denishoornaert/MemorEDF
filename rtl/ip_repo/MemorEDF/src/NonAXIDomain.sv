@@ -33,7 +33,10 @@ module NonAXIDomain #(
         parameter integer EDF_ENABLED            = 1,
         parameter integer FP_ENABLED             = 1,
         parameter integer MG_ENABLED             = 1,
-        parameter integer NUMBER_OF_SCHEDULERS   = 4
+        parameter integer PRNG_FIBONACCI_ENABLED = 1,
+        parameter integer PRNG_GALLOIS_ENABLED   = 1,
+        parameter integer AGING_ENABLED          = 1,
+        parameter integer NUMBER_OF_SCHEDULERS   = 6
     )(
         clock,
         reset,
@@ -184,7 +187,10 @@ module NonAXIDomain #(
 	   .TDMA_ENABLED(TDMA_ENABLED),
 	   .EDF_ENABLED(EDF_ENABLED),
 	   .FP_ENABLED(FP_ENABLED),
-	   .MG_ENABLED(MG_ENABLED)
+	   .MG_ENABLED(MG_ENABLED),
+	   .PRNG_FIBONACCI_ENABLED(PRNG_FIBONACCI_ENABLED),
+	   .PRNG_GALLOIS_ENABLED(PRNG_GALLOIS_ENABLED),
+	   .AGING_ENABLED(AGING_ENABLED)
 	) scheduler (
 	   .clock(clock),
        .reset(reset),

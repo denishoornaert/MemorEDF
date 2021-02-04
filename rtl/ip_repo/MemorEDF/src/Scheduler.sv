@@ -21,13 +21,16 @@
 
 module Scheduler
     #(
-        parameter NUMBER_OF_QUEUES     = 4,
-        parameter REGISTER_SIZE        = 32,
-        parameter PRIORITY_SIZE        = 4,
-        parameter TDMA_ENABLED         = 1,
-        parameter EDF_ENABLED          = 1,
-        parameter FP_ENABLED           = 1,
-        parameter MG_ENABLED           = 1
+        parameter NUMBER_OF_QUEUES       = 4,
+        parameter REGISTER_SIZE          = 32,
+        parameter PRIORITY_SIZE          = 4,
+        parameter TDMA_ENABLED           = 1,
+        parameter EDF_ENABLED            = 1,
+        parameter FP_ENABLED             = 1,
+        parameter MG_ENABLED             = 1,
+        parameter PRNG_FIBONACCI_ENABLED = 1,
+        parameter PRNG_GALLOIS_ENABLED   = 1,
+        parameter AGING_ENABLED          = 1
     )
     (
         clock,
@@ -48,7 +51,7 @@ module Scheduler
         enable
     );
 
-    localparam NUMBER_OF_SCHEDULERS = TDMA_ENABLED + EDF_ENABLED + FP_ENABLED + MG_ENABLED;
+    localparam NUMBER_OF_SCHEDULERS = TDMA_ENABLED + EDF_ENABLED + FP_ENABLED + MG_ENABLED + PRNG_FIBONACCI_ENABLED + PRNG_GALLOIS_ENABLED + AGING_ENABLED;
 
     // Definition of the module IOs
     input                                                clock;
@@ -205,16 +208,60 @@ module Scheduler
     begin
         MemGuard #(
             .NUMBER_OF_QUEUES(NUMBER_OF_QUEUES),
-            .REGISTER_SIZE(REGISTER_SIZE)
+            .REGISTER_SIZE(REGISTER_SIZE),
+            .PRIORITY_SIZE(PRIORITY_SIZE)
         ) mg (
             .clock(clock),
             .reset(reset|force_reset),
             .budgets(budgets),
             .priorities_input(priorities),
             .empty(empty),
-            .consumed(hasBeenConsumed),
+            .update((~pending_transaction & ~empty[selected_queue] & valid)),//.consumed(hasBeenConsumed),
             .valid(schedulers_to_selector_valid[3]),
             .selection(schedulers_to_selector_selection[3])
+        );
+    end
+    
+    if(PRNG_FIBONACCI_ENABLED)
+    begin
+        LFSR16 #(
+            .STATE_WIDTH(16),
+            .NUMBER_OF_QUEUES(NUMBER_OF_QUEUES)
+        ) fibonacci (
+            .clock(clock),
+            .reset(reset),
+            .empty(empty),
+            .valid(schedulers_to_selector_valid[4]),
+            .selection(schedulers_to_selector_selection[4])
+        );
+    end
+    
+    if(PRNG_GALLOIS_ENABLED)
+    begin
+        Gallois16 #(
+            .STATE_WIDTH(16),
+            .NUMBER_OF_QUEUES(NUMBER_OF_QUEUES)
+        ) gallois (
+            .clock(clock),
+            .reset(reset),
+            .empty(empty),
+            .valid(schedulers_to_selector_valid[5]),
+            .selection(schedulers_to_selector_selection[5])
+        );
+    end
+    
+    if(AGING_ENABLED)
+    begin
+        Aging #(
+            .NUMBER_OF_QUEUES(NUMBER_OF_QUEUES),
+            .REGISTER_SIZE(REGISTER_SIZE)
+        ) aging (
+            .clock(clock),
+            .reset(reset),
+            .empty(empty),
+            .update((~pending_transaction & ~empty[selected_queue] & valid)),//.consume(hasBeenConsumed),
+            .valid(schedulers_to_selector_valid[6]),
+            .selection(schedulers_to_selector_selection[6])
         );
     end
 
