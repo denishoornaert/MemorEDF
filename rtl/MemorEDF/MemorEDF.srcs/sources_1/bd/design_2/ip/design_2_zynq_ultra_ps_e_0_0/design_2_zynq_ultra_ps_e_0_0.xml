@@ -68997,7 +68997,7 @@ sdio1_data_out[2]#sdio1_data_out[3]#sdio1_cmd_out#sdio1_clk_out#ulpi_clk_in#ulpi
     <spirit:parameter>
       <spirit:name>PSU__DDRC__BRC_MAPPING</spirit:name>
       <spirit:displayName>PSU UIPARAM DDR BRC MODE</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__DDRC__BRC_MAPPING" spirit:choiceRef="choice_list_75476074" spirit:order="404">ROW_BANK_COL</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__DDRC__BRC_MAPPING" spirit:choiceRef="choice_list_75476074" spirit:order="404">BANK_ROW_COL</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU__DDRC__DIMM_ADDR_MIRROR</spirit:name>
