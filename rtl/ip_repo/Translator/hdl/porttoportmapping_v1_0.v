@@ -8,7 +8,7 @@ module porttoportmapping_v1_0 #
         parameter COLOR_BITS_LOWER_BOUND = 14,
         parameter SPM_SIZE_IN_BYTE       = 2*1024*1024,
 		// Parameters of Axi Slave Bus Interface S00_AXI
-		parameter C_S00_AXI_ID_WIDTH	= 1,
+		parameter C_S00_AXI_ID_WIDTH	= 16,
 		parameter C_S00_AXI_DATA_WIDTH	= 128,
 		parameter C_S00_AXI_ADDR_WIDTH	= 40,
 		parameter C_S00_AXI_AWUSER_WIDTH	= 0,
@@ -18,7 +18,7 @@ module porttoportmapping_v1_0 #
 		parameter C_S00_AXI_BUSER_WIDTH	= 0,
 
 		// Parameters of Axi Master Bus Interface M00_AXI
-		parameter C_M00_AXI_TARGET_SLAVE_BASE_ADDR	= 40'h4000000000,
+		parameter C_M00_AXI_TARGET_SLAVE_BASE_ADDR	= 40'h0000000000,
 		parameter C_M00_AXI_BURST_LEN    = 16,
 		parameter C_M00_AXI_ID_WIDTH     = 1,
 		parameter C_M00_AXI_ADDR_WIDTH   = 40,
@@ -125,21 +125,25 @@ module porttoportmapping_v1_0 #
             output wire                       m00_axi_rready
         );
         
-        wire [COLOR_BITS_UPPER_BOUND-COLOR_BITS_LOWER_BOUND : 0] zeros = 0;
-        wire                        [C_M00_AXI_ADDR_WIDTH-1 : 0] write_removed_msb;
-        wire                        [C_M00_AXI_ADDR_WIDTH-1 : 0] write_dropped_address;
-        wire                        [C_M00_AXI_ADDR_WIDTH-1 : 0] write_new_msb;
-        wire                        [C_M00_AXI_ADDR_WIDTH-1 : 0] read_removed_msb;
-        wire                        [C_M00_AXI_ADDR_WIDTH-1 : 0] read_dropped_address;
-        wire                        [C_M00_AXI_ADDR_WIDTH-1 : 0] read_new_msb;
+        wire                                             [3 : 0] write_isolated_bank;
+        wire                                            [31 : 0] write_removed_msb;
+        wire                                            [31 : 0] write_dropped_address;
+        wire                                            [39 : 0] write_new_msb;
         
-        assign write_removed_msb     = {8'h00, s00_axi_awaddr[31 : 0]};
-        assign write_dropped_address = {zeros, write_removed_msb[C_M00_AXI_ADDR_WIDTH-1 : COLOR_BITS_UPPER_BOUND+1], write_removed_msb[COLOR_BITS_LOWER_BOUND-1 : 0]};
-        assign write_new_msb         = C_M00_AXI_TARGET_SLAVE_BASE_ADDR | write_dropped_address;
+        wire                                             [3 : 0] read_isolated_bank;
+        wire                                            [39 : 0] read_removed_msb;
+        wire                                            [31 : 0] read_dropped_address;
+        wire                                            [31 : 0] read_new_msb;
         
-        assign read_removed_msb     = {8'h00, s00_axi_araddr[31 : 0]};
-        assign read_dropped_address = {zeros, read_removed_msb[C_M00_AXI_ADDR_WIDTH-1 : COLOR_BITS_UPPER_BOUND+1], read_removed_msb[COLOR_BITS_LOWER_BOUND-1 : 0]};
-        assign read_new_msb         = C_M00_AXI_TARGET_SLAVE_BASE_ADDR | read_dropped_address;
+        assign write_isolated_bank   = s00_axi_awaddr[35 : 32];
+        assign write_removed_msb     = s00_axi_awaddr[31 : 0];
+        assign write_dropped_address = {2'b00, write_removed_msb[31 : 16], write_removed_msb[13 : 0]};
+        assign write_new_msb         = {4'h0, write_isolated_bank, write_dropped_address};
+        
+        assign read_isolated_bank   = s00_axi_araddr[35 : 32];
+        assign read_removed_msb     = s00_axi_araddr[31 : 0];
+        assign read_dropped_address = {2'b00, read_removed_msb[31 : 16], read_removed_msb[13 : 0]};
+        assign read_new_msb         = {4'h0, read_isolated_bank, read_dropped_address};
         
         // Drive signals from the master port to the slave port
         assign s00_axi_awready = m00_axi_awready;
