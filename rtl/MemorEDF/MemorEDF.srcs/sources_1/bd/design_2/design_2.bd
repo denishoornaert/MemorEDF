@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<bd:repository xmlns:bd="http://www.xilinx.com/bd" bd:BoundaryCRC="0x0" bd:device="xczu9eg-ffvb1156-2-e" bd:synthFlowMode="Hierarchical" bd:tool_version="2017.4" bd:top="design_2" bd:version="1.00.a">
+<bd:repository xmlns:bd="http://www.xilinx.com/bd" bd:BoundaryCRC="0x0" bd:device="xczu9eg-ffvb1156-2-e" bd:isValidated="true" bd:synthFlowMode="Hierarchical" bd:tool_version="2017.4" bd:top="design_2" bd:version="1.00.a">
 
   <spirit:component xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009">
     <spirit:vendor>xilinx.com</spirit:vendor>
@@ -646,15 +646,6 @@
         <spirit:abstractionType spirit:library="interface" spirit:name="aximm_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
       </spirit:busInterface>
       <spirit:busInterface>
-        <spirit:name>M_AXI_HPM0_LPD</spirit:name>
-        <spirit:master>
-          <spirit:addressSpaceRef spirit:addressSpaceRef="Data"/>
-          <spirit:baseAddress spirit:maximum="0x9FFFFFFF" spirit:minimum="0x80000000">0x80000000</spirit:baseAddress>
-        </spirit:master>
-        <spirit:busType spirit:library="interface" spirit:name="aximm" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-        <spirit:abstractionType spirit:library="interface" spirit:name="aximm_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-      </spirit:busInterface>
-      <spirit:busInterface>
         <spirit:name>M_AXI_HPM0_FPD</spirit:name>
         <spirit:master>
           <spirit:addressSpaceRef spirit:addressSpaceRef="Data"/>
@@ -672,6 +663,15 @@
         <spirit:busType spirit:library="interface" spirit:name="aximm" spirit:vendor="xilinx.com" spirit:version="1.0"/>
         <spirit:abstractionType spirit:library="interface" spirit:name="aximm_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
       </spirit:busInterface>
+      <spirit:busInterface>
+        <spirit:name>M_AXI_HPM0_LPD</spirit:name>
+        <spirit:master>
+          <spirit:addressSpaceRef spirit:addressSpaceRef="Data"/>
+          <spirit:baseAddress spirit:maximum="0x9FFFFFFF" spirit:minimum="0x80000000">0x80000000</spirit:baseAddress>
+        </spirit:master>
+        <spirit:busType spirit:library="interface" spirit:name="aximm" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:abstractionType spirit:library="interface" spirit:name="aximm_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+      </spirit:busInterface>
     </spirit:busInterfaces>
     <spirit:addressSpaces>
       <spirit:addressSpace>
@@ -684,6 +684,12 @@
             <spirit:displayName>/MemorEDF_0/s01_axi/Reg</spirit:displayName>
             <spirit:addressOffset>0x00080000000</spirit:addressOffset>
             <spirit:range>64K</spirit:range>
+          </spirit:segment>
+          <spirit:segment>
+            <spirit:name>SEG_MemorEDF_0_Reg2</spirit:name>
+            <spirit:displayName>/MemorEDF_0/s02_axi/Reg</spirit:displayName>
+            <spirit:addressOffset>0x04800000000</spirit:addressOffset>
+            <spirit:range>32G</spirit:range>
           </spirit:segment>
           <spirit:segment>
             <spirit:name>SEG_MemorEDF_0_reg0</spirit:name>
@@ -818,10 +824,10 @@
         <spirit:width>32</spirit:width>
         <spirit:segments>
           <spirit:segment>
-            <spirit:name>SEG_AXI_PerfectTranslator_0_S00_AXI_mem</spirit:name>
-            <spirit:displayName>/AXI_PerfectTranslator_0/S00_AXI/S00_AXI_mem</spirit:displayName>
+            <spirit:name>SEG_porttoportmapping_v1_0_0_reg0</spirit:name>
+            <spirit:displayName>/porttoportmapping_v1_0_0/s00_axi/reg0</spirit:displayName>
             <spirit:addressOffset>0x0000000000</spirit:addressOffset>
-            <spirit:range>32G</spirit:range>
+            <spirit:range>512G</spirit:range>
           </spirit:segment>
         </spirit:segments>
       </spirit:addressSpace>
@@ -856,7 +862,14 @@
         <spirit:name>m00_axi</spirit:name>
         <spirit:range>1T</spirit:range>
         <spirit:width>32</spirit:width>
-        <spirit:segments/>
+        <spirit:segments>
+          <spirit:segment>
+            <spirit:name>SEG_AXI_PerfectTranslator_0_S00_AXI_mem</spirit:name>
+            <spirit:displayName>/AXI_PerfectTranslator_0/S00_AXI/S00_AXI_mem</spirit:displayName>
+            <spirit:addressOffset>0x0000000000</spirit:addressOffset>
+            <spirit:range>1T</spirit:range>
+          </spirit:segment>
+        </spirit:segments>
       </spirit:addressSpace>
     </spirit:addressSpaces>
   </spirit:component>

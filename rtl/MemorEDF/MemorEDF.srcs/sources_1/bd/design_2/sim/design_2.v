@@ -1,7 +1,7 @@
 //Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-//Date        : Mon Feb  8 23:23:58 2021
+//Date        : Tue Feb  9 23:10:02 2021
 //Host        : CELSIUS running 64-bit Ubuntu 16.04.7 LTS
 //Command     : generate_target design_2.bd
 //Design      : design_2
@@ -9,7 +9,7 @@
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "design_2,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_2,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=6,numReposBlks=6,numNonXlnxBlks=2,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_clkrst_cnt=26,da_zynq_ultra_ps_e_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "design_2.hwdef" *) 
+(* CORE_GENERATION_INFO = "design_2,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_2,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=7,numReposBlks=7,numNonXlnxBlks=3,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_clkrst_cnt=26,da_zynq_ultra_ps_e_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "design_2.hwdef" *) 
 module design_2
    ();
 
@@ -95,6 +95,45 @@ module design_2
   (* CONN_BUS_INFO = "MemorEDF_0_m00_axi xilinx.com:interface:aximm:1.0 AXI4 WREADY" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire MemorEDF_0_m00_axi_WREADY;
   (* CONN_BUS_INFO = "MemorEDF_0_m00_axi xilinx.com:interface:aximm:1.0 AXI4 WSTRB" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [15:0]MemorEDF_0_m00_axi_WSTRB;
   (* CONN_BUS_INFO = "MemorEDF_0_m00_axi xilinx.com:interface:aximm:1.0 AXI4 WVALID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire MemorEDF_0_m00_axi_WVALID;
+  wire [39:0]porttoportmapping_v1_0_0_m00_axi_ARADDR;
+  wire [1:0]porttoportmapping_v1_0_0_m00_axi_ARBURST;
+  wire [3:0]porttoportmapping_v1_0_0_m00_axi_ARCACHE;
+  wire [15:0]porttoportmapping_v1_0_0_m00_axi_ARID;
+  wire [7:0]porttoportmapping_v1_0_0_m00_axi_ARLEN;
+  wire porttoportmapping_v1_0_0_m00_axi_ARLOCK;
+  wire [2:0]porttoportmapping_v1_0_0_m00_axi_ARPROT;
+  wire [3:0]porttoportmapping_v1_0_0_m00_axi_ARQOS;
+  wire porttoportmapping_v1_0_0_m00_axi_ARREADY;
+  wire [2:0]porttoportmapping_v1_0_0_m00_axi_ARSIZE;
+  wire [0:0]porttoportmapping_v1_0_0_m00_axi_ARUSER;
+  wire porttoportmapping_v1_0_0_m00_axi_ARVALID;
+  wire [39:0]porttoportmapping_v1_0_0_m00_axi_AWADDR;
+  wire [1:0]porttoportmapping_v1_0_0_m00_axi_AWBURST;
+  wire [3:0]porttoportmapping_v1_0_0_m00_axi_AWCACHE;
+  wire [15:0]porttoportmapping_v1_0_0_m00_axi_AWID;
+  wire [7:0]porttoportmapping_v1_0_0_m00_axi_AWLEN;
+  wire porttoportmapping_v1_0_0_m00_axi_AWLOCK;
+  wire [2:0]porttoportmapping_v1_0_0_m00_axi_AWPROT;
+  wire [3:0]porttoportmapping_v1_0_0_m00_axi_AWQOS;
+  wire porttoportmapping_v1_0_0_m00_axi_AWREADY;
+  wire [2:0]porttoportmapping_v1_0_0_m00_axi_AWSIZE;
+  wire [0:0]porttoportmapping_v1_0_0_m00_axi_AWUSER;
+  wire porttoportmapping_v1_0_0_m00_axi_AWVALID;
+  wire [15:0]porttoportmapping_v1_0_0_m00_axi_BID;
+  wire porttoportmapping_v1_0_0_m00_axi_BREADY;
+  wire [1:0]porttoportmapping_v1_0_0_m00_axi_BRESP;
+  wire porttoportmapping_v1_0_0_m00_axi_BVALID;
+  wire [127:0]porttoportmapping_v1_0_0_m00_axi_RDATA;
+  wire [15:0]porttoportmapping_v1_0_0_m00_axi_RID;
+  wire porttoportmapping_v1_0_0_m00_axi_RLAST;
+  wire porttoportmapping_v1_0_0_m00_axi_RREADY;
+  wire [1:0]porttoportmapping_v1_0_0_m00_axi_RRESP;
+  wire porttoportmapping_v1_0_0_m00_axi_RVALID;
+  wire [127:0]porttoportmapping_v1_0_0_m00_axi_WDATA;
+  wire porttoportmapping_v1_0_0_m00_axi_WLAST;
+  wire porttoportmapping_v1_0_0_m00_axi_WREADY;
+  wire [15:0]porttoportmapping_v1_0_0_m00_axi_WSTRB;
+  wire porttoportmapping_v1_0_0_m00_axi_WVALID;
   wire [0:0]rst_ps8_0_99M_peripheral_aresetn;
   wire [3:0]xlconcat_0_dout;
   (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_M_AXI_HPM0_FPD xilinx.com:interface:aximm:1.0 AXI4 ARADDR" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [39:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARADDR;
@@ -263,48 +302,48 @@ module design_2
         .m00_axi_wstrb(AXI_PerfectTranslator_0_M00_AXI_WSTRB),
         .m00_axi_wvalid(AXI_PerfectTranslator_0_M00_AXI_WVALID),
         .s00_axi_aclk(zynq_ultra_ps_e_0_pl_clk0),
-        .s00_axi_araddr(MemorEDF_0_m00_axi_ARADDR),
-        .s00_axi_arburst(MemorEDF_0_m00_axi_ARBURST),
-        .s00_axi_arcache(MemorEDF_0_m00_axi_ARCACHE),
+        .s00_axi_araddr(porttoportmapping_v1_0_0_m00_axi_ARADDR),
+        .s00_axi_arburst(porttoportmapping_v1_0_0_m00_axi_ARBURST),
+        .s00_axi_arcache(porttoportmapping_v1_0_0_m00_axi_ARCACHE),
         .s00_axi_aresetn(rst_ps8_0_99M_peripheral_aresetn),
-        .s00_axi_arid(MemorEDF_0_m00_axi_ARID),
-        .s00_axi_arlen(MemorEDF_0_m00_axi_ARLEN),
-        .s00_axi_arlock(MemorEDF_0_m00_axi_ARLOCK),
-        .s00_axi_arprot(MemorEDF_0_m00_axi_ARPROT),
-        .s00_axi_arqos(MemorEDF_0_m00_axi_ARQOS),
-        .s00_axi_arready(MemorEDF_0_m00_axi_ARREADY),
+        .s00_axi_arid(porttoportmapping_v1_0_0_m00_axi_ARID),
+        .s00_axi_arlen(porttoportmapping_v1_0_0_m00_axi_ARLEN),
+        .s00_axi_arlock(porttoportmapping_v1_0_0_m00_axi_ARLOCK),
+        .s00_axi_arprot(porttoportmapping_v1_0_0_m00_axi_ARPROT),
+        .s00_axi_arqos(porttoportmapping_v1_0_0_m00_axi_ARQOS),
+        .s00_axi_arready(porttoportmapping_v1_0_0_m00_axi_ARREADY),
         .s00_axi_arregion({1'b0,1'b0,1'b0,1'b0}),
-        .s00_axi_arsize(MemorEDF_0_m00_axi_ARSIZE),
-        .s00_axi_aruser(MemorEDF_0_m00_axi_ARUSER),
-        .s00_axi_arvalid(MemorEDF_0_m00_axi_ARVALID),
-        .s00_axi_awaddr(MemorEDF_0_m00_axi_AWADDR),
-        .s00_axi_awburst(MemorEDF_0_m00_axi_AWBURST),
-        .s00_axi_awcache(MemorEDF_0_m00_axi_AWCACHE),
-        .s00_axi_awid(MemorEDF_0_m00_axi_AWID),
-        .s00_axi_awlen(MemorEDF_0_m00_axi_AWLEN),
-        .s00_axi_awlock(MemorEDF_0_m00_axi_AWLOCK),
-        .s00_axi_awprot(MemorEDF_0_m00_axi_AWPROT),
-        .s00_axi_awqos(MemorEDF_0_m00_axi_AWQOS),
-        .s00_axi_awready(MemorEDF_0_m00_axi_AWREADY),
+        .s00_axi_arsize(porttoportmapping_v1_0_0_m00_axi_ARSIZE),
+        .s00_axi_aruser(porttoportmapping_v1_0_0_m00_axi_ARUSER),
+        .s00_axi_arvalid(porttoportmapping_v1_0_0_m00_axi_ARVALID),
+        .s00_axi_awaddr(porttoportmapping_v1_0_0_m00_axi_AWADDR),
+        .s00_axi_awburst(porttoportmapping_v1_0_0_m00_axi_AWBURST),
+        .s00_axi_awcache(porttoportmapping_v1_0_0_m00_axi_AWCACHE),
+        .s00_axi_awid(porttoportmapping_v1_0_0_m00_axi_AWID),
+        .s00_axi_awlen(porttoportmapping_v1_0_0_m00_axi_AWLEN),
+        .s00_axi_awlock(porttoportmapping_v1_0_0_m00_axi_AWLOCK),
+        .s00_axi_awprot(porttoportmapping_v1_0_0_m00_axi_AWPROT),
+        .s00_axi_awqos(porttoportmapping_v1_0_0_m00_axi_AWQOS),
+        .s00_axi_awready(porttoportmapping_v1_0_0_m00_axi_AWREADY),
         .s00_axi_awregion({1'b0,1'b0,1'b0,1'b0}),
-        .s00_axi_awsize(MemorEDF_0_m00_axi_AWSIZE),
-        .s00_axi_awuser(MemorEDF_0_m00_axi_AWUSER),
-        .s00_axi_awvalid(MemorEDF_0_m00_axi_AWVALID),
-        .s00_axi_bid(MemorEDF_0_m00_axi_BID),
-        .s00_axi_bready(MemorEDF_0_m00_axi_BREADY),
-        .s00_axi_bresp(MemorEDF_0_m00_axi_BRESP),
-        .s00_axi_bvalid(MemorEDF_0_m00_axi_BVALID),
-        .s00_axi_rdata(MemorEDF_0_m00_axi_RDATA),
-        .s00_axi_rid(MemorEDF_0_m00_axi_RID),
-        .s00_axi_rlast(MemorEDF_0_m00_axi_RLAST),
-        .s00_axi_rready(MemorEDF_0_m00_axi_RREADY),
-        .s00_axi_rresp(MemorEDF_0_m00_axi_RRESP),
-        .s00_axi_rvalid(MemorEDF_0_m00_axi_RVALID),
-        .s00_axi_wdata(MemorEDF_0_m00_axi_WDATA),
-        .s00_axi_wlast(MemorEDF_0_m00_axi_WLAST),
-        .s00_axi_wready(MemorEDF_0_m00_axi_WREADY),
-        .s00_axi_wstrb(MemorEDF_0_m00_axi_WSTRB),
-        .s00_axi_wvalid(MemorEDF_0_m00_axi_WVALID));
+        .s00_axi_awsize(porttoportmapping_v1_0_0_m00_axi_AWSIZE),
+        .s00_axi_awuser(porttoportmapping_v1_0_0_m00_axi_AWUSER),
+        .s00_axi_awvalid(porttoportmapping_v1_0_0_m00_axi_AWVALID),
+        .s00_axi_bid(porttoportmapping_v1_0_0_m00_axi_BID),
+        .s00_axi_bready(porttoportmapping_v1_0_0_m00_axi_BREADY),
+        .s00_axi_bresp(porttoportmapping_v1_0_0_m00_axi_BRESP),
+        .s00_axi_bvalid(porttoportmapping_v1_0_0_m00_axi_BVALID),
+        .s00_axi_rdata(porttoportmapping_v1_0_0_m00_axi_RDATA),
+        .s00_axi_rid(porttoportmapping_v1_0_0_m00_axi_RID),
+        .s00_axi_rlast(porttoportmapping_v1_0_0_m00_axi_RLAST),
+        .s00_axi_rready(porttoportmapping_v1_0_0_m00_axi_RREADY),
+        .s00_axi_rresp(porttoportmapping_v1_0_0_m00_axi_RRESP),
+        .s00_axi_rvalid(porttoportmapping_v1_0_0_m00_axi_RVALID),
+        .s00_axi_wdata(porttoportmapping_v1_0_0_m00_axi_WDATA),
+        .s00_axi_wlast(porttoportmapping_v1_0_0_m00_axi_WLAST),
+        .s00_axi_wready(porttoportmapping_v1_0_0_m00_axi_WREADY),
+        .s00_axi_wstrb(porttoportmapping_v1_0_0_m00_axi_WSTRB),
+        .s00_axi_wvalid(porttoportmapping_v1_0_0_m00_axi_WVALID));
   design_2_MemorEDF_0_0 MemorEDF_0
        (.Q_0_kill_the_core(MemorEDF_0_Q_0_kill_the_core),
         .Q_1_kill_the_core(MemorEDF_0_Q_1_kill_the_core),
@@ -480,6 +519,91 @@ module design_2
         .s02_axi_wready(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_WREADY),
         .s02_axi_wstrb(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_WSTRB),
         .s02_axi_wvalid(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_WVALID));
+  design_2_porttoportmapping_v1_0_0_0 porttoportmapping_v1_0_0
+       (.m00_axi_aclk(zynq_ultra_ps_e_0_pl_clk0),
+        .m00_axi_araddr(porttoportmapping_v1_0_0_m00_axi_ARADDR),
+        .m00_axi_arburst(porttoportmapping_v1_0_0_m00_axi_ARBURST),
+        .m00_axi_arcache(porttoportmapping_v1_0_0_m00_axi_ARCACHE),
+        .m00_axi_aresetn(rst_ps8_0_99M_peripheral_aresetn),
+        .m00_axi_arid(porttoportmapping_v1_0_0_m00_axi_ARID),
+        .m00_axi_arlen(porttoportmapping_v1_0_0_m00_axi_ARLEN),
+        .m00_axi_arlock(porttoportmapping_v1_0_0_m00_axi_ARLOCK),
+        .m00_axi_arprot(porttoportmapping_v1_0_0_m00_axi_ARPROT),
+        .m00_axi_arqos(porttoportmapping_v1_0_0_m00_axi_ARQOS),
+        .m00_axi_arready(porttoportmapping_v1_0_0_m00_axi_ARREADY),
+        .m00_axi_arsize(porttoportmapping_v1_0_0_m00_axi_ARSIZE),
+        .m00_axi_aruser(porttoportmapping_v1_0_0_m00_axi_ARUSER),
+        .m00_axi_arvalid(porttoportmapping_v1_0_0_m00_axi_ARVALID),
+        .m00_axi_awaddr(porttoportmapping_v1_0_0_m00_axi_AWADDR),
+        .m00_axi_awburst(porttoportmapping_v1_0_0_m00_axi_AWBURST),
+        .m00_axi_awcache(porttoportmapping_v1_0_0_m00_axi_AWCACHE),
+        .m00_axi_awid(porttoportmapping_v1_0_0_m00_axi_AWID),
+        .m00_axi_awlen(porttoportmapping_v1_0_0_m00_axi_AWLEN),
+        .m00_axi_awlock(porttoportmapping_v1_0_0_m00_axi_AWLOCK),
+        .m00_axi_awprot(porttoportmapping_v1_0_0_m00_axi_AWPROT),
+        .m00_axi_awqos(porttoportmapping_v1_0_0_m00_axi_AWQOS),
+        .m00_axi_awready(porttoportmapping_v1_0_0_m00_axi_AWREADY),
+        .m00_axi_awsize(porttoportmapping_v1_0_0_m00_axi_AWSIZE),
+        .m00_axi_awuser(porttoportmapping_v1_0_0_m00_axi_AWUSER),
+        .m00_axi_awvalid(porttoportmapping_v1_0_0_m00_axi_AWVALID),
+        .m00_axi_bid(porttoportmapping_v1_0_0_m00_axi_BID),
+        .m00_axi_bready(porttoportmapping_v1_0_0_m00_axi_BREADY),
+        .m00_axi_bresp(porttoportmapping_v1_0_0_m00_axi_BRESP),
+        .m00_axi_bvalid(porttoportmapping_v1_0_0_m00_axi_BVALID),
+        .m00_axi_rdata(porttoportmapping_v1_0_0_m00_axi_RDATA),
+        .m00_axi_rid(porttoportmapping_v1_0_0_m00_axi_RID),
+        .m00_axi_rlast(porttoportmapping_v1_0_0_m00_axi_RLAST),
+        .m00_axi_rready(porttoportmapping_v1_0_0_m00_axi_RREADY),
+        .m00_axi_rresp(porttoportmapping_v1_0_0_m00_axi_RRESP),
+        .m00_axi_rvalid(porttoportmapping_v1_0_0_m00_axi_RVALID),
+        .m00_axi_wdata(porttoportmapping_v1_0_0_m00_axi_WDATA),
+        .m00_axi_wlast(porttoportmapping_v1_0_0_m00_axi_WLAST),
+        .m00_axi_wready(porttoportmapping_v1_0_0_m00_axi_WREADY),
+        .m00_axi_wstrb(porttoportmapping_v1_0_0_m00_axi_WSTRB),
+        .m00_axi_wvalid(porttoportmapping_v1_0_0_m00_axi_WVALID),
+        .s00_axi_aclk(zynq_ultra_ps_e_0_pl_clk0),
+        .s00_axi_araddr(MemorEDF_0_m00_axi_ARADDR),
+        .s00_axi_arburst(MemorEDF_0_m00_axi_ARBURST),
+        .s00_axi_arcache(MemorEDF_0_m00_axi_ARCACHE),
+        .s00_axi_aresetn(rst_ps8_0_99M_peripheral_aresetn),
+        .s00_axi_arid(MemorEDF_0_m00_axi_ARID),
+        .s00_axi_arlen(MemorEDF_0_m00_axi_ARLEN),
+        .s00_axi_arlock(MemorEDF_0_m00_axi_ARLOCK),
+        .s00_axi_arprot(MemorEDF_0_m00_axi_ARPROT),
+        .s00_axi_arqos(MemorEDF_0_m00_axi_ARQOS),
+        .s00_axi_arready(MemorEDF_0_m00_axi_ARREADY),
+        .s00_axi_arregion({1'b0,1'b0,1'b0,1'b0}),
+        .s00_axi_arsize(MemorEDF_0_m00_axi_ARSIZE),
+        .s00_axi_aruser(MemorEDF_0_m00_axi_ARUSER),
+        .s00_axi_arvalid(MemorEDF_0_m00_axi_ARVALID),
+        .s00_axi_awaddr(MemorEDF_0_m00_axi_AWADDR),
+        .s00_axi_awburst(MemorEDF_0_m00_axi_AWBURST),
+        .s00_axi_awcache(MemorEDF_0_m00_axi_AWCACHE),
+        .s00_axi_awid(MemorEDF_0_m00_axi_AWID),
+        .s00_axi_awlen(MemorEDF_0_m00_axi_AWLEN),
+        .s00_axi_awlock(MemorEDF_0_m00_axi_AWLOCK),
+        .s00_axi_awprot(MemorEDF_0_m00_axi_AWPROT),
+        .s00_axi_awqos(MemorEDF_0_m00_axi_AWQOS),
+        .s00_axi_awready(MemorEDF_0_m00_axi_AWREADY),
+        .s00_axi_awregion({1'b0,1'b0,1'b0,1'b0}),
+        .s00_axi_awsize(MemorEDF_0_m00_axi_AWSIZE),
+        .s00_axi_awuser(MemorEDF_0_m00_axi_AWUSER),
+        .s00_axi_awvalid(MemorEDF_0_m00_axi_AWVALID),
+        .s00_axi_bid(MemorEDF_0_m00_axi_BID),
+        .s00_axi_bready(MemorEDF_0_m00_axi_BREADY),
+        .s00_axi_bresp(MemorEDF_0_m00_axi_BRESP),
+        .s00_axi_bvalid(MemorEDF_0_m00_axi_BVALID),
+        .s00_axi_rdata(MemorEDF_0_m00_axi_RDATA),
+        .s00_axi_rid(MemorEDF_0_m00_axi_RID),
+        .s00_axi_rlast(MemorEDF_0_m00_axi_RLAST),
+        .s00_axi_rready(MemorEDF_0_m00_axi_RREADY),
+        .s00_axi_rresp(MemorEDF_0_m00_axi_RRESP),
+        .s00_axi_rvalid(MemorEDF_0_m00_axi_RVALID),
+        .s00_axi_wdata(MemorEDF_0_m00_axi_WDATA),
+        .s00_axi_wlast(MemorEDF_0_m00_axi_WLAST),
+        .s00_axi_wready(MemorEDF_0_m00_axi_WREADY),
+        .s00_axi_wstrb(MemorEDF_0_m00_axi_WSTRB),
+        .s00_axi_wvalid(MemorEDF_0_m00_axi_WVALID));
   design_2_rst_ps8_0_99M_0 rst_ps8_0_99M
        (.aux_reset_in(1'b1),
         .dcm_locked(1'b1),
