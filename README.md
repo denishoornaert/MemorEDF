@@ -69,6 +69,56 @@ source path/to/petalinux/settings.sh
 ```
 **Remark:** the ```quick_deplpoy.sh``` can be used later on to independently build, clean or copy parts of the projects. Further information can be found [here](#quick-deploy-script).
 
+## U-Boot configuration
+### CPU-Brainfreeze
+```
+setenv bootargs "earlycon clk_ignore_unused earlyprintk mem=512M root=/dev/mmcblk0p2 rw rootwait"
+setenv uenvcmd "fatload mmc 0 0x3000000 Image && fatload mmc 0 0x2A00000 system.dtb && booti 0x3000000 - 0x2A00000"
+setenv bootcmd "run uenvcmd"
+saveenv
+boot
+```
+### SchIM
+```
+setenv bootargs "earlycon clk_ignore_unused earlyprintk mem=1024M root=/dev/mmcblk0p2 rw rootwait"
+setenv uenvcmd "fatload mmc 0 0x3000000 Image && fatload mmc 0 0x2A00000 system.dtb && booti 0x3000000 - 0x2A00000"
+setenv bootcmd "run uenvcmd"
+saveenv
+boot
+```
+
+## CPU-Brainfreeze experiments
+### On the host computer
+Make sure to have successfully completed all the steps listed in the [Petalinux](#Petalinux) section.
+### On the board
+Interrupt the u-boot sequence before the count of 4 seconds by pressing any key and enter the following commands on the u-boot console.
+```
+setenv bootargs "earlycon clk_ignore_unused earlyprintk mem=512M root=/dev/mmcblk0p2 rw rootwait"
+setenv uenvcmd "fatload mmc 0 0x3000000 Image && fatload mmc 0 0x2A00000 system.dtb && booti 0x3000000 - 0x2A00000"
+setenv bootcmd "run uenvcmd"
+saveenv
+boot
+```
+**Note:** this manipulation only has to be done once.
+Once logged in, type the following command:
+```
+~/brainfreeze/launch_fence_blast.sh
+```
+This script is in charge of starting jailhouse, recoloring the root-cell and starting the memory-bomb inmate.
+After this, the experiments will be automatically launched.
+The execution time of each benchmark instance will be displayed on the terminal and stored in a file on the SD-card.
+The results can be found in ```~/benchmarks/results``` under the names ```bench_ts_<mit>.csv``` (where ```mit``` is ```1024```, ```32768```, ```131072```, ```524288```).
+**Remark:** Unless the script has been altered, generating the results takes around **4 hours** on the ZCU102!
+
+### Post-processing
+Retrieve the raw-data files located in ```<sd-card>/home/root/benchmarks/results/``` and copy them in ```<this-repo>/script/brainfreeze/SchIM/```.
+Once done, let us move to the script and launch it
+```bash
+cd <this-repo>/script/brainfreeze/SchIM/
+python3 brainfreeze_effects.py
+```
+The generated plot will be located in the same directory under the name ```cpu-brainfreeze-interference.pdf```.
+
 ## Quick deploy script
 ```
 Usage: quick_deploy.sh [OPTION [ACTION,...]]
