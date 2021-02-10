@@ -38,16 +38,13 @@
 
 /* Xilinx ZCU102 Specifications */
 /* ROW, BANK, COL */
-#define COL_SHIFT  (0)
+
+#define COL_SHIFT  (2)//(1)(3)
 #define COL_BITS   (10)
 #define BANK_SHIFT (COL_BITS)
-#define BANK_BITS  (2)
-#define ROW_SHIFT  (COL_BITS+BANK_BITS)
+#define BANK_BITS  (4) // 2 bits for the bank and 2 for the group bank)
+#define ROW_SHIFT  (COL_BITS+BANK_BITS+COL_SHIFT)
 #define ROW_BITS   (15)
-
-
-
-
 #define LINE_SIZE  64 /* 64 bytes line size*/
 #define NEXT_ROW   (1 << ROW_SHIFT)
 #define NEXT_COL   (LINE_SIZE)
