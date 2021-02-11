@@ -48,85 +48,83 @@ priorities_labels = ["Lowest", "Third highest", "Second highest", "Highest"]
 #
 #    plt.savefig("threshold.png")
 
-#if (__name__ == '__main__'):
-#    fig, axs = plt.subplots(2, 2, figsize=(10.5, 8))
-#
-#    for prio in range(1, 5, 1):
-#        axs[coord[prio-1][0], coord[prio-1][1]].set_title("CUA priority: "+priorities_labels[prio-1])
-#        axs[coord[prio-1][0], coord[prio-1][1]].set_ylim([0, 700])
-#        for core in range(1, 5, 1):
-#            data = read("prio_"+str(prio)+"/"+str(core)+"_cores.csv", 1)
-#
-#            x = list(data.keys())
-#            x.sort()
-#
-#            for key in x:
-#                data[key] = {"avg":np.mean(data[key]), "std":np.std(data[key])}
-#
-#            y = [data[key]["avg"] for key in x]
-#            e = [data[key]["std"] for key in x]
-#            y = y[1:]+[y[0]]
-#            e = e[1:]+[e[0]]
-#
-#            axs[coord[prio-1][0], coord[prio-1][1]].errorbar(x, y, yerr=e, label="Contention level: "+str(core)+" core"+("s" if (core > 1) else " (Solo)"))
-#
-#            axs[coord[core-1][0], coord[core-1][1]].set_xticks(x)
-#            axs[coord[core-1][0], coord[core-1][1]].set_xticklabels([str(x[j]) for j in range(1,9)]+["Disabled"])
-#
-#    for ax in axs.flat:
-#        ax.set(xlabel="Threshold", ylabel="Bandwidth (MBps)")
-#
-#    # Hide x labels and tick labels for top plots and y ticks for right plots.
-#    for ax in axs.flat:
-#        ax.label_outer()
-#
-#    fig.suptitle("Using FP, bandwidth experienced by the Core Under Analysis (CUA) for different levels\nof contention and thresholds", fontsize=16)
-#
-#    handles, labels = axs[1, 1].get_legend_handles_labels()
-#    fig.legend(handles, labels, loc='lower center', ncol=5,)
-#
-#    fig.savefig("threshold_fp_rev.pdf", dpi=300)
-#    fig.savefig("threshold_fp_rev.png", dpi=300)
+def plot_fp_rev():
+    fig, axs = plt.subplots(2, 2, figsize=(10.5, 8))
 
-#if (__name__ == '__main__'):
-#    fig, axs = plt.subplots(2, 2, figsize=(10.5, 8))
-#
-#    for core in range(1, 5, 1):
-#        axs[coord[core-1][0], coord[core-1][1]].set_title("Contention level: "+str(core)+" core"+("s" if (core > 1) else " (Solo)"))
-#        axs[coord[core-1][0], coord[core-1][1]].set_ylim([0, 700])
-#        for prio in range(1, 5, 1):
-#            data = read("prio_"+str(prio)+"/"+str(core)+"_cores.csv", 1)
-#
-#            x = list(data.keys())
-#            x.sort()
-#
-#            for key in x:
-#                data[key] = {"avg":np.mean(data[key]), "std":np.std(data[key])}
-#
-#            y = [data[key]["avg"] for key in x]
-#            e = [data[key]["std"] for key in x]
-#            y = y[1:]+[y[0]]
-#            e = e[1:]+[e[0]]
-#
-#            axs[coord[core-1][0], coord[core-1][1]].errorbar(x, y, yerr=e, label=priorities_labels[prio-1]+" priority")
-#
-#            axs[coord[core-1][0], coord[core-1][1]].set_xticks(x)
-#            axs[coord[core-1][0], coord[core-1][1]].set_xticklabels([str(x[j]) for j in range(1,9)]+["Disabled"])
-#
-#    for ax in axs.flat:
-#        ax.set(xlabel="Threshold", ylabel="Bandwidth (MBps)")
-#
-#    # Hide x labels and tick labels for top plots and y ticks for right plots.
-#    for ax in axs.flat:
-#        ax.label_outer()
-#
-#    fig.suptitle("Using FP, bandwidth experienced by the cores for different levels\nof contention and thresholds", fontsize=16)
-#
-#    handles, labels = axs[1, 1].get_legend_handles_labels()
-#    fig.legend(handles, labels, loc='lower center', ncol=5,)
-#
-#    fig.savefig("threshold_fp.pdf", dpi=300)
-#    fig.savefig("threshold_fp.png", dpi=300)
+    for prio in range(1, 5, 1):
+        axs[coord[prio-1][0], coord[prio-1][1]].set_title("CUA priority: "+priorities_labels[prio-1])
+        axs[coord[prio-1][0], coord[prio-1][1]].set_ylim([0, 700])
+        for core in range(1, 5, 1):
+            data = read("prio_"+str(prio)+"/"+str(core)+"_cores.csv", 1)
+
+            x = list(data.keys())
+            x.sort()
+
+            for key in x:
+                data[key] = {"avg":np.mean(data[key]), "std":np.std(data[key])}
+
+            y = [data[key]["avg"] for key in x]
+            e = [data[key]["std"] for key in x]
+            y = y[1:]+[y[0]]
+            e = e[1:]+[e[0]]
+
+            axs[coord[prio-1][0], coord[prio-1][1]].errorbar(x, y, yerr=e, label="Contention level: "+str(core)+" core"+("s" if (core > 1) else " (Solo)"))
+
+            axs[coord[core-1][0], coord[core-1][1]].set_xticks(x)
+            axs[coord[core-1][0], coord[core-1][1]].set_xticklabels([str(x[j]) for j in range(1,9)]+["Disabled"])
+
+    for ax in axs.flat:
+        ax.set(xlabel="Threshold", ylabel="Bandwidth (MBps)")
+
+    # Hide x labels and tick labels for top plots and y ticks for right plots.
+    for ax in axs.flat:
+        ax.label_outer()
+
+    fig.suptitle("Using FP, bandwidth experienced by the Core Under Analysis (CUA) for different levels\nof contention and thresholds", fontsize=16)
+
+    handles, labels = axs[1, 1].get_legend_handles_labels()
+    fig.legend(handles, labels, loc='lower center', ncol=5,)
+
+    fig.savefig("fp_rev.pdf", dpi=300)
+
+def plot_fp():
+    fig, axs = plt.subplots(2, 2, figsize=(10.5, 8))
+
+    for core in range(1, 5, 1):
+        axs[coord[core-1][0], coord[core-1][1]].set_title("Contention level: "+str(core)+" core"+("s" if (core > 1) else " (Solo)"))
+        axs[coord[core-1][0], coord[core-1][1]].set_ylim([0, 700])
+        for prio in range(1, 5, 1):
+            data = read("prio_"+str(prio)+"/"+str(core)+"_cores.csv", 1)
+
+            x = list(data.keys())
+            x.sort()
+
+            for key in x:
+                data[key] = {"avg":np.mean(data[key]), "std":np.std(data[key])}
+
+            y = [data[key]["avg"] for key in x]
+            e = [data[key]["std"] for key in x]
+            y = y[1:]+[y[0]]
+            e = e[1:]+[e[0]]
+
+            axs[coord[core-1][0], coord[core-1][1]].errorbar(x, y, yerr=e, label=priorities_labels[prio-1]+" priority")
+
+            axs[coord[core-1][0], coord[core-1][1]].set_xticks(x)
+            axs[coord[core-1][0], coord[core-1][1]].set_xticklabels([str(x[j]) for j in range(1,9)]+["Disabled"])
+
+    for ax in axs.flat:
+        ax.set(xlabel="Threshold", ylabel="Bandwidth (MBps)")
+
+    # Hide x labels and tick labels for top plots and y ticks for right plots.
+    for ax in axs.flat:
+        ax.label_outer()
+
+    fig.suptitle("Using FP, bandwidth experienced by the cores for different levels\nof contention and thresholds", fontsize=16)
+
+    handles, labels = axs[1, 1].get_legend_handles_labels()
+    fig.legend(handles, labels, loc='lower center', ncol=5,)
+
+    fig.savefig("fp.pdf", dpi=300)
 
 #if (__name__ == '__main__'):
 #    for prio in range(1, 2, 1):
@@ -155,175 +153,172 @@ priorities_labels = ["Lowest", "Third highest", "Second highest", "Highest"]
 #
 #    plt.savefig("threshold.png")
 
-#if (__name__ == '__main__'):
-#    fig, axs = plt.subplots(2, 2, figsize=(10.5, 8))
-#
-#    for core in range(1, 5, 1):
-#        axs[coord[core-1][0], coord[core-1][1]].set_title("Contention level: "+str(core)+" core"+("s" if (core > 1) else " (Solo)"))
-#        axs[coord[core-1][0], coord[core-1][1]].set_ylim([0, 700])
-#        for mit in range(1, 5, 1):
-#            data = read("mit_"+str(mit)+"/"+str(core)+"_cores.csv", 1)
-#
-#            x = list(data.keys())
-#            x.sort()
-#
-#            for key in x:
-#                data[key] = {"avg":np.mean(data[key]), "std":np.std(data[key])}
-#
-#            y = [data[key]["avg"] for key in x]
-#            e = [data[key]["std"] for key in x]
-#            y = y[1:]+[y[0]]
-#            e = e[1:]+[e[0]]
-#
-#            axs[coord[core-1][0], coord[core-1][1]].errorbar(x, y, yerr=e, label="MIT = "+str(mits[mit-1]))
-#
-#            axs[coord[core-1][0], coord[core-1][1]].set_xticks(x)
-#            axs[coord[core-1][0], coord[core-1][1]].set_xticklabels([str(x[j]) for j in range(1,9)]+["Disabled"])
-#
-#    for ax in axs.flat:
-#        ax.set(xlabel="Threshold", ylabel="Bandwidth (MBps)")
-#
-#    # Hide x labels and tick labels for top plots and y ticks for right plots.
-#    for ax in axs.flat:
-#        ax.label_outer()
-#
-#    #axs[1, 1].legend(loc='upper center', bbox_to_anchor=(0.5, -0.2))#bbox_to_anchor=(1.05, 1), loc='upper left')
-#
-#    fig.suptitle("Using TS, bandwidth experienced by the cores for different levels\nof contention and thresholds", fontsize=16)
-#
-#    handles, labels = axs[1, 1].get_legend_handles_labels()
-#    fig.legend(handles, labels, loc='lower center', ncol=5,)#, bbox_to_anchor=(0.0, -0.2))
-#
-#    fig.savefig("threshold_bw.pdf", dpi=300)
-#    fig.savefig("threshold_bw.png", dpi=300)
+def plot_ts():
+    fig, axs = plt.subplots(2, 2, figsize=(10.5, 8))
 
-#if (__name__ == '__main__'):
-#    fig, axs = plt.subplots(2, 2, figsize=(10.5, 8))
-#
-#    for core in range(1, 5, 1):
-#        axs[coord[core-1][0], coord[core-1][1]].set_title("Contention level: "+str(core)+" core"+("s" if (core > 1) else " (Solo)"))
-#        axs[coord[core-1][0], coord[core-1][1]].set_ylim([0, 700])
-#        for period in range(1, 5, 1):
-#            data = read("period_"+str(period)+"/"+str(core)+"_cores.csv", 1)
-#
-#            x = list(data.keys())
-#            x.sort()
-#
-#            for key in x:
-#                data[key] = {"avg":np.mean(data[key]), "std":np.std(data[key])}
-#
-#            y = [data[key]["avg"] for key in x]
-#            e = [data[key]["std"] for key in x]
-#            y = y[1:]+[y[0]]
-#            e = e[1:]+[e[0]]
-#
-#            axs[coord[core-1][0], coord[core-1][1]].errorbar(x, y, yerr=e, label="Period = "+str(periods[period-1]))
-#
-#            axs[coord[core-1][0], coord[core-1][1]].set_xticks(x)
-#            axs[coord[core-1][0], coord[core-1][1]].set_xticklabels([str(x[j]) for j in range(1,9)]+["Disabled"])
-#
-#    for ax in axs.flat:
-#        ax.set(xlabel="Threshold", ylabel="Bandwidth (MBps)")
-#
-#    # Hide x labels and tick labels for top plots and y ticks for right plots.
-#    for ax in axs.flat:
-#        ax.label_outer()
-#
-#    #axs[1, 1].legend(loc='upper center', bbox_to_anchor=(0.5, -0.2))#bbox_to_anchor=(1.05, 1), loc='upper left')
-#
-#    fig.suptitle("Using TDMA, bandwidth experienced by the cores for different levels\nof contention and thresholds", fontsize=16)
-#
-#    handles, labels = axs[1, 1].get_legend_handles_labels()
-#    fig.legend(handles, labels, loc='lower center', ncol=5,)#, bbox_to_anchor=(0.0, -0.2))
-#
-#    fig.savefig("threshold_tdma.pdf", dpi=300)
-#    fig.savefig("threshold_tdma.png", dpi=300)
+    for core in range(1, 5, 1):
+        axs[coord[core-1][0], coord[core-1][1]].set_title("Contention level: "+str(core)+" core"+("s" if (core > 1) else " (Solo)"))
+        axs[coord[core-1][0], coord[core-1][1]].set_ylim([0, 700])
+        for mit in range(1, 5, 1):
+            data = read("mit_"+str(mit)+"/"+str(core)+"_cores.csv", 1)
 
-#if (__name__ == '__main__'):
-#    fig, axs = plt.subplots(2, 2, figsize=(10.5, 8))
-#
-#    for period in range(1, 5, 1):
-#        axs[coord[period-1][0], coord[period-1][1]].set_title("CUA period = "+str(periods[period-1]))
-#        axs[coord[period-1][0], coord[period-1][1]].set_ylim([0, 700])
-#        for core in range(1, 5, 1):
-#            data = read("period_"+str(period)+"/"+str(core)+"_cores.csv", 1)
-#
-#            x = list(data.keys())
-#            x.sort()
-#
-#            for key in x:
-#                data[key] = {"avg":np.mean(data[key]), "std":np.std(data[key])}
-#
-#            y = [data[key]["avg"] for key in x]
-#            e = [data[key]["std"] for key in x]
-#            y = y[1:]+[y[0]]
-#            e = e[1:]+[e[0]]
-#
-#            axs[coord[period-1][0], coord[period-1][1]].errorbar(x, y, yerr=e, label="Cores = "+str(core))
-#
-#            axs[coord[period-1][0], coord[period-1][1]].set_xticks(x)
-#            axs[coord[period-1][0], coord[period-1][1]].set_xticklabels([str(x[j]) for j in range(1,9)]+["Disabled"])
-#
-#    for ax in axs.flat:
-#        ax.set(xlabel="Threshold", ylabel="Bandwidth (MBps)")
-#
-#    # Hide x labels and tick labels for top plots and y ticks for right plots.
-#    for ax in axs.flat:
-#        ax.label_outer()
-#
-#    #axs[1, 1].legend(loc='upper center', bbox_to_anchor=(0.5, -0.2))#bbox_to_anchor=(1.05, 1), loc='upper left')
-#
-#    fig.suptitle("Using TDMA, bandwidth experienced by the cores for different levels\nof contention and thresholds", fontsize=16)
-#
-#    handles, labels = axs[1, 1].get_legend_handles_labels()
-#    fig.legend(handles, labels, loc='lower center', ncol=5,)#, bbox_to_anchor=(0.0, -0.2))
-#
-#    fig.savefig("threshold_tdma_rev.pdf", dpi=300)
-#    fig.savefig("threshold_tdma_rev.png", dpi=300)
+            x = list(data.keys())
+            x.sort()
 
-#if (__name__ == '__main__'):
-#    fig, axs = plt.subplots(2, 2, figsize=(10.5, 8))
-#
-#    for core in range(1, 5, 1):
-#        axs[coord[core-1][0], coord[core-1][1]].set_title("Contention level: "+str(core)+" core"+("s" if (core > 1) else " (Solo)"))
-#        axs[coord[core-1][0], coord[core-1][1]].set_ylim([0, 700])
-#        for policy in ["aging", "fibo", "gallois"]:
-#            data = read(policy+"/"+str(core)+"_cores.csv", 1)
-#
-#            x = list(data.keys())
-#            x.sort()
-#
-#            for key in x:
-#                data[key] = {"avg":np.mean(data[key]), "std":np.std(data[key])}
-#
-#            y = [data[key]["avg"] for key in x]
-#            e = [data[key]["std"] for key in x]
-#            y = y[1:]+[y[0]]
-#            e = e[1:]+[e[0]]
-#
-#            axs[coord[core-1][0], coord[core-1][1]].errorbar(x, y, yerr=e, label=policy)
-#
-#            axs[coord[core-1][0], coord[core-1][1]].set_xticks(x)
-#            axs[coord[core-1][0], coord[core-1][1]].set_xticklabels([str(x[j]) for j in range(1,9)]+["Disabled"])
-#
-#    for ax in axs.flat:
-#        ax.set(xlabel="Threshold", ylabel="Bandwidth (MBps)")
-#
-#    # Hide x labels and tick labels for top plots and y ticks for right plots.
-#    for ax in axs.flat:
-#        ax.label_outer()
-#
-#    #axs[1, 1].legend(loc='upper center', bbox_to_anchor=(0.5, -0.2))#bbox_to_anchor=(1.05, 1), loc='upper left')
-#
-#    fig.suptitle("Using Aging, Fibonacci and Gallois, bandwidth experienced by the cores for different levels\nof contention and thresholds", fontsize=16)
-#
-#    handles, labels = axs[1, 1].get_legend_handles_labels()
-#    fig.legend(handles, labels, loc='lower center', ncol=5,)#, bbox_to_anchor=(0.0, -0.2))
-#
-#    fig.savefig("threshold_fair.pdf", dpi=300)
-#    fig.savefig("threshold_fair.png", dpi=300)
+            for key in x:
+                data[key] = {"avg":np.mean(data[key]), "std":np.std(data[key])}
 
-if (__name__ == '__main__'):
+            y = [data[key]["avg"] for key in x]
+            e = [data[key]["std"] for key in x]
+            y = y[1:]+[y[0]]
+            e = e[1:]+[e[0]]
+
+            axs[coord[core-1][0], coord[core-1][1]].errorbar(x, y, yerr=e, label="MIT = "+str(mits[mit-1]))
+
+            axs[coord[core-1][0], coord[core-1][1]].set_xticks(x)
+            axs[coord[core-1][0], coord[core-1][1]].set_xticklabels([str(x[j]) for j in range(1,9)]+["Disabled"])
+
+    for ax in axs.flat:
+        ax.set(xlabel="Threshold", ylabel="Bandwidth (MBps)")
+
+    # Hide x labels and tick labels for top plots and y ticks for right plots.
+    for ax in axs.flat:
+        ax.label_outer()
+
+    #axs[1, 1].legend(loc='upper center', bbox_to_anchor=(0.5, -0.2))#bbox_to_anchor=(1.05, 1), loc='upper left')
+
+    fig.suptitle("Using TS, bandwidth experienced by the cores for different levels\nof contention and thresholds", fontsize=16)
+
+    handles, labels = axs[1, 1].get_legend_handles_labels()
+    fig.legend(handles, labels, loc='lower center', ncol=5,)#, bbox_to_anchor=(0.0, -0.2))
+
+    fig.savefig("ts.pdf", dpi=300)
+
+def plot_tdma():
+    fig, axs = plt.subplots(2, 2, figsize=(10.5, 8))
+
+    for core in range(1, 5, 1):
+        axs[coord[core-1][0], coord[core-1][1]].set_title("Contention level: "+str(core)+" core"+("s" if (core > 1) else " (Solo)"))
+        axs[coord[core-1][0], coord[core-1][1]].set_ylim([0, 700])
+        for period in range(1, 5, 1):
+            data = read("period_"+str(period)+"/"+str(core)+"_cores.csv", 1)
+
+            x = list(data.keys())
+            x.sort()
+
+            for key in x:
+                data[key] = {"avg":np.mean(data[key]), "std":np.std(data[key])}
+
+            y = [data[key]["avg"] for key in x]
+            e = [data[key]["std"] for key in x]
+            y = y[1:]+[y[0]]
+            e = e[1:]+[e[0]]
+
+            axs[coord[core-1][0], coord[core-1][1]].errorbar(x, y, yerr=e, label="Period = "+str(periods[period-1]))
+
+            axs[coord[core-1][0], coord[core-1][1]].set_xticks(x)
+            axs[coord[core-1][0], coord[core-1][1]].set_xticklabels([str(x[j]) for j in range(1,9)]+["Disabled"])
+
+    for ax in axs.flat:
+        ax.set(xlabel="Threshold", ylabel="Bandwidth (MBps)")
+
+    # Hide x labels and tick labels for top plots and y ticks for right plots.
+    for ax in axs.flat:
+        ax.label_outer()
+
+    #axs[1, 1].legend(loc='upper center', bbox_to_anchor=(0.5, -0.2))#bbox_to_anchor=(1.05, 1), loc='upper left')
+
+    fig.suptitle("Using TDMA, bandwidth experienced by the cores for different levels\nof contention and thresholds", fontsize=16)
+
+    handles, labels = axs[1, 1].get_legend_handles_labels()
+    fig.legend(handles, labels, loc='lower center', ncol=5,)#, bbox_to_anchor=(0.0, -0.2))
+
+    fig.savefig("tdma.pdf", dpi=300)
+
+def plot_tdma_rev():
+    fig, axs = plt.subplots(2, 2, figsize=(10.5, 8))
+
+    for period in range(1, 5, 1):
+        axs[coord[period-1][0], coord[period-1][1]].set_title("CUA period = "+str(periods[period-1]))
+        axs[coord[period-1][0], coord[period-1][1]].set_ylim([0, 700])
+        for core in range(1, 5, 1):
+            data = read("period_"+str(period)+"/"+str(core)+"_cores.csv", 1)
+
+            x = list(data.keys())
+            x.sort()
+
+            for key in x:
+                data[key] = {"avg":np.mean(data[key]), "std":np.std(data[key])}
+
+            y = [data[key]["avg"] for key in x]
+            e = [data[key]["std"] for key in x]
+            y = y[1:]+[y[0]]
+            e = e[1:]+[e[0]]
+
+            axs[coord[period-1][0], coord[period-1][1]].errorbar(x, y, yerr=e, label="Cores = "+str(core))
+
+            axs[coord[period-1][0], coord[period-1][1]].set_xticks(x)
+            axs[coord[period-1][0], coord[period-1][1]].set_xticklabels([str(x[j]) for j in range(1,9)]+["Disabled"])
+
+    for ax in axs.flat:
+        ax.set(xlabel="Threshold", ylabel="Bandwidth (MBps)")
+
+    # Hide x labels and tick labels for top plots and y ticks for right plots.
+    for ax in axs.flat:
+        ax.label_outer()
+
+    #axs[1, 1].legend(loc='upper center', bbox_to_anchor=(0.5, -0.2))#bbox_to_anchor=(1.05, 1), loc='upper left')
+
+    fig.suptitle("Using TDMA, bandwidth experienced by the cores for different levels\nof contention and thresholds", fontsize=16)
+
+    handles, labels = axs[1, 1].get_legend_handles_labels()
+    fig.legend(handles, labels, loc='lower center', ncol=5,)#, bbox_to_anchor=(0.0, -0.2))
+
+    fig.savefig("tdma_rev.pdf", dpi=300)
+
+def plot_fair():
+    fig, axs = plt.subplots(2, 2, figsize=(10.5, 8))
+
+    for core in range(1, 5, 1):
+        axs[coord[core-1][0], coord[core-1][1]].set_title("Contention level: "+str(core)+" core"+("s" if (core > 1) else " (Solo)"))
+        axs[coord[core-1][0], coord[core-1][1]].set_ylim([0, 700])
+        for policy in ["aging", "fibo", "gallois"]:
+            data = read(policy+"/"+str(core)+"_cores.csv", 1)
+
+            x = list(data.keys())
+            x.sort()
+
+            for key in x:
+                data[key] = {"avg":np.mean(data[key]), "std":np.std(data[key])}
+
+            y = [data[key]["avg"] for key in x]
+            e = [data[key]["std"] for key in x]
+            y = y[1:]+[y[0]]
+            e = e[1:]+[e[0]]
+
+            axs[coord[core-1][0], coord[core-1][1]].errorbar(x, y, yerr=e, label=policy)
+
+            axs[coord[core-1][0], coord[core-1][1]].set_xticks(x)
+            axs[coord[core-1][0], coord[core-1][1]].set_xticklabels([str(x[j]) for j in range(1,9)]+["Disabled"])
+
+    for ax in axs.flat:
+        ax.set(xlabel="Threshold", ylabel="Bandwidth (MBps)")
+
+    # Hide x labels and tick labels for top plots and y ticks for right plots.
+    for ax in axs.flat:
+        ax.label_outer()
+
+    #axs[1, 1].legend(loc='upper center', bbox_to_anchor=(0.5, -0.2))#bbox_to_anchor=(1.05, 1), loc='upper left')
+
+    fig.suptitle("Using Aging, Fibonacci and Gallois, bandwidth experienced by the cores for different levels\nof contention and thresholds", fontsize=16)
+
+    handles, labels = axs[1, 1].get_legend_handles_labels()
+    fig.legend(handles, labels, loc='lower center', ncol=5,)#, bbox_to_anchor=(0.0, -0.2))
+
+    fig.savefig("fair.pdf", dpi=300)
+
+
+def plot_fair_rev():
     fig, axs = plt.subplots(2, 2, figsize=(10.5, 8))
 
     for index, policy in enumerate(["aging", "fibo", "gallois"]):
@@ -362,5 +357,27 @@ if (__name__ == '__main__'):
     handles, labels = axs[0, 0].get_legend_handles_labels()
     fig.legend(handles, labels, loc='lower center', ncol=5,)#, bbox_to_anchor=(0.0, -0.2))
 
-    fig.savefig("threshold_fair_rev.pdf", dpi=300)
-    fig.savefig("threshold_fair_rev.png", dpi=300)
+    fig.savefig("fair_rev.pdf", dpi=300)
+
+if (__name__ == '__main__'):
+    #
+    plot_ts()
+    plt.close()
+    #
+    plot_fair()
+    plt.close()
+    #
+    plot_fair_rev()
+    plt.close()
+    #
+    plot_fp()
+    plt.close()
+    #
+    plot_fp_rev()
+    plt.close()
+    #
+    plot_tdma()
+    plt.close()
+    #
+    plot_tdma_rev()
+    plt.close()
