@@ -39,6 +39,8 @@ int main(int argc, char** argv) {
     struct configuration* config = mmap((void*)0, LPD0_SIZE, PROT_EXEC|PROT_READ|PROT_WRITE, MAP_SHARED, lpd_fd, LPD0_ADDR);
     unsigned* plim = mmap((void*)0, HPM0_SIZE, PROT_EXEC|PROT_READ|PROT_WRITE, MAP_SHARED, hpm_fd, addr);
 
+    printf("After mmaps\n");
+
     // FP chosen so that, whatever the core, transactions are served.
     // Set the period registers (default: 0x002faf08)
     (*config).periods[0] = 0x00000000;
@@ -61,6 +63,8 @@ int main(int argc, char** argv) {
     (*config).hyperperiod = 0x00000000;
     // Set the scheduler
     (*config).scheduler = fp;
+
+    printf("After SchIm config\n");
 
     // Write
     if(mode == 'w') {
