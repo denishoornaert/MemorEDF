@@ -16,12 +16,12 @@
 int main(int argc, char** argv) {
     char mode;
     int cpu;
-    unsigned addr;
+    long unsigned addr;
     unsigned data;
 
     mode = argv[1][0];
     sscanf(argv[2], "%d", &cpu);
-    sscanf(argv[3], "%x", &addr);
+    sscanf(argv[3], "%lx", &addr);
     if(mode == 'w') {
         sscanf(argv[4], "%x", &data);
     }
