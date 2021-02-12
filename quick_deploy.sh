@@ -107,6 +107,7 @@ if [[ $programs_build ]]; then
     cp demo/exec/config_schim_gallois.out rootfs/common/
     cp demo/exec/config_schim_aging.out rootfs/common/
     cp demo/exec/util_stress.out rootfs/common/
+    cp demo/exec/poke.out rootfs/common/
     ## Spam to synthetic
     cp demo/exec/spam_fake_colored.out rootfs/synthetic/
     cp demo/exec/threshold_bw.out rootfs/synthetic/
