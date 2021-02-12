@@ -9,7 +9,7 @@ Section~\ref{subsec:internal-behaviour-of-schim}, an in-depth analysis
 of the \schim behaviour is presented. Finally, a demonstration of the
 memory isolation enabled by the \schim using real-world benchmarks is
 provided in Section~\ref{subsec:isolation}.
-  
+
 
 \subsection{Experimental Setup}
 \label{subsection:considered-architecture}
@@ -63,7 +63,7 @@ throughput of one \emph{core under analysis}, here core 0 (noted
 $C_{0}$), for each of the aforementioned paths under all the possible
 levels of contention. The result of this experiment is display in
 \fig{fig:bandwidth_comparison}.
-    
+
 From \fig{fig:bandwidth_comparison}, one can observe that in general,
 the throughput experienced by the core under analysis (i.e., $C_{0}$)
 is high and that, regardless of the contention level on the normal
@@ -82,7 +82,7 @@ negligible interference being observed in the most challenging
 scenario (the right-most bar cluster). In other words, the \schim
 guarantees performance isolation between the cores with respect to the
 bus usage.
-     
+
 \begin{figure}
   \centering
   \includegraphics[scale=0.5]{images/bw_comparisons.pdf}
@@ -91,7 +91,7 @@ bus usage.
 \end{figure}
 
 \subsection{Internal Behaviour of SchIM}
-\label{subsec:internal-behaviour-of-schim}    
+\label{subsec:internal-behaviour-of-schim}
 The next objective is to verify the correct behavior of our scheduling
 policies at the granularity of a clock cycle by observing the inputs,
 the outputs and the internal signals and registers of the \schim
@@ -113,7 +113,7 @@ new transactions from the cores cluster (inset 2 in
 transaction forwarded by the \schim module (inset 3 in
 \fig{fig:schim_behaviour_fp}, \fig{fig:schim_behaviour_tdma}, and
 \fig{fig:schim_behaviour_mg}).
-    
+
 For the Fixed Priority trace snapshot displayed in
 \fig{fig:schim_behaviour_fp}, the following strict priority ordering
 has been considered: $C_{0} \succ C_{1} \succ C_{2} \succ C_{3}$ where
@@ -130,7 +130,7 @@ the priority ordering.  Finally, the third inset in
 policy. Thanks to the heat map, one can clearly see that the cores
 with the highest priority also feature the highest density of
 transactions at the output of the \schim.
-    
+
 The trace snapshot displayed in \fig{fig:schim_behaviour_tdma} has
 been obtained by configuring the \schim module in TDMA mode. For the
 sake of clarity, a slot of 512 clock cycles have been set for each
@@ -148,7 +148,7 @@ the rate at which queues receive transactions is steady and
 constant. The variations can be explained by different factors such as
 the coarseness of the FIQ feedback regulation and the scheduling
 happening in the OS.
-    
+
 The trace snapshot for the TS policy has been obtained with the
 minimal inter-arrival time set to 256 clock cycles for all the
 cores. Similarly to the TDMA experiment, such period has been set
@@ -167,26 +167,26 @@ experiment, since the \schim module is constantly under pressure,
 there are always ties between the queues and FP is frequently applied.
     \begin{figure}[]
       \centering
-      \begin{subfigure}{0.5\textwidth}
+      \begin{subfigure}{0.45\textwidth}
         \centering
         % include first image
-        \includegraphics[scale=0.55]{images/SchIM_FP_buffering.pdf}
+        \includegraphics[scale=0.43]{images/SchIM_FP_buffering.pdf}
         \caption{FP with ordering $C_{0} \succ C_{1} \succ C_{2} \succ C_{3}$}
         \label{fig:schim_behaviour_fp}
       \end{subfigure}
-      \vfill
-      \begin{subfigure}{0.5\textwidth}
+      \hfill
+      \begin{subfigure}{0.45\textwidth}
         \centering
         % include second image
-        \includegraphics[scale=0.55]{images/SchIM_TDMA_buffering.pdf}
+        \includegraphics[scale=0.43]{images/SchIM_TDMA_buffering.pdf}
         \caption{TDMA with slots of 512 clock cycles}
         \label{fig:schim_behaviour_tdma}
       \end{subfigure}
       \vfill
-      \begin{subfigure}{0.5\textwidth}
+      \begin{subfigure}{0.45\textwidth}
         \centering
         % include second image
-        \includegraphics[scale=0.55]{images/SchIM_MG_buffering.pdf}
+        \includegraphics[scale=0.43]{images/SchIM_MG_buffering.pdf}
         \caption{TS with min. period of 256 clock cycles}
         \label{fig:schim_behaviour_mg}
       \end{subfigure}
@@ -242,7 +242,7 @@ the movement of large, sequential data chunks.
   \label{tab:isolation_ratio}
   \begin{tabular}{|l||c|c|c|c|}
     \hline
-    \multirow{2}{*}{Benchmark} & \multicolumn{4}{c|}{Memory Route \& Scheduler}                          \\ \cline{2-5} 
+    \multirow{2}{*}{Benchmark} & \multicolumn{4}{c|}{Memory Route \& Scheduler}                          \\ \cline{2-5}
     & Loop-back & \schim TDMA & \schim TS & \schim FP \\ \hline\hline
     stitch                     & $1.14$    & $1.06$      & $0.98$    & $1.16$    \\ \hline
     texture synth.             & $1.03$    & $1.02$      & $1.0$     & $1.03$    \\ \hline
