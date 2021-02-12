@@ -3,10 +3,10 @@
 <!--                                                         -->
 <!-- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="35" Path="/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.tmp/AXI_PerfectTranslator_v1_0_project/AXI_PerfectTranslator_v1_0_project.xpr">
+<Project Version="7" Minor="35" Path="/home/denis/github/MemorEDF/rtl/MemorEDF/MemorEDF.tmp/AXI_PerfectTranslator_v1_0_project/AXI_PerfectTranslator_v1_0_project.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
-    <Option Name="Id" Val="f3c8361db52743aba028e2b77be1b58f"/>
+    <Option Name="Id" Val="54c25cd5f6c741dfb06a0d368f0d2bb5"/>
     <Option Name="Part" Val="xczu9eg-ffvb1156-2-e"/>
     <Option Name="CompiledLibDir" Val="$PCACHEDIR/compile_simlib"/>
     <Option Name="CompiledLibDirXSim" Val=""/>
@@ -57,20 +57,22 @@
   <FileSets Version="1" Minor="31">
     <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
       <Filter Type="Srcs"/>
+      <File Path="$PPRDIR/../../../ip_repo/PerfectTranslator/hdl/AXI_PerfectTranslator_v1_0.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PPRDIR/../../../ip_repo/PerfectTranslator/hdl/AXI_PerfectTranslator_v1_0_M00_AXI.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
       <File Path="$PPRDIR/../../../ip_repo/PerfectTranslator/hdl/AXI_PerfectTranslator_v1_0_S00_AXI.v">
         <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../../../ip_repo/PerfectTranslator/hdl/AXI_PerfectTranslator_v1_0.v">
-        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>

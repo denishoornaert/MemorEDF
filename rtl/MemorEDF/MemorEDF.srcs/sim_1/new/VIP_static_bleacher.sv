@@ -33,8 +33,8 @@ module VIP_static_bleacher();
 bit aclk = 0;
 bit aresetn=0;
 
-xil_axi_ulong addr1  = 40'h10FFFFFFFF;
-xil_axi_ulong addr2  = 40'h48FFFFFFFF;
+xil_axi_ulong addr1  = 40'h1000000000;
+xil_axi_ulong addr2  = 40'h4800000000;
 xil_axi_ulong addr3  = 40'h10FFFFFFFF;
 xil_axi_ulong addr4  = 40'h48FFFFFFFF;
 

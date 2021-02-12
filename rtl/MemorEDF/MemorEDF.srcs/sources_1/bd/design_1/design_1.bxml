@@ -2,10 +2,10 @@
 <Root MajorVersion="0" MinorVersion="33">
   <CompositeFile CompositeFileTopName="design_1" CanBeSetAsTop="false" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="STALE" Timestamp="1609885975"/>
-    <Generation Name="IMPLEMENTATION" State="STALE" Timestamp="1609885975"/>
-    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1609885975"/>
-    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1609885975"/>
+    <Generation Name="SYNTHESIS" State="STALE" Timestamp="1613162418"/>
+    <Generation Name="IMPLEMENTATION" State="STALE" Timestamp="1613162418"/>
+    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1613162418"/>
+    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1613162418"/>
     <FileCollection Name="SOURCES" Type="SOURCES">
       <File Name="ip/design_1_MemorEDF_0_0/design_1_MemorEDF_0_0.xci" Type="IP">
         <Instance HierarchyPath="MemorEDF_0"/>
@@ -52,6 +52,22 @@
       </File>
       <File Name="ip/design_1_axi_vip_2_0/design_1_axi_vip_2_0.xci" Type="IP">
         <Instance HierarchyPath="axi_vip_3"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip/design_1_porttoportmapping_v1_0_0_0/design_1_porttoportmapping_v1_0_0_0.xci" Type="IP">
+        <Instance HierarchyPath="porttoportmapping_v1_0_0"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip/design_1_AXI_PerfectTranslator_0_0/design_1_AXI_PerfectTranslator_0_0.xci" Type="IP">
+        <Instance HierarchyPath="AXI_PerfectTranslator_0"/>
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>

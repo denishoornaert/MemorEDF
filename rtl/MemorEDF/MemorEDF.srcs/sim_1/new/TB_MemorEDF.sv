@@ -52,10 +52,10 @@ xil_axi_ulong addr5  = 40'h0000000040;
 xil_axi_ulong addr6  = 40'h0000000050;
 xil_axi_ulong addr7  = 40'h0000000060;
 
-xil_axi_ulong b_addr1   = 40'h0400000000;
-xil_axi_ulong b_addr2   = 40'h0400004000;
-xil_axi_ulong b_addr3   = 40'h0400008000;
-xil_axi_ulong b_addr4   = 40'h040000c000;
+xil_axi_ulong b_addr1   = 40'h1000000000;
+xil_axi_ulong b_addr2   = 40'h4800004000;
+xil_axi_ulong b_addr3   = 40'h4800008000;
+xil_axi_ulong b_addr4   = 40'h480000c000;
 
 //  indices                      76543210765432107654321076543210
 bit [127 : 0] data_wr1    = 128'h00000020000000200000002000000020; // ABITRARY PERIOD
