@@ -115,9 +115,8 @@ if [[ $programs_build ]]; then
     cp demo/exec/threshold_bw_fibo.out rootfs/synthetic/
     cp demo/exec/threshold_bw_gallois.out rootfs/synthetic/
     ## Blast to benchmarks
-    cp demo/exec/blast_fake_colored.out rootfs/benchmarks/
-    ## Brainfreeze related programs
-    cp demo/exec/poke_brainfreeze.out rootfs/brainfreeze/
+    cp demo/exec/spam.out rootfs/common/
+    cp demo/exec/blast.out rootfs/common/
 fi
 
 if [[ $programs_copy ]]; then
