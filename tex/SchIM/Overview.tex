@@ -3,8 +3,10 @@
 \begin{figure*}
   \centering
   \includegraphics[width=1\textwidth]{images/SchIM_diagram.png}
-  \caption{Internal logic organization of the \schim connected to the
-    PS through the HPM, LPM and HPS ports.}
+%  \caption{Internal logic organization of the \schim connected to the
+%    PS through the HPM, LPM and HPS ports.}
+    \caption{\schim internal organization connected to the
+      PS via the HPM, LPM and HPS ports.}
   \label{fig:MemorEDF_module_schema}
 \end{figure*}
 
@@ -123,10 +125,14 @@ configure the \schim from the PS.
 
 
 %% Micro-architecture and first list of modules
-The \schim module is composed of a number of sub-modules grouped into
+%The \schim module is composed of a number of sub-modules grouped into
+%three different domains, namely (i) the \emph{interfacing domain},
+%(ii) the \emph{queuing domain}, and (iii) the \emph{scheduling
+%  domain}.
+The \schim is composed of a number of sub-modules grouped into
 three different domains, namely (i) the \emph{interfacing domain},
 (ii) the \emph{queuing domain}, and (iii) the \emph{scheduling
-  domain}.
+domain}.
 
 \par{\bf The interfacing domain} encompasses the sub-modules to
 interface the core logic of the \schim with the rest of the system
@@ -174,8 +180,12 @@ core.
 
 Congestion control is vital because memory transactions originated
 at the LLC controller follow the same route to the \schim regardless
-of the originating CPU. Typically, the total number of outstanding
-transactions that the cores can emit exceeds the queuing elements' capacity on the loop-back route. Hence, priority inversion arises if a low-priority CPU's memory traffic is (temporarily) held. Latter is due to the uncontrolled queue buildup, which provokes a head-of-line blockage. Importantly, what described is true also for the normal
+of the originating CPU.
+%Typically, the total number of outstanding
+%transactions that the cores can emit exceeds the queuing elements' capacity on the loop-back route.
+The total number of outstanding
+transactions that the cores can emit exceeds the queuing elements' capacity on the loop-back route.
+Hence, priority inversion arises if a low-priority CPU's memory traffic is (temporarily) held. Latter is due to the uncontrolled queue buildup, which provokes a head-of-line blockage. Importantly, what described is true also for the normal
 route and it is a direct consequence of the best-effort nature of
 traditional multi-core memory buses. The \schim allows the user to
 specify a configurable threshold on the occupancy of the queues that,
