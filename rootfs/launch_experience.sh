@@ -7,15 +7,6 @@ source ~/common/jailhouse.config
 cp $1 ~/experiences/profile.config
 source ~/experiences/profile.config
 
-# Load the jailhouse root cell for SchIM
-if (lsmod | grep "jailhouse" &> /dev/null)
-then
-    :; # do nothing
-else
-    insmod $jh_path/driver/jailhouse.ko
-    jailhouse enable $jh_path/configs/arm64/schim-rootcol-dual-slave-cached.cell
-fi
-
 post_fix=""
 # Configure SchIM acording to the experiment profile
 if [ "$scheduling_policy" = "fp" ]; then
@@ -43,6 +34,15 @@ else
     exit 1
 fi
 
+# Load the jailhouse root cell for SchIM
+if (lsmod | grep "jailhouse" &> /dev/null)
+then
+    :; # do nothing
+else
+    insmod $jh_path/driver/jailhouse.ko
+    jailhouse enable $jh_path/configs/arm64/schim-rootcol-dual-slave-cached.cell
+fi
+
 # Load colored Memory Bomb cells
 ~/common/load_col_bombs.sh >> /dev/null
 # Start Memory Bombs in either Read or Write mode
@@ -58,10 +58,10 @@ for (( i = $((last_bomb+1)); i > 1; i-- )); do
         # Create output raw data file
         touch ${dest_dir}/${i}_cores.csv
         # Generate and redirect data
-        ~/synthetic/spam.out $core_0_target_address ${bombing_mode:0:1} ${samples} > ${dest_dir}/${i}_cores.csv
+        ~/common/spam.out $core_0_target_address ${bombing_mode:0:1} ${samples} > ${dest_dir}/${i}_cores.csv
     if [ "${type}" == "trace" ]; then
         # Generate and redirect data
-        ~/benchmarks/blast.out $core_0_target_address ${bombing_mode:0:1}
+        ~/common/blast.out $core_0_target_address ${bombing_mode:0:1}
         # Exit loop
         ${i} = 0;
     elif [ "${type}" == "linux" ]; then
@@ -84,7 +84,7 @@ if [ "${type}" == "synthetic"]; then
     # Create output raw data file
     touch ${dest_dir}/1_cores.csv
     # Generate and redirect data
-    ~/synthetic/spam.out ${core_0_target_address} ${bombing_mode:0:1} ${samples} > ${dest_dir}/1_cores.csv
+    ~/common/spam.out ${core_0_target_address} ${bombing_mode:0:1} ${samples} > ${dest_dir}/1_cores.csv
 elif [ "${type}" == "trace" ]; then
     jailhouse cell destroy 1 >> /dev/null
     jailhouse cell destroy 2 >> /dev/null
