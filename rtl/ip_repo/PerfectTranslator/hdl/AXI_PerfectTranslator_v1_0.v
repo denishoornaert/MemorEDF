@@ -140,7 +140,7 @@
             assign s00_axi_rlast   = m00_axi_rlast;
             assign s00_axi_rvalid  = m00_axi_rvalid;
             assign m00_axi_awid    = s00_axi_awid[10 : 5];
-            assign m00_axi_awaddr  = s00_axi_awaddr;
+            assign m00_axi_awaddr  = {9'b000000000, s00_axi_awaddr};
             assign m00_axi_awlen   = s00_axi_awlen;
             assign m00_axi_awsize  = s00_axi_awsize;
             assign m00_axi_awburst = s00_axi_awburst;
@@ -156,7 +156,7 @@
             assign m00_axi_wvalid  = s00_axi_wvalid;
             assign m00_axi_bready  = s00_axi_bready;
             assign m00_axi_arid    = s00_axi_arid[10 : 5];
-            assign m00_axi_araddr  = s00_axi_araddr;
+            assign m00_axi_araddr  = {9'b000000000, s00_axi_araddr};
             assign m00_axi_arlen   = s00_axi_arlen;
             assign m00_axi_arsize  = s00_axi_arsize;
             assign m00_axi_arburst = s00_axi_arburst;
