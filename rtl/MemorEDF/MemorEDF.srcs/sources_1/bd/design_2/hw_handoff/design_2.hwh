@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Feb 12 18:51:22 2021" VIVADOVERSION="2017.4">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Feb 12 21:48:50 2021" VIVADOVERSION="2017.4">
 
   <SYSTEMINFO ARCH="zynquplus" BOARD="xilinx.com:zcu102:part0:3.1" DEVICE="xczu9eg" NAME="design_2" PACKAGE="ffvb1156" SPEEDGRADE="-2"/>
 
@@ -320,7 +320,6 @@
             <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp2_wlast"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="0" NAME="m00_axi_wuser" RIGHT="0" SIGIS="undef"/>
         <PORT DIR="O" NAME="m00_axi_wvalid" SIGIS="undef" SIGNAME="AXI_PerfectTranslator_0_m00_axi_wvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp2_wvalid"/>
@@ -341,7 +340,6 @@
             <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp2_bresp"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="0" NAME="m00_axi_buser" RIGHT="0" SIGIS="undef"/>
         <PORT DIR="I" NAME="m00_axi_bvalid" SIGIS="undef" SIGNAME="AXI_PerfectTranslator_0_m00_axi_bvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp2_bvalid"/>
@@ -432,7 +430,6 @@
             <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp2_rlast"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="0" NAME="m00_axi_ruser" RIGHT="0" SIGIS="undef"/>
         <PORT DIR="I" NAME="m00_axi_rvalid" SIGIS="undef" SIGNAME="AXI_PerfectTranslator_0_m00_axi_rvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="saxigp2_rvalid"/>
@@ -453,9 +450,6 @@
             <CONNECTION INSTANCE="rst_ps8_0_99M" PORT="peripheral_aresetn"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="m00_axi_init_axi_txn" SIGIS="undef"/>
-        <PORT DIR="O" NAME="m00_axi_txn_done" SIGIS="undef"/>
-        <PORT DIR="O" NAME="m00_axi_error" SIGIS="undef"/>
       </PORTS>
       <BUSINTERFACES>
         <BUSINTERFACE BUSNAME="porttoportmapping_v1_0_0_m00_axi" DATAWIDTH="128" NAME="S00_AXI" TYPE="SLAVE" VLNV="xilinx.com:interface:aximm:1.0">
@@ -545,9 +539,9 @@
           <PARAMETER NAME="ADDR_WIDTH" VALUE="49"/>
           <PARAMETER NAME="AWUSER_WIDTH" VALUE="1"/>
           <PARAMETER NAME="ARUSER_WIDTH" VALUE="1"/>
-          <PARAMETER NAME="WUSER_WIDTH" VALUE="1"/>
-          <PARAMETER NAME="RUSER_WIDTH" VALUE="1"/>
-          <PARAMETER NAME="BUSER_WIDTH" VALUE="1"/>
+          <PARAMETER NAME="WUSER_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="RUSER_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="BUSER_WIDTH" VALUE="0"/>
           <PARAMETER NAME="READ_WRITE_MODE" VALUE="READ_WRITE"/>
           <PARAMETER NAME="HAS_BURST" VALUE="1"/>
           <PARAMETER NAME="HAS_LOCK" VALUE="1"/>
@@ -583,12 +577,10 @@
             <PORTMAP LOGICAL="WDATA" PHYSICAL="m00_axi_wdata"/>
             <PORTMAP LOGICAL="WSTRB" PHYSICAL="m00_axi_wstrb"/>
             <PORTMAP LOGICAL="WLAST" PHYSICAL="m00_axi_wlast"/>
-            <PORTMAP LOGICAL="WUSER" PHYSICAL="m00_axi_wuser"/>
             <PORTMAP LOGICAL="WVALID" PHYSICAL="m00_axi_wvalid"/>
             <PORTMAP LOGICAL="WREADY" PHYSICAL="m00_axi_wready"/>
             <PORTMAP LOGICAL="BID" PHYSICAL="m00_axi_bid"/>
             <PORTMAP LOGICAL="BRESP" PHYSICAL="m00_axi_bresp"/>
-            <PORTMAP LOGICAL="BUSER" PHYSICAL="m00_axi_buser"/>
             <PORTMAP LOGICAL="BVALID" PHYSICAL="m00_axi_bvalid"/>
             <PORTMAP LOGICAL="BREADY" PHYSICAL="m00_axi_bready"/>
             <PORTMAP LOGICAL="ARID" PHYSICAL="m00_axi_arid"/>
@@ -607,7 +599,6 @@
             <PORTMAP LOGICAL="RDATA" PHYSICAL="m00_axi_rdata"/>
             <PORTMAP LOGICAL="RRESP" PHYSICAL="m00_axi_rresp"/>
             <PORTMAP LOGICAL="RLAST" PHYSICAL="m00_axi_rlast"/>
-            <PORTMAP LOGICAL="RUSER" PHYSICAL="m00_axi_ruser"/>
             <PORTMAP LOGICAL="RVALID" PHYSICAL="m00_axi_rvalid"/>
             <PORTMAP LOGICAL="RREADY" PHYSICAL="m00_axi_rready"/>
           </PORTMAPS>
