@@ -94,12 +94,12 @@ some time before being re-emitted in \circled{3'}.  Just like for
 write acknowledgments writing, the read response phase \circled{4'} is
 not intercepted by the \schim.
 
-\begin{figure}
-  \centering
-  \input{tikz/SchIM_transaction_scheme.tex}
-  \caption{AXI communication with mediated by the \schim.}
-  \label{fig:SchIM_transaction_scheme_figure}
-\end{figure}
+%\begin{figure}
+%  \centering
+%  \input{tikz/SchIM_transaction_scheme.tex}
+%  \caption{AXI communication with mediated by the \schim.}
+%  \label{fig:SchIM_transaction_scheme_figure}
+%\end{figure}
 
 \subsection{Queueing Domain}
 At the heart of the queueing domain, lies the queues. They work as FIFOs.
@@ -276,6 +276,8 @@ transactions. This also differentiates the TS policy in the \schim
 from the \emph{transaction supervisor} proposed
 in~\cite{fred_hyperconnect}.
 
+% TODO Move to appendix
+\iffalse
 \subsection{Programming Model}
 The parameters that compose the programming interface of the \schim
 are summarized in Table~\ref{tab:configuration_port_structure}. The
@@ -314,3 +316,4 @@ allows a user to select the active memory scheduler.
   \end{tabular}%
 %}
 \end{table}
+\fi
