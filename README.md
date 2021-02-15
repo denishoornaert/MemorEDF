@@ -67,7 +67,7 @@ source path/to/petalinux/settings.sh
 ```bash
 ./quick_deploy.sh --petalinux build,package,copy --programs clean,build,copy --jailhouse clean,build,copy
 ```
-**Remark:** the ```quick_deplpoy.sh``` can be used later on to independently build, clean or copy parts of the projects. Further information can be found [here](#quick-deploy-script).
+**Remark:** the ```quick_deploy.sh``` can be used later on to independently build, clean or copy parts of the projects. Further information can be found [here](#quick-deploy-script).
 
 ## U-Boot configuration
 ### CPU-Brainfreeze
