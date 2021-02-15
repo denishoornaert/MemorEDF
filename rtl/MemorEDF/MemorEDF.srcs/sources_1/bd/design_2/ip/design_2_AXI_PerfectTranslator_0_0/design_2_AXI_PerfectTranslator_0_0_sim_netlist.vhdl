@@ -1,7 +1,7 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
--- Date        : Mon Feb 15 18:46:57 2021
+-- Date        : Mon Feb 15 19:34:31 2021
 -- Host        : CELSIUS running 64-bit Ubuntu 16.04.7 LTS
 -- Command     : write_vhdl -force -mode funcsim
 --               /home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_AXI_PerfectTranslator_0_0/design_2_AXI_PerfectTranslator_0_0_sim_netlist.vhdl
@@ -26,7 +26,7 @@ entity design_2_AXI_PerfectTranslator_0_0 is
     s00_axi_awprot : in STD_LOGIC_VECTOR ( 2 downto 0 );
     s00_axi_awregion : in STD_LOGIC_VECTOR ( 3 downto 0 );
     s00_axi_awqos : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    s00_axi_awuser : in STD_LOGIC_VECTOR ( 0 to 0 );
+    s00_axi_awuser : in STD_LOGIC_VECTOR ( 15 downto 0 );
     s00_axi_awvalid : in STD_LOGIC;
     s00_axi_awready : out STD_LOGIC;
     s00_axi_wdata : in STD_LOGIC_VECTOR ( 127 downto 0 );
@@ -48,7 +48,7 @@ entity design_2_AXI_PerfectTranslator_0_0 is
     s00_axi_arprot : in STD_LOGIC_VECTOR ( 2 downto 0 );
     s00_axi_arregion : in STD_LOGIC_VECTOR ( 3 downto 0 );
     s00_axi_arqos : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    s00_axi_aruser : in STD_LOGIC_VECTOR ( 0 to 0 );
+    s00_axi_aruser : in STD_LOGIC_VECTOR ( 15 downto 0 );
     s00_axi_arvalid : in STD_LOGIC;
     s00_axi_arready : out STD_LOGIC;
     s00_axi_rid : out STD_LOGIC_VECTOR ( 15 downto 0 );
@@ -134,7 +134,7 @@ architecture STRUCTURE of design_2_AXI_PerfectTranslator_0_0 is
   signal \^s00_axi_arprot\ : STD_LOGIC_VECTOR ( 2 downto 0 );
   signal \^s00_axi_arqos\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \^s00_axi_arsize\ : STD_LOGIC_VECTOR ( 2 downto 0 );
-  signal \^s00_axi_aruser\ : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal \^s00_axi_aruser\ : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal \^s00_axi_arvalid\ : STD_LOGIC;
   signal \^s00_axi_awaddr\ : STD_LOGIC_VECTOR ( 39 downto 0 );
   signal \^s00_axi_awburst\ : STD_LOGIC_VECTOR ( 1 downto 0 );
@@ -145,7 +145,7 @@ architecture STRUCTURE of design_2_AXI_PerfectTranslator_0_0 is
   signal \^s00_axi_awprot\ : STD_LOGIC_VECTOR ( 2 downto 0 );
   signal \^s00_axi_awqos\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \^s00_axi_awsize\ : STD_LOGIC_VECTOR ( 2 downto 0 );
-  signal \^s00_axi_awuser\ : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal \^s00_axi_awuser\ : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal \^s00_axi_awvalid\ : STD_LOGIC;
   signal \^s00_axi_bready\ : STD_LOGIC;
   signal \^s00_axi_rready\ : STD_LOGIC;
@@ -188,7 +188,7 @@ architecture STRUCTURE of design_2_AXI_PerfectTranslator_0_0 is
   attribute X_INTERFACE_INFO of s00_axi_bvalid : signal is "xilinx.com:interface:aximm:1.0 S00_AXI BVALID";
   attribute X_INTERFACE_INFO of s00_axi_rlast : signal is "xilinx.com:interface:aximm:1.0 S00_AXI RLAST";
   attribute X_INTERFACE_INFO of s00_axi_rready : signal is "xilinx.com:interface:aximm:1.0 S00_AXI RREADY";
-  attribute X_INTERFACE_PARAMETER of s00_axi_rready : signal is "XIL_INTERFACENAME S00_AXI, WIZ_DATA_WIDTH 32, WIZ_MEMORY_SIZE 64, SUPPORTS_NARROW_BURST 0, DATA_WIDTH 128, PROTOCOL AXI4, FREQ_HZ 249975000, ID_WIDTH 16, ADDR_WIDTH 40, AWUSER_WIDTH 1, ARUSER_WIDTH 1, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 1, HAS_LOCK 1, HAS_PROT 1, HAS_CACHE 1, HAS_QOS 1, HAS_REGION 1, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, NUM_READ_OUTSTANDING 8, NUM_WRITE_OUTSTANDING 8, MAX_BURST_LENGTH 256, PHASE 0.000, CLK_DOMAIN design_2_zynq_ultra_ps_e_0_0_pl_clk0, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0";
+  attribute X_INTERFACE_PARAMETER of s00_axi_rready : signal is "XIL_INTERFACENAME S00_AXI, WIZ_DATA_WIDTH 32, WIZ_MEMORY_SIZE 64, SUPPORTS_NARROW_BURST 0, DATA_WIDTH 128, PROTOCOL AXI4, FREQ_HZ 249975000, ID_WIDTH 16, ADDR_WIDTH 40, AWUSER_WIDTH 16, ARUSER_WIDTH 16, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 1, HAS_LOCK 1, HAS_PROT 1, HAS_CACHE 1, HAS_QOS 1, HAS_REGION 1, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, NUM_READ_OUTSTANDING 2, NUM_WRITE_OUTSTANDING 2, MAX_BURST_LENGTH 256, PHASE 0.000, CLK_DOMAIN design_2_zynq_ultra_ps_e_0_0_pl_clk0, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0";
   attribute X_INTERFACE_INFO of s00_axi_rvalid : signal is "xilinx.com:interface:aximm:1.0 S00_AXI RVALID";
   attribute X_INTERFACE_INFO of s00_axi_wlast : signal is "xilinx.com:interface:aximm:1.0 S00_AXI WLAST";
   attribute X_INTERFACE_INFO of s00_axi_wready : signal is "xilinx.com:interface:aximm:1.0 S00_AXI WREADY";

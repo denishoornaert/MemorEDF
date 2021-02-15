@@ -7,21 +7,19 @@ preplace inst rst_ps8_0_99M -pg 1 -lvl 1 -y 500 -defaultsOSRD
 preplace inst zynq_ultra_ps_e_0 -pg 1 -lvl 1 -y 270 -defaultsOSRD -resize 580 270
 preplace inst MemorEDF_0 -pg 1 -lvl 2 -y 280 -defaultsOSRD
 preplace inst xlconcat_0 -pg 1 -lvl 4 -y 380 -defaultsOSRD
-preplace inst porttoportmapping_v1_0_0 -pg 1 -lvl 3 -y 210 -defaultsOSRD
 preplace inst system_ila_0 -pg 1 -lvl 4 -y -40 -defaultsOSRD
-preplace netloc MemorEDF_0_m00_axi 1 2 2 1140 -80 N
-preplace netloc zynq_ultra_ps_e_0_pl_clk0 1 0 4 20 100 770 120 1150 120 1490
+preplace netloc MemorEDF_0_m00_axi 1 2 2 1140 170 1360
+preplace netloc zynq_ultra_ps_e_0_pl_clk0 1 0 4 10 70 770 120 N 120 1370
 preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM0_FPD 1 1 3 760 -60 NJ -60 NJ
 preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM0_LPD 1 1 1 790
-preplace netloc MemorEDF_0_Q_1_kill_the_core 1 2 2 1150 310 1490
-preplace netloc porttoportmapping_v1_0_0_m00_axi 1 3 1 1480
-preplace netloc AXI_PerfectTranslator_0_M00_AXI 1 0 5 40J 80 NJ 80 NJ 80 N 80 1860
-preplace netloc MemorEDF_0_Q_0_kill_the_core 1 2 2 1160 350 N
-preplace netloc rst_ps8_0_99M_peripheral_aresetn 1 1 3 780 130 1160 100 1500
-preplace netloc MemorEDF_0_Q_3_kill_the_core 1 2 2 N 320 1480
-preplace netloc xlconcat_0_dout 1 0 5 10J 70 NJ 70 NJ 70 N 70 1870
-preplace netloc MemorEDF_0_Q_2_kill_the_core 1 2 2 N 300 1500
-preplace netloc zynq_ultra_ps_e_0_pl_resetn0 1 0 2 30 110 750
+preplace netloc MemorEDF_0_Q_1_kill_the_core 1 2 2 N 280 1380
+preplace netloc AXI_PerfectTranslator_0_M00_AXI 1 0 5 30J 80 NJ 80 NJ 80 N 80 1870
+preplace netloc MemorEDF_0_Q_0_kill_the_core 1 2 2 N 260 1390
+preplace netloc rst_ps8_0_99M_peripheral_aresetn 1 1 3 780 130 N 130 1390
+preplace netloc MemorEDF_0_Q_3_kill_the_core 1 2 2 N 320 1360
+preplace netloc xlconcat_0_dout 1 0 5 40J 100 NJ 100 NJ 100 N 100 1860
+preplace netloc MemorEDF_0_Q_2_kill_the_core 1 2 2 N 300 1370
+preplace netloc zynq_ultra_ps_e_0_pl_resetn0 1 0 2 20 110 750
 preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM1_FPD 1 1 3 800 -40 NJ -40 NJ
 levelinfo -pg 1 -10 433 983 1340 1720 1920 -top -610 -bot 1380
 ",

@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-| Date         : Mon Feb 15 18:51:47 2021
+| Date         : Mon Feb 15 19:36:00 2021
 | Host         : CELSIUS running 64-bit Ubuntu 16.04.7 LTS
 | Command      : report_utilization -file design_2_wrapper_utilization_synth.rpt -pb design_2_wrapper_utilization_synth.pb
 | Design       : design_2_wrapper
@@ -188,17 +188,16 @@ Table of Contents
 10. Black Boxes
 ---------------
 
-+-------------------------------------+------+
-|               Ref Name              | Used |
-+-------------------------------------+------+
-| design_2_zynq_ultra_ps_e_0_0        |    1 |
-| design_2_xlconcat_0_1               |    1 |
-| design_2_system_ila_0_1             |    1 |
-| design_2_rst_ps8_0_99M_0            |    1 |
-| design_2_porttoportmapping_v1_0_0_0 |    1 |
-| design_2_MemorEDF_0_0               |    1 |
-| design_2_AXI_PerfectTranslator_0_0  |    1 |
-+-------------------------------------+------+
++------------------------------------+------+
+|              Ref Name              | Used |
++------------------------------------+------+
+| design_2_zynq_ultra_ps_e_0_0       |    1 |
+| design_2_xlconcat_0_1              |    1 |
+| design_2_system_ila_0_1            |    1 |
+| design_2_rst_ps8_0_99M_0           |    1 |
+| design_2_MemorEDF_0_0              |    1 |
+| design_2_AXI_PerfectTranslator_0_0 |    1 |
++------------------------------------+------+
 
 
 11. Instantiated Netlists

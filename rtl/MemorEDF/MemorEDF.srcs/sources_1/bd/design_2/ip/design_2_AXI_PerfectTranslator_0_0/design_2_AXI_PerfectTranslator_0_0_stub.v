@@ -1,7 +1,7 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-// Date        : Mon Feb 15 18:46:57 2021
+// Date        : Mon Feb 15 19:34:31 2021
 // Host        : CELSIUS running 64-bit Ubuntu 16.04.7 LTS
 // Command     : write_verilog -force -mode synth_stub
 //               /home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_AXI_PerfectTranslator_0_0/design_2_AXI_PerfectTranslator_0_0_stub.v
@@ -31,7 +31,7 @@ module design_2_AXI_PerfectTranslator_0_0(s00_axi_awid, s00_axi_awaddr, s00_axi_
   m00_axi_aruser, m00_axi_arvalid, m00_axi_arready, m00_axi_rid, m00_axi_rdata, 
   m00_axi_rresp, m00_axi_rlast, m00_axi_rvalid, m00_axi_rready, m00_axi_aclk, 
   m00_axi_aresetn)
-/* synthesis syn_black_box black_box_pad_pin="s00_axi_awid[15:0],s00_axi_awaddr[39:0],s00_axi_awlen[7:0],s00_axi_awsize[2:0],s00_axi_awburst[1:0],s00_axi_awlock,s00_axi_awcache[3:0],s00_axi_awprot[2:0],s00_axi_awregion[3:0],s00_axi_awqos[3:0],s00_axi_awuser[0:0],s00_axi_awvalid,s00_axi_awready,s00_axi_wdata[127:0],s00_axi_wstrb[15:0],s00_axi_wlast,s00_axi_wvalid,s00_axi_wready,s00_axi_bid[15:0],s00_axi_bresp[1:0],s00_axi_bvalid,s00_axi_bready,s00_axi_arid[15:0],s00_axi_araddr[39:0],s00_axi_arlen[7:0],s00_axi_arsize[2:0],s00_axi_arburst[1:0],s00_axi_arlock,s00_axi_arcache[3:0],s00_axi_arprot[2:0],s00_axi_arregion[3:0],s00_axi_arqos[3:0],s00_axi_aruser[0:0],s00_axi_arvalid,s00_axi_arready,s00_axi_rid[15:0],s00_axi_rdata[127:0],s00_axi_rresp[1:0],s00_axi_rlast,s00_axi_rvalid,s00_axi_rready,s00_axi_aclk,s00_axi_aresetn,m00_axi_awid[5:0],m00_axi_awaddr[48:0],m00_axi_awlen[7:0],m00_axi_awsize[2:0],m00_axi_awburst[1:0],m00_axi_awlock,m00_axi_awcache[3:0],m00_axi_awprot[2:0],m00_axi_awqos[3:0],m00_axi_awuser[0:0],m00_axi_awvalid,m00_axi_awready,m00_axi_wdata[127:0],m00_axi_wstrb[15:0],m00_axi_wlast,m00_axi_wvalid,m00_axi_wready,m00_axi_bid[5:0],m00_axi_bresp[1:0],m00_axi_bvalid,m00_axi_bready,m00_axi_arid[5:0],m00_axi_araddr[48:0],m00_axi_arlen[7:0],m00_axi_arsize[2:0],m00_axi_arburst[1:0],m00_axi_arlock,m00_axi_arcache[3:0],m00_axi_arprot[2:0],m00_axi_arqos[3:0],m00_axi_aruser[0:0],m00_axi_arvalid,m00_axi_arready,m00_axi_rid[5:0],m00_axi_rdata[127:0],m00_axi_rresp[1:0],m00_axi_rlast,m00_axi_rvalid,m00_axi_rready,m00_axi_aclk,m00_axi_aresetn" */;
+/* synthesis syn_black_box black_box_pad_pin="s00_axi_awid[15:0],s00_axi_awaddr[39:0],s00_axi_awlen[7:0],s00_axi_awsize[2:0],s00_axi_awburst[1:0],s00_axi_awlock,s00_axi_awcache[3:0],s00_axi_awprot[2:0],s00_axi_awregion[3:0],s00_axi_awqos[3:0],s00_axi_awuser[15:0],s00_axi_awvalid,s00_axi_awready,s00_axi_wdata[127:0],s00_axi_wstrb[15:0],s00_axi_wlast,s00_axi_wvalid,s00_axi_wready,s00_axi_bid[15:0],s00_axi_bresp[1:0],s00_axi_bvalid,s00_axi_bready,s00_axi_arid[15:0],s00_axi_araddr[39:0],s00_axi_arlen[7:0],s00_axi_arsize[2:0],s00_axi_arburst[1:0],s00_axi_arlock,s00_axi_arcache[3:0],s00_axi_arprot[2:0],s00_axi_arregion[3:0],s00_axi_arqos[3:0],s00_axi_aruser[15:0],s00_axi_arvalid,s00_axi_arready,s00_axi_rid[15:0],s00_axi_rdata[127:0],s00_axi_rresp[1:0],s00_axi_rlast,s00_axi_rvalid,s00_axi_rready,s00_axi_aclk,s00_axi_aresetn,m00_axi_awid[5:0],m00_axi_awaddr[48:0],m00_axi_awlen[7:0],m00_axi_awsize[2:0],m00_axi_awburst[1:0],m00_axi_awlock,m00_axi_awcache[3:0],m00_axi_awprot[2:0],m00_axi_awqos[3:0],m00_axi_awuser[0:0],m00_axi_awvalid,m00_axi_awready,m00_axi_wdata[127:0],m00_axi_wstrb[15:0],m00_axi_wlast,m00_axi_wvalid,m00_axi_wready,m00_axi_bid[5:0],m00_axi_bresp[1:0],m00_axi_bvalid,m00_axi_bready,m00_axi_arid[5:0],m00_axi_araddr[48:0],m00_axi_arlen[7:0],m00_axi_arsize[2:0],m00_axi_arburst[1:0],m00_axi_arlock,m00_axi_arcache[3:0],m00_axi_arprot[2:0],m00_axi_arqos[3:0],m00_axi_aruser[0:0],m00_axi_arvalid,m00_axi_arready,m00_axi_rid[5:0],m00_axi_rdata[127:0],m00_axi_rresp[1:0],m00_axi_rlast,m00_axi_rvalid,m00_axi_rready,m00_axi_aclk,m00_axi_aresetn" */;
   input [15:0]s00_axi_awid;
   input [39:0]s00_axi_awaddr;
   input [7:0]s00_axi_awlen;
@@ -42,7 +42,7 @@ module design_2_AXI_PerfectTranslator_0_0(s00_axi_awid, s00_axi_awaddr, s00_axi_
   input [2:0]s00_axi_awprot;
   input [3:0]s00_axi_awregion;
   input [3:0]s00_axi_awqos;
-  input [0:0]s00_axi_awuser;
+  input [15:0]s00_axi_awuser;
   input s00_axi_awvalid;
   output s00_axi_awready;
   input [127:0]s00_axi_wdata;
@@ -64,7 +64,7 @@ module design_2_AXI_PerfectTranslator_0_0(s00_axi_awid, s00_axi_awaddr, s00_axi_
   input [2:0]s00_axi_arprot;
   input [3:0]s00_axi_arregion;
   input [3:0]s00_axi_arqos;
-  input [0:0]s00_axi_aruser;
+  input [15:0]s00_axi_aruser;
   input s00_axi_arvalid;
   output s00_axi_arready;
   output [15:0]s00_axi_rid;
