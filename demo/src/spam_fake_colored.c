@@ -13,6 +13,7 @@
 #include "../include/config.h"
 #include "../include/tool.h"
 
+#define DEST_SIZE (4UL*1024UL*1024UL*1024UL)
 
 int main(int argc, char** argv) {
     long unsigned target;
@@ -25,13 +26,13 @@ int main(int argc, char** argv) {
 
     int hpm_fd  = open_fd();
 
-    unsigned* plim   = mmap((void*)0, HPM0_SIZE, PROT_EXEC|PROT_READ|PROT_WRITE, MAP_SHARED|0x40, hpm_fd, target);
+    unsigned* plim   = mmap((void*)0, DEST_SIZE, PROT_EXEC|PROT_READ|PROT_WRITE, MAP_SHARED|0x40, hpm_fd, target);
 
     // Set the CPU
     cpu_set_t mask;
     CPU_ZERO(&mask);
     CPU_SET(0, &mask);
-    sched_setaffinity(0, sizeof(mask), &mask);
+    sched_setaffinity(3, sizeof(mask), &mask);
 
     printf("operation, contention, priorities, seconds, nanoseconds, bytes\n");
 
@@ -44,7 +45,7 @@ int main(int argc, char** argv) {
             long unsigned sec, ns;
 
             clock_gettime(CLOCK_REALTIME, &time1);
-            for (unsigned i = 0; i < (HPM0_SIZE/sizeof(unsigned)); i+=(64*KB/sizeof(unsigned))) {
+            for (unsigned i = 0; i < (DEST_SIZE/sizeof(unsigned)); i+=(64*KB/sizeof(unsigned))) {
                 for (unsigned j = 0; j < (16*KB/sizeof(unsigned)); j+=(CACHE_LINE_SIZE/sizeof(unsigned))) {
                     tmp = plim[i+j];
                 }
@@ -54,7 +55,7 @@ int main(int argc, char** argv) {
             sec = diff(time1, time2).tv_sec;
             ns  = diff(time1, time2).tv_nsec;
 
-            printf("read, %lu, %lu, %u\n", sec, ns, (HPM0_SIZE/MAX_CORE));
+            printf("read, %lu, %lu, %u\n", sec, ns, (DEST_SIZE/MAX_CORE));
         }
     }
     else if(mode == 'w') {
@@ -63,7 +64,7 @@ int main(int argc, char** argv) {
             long unsigned sec, ns;
 
             clock_gettime(CLOCK_REALTIME, &time1);
-            for (unsigned i = 0; i < (HPM0_SIZE/sizeof(unsigned)); i+=(64*KB/sizeof(unsigned))) {
+            for (unsigned i = 0; i < (DEST_SIZE/sizeof(unsigned)); i+=(64*KB/sizeof(unsigned))) {
                 for (unsigned j = 0; j < (16*KB/sizeof(unsigned)); j+=(CACHE_LINE_SIZE/sizeof(unsigned))) {
                     plim[i+j] = (k++);
                 }
@@ -73,12 +74,12 @@ int main(int argc, char** argv) {
             sec = diff(time1, time2).tv_sec;
             ns  = diff(time1, time2).tv_nsec;
 
-            printf("write, %lu, %lu, %u\n", sec, ns, (HPM0_SIZE/MAX_CORE));
+            printf("write, %lu, %lu, %u\n", sec, ns, (DEST_SIZE/MAX_CORE));
         }
     }
 
     int unmap_result = 0;
-    unmap_result |= unmap(plim  , HPM0_SIZE);
+    unmap_result |= unmap(plim  , DEST_SIZE);
 
     return unmap_result;
 }
