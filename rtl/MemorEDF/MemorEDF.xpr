@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="35" Path="/home/duck/Github/MemorEDF/rtl/MemorEDF/MemorEDF.xpr">
+<Project Version="7" Minor="35" Path="/home/denis/github/MemorEDF/rtl/MemorEDF/MemorEDF.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="43f55efd69aa4e918038648ffa5e146b"/>
@@ -33,20 +33,20 @@
     <Option Name="DSAVendor" Val="xilinx"/>
     <Option Name="DSABoardId" Val="zcu102"/>
     <Option Name="DSANumComputeUnits" Val="60"/>
-    <Option Name="WTXSimLaunchSim" Val="1146"/>
+    <Option Name="WTXSimLaunchSim" Val="1169"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="375"/>
-    <Option Name="WTModelSimExportSim" Val="375"/>
-    <Option Name="WTQuestaExportSim" Val="375"/>
-    <Option Name="WTIesExportSim" Val="375"/>
-    <Option Name="WTVcsExportSim" Val="375"/>
-    <Option Name="WTRivieraExportSim" Val="375"/>
-    <Option Name="WTActivehdlExportSim" Val="375"/>
+    <Option Name="WTXSimExportSim" Val="384"/>
+    <Option Name="WTModelSimExportSim" Val="384"/>
+    <Option Name="WTQuestaExportSim" Val="384"/>
+    <Option Name="WTIesExportSim" Val="384"/>
+    <Option Name="WTVcsExportSim" Val="384"/>
+    <Option Name="WTRivieraExportSim" Val="384"/>
+    <Option Name="WTActivehdlExportSim" Val="384"/>
     <Option Name="GenerateIPUpgradeLog" Val="TRUE"/>
     <Option Name="XSimRadix" Val="hex"/>
     <Option Name="XSimTimeUnit" Val="ns"/>
@@ -63,20 +63,17 @@
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
-        <CompFileExtendedInfo CompFileName="design_2.bd" FileRelPathName="ip/design_2_AXI_PerfectTranslator_0_0/design_2_AXI_PerfectTranslator_0_0.xci">
-          <Proxy FileSetName="design_2_AXI_PerfectTranslator_0_0"/>
+        <CompFileExtendedInfo CompFileName="design_2.bd" FileRelPathName="ip/design_2_rst_ps8_0_99M_0/design_2_rst_ps8_0_99M_0.xci">
+          <Proxy FileSetName="design_2_rst_ps8_0_99M_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="design_2.bd" FileRelPathName="ip/design_2_zynq_ultra_ps_e_0_0/design_2_zynq_ultra_ps_e_0_0.xci">
           <Proxy FileSetName="design_2_zynq_ultra_ps_e_0_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="design_2.bd" FileRelPathName="ip/design_2_rst_ps8_0_99M_0/design_2_rst_ps8_0_99M_0.xci">
-          <Proxy FileSetName="design_2_rst_ps8_0_99M_0"/>
+        <CompFileExtendedInfo CompFileName="design_2.bd" FileRelPathName="ip/design_2_porttoportmapping_v1_0_0_0/design_2_porttoportmapping_v1_0_0_0.xci">
+          <Proxy FileSetName="design_2_porttoportmapping_v1_0_0_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="design_2.bd" FileRelPathName="ip/design_2_system_ila_0_1/design_2_system_ila_0_1.xci">
           <Proxy FileSetName="design_2_system_ila_0_1"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="design_2.bd" FileRelPathName="ip/design_2_porttoportmapping_v1_0_0_0/design_2_porttoportmapping_v1_0_0_0.xci">
-          <Proxy FileSetName="design_2_porttoportmapping_v1_0_0_0"/>
         </CompFileExtendedInfo>
       </File>
       <File Path="$PSRCDIR/sources_1/bd/design_2/hdl/design_2_wrapper.v">
@@ -187,12 +184,6 @@
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
-    <FileSet Name="design_2_AXI_PerfectTranslator_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/design_2_AXI_PerfectTranslator_0_0">
-      <Config>
-        <Option Name="TopModule" Val="design_2_AXI_PerfectTranslator_0_0"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-      </Config>
-    </FileSet>
     <FileSet Name="design_2_porttoportmapping_v1_0_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/design_2_porttoportmapping_v1_0_0_0">
       <Config>
         <Option Name="TopModule" Val="design_2_porttoportmapping_v1_0_0_0"/>
@@ -258,22 +249,9 @@
       <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2017"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
     </Run>
-    <Run Id="design_2_AXI_PerfectTranslator_0_0_synth_1" Type="Ft3:Synth" SrcSet="design_2_AXI_PerfectTranslator_0_0" Part="xczu9eg-ffvb1156-2-e" ConstrsSet="design_2_AXI_PerfectTranslator_0_0" Description="Vivado Synthesis Defaults" WriteIncrSynthDcp="false" Dir="$PRUNDIR/design_2_AXI_PerfectTranslator_0_0_synth_1" IncludeInArchive="true">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2017">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2017"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-    </Run>
     <Run Id="design_2_porttoportmapping_v1_0_0_0_synth_1" Type="Ft3:Synth" SrcSet="design_2_porttoportmapping_v1_0_0_0" Part="xczu9eg-ffvb1156-2-e" ConstrsSet="design_2_porttoportmapping_v1_0_0_0" Description="Vivado Synthesis Defaults" WriteIncrSynthDcp="false" Dir="$PRUNDIR/design_2_porttoportmapping_v1_0_0_0_synth_1" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2017">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2017"/>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -345,29 +323,9 @@
       <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2017"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
     </Run>
-    <Run Id="design_2_AXI_PerfectTranslator_0_0_impl_1" Type="Ft2:EntireDesign" Part="xczu9eg-ffvb1156-2-e" ConstrsSet="design_2_AXI_PerfectTranslator_0_0" Description="Default settings for Implementation." WriteIncrSynthDcp="false" SynthRun="design_2_AXI_PerfectTranslator_0_0_synth_1" IncludeInArchive="false">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2017">
-          <Desc>Default settings for Implementation.</Desc>
-        </StratHandle>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2017"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-    </Run>
     <Run Id="design_2_porttoportmapping_v1_0_0_0_impl_1" Type="Ft2:EntireDesign" Part="xczu9eg-ffvb1156-2-e" ConstrsSet="design_2_porttoportmapping_v1_0_0_0" Description="Default settings for Implementation." WriteIncrSynthDcp="false" SynthRun="design_2_porttoportmapping_v1_0_0_0_synth_1" IncludeInArchive="false">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2017">
-          <Desc>Default settings for Implementation.</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2017"/>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>

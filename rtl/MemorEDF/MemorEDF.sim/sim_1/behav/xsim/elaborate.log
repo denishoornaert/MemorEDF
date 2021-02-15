@@ -3,13 +3,13 @@ Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
 Running: /opt/Xilinx/Vivado/2017.4/bin/unwrapped/lnx64.o/xelab -wto 43f55efd69aa4e918038648ffa5e146b --incr --debug typical --relax --mt 8 -L xil_defaultlib -L axi_infrastructure_v1_1_0 -L smartconnect_v1_0 -L axi_protocol_checker_v2_0_1 -L axi_vip_v1_1_1 -L xilinx_vip -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot TB_MemorEDF_behav xil_defaultlib.TB_MemorEDF xil_defaultlib.glbl -log elaborate.log 
 Using 8 slave threads.
 Starting static elaboration
-WARNING: [VRFC 10-278] actual bit length 32 differs from formal bit length 1 for port port_1 [/home/denis/github/MemorEDF/rtl/MemorEDF/MemorEDF.ip_user_files/bd/design_1/ipshared/2a60/src/MemorEDF.sv:313]
-WARNING: [VRFC 10-278] actual bit length 32 differs from formal bit length 1 for port port_2 [/home/denis/github/MemorEDF/rtl/MemorEDF/MemorEDF.ip_user_files/bd/design_1/ipshared/2a60/src/MemorEDF.sv:317]
-WARNING: [VRFC 10-278] actual bit length 32 differs from formal bit length 1 for port port_3 [/home/denis/github/MemorEDF/rtl/MemorEDF/MemorEDF.ip_user_files/bd/design_1/ipshared/2a60/src/MemorEDF.sv:321]
-WARNING: [VRFC 10-278] actual bit length 32 differs from formal bit length 1 for port port_4 [/home/denis/github/MemorEDF/rtl/MemorEDF/MemorEDF.ip_user_files/bd/design_1/ipshared/2a60/src/MemorEDF.sv:325]
+WARNING: [VRFC 10-278] actual bit length 32 differs from formal bit length 1 for port port_1 [/home/denis/github/MemorEDF/rtl/MemorEDF/MemorEDF.ip_user_files/bd/design_1/ipshared/49d9/src/MemorEDF.sv:313]
+WARNING: [VRFC 10-278] actual bit length 32 differs from formal bit length 1 for port port_2 [/home/denis/github/MemorEDF/rtl/MemorEDF/MemorEDF.ip_user_files/bd/design_1/ipshared/49d9/src/MemorEDF.sv:317]
+WARNING: [VRFC 10-278] actual bit length 32 differs from formal bit length 1 for port port_3 [/home/denis/github/MemorEDF/rtl/MemorEDF/MemorEDF.ip_user_files/bd/design_1/ipshared/49d9/src/MemorEDF.sv:321]
+WARNING: [VRFC 10-278] actual bit length 32 differs from formal bit length 1 for port port_4 [/home/denis/github/MemorEDF/rtl/MemorEDF/MemorEDF.ip_user_files/bd/design_1/ipshared/49d9/src/MemorEDF.sv:325]
 WARNING: [VRFC 10-278] actual bit length 1 differs from formal bit length 2 for port m00_axi_awuser [/home/denis/github/MemorEDF/rtl/MemorEDF/MemorEDF.ip_user_files/bd/design_1/ip/design_1_porttoportmapping_v1_0_0_0/sim/design_1_porttoportmapping_v1_0_0_0.v:395]
 WARNING: [VRFC 10-278] actual bit length 1 differs from formal bit length 2 for port m00_axi_aruser [/home/denis/github/MemorEDF/rtl/MemorEDF/MemorEDF.ip_user_files/bd/design_1/ip/design_1_porttoportmapping_v1_0_0_0/sim/design_1_porttoportmapping_v1_0_0_0.v:416]
-WARNING: [VRFC 10-1783] select index 16 into byte_ram is out of bounds [/home/denis/github/MemorEDF/rtl/MemorEDF/MemorEDF.ip_user_files/bd/design_1/ipshared/2a60/src/ConfigurationPort.sv:591]
+WARNING: [VRFC 10-1783] select index 16 into byte_ram is out of bounds [/home/denis/github/MemorEDF/rtl/MemorEDF/MemorEDF.ip_user_files/bd/design_1/ipshared/49d9/src/ConfigurationPort.sv:591]
 Completed static elaboration
 WARNING: [XSIM 43-4127] File "/wrk/2017.4/nightly/2017_12_15_2086221/packages/customer/vivado/data/ip/xilinx/axi_protocol_checker_v2_0/hdl/axi_protocol_checker_v2_0_vl_rfs.sv" Line 4703 : The "System Verilog Property Declaration" is not supported yet for simulation. The statement will be ignored.
 WARNING: [XSIM 43-4127] File "/wrk/2017.4/nightly/2017_12_15_2086221/packages/customer/vivado/data/ip/xilinx/axi_protocol_checker_v2_0/hdl/axi_protocol_checker_v2_0_vl_rfs.sv" Line 4706 : The "System Verilog Assertion" is not supported yet for simulation. The statement will be ignored.

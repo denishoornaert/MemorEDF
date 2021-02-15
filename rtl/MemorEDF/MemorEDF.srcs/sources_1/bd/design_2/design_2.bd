@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<bd:repository xmlns:bd="http://www.xilinx.com/bd" bd:BoundaryCRC="0x0" bd:device="xczu9eg-ffvb1156-2-e" bd:isValidated="true" bd:synthFlowMode="Hierarchical" bd:tool_version="2017.4" bd:top="design_2" bd:version="1.00.a">
+<bd:repository xmlns:bd="http://www.xilinx.com/bd" bd:BoundaryCRC="0x0" bd:device="xczu9eg-ffvb1156-2-e" bd:synthFlowMode="Hierarchical" bd:tool_version="2017.4" bd:top="design_2" bd:version="1.00.a">
 
   <spirit:component xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009">
     <spirit:vendor>xilinx.com</spirit:vendor>
@@ -480,17 +480,6 @@
         </spirit:configurableElementValues>
       </spirit:componentInstance>
       <spirit:componentInstance>
-        <spirit:instanceName>MemorEDF_0</spirit:instanceName>
-        <spirit:componentRef spirit:library="user" spirit:name="MemorEDF" spirit:vendor="user.org" spirit:version="1.0"/>
-        <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">design_2_MemorEDF_0_0</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="DATA_SIZE">678</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="QUEUE_LENGTH">16</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_M00_AXI_AWUSER_WIDTH">16</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_M00_AXI_ARUSER_WIDTH">16</spirit:configurableElementValue>
-        </spirit:configurableElementValues>
-      </spirit:componentInstance>
-      <spirit:componentInstance>
         <spirit:instanceName>porttoportmapping_v1_0_0</spirit:instanceName>
         <spirit:componentRef spirit:library="user" spirit:name="porttoportmapping_v1_0" spirit:vendor="user.org" spirit:version="1.0"/>
         <spirit:configurableElementValues>
@@ -504,6 +493,17 @@
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">design_2_AXI_PerfectTranslator_0_0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_M00_AXI_ID_WIDTH">6</spirit:configurableElementValue>
+        </spirit:configurableElementValues>
+      </spirit:componentInstance>
+      <spirit:componentInstance>
+        <spirit:instanceName>MemorEDF_0</spirit:instanceName>
+        <spirit:componentRef spirit:library="user" spirit:name="MemorEDF" spirit:vendor="user.org" spirit:version="1.0"/>
+        <spirit:configurableElementValues>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">design_2_MemorEDF_0_0</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="DATA_SIZE">678</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="QUEUE_LENGTH">16</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_M00_AXI_AWUSER_WIDTH">16</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_M00_AXI_ARUSER_WIDTH">16</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
     </spirit:componentInstances>
@@ -576,14 +576,14 @@
         <spirit:name>rst_ps8_0_99M_peripheral_aresetn</spirit:name>
         <spirit:internalPortReference spirit:componentRef="rst_ps8_0_99M" spirit:portRef="peripheral_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="system_ila_0" spirit:portRef="resetn"/>
-        <spirit:internalPortReference spirit:componentRef="MemorEDF_0" spirit:portRef="s00_axi_aresetn"/>
-        <spirit:internalPortReference spirit:componentRef="MemorEDF_0" spirit:portRef="s01_axi_aresetn"/>
-        <spirit:internalPortReference spirit:componentRef="MemorEDF_0" spirit:portRef="s02_axi_aresetn"/>
-        <spirit:internalPortReference spirit:componentRef="MemorEDF_0" spirit:portRef="m00_axi_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="porttoportmapping_v1_0_0" spirit:portRef="s00_axi_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="porttoportmapping_v1_0_0" spirit:portRef="m00_axi_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="AXI_PerfectTranslator_0" spirit:portRef="s00_axi_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="AXI_PerfectTranslator_0" spirit:portRef="m00_axi_aresetn"/>
+        <spirit:internalPortReference spirit:componentRef="MemorEDF_0" spirit:portRef="s00_axi_aresetn"/>
+        <spirit:internalPortReference spirit:componentRef="MemorEDF_0" spirit:portRef="s01_axi_aresetn"/>
+        <spirit:internalPortReference spirit:componentRef="MemorEDF_0" spirit:portRef="s02_axi_aresetn"/>
+        <spirit:internalPortReference spirit:componentRef="MemorEDF_0" spirit:portRef="m00_axi_aresetn"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>xlconcat_0_dout</spirit:name>
@@ -599,14 +599,14 @@
         <spirit:internalPortReference spirit:componentRef="zynq_ultra_ps_e_0" spirit:portRef="saxihp0_fpd_aclk"/>
         <spirit:internalPortReference spirit:componentRef="rst_ps8_0_99M" spirit:portRef="slowest_sync_clk"/>
         <spirit:internalPortReference spirit:componentRef="system_ila_0" spirit:portRef="clk"/>
-        <spirit:internalPortReference spirit:componentRef="MemorEDF_0" spirit:portRef="s00_axi_aclk"/>
-        <spirit:internalPortReference spirit:componentRef="MemorEDF_0" spirit:portRef="s01_axi_aclk"/>
-        <spirit:internalPortReference spirit:componentRef="MemorEDF_0" spirit:portRef="s02_axi_aclk"/>
-        <spirit:internalPortReference spirit:componentRef="MemorEDF_0" spirit:portRef="m00_axi_aclk"/>
         <spirit:internalPortReference spirit:componentRef="porttoportmapping_v1_0_0" spirit:portRef="s00_axi_aclk"/>
         <spirit:internalPortReference spirit:componentRef="porttoportmapping_v1_0_0" spirit:portRef="m00_axi_aclk"/>
         <spirit:internalPortReference spirit:componentRef="AXI_PerfectTranslator_0" spirit:portRef="s00_axi_aclk"/>
         <spirit:internalPortReference spirit:componentRef="AXI_PerfectTranslator_0" spirit:portRef="m00_axi_aclk"/>
+        <spirit:internalPortReference spirit:componentRef="MemorEDF_0" spirit:portRef="s00_axi_aclk"/>
+        <spirit:internalPortReference spirit:componentRef="MemorEDF_0" spirit:portRef="s01_axi_aclk"/>
+        <spirit:internalPortReference spirit:componentRef="MemorEDF_0" spirit:portRef="s02_axi_aclk"/>
+        <spirit:internalPortReference spirit:componentRef="MemorEDF_0" spirit:portRef="m00_axi_aclk"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>MemorEDF_0_Q_0_kill_the_core</spirit:name>
@@ -696,62 +696,6 @@
             <spirit:displayName>/MemorEDF_0/s00_axi/reg0</spirit:displayName>
             <spirit:addressOffset>0x01000000000</spirit:addressOffset>
             <spirit:range>32G</spirit:range>
-          </spirit:segment>
-        </spirit:segments>
-      </spirit:addressSpace>
-    </spirit:addressSpaces>
-  </spirit:component>
-
-  <spirit:component xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009">
-    <spirit:vendor>user.org</spirit:vendor>
-    <spirit:library>Addressing/MemorEDF_0</spirit:library>
-    <spirit:name>MemorEDF</spirit:name>
-    <spirit:version>1.0</spirit:version>
-    <spirit:busInterfaces>
-      <spirit:busInterface>
-        <spirit:name>s00_axi</spirit:name>
-        <spirit:slave>
-          <spirit:memoryMapRef spirit:memoryMapRef="s00_axi"/>
-        </spirit:slave>
-        <spirit:busType spirit:library="interface" spirit:name="aximm" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-        <spirit:abstractionType spirit:library="interface" spirit:name="aximm_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-      </spirit:busInterface>
-      <spirit:busInterface>
-        <spirit:name>s01_axi</spirit:name>
-        <spirit:slave>
-          <spirit:memoryMapRef spirit:memoryMapRef="s01_axi"/>
-        </spirit:slave>
-        <spirit:busType spirit:library="interface" spirit:name="aximm" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-        <spirit:abstractionType spirit:library="interface" spirit:name="aximm_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-      </spirit:busInterface>
-      <spirit:busInterface>
-        <spirit:name>s02_axi</spirit:name>
-        <spirit:slave>
-          <spirit:memoryMapRef spirit:memoryMapRef="s02_axi"/>
-        </spirit:slave>
-        <spirit:busType spirit:library="interface" spirit:name="aximm" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-        <spirit:abstractionType spirit:library="interface" spirit:name="aximm_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-      </spirit:busInterface>
-      <spirit:busInterface>
-        <spirit:name>m00_axi</spirit:name>
-        <spirit:master>
-          <spirit:addressSpaceRef spirit:addressSpaceRef="m00_axi"/>
-        </spirit:master>
-        <spirit:busType spirit:library="interface" spirit:name="aximm" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-        <spirit:abstractionType spirit:library="interface" spirit:name="aximm_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-      </spirit:busInterface>
-    </spirit:busInterfaces>
-    <spirit:addressSpaces>
-      <spirit:addressSpace>
-        <spirit:name>m00_axi</spirit:name>
-        <spirit:range>1T</spirit:range>
-        <spirit:width>32</spirit:width>
-        <spirit:segments>
-          <spirit:segment>
-            <spirit:name>SEG_porttoportmapping_v1_0_0_reg0</spirit:name>
-            <spirit:displayName>/porttoportmapping_v1_0_0/s00_axi/reg0</spirit:displayName>
-            <spirit:addressOffset>0x0000000000</spirit:addressOffset>
-            <spirit:range>512G</spirit:range>
           </spirit:segment>
         </spirit:segments>
       </spirit:addressSpace>
@@ -868,6 +812,62 @@
             <spirit:displayName>/zynq_ultra_ps_e_0/SAXIGP2/HP0_QSPI</spirit:displayName>
             <spirit:addressOffset>0x00000C0000000</spirit:addressOffset>
             <spirit:range>512M</spirit:range>
+          </spirit:segment>
+        </spirit:segments>
+      </spirit:addressSpace>
+    </spirit:addressSpaces>
+  </spirit:component>
+
+  <spirit:component xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009">
+    <spirit:vendor>user.org</spirit:vendor>
+    <spirit:library>Addressing/MemorEDF_0</spirit:library>
+    <spirit:name>MemorEDF</spirit:name>
+    <spirit:version>1.0</spirit:version>
+    <spirit:busInterfaces>
+      <spirit:busInterface>
+        <spirit:name>s00_axi</spirit:name>
+        <spirit:slave>
+          <spirit:memoryMapRef spirit:memoryMapRef="s00_axi"/>
+        </spirit:slave>
+        <spirit:busType spirit:library="interface" spirit:name="aximm" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:abstractionType spirit:library="interface" spirit:name="aximm_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+      </spirit:busInterface>
+      <spirit:busInterface>
+        <spirit:name>s01_axi</spirit:name>
+        <spirit:slave>
+          <spirit:memoryMapRef spirit:memoryMapRef="s01_axi"/>
+        </spirit:slave>
+        <spirit:busType spirit:library="interface" spirit:name="aximm" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:abstractionType spirit:library="interface" spirit:name="aximm_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+      </spirit:busInterface>
+      <spirit:busInterface>
+        <spirit:name>s02_axi</spirit:name>
+        <spirit:slave>
+          <spirit:memoryMapRef spirit:memoryMapRef="s02_axi"/>
+        </spirit:slave>
+        <spirit:busType spirit:library="interface" spirit:name="aximm" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:abstractionType spirit:library="interface" spirit:name="aximm_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+      </spirit:busInterface>
+      <spirit:busInterface>
+        <spirit:name>m00_axi</spirit:name>
+        <spirit:master>
+          <spirit:addressSpaceRef spirit:addressSpaceRef="m00_axi"/>
+        </spirit:master>
+        <spirit:busType spirit:library="interface" spirit:name="aximm" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:abstractionType spirit:library="interface" spirit:name="aximm_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+      </spirit:busInterface>
+    </spirit:busInterfaces>
+    <spirit:addressSpaces>
+      <spirit:addressSpace>
+        <spirit:name>m00_axi</spirit:name>
+        <spirit:range>1T</spirit:range>
+        <spirit:width>32</spirit:width>
+        <spirit:segments>
+          <spirit:segment>
+            <spirit:name>SEG_porttoportmapping_v1_0_0_reg0</spirit:name>
+            <spirit:displayName>/porttoportmapping_v1_0_0/s00_axi/reg0</spirit:displayName>
+            <spirit:addressOffset>0x0000000000</spirit:addressOffset>
+            <spirit:range>512G</spirit:range>
           </spirit:segment>
         </spirit:segments>
       </spirit:addressSpace>

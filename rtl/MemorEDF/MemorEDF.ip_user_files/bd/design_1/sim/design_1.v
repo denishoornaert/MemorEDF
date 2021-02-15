@@ -1,7 +1,7 @@
 //Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-//Date        : Fri Feb 12 21:40:17 2021
+//Date        : Mon Feb 15 18:18:33 2021
 //Host        : denis-ThinkPad-T480s running 64-bit Ubuntu 16.04.7 LTS
 //Command     : generate_target design_1.bd
 //Design      : design_1

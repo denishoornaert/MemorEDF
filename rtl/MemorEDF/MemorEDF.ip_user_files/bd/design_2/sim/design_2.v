@@ -1,7 +1,7 @@
 //Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-//Date        : Fri Feb 12 18:51:19 2021
+//Date        : Fri Feb 12 21:48:47 2021
 //Host        : CELSIUS running 64-bit Ubuntu 16.04.7 LTS
 //Command     : generate_target design_2.bd
 //Design      : design_2
@@ -286,15 +286,12 @@ module design_2
         .m00_axi_bid(AXI_PerfectTranslator_0_M00_AXI_BID),
         .m00_axi_bready(AXI_PerfectTranslator_0_M00_AXI_BREADY),
         .m00_axi_bresp(AXI_PerfectTranslator_0_M00_AXI_BRESP),
-        .m00_axi_buser(1'b0),
         .m00_axi_bvalid(AXI_PerfectTranslator_0_M00_AXI_BVALID),
-        .m00_axi_init_axi_txn(1'b0),
         .m00_axi_rdata(AXI_PerfectTranslator_0_M00_AXI_RDATA),
         .m00_axi_rid(AXI_PerfectTranslator_0_M00_AXI_RID),
         .m00_axi_rlast(AXI_PerfectTranslator_0_M00_AXI_RLAST),
         .m00_axi_rready(AXI_PerfectTranslator_0_M00_AXI_RREADY),
         .m00_axi_rresp(AXI_PerfectTranslator_0_M00_AXI_RRESP),
-        .m00_axi_ruser(1'b0),
         .m00_axi_rvalid(AXI_PerfectTranslator_0_M00_AXI_RVALID),
         .m00_axi_wdata(AXI_PerfectTranslator_0_M00_AXI_WDATA),
         .m00_axi_wlast(AXI_PerfectTranslator_0_M00_AXI_WLAST),

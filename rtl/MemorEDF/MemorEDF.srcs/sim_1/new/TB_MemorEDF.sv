@@ -44,6 +44,11 @@ bit aresetn=0;
 
 xil_axi_uint max_outstanding_transactions = 8;
 
+xil_axi_ulong addr_1  = 40'h1010503000;
+xil_axi_ulong addr_2  = 40'h4800000000;
+xil_axi_ulong addr_3  = 40'h1010503000;
+xil_axi_ulong addr_4  = 40'h48FFFFFFFF;
+
 xil_axi_ulong addr1  = 40'h0000000000;
 xil_axi_ulong addr2  = 40'h0000000010;
 xil_axi_ulong addr3  = 40'h0000000020;
@@ -62,6 +67,8 @@ bit [127 : 0] data_wr1    = 128'h00000020000000200000002000000020; // ABITRARY P
 bit [127 : 0] data_wr2    = 128'h00000007000000070000000700000007; // ARBITRRY THRESHOLD
 bit [127 : 0] data_wr3    = 128'h0000000b00000020000000080f0e0d0c; // MITS[2 : 0], Priorities
 bit [127 : 0] data_wr4    = 128'h00000000000000030000000000000060; // reset, mode, hyperperiod, MITS[3]
+
+bit [511 : 0] tmp_data;
 
 xil_axi_size_t size = XIL_AXI_SIZE_16BYTE;//3'b111;
 xil_axi_burst_t fixed = XIL_AXI_BURST_TYPE_FIXED;//2'b00;
@@ -87,20 +94,20 @@ design_1_axi_vip_0_0_mst_t      b_master_agent;
 design_1_axi_vip_0_0_mst_t      c_master_agent;
 design_1_axi_vip_1_0_slv_mem_t  slv_mem_agent;
 
-always @(posedge aclk)
-begin
-    #520ns;
-    b_master_agent.send_multi_rdbursts(    
-        8,          // input     xil_axi_uint      num_xfers,
-        b_addr1,    // input     xil_axi_ulong     start_addr,
-        16'h018d,   // input     xil_axi_uint      myid ,
-        size,       // input     xil_axi_size_t    mysize,
-        3,          // input     xil_axi_len_t     mylen,
-        burst,      // input     xil_axi_burst_t   myburst,
-        1           // input     bit               no_xfer_delays 
-    );
-    #20000ns;
-end
+//always @(posedge aclk)
+//begin
+//    #520ns;
+//    b_master_agent.send_multi_rdbursts(    
+//        8,          // input     xil_axi_uint      num_xfers,
+//        b_addr1,    // input     xil_axi_ulong     start_addr,
+//        16'h018d,   // input     xil_axi_uint      myid ,
+//        size,       // input     xil_axi_size_t    mysize,
+//        3,          // input     xil_axi_len_t     mylen,
+//        burst,      // input     xil_axi_burst_t   myburst,
+//        1           // input     bit               no_xfer_delays 
+//    );
+//    #20000ns;
+//end
 
 initial begin
     //Create an agent
@@ -151,17 +158,27 @@ initial begin
     #50ns
     
     // WRITE PHASE
-    #20ns
-    c_master_agent.send_multi_rdbursts(    
-        8,          //input     xil_axi_uint       num_xfers,
-        b_addr3,    //input     xil_axi_ulong      start_addr,
-        16'h01ad,   //input     xil_axi_uint       myid ,
-        size,       //input     xil_axi_size_t     mysize,
-        3,          //input     xil_axi_len_t      mylen,
-        burst,      //input     xil_axi_burst_t    myburst,
-        1           //input     bit                no_xfer_delays 
-    );
+//    #20ns
+//    c_master_agent.send_multi_wrbursts(    
+//        8,          //input     xil_axi_uint       num_xfers,
+//        b_addr3,    //input     xil_axi_ulong      start_addr,
+//        16'h01ad,   //input     xil_axi_uint       myid ,
+//        size,       //input     xil_axi_size_t     mysize,
+//        3,          //input     xil_axi_len_t      mylen,
+//        burst,      //input     xil_axi_burst_t    myburst,
+//        1           //input     bit                no_xfer_delays 
+//    );
     
+//    #50ns
+    
+    #20ns
+    b_master_agent.AXI4_READ_BURST( 16'h070d, addr_3, 3, size, burst, lock, 4'h0, prot, 4'h0, 4'h0, 1'h0, tmp_data, rresp, ruser);
+    #20ns
+    b_master_agent.AXI4_READ_BURST( 16'h07ad, addr_4, 3, size, burst, lock, 4'h0, prot, 4'h0, 4'h0, 1'h0, tmp_data, rresp, ruser);
+    #20ns
+    b_master_agent.AXI4_WRITE_BURST(16'h040d, addr_1, 3, size, burst, lock, 4'h0, prot, 4'h0, 4'h0, 1'h0, tmp_data, 1, resp);
+    #20ns
+    b_master_agent.AXI4_WRITE_BURST(16'h042d, addr_2, 3, size, burst, lock, 4'h0, prot, 4'h0, 4'h0, 1'h0, tmp_data, 1, resp);
     #50ns
     
     $finish;
