@@ -117,6 +117,7 @@ if [[ $programs_build ]]; then
     cp demo/exec/threshold_bw_gallois.out rootfs/synthetic/
     ## Blast to benchmarks
     cp demo/exec/spam.out rootfs/common/
+    cp demo/exec/spam_fake_colored.out rootfs/common/
     cp demo/exec/blast.out rootfs/common/
 fi
 
