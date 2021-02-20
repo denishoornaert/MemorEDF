@@ -2,26 +2,26 @@
    ExpandedHierarchyInLayout: "",
    guistr: "# # String gsaved with Nlview 6.6.11  2017-06-12 bk=1.3860 VDI=40 GEI=35 GUI=JA:1.6
 #  -string -flagsOSRD
-preplace inst AXI_PerfectTranslator_0 -pg 1 -lvl 4 -y 210 -defaultsOSRD
+preplace inst AXI_PerfectTranslator_0 -pg 1 -lvl 3 -y 210 -defaultsOSRD
 preplace inst rst_ps8_0_99M -pg 1 -lvl 1 -y 500 -defaultsOSRD
 preplace inst zynq_ultra_ps_e_0 -pg 1 -lvl 1 -y 270 -defaultsOSRD -resize 580 270
 preplace inst MemorEDF_0 -pg 1 -lvl 2 -y 280 -defaultsOSRD
-preplace inst xlconcat_0 -pg 1 -lvl 4 -y 380 -defaultsOSRD
-preplace inst system_ila_0 -pg 1 -lvl 4 -y -40 -defaultsOSRD
-preplace netloc MemorEDF_0_m00_axi 1 2 2 1140 170 1360
-preplace netloc zynq_ultra_ps_e_0_pl_clk0 1 0 4 10 70 770 120 N 120 1370
-preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM0_FPD 1 1 3 760 -60 NJ -60 NJ
-preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM0_LPD 1 1 1 790
-preplace netloc MemorEDF_0_Q_1_kill_the_core 1 2 2 N 280 1380
-preplace netloc AXI_PerfectTranslator_0_M00_AXI 1 0 5 30J 80 NJ 80 NJ 80 N 80 1870
-preplace netloc MemorEDF_0_Q_0_kill_the_core 1 2 2 N 260 1390
-preplace netloc rst_ps8_0_99M_peripheral_aresetn 1 1 3 780 130 N 130 1390
-preplace netloc MemorEDF_0_Q_3_kill_the_core 1 2 2 N 320 1360
-preplace netloc xlconcat_0_dout 1 0 5 40J 100 NJ 100 NJ 100 N 100 1860
-preplace netloc MemorEDF_0_Q_2_kill_the_core 1 2 2 N 300 1370
-preplace netloc zynq_ultra_ps_e_0_pl_resetn0 1 0 2 20 110 750
-preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM1_FPD 1 1 3 800 -40 NJ -40 NJ
-levelinfo -pg 1 -10 433 983 1340 1720 1920 -top -610 -bot 1380
+preplace inst xlconcat_0 -pg 1 -lvl 3 -y 380 -defaultsOSRD
+preplace inst system_ila_0 -pg 1 -lvl 3 -y -40 -defaultsOSRD
+preplace netloc MemorEDF_0_m00_axi 1 2 1 1340
+preplace netloc zynq_ultra_ps_e_0_pl_clk0 1 0 3 20 100 970 100 1350
+preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM0_FPD 1 1 2 960 -60 NJ
+preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM0_LPD 1 1 1 990
+preplace netloc MemorEDF_0_Q_1_kill_the_core 1 2 1 1360
+preplace netloc AXI_PerfectTranslator_0_M00_AXI 1 0 4 40J 80 NJ 80 NJ 80 1860
+preplace netloc MemorEDF_0_Q_0_kill_the_core 1 2 1 1370
+preplace netloc rst_ps8_0_99M_peripheral_aresetn 1 1 2 980 130 1370
+preplace netloc MemorEDF_0_Q_3_kill_the_core 1 2 1 1340
+preplace netloc xlconcat_0_dout 1 0 4 10J 70 NJ 70 NJ 70 1870
+preplace netloc MemorEDF_0_Q_2_kill_the_core 1 2 1 1350
+preplace netloc zynq_ultra_ps_e_0_pl_resetn0 1 0 2 30 110 950
+preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM1_FPD 1 1 2 1000 -40 NJ
+levelinfo -pg 1 -10 620 1170 1720 1920 -top -610 -bot 1380
 ",
 }
 {
