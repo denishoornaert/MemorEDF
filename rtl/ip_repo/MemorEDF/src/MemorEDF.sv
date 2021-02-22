@@ -301,44 +301,44 @@ module MemorEDF #
     assign scheduling_mode        = buffers[479 : 448]; // TODO go for 32 bit (or REGISTER_SIZE)
     assign counter_reset          = buffers[511 : 480];
     
-    Mapper #(
-        .ID_WIDTH(6),
-        .NUMBER_OF_PORTS(2)
-    )
-    map (
-        .clock(m00_axi_aclk),
-        .reset(!m00_axi_aresetn),
-        //
-        .id_1(s00_axi_awid[10 : 5]),
-        .port_1(0),
-        .valid_1((s00_axi_awready&s00_axi_awvalid)),
-        //
-        .id_2(s00_axi_arid[10 : 5]),
-        .port_2(0),
-        .valid_2((s00_axi_arready&s00_axi_arvalid)),
-        //
-        .id_3(s02_axi_awid[10 : 5]),
-        .port_3(1),
-        .valid_3((s02_axi_awready&s02_axi_awvalid)),
-        //
-        .id_4(s02_axi_arid[10 : 5]),
-        .port_4(1),
-        .valid_4((s02_axi_arready&s02_axi_arvalid)),
-        //
-        .write_look_after(m00_axi_bid[10 : 5]),
-        .write_came_from(write_map_split_came_from),
-        //
-        .read_look_after(m00_axi_rid[10 : 5]),
-        .read_came_from(read_map_split_came_from)
-    );
+//    Mapper #(
+//        .ID_WIDTH(6),
+//        .NUMBER_OF_PORTS(2)
+//    )
+//    map (
+//        .clock(m00_axi_aclk),
+//        .reset(!m00_axi_aresetn),
+//        //
+//        .id_1(s00_axi_awid[10 : 5]),
+//        .port_1(0),
+//        .valid_1((s00_axi_awready&s00_axi_awvalid)),
+//        //
+//        .id_2(s00_axi_arid[10 : 5]),
+//        .port_2(0),
+//        .valid_2((s00_axi_arready&s00_axi_arvalid)),
+//        //
+//        .id_3(s02_axi_awid[10 : 5]),
+//        .port_3(1),
+//        .valid_3((s02_axi_awready&s02_axi_awvalid)),
+//        //
+//        .id_4(s02_axi_arid[10 : 5]),
+//        .port_4(1),
+//        .valid_4((s02_axi_arready&s02_axi_arvalid)),
+//        //
+//        .write_look_after(m00_axi_bid[10 : 5]),
+//        .write_came_from(write_map_split_came_from),
+//        //
+//        .read_look_after(m00_axi_rid[10 : 5]),
+//        .read_came_from(read_map_split_came_from)
+//    );
     
     always @(*)
     begin
-        if((write_map_split_came_from == 0))//if((s00_axi_bready & m00_axi_bvalid) & (write_map_split_came_from == 0))
+        if((m00_axi_bid[C_S00_AXI_ID_WIDTH-1:C_S00_AXI_ID_WIDTH-1] == 0))//if((s00_axi_bready & m00_axi_bvalid) & (write_map_split_came_from == 0))
         begin
             // Propagate to slave port 0
             s00_axi_bvalid <= m00_axi_bvalid;
-            s00_axi_bid <= m00_axi_bid;
+            s00_axi_bid <= {1'b0, m00_axi_bid[C_S00_AXI_ID_WIDTH-2:0]};
             s00_axi_bresp <= m00_axi_bresp;
             // Propagate to slave port 1
             s02_axi_bvalid <= 0;
@@ -347,7 +347,7 @@ module MemorEDF #
             // Repeat signal from adequate input
             m00_axi_bready <= s00_axi_bready;
         end
-        else if((write_map_split_came_from == 1))//else if((s02_axi_bready & m00_axi_bvalid) & (write_map_split_came_from == 1))
+        else if((m00_axi_bid[C_S00_AXI_ID_WIDTH-1:C_S00_AXI_ID_WIDTH-1] == 1))//else if((s02_axi_bready & m00_axi_bvalid) & (write_map_split_came_from == 1))
         begin
             // Propagate to slave port 0
             s00_axi_bvalid <= 0;
@@ -355,7 +355,7 @@ module MemorEDF #
             s00_axi_bresp <= 0;
             // Propagate to slave port 1
             s02_axi_bvalid <= m00_axi_bvalid;
-            s02_axi_bid <= m00_axi_bid;
+            s02_axi_bid <= {1'b0, m00_axi_bid[C_S00_AXI_ID_WIDTH-2:0]};
             s02_axi_bresp <= m00_axi_bresp;
             // Repeat signal from adequate input
             m00_axi_bready <= s02_axi_bready;
@@ -377,11 +377,11 @@ module MemorEDF #
     
     always @(*)
     begin
-        if((read_map_split_came_from == 0))//if((s00_axi_rready & m00_axi_rvalid) & (read_map_split_came_from == 0)) // & m00_axi_rlast
+        if((m00_axi_rid[C_S00_AXI_ID_WIDTH-1:C_S00_AXI_ID_WIDTH-1] == 0))//if((s00_axi_rready & m00_axi_rvalid) & (read_map_split_came_from == 0)) // & m00_axi_rlast
         begin
             // Propagate to slave port 0
             s00_axi_rvalid <= m00_axi_rvalid;
-            s00_axi_rid <= m00_axi_rid;
+            s00_axi_rid <= {1'b0, m00_axi_rid[C_S00_AXI_ID_WIDTH-2:0]};
             s00_axi_rdata <= m00_axi_rdata;
             s00_axi_rresp <= m00_axi_rresp;
             s00_axi_rlast <= m00_axi_rlast;
@@ -394,7 +394,7 @@ module MemorEDF #
             // Repeat signal from adequate input
             m00_axi_rready <= s00_axi_rready;
         end
-        else if((read_map_split_came_from == 1)) //else if((s02_axi_rready & m00_axi_rvalid) & (read_map_split_came_from == 1)) // & m00_axi_rlast
+        else if((m00_axi_rid[C_S00_AXI_ID_WIDTH-1:C_S00_AXI_ID_WIDTH-1] == 1)) //else if((s02_axi_rready & m00_axi_rvalid) & (read_map_split_came_from == 1)) // & m00_axi_rlast
         begin
             // Propagate to slave port 0
             s00_axi_rvalid <= 0;
@@ -404,7 +404,7 @@ module MemorEDF #
             s00_axi_rlast <= 0;
             // Propagate to slave port 1
             s02_axi_rvalid <= m00_axi_rvalid;
-            s02_axi_rid <= m00_axi_rid;
+            s02_axi_rid <= {1'b0, m00_axi_rid[C_S00_AXI_ID_WIDTH-2:0]};
             s02_axi_rdata <= m00_axi_rdata;
             s02_axi_rresp <= m00_axi_rresp;
             s02_axi_rlast <= m00_axi_rlast;
@@ -450,7 +450,8 @@ module MemorEDF #
 		.C_S_AXI_DATA_WIDTH(C_S00_AXI_DATA_WIDTH),
 		.C_S_AXI_ADDR_WIDTH(C_S00_AXI_ADDR_WIDTH),
 		.C_S_AXI_AWUSER_WIDTH(C_S00_AXI_AWUSER_WIDTH),
-		.C_S_AXI_ARUSER_WIDTH(C_S00_AXI_ARUSER_WIDTH)
+		.C_S_AXI_ARUSER_WIDTH(C_S00_AXI_ARUSER_WIDTH),
+		.PACKETIZER_NUMBER(1'b0)
 //		.C_S_AXI_WUSER_WIDTH(C_S00_AXI_WUSER_WIDTH),
 //		.C_S_AXI_RUSER_WIDTH(C_S00_AXI_RUSER_WIDTH),
 //		.C_S_AXI_BUSER_WIDTH(C_S00_AXI_BUSER_WIDTH)
@@ -513,7 +514,8 @@ module MemorEDF #
         .C_S_AXI_DATA_WIDTH(C_S02_AXI_DATA_WIDTH),
         .C_S_AXI_ADDR_WIDTH(C_S02_AXI_ADDR_WIDTH),
         .C_S_AXI_AWUSER_WIDTH(C_S02_AXI_AWUSER_WIDTH),
-        .C_S_AXI_ARUSER_WIDTH(C_S02_AXI_ARUSER_WIDTH)
+        .C_S_AXI_ARUSER_WIDTH(C_S02_AXI_ARUSER_WIDTH),
+        .PACKETIZER_NUMBER(1'b1)
 //        .C_S_AXI_WUSER_WIDTH(C_S02_AXI_WUSER_WIDTH),
 //        .C_S_AXI_RUSER_WIDTH(C_S02_AXI_RUSER_WIDTH),
 //        .C_S_AXI_BUSER_WIDTH(C_S02_AXI_BUSER_WIDTH)
