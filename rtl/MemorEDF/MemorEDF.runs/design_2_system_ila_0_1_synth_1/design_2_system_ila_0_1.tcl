@@ -16,9 +16,11 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
+set_param power.enableLutRouteBelPower 1
+set_param power.enableCarry8RouteBelPower 1
+set_param power.enableUnconnectedCarry8PinPower 1
 set_param xicom.use_bs_reader 1
 set_param tcl.collectionResultDisplayLimit 0
-set_msg_config -id {HDL-1065} -limit 10000
 set_param project.vivado.isBlockSynthRun true
 set_msg_config -msgmgr_mode ooc_run
 create_project -in_memory -part xczu9eg-ffvb1156-2-e
@@ -27,22 +29,22 @@ set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
-set_property webtalk.parent_dir /home/duck/Github/cached_memoredf/rtl/MemorEDF/MemorEDF.cache/wt [current_project]
-set_property parent.project_path /home/duck/Github/cached_memoredf/rtl/MemorEDF/MemorEDF.xpr [current_project]
+set_property webtalk.parent_dir /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.cache/wt [current_project]
+set_property parent.project_path /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.xpr [current_project]
 set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property board_part xilinx.com:zcu102:part0:3.1 [current_project]
-set_property ip_repo_paths /home/duck/Github/cached_memoredf/rtl/ip_repo [current_project]
-set_property ip_output_repo /home/duck/Github/cached_memoredf/rtl/MemorEDF/MemorEDF.cache/ip [current_project]
+set_property ip_repo_paths /home/renato/MemorEDF/MemorEDF/rtl/ip_repo [current_project]
+set_property ip_output_repo /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
-read_ip -quiet /home/duck/Github/cached_memoredf/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_system_ila_0_1/design_2_system_ila_0_1.xci
-set_property used_in_implementation false [get_files -all /home/duck/Github/cached_memoredf/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_system_ila_0_1/design_2_system_ila_0_1_ooc.xdc]
-set_property used_in_synthesis false [get_files -all /home/duck/Github/cached_memoredf/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_system_ila_0_1/bd_0/ip/ip_0/ila_v6_2/constraints/ila_impl.xdc]
-set_property used_in_implementation false [get_files -all /home/duck/Github/cached_memoredf/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_system_ila_0_1/bd_0/ip/ip_0/ila_v6_2/constraints/ila_impl.xdc]
-set_property used_in_implementation false [get_files -all /home/duck/Github/cached_memoredf/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_system_ila_0_1/bd_0/ip/ip_0/ila_v6_2/constraints/ila.xdc]
-set_property used_in_implementation false [get_files -all /home/duck/Github/cached_memoredf/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_system_ila_0_1/bd_0/ip/ip_0/bd_c78d_ila_lib_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/duck/Github/cached_memoredf/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_system_ila_0_1/bd_0/bd_c78d_ooc.xdc]
+read_ip -quiet /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_system_ila_0_1/design_2_system_ila_0_1.xci
+set_property used_in_implementation false [get_files -all /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_system_ila_0_1/design_2_system_ila_0_1_ooc.xdc]
+set_property used_in_synthesis false [get_files -all /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_system_ila_0_1/bd_0/ip/ip_0/ila_v6_2/constraints/ila_impl.xdc]
+set_property used_in_implementation false [get_files -all /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_system_ila_0_1/bd_0/ip/ip_0/ila_v6_2/constraints/ila_impl.xdc]
+set_property used_in_implementation false [get_files -all /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_system_ila_0_1/bd_0/ip/ip_0/ila_v6_2/constraints/ila.xdc]
+set_property used_in_implementation false [get_files -all /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_system_ila_0_1/bd_0/ip/ip_0/bd_c78d_ila_lib_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_system_ila_0_1/bd_0/bd_c78d_ooc.xdc]
 
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -55,7 +57,7 @@ foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
 read_xdc dont_touch.xdc
 set_property used_in_implementation false [get_files dont_touch.xdc]
 
-set cached_ip [config_ip_cache -export -no_bom -use_project_ipc -dir /home/duck/Github/cached_memoredf/rtl/MemorEDF/MemorEDF.runs/design_2_system_ila_0_1_synth_1 -new_name design_2_system_ila_0_1 -ip [get_ips design_2_system_ila_0_1]]
+set cached_ip [config_ip_cache -export -no_bom -use_project_ipc -dir /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.runs/design_2_system_ila_0_1_synth_1 -new_name design_2_system_ila_0_1 -ip [get_ips design_2_system_ila_0_1]]
 
 if { $cached_ip eq {} } {
 
@@ -94,32 +96,32 @@ write_checkpoint -force -noxdef design_2_system_ila_0_1.dcp
 create_report "design_2_system_ila_0_1_synth_1_synth_report_utilization_0" "report_utilization -file design_2_system_ila_0_1_utilization_synth.rpt -pb design_2_system_ila_0_1_utilization_synth.pb"
 
 if { [catch {
-  file copy -force /home/duck/Github/cached_memoredf/rtl/MemorEDF/MemorEDF.runs/design_2_system_ila_0_1_synth_1/design_2_system_ila_0_1.dcp /home/duck/Github/cached_memoredf/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_system_ila_0_1/design_2_system_ila_0_1.dcp
+  file copy -force /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.runs/design_2_system_ila_0_1_synth_1/design_2_system_ila_0_1.dcp /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_system_ila_0_1/design_2_system_ila_0_1.dcp
 } _RESULT ] } { 
   send_msg_id runtcl-3 error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
   error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
 }
 
 if { [catch {
-  write_verilog -force -mode synth_stub /home/duck/Github/cached_memoredf/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_system_ila_0_1/design_2_system_ila_0_1_stub.v
+  write_verilog -force -mode synth_stub /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_system_ila_0_1/design_2_system_ila_0_1_stub.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a Verilog synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_vhdl -force -mode synth_stub /home/duck/Github/cached_memoredf/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_system_ila_0_1/design_2_system_ila_0_1_stub.vhdl
+  write_vhdl -force -mode synth_stub /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_system_ila_0_1/design_2_system_ila_0_1_stub.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a VHDL synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_verilog -force -mode funcsim /home/duck/Github/cached_memoredf/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_system_ila_0_1/design_2_system_ila_0_1_sim_netlist.v
+  write_verilog -force -mode funcsim /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_system_ila_0_1/design_2_system_ila_0_1_sim_netlist.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the Verilog functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_vhdl -force -mode funcsim /home/duck/Github/cached_memoredf/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_system_ila_0_1/design_2_system_ila_0_1_sim_netlist.vhdl
+  write_vhdl -force -mode funcsim /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_system_ila_0_1/design_2_system_ila_0_1_sim_netlist.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the VHDL functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
@@ -129,46 +131,46 @@ if { [catch {
 
 
 if { [catch {
-  file copy -force /home/duck/Github/cached_memoredf/rtl/MemorEDF/MemorEDF.runs/design_2_system_ila_0_1_synth_1/design_2_system_ila_0_1.dcp /home/duck/Github/cached_memoredf/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_system_ila_0_1/design_2_system_ila_0_1.dcp
+  file copy -force /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.runs/design_2_system_ila_0_1_synth_1/design_2_system_ila_0_1.dcp /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_system_ila_0_1/design_2_system_ila_0_1.dcp
 } _RESULT ] } { 
   send_msg_id runtcl-3 error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
   error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
 }
 
 if { [catch {
-  file rename -force /home/duck/Github/cached_memoredf/rtl/MemorEDF/MemorEDF.runs/design_2_system_ila_0_1_synth_1/design_2_system_ila_0_1_stub.v /home/duck/Github/cached_memoredf/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_system_ila_0_1/design_2_system_ila_0_1_stub.v
+  file rename -force /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.runs/design_2_system_ila_0_1_synth_1/design_2_system_ila_0_1_stub.v /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_system_ila_0_1/design_2_system_ila_0_1_stub.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a Verilog synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  file rename -force /home/duck/Github/cached_memoredf/rtl/MemorEDF/MemorEDF.runs/design_2_system_ila_0_1_synth_1/design_2_system_ila_0_1_stub.vhdl /home/duck/Github/cached_memoredf/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_system_ila_0_1/design_2_system_ila_0_1_stub.vhdl
+  file rename -force /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.runs/design_2_system_ila_0_1_synth_1/design_2_system_ila_0_1_stub.vhdl /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_system_ila_0_1/design_2_system_ila_0_1_stub.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a VHDL synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  file rename -force /home/duck/Github/cached_memoredf/rtl/MemorEDF/MemorEDF.runs/design_2_system_ila_0_1_synth_1/design_2_system_ila_0_1_sim_netlist.v /home/duck/Github/cached_memoredf/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_system_ila_0_1/design_2_system_ila_0_1_sim_netlist.v
+  file rename -force /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.runs/design_2_system_ila_0_1_synth_1/design_2_system_ila_0_1_sim_netlist.v /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_system_ila_0_1/design_2_system_ila_0_1_sim_netlist.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the Verilog functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
 
 if { [catch {
-  file rename -force /home/duck/Github/cached_memoredf/rtl/MemorEDF/MemorEDF.runs/design_2_system_ila_0_1_synth_1/design_2_system_ila_0_1_sim_netlist.vhdl /home/duck/Github/cached_memoredf/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_system_ila_0_1/design_2_system_ila_0_1_sim_netlist.vhdl
+  file rename -force /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.runs/design_2_system_ila_0_1_synth_1/design_2_system_ila_0_1_sim_netlist.vhdl /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_system_ila_0_1/design_2_system_ila_0_1_sim_netlist.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the VHDL functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
 
 }; # end if cached_ip 
 
-if {[file isdir /home/duck/Github/cached_memoredf/rtl/MemorEDF/MemorEDF.ip_user_files/ip/design_2_system_ila_0_1]} {
+if {[file isdir /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.ip_user_files/ip/design_2_system_ila_0_1]} {
   catch { 
-    file copy -force /home/duck/Github/cached_memoredf/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_system_ila_0_1/design_2_system_ila_0_1_stub.v /home/duck/Github/cached_memoredf/rtl/MemorEDF/MemorEDF.ip_user_files/ip/design_2_system_ila_0_1
+    file copy -force /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_system_ila_0_1/design_2_system_ila_0_1_stub.v /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.ip_user_files/ip/design_2_system_ila_0_1
   }
 }
 
-if {[file isdir /home/duck/Github/cached_memoredf/rtl/MemorEDF/MemorEDF.ip_user_files/ip/design_2_system_ila_0_1]} {
+if {[file isdir /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.ip_user_files/ip/design_2_system_ila_0_1]} {
   catch { 
-    file copy -force /home/duck/Github/cached_memoredf/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_system_ila_0_1/design_2_system_ila_0_1_stub.vhdl /home/duck/Github/cached_memoredf/rtl/MemorEDF/MemorEDF.ip_user_files/ip/design_2_system_ila_0_1
+    file copy -force /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_system_ila_0_1/design_2_system_ila_0_1_stub.vhdl /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.ip_user_files/ip/design_2_system_ila_0_1
   }
 }
