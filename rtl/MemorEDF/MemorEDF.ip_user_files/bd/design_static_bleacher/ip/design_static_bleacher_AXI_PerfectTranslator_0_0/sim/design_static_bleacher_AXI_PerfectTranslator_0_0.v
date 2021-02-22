@@ -64,6 +64,7 @@ module design_static_bleacher_AXI_PerfectTranslator_0_0 (
   s00_axi_awprot,
   s00_axi_awregion,
   s00_axi_awqos,
+  s00_axi_awuser,
   s00_axi_awvalid,
   s00_axi_awready,
   s00_axi_wdata,
@@ -85,6 +86,7 @@ module design_static_bleacher_AXI_PerfectTranslator_0_0 (
   s00_axi_arprot,
   s00_axi_arregion,
   s00_axi_arqos,
+  s00_axi_aruser,
   s00_axi_arvalid,
   s00_axi_arready,
   s00_axi_rid,
@@ -158,6 +160,8 @@ input wire [2 : 0] s00_axi_awprot;
 input wire [3 : 0] s00_axi_awregion;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S00_AXI AWQOS" *)
 input wire [3 : 0] s00_axi_awqos;
+(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S00_AXI AWUSER" *)
+input wire [0 : 0] s00_axi_awuser;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S00_AXI AWVALID" *)
 input wire s00_axi_awvalid;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S00_AXI AWREADY" *)
@@ -200,6 +204,8 @@ input wire [2 : 0] s00_axi_arprot;
 input wire [3 : 0] s00_axi_arregion;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S00_AXI ARQOS" *)
 input wire [3 : 0] s00_axi_arqos;
+(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S00_AXI ARUSER" *)
+input wire [0 : 0] s00_axi_aruser;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S00_AXI ARVALID" *)
 input wire s00_axi_arvalid;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S00_AXI ARREADY" *)
@@ -214,7 +220,7 @@ output wire [1 : 0] s00_axi_rresp;
 output wire s00_axi_rlast;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S00_AXI RVALID" *)
 output wire s00_axi_rvalid;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S00_AXI, WIZ_DATA_WIDTH 32, WIZ_MEMORY_SIZE 64, SUPPORTS_NARROW_BURST 0, DATA_WIDTH 128, PROTOCOL AXI4, FREQ_HZ 100000000, ID_WIDTH 16, ADDR_WIDTH 40, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 1, HAS_LOCK 1, HAS_PROT 1, HAS_CACHE 1, HAS_QOS 1, HAS_REGION 1, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, NUM_READ_OUTSTANDING 2, NUM_WRITE_OUTSTANDING 2, MAX_BURST_LENGTH 256, PHASE 0.000, CLK_DOMAIN design_static_bleacher_aclk_0, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S00_AXI, WIZ_DATA_WIDTH 32, WIZ_MEMORY_SIZE 64, SUPPORTS_NARROW_BURST 0, DATA_WIDTH 128, PROTOCOL AXI4, FREQ_HZ 100000000, ID_WIDTH 16, ADDR_WIDTH 40, AWUSER_WIDTH 1, ARUSER_WIDTH 1, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 1, HAS_LOCK 1, HAS_PROT 1, HAS_CACHE 1, HAS_QOS 1, HAS_REGION 1, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, NUM_READ_OUTSTANDING 8, NUM_WRITE_OUTSTANDING 8, MAX_BURST_LENGTH 256, PHASE 0.000, CLK_DOMAIN design_static_bleacher_aclk_0, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S00_AXI RREADY" *)
 input wire s00_axi_rready;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S00_AXI_CLK, ASSOCIATED_BUSIF S00_AXI, ASSOCIATED_RESET s00_axi_aresetn, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_static_bleacher_aclk_0" *)
@@ -313,8 +319,8 @@ input wire m00_axi_aresetn;
     .C_S00_AXI_ID_WIDTH(16),  // Width of ID for for write address, write data, read address and read data
     .C_S00_AXI_DATA_WIDTH(128),  // Width of S_AXI data bus
     .C_S00_AXI_ADDR_WIDTH(40),  // Width of S_AXI address bus
-    .C_S00_AXI_AWUSER_WIDTH(0),  // Width of optional user defined signal in write address channel
-    .C_S00_AXI_ARUSER_WIDTH(0),  // Width of optional user defined signal in read address channel
+    .C_S00_AXI_AWUSER_WIDTH(1),  // Width of optional user defined signal in write address channel
+    .C_S00_AXI_ARUSER_WIDTH(1),  // Width of optional user defined signal in read address channel
     .C_S00_AXI_WUSER_WIDTH(0),  // Width of optional user defined signal in write data channel
     .C_S00_AXI_RUSER_WIDTH(0),  // Width of optional user defined signal in read data channel
     .C_S00_AXI_BUSER_WIDTH(0),  // Width of optional user defined signal in write response channel
@@ -339,7 +345,7 @@ input wire m00_axi_aresetn;
     .s00_axi_awprot(s00_axi_awprot),
     .s00_axi_awregion(s00_axi_awregion),
     .s00_axi_awqos(s00_axi_awqos),
-    .s00_axi_awuser(1'B0),
+    .s00_axi_awuser(s00_axi_awuser),
     .s00_axi_awvalid(s00_axi_awvalid),
     .s00_axi_awready(s00_axi_awready),
     .s00_axi_wdata(s00_axi_wdata),
@@ -361,7 +367,7 @@ input wire m00_axi_aresetn;
     .s00_axi_arprot(s00_axi_arprot),
     .s00_axi_arregion(s00_axi_arregion),
     .s00_axi_arqos(s00_axi_arqos),
-    .s00_axi_aruser(1'B0),
+    .s00_axi_aruser(s00_axi_aruser),
     .s00_axi_arvalid(s00_axi_arvalid),
     .s00_axi_arready(s00_axi_arready),
     .s00_axi_rid(s00_axi_rid),

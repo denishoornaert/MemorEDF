@@ -120,7 +120,6 @@ module porttoportmapping_v1_0 #
             input wire     [C_M00_AXI_DATA_WIDTH-1 : 0] m00_axi_rdata,
             input wire                [1 : 0] m00_axi_rresp,
             input wire                        m00_axi_rlast,
-//            input wire    [C_M00_AXI_RUSER_WIDTH-1 : 0] m00_axi_ruser,
             input wire                        m00_axi_rvalid,
             output wire                       m00_axi_rready
         );
@@ -131,7 +130,7 @@ module porttoportmapping_v1_0 #
         wire                                            [39 : 0] write_new_msb;
         
         wire                                             [3 : 0] read_isolated_bank;
-        wire                                            [39 : 0] read_removed_msb;
+        wire                                            [31 : 0] read_removed_msb;
         wire                                            [31 : 0] read_dropped_address;
         wire                                            [39 : 0] read_new_msb;
         
@@ -150,20 +149,16 @@ module porttoportmapping_v1_0 #
         assign s00_axi_wready  = m00_axi_wready;
         assign s00_axi_bid     = m00_axi_bid;
         assign s00_axi_bresp   = m00_axi_bresp;
-//        assign s00_axi_buser   = m00_axi_buser;
         assign s00_axi_bvalid  = m00_axi_bvalid;
         assign s00_axi_arready = m00_axi_arready;
         assign s00_axi_rid     = m00_axi_rid;
         assign s00_axi_rdata   = m00_axi_rdata;
         assign s00_axi_rresp   = m00_axi_rresp;
         assign s00_axi_rlast   = m00_axi_rlast;
-//        assign s00_axi_ruser   = m00_axi_ruser;
         assign s00_axi_rvalid  = m00_axi_rvalid;
     
         // Drive signals from the slave port to the master port
         assign m00_axi_awid    = s00_axi_awid;
-        //assign m00_axi_awaddr  = {s00_axi_awaddr[22:16], s00_axi_awaddr[13:0]};
-        //assign m00_axi_awaddr  = C_M00_AXI_TARGET_SLAVE_BASE_ADDR | {zeros, s00_axi_awaddr[27 : COLOR_BITS_UPPER_BOUND+1], s00_axi_awaddr[COLOR_BITS_LOWER_BOUND-1 : 0]};
         assign m00_axi_awaddr  = write_new_msb;
         assign m00_axi_awlen   = s00_axi_awlen;
         assign m00_axi_awsize  = s00_axi_awsize;
@@ -177,13 +172,9 @@ module porttoportmapping_v1_0 #
         assign m00_axi_wdata   = s00_axi_wdata;
         assign m00_axi_wstrb   = s00_axi_wstrb;
         assign m00_axi_wlast   = s00_axi_wlast;
-//        assign m00_axi_wuser   = s00_axi_wuser;
         assign m00_axi_wvalid  = s00_axi_wvalid;
         assign m00_axi_bready  = s00_axi_bready;
         assign m00_axi_arid    = s00_axi_arid;
-        //assign m00_axi_araddr  = {s00_axi_araddr[22:16], s00_axi_araddr[13:0]};
-        //assign m00_axi_araddr  = C_M00_AXI_TARGET_SLAVE_BASE_ADDR | {8'h00, zeros, s00_axi_araddr[C_M00_AXI_ADDR_WIDTH-9 : COLOR_BITS_UPPER_BOUND+1], s00_axi_araddr[COLOR_BITS_LOWER_BOUND-1 : 0]};
-        //assign m00_axi_araddr  = C_M00_AXI_TARGET_SLAVE_BASE_ADDR | {zeros, s00_axi_araddr[27 : COLOR_BITS_UPPER_BOUND+1], s00_axi_araddr[COLOR_BITS_LOWER_BOUND-1 : 0]};
         assign m00_axi_araddr  = read_new_msb;
         assign m00_axi_arlen   = s00_axi_arlen;
         assign m00_axi_arsize  = s00_axi_arsize;

@@ -1,6 +1,6 @@
 
 *** Running vivado
-    with args -log design_3_wrapper.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source design_3_wrapper.tcl -notrace
+    with args -log design_4_wrapper.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source design_4_wrapper.tcl -notrace
 
 
 ****** Vivado v2017.4 (64-bit)
@@ -8,34 +8,471 @@
   **** IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
     ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 
-source design_3_wrapper.tcl -notrace
-Command: open_checkpoint /home/ro0zkhosh/SchIM/MemorEDF/rtl/MemorEDF/MemorEDF.runs/impl_1/design_3_wrapper.dcp
-
-Starting open_checkpoint Task
-
-Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.05 . Memory (MB): peak = 1165.848 ; gain = 0.000 ; free physical = 71571 ; free virtual = 83677
-INFO: [Netlist 29-17] Analyzing 1152 Unisim elements for replacement
+source design_4_wrapper.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/renato/MemorEDF/MemorEDF/rtl/ip_repo'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/renato/Xilinx/Vivado/2017.4/data/ip'.
+add_files: Time (s): cpu = 00:00:16 ; elapsed = 00:00:26 . Memory (MB): peak = 1528.918 ; gain = 347.961 ; free physical = 3587 ; free virtual = 21605
+Command: link_design -top design_4_wrapper -part xczu9eg-ffvb1156-2-e
+Design is defaulting to srcset: sources_1
+Design is defaulting to constrset: constrs_1
+INFO: [Project 1-454] Reading design checkpoint '/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_4/ip/design_4_porttoportmapping_v1_0_0_0/design_4_porttoportmapping_v1_0_0_0.dcp' for cell 'design_4_i/porttoportmapping_v1_0_0'
+INFO: [Project 1-454] Reading design checkpoint '/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_4/ip/design_4_rst_ps8_0_99M_0/design_4_rst_ps8_0_99M_0.dcp' for cell 'design_4_i/rst_ps8_0_99M'
+INFO: [Project 1-454] Reading design checkpoint '/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_4/ip/design_4_smartconnect_0_0/design_4_smartconnect_0_0.dcp' for cell 'design_4_i/smartconnect_0'
+INFO: [Project 1-454] Reading design checkpoint '/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_4/ip/design_4_system_ila_0_1/design_4_system_ila_0_1.dcp' for cell 'design_4_i/system_ila_0'
+INFO: [Project 1-454] Reading design checkpoint '/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_4/ip/design_4_zynq_ultra_ps_e_0_0/design_4_zynq_ultra_ps_e_0_0.dcp' for cell 'design_4_i/zynq_ultra_ps_e_0'
+INFO: [Netlist 29-17] Analyzing 1808 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-479] Netlist was created with Vivado 2017.4
 INFO: [Device 21-403] Loading part xczu9eg-ffvb1156-2-e
 INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Chipscope 16-324] Core: design_4_i/system_ila_0/inst/ila_lib UUID: d4b0254b-54a0-5fb4-b316-fef042b072e2 
 INFO: [Timing 38-35] Done setting XDC timing constraints.
-Parsing XDC File [/home/ro0zkhosh/SchIM/MemorEDF/rtl/MemorEDF/MemorEDF.runs/impl_1/.Xil/Vivado-49457-Tower/dcp1/design_3_wrapper_board.xdc]
-Finished Parsing XDC File [/home/ro0zkhosh/SchIM/MemorEDF/rtl/MemorEDF/MemorEDF.runs/impl_1/.Xil/Vivado-49457-Tower/dcp1/design_3_wrapper_board.xdc]
-Parsing XDC File [/home/ro0zkhosh/SchIM/MemorEDF/rtl/MemorEDF/MemorEDF.runs/impl_1/.Xil/Vivado-49457-Tower/dcp1/design_3_wrapper_early.xdc]
-Finished Parsing XDC File [/home/ro0zkhosh/SchIM/MemorEDF/rtl/MemorEDF/MemorEDF.runs/impl_1/.Xil/Vivado-49457-Tower/dcp1/design_3_wrapper_early.xdc]
-Parsing XDC File [/home/ro0zkhosh/SchIM/MemorEDF/rtl/MemorEDF/MemorEDF.runs/impl_1/.Xil/Vivado-49457-Tower/dcp1/design_3_wrapper.xdc]
-Finished Parsing XDC File [/home/ro0zkhosh/SchIM/MemorEDF/rtl/MemorEDF/MemorEDF.runs/impl_1/.Xil/Vivado-49457-Tower/dcp1/design_3_wrapper.xdc]
+Parsing XDC File [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_4/ip/design_4_zynq_ultra_ps_e_0_0/design_4_zynq_ultra_ps_e_0_0.xdc] for cell 'design_4_i/zynq_ultra_ps_e_0/inst'
+Finished Parsing XDC File [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_4/ip/design_4_zynq_ultra_ps_e_0_0/design_4_zynq_ultra_ps_e_0_0.xdc] for cell 'design_4_i/zynq_ultra_ps_e_0/inst'
+Parsing XDC File [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_4/ip/design_4_rst_ps8_0_99M_0/design_4_rst_ps8_0_99M_0_board.xdc] for cell 'design_4_i/rst_ps8_0_99M/U0'
+Finished Parsing XDC File [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_4/ip/design_4_rst_ps8_0_99M_0/design_4_rst_ps8_0_99M_0_board.xdc] for cell 'design_4_i/rst_ps8_0_99M/U0'
+Parsing XDC File [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_4/ip/design_4_rst_ps8_0_99M_0/design_4_rst_ps8_0_99M_0.xdc] for cell 'design_4_i/rst_ps8_0_99M/U0'
+Finished Parsing XDC File [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_4/ip/design_4_rst_ps8_0_99M_0/design_4_rst_ps8_0_99M_0.xdc] for cell 'design_4_i/rst_ps8_0_99M/U0'
+Parsing XDC File [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_4/ip/design_4_system_ila_0_1/bd_0/ip/ip_0/ila_v6_2/constraints/ila_impl.xdc] for cell 'design_4_i/system_ila_0/inst/ila_lib/inst'
+Finished Parsing XDC File [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_4/ip/design_4_system_ila_0_1/bd_0/ip/ip_0/ila_v6_2/constraints/ila_impl.xdc] for cell 'design_4_i/system_ila_0/inst/ila_lib/inst'
+Parsing XDC File [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_4/ip/design_4_system_ila_0_1/bd_0/ip/ip_0/ila_v6_2/constraints/ila.xdc] for cell 'design_4_i/system_ila_0/inst/ila_lib/inst'
+Finished Parsing XDC File [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_4/ip/design_4_system_ila_0_1/bd_0/ip/ip_0/ila_v6_2/constraints/ila.xdc] for cell 'design_4_i/system_ila_0/inst/ila_lib/inst'
+Parsing XDC File [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_4/ip/design_4_smartconnect_0_0/bd_0/ip/ip_1/bd_85bc_psr_aclk_0_board.xdc] for cell 'design_4_i/smartconnect_0/inst/clk_map/psr_aclk/U0'
+Finished Parsing XDC File [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_4/ip/design_4_smartconnect_0_0/bd_0/ip/ip_1/bd_85bc_psr_aclk_0_board.xdc] for cell 'design_4_i/smartconnect_0/inst/clk_map/psr_aclk/U0'
+Parsing XDC File [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_4/ip/design_4_smartconnect_0_0/bd_0/ip/ip_1/bd_85bc_psr_aclk_0.xdc] for cell 'design_4_i/smartconnect_0/inst/clk_map/psr_aclk/U0'
+Finished Parsing XDC File [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_4/ip/design_4_smartconnect_0_0/bd_0/ip/ip_1/bd_85bc_psr_aclk_0.xdc] for cell 'design_4_i/smartconnect_0/inst/clk_map/psr_aclk/U0'
+Parsing XDC File [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/genblk1[3].queue/counter_reg__0[0]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:10]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/genblk1[3].queue/counter_reg__0[1]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:10]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/genblk1[3].queue/counter_reg__0[2]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:10]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/genblk1[3].queue/counter_reg__0[3]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:10]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:10]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/genblk1[2].queue/counter_reg__0[0]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:11]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/genblk1[2].queue/counter_reg__0[1]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:11]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/genblk1[2].queue/counter_reg__0[2]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:11]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/genblk1[2].queue/counter_reg__0[3]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:11]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:11]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/genblk1[1].queue/counter_reg__0__0[0]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:12]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/genblk1[1].queue/counter_reg__0__0[1]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:12]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/genblk1[1].queue/counter_reg__0__0[2]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:12]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/genblk1[1].queue/counter_reg__0__0[3]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:12]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:12]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[2]_12[0]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:13]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[2]_12[1]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:13]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[2]_12[2]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:13]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[2]_12[3]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:13]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[2]_12[4]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:13]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[2]_12[5]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:13]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[2]_12[6]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:13]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[2]_12[7]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:13]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[2]_12[8]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:13]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[2]_12[9]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:13]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[2]_12[10]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:13]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[2]_12[11]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:13]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[2]_12[12]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:13]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[2]_12[13]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:13]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[2]_12[14]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:13]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[2]_12[15]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:13]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[2]_12[16]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:13]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[2]_12[17]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:13]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[2]_12[18]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:13]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[2]_12[19]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:13]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[2]_12[20]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:13]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[2]_12[21]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:13]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[2]_12[22]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:13]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[2]_12[23]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:13]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[2]_12[24]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:13]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[2]_12[25]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:13]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[2]_12[26]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:13]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[2]_12[27]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:13]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[2]_12[28]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:13]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[2]_12[29]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:13]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[2]_12[30]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:13]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[2]_12[31]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:13]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:13]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[1]_13[0]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:14]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[1]_13[1]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:14]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[1]_13[2]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:14]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[1]_13[3]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:14]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[1]_13[4]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:14]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[1]_13[5]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:14]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[1]_13[6]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:14]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[1]_13[7]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:14]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[1]_13[8]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:14]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[1]_13[9]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:14]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[1]_13[10]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:14]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[1]_13[11]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:14]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[1]_13[12]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:14]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[1]_13[13]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:14]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[1]_13[14]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:14]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[1]_13[15]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:14]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[1]_13[16]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:14]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[1]_13[17]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:14]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[1]_13[18]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:14]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[1]_13[19]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:14]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[1]_13[20]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:14]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[1]_13[21]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:14]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[1]_13[22]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:14]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[1]_13[23]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:14]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[1]_13[24]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:14]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[1]_13[25]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:14]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[1]_13[26]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:14]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[1]_13[27]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:14]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[1]_13[28]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:14]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[1]_13[29]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:14]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[1]_13[30]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:14]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[1]_13[31]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:14]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:14]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[0]_14[0]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:15]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[0]_14[1]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:15]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[0]_14[2]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:15]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[0]_14[3]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:15]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[0]_14[4]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:15]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[0]_14[5]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:15]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[0]_14[6]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:15]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[0]_14[7]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:15]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[0]_14[8]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:15]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[0]_14[9]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:15]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[0]_14[10]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:15]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[0]_14[11]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:15]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[0]_14[12]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:15]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[0]_14[13]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:15]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[0]_14[14]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:15]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[0]_14[15]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:15]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[0]_14[16]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:15]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[0]_14[17]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:15]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[0]_14[18]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:15]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[0]_14[19]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:15]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[0]_14[20]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:15]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[0]_14[21]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:15]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[0]_14[22]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:15]
+WARNING: [Vivado 12-507] No nets matched 'design_2_i/MemorEDF_0/inst/nonaxidomain/scheduler/tdma/delta_reg[0]_14[23]'. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:15]
+INFO: [Common 17-14] Message 'Vivado 12-507' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:15]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:15]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:16]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:20]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:21]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:22]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:23]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:27]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:28]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:29]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:30]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:31]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:32]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:33]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:34]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:35]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:36]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:37]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:38]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:39]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:40]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:41]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:42]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:43]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:44]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:45]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:46]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:47]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:48]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:49]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:50]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:51]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:52]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:53]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:54]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:55]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:56]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:57]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:58]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:59]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:60]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:61]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:62]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:63]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:64]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:65]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:66]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:67]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:68]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:69]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:70]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:71]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:72]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:73]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:74]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:75]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:76]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:77]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:78]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:79]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:80]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:81]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:82]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:83]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:84]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:85]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:86]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:87]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:88]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:89]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:90]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:91]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:92]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:93]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:94]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:95]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:96]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:97]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:98]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:99]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:100]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:101]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:102]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:103]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:104]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:105]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:106]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:107]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:108]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:109]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:110]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:111]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:112]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:113]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:114]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:115]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:116]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:117]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:118]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:119]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:120]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:121]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:122]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+INFO: [Common 17-14] Message 'Common 17-55' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:122]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:453]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:454]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:460]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:472]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:473]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:474]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:477]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:478]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:479]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:480]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:481]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:482]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:483]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:484]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:485]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:486]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:487]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:488]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:489]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:490]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:491]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:492]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:493]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:494]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:495]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:496]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:497]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:498]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:499]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:500]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:501]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:502]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:503]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:504]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:505]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:506]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:507]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:508]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:509]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:510]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:511]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:512]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:513]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:517]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:518]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:519]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:520]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:527]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:531]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:536]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:540]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:541]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:542]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:543]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:544]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:545]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:546]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:547]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:548]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:549]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:550]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:551]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:552]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:553]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:554]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:555]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:556]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:557]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:558]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:559]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:560]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:561]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:562]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:563]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:564]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:565]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:566]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:567]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:568]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:569]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:570]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:571]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:572]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:573]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:574]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:575]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:576]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:577]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:578]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:579]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:580]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:581]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:582]
+INFO: [Common 17-14] Message 'Vivado 12-1419' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc:582]
+Finished Parsing XDC File [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/constrs_1/new/design_2_wrapper.xdc]
+INFO: [Project 1-538] Using original IP XDC constraints instead of the XDC constraints in dcp '/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_4/ip/design_4_smartconnect_0_0/design_4_smartconnect_0_0.dcp'
+Sourcing Tcl File [/home/renato/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_memory/tcl/xpm_memory_xdc.tcl] for cell 'design_4_i/smartconnect_0/inst/s00_nodes/s00_ar_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory'
+Finished Sourcing Tcl File [/home/renato/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_memory/tcl/xpm_memory_xdc.tcl] for cell 'design_4_i/smartconnect_0/inst/s00_nodes/s00_ar_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory'
+Sourcing Tcl File [/home/renato/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_memory/tcl/xpm_memory_xdc.tcl] for cell 'design_4_i/smartconnect_0/inst/s00_nodes/s00_aw_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory'
+Finished Sourcing Tcl File [/home/renato/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_memory/tcl/xpm_memory_xdc.tcl] for cell 'design_4_i/smartconnect_0/inst/s00_nodes/s00_aw_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory'
+Sourcing Tcl File [/home/renato/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_memory/tcl/xpm_memory_xdc.tcl] for cell 'design_4_i/smartconnect_0/inst/s00_nodes/s00_b_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory'
+Finished Sourcing Tcl File [/home/renato/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_memory/tcl/xpm_memory_xdc.tcl] for cell 'design_4_i/smartconnect_0/inst/s00_nodes/s00_b_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory'
+Sourcing Tcl File [/home/renato/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_memory/tcl/xpm_memory_xdc.tcl] for cell 'design_4_i/smartconnect_0/inst/s00_nodes/s00_r_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory'
+Finished Sourcing Tcl File [/home/renato/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_memory/tcl/xpm_memory_xdc.tcl] for cell 'design_4_i/smartconnect_0/inst/s00_nodes/s00_r_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory'
+Sourcing Tcl File [/home/renato/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_memory/tcl/xpm_memory_xdc.tcl] for cell 'design_4_i/smartconnect_0/inst/s00_nodes/s00_w_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory'
+Finished Sourcing Tcl File [/home/renato/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_memory/tcl/xpm_memory_xdc.tcl] for cell 'design_4_i/smartconnect_0/inst/s00_nodes/s00_w_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory'
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 700 instances were transformed.
-  CFGLUT5 => CFGLUT5 (SRLC32E, SRL16E): 700 instances
+  A total of 1067 instances were transformed.
+  CFGLUT5 => CFGLUT5 (SRLC32E, SRL16E): 1016 instances
+  RAM32M16 => RAM32M16 (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 51 instances
 
-INFO: [Project 1-604] Checkpoint was created with Vivado v2017.4 (64-bit) build 2086221
-open_checkpoint: Time (s): cpu = 00:00:26 ; elapsed = 00:00:36 . Memory (MB): peak = 2617.078 ; gain = 1451.230 ; free physical = 70285 ; free virtual = 82391
+21 Infos, 100 Warnings, 200 Critical Warnings and 0 Errors encountered.
+link_design completed successfully
+link_design: Time (s): cpu = 00:00:43 ; elapsed = 00:00:52 . Memory (MB): peak = 2871.773 ; gain = 1342.855 ; free physical = 2302 ; free virtual = 20322
+INFO: [Common 17-600] The following parameters have non-default value.
+tcl.collectionResultDisplayLimit
 Command: opt_design
 Attempting to get a license for feature 'Implementation' and/or device 'xczu9eg'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xczu9eg'
-INFO: [Common 17-1540] The version limit for your license is '2019.11' and has expired for new software. A version limit expiration means that, although you may be able to continue to use the current version of tools or IP with this license, you will not be eligible for any updates or new releases.
+INFO: [Common 17-1540] The version limit for your license is '2018.09' and has expired for new software. A version limit expiration means that, although you may be able to continue to use the current version of tools or IP with this license, you will not be eligible for any updates or new releases.
 Running DRC as a precondition to command opt_design
 
 Starting DRC Task
@@ -43,129 +480,145 @@ INFO: [DRC 23-27] Running DRC with 8 threads
 INFO: [Project 1-461] DRC finished with 0 Errors
 INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
 
-Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 2689.113 ; gain = 64.031 ; free physical = 70275 ; free virtual = 82381
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 2943.805 ; gain = 64.031 ; free physical = 2287 ; free virtual = 20313
+INFO: [Timing 38-35] Done setting XDC timing constraints.
 
 Starting Logic Optimization Task
 
 Phase 1 Generate And Synthesize Debug Cores
 INFO: [Chipscope 16-318] Generating core instance : dbg_hub
-INFO: [IP_Flow 19-234] Refreshing IP repositories
-INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/ro0zkhosh/SchIM/MemorEDF/rtl/ip_repo'.
-INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/ro0zkhosh/Xilinx/Vivado/2017.4/data/ip'.
 INFO: [IP_Flow 19-3806] Processing IP xilinx.com:ip:xsdbm:3.0 for cell dbg_hub_CV.
-INFO: [Netlist 29-17] Analyzing 460 Unisim elements for replacement
+INFO: [Chipscope 16-220] Re-using generated and synthesized IP, "xilinx.com:ip:xsdbm:3.0", from Vivado IP cache entry "0c24d4159061d84e".
+INFO: [Netlist 29-17] Analyzing 749 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
-Netlist sorting complete. Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.03 . Memory (MB): peak = 3111.297 ; gain = 0.000 ; free physical = 69786 ; free virtual = 81900
-Phase 1 Generate And Synthesize Debug Cores | Checksum: 1f6da8fe5
+Netlist sorting complete. Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.04 . Memory (MB): peak = 2943.805 ; gain = 0.000 ; free physical = 2215 ; free virtual = 20265
+Phase 1 Generate And Synthesize Debug Cores | Checksum: 10acff555
 
-Time (s): cpu = 00:01:46 ; elapsed = 00:02:46 . Memory (MB): peak = 3111.297 ; gain = 422.184 ; free physical = 69787 ; free virtual = 81900
+Time (s): cpu = 00:00:53 ; elapsed = 00:01:13 . Memory (MB): peak = 2943.805 ; gain = 0.000 ; free physical = 2216 ; free virtual = 20265
 
 Phase 2 Retarget
-INFO: [Opt 31-138] Pushed 7 inverter(s) to 209 load pin(s).
-INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_3_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM18.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
-INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_3_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
-INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_3_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
-INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_3_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[12].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
-INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_3_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[13].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
-INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_3_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[14].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
-INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_3_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
-INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_3_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
-INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_3_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
-INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_3_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
-INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_3_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
-INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_3_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
-INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_3_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
-INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_3_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[8].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
-INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_3_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
-INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_3_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM18.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
-INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_3_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
-INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_3_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
-INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_3_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[12].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
-INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_3_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[13].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
-INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_3_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
-INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_3_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
-INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_3_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
-INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_3_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
-INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_3_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
-INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_3_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
-INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_3_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
-INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_3_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[8].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
-INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_3_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-138] Pushed 19 inverter(s) to 365 load pin(s).
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_4_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM18.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_4_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_4_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_4_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[12].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_4_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[13].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_4_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[14].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_4_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_4_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_4_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_4_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_4_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_4_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_4_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_4_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[8].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_4_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[0].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_4_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[1].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM18.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_4_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[1].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_4_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[1].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_4_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[1].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[12].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_4_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[1].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[13].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_4_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[1].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[14].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_4_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[1].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_4_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[1].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_4_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[1].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_4_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[1].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_4_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[1].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_4_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[1].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_4_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[1].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_4_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[1].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[8].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_4_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.BLK_MEM_GEN[1].trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_4_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM18.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_4_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_4_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_4_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[12].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_4_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_4_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_4_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_4_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_4_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_4_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_4_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_4_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[8].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell design_4_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
 INFO: [Opt 31-49] Retargeted 0 cell(s).
-Phase 2 Retarget | Checksum: 50c46678
+Phase 2 Retarget | Checksum: 1926fd37b
 
-Time (s): cpu = 00:01:48 ; elapsed = 00:02:47 . Memory (MB): peak = 3111.297 ; gain = 422.184 ; free physical = 69797 ; free virtual = 81911
-INFO: [Opt 31-389] Phase Retarget created 26 cells and removed 306 cells
+Time (s): cpu = 00:00:56 ; elapsed = 00:01:15 . Memory (MB): peak = 2943.805 ; gain = 0.000 ; free physical = 2241 ; free virtual = 20291
+INFO: [Opt 31-389] Phase Retarget created 18 cells and removed 321 cells
 
 Phase 3 Constant propagation
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Phase 3 Constant propagation | Checksum: ab11c5ae
+Phase 3 Constant propagation | Checksum: 182bdb619
 
-Time (s): cpu = 00:01:48 ; elapsed = 00:02:48 . Memory (MB): peak = 3111.297 ; gain = 422.184 ; free physical = 69796 ; free virtual = 81909
-INFO: [Opt 31-389] Phase Constant propagation created 0 cells and removed 24 cells
+Time (s): cpu = 00:00:57 ; elapsed = 00:01:16 . Memory (MB): peak = 2943.805 ; gain = 0.000 ; free physical = 2241 ; free virtual = 20291
+INFO: [Opt 31-389] Phase Constant propagation created 2 cells and removed 136 cells
 
 Phase 4 Sweep
-Phase 4 Sweep | Checksum: 34217a43
+Phase 4 Sweep | Checksum: fc02fb4a
 
-Time (s): cpu = 00:01:49 ; elapsed = 00:02:48 . Memory (MB): peak = 3111.297 ; gain = 422.184 ; free physical = 69822 ; free virtual = 81935
-INFO: [Opt 31-389] Phase Sweep created 0 cells and removed 93 cells
+Time (s): cpu = 00:01:02 ; elapsed = 00:01:21 . Memory (MB): peak = 2943.805 ; gain = 0.000 ; free physical = 2240 ; free virtual = 20289
+INFO: [Opt 31-389] Phase Sweep created 0 cells and removed 264 cells
 
 Phase 5 BUFG optimization
-Phase 5 BUFG optimization | Checksum: 34217a43
+Phase 5 BUFG optimization | Checksum: fc02fb4a
 
-Time (s): cpu = 00:01:50 ; elapsed = 00:02:49 . Memory (MB): peak = 3111.297 ; gain = 422.184 ; free physical = 69822 ; free virtual = 81935
+Time (s): cpu = 00:01:03 ; elapsed = 00:01:22 . Memory (MB): peak = 2943.805 ; gain = 0.000 ; free physical = 2236 ; free virtual = 20289
 INFO: [Opt 31-389] Phase BUFG optimization created 0 cells and removed 0 cells
 
 Phase 6 Shift Register Optimization
-Phase 6 Shift Register Optimization | Checksum: 34217a43
+Phase 6 Shift Register Optimization | Checksum: fc02fb4a
 
-Time (s): cpu = 00:01:50 ; elapsed = 00:02:49 . Memory (MB): peak = 3111.297 ; gain = 422.184 ; free physical = 69830 ; free virtual = 81940
+Time (s): cpu = 00:01:03 ; elapsed = 00:01:23 . Memory (MB): peak = 2943.805 ; gain = 0.000 ; free physical = 2232 ; free virtual = 20286
 INFO: [Opt 31-389] Phase Shift Register Optimization created 0 cells and removed 0 cells
 
 Starting Connectivity Check Task
 
-Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.02 . Memory (MB): peak = 3111.297 ; gain = 0.000 ; free physical = 69835 ; free virtual = 81945
-Ending Logic Optimization Task | Checksum: 34217a43
+Time (s): cpu = 00:00:00.06 ; elapsed = 00:00:00.06 . Memory (MB): peak = 2943.805 ; gain = 0.000 ; free physical = 2231 ; free virtual = 20285
+Ending Logic Optimization Task | Checksum: 112dc6190
 
-Time (s): cpu = 00:01:50 ; elapsed = 00:02:50 . Memory (MB): peak = 3111.297 ; gain = 422.184 ; free physical = 69835 ; free virtual = 81945
+Time (s): cpu = 00:01:04 ; elapsed = 00:01:23 . Memory (MB): peak = 2943.805 ; gain = 0.000 ; free physical = 2231 ; free virtual = 20285
 
 Starting Power Optimization Task
 INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 2.00 ns.
 INFO: [Pwropt 34-9] Applying IDT optimizations ...
 INFO: [Pwropt 34-10] Applying ODC optimizations ...
 INFO: [Timing 38-35] Done setting XDC timing constraints.
-INFO: [Physopt 32-619] Estimated Timing Summary | WNS=7.532 | TNS=0.000 |
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=7.516 | TNS=0.000 |
 Running Vector-less Activity Propagation...
 
 Finished Running Vector-less Activity Propagation
 
 
 Starting PowerOpt Patch Enables Task
-INFO: [Pwropt 34-162] WRITE_MODE attribute of 0 BRAM(s) out of a total of 29 has been updated to save power. Run report_power_opt to get a complete listing of the BRAMs updated.
+INFO: [Pwropt 34-162] WRITE_MODE attribute of 0 BRAM(s) out of a total of 43 has been updated to save power. Run report_power_opt to get a complete listing of the BRAMs updated.
 INFO: [Pwropt 34-201] Structural ODC has moved 0 WE to EN ports
-Number of BRAM Ports augmented: 29 newly gated: 0 Total Ports: 58
-Ending PowerOpt Patch Enables Task | Checksum: c38fabac
+Number of BRAM Ports augmented: 43 newly gated: 0 Total Ports: 86
+Ending PowerOpt Patch Enables Task | Checksum: 1a8cf051d
 
-Time (s): cpu = 00:00:00.20 ; elapsed = 00:00:00.21 . Memory (MB): peak = 4453.410 ; gain = 0.000 ; free physical = 69293 ; free virtual = 81404
-Ending Power Optimization Task | Checksum: c38fabac
+Time (s): cpu = 00:00:00.33 ; elapsed = 00:00:00.34 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 890 ; free virtual = 19171
+Ending Power Optimization Task | Checksum: 1a8cf051d
 
-Time (s): cpu = 00:00:52 ; elapsed = 00:00:42 . Memory (MB): peak = 4453.410 ; gain = 1342.113 ; free physical = 69307 ; free virtual = 81418
+Time (s): cpu = 00:01:16 ; elapsed = 00:01:17 . Memory (MB): peak = 4628.355 ; gain = 1684.551 ; free physical = 915 ; free virtual = 19196
 INFO: [Common 17-83] Releasing license: Implementation
-68 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+95 Infos, 100 Warnings, 200 Critical Warnings and 0 Errors encountered.
 opt_design completed successfully
-opt_design: Time (s): cpu = 00:02:45 ; elapsed = 00:03:34 . Memory (MB): peak = 4453.410 ; gain = 1836.332 ; free physical = 69307 ; free virtual = 81418
-INFO: [Common 17-1381] The checkpoint '/home/ro0zkhosh/SchIM/MemorEDF/rtl/MemorEDF/MemorEDF.runs/impl_1/design_3_wrapper_opt.dcp' has been generated.
-INFO: [runtcl-4] Executing : report_drc -file design_3_wrapper_drc_opted.rpt -pb design_3_wrapper_drc_opted.pb -rpx design_3_wrapper_drc_opted.rpx
-Command: report_drc -file design_3_wrapper_drc_opted.rpt -pb design_3_wrapper_drc_opted.pb -rpx design_3_wrapper_drc_opted.rpx
+opt_design: Time (s): cpu = 00:02:27 ; elapsed = 00:02:44 . Memory (MB): peak = 4628.355 ; gain = 1756.582 ; free physical = 915 ; free virtual = 19196
+INFO: [Common 17-600] The following parameters have non-default value.
+tcl.collectionResultDisplayLimit
+INFO: [Common 17-1381] The checkpoint '/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.runs/impl_1/design_4_wrapper_opt.dcp' has been generated.
+write_checkpoint: Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 900 ; free virtual = 19188
+INFO: [runtcl-4] Executing : report_drc -file design_4_wrapper_drc_opted.rpt -pb design_4_wrapper_drc_opted.pb -rpx design_4_wrapper_drc_opted.rpx
+Command: report_drc -file design_4_wrapper_drc_opted.rpt -pb design_4_wrapper_drc_opted.pb -rpx design_4_wrapper_drc_opted.rpx
 INFO: [IP_Flow 19-1839] IP Catalog is up to date.
 INFO: [DRC 23-27] Running DRC with 8 threads
-INFO: [Coretcl 2-168] The results of DRC are in file /home/ro0zkhosh/SchIM/MemorEDF/rtl/MemorEDF/MemorEDF.runs/impl_1/design_3_wrapper_drc_opted.rpt.
+INFO: [Coretcl 2-168] The results of DRC are in file /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.runs/impl_1/design_4_wrapper_drc_opted.rpt.
 report_drc completed successfully
 INFO: [Chipscope 16-240] Debug cores have already been implemented
 Command: place_design
 Attempting to get a license for feature 'Implementation' and/or device 'xczu9eg'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xczu9eg'
-INFO: [Common 17-1540] The version limit for your license is '2019.11' and has expired for new software. A version limit expiration means that, although you may be able to continue to use the current version of tools or IP with this license, you will not be eligible for any updates or new releases.
+INFO: [Common 17-1540] The version limit for your license is '2018.09' and has expired for new software. A version limit expiration means that, although you may be able to continue to use the current version of tools or IP with this license, you will not be eligible for any updates or new releases.
 INFO: [DRC 23-27] Running DRC with 8 threads
 INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
 INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
@@ -180,97 +633,97 @@ INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 
 Phase 1 Placer Initialization
 
 Phase 1.1 Placer Initialization Netlist Sorting
-Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.03 . Memory (MB): peak = 4453.410 ; gain = 0.000 ; free physical = 69292 ; free virtual = 81406
-Phase 1.1 Placer Initialization Netlist Sorting | Checksum: 263b255c
+Netlist sorting complete. Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.05 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 895 ; free virtual = 19181
+Phase 1.1 Placer Initialization Netlist Sorting | Checksum: b0ab7c36
 
-Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.10 . Memory (MB): peak = 4453.410 ; gain = 0.000 ; free physical = 69292 ; free virtual = 81406
+Time (s): cpu = 00:00:00.08 ; elapsed = 00:00:00.12 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 895 ; free virtual = 19181
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.02 . Memory (MB): peak = 4453.410 ; gain = 0.000 ; free physical = 69304 ; free virtual = 81419
+Netlist sorting complete. Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.05 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 898 ; free virtual = 19187
 
 Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device
 INFO: [Timing 38-35] Done setting XDC timing constraints.
-Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 13b6fbbc5
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 19e16bced
 
-Time (s): cpu = 00:00:11 ; elapsed = 00:00:08 . Memory (MB): peak = 4453.410 ; gain = 0.000 ; free physical = 69272 ; free virtual = 81390
+Time (s): cpu = 00:00:16 ; elapsed = 00:00:10 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 875 ; free virtual = 19170
 
 Phase 1.3 Build Placer Netlist Model
-Phase 1.3 Build Placer Netlist Model | Checksum: 14e520467
+Phase 1.3 Build Placer Netlist Model | Checksum: 23afd643c
 
-Time (s): cpu = 00:00:16 ; elapsed = 00:00:10 . Memory (MB): peak = 4453.410 ; gain = 0.000 ; free physical = 69254 ; free virtual = 81372
+Time (s): cpu = 00:00:26 ; elapsed = 00:00:15 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 829 ; free virtual = 19124
 
 Phase 1.4 Constrain Clocks/Macros
-Phase 1.4 Constrain Clocks/Macros | Checksum: 14e520467
+Phase 1.4 Constrain Clocks/Macros | Checksum: 23afd643c
 
-Time (s): cpu = 00:00:16 ; elapsed = 00:00:10 . Memory (MB): peak = 4453.410 ; gain = 0.000 ; free physical = 69254 ; free virtual = 81371
-Phase 1 Placer Initialization | Checksum: 14e520467
+Time (s): cpu = 00:00:26 ; elapsed = 00:00:15 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 830 ; free virtual = 19125
+Phase 1 Placer Initialization | Checksum: 23afd643c
 
-Time (s): cpu = 00:00:17 ; elapsed = 00:00:11 . Memory (MB): peak = 4453.410 ; gain = 0.000 ; free physical = 69254 ; free virtual = 81371
+Time (s): cpu = 00:00:27 ; elapsed = 00:00:15 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 830 ; free virtual = 19125
 
 Phase 2 Global Placement
-Phase 2 Global Placement | Checksum: 1c0a21122
+Phase 2 Global Placement | Checksum: 241ee1dc1
 
-Time (s): cpu = 00:01:09 ; elapsed = 00:00:27 . Memory (MB): peak = 4477.422 ; gain = 24.012 ; free physical = 69159 ; free virtual = 81276
+Time (s): cpu = 00:01:51 ; elapsed = 00:00:43 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 730 ; free virtual = 19043
 
 Phase 3 Detail Placement
 
 Phase 3.1 Commit Multi Column Macros
-Phase 3.1 Commit Multi Column Macros | Checksum: 1c0a21122
+Phase 3.1 Commit Multi Column Macros | Checksum: 241ee1dc1
 
-Time (s): cpu = 00:01:09 ; elapsed = 00:00:27 . Memory (MB): peak = 4477.422 ; gain = 24.012 ; free physical = 69158 ; free virtual = 81276
+Time (s): cpu = 00:01:52 ; elapsed = 00:00:43 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 730 ; free virtual = 19043
 
 Phase 3.2 Commit Most Macros & LUTRAMs
-Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 201b974c6
+Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 1fe0cc798
 
-Time (s): cpu = 00:01:13 ; elapsed = 00:00:30 . Memory (MB): peak = 4477.422 ; gain = 24.012 ; free physical = 69156 ; free virtual = 81274
+Time (s): cpu = 00:01:57 ; elapsed = 00:00:47 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 727 ; free virtual = 19040
 
 Phase 3.3 Area Swap Optimization
-Phase 3.3 Area Swap Optimization | Checksum: 215cc12d9
+Phase 3.3 Area Swap Optimization | Checksum: 250df126c
 
-Time (s): cpu = 00:01:13 ; elapsed = 00:00:30 . Memory (MB): peak = 4477.422 ; gain = 24.012 ; free physical = 69156 ; free virtual = 81274
+Time (s): cpu = 00:01:58 ; elapsed = 00:00:47 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 726 ; free virtual = 19040
 
 Phase 3.4 Pipeline Register Optimization
-Phase 3.4 Pipeline Register Optimization | Checksum: 1ccf98aa2
+Phase 3.4 Pipeline Register Optimization | Checksum: 236026389
 
-Time (s): cpu = 00:01:13 ; elapsed = 00:00:30 . Memory (MB): peak = 4477.422 ; gain = 24.012 ; free physical = 69156 ; free virtual = 81274
+Time (s): cpu = 00:01:58 ; elapsed = 00:00:47 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 726 ; free virtual = 19039
 
 Phase 3.5 Small Shape Clustering
-Phase 3.5 Small Shape Clustering | Checksum: 1978aa89c
+Phase 3.5 Small Shape Clustering | Checksum: 2c3b7636f
 
-Time (s): cpu = 00:01:16 ; elapsed = 00:00:31 . Memory (MB): peak = 4477.422 ; gain = 24.012 ; free physical = 69154 ; free virtual = 81272
+Time (s): cpu = 00:02:01 ; elapsed = 00:00:49 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 706 ; free virtual = 19020
 
 Phase 3.6 DP Optimization
-Phase 3.6 DP Optimization | Checksum: 14ae9a116
+Phase 3.6 DP Optimization | Checksum: 22a5f0d7f
 
-Time (s): cpu = 00:01:25 ; elapsed = 00:00:35 . Memory (MB): peak = 4477.422 ; gain = 24.012 ; free physical = 69138 ; free virtual = 81255
+Time (s): cpu = 00:02:14 ; elapsed = 00:00:54 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 703 ; free virtual = 19017
 
 Phase 3.7 Flow Legalize Slice Clusters
-Phase 3.7 Flow Legalize Slice Clusters | Checksum: 1fe9f2755
+Phase 3.7 Flow Legalize Slice Clusters | Checksum: 1e8713783
 
-Time (s): cpu = 00:01:26 ; elapsed = 00:00:36 . Memory (MB): peak = 4477.422 ; gain = 24.012 ; free physical = 69137 ; free virtual = 81255
+Time (s): cpu = 00:02:15 ; elapsed = 00:00:55 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 701 ; free virtual = 19014
 
 Phase 3.8 Slice Area Swap
-Phase 3.8 Slice Area Swap | Checksum: 19f0af7bf
+Phase 3.8 Slice Area Swap | Checksum: 27b482955
 
-Time (s): cpu = 00:01:27 ; elapsed = 00:00:36 . Memory (MB): peak = 4477.422 ; gain = 24.012 ; free physical = 69114 ; free virtual = 81232
+Time (s): cpu = 00:02:17 ; elapsed = 00:00:56 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 675 ; free virtual = 18989
 
 Phase 3.9 Commit Slice Clusters
-Phase 3.9 Commit Slice Clusters | Checksum: 18feb4508
+Phase 3.9 Commit Slice Clusters | Checksum: 1de4b4e2d
 
-Time (s): cpu = 00:01:30 ; elapsed = 00:00:37 . Memory (MB): peak = 4477.422 ; gain = 24.012 ; free physical = 69141 ; free virtual = 81258
+Time (s): cpu = 00:02:24 ; elapsed = 00:00:58 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 690 ; free virtual = 19007
 
 Phase 3.10 Re-assign LUT pins
-Phase 3.10 Re-assign LUT pins | Checksum: 1a7c11a55
+Phase 3.10 Re-assign LUT pins | Checksum: 21a9b8e4a
 
-Time (s): cpu = 00:01:31 ; elapsed = 00:00:38 . Memory (MB): peak = 4477.422 ; gain = 24.012 ; free physical = 69140 ; free virtual = 81257
+Time (s): cpu = 00:02:25 ; elapsed = 00:00:59 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 690 ; free virtual = 19006
 
 Phase 3.11 Pipeline Register Optimization
-Phase 3.11 Pipeline Register Optimization | Checksum: 1a7c11a55
+Phase 3.11 Pipeline Register Optimization | Checksum: 21a9b8e4a
 
-Time (s): cpu = 00:01:31 ; elapsed = 00:00:38 . Memory (MB): peak = 4477.422 ; gain = 24.012 ; free physical = 69145 ; free virtual = 81262
-Phase 3 Detail Placement | Checksum: 1a7c11a55
+Time (s): cpu = 00:02:26 ; elapsed = 00:00:59 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 697 ; free virtual = 19014
+Phase 3 Detail Placement | Checksum: 21a9b8e4a
 
-Time (s): cpu = 00:01:31 ; elapsed = 00:00:38 . Memory (MB): peak = 4477.422 ; gain = 24.012 ; free physical = 69144 ; free virtual = 81262
+Time (s): cpu = 00:02:26 ; elapsed = 00:00:59 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 698 ; free virtual = 19014
 
 Phase 4 Post Placement Optimization and Clean-Up
 
@@ -278,62 +731,63 @@ Phase 4.1 Post Commit Optimization
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 
 Phase 4.1.1 Post Placement Optimization
-Post Placement Optimization Initialization | Checksum: 17330fd1c
+Post Placement Optimization Initialization | Checksum: 1da9bd55d
 
 Phase 4.1.1.1 BUFG Insertion
 INFO: [Physopt 32-721] Multithreading enabled for phys_opt_design using a maximum of 8 CPUs
 INFO: [Place 46-31] BUFG insertion identified 0 candidate nets, 0 success, 0 skipped for placement/routing, 0 skipped for timing, 0 skipped for netlist change reason.
-Phase 4.1.1.1 BUFG Insertion | Checksum: 17330fd1c
+Phase 4.1.1.1 BUFG Insertion | Checksum: 1da9bd55d
 
-Time (s): cpu = 00:01:42 ; elapsed = 00:00:43 . Memory (MB): peak = 4477.422 ; gain = 24.012 ; free physical = 69147 ; free virtual = 81268
-INFO: [Place 30-746] Post Placement Timing Summary WNS=7.110. For the most accurate timing information please run report_timing.
-Phase 4.1.1 Post Placement Optimization | Checksum: 1ebf39c55
+Time (s): cpu = 00:02:41 ; elapsed = 00:01:07 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 685 ; free virtual = 19008
+INFO: [Place 30-746] Post Placement Timing Summary WNS=6.903. For the most accurate timing information please run report_timing.
+Phase 4.1.1 Post Placement Optimization | Checksum: 1a02eae77
 
-Time (s): cpu = 00:01:42 ; elapsed = 00:00:43 . Memory (MB): peak = 4477.422 ; gain = 24.012 ; free physical = 69147 ; free virtual = 81268
-Phase 4.1 Post Commit Optimization | Checksum: 1ebf39c55
+Time (s): cpu = 00:02:42 ; elapsed = 00:01:07 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 686 ; free virtual = 19010
+Phase 4.1 Post Commit Optimization | Checksum: 1a02eae77
 
-Time (s): cpu = 00:01:42 ; elapsed = 00:00:44 . Memory (MB): peak = 4477.422 ; gain = 24.012 ; free physical = 69139 ; free virtual = 81260
+Time (s): cpu = 00:02:42 ; elapsed = 00:01:07 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 687 ; free virtual = 19011
 
 Phase 4.2 Post Placement Cleanup
-Phase 4.2 Post Placement Cleanup | Checksum: 1ebf39c55
+Phase 4.2 Post Placement Cleanup | Checksum: 1a02eae77
 
-Time (s): cpu = 00:01:42 ; elapsed = 00:00:44 . Memory (MB): peak = 4477.422 ; gain = 24.012 ; free physical = 69151 ; free virtual = 81269
+Time (s): cpu = 00:02:42 ; elapsed = 00:01:07 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 699 ; free virtual = 19023
 
 Phase 4.3 Placer Reporting
-Phase 4.3 Placer Reporting | Checksum: 2eb27ed48
+Phase 4.3 Placer Reporting | Checksum: 1a8db1483
 
-Time (s): cpu = 00:01:48 ; elapsed = 00:00:50 . Memory (MB): peak = 4477.422 ; gain = 24.012 ; free physical = 69129 ; free virtual = 81247
+Time (s): cpu = 00:02:51 ; elapsed = 00:01:16 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 526 ; free virtual = 18872
 
 Phase 4.4 Final Placement Cleanup
-Phase 4.4 Final Placement Cleanup | Checksum: 2a8dc3b73
+Phase 4.4 Final Placement Cleanup | Checksum: 1d2389c40
 
-Time (s): cpu = 00:01:49 ; elapsed = 00:00:50 . Memory (MB): peak = 4477.422 ; gain = 24.012 ; free physical = 69130 ; free virtual = 81247
-Phase 4 Post Placement Optimization and Clean-Up | Checksum: 2a8dc3b73
+Time (s): cpu = 00:02:51 ; elapsed = 00:01:16 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 526 ; free virtual = 18872
+Phase 4 Post Placement Optimization and Clean-Up | Checksum: 1d2389c40
 
-Time (s): cpu = 00:01:49 ; elapsed = 00:00:50 . Memory (MB): peak = 4477.422 ; gain = 24.012 ; free physical = 69130 ; free virtual = 81247
-Ending Placer Task | Checksum: 22d8f60a7
+Time (s): cpu = 00:02:51 ; elapsed = 00:01:16 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 528 ; free virtual = 18873
+Ending Placer Task | Checksum: 19060fdf8
 
-Time (s): cpu = 00:01:49 ; elapsed = 00:00:50 . Memory (MB): peak = 4477.422 ; gain = 24.012 ; free physical = 69220 ; free virtual = 81338
+Time (s): cpu = 00:02:51 ; elapsed = 00:01:16 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 591 ; free virtual = 18949
 INFO: [Common 17-83] Releasing license: Implementation
-91 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+119 Infos, 100 Warnings, 200 Critical Warnings and 0 Errors encountered.
 place_design completed successfully
-place_design: Time (s): cpu = 00:01:55 ; elapsed = 00:00:54 . Memory (MB): peak = 4477.422 ; gain = 24.012 ; free physical = 69222 ; free virtual = 81339
+place_design: Time (s): cpu = 00:02:58 ; elapsed = 00:01:20 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 587 ; free virtual = 18946
 Writing placer database...
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.52 . Memory (MB): peak = 4477.422 ; gain = 0.000 ; free physical = 69200 ; free virtual = 81336
-INFO: [Common 17-1381] The checkpoint '/home/ro0zkhosh/SchIM/MemorEDF/rtl/MemorEDF/MemorEDF.runs/impl_1/design_3_wrapper_placed.dcp' has been generated.
-INFO: [runtcl-4] Executing : report_io -file design_3_wrapper_io_placed.rpt
-report_io: Time (s): cpu = 00:00:00.22 ; elapsed = 00:00:00.30 . Memory (MB): peak = 4477.422 ; gain = 0.000 ; free physical = 69179 ; free virtual = 81303
-INFO: [runtcl-4] Executing : report_utilization -file design_3_wrapper_utilization_placed.rpt -pb design_3_wrapper_utilization_placed.pb
-report_utilization: Time (s): cpu = 00:00:04 ; elapsed = 00:00:03 . Memory (MB): peak = 4477.422 ; gain = 0.000 ; free physical = 69216 ; free virtual = 81339
-INFO: [runtcl-4] Executing : report_control_sets -verbose -file design_3_wrapper_control_sets_placed.rpt
-report_control_sets: Time (s): cpu = 00:00:00.12 ; elapsed = 00:00:00.21 . Memory (MB): peak = 4477.422 ; gain = 0.000 ; free physical = 69213 ; free virtual = 81337
+Write XDEF Complete: Time (s): cpu = 00:00:03 ; elapsed = 00:00:01 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 578 ; free virtual = 18958
+INFO: [Common 17-1381] The checkpoint '/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.runs/impl_1/design_4_wrapper_placed.dcp' has been generated.
+write_checkpoint: Time (s): cpu = 00:00:10 ; elapsed = 00:00:09 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 611 ; free virtual = 18970
+INFO: [runtcl-4] Executing : report_io -file design_4_wrapper_io_placed.rpt
+report_io: Time (s): cpu = 00:00:00.22 ; elapsed = 00:00:00.31 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 583 ; free virtual = 18942
+INFO: [runtcl-4] Executing : report_utilization -file design_4_wrapper_utilization_placed.rpt -pb design_4_wrapper_utilization_placed.pb
+report_utilization: Time (s): cpu = 00:00:04 ; elapsed = 00:00:03 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 615 ; free virtual = 18972
+INFO: [runtcl-4] Executing : report_control_sets -verbose -file design_4_wrapper_control_sets_placed.rpt
+report_control_sets: Time (s): cpu = 00:00:00.15 ; elapsed = 00:00:00.25 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 628 ; free virtual = 18983
 Command: route_design
 Attempting to get a license for feature 'Implementation' and/or device 'xczu9eg'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xczu9eg'
-INFO: [Common 17-1540] The version limit for your license is '2019.11' and has expired for new software. A version limit expiration means that, although you may be able to continue to use the current version of tools or IP with this license, you will not be eligible for any updates or new releases.
+INFO: [Common 17-1540] The version limit for your license is '2018.09' and has expired for new software. A version limit expiration means that, although you may be able to continue to use the current version of tools or IP with this license, you will not be eligible for any updates or new releases.
 Running DRC as a precondition to command route_design
 INFO: [DRC 23-27] Running DRC with 8 threads
 INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
@@ -342,111 +796,111 @@ INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more in
 
 Starting Routing Task
 INFO: [Route 35-254] Multithreading enabled for route_design using a maximum of 8 CPUs
-Checksum: PlaceDB: dfe54d6e ConstDB: 0 ShapeSum: 4e75c246 RouteDB: ff3450f3
+Checksum: PlaceDB: c503355e ConstDB: 0 ShapeSum: c2b1628e RouteDB: 8ac660c
 
 Phase 1 Build RT Design
-Phase 1 Build RT Design | Checksum: 1c1b9b840
+Phase 1 Build RT Design | Checksum: faf2e4e1
 
-Time (s): cpu = 00:00:57 ; elapsed = 00:00:45 . Memory (MB): peak = 4477.422 ; gain = 0.000 ; free physical = 68975 ; free virtual = 81099
-Post Restoration Checksum: NetGraph: d029b6e5 NumContArr: f6f88ec2 Constraints: fc5b3301 Timing: 0
+Time (s): cpu = 00:01:10 ; elapsed = 00:00:51 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 408 ; free virtual = 18758
+Post Restoration Checksum: NetGraph: 8547008f NumContArr: 7a884827 Constraints: 7e3da3f6 Timing: 0
 
 Phase 2 Router Initialization
 
 Phase 2.1 Create Timer
-Phase 2.1 Create Timer | Checksum: 2c37d78a8
+Phase 2.1 Create Timer | Checksum: 17e0cecac
 
-Time (s): cpu = 00:00:59 ; elapsed = 00:00:46 . Memory (MB): peak = 4477.422 ; gain = 0.000 ; free physical = 68972 ; free virtual = 81096
+Time (s): cpu = 00:01:13 ; elapsed = 00:00:53 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 404 ; free virtual = 18755
 
 Phase 2.2 Fix Topology Constraints
-Phase 2.2 Fix Topology Constraints | Checksum: 2c37d78a8
+Phase 2.2 Fix Topology Constraints | Checksum: 17e0cecac
 
-Time (s): cpu = 00:00:59 ; elapsed = 00:00:46 . Memory (MB): peak = 4477.422 ; gain = 0.000 ; free physical = 68914 ; free virtual = 81038
+Time (s): cpu = 00:01:13 ; elapsed = 00:00:53 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 346 ; free virtual = 18697
 
 Phase 2.3 Pre Route Cleanup
-Phase 2.3 Pre Route Cleanup | Checksum: 2c37d78a8
+Phase 2.3 Pre Route Cleanup | Checksum: 17e0cecac
 
-Time (s): cpu = 00:00:59 ; elapsed = 00:00:46 . Memory (MB): peak = 4477.422 ; gain = 0.000 ; free physical = 68914 ; free virtual = 81038
+Time (s): cpu = 00:01:13 ; elapsed = 00:00:53 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 345 ; free virtual = 18696
 
 Phase 2.4 Global Clock Net Routing
  Number of Nodes with overlaps = 0
-Phase 2.4 Global Clock Net Routing | Checksum: 25cb55f15
+Phase 2.4 Global Clock Net Routing | Checksum: 1ddcdcdd9
 
-Time (s): cpu = 00:01:01 ; elapsed = 00:00:48 . Memory (MB): peak = 4477.422 ; gain = 0.000 ; free physical = 68902 ; free virtual = 81026
+Time (s): cpu = 00:01:15 ; elapsed = 00:00:55 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 332 ; free virtual = 18683
 
 Phase 2.5 Update Timing
-Phase 2.5 Update Timing | Checksum: 302911050
+Phase 2.5 Update Timing | Checksum: 1986d73e1
 
-Time (s): cpu = 00:01:09 ; elapsed = 00:00:51 . Memory (MB): peak = 4477.422 ; gain = 0.000 ; free physical = 68903 ; free virtual = 81030
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=7.213  | TNS=0.000  | WHS=-0.049 | THS=-1.753 |
+Time (s): cpu = 00:01:30 ; elapsed = 00:00:59 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 346 ; free virtual = 18697
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=7.028  | TNS=0.000  | WHS=-0.043 | THS=-7.018 |
 
-Phase 2 Router Initialization | Checksum: 2ee0ef396
+Phase 2 Router Initialization | Checksum: 1d020c95b
 
-Time (s): cpu = 00:01:13 ; elapsed = 00:00:52 . Memory (MB): peak = 4477.422 ; gain = 0.000 ; free physical = 68902 ; free virtual = 81026
+Time (s): cpu = 00:01:39 ; elapsed = 00:01:02 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 342 ; free virtual = 18693
 
 Phase 3 Initial Routing
-Phase 3 Initial Routing | Checksum: 1bca28c27
+Phase 3 Initial Routing | Checksum: 203a604be
 
-Time (s): cpu = 00:01:22 ; elapsed = 00:00:54 . Memory (MB): peak = 4477.422 ; gain = 0.000 ; free physical = 68885 ; free virtual = 81009
+Time (s): cpu = 00:02:02 ; elapsed = 00:01:07 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 329 ; free virtual = 18680
 
 Phase 4 Rip-up And Reroute
 
 Phase 4.1 Global Iteration 0
- Number of Nodes with overlaps = 3241
- Number of Nodes with overlaps = 380
- Number of Nodes with overlaps = 33
- Number of Nodes with overlaps = 2
+ Number of Nodes with overlaps = 4773
+ Number of Nodes with overlaps = 432
+ Number of Nodes with overlaps = 41
+ Number of Nodes with overlaps = 3
  Number of Nodes with overlaps = 0
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=6.174  | TNS=0.000  | WHS=0.006  | THS=0.000  |
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=5.395  | TNS=0.000  | WHS=0.007  | THS=0.000  |
 
-Phase 4.1 Global Iteration 0 | Checksum: 216611cbc
+Phase 4.1 Global Iteration 0 | Checksum: 17ace6d89
 
-Time (s): cpu = 00:02:08 ; elapsed = 00:01:05 . Memory (MB): peak = 4477.422 ; gain = 0.000 ; free physical = 68884 ; free virtual = 81008
+Time (s): cpu = 00:07:09 ; elapsed = 00:02:01 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 323 ; free virtual = 18673
 
 Phase 4.2 Additional Iteration for Hold
-Phase 4.2 Additional Iteration for Hold | Checksum: 23c4edbc6
+Phase 4.2 Additional Iteration for Hold | Checksum: 100dbfca3
 
-Time (s): cpu = 00:02:08 ; elapsed = 00:01:05 . Memory (MB): peak = 4477.422 ; gain = 0.000 ; free physical = 68884 ; free virtual = 81008
-Phase 4 Rip-up And Reroute | Checksum: 23c4edbc6
+Time (s): cpu = 00:07:10 ; elapsed = 00:02:01 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 322 ; free virtual = 18672
+Phase 4 Rip-up And Reroute | Checksum: 100dbfca3
 
-Time (s): cpu = 00:02:08 ; elapsed = 00:01:05 . Memory (MB): peak = 4477.422 ; gain = 0.000 ; free physical = 68884 ; free virtual = 81008
+Time (s): cpu = 00:07:10 ; elapsed = 00:02:01 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 322 ; free virtual = 18672
 
 Phase 5 Delay and Skew Optimization
 
 Phase 5.1 Delay CleanUp
-Phase 5.1 Delay CleanUp | Checksum: 228d3d82c
+Phase 5.1 Delay CleanUp | Checksum: 15248c87c
 
-Time (s): cpu = 00:02:08 ; elapsed = 00:01:05 . Memory (MB): peak = 4477.422 ; gain = 0.000 ; free physical = 68888 ; free virtual = 81012
+Time (s): cpu = 00:07:10 ; elapsed = 00:02:01 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 326 ; free virtual = 18676
 
 Phase 5.2 Clock Skew Optimization
-Phase 5.2 Clock Skew Optimization | Checksum: 228d3d82c
+Phase 5.2 Clock Skew Optimization | Checksum: 15248c87c
 
-Time (s): cpu = 00:02:08 ; elapsed = 00:01:05 . Memory (MB): peak = 4477.422 ; gain = 0.000 ; free physical = 68888 ; free virtual = 81012
-Phase 5 Delay and Skew Optimization | Checksum: 228d3d82c
+Time (s): cpu = 00:07:10 ; elapsed = 00:02:01 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 326 ; free virtual = 18676
+Phase 5 Delay and Skew Optimization | Checksum: 15248c87c
 
-Time (s): cpu = 00:02:09 ; elapsed = 00:01:05 . Memory (MB): peak = 4477.422 ; gain = 0.000 ; free physical = 68888 ; free virtual = 81012
+Time (s): cpu = 00:07:10 ; elapsed = 00:02:01 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 326 ; free virtual = 18676
 
 Phase 6 Post Hold Fix
 
 Phase 6.1 Hold Fix Iter
 
 Phase 6.1.1 Update Timing
-Phase 6.1.1 Update Timing | Checksum: 2c69de732
+Phase 6.1.1 Update Timing | Checksum: 1985cc88f
 
-Time (s): cpu = 00:02:14 ; elapsed = 00:01:07 . Memory (MB): peak = 4477.422 ; gain = 0.000 ; free physical = 68891 ; free virtual = 81015
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=6.174  | TNS=0.000  | WHS=0.006  | THS=0.000  |
+Time (s): cpu = 00:07:18 ; elapsed = 00:02:04 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 326 ; free virtual = 18676
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=5.395  | TNS=0.000  | WHS=0.007  | THS=0.000  |
 
-Phase 6.1 Hold Fix Iter | Checksum: 22ef60166
+Phase 6.1 Hold Fix Iter | Checksum: 16d4cbcc6
 
-Time (s): cpu = 00:02:14 ; elapsed = 00:01:07 . Memory (MB): peak = 4477.422 ; gain = 0.000 ; free physical = 68891 ; free virtual = 81015
-Phase 6 Post Hold Fix | Checksum: 22ef60166
+Time (s): cpu = 00:07:18 ; elapsed = 00:02:04 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 326 ; free virtual = 18676
+Phase 6 Post Hold Fix | Checksum: 16d4cbcc6
 
-Time (s): cpu = 00:02:14 ; elapsed = 00:01:07 . Memory (MB): peak = 4477.422 ; gain = 0.000 ; free physical = 68891 ; free virtual = 81015
+Time (s): cpu = 00:07:18 ; elapsed = 00:02:04 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 325 ; free virtual = 18675
 
 Phase 7 Route finalize
 
 Router Utilization Summary
-  Global Vertical Routing Utilization    = 0.688276 %
-  Global Horizontal Routing Utilization  = 0.818085 %
+  Global Vertical Routing Utilization    = 1.10672 %
+  Global Horizontal Routing Utilization  = 1.3905 %
   Routable Net Status*
   *Does not include unroutable nets such as driverless and loadless.
   Run report_route_status for detailed report.
@@ -455,88 +909,94 @@ Router Utilization Summary
   Number of Partially Routed Nets     = 0
   Number of Node Overlaps             = 0
 
-Phase 7 Route finalize | Checksum: 29b97356f
+Phase 7 Route finalize | Checksum: 12afe258b
 
-Time (s): cpu = 00:02:15 ; elapsed = 00:01:07 . Memory (MB): peak = 4477.422 ; gain = 0.000 ; free physical = 68879 ; free virtual = 81003
+Time (s): cpu = 00:07:20 ; elapsed = 00:02:04 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 322 ; free virtual = 18672
 
 Phase 8 Verifying routed nets
 
  Verification completed successfully
-Phase 8 Verifying routed nets | Checksum: 29b97356f
+Phase 8 Verifying routed nets | Checksum: 12afe258b
 
-Time (s): cpu = 00:02:15 ; elapsed = 00:01:07 . Memory (MB): peak = 4477.422 ; gain = 0.000 ; free physical = 68879 ; free virtual = 81003
+Time (s): cpu = 00:07:20 ; elapsed = 00:02:04 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 321 ; free virtual = 18671
 
 Phase 9 Depositing Routes
-Phase 9 Depositing Routes | Checksum: 29b97356f
+Phase 9 Depositing Routes | Checksum: 12afe258b
 
-Time (s): cpu = 00:02:16 ; elapsed = 00:01:08 . Memory (MB): peak = 4477.422 ; gain = 0.000 ; free physical = 68878 ; free virtual = 81002
+Time (s): cpu = 00:07:21 ; elapsed = 00:02:05 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 323 ; free virtual = 18673
 
 Phase 10 Post Router Timing
 
 Phase 10.1 Update Timing
-Phase 10.1 Update Timing | Checksum: 1e6eef2e8
+Phase 10.1 Update Timing | Checksum: 1d5cb78e4
 
-Time (s): cpu = 00:02:19 ; elapsed = 00:01:10 . Memory (MB): peak = 4477.422 ; gain = 0.000 ; free physical = 68879 ; free virtual = 81003
-INFO: [Route 35-57] Estimated Timing Summary | WNS=6.174  | TNS=0.000  | WHS=0.012  | THS=0.000  |
+Time (s): cpu = 00:07:26 ; elapsed = 00:02:08 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 323 ; free virtual = 18673
+INFO: [Route 35-57] Estimated Timing Summary | WNS=5.395  | TNS=0.000  | WHS=0.010  | THS=0.000  |
 
 INFO: [Route 35-327] The final timing numbers are based on the router estimated timing analysis. For a complete and accurate timing signoff, please run report_timing_summary.
-Phase 10 Post Router Timing | Checksum: 1e6eef2e8
+Phase 10 Post Router Timing | Checksum: 1d5cb78e4
 
-Time (s): cpu = 00:02:19 ; elapsed = 00:01:10 . Memory (MB): peak = 4477.422 ; gain = 0.000 ; free physical = 68879 ; free virtual = 81003
+Time (s): cpu = 00:07:26 ; elapsed = 00:02:08 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 323 ; free virtual = 18673
 INFO: [Route 35-16] Router Completed Successfully
 
-Time (s): cpu = 00:02:20 ; elapsed = 00:01:10 . Memory (MB): peak = 4477.422 ; gain = 0.000 ; free physical = 68955 ; free virtual = 81079
+Time (s): cpu = 00:07:26 ; elapsed = 00:02:08 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 403 ; free virtual = 18753
 
 Routing Is Done.
 INFO: [Common 17-83] Releasing license: Implementation
-108 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+136 Infos, 100 Warnings, 200 Critical Warnings and 0 Errors encountered.
 route_design completed successfully
-route_design: Time (s): cpu = 00:02:27 ; elapsed = 00:01:14 . Memory (MB): peak = 4477.422 ; gain = 0.000 ; free physical = 68955 ; free virtual = 81079
+route_design: Time (s): cpu = 00:07:35 ; elapsed = 00:02:12 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 403 ; free virtual = 18753
 Writing placer database...
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.61 . Memory (MB): peak = 4477.422 ; gain = 0.000 ; free physical = 68931 ; free virtual = 81080
-INFO: [Common 17-1381] The checkpoint '/home/ro0zkhosh/SchIM/MemorEDF/rtl/MemorEDF/MemorEDF.runs/impl_1/design_3_wrapper_routed.dcp' has been generated.
-INFO: [runtcl-4] Executing : report_drc -file design_3_wrapper_drc_routed.rpt -pb design_3_wrapper_drc_routed.pb -rpx design_3_wrapper_drc_routed.rpx
-Command: report_drc -file design_3_wrapper_drc_routed.rpt -pb design_3_wrapper_drc_routed.pb -rpx design_3_wrapper_drc_routed.rpx
+Write XDEF Complete: Time (s): cpu = 00:00:03 ; elapsed = 00:00:01 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 357 ; free virtual = 18749
+INFO: [Common 17-1381] The checkpoint '/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.runs/impl_1/design_4_wrapper_routed.dcp' has been generated.
+write_checkpoint: Time (s): cpu = 00:00:10 ; elapsed = 00:00:08 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 395 ; free virtual = 18758
+INFO: [runtcl-4] Executing : report_drc -file design_4_wrapper_drc_routed.rpt -pb design_4_wrapper_drc_routed.pb -rpx design_4_wrapper_drc_routed.rpx
+Command: report_drc -file design_4_wrapper_drc_routed.rpt -pb design_4_wrapper_drc_routed.pb -rpx design_4_wrapper_drc_routed.rpx
 INFO: [IP_Flow 19-1839] IP Catalog is up to date.
 INFO: [DRC 23-27] Running DRC with 8 threads
-INFO: [Coretcl 2-168] The results of DRC are in file /home/ro0zkhosh/SchIM/MemorEDF/rtl/MemorEDF/MemorEDF.runs/impl_1/design_3_wrapper_drc_routed.rpt.
+INFO: [Coretcl 2-168] The results of DRC are in file /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.runs/impl_1/design_4_wrapper_drc_routed.rpt.
 report_drc completed successfully
-INFO: [runtcl-4] Executing : report_methodology -file design_3_wrapper_methodology_drc_routed.rpt -pb design_3_wrapper_methodology_drc_routed.pb -rpx design_3_wrapper_methodology_drc_routed.rpx
-Command: report_methodology -file design_3_wrapper_methodology_drc_routed.rpt -pb design_3_wrapper_methodology_drc_routed.pb -rpx design_3_wrapper_methodology_drc_routed.rpx
+INFO: [runtcl-4] Executing : report_methodology -file design_4_wrapper_methodology_drc_routed.rpt -pb design_4_wrapper_methodology_drc_routed.pb -rpx design_4_wrapper_methodology_drc_routed.rpx
+Command: report_methodology -file design_4_wrapper_methodology_drc_routed.rpt -pb design_4_wrapper_methodology_drc_routed.pb -rpx design_4_wrapper_methodology_drc_routed.rpx
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 INFO: [DRC 23-133] Running Methodology with 8 threads
-INFO: [Coretcl 2-1520] The results of Report Methodology are in file /home/ro0zkhosh/SchIM/MemorEDF/rtl/MemorEDF/MemorEDF.runs/impl_1/design_3_wrapper_methodology_drc_routed.rpt.
+INFO: [Coretcl 2-1520] The results of Report Methodology are in file /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.runs/impl_1/design_4_wrapper_methodology_drc_routed.rpt.
 report_methodology completed successfully
-report_methodology: Time (s): cpu = 00:00:17 ; elapsed = 00:00:08 . Memory (MB): peak = 4477.422 ; gain = 0.000 ; free physical = 68887 ; free virtual = 81018
-INFO: [runtcl-4] Executing : report_power -file design_3_wrapper_power_routed.rpt -pb design_3_wrapper_power_summary_routed.pb -rpx design_3_wrapper_power_routed.rpx
-Command: report_power -file design_3_wrapper_power_routed.rpt -pb design_3_wrapper_power_summary_routed.pb -rpx design_3_wrapper_power_routed.rpx
+report_methodology: Time (s): cpu = 00:00:25 ; elapsed = 00:00:08 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 284 ; free virtual = 18646
+INFO: [runtcl-4] Executing : report_power -file design_4_wrapper_power_routed.rpt -pb design_4_wrapper_power_summary_routed.pb -rpx design_4_wrapper_power_routed.rpx
+Command: report_power -file design_4_wrapper_power_routed.rpt -pb design_4_wrapper_power_summary_routed.pb -rpx design_4_wrapper_power_routed.rpx
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 Running Vector-less Activity Propagation...
 
 Finished Running Vector-less Activity Propagation
-120 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+148 Infos, 100 Warnings, 200 Critical Warnings and 0 Errors encountered.
 report_power completed successfully
-report_power: Time (s): cpu = 00:00:30 ; elapsed = 00:00:20 . Memory (MB): peak = 4477.422 ; gain = 0.000 ; free physical = 68846 ; free virtual = 80986
-INFO: [runtcl-4] Executing : report_route_status -file design_3_wrapper_route_status.rpt -pb design_3_wrapper_route_status.pb
-INFO: [runtcl-4] Executing : report_timing_summary -max_paths 10 -file design_3_wrapper_timing_summary_routed.rpt -rpx design_3_wrapper_timing_summary_routed.rpx -warn_on_violation 
+report_power: Time (s): cpu = 00:00:40 ; elapsed = 00:00:25 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 256 ; free virtual = 18609
+INFO: [runtcl-4] Executing : report_route_status -file design_4_wrapper_route_status.rpt -pb design_4_wrapper_route_status.pb
+INFO: [runtcl-4] Executing : report_timing_summary -max_paths 10 -file design_4_wrapper_timing_summary_routed.rpt -rpx design_4_wrapper_timing_summary_routed.rpx -warn_on_violation 
 INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -2, Temperature grade: E, Delay Type: min_max.
 INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 8 CPUs
-INFO: [runtcl-4] Executing : report_incremental_reuse -file design_3_wrapper_incremental_reuse_routed.rpt
+INFO: [runtcl-4] Executing : report_incremental_reuse -file design_4_wrapper_incremental_reuse_routed.rpt
 INFO: [Vivado_Tcl 4-545] No incremental reuse to report, no incremental placement and routing data was found.
-INFO: [runtcl-4] Executing : report_clock_utilization -file design_3_wrapper_clock_utilization_routed.rpt
-report_clock_utilization: Time (s): cpu = 00:00:25 ; elapsed = 00:00:25 . Memory (MB): peak = 4477.422 ; gain = 0.000 ; free physical = 68856 ; free virtual = 80998
-Command: write_bitstream -force design_3_wrapper.bit
+INFO: [runtcl-4] Executing : report_clock_utilization -file design_4_wrapper_clock_utilization_routed.rpt
+report_clock_utilization: Time (s): cpu = 00:00:28 ; elapsed = 00:00:28 . Memory (MB): peak = 4628.355 ; gain = 0.000 ; free physical = 251 ; free virtual = 18606
+WARNING: [Memdata 28-167] Found XPM memory block design_4_i/smartconnect_0/inst/s00_nodes/s00_w_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst with a P_MEMORY_PRIMITIVE property set to distributed. A value of block is required. You will not be able to use the updatemem program to update the bitstream with new data for the design_4_i/smartconnect_0/inst/s00_nodes/s00_w_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst block.
+WARNING: [Memdata 28-167] Found XPM memory block design_4_i/smartconnect_0/inst/s00_nodes/s00_r_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst with a P_MEMORY_PRIMITIVE property set to distributed. A value of block is required. You will not be able to use the updatemem program to update the bitstream with new data for the design_4_i/smartconnect_0/inst/s00_nodes/s00_r_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst block.
+WARNING: [Memdata 28-167] Found XPM memory block design_4_i/smartconnect_0/inst/s00_nodes/s00_b_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst with a P_MEMORY_PRIMITIVE property set to distributed. A value of block is required. You will not be able to use the updatemem program to update the bitstream with new data for the design_4_i/smartconnect_0/inst/s00_nodes/s00_b_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst block.
+WARNING: [Memdata 28-167] Found XPM memory block design_4_i/smartconnect_0/inst/s00_nodes/s00_aw_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst with a P_MEMORY_PRIMITIVE property set to distributed. A value of block is required. You will not be able to use the updatemem program to update the bitstream with new data for the design_4_i/smartconnect_0/inst/s00_nodes/s00_aw_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst block.
+WARNING: [Memdata 28-167] Found XPM memory block design_4_i/smartconnect_0/inst/s00_nodes/s00_ar_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst with a P_MEMORY_PRIMITIVE property set to distributed. A value of block is required. You will not be able to use the updatemem program to update the bitstream with new data for the design_4_i/smartconnect_0/inst/s00_nodes/s00_ar_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst block.
+Command: write_bitstream -force design_4_wrapper.bit
 Attempting to get a license for feature 'Implementation' and/or device 'xczu9eg'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xczu9eg'
-INFO: [Common 17-1540] The version limit for your license is '2019.11' and has expired for new software. A version limit expiration means that, although you may be able to continue to use the current version of tools or IP with this license, you will not be eligible for any updates or new releases.
+INFO: [Common 17-1540] The version limit for your license is '2018.09' and has expired for new software. A version limit expiration means that, although you may be able to continue to use the current version of tools or IP with this license, you will not be eligible for any updates or new releases.
 Running DRC as a precondition to command write_bitstream
 INFO: [IP_Flow 19-1839] IP Catalog is up to date.
 INFO: [DRC 23-27] Running DRC with 8 threads
-WARNING: [DRC RTSTAT-10] No routable loads: 21 net(s) have no routable loads. The problem bus(es) and/or net(s) are dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_CTL/ctl_reg[2:0], dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_CTL/ctl_reg_en_2[1], dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD1/ctl_reg_en_2[1], dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/m_bscan_capture[0], dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/m_bscan_drck[0], dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/m_bscan_runtest[0], dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/ram_empty_i, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/ram_full_i, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/rd_rst_reg[0], dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_inst/s_bscan_tms, design_3_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/s_daddr_o[13], design_3_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/s_daddr_o[14], design_3_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/s_daddr_o[15], design_3_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/s_daddr_o[16]... and (the first 15 of 19 listed).
+WARNING: [DRC RTSTAT-10] No routable loads: 21 net(s) have no routable loads. The problem bus(es) and/or net(s) are dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_CTL/ctl_reg[2:0], dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_CTL/ctl_reg_en_2[1], dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD1/ctl_reg_en_2[1], dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/m_bscan_capture[0], dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/m_bscan_drck[0], dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/m_bscan_runtest[0], dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/ram_empty_i, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/ram_full_i, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/rd_rst_reg[0], dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_inst/s_bscan_tms, design_4_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/s_daddr_o[13], design_4_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/s_daddr_o[14], design_4_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/s_daddr_o[15], design_4_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/s_daddr_o[16]... and (the first 15 of 19 listed).
 INFO: [Vivado 12-3199] DRC finished with 0 Errors, 1 Warnings
 INFO: [Vivado 12-3200] Please refer to the DRC report (report_drc) for more information.
 INFO: [Project 1-821] Please set project.enableDesignId to be 'true'.
@@ -547,11 +1007,11 @@ Loading route data...
 Processing options...
 Creating bitmap...
 Creating bitstream...
-Writing bitstream ./design_3_wrapper.bit...
+Writing bitstream ./design_4_wrapper.bit...
 INFO: [Vivado 12-1842] Bitgen Completed Successfully.
 INFO: [Project 1-118] WebTalk data collection is enabled (User setting is ON. Install Setting is ON.).
 INFO: [Common 17-83] Releasing license: Implementation
-138 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+166 Infos, 106 Warnings, 200 Critical Warnings and 0 Errors encountered.
 write_bitstream completed successfully
-write_bitstream: Time (s): cpu = 00:00:33 ; elapsed = 00:00:28 . Memory (MB): peak = 4609.324 ; gain = 131.902 ; free physical = 68795 ; free virtual = 80963
-INFO: [Common 17-206] Exiting Vivado at Fri Feb 19 19:13:04 2021...
+write_bitstream: Time (s): cpu = 00:00:43 ; elapsed = 00:00:31 . Memory (MB): peak = 4818.797 ; gain = 190.441 ; free physical = 552 ; free virtual = 18559
+INFO: [Common 17-206] Exiting Vivado at Mon Feb 22 12:05:28 2021...
