@@ -6,7 +6,7 @@ source ~/experiences/profile.config
 off=0
 
 size=0x400000
-verbose=0
+verbose=1
 mg_budget=0
 
 while getopts "s:vm:" options
