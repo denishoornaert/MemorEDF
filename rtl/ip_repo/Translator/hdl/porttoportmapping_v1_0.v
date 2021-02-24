@@ -124,12 +124,12 @@ module porttoportmapping_v1_0 #
             output wire                       m00_axi_rready
         );
         
-        wire                                             [3 : 0] write_isolated_bank;
+        wire                                             [0 : 0] write_isolated_bank;
         wire                                            [34 : 0] write_removed_msb;
         wire                                            [34 : 0] write_dropped_address;
         wire                                            [39 : 0] write_new_msb;
         
-        wire                                             [3 : 0] read_isolated_bank;
+        wire                                             [0 : 0] read_isolated_bank;
         wire                                            [34 : 0] read_removed_msb;
         wire                                            [34 : 0] read_dropped_address;
         wire                                            [39 : 0] read_new_msb;
@@ -139,7 +139,7 @@ module porttoportmapping_v1_0 #
         assign write_dropped_address = {2'b00, write_removed_msb[34 : 16], write_removed_msb[13 : 0]};
         assign write_new_msb         = {4'h0, write_isolated_bank, write_dropped_address};
         
-        assign read_isolated_bank   = s00_axi_araddr[35 : 34];
+        assign read_isolated_bank   = s00_axi_araddr[35 : 35];
         assign read_removed_msb     = s00_axi_araddr[34 : 0];
         assign read_dropped_address = {2'b00, read_removed_msb[34 : 16], read_removed_msb[13 : 0]};
         assign read_new_msb         = {4'h0, read_isolated_bank, read_dropped_address};
