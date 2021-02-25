@@ -2,10 +2,10 @@
 <Root MajorVersion="0" MinorVersion="33">
   <CompositeFile CompositeFileTopName="design_static_bleacher" CanBeSetAsTop="false" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="RESET" Timestamp="1614012217"/>
-    <Generation Name="IMPLEMENTATION" State="RESET" Timestamp="1614012217"/>
-    <Generation Name="SIMULATION" State="RESET" Timestamp="1614012217"/>
-    <Generation Name="HW_HANDOFF" State="RESET" Timestamp="1614012217"/>
+    <Generation Name="SYNTHESIS" State="STALE" Timestamp="1614257934"/>
+    <Generation Name="IMPLEMENTATION" State="STALE" Timestamp="1614257934"/>
+    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1614257935"/>
+    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1614257935"/>
     <FileCollection Name="SOURCES" Type="SOURCES">
       <File Name="ip/design_static_bleacher_axi_vip_0_0/design_static_bleacher_axi_vip_0_0.xci" Type="IP">
         <Instance HierarchyPath="axi_vip_0"/>
@@ -36,14 +36,6 @@
       </File>
       <File Name="ip/design_static_bleacher_AXI_PerfectTranslator_0_0/design_static_bleacher_AXI_PerfectTranslator_0_0.xci" Type="IP">
         <Instance HierarchyPath="AXI_PerfectTranslator_0"/>
-        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
-        <Library Name="xil_defaultlib"/>
-        <UsedIn Val="SYNTHESIS"/>
-        <UsedIn Val="IMPLEMENTATION"/>
-        <UsedIn Val="SIMULATION"/>
-      </File>
-      <File Name="ip/design_static_bleacher_porttoportmapping_v1_0_0_0/design_static_bleacher_porttoportmapping_v1_0_0_0.xci" Type="IP">
-        <Instance HierarchyPath="porttoportmapping_v1_0_0"/>
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>

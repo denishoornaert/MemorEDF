@@ -1,6 +1,6 @@
-webtalk_init -webtalk_dir /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.sim/sim_1/behav/xsim/xsim.dir/VIP_static_bleacher_behav/webtalk/
+webtalk_init -webtalk_dir /home/denis/github/MemorEDF/rtl/MemorEDF/MemorEDF.sim/sim_1/behav/xsim/xsim.dir/VIP_static_bleacher_behav/webtalk/
 webtalk_register_client -client project
-webtalk_add_data -client project -key date_generated -value "Sat Feb 20 19:03:56 2021" -context "software_version_and_target_device"
+webtalk_add_data -client project -key date_generated -value "Thu Feb 25 14:01:00 2021" -context "software_version_and_target_device"
 webtalk_add_data -client project -key product_version -value "XSIM v2017.4 (64-bit)" -context "software_version_and_target_device"
 webtalk_add_data -client project -key build_version -value "2086221" -context "software_version_and_target_device"
 webtalk_add_data -client project -key os_platform -value "LIN64" -context "software_version_and_target_device"
@@ -12,21 +12,21 @@ webtalk_add_data -client project -key target_family -value "not_applicable" -con
 webtalk_add_data -client project -key target_device -value "not_applicable" -context "software_version_and_target_device"
 webtalk_add_data -client project -key target_package -value "not_applicable" -context "software_version_and_target_device"
 webtalk_add_data -client project -key target_speed -value "not_applicable" -context "software_version_and_target_device"
-webtalk_add_data -client project -key random_id -value "0efea1c0-9ffa-4598-836e-1ffc3187d0c8" -context "software_version_and_target_device"
+webtalk_add_data -client project -key random_id -value "78b97215-ab68-4762-814f-140d9597fc5e" -context "software_version_and_target_device"
 webtalk_add_data -client project -key project_id -value "43f55efd69aa4e918038648ffa5e146b" -context "software_version_and_target_device"
-webtalk_add_data -client project -key project_iteration -value "35" -context "software_version_and_target_device"
+webtalk_add_data -client project -key project_iteration -value "59" -context "software_version_and_target_device"
 webtalk_add_data -client project -key os_name -value "Ubuntu" -context "user_environment"
 webtalk_add_data -client project -key os_release -value "Ubuntu 16.04.7 LTS" -context "user_environment"
-webtalk_add_data -client project -key cpu_name -value "Intel(R) Core(TM) i7-7700 CPU @ 3.60GHz" -context "user_environment"
-webtalk_add_data -client project -key cpu_speed -value "3914.069 MHz" -context "user_environment"
+webtalk_add_data -client project -key cpu_name -value "Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz" -context "user_environment"
+webtalk_add_data -client project -key cpu_speed -value "3709.820 MHz" -context "user_environment"
 webtalk_add_data -client project -key total_processors -value "1" -context "user_environment"
-webtalk_add_data -client project -key system_ram -value "16.000 GB" -context "user_environment"
+webtalk_add_data -client project -key system_ram -value "25.000 GB" -context "user_environment"
 webtalk_register_client -client xsim
 webtalk_add_data -client xsim -key Command -value "xsim" -context "xsim\\command_line_options"
 webtalk_add_data -client xsim -key trace_waveform -value "true" -context "xsim\\usage"
 webtalk_add_data -client xsim -key runtime -value "465 ns" -context "xsim\\usage"
 webtalk_add_data -client xsim -key iteration -value "0" -context "xsim\\usage"
-webtalk_add_data -client xsim -key Simulation_Time -value "0.07_sec" -context "xsim\\usage"
-webtalk_add_data -client xsim -key Simulation_Memory -value "150792_KB" -context "xsim\\usage"
-webtalk_transmit -clientid 3299973015 -regid "" -xml /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.sim/sim_1/behav/xsim/xsim.dir/VIP_static_bleacher_behav/webtalk/usage_statistics_ext_xsim.xml -html /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.sim/sim_1/behav/xsim/xsim.dir/VIP_static_bleacher_behav/webtalk/usage_statistics_ext_xsim.html -wdm /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.sim/sim_1/behav/xsim/xsim.dir/VIP_static_bleacher_behav/webtalk/usage_statistics_ext_xsim.wdm -intro "<H3>XSIM Usage Report</H3><BR>"
+webtalk_add_data -client xsim -key Simulation_Time -value "0.05_sec" -context "xsim\\usage"
+webtalk_add_data -client xsim -key Simulation_Memory -value "147384_KB" -context "xsim\\usage"
+webtalk_transmit -clientid 3358843496 -regid "" -xml /home/denis/github/MemorEDF/rtl/MemorEDF/MemorEDF.sim/sim_1/behav/xsim/xsim.dir/VIP_static_bleacher_behav/webtalk/usage_statistics_ext_xsim.xml -html /home/denis/github/MemorEDF/rtl/MemorEDF/MemorEDF.sim/sim_1/behav/xsim/xsim.dir/VIP_static_bleacher_behav/webtalk/usage_statistics_ext_xsim.html -wdm /home/denis/github/MemorEDF/rtl/MemorEDF/MemorEDF.sim/sim_1/behav/xsim/xsim.dir/VIP_static_bleacher_behav/webtalk/usage_statistics_ext_xsim.wdm -intro "<H3>XSIM Usage Report</H3><BR>"
 webtalk_terminate

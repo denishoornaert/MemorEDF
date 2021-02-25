@@ -133,7 +133,6 @@ module design_4_system_ila_0_1 (
   SLOT_1_AXI_rlast,
   SLOT_1_AXI_rvalid,
   SLOT_1_AXI_rready,
-  SLOT_2_AXI_awid,
   SLOT_2_AXI_awaddr,
   SLOT_2_AXI_awlen,
   SLOT_2_AXI_awsize,
@@ -150,11 +149,9 @@ module design_4_system_ila_0_1 (
   SLOT_2_AXI_wlast,
   SLOT_2_AXI_wvalid,
   SLOT_2_AXI_wready,
-  SLOT_2_AXI_bid,
   SLOT_2_AXI_bresp,
   SLOT_2_AXI_bvalid,
   SLOT_2_AXI_bready,
-  SLOT_2_AXI_arid,
   SLOT_2_AXI_araddr,
   SLOT_2_AXI_arlen,
   SLOT_2_AXI_arsize,
@@ -166,7 +163,6 @@ module design_4_system_ila_0_1 (
   SLOT_2_AXI_aruser,
   SLOT_2_AXI_arvalid,
   SLOT_2_AXI_arready,
-  SLOT_2_AXI_rid,
   SLOT_2_AXI_rdata,
   SLOT_2_AXI_rresp,
   SLOT_2_AXI_rlast,
@@ -336,8 +332,6 @@ input wire SLOT_1_AXI_rvalid;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME SLOT_1_AXI, DATA_WIDTH 128, PROTOCOL AXI4, FREQ_HZ 99990000, ID_WIDTH 16, ADDR_WIDTH 40, AWUSER_WIDTH 1, ARUSER_WIDTH 1, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 1, HAS_LOCK 1, HAS_PROT 1, HAS_CACHE 1, HAS_QOS 1, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 1, NUM_READ_OUTSTANDING 8, NUM_WRITE_OUTSTANDING 8, MAX_BURST_LENGTH 256, PHASE 0.000, CLK_DOMAIN design_4_zynq_ultra_ps_e_0_0_pl_clk0, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 SLOT_1_AXI RREADY" *)
 input wire SLOT_1_AXI_rready;
-(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 SLOT_2_AXI AWID" *)
-input wire [5 : 0] SLOT_2_AXI_awid;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 SLOT_2_AXI AWADDR" *)
 input wire [48 : 0] SLOT_2_AXI_awaddr;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 SLOT_2_AXI AWLEN" *)
@@ -370,16 +364,12 @@ input wire SLOT_2_AXI_wlast;
 input wire SLOT_2_AXI_wvalid;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 SLOT_2_AXI WREADY" *)
 input wire SLOT_2_AXI_wready;
-(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 SLOT_2_AXI BID" *)
-input wire [5 : 0] SLOT_2_AXI_bid;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 SLOT_2_AXI BRESP" *)
 input wire [1 : 0] SLOT_2_AXI_bresp;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 SLOT_2_AXI BVALID" *)
 input wire SLOT_2_AXI_bvalid;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 SLOT_2_AXI BREADY" *)
 input wire SLOT_2_AXI_bready;
-(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 SLOT_2_AXI ARID" *)
-input wire [5 : 0] SLOT_2_AXI_arid;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 SLOT_2_AXI ARADDR" *)
 input wire [48 : 0] SLOT_2_AXI_araddr;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 SLOT_2_AXI ARLEN" *)
@@ -402,8 +392,6 @@ input wire [0 : 0] SLOT_2_AXI_aruser;
 input wire SLOT_2_AXI_arvalid;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 SLOT_2_AXI ARREADY" *)
 input wire SLOT_2_AXI_arready;
-(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 SLOT_2_AXI RID" *)
-input wire [5 : 0] SLOT_2_AXI_rid;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 SLOT_2_AXI RDATA" *)
 input wire [127 : 0] SLOT_2_AXI_rdata;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 SLOT_2_AXI RRESP" *)
@@ -412,7 +400,7 @@ input wire [1 : 0] SLOT_2_AXI_rresp;
 input wire SLOT_2_AXI_rlast;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 SLOT_2_AXI RVALID" *)
 input wire SLOT_2_AXI_rvalid;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME SLOT_2_AXI, DATA_WIDTH 128, PROTOCOL AXI4, FREQ_HZ 99990000, ID_WIDTH 6, ADDR_WIDTH 49, AWUSER_WIDTH 1, ARUSER_WIDTH 1, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 1, HAS_LOCK 1, HAS_PROT 1, HAS_CACHE 1, HAS_QOS 1, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 16, NUM_WRITE_OUTSTANDING 16, MAX_BURST_LENGTH 256, PHASE 0.000, CLK_DOMAIN design_4_zynq_ultra_ps_e_0_0_pl_clk0, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME SLOT_2_AXI, DATA_WIDTH 128, PROTOCOL AXI4, FREQ_HZ 99990000, ID_WIDTH 0, ADDR_WIDTH 49, AWUSER_WIDTH 1, ARUSER_WIDTH 1, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 1, HAS_LOCK 1, HAS_PROT 1, HAS_CACHE 1, HAS_QOS 1, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 2, NUM_WRITE_OUTSTANDING 2, MAX_BURST_LENGTH 256, PHASE 0.000, CLK_DOMAIN design_4_zynq_ultra_ps_e_0_0_pl_clk0, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 SLOT_2_AXI RREADY" *)
 input wire SLOT_2_AXI_rready;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.resetn, POLARITY ACTIVE_LOW" *)
@@ -499,7 +487,6 @@ input wire resetn;
     .SLOT_1_AXI_rlast(SLOT_1_AXI_rlast),
     .SLOT_1_AXI_rvalid(SLOT_1_AXI_rvalid),
     .SLOT_1_AXI_rready(SLOT_1_AXI_rready),
-    .SLOT_2_AXI_awid(SLOT_2_AXI_awid),
     .SLOT_2_AXI_awaddr(SLOT_2_AXI_awaddr),
     .SLOT_2_AXI_awlen(SLOT_2_AXI_awlen),
     .SLOT_2_AXI_awsize(SLOT_2_AXI_awsize),
@@ -516,11 +503,9 @@ input wire resetn;
     .SLOT_2_AXI_wlast(SLOT_2_AXI_wlast),
     .SLOT_2_AXI_wvalid(SLOT_2_AXI_wvalid),
     .SLOT_2_AXI_wready(SLOT_2_AXI_wready),
-    .SLOT_2_AXI_bid(SLOT_2_AXI_bid),
     .SLOT_2_AXI_bresp(SLOT_2_AXI_bresp),
     .SLOT_2_AXI_bvalid(SLOT_2_AXI_bvalid),
     .SLOT_2_AXI_bready(SLOT_2_AXI_bready),
-    .SLOT_2_AXI_arid(SLOT_2_AXI_arid),
     .SLOT_2_AXI_araddr(SLOT_2_AXI_araddr),
     .SLOT_2_AXI_arlen(SLOT_2_AXI_arlen),
     .SLOT_2_AXI_arsize(SLOT_2_AXI_arsize),
@@ -532,7 +517,6 @@ input wire resetn;
     .SLOT_2_AXI_aruser(SLOT_2_AXI_aruser),
     .SLOT_2_AXI_arvalid(SLOT_2_AXI_arvalid),
     .SLOT_2_AXI_arready(SLOT_2_AXI_arready),
-    .SLOT_2_AXI_rid(SLOT_2_AXI_rid),
     .SLOT_2_AXI_rdata(SLOT_2_AXI_rdata),
     .SLOT_2_AXI_rresp(SLOT_2_AXI_rresp),
     .SLOT_2_AXI_rlast(SLOT_2_AXI_rlast),

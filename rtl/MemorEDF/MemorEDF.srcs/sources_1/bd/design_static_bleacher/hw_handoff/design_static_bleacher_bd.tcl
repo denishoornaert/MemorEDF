@@ -164,7 +164,9 @@ proc create_root_design { parentCell } {
   # Create instance: AXI_PerfectTranslator_0, and set properties
   set AXI_PerfectTranslator_0 [ create_bd_cell -type ip -vlnv user.org:user:AXI_PerfectTranslator:1.0 AXI_PerfectTranslator_0 ]
   set_property -dict [ list \
-   CONFIG.C_M00_AXI_ID_WIDTH {6} \
+   CONFIG.C_M00_AXI_ADDR_WIDTH {49} \
+   CONFIG.C_M00_AXI_ID_WIDTH {16} \
+   CONFIG.C_M00_AXI_TARGET_SLAVE_BASE_ADDR {0x0040000000} \
  ] $AXI_PerfectTranslator_0
 
   # Create instance: axi_vip_0, and set properties
@@ -203,20 +205,13 @@ proc create_root_design { parentCell } {
    CONFIG.INTERFACE_MODE {SLAVE} \
  ] $axi_vip_1
 
-  # Create instance: porttoportmapping_v1_0_0, and set properties
-  set porttoportmapping_v1_0_0 [ create_bd_cell -type ip -vlnv user.org:user:porttoportmapping_v1_0:1.0 porttoportmapping_v1_0_0 ]
-  set_property -dict [ list \
-   CONFIG.C_M00_AXI_ID_WIDTH {16} \
- ] $porttoportmapping_v1_0_0
-
   # Create interface connections
   connect_bd_intf_net -intf_net AXI_PerfectTranslator_0_M00_AXI [get_bd_intf_pins AXI_PerfectTranslator_0/M00_AXI] [get_bd_intf_pins axi_vip_1/S_AXI]
-  connect_bd_intf_net -intf_net axi_vip_0_M_AXI [get_bd_intf_pins axi_vip_0/M_AXI] [get_bd_intf_pins porttoportmapping_v1_0_0/s00_axi]
-  connect_bd_intf_net -intf_net porttoportmapping_v1_0_0_m00_axi [get_bd_intf_pins AXI_PerfectTranslator_0/S00_AXI] [get_bd_intf_pins porttoportmapping_v1_0_0/m00_axi]
+  connect_bd_intf_net -intf_net axi_vip_0_M_AXI [get_bd_intf_pins AXI_PerfectTranslator_0/S00_AXI] [get_bd_intf_pins axi_vip_0/M_AXI]
 
   # Create port connections
-  connect_bd_net -net aclk_0_1 [get_bd_ports aclk_0] [get_bd_pins AXI_PerfectTranslator_0/m00_axi_aclk] [get_bd_pins AXI_PerfectTranslator_0/s00_axi_aclk] [get_bd_pins axi_vip_0/aclk] [get_bd_pins axi_vip_1/aclk] [get_bd_pins porttoportmapping_v1_0_0/m00_axi_aclk] [get_bd_pins porttoportmapping_v1_0_0/s00_axi_aclk]
-  connect_bd_net -net aresetn_0_1 [get_bd_ports aresetn_0] [get_bd_pins AXI_PerfectTranslator_0/m00_axi_aresetn] [get_bd_pins AXI_PerfectTranslator_0/s00_axi_aresetn] [get_bd_pins axi_vip_0/aresetn] [get_bd_pins axi_vip_1/aresetn] [get_bd_pins porttoportmapping_v1_0_0/m00_axi_aresetn] [get_bd_pins porttoportmapping_v1_0_0/s00_axi_aresetn]
+  connect_bd_net -net aclk_0_1 [get_bd_ports aclk_0] [get_bd_pins AXI_PerfectTranslator_0/m00_axi_aclk] [get_bd_pins AXI_PerfectTranslator_0/s00_axi_aclk] [get_bd_pins axi_vip_0/aclk] [get_bd_pins axi_vip_1/aclk]
+  connect_bd_net -net aresetn_0_1 [get_bd_ports aresetn_0] [get_bd_pins AXI_PerfectTranslator_0/m00_axi_aresetn] [get_bd_pins AXI_PerfectTranslator_0/s00_axi_aresetn] [get_bd_pins axi_vip_0/aresetn] [get_bd_pins axi_vip_1/aresetn]
 
   # Create address segments
 

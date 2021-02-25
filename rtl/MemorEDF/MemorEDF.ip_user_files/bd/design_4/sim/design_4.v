@@ -1,7 +1,7 @@
 //Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-//Date        : Sat Feb 20 18:10:29 2021
+//Date        : Mon Feb 22 11:46:01 2021
 //Host        : buflightdev running 64-bit Ubuntu 16.04.7 LTS
 //Command     : generate_target design_4.bd
 //Design      : design_4
@@ -9,16 +9,15 @@
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "design_4,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_4,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=5,numReposBlks=5,numNonXlnxBlks=2,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_clkrst_cnt=3,da_zynq_ultra_ps_e_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "design_4.hwdef" *) 
+(* CORE_GENERATION_INFO = "design_4,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_4,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=5,numReposBlks=5,numNonXlnxBlks=1,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_clkrst_cnt=3,da_zynq_ultra_ps_e_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "design_4.hwdef" *) 
 module design_4
    ();
 
   (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 ARADDR" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [48:0]AXI_PerfectTranslator_0_M00_AXI_ARADDR;
   (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 ARBURST" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [1:0]AXI_PerfectTranslator_0_M00_AXI_ARBURST;
   (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 ARCACHE" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [3:0]AXI_PerfectTranslator_0_M00_AXI_ARCACHE;
-  (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 ARID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [5:0]AXI_PerfectTranslator_0_M00_AXI_ARID;
   (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 ARLEN" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [7:0]AXI_PerfectTranslator_0_M00_AXI_ARLEN;
-  (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 ARLOCK" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire AXI_PerfectTranslator_0_M00_AXI_ARLOCK;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 ARLOCK" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [0:0]AXI_PerfectTranslator_0_M00_AXI_ARLOCK;
   (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 ARPROT" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [2:0]AXI_PerfectTranslator_0_M00_AXI_ARPROT;
   (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 ARQOS" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [3:0]AXI_PerfectTranslator_0_M00_AXI_ARQOS;
   (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 ARREADY" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire AXI_PerfectTranslator_0_M00_AXI_ARREADY;
@@ -28,21 +27,18 @@ module design_4
   (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 AWADDR" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [48:0]AXI_PerfectTranslator_0_M00_AXI_AWADDR;
   (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 AWBURST" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [1:0]AXI_PerfectTranslator_0_M00_AXI_AWBURST;
   (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 AWCACHE" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [3:0]AXI_PerfectTranslator_0_M00_AXI_AWCACHE;
-  (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 AWID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [5:0]AXI_PerfectTranslator_0_M00_AXI_AWID;
   (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 AWLEN" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [7:0]AXI_PerfectTranslator_0_M00_AXI_AWLEN;
-  (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 AWLOCK" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire AXI_PerfectTranslator_0_M00_AXI_AWLOCK;
+  (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 AWLOCK" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [0:0]AXI_PerfectTranslator_0_M00_AXI_AWLOCK;
   (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 AWPROT" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [2:0]AXI_PerfectTranslator_0_M00_AXI_AWPROT;
   (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 AWQOS" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [3:0]AXI_PerfectTranslator_0_M00_AXI_AWQOS;
   (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 AWREADY" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire AXI_PerfectTranslator_0_M00_AXI_AWREADY;
   (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 AWSIZE" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [2:0]AXI_PerfectTranslator_0_M00_AXI_AWSIZE;
   (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 AWUSER" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [0:0]AXI_PerfectTranslator_0_M00_AXI_AWUSER;
   (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 AWVALID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire AXI_PerfectTranslator_0_M00_AXI_AWVALID;
-  (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 BID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [5:0]AXI_PerfectTranslator_0_M00_AXI_BID;
   (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 BREADY" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire AXI_PerfectTranslator_0_M00_AXI_BREADY;
   (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 BRESP" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [1:0]AXI_PerfectTranslator_0_M00_AXI_BRESP;
   (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 BVALID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire AXI_PerfectTranslator_0_M00_AXI_BVALID;
   (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 RDATA" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [127:0]AXI_PerfectTranslator_0_M00_AXI_RDATA;
-  (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 RID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [5:0]AXI_PerfectTranslator_0_M00_AXI_RID;
   (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 RLAST" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire AXI_PerfectTranslator_0_M00_AXI_RLAST;
   (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 RREADY" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire AXI_PerfectTranslator_0_M00_AXI_RREADY;
   (* CONN_BUS_INFO = "AXI_PerfectTranslator_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 RRESP" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [1:0]AXI_PerfectTranslator_0_M00_AXI_RRESP;
@@ -134,91 +130,6 @@ module design_4
   wire zynq_ultra_ps_e_0_pl_clk0;
   wire zynq_ultra_ps_e_0_pl_resetn0;
 
-  design_4_AXI_PerfectTranslator_0_0 AXI_PerfectTranslator_0
-       (.m00_axi_aclk(zynq_ultra_ps_e_0_pl_clk0),
-        .m00_axi_araddr(AXI_PerfectTranslator_0_M00_AXI_ARADDR),
-        .m00_axi_arburst(AXI_PerfectTranslator_0_M00_AXI_ARBURST),
-        .m00_axi_arcache(AXI_PerfectTranslator_0_M00_AXI_ARCACHE),
-        .m00_axi_aresetn(rst_ps8_0_99M_peripheral_aresetn),
-        .m00_axi_arid(AXI_PerfectTranslator_0_M00_AXI_ARID),
-        .m00_axi_arlen(AXI_PerfectTranslator_0_M00_AXI_ARLEN),
-        .m00_axi_arlock(AXI_PerfectTranslator_0_M00_AXI_ARLOCK),
-        .m00_axi_arprot(AXI_PerfectTranslator_0_M00_AXI_ARPROT),
-        .m00_axi_arqos(AXI_PerfectTranslator_0_M00_AXI_ARQOS),
-        .m00_axi_arready(AXI_PerfectTranslator_0_M00_AXI_ARREADY),
-        .m00_axi_arsize(AXI_PerfectTranslator_0_M00_AXI_ARSIZE),
-        .m00_axi_aruser(AXI_PerfectTranslator_0_M00_AXI_ARUSER),
-        .m00_axi_arvalid(AXI_PerfectTranslator_0_M00_AXI_ARVALID),
-        .m00_axi_awaddr(AXI_PerfectTranslator_0_M00_AXI_AWADDR),
-        .m00_axi_awburst(AXI_PerfectTranslator_0_M00_AXI_AWBURST),
-        .m00_axi_awcache(AXI_PerfectTranslator_0_M00_AXI_AWCACHE),
-        .m00_axi_awid(AXI_PerfectTranslator_0_M00_AXI_AWID),
-        .m00_axi_awlen(AXI_PerfectTranslator_0_M00_AXI_AWLEN),
-        .m00_axi_awlock(AXI_PerfectTranslator_0_M00_AXI_AWLOCK),
-        .m00_axi_awprot(AXI_PerfectTranslator_0_M00_AXI_AWPROT),
-        .m00_axi_awqos(AXI_PerfectTranslator_0_M00_AXI_AWQOS),
-        .m00_axi_awready(AXI_PerfectTranslator_0_M00_AXI_AWREADY),
-        .m00_axi_awsize(AXI_PerfectTranslator_0_M00_AXI_AWSIZE),
-        .m00_axi_awuser(AXI_PerfectTranslator_0_M00_AXI_AWUSER),
-        .m00_axi_awvalid(AXI_PerfectTranslator_0_M00_AXI_AWVALID),
-        .m00_axi_bid(AXI_PerfectTranslator_0_M00_AXI_BID),
-        .m00_axi_bready(AXI_PerfectTranslator_0_M00_AXI_BREADY),
-        .m00_axi_bresp(AXI_PerfectTranslator_0_M00_AXI_BRESP),
-        .m00_axi_bvalid(AXI_PerfectTranslator_0_M00_AXI_BVALID),
-        .m00_axi_rdata(AXI_PerfectTranslator_0_M00_AXI_RDATA),
-        .m00_axi_rid(AXI_PerfectTranslator_0_M00_AXI_RID),
-        .m00_axi_rlast(AXI_PerfectTranslator_0_M00_AXI_RLAST),
-        .m00_axi_rready(AXI_PerfectTranslator_0_M00_AXI_RREADY),
-        .m00_axi_rresp(AXI_PerfectTranslator_0_M00_AXI_RRESP),
-        .m00_axi_rvalid(AXI_PerfectTranslator_0_M00_AXI_RVALID),
-        .m00_axi_wdata(AXI_PerfectTranslator_0_M00_AXI_WDATA),
-        .m00_axi_wlast(AXI_PerfectTranslator_0_M00_AXI_WLAST),
-        .m00_axi_wready(AXI_PerfectTranslator_0_M00_AXI_WREADY),
-        .m00_axi_wstrb(AXI_PerfectTranslator_0_M00_AXI_WSTRB),
-        .m00_axi_wvalid(AXI_PerfectTranslator_0_M00_AXI_WVALID),
-        .s00_axi_aclk(zynq_ultra_ps_e_0_pl_clk0),
-        .s00_axi_araddr(porttoportmapping_v1_0_0_m00_axi_ARADDR),
-        .s00_axi_arburst(porttoportmapping_v1_0_0_m00_axi_ARBURST),
-        .s00_axi_arcache(porttoportmapping_v1_0_0_m00_axi_ARCACHE),
-        .s00_axi_aresetn(rst_ps8_0_99M_peripheral_aresetn),
-        .s00_axi_arid(porttoportmapping_v1_0_0_m00_axi_ARID),
-        .s00_axi_arlen(porttoportmapping_v1_0_0_m00_axi_ARLEN),
-        .s00_axi_arlock(porttoportmapping_v1_0_0_m00_axi_ARLOCK),
-        .s00_axi_arprot(porttoportmapping_v1_0_0_m00_axi_ARPROT),
-        .s00_axi_arqos(porttoportmapping_v1_0_0_m00_axi_ARQOS),
-        .s00_axi_arready(porttoportmapping_v1_0_0_m00_axi_ARREADY),
-        .s00_axi_arregion({1'b0,1'b0,1'b0,1'b0}),
-        .s00_axi_arsize(porttoportmapping_v1_0_0_m00_axi_ARSIZE),
-        .s00_axi_aruser(porttoportmapping_v1_0_0_m00_axi_ARUSER),
-        .s00_axi_arvalid(porttoportmapping_v1_0_0_m00_axi_ARVALID),
-        .s00_axi_awaddr(porttoportmapping_v1_0_0_m00_axi_AWADDR),
-        .s00_axi_awburst(porttoportmapping_v1_0_0_m00_axi_AWBURST),
-        .s00_axi_awcache(porttoportmapping_v1_0_0_m00_axi_AWCACHE),
-        .s00_axi_awid(porttoportmapping_v1_0_0_m00_axi_AWID),
-        .s00_axi_awlen(porttoportmapping_v1_0_0_m00_axi_AWLEN),
-        .s00_axi_awlock(porttoportmapping_v1_0_0_m00_axi_AWLOCK),
-        .s00_axi_awprot(porttoportmapping_v1_0_0_m00_axi_AWPROT),
-        .s00_axi_awqos(porttoportmapping_v1_0_0_m00_axi_AWQOS),
-        .s00_axi_awready(porttoportmapping_v1_0_0_m00_axi_AWREADY),
-        .s00_axi_awregion({1'b0,1'b0,1'b0,1'b0}),
-        .s00_axi_awsize(porttoportmapping_v1_0_0_m00_axi_AWSIZE),
-        .s00_axi_awuser(porttoportmapping_v1_0_0_m00_axi_AWUSER),
-        .s00_axi_awvalid(porttoportmapping_v1_0_0_m00_axi_AWVALID),
-        .s00_axi_bid(porttoportmapping_v1_0_0_m00_axi_BID),
-        .s00_axi_bready(porttoportmapping_v1_0_0_m00_axi_BREADY),
-        .s00_axi_bresp(porttoportmapping_v1_0_0_m00_axi_BRESP),
-        .s00_axi_bvalid(porttoportmapping_v1_0_0_m00_axi_BVALID),
-        .s00_axi_rdata(porttoportmapping_v1_0_0_m00_axi_RDATA),
-        .s00_axi_rid(porttoportmapping_v1_0_0_m00_axi_RID),
-        .s00_axi_rlast(porttoportmapping_v1_0_0_m00_axi_RLAST),
-        .s00_axi_rready(porttoportmapping_v1_0_0_m00_axi_RREADY),
-        .s00_axi_rresp(porttoportmapping_v1_0_0_m00_axi_RRESP),
-        .s00_axi_rvalid(porttoportmapping_v1_0_0_m00_axi_RVALID),
-        .s00_axi_wdata(porttoportmapping_v1_0_0_m00_axi_WDATA),
-        .s00_axi_wlast(porttoportmapping_v1_0_0_m00_axi_WLAST),
-        .s00_axi_wready(porttoportmapping_v1_0_0_m00_axi_WREADY),
-        .s00_axi_wstrb(porttoportmapping_v1_0_0_m00_axi_WSTRB),
-        .s00_axi_wvalid(porttoportmapping_v1_0_0_m00_axi_WVALID));
   design_4_porttoportmapping_v1_0_0_0 porttoportmapping_v1_0_0
        (.m00_axi_aclk(zynq_ultra_ps_e_0_pl_clk0),
         .m00_axi_araddr(porttoportmapping_v1_0_0_m00_axi_ARADDR),
@@ -311,6 +222,83 @@ module design_4
         .mb_debug_sys_rst(1'b0),
         .peripheral_aresetn(rst_ps8_0_99M_peripheral_aresetn),
         .slowest_sync_clk(zynq_ultra_ps_e_0_pl_clk0));
+  design_4_smartconnect_0_0 smartconnect_0
+       (.M00_AXI_araddr(AXI_PerfectTranslator_0_M00_AXI_ARADDR),
+        .M00_AXI_arburst(AXI_PerfectTranslator_0_M00_AXI_ARBURST),
+        .M00_AXI_arcache(AXI_PerfectTranslator_0_M00_AXI_ARCACHE),
+        .M00_AXI_arlen(AXI_PerfectTranslator_0_M00_AXI_ARLEN),
+        .M00_AXI_arlock(AXI_PerfectTranslator_0_M00_AXI_ARLOCK),
+        .M00_AXI_arprot(AXI_PerfectTranslator_0_M00_AXI_ARPROT),
+        .M00_AXI_arqos(AXI_PerfectTranslator_0_M00_AXI_ARQOS),
+        .M00_AXI_arready(AXI_PerfectTranslator_0_M00_AXI_ARREADY),
+        .M00_AXI_arsize(AXI_PerfectTranslator_0_M00_AXI_ARSIZE),
+        .M00_AXI_aruser(AXI_PerfectTranslator_0_M00_AXI_ARUSER),
+        .M00_AXI_arvalid(AXI_PerfectTranslator_0_M00_AXI_ARVALID),
+        .M00_AXI_awaddr(AXI_PerfectTranslator_0_M00_AXI_AWADDR),
+        .M00_AXI_awburst(AXI_PerfectTranslator_0_M00_AXI_AWBURST),
+        .M00_AXI_awcache(AXI_PerfectTranslator_0_M00_AXI_AWCACHE),
+        .M00_AXI_awlen(AXI_PerfectTranslator_0_M00_AXI_AWLEN),
+        .M00_AXI_awlock(AXI_PerfectTranslator_0_M00_AXI_AWLOCK),
+        .M00_AXI_awprot(AXI_PerfectTranslator_0_M00_AXI_AWPROT),
+        .M00_AXI_awqos(AXI_PerfectTranslator_0_M00_AXI_AWQOS),
+        .M00_AXI_awready(AXI_PerfectTranslator_0_M00_AXI_AWREADY),
+        .M00_AXI_awsize(AXI_PerfectTranslator_0_M00_AXI_AWSIZE),
+        .M00_AXI_awuser(AXI_PerfectTranslator_0_M00_AXI_AWUSER),
+        .M00_AXI_awvalid(AXI_PerfectTranslator_0_M00_AXI_AWVALID),
+        .M00_AXI_bready(AXI_PerfectTranslator_0_M00_AXI_BREADY),
+        .M00_AXI_bresp(AXI_PerfectTranslator_0_M00_AXI_BRESP),
+        .M00_AXI_bvalid(AXI_PerfectTranslator_0_M00_AXI_BVALID),
+        .M00_AXI_rdata(AXI_PerfectTranslator_0_M00_AXI_RDATA),
+        .M00_AXI_rlast(AXI_PerfectTranslator_0_M00_AXI_RLAST),
+        .M00_AXI_rready(AXI_PerfectTranslator_0_M00_AXI_RREADY),
+        .M00_AXI_rresp(AXI_PerfectTranslator_0_M00_AXI_RRESP),
+        .M00_AXI_rvalid(AXI_PerfectTranslator_0_M00_AXI_RVALID),
+        .M00_AXI_wdata(AXI_PerfectTranslator_0_M00_AXI_WDATA),
+        .M00_AXI_wlast(AXI_PerfectTranslator_0_M00_AXI_WLAST),
+        .M00_AXI_wready(AXI_PerfectTranslator_0_M00_AXI_WREADY),
+        .M00_AXI_wstrb(AXI_PerfectTranslator_0_M00_AXI_WSTRB),
+        .M00_AXI_wvalid(AXI_PerfectTranslator_0_M00_AXI_WVALID),
+        .S00_AXI_araddr(porttoportmapping_v1_0_0_m00_axi_ARADDR),
+        .S00_AXI_arburst(porttoportmapping_v1_0_0_m00_axi_ARBURST),
+        .S00_AXI_arcache(porttoportmapping_v1_0_0_m00_axi_ARCACHE),
+        .S00_AXI_arid(porttoportmapping_v1_0_0_m00_axi_ARID),
+        .S00_AXI_arlen(porttoportmapping_v1_0_0_m00_axi_ARLEN),
+        .S00_AXI_arlock(porttoportmapping_v1_0_0_m00_axi_ARLOCK),
+        .S00_AXI_arprot(porttoportmapping_v1_0_0_m00_axi_ARPROT),
+        .S00_AXI_arqos(porttoportmapping_v1_0_0_m00_axi_ARQOS),
+        .S00_AXI_arready(porttoportmapping_v1_0_0_m00_axi_ARREADY),
+        .S00_AXI_arsize(porttoportmapping_v1_0_0_m00_axi_ARSIZE),
+        .S00_AXI_aruser(porttoportmapping_v1_0_0_m00_axi_ARUSER),
+        .S00_AXI_arvalid(porttoportmapping_v1_0_0_m00_axi_ARVALID),
+        .S00_AXI_awaddr(porttoportmapping_v1_0_0_m00_axi_AWADDR),
+        .S00_AXI_awburst(porttoportmapping_v1_0_0_m00_axi_AWBURST),
+        .S00_AXI_awcache(porttoportmapping_v1_0_0_m00_axi_AWCACHE),
+        .S00_AXI_awid(porttoportmapping_v1_0_0_m00_axi_AWID),
+        .S00_AXI_awlen(porttoportmapping_v1_0_0_m00_axi_AWLEN),
+        .S00_AXI_awlock(porttoportmapping_v1_0_0_m00_axi_AWLOCK),
+        .S00_AXI_awprot(porttoportmapping_v1_0_0_m00_axi_AWPROT),
+        .S00_AXI_awqos(porttoportmapping_v1_0_0_m00_axi_AWQOS),
+        .S00_AXI_awready(porttoportmapping_v1_0_0_m00_axi_AWREADY),
+        .S00_AXI_awsize(porttoportmapping_v1_0_0_m00_axi_AWSIZE),
+        .S00_AXI_awuser(porttoportmapping_v1_0_0_m00_axi_AWUSER),
+        .S00_AXI_awvalid(porttoportmapping_v1_0_0_m00_axi_AWVALID),
+        .S00_AXI_bid(porttoportmapping_v1_0_0_m00_axi_BID),
+        .S00_AXI_bready(porttoportmapping_v1_0_0_m00_axi_BREADY),
+        .S00_AXI_bresp(porttoportmapping_v1_0_0_m00_axi_BRESP),
+        .S00_AXI_bvalid(porttoportmapping_v1_0_0_m00_axi_BVALID),
+        .S00_AXI_rdata(porttoportmapping_v1_0_0_m00_axi_RDATA),
+        .S00_AXI_rid(porttoportmapping_v1_0_0_m00_axi_RID),
+        .S00_AXI_rlast(porttoportmapping_v1_0_0_m00_axi_RLAST),
+        .S00_AXI_rready(porttoportmapping_v1_0_0_m00_axi_RREADY),
+        .S00_AXI_rresp(porttoportmapping_v1_0_0_m00_axi_RRESP),
+        .S00_AXI_rvalid(porttoportmapping_v1_0_0_m00_axi_RVALID),
+        .S00_AXI_wdata(porttoportmapping_v1_0_0_m00_axi_WDATA),
+        .S00_AXI_wlast(porttoportmapping_v1_0_0_m00_axi_WLAST),
+        .S00_AXI_wready(porttoportmapping_v1_0_0_m00_axi_WREADY),
+        .S00_AXI_wstrb(porttoportmapping_v1_0_0_m00_axi_WSTRB),
+        .S00_AXI_wvalid(porttoportmapping_v1_0_0_m00_axi_WVALID),
+        .aclk(zynq_ultra_ps_e_0_pl_clk0),
+        .aresetn(rst_ps8_0_99M_peripheral_aresetn));
   design_4_system_ila_0_1 system_ila_0
        (.SLOT_0_AXI_araddr(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARADDR),
         .SLOT_0_AXI_arburst(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARBURST),
@@ -393,7 +381,6 @@ module design_4
         .SLOT_2_AXI_araddr(AXI_PerfectTranslator_0_M00_AXI_ARADDR),
         .SLOT_2_AXI_arburst(AXI_PerfectTranslator_0_M00_AXI_ARBURST),
         .SLOT_2_AXI_arcache(AXI_PerfectTranslator_0_M00_AXI_ARCACHE),
-        .SLOT_2_AXI_arid(AXI_PerfectTranslator_0_M00_AXI_ARID),
         .SLOT_2_AXI_arlen(AXI_PerfectTranslator_0_M00_AXI_ARLEN),
         .SLOT_2_AXI_arlock(AXI_PerfectTranslator_0_M00_AXI_ARLOCK),
         .SLOT_2_AXI_arprot(AXI_PerfectTranslator_0_M00_AXI_ARPROT),
@@ -405,7 +392,6 @@ module design_4
         .SLOT_2_AXI_awaddr(AXI_PerfectTranslator_0_M00_AXI_AWADDR),
         .SLOT_2_AXI_awburst(AXI_PerfectTranslator_0_M00_AXI_AWBURST),
         .SLOT_2_AXI_awcache(AXI_PerfectTranslator_0_M00_AXI_AWCACHE),
-        .SLOT_2_AXI_awid(AXI_PerfectTranslator_0_M00_AXI_AWID),
         .SLOT_2_AXI_awlen(AXI_PerfectTranslator_0_M00_AXI_AWLEN),
         .SLOT_2_AXI_awlock(AXI_PerfectTranslator_0_M00_AXI_AWLOCK),
         .SLOT_2_AXI_awprot(AXI_PerfectTranslator_0_M00_AXI_AWPROT),
@@ -414,12 +400,10 @@ module design_4
         .SLOT_2_AXI_awsize(AXI_PerfectTranslator_0_M00_AXI_AWSIZE),
         .SLOT_2_AXI_awuser(AXI_PerfectTranslator_0_M00_AXI_AWUSER),
         .SLOT_2_AXI_awvalid(AXI_PerfectTranslator_0_M00_AXI_AWVALID),
-        .SLOT_2_AXI_bid(AXI_PerfectTranslator_0_M00_AXI_BID),
         .SLOT_2_AXI_bready(AXI_PerfectTranslator_0_M00_AXI_BREADY),
         .SLOT_2_AXI_bresp(AXI_PerfectTranslator_0_M00_AXI_BRESP),
         .SLOT_2_AXI_bvalid(AXI_PerfectTranslator_0_M00_AXI_BVALID),
         .SLOT_2_AXI_rdata(AXI_PerfectTranslator_0_M00_AXI_RDATA),
-        .SLOT_2_AXI_rid(AXI_PerfectTranslator_0_M00_AXI_RID),
         .SLOT_2_AXI_rlast(AXI_PerfectTranslator_0_M00_AXI_RLAST),
         .SLOT_2_AXI_rready(AXI_PerfectTranslator_0_M00_AXI_RREADY),
         .SLOT_2_AXI_rresp(AXI_PerfectTranslator_0_M00_AXI_RRESP),
@@ -478,7 +462,7 @@ module design_4
         .saxigp2_araddr(AXI_PerfectTranslator_0_M00_AXI_ARADDR),
         .saxigp2_arburst(AXI_PerfectTranslator_0_M00_AXI_ARBURST),
         .saxigp2_arcache(AXI_PerfectTranslator_0_M00_AXI_ARCACHE),
-        .saxigp2_arid(AXI_PerfectTranslator_0_M00_AXI_ARID),
+        .saxigp2_arid({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
         .saxigp2_arlen(AXI_PerfectTranslator_0_M00_AXI_ARLEN),
         .saxigp2_arlock(AXI_PerfectTranslator_0_M00_AXI_ARLOCK),
         .saxigp2_arprot(AXI_PerfectTranslator_0_M00_AXI_ARPROT),
@@ -490,7 +474,7 @@ module design_4
         .saxigp2_awaddr(AXI_PerfectTranslator_0_M00_AXI_AWADDR),
         .saxigp2_awburst(AXI_PerfectTranslator_0_M00_AXI_AWBURST),
         .saxigp2_awcache(AXI_PerfectTranslator_0_M00_AXI_AWCACHE),
-        .saxigp2_awid(AXI_PerfectTranslator_0_M00_AXI_AWID),
+        .saxigp2_awid({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
         .saxigp2_awlen(AXI_PerfectTranslator_0_M00_AXI_AWLEN),
         .saxigp2_awlock(AXI_PerfectTranslator_0_M00_AXI_AWLOCK),
         .saxigp2_awprot(AXI_PerfectTranslator_0_M00_AXI_AWPROT),
@@ -499,12 +483,10 @@ module design_4
         .saxigp2_awsize(AXI_PerfectTranslator_0_M00_AXI_AWSIZE),
         .saxigp2_awuser(AXI_PerfectTranslator_0_M00_AXI_AWUSER),
         .saxigp2_awvalid(AXI_PerfectTranslator_0_M00_AXI_AWVALID),
-        .saxigp2_bid(AXI_PerfectTranslator_0_M00_AXI_BID),
         .saxigp2_bready(AXI_PerfectTranslator_0_M00_AXI_BREADY),
         .saxigp2_bresp(AXI_PerfectTranslator_0_M00_AXI_BRESP),
         .saxigp2_bvalid(AXI_PerfectTranslator_0_M00_AXI_BVALID),
         .saxigp2_rdata(AXI_PerfectTranslator_0_M00_AXI_RDATA),
-        .saxigp2_rid(AXI_PerfectTranslator_0_M00_AXI_RID),
         .saxigp2_rlast(AXI_PerfectTranslator_0_M00_AXI_RLAST),
         .saxigp2_rready(AXI_PerfectTranslator_0_M00_AXI_RREADY),
         .saxigp2_rresp(AXI_PerfectTranslator_0_M00_AXI_RRESP),
