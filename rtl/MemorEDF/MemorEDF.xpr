@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="35" Path="/home/denis/github/MemorEDF/rtl/MemorEDF/MemorEDF.xpr">
+<Project Version="7" Minor="35" Path="/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="43f55efd69aa4e918038648ffa5e146b"/>
@@ -57,8 +57,38 @@
   <FileSets Version="1" Minor="31">
     <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
       <Filter Type="Srcs"/>
+      <File Path="$PSRCDIR/sources_1/bd/design_5/design_5.bd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+        <CompFileExtendedInfo CompFileName="design_5.bd" FileRelPathName="ip/design_5_zynq_ultra_ps_e_0_0/design_5_zynq_ultra_ps_e_0_0.xci">
+          <Proxy FileSetName="design_5_zynq_ultra_ps_e_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="design_5.bd" FileRelPathName="ip/design_5_smartconnect_0_0/design_5_smartconnect_0_0.xci">
+          <Proxy FileSetName="design_5_smartconnect_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="design_5.bd" FileRelPathName="ip/design_5_AXI_PerfectTranslator_0_2/design_5_AXI_PerfectTranslator_0_2.xci">
+          <Proxy FileSetName="design_5_AXI_PerfectTranslator_0_2"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="design_5.bd" FileRelPathName="ip/design_5_AXI_PerfectTranslator_0_3/design_5_AXI_PerfectTranslator_0_3.xci">
+          <Proxy FileSetName="design_5_AXI_PerfectTranslator_0_3"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="design_5.bd" FileRelPathName="ip/design_5_system_ila_0_0/design_5_system_ila_0_0.xci">
+          <Proxy FileSetName="design_5_system_ila_0_0"/>
+        </CompFileExtendedInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/bd/design_5/hdl/design_5_wrapper.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PSRCDIR/sources_1/bd/design_2/design_2.bd">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -78,6 +108,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/bd/design_2/hdl/design_2_wrapper.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -156,15 +187,7 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/bd/design_5/design_5.bd">
-        <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/bd/design_5/hdl/design_5_wrapper.v">
+      <File Path="$PSRCDIR/sources_1/bd/design_6/design_6.bd">
         <FileInfo>
           <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -174,7 +197,7 @@
       </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
-        <Option Name="TopModule" Val="design_2_wrapper"/>
+        <Option Name="TopModule" Val="design_5_wrapper"/>
       </Config>
     </FileSet>
     <FileSet Name="constrs_1" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
@@ -262,6 +285,36 @@
     <FileSet Name="design_2_smartconnect_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/design_2_smartconnect_0_0">
       <Config>
         <Option Name="TopModule" Val="design_2_smartconnect_0_0"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="design_5_zynq_ultra_ps_e_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/design_5_zynq_ultra_ps_e_0_0">
+      <Config>
+        <Option Name="TopModule" Val="design_5_zynq_ultra_ps_e_0_0"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="design_5_smartconnect_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/design_5_smartconnect_0_0">
+      <Config>
+        <Option Name="TopModule" Val="design_5_smartconnect_0_0"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="design_5_AXI_PerfectTranslator_0_2" Type="BlockSrcs" RelSrcDir="$PSRCDIR/design_5_AXI_PerfectTranslator_0_2">
+      <Config>
+        <Option Name="TopModule" Val="design_5_AXI_PerfectTranslator_0_2"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="design_5_AXI_PerfectTranslator_0_3" Type="BlockSrcs" RelSrcDir="$PSRCDIR/design_5_AXI_PerfectTranslator_0_3">
+      <Config>
+        <Option Name="TopModule" Val="design_5_AXI_PerfectTranslator_0_3"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="design_5_system_ila_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/design_5_system_ila_0_0">
+      <Config>
+        <Option Name="TopModule" Val="design_5_system_ila_0_0"/>
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
@@ -354,6 +407,53 @@
     <Run Id="design_2_smartconnect_0_0_synth_1" Type="Ft3:Synth" SrcSet="design_2_smartconnect_0_0" Part="xczu9eg-ffvb1156-2-e" ConstrsSet="design_2_smartconnect_0_0" Description="Vivado Synthesis Defaults" WriteIncrSynthDcp="false" Dir="$PRUNDIR/design_2_smartconnect_0_0_synth_1" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2017"/>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2017"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="design_5_zynq_ultra_ps_e_0_0_synth_1" Type="Ft3:Synth" SrcSet="design_5_zynq_ultra_ps_e_0_0" Part="xczu9eg-ffvb1156-2-e" ConstrsSet="design_5_zynq_ultra_ps_e_0_0" Description="Vivado Synthesis Defaults" WriteIncrSynthDcp="false" Dir="$PRUNDIR/design_5_zynq_ultra_ps_e_0_0_synth_1" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2017"/>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2017"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="design_5_smartconnect_0_0_synth_1" Type="Ft3:Synth" SrcSet="design_5_smartconnect_0_0" Part="xczu9eg-ffvb1156-2-e" ConstrsSet="design_5_smartconnect_0_0" Description="Vivado Synthesis Defaults" WriteIncrSynthDcp="false" Dir="$PRUNDIR/design_5_smartconnect_0_0_synth_1" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2017"/>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2017"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="design_5_AXI_PerfectTranslator_0_2_synth_1" Type="Ft3:Synth" SrcSet="design_5_AXI_PerfectTranslator_0_2" Part="xczu9eg-ffvb1156-2-e" ConstrsSet="design_5_AXI_PerfectTranslator_0_2" Description="Vivado Synthesis Defaults" WriteIncrSynthDcp="false" Dir="$PRUNDIR/design_5_AXI_PerfectTranslator_0_2_synth_1" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2017"/>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2017"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="design_5_AXI_PerfectTranslator_0_3_synth_1" Type="Ft3:Synth" SrcSet="design_5_AXI_PerfectTranslator_0_3" Part="xczu9eg-ffvb1156-2-e" ConstrsSet="design_5_AXI_PerfectTranslator_0_3" Description="Vivado Synthesis Defaults" WriteIncrSynthDcp="false" Dir="$PRUNDIR/design_5_AXI_PerfectTranslator_0_3_synth_1" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2017"/>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2017"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="design_5_system_ila_0_0_synth_1" Type="Ft3:Synth" SrcSet="design_5_system_ila_0_0" Part="xczu9eg-ffvb1156-2-e" ConstrsSet="design_5_system_ila_0_0" Description="Vivado Synthesis Defaults" WriteIncrSynthDcp="false" Dir="$PRUNDIR/design_5_system_ila_0_0_synth_1" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2017">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -476,6 +576,88 @@
     <Run Id="design_2_smartconnect_0_0_impl_1" Type="Ft2:EntireDesign" Part="xczu9eg-ffvb1156-2-e" ConstrsSet="design_2_smartconnect_0_0" Description="Default settings for Implementation." WriteIncrSynthDcp="false" SynthRun="design_2_smartconnect_0_0_synth_1" IncludeInArchive="false">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2017"/>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2017"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="design_5_zynq_ultra_ps_e_0_0_impl_1" Type="Ft2:EntireDesign" Part="xczu9eg-ffvb1156-2-e" ConstrsSet="design_5_zynq_ultra_ps_e_0_0" Description="Default settings for Implementation." WriteIncrSynthDcp="false" SynthRun="design_5_zynq_ultra_ps_e_0_0_synth_1" IncludeInArchive="false">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2017"/>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2017"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="design_5_smartconnect_0_0_impl_1" Type="Ft2:EntireDesign" Part="xczu9eg-ffvb1156-2-e" ConstrsSet="design_5_smartconnect_0_0" Description="Default settings for Implementation." WriteIncrSynthDcp="false" SynthRun="design_5_smartconnect_0_0_synth_1" IncludeInArchive="false">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2017"/>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2017"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="design_5_AXI_PerfectTranslator_0_2_impl_1" Type="Ft2:EntireDesign" Part="xczu9eg-ffvb1156-2-e" ConstrsSet="design_5_AXI_PerfectTranslator_0_2" Description="Default settings for Implementation." WriteIncrSynthDcp="false" SynthRun="design_5_AXI_PerfectTranslator_0_2_synth_1" IncludeInArchive="false">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2017"/>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2017"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="design_5_AXI_PerfectTranslator_0_3_impl_1" Type="Ft2:EntireDesign" Part="xczu9eg-ffvb1156-2-e" ConstrsSet="design_5_AXI_PerfectTranslator_0_3" Description="Default settings for Implementation." WriteIncrSynthDcp="false" SynthRun="design_5_AXI_PerfectTranslator_0_3_synth_1" IncludeInArchive="false">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2017"/>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2017"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="design_5_system_ila_0_0_impl_1" Type="Ft2:EntireDesign" Part="xczu9eg-ffvb1156-2-e" ConstrsSet="design_5_system_ila_0_0" Description="Default settings for Implementation." WriteIncrSynthDcp="false" SynthRun="design_5_system_ila_0_0_synth_1" IncludeInArchive="false">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2017">
+          <Desc>Default settings for Implementation.</Desc>
+        </StratHandle>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>
