@@ -28,6 +28,8 @@ insmod driver/jailhouse.ko
 ./tools/jailhouse enable configs/arm64/schim-rootcol-dual-slave-cached.cell
 ./tools/jailhouse cell list
 
-source common/jailhouse.config
+cd ../
+
+source ~/common/jailhouse.config
 cp ~/experiences/synthetic/fp_schim.config ~/experiences/profile.config
 ./common/load_col_bombs.sh
