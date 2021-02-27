@@ -18,10 +18,10 @@ set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_5_rst_ps
 # IP: bd/design_5/ip/design_5_AXI_PerfectTranslator_0_2/design_5_AXI_PerfectTranslator_0_2.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_5_AXI_PerfectTranslator_0_2 || ORIG_REF_NAME==design_5_AXI_PerfectTranslator_0_2} -quiet] -quiet
 
-# IP: bd/design_5/ip/design_5_AXI_PerfectTranslator_0_3/design_5_AXI_PerfectTranslator_0_3.xci
-set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_5_AXI_PerfectTranslator_0_3 || ORIG_REF_NAME==design_5_AXI_PerfectTranslator_0_3} -quiet] -quiet
+# IP: bd/design_5/ip/design_5_porttoportmapping_v1_0_0_0/design_5_porttoportmapping_v1_0_0_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_5_porttoportmapping_v1_0_0_0 || ORIG_REF_NAME==design_5_porttoportmapping_v1_0_0_0} -quiet] -quiet
 
-# IP: bd/design_5/ip/design_5_system_ila_0_0/design_5_system_ila_0_0.xci
-set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_5_system_ila_0_0 || ORIG_REF_NAME==design_5_system_ila_0_0} -quiet] -quiet
+# IP: bd/design_5/ip/design_5_system_ila_0_1/design_5_system_ila_0_1.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_5_system_ila_0_1 || ORIG_REF_NAME==design_5_system_ila_0_1} -quiet] -quiet
 
 # XDC: bd/design_5/design_5_ooc.xdc

@@ -219,8 +219,7 @@
           <spirit:configurableElementValue spirit:referenceId="PSU__USB2_0__EMIO__ENABLE">0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PSU__USE__M_AXI_GP0">1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PSU__MAXIGP0__DATA_WIDTH">128</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="PSU__USE__M_AXI_GP1">1</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="PSU__MAXIGP1__DATA_WIDTH">128</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="PSU__USE__M_AXI_GP1">0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PSU__USE__M_AXI_GP2">0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PSU__USE__S_AXI_GP2">1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PSU__SAXIGP2__DATA_WIDTH">128</spirit:configurableElementValue>
@@ -377,6 +376,7 @@
         <spirit:componentRef spirit:library="ip" spirit:name="smartconnect" spirit:vendor="xilinx.com" spirit:version="1.0"/>
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">design_5_smartconnect_0_0</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="NUM_SI">1</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
       <spirit:componentInstance>
@@ -394,22 +394,22 @@
         </spirit:configurableElementValues>
       </spirit:componentInstance>
       <spirit:componentInstance>
-        <spirit:instanceName>AXI_PerfectTranslator_1</spirit:instanceName>
-        <spirit:componentRef spirit:library="user" spirit:name="AXI_PerfectTranslator" spirit:vendor="user.org" spirit:version="1.0"/>
+        <spirit:instanceName>porttoportmapping_v1_0_0</spirit:instanceName>
+        <spirit:componentRef spirit:library="user" spirit:name="porttoportmapping_v1_0" spirit:vendor="user.org" spirit:version="1.0"/>
         <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">design_5_AXI_PerfectTranslator_0_3</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">design_5_porttoportmapping_v1_0_0_0</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_M00_AXI_ID_WIDTH">16</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
       <spirit:componentInstance>
         <spirit:instanceName>system_ila_0</spirit:instanceName>
         <spirit:componentRef spirit:library="ip" spirit:name="system_ila" spirit:vendor="xilinx.com" spirit:version="1.1"/>
         <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">design_5_system_ila_0_0</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">design_5_system_ila_0_1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_SLOT_0_APC_EN">0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_SLOT_1_APC_EN">0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_SLOT_2_APC_EN">0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_SLOT_3_APC_EN">0</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_SLOT_4_APC_EN">0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_SLOT_0_AXI_AW_SEL_DATA">1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_SLOT_0_AXI_W_SEL_DATA">1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_SLOT_0_AXI_B_SEL_DATA">1</spirit:configurableElementValue>
@@ -430,11 +430,6 @@
           <spirit:configurableElementValue spirit:referenceId="C_SLOT_3_AXI_B_SEL_DATA">1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_SLOT_3_AXI_AR_SEL_DATA">1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_SLOT_3_AXI_R_SEL_DATA">1</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_SLOT_4_AXI_AW_SEL_DATA">1</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_SLOT_4_AXI_W_SEL_DATA">1</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_SLOT_4_AXI_B_SEL_DATA">1</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_SLOT_4_AXI_AR_SEL_DATA">1</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_SLOT_4_AXI_R_SEL_DATA">1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_SLOT_0_AXI_AW_SEL_TRIG">1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_SLOT_0_AXI_W_SEL_TRIG">1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_SLOT_0_AXI_B_SEL_TRIG">1</spirit:configurableElementValue>
@@ -455,22 +450,30 @@
           <spirit:configurableElementValue spirit:referenceId="C_SLOT_3_AXI_B_SEL_TRIG">1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_SLOT_3_AXI_AR_SEL_TRIG">1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_SLOT_3_AXI_R_SEL_TRIG">1</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_SLOT_4_AXI_AW_SEL_TRIG">1</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_SLOT_4_AXI_W_SEL_TRIG">1</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_SLOT_4_AXI_B_SEL_TRIG">1</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_SLOT_4_AXI_AR_SEL_TRIG">1</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_SLOT_4_AXI_R_SEL_TRIG">1</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_NUM_MONITOR_SLOTS">5</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_NUM_MONITOR_SLOTS">4</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_SLOT_0_INTF_TYPE">xilinx.com:interface:aximm_rtl:1.0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_SLOT_1_INTF_TYPE">xilinx.com:interface:aximm_rtl:1.0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_SLOT_2_INTF_TYPE">xilinx.com:interface:aximm_rtl:1.0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_SLOT_3_INTF_TYPE">xilinx.com:interface:aximm_rtl:1.0</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_SLOT_4_INTF_TYPE">xilinx.com:interface:aximm_rtl:1.0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_MON_TYPE">INTERFACE</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
     </spirit:componentInstances>
     <spirit:interconnections>
+      <spirit:interconnection>
+        <spirit:name>AXI_PerfectTranslator_0_M00_AXI</spirit:name>
+        <spirit:activeInterface spirit:busRef="S00_AXI" spirit:componentRef="smartconnect_0"/>
+        <spirit:activeInterface spirit:busRef="M00_AXI" spirit:componentRef="AXI_PerfectTranslator_0"/>
+        <bd:hdl_attributes>
+          <bd:hdl_attribute bd:name="DEBUG" bd:value="true"/>
+          <bd:hdl_attribute bd:name="MARK_DEBUG" bd:value="true"/>
+        </bd:hdl_attributes>
+      </spirit:interconnection>
+      <spirit:monitorInterconnection>
+        <spirit:name>AXI_PerfectTranslator_0_M00_AXI</spirit:name>
+        <spirit:monitoredActiveInterface spirit:busRef="S00_AXI" spirit:componentRef="smartconnect_0"/>
+        <spirit:monitorInterface spirit:busRef="SLOT_0_AXI" spirit:componentRef="system_ila_0"/>
+      </spirit:monitorInterconnection>
       <spirit:interconnection>
         <spirit:name>smartconnect_0_M00_AXI</spirit:name>
         <spirit:activeInterface spirit:busRef="M00_AXI" spirit:componentRef="smartconnect_0"/>
@@ -483,26 +486,26 @@
       <spirit:monitorInterconnection>
         <spirit:name>smartconnect_0_M00_AXI</spirit:name>
         <spirit:monitoredActiveInterface spirit:busRef="M00_AXI" spirit:componentRef="smartconnect_0"/>
-        <spirit:monitorInterface spirit:busRef="SLOT_0_AXI" spirit:componentRef="system_ila_0"/>
+        <spirit:monitorInterface spirit:busRef="SLOT_1_AXI" spirit:componentRef="system_ila_0"/>
       </spirit:monitorInterconnection>
       <spirit:interconnection>
-        <spirit:name>zynq_ultra_ps_e_0_M_AXI_HPM1_FPD</spirit:name>
-        <spirit:activeInterface spirit:busRef="M_AXI_HPM1_FPD" spirit:componentRef="zynq_ultra_ps_e_0"/>
-        <spirit:activeInterface spirit:busRef="S00_AXI" spirit:componentRef="AXI_PerfectTranslator_1"/>
+        <spirit:name>porttoportmapping_v1_0_0_m00_axi</spirit:name>
+        <spirit:activeInterface spirit:busRef="m00_axi" spirit:componentRef="porttoportmapping_v1_0_0"/>
+        <spirit:activeInterface spirit:busRef="S00_AXI" spirit:componentRef="AXI_PerfectTranslator_0"/>
         <bd:hdl_attributes>
           <bd:hdl_attribute bd:name="DEBUG" bd:value="true"/>
           <bd:hdl_attribute bd:name="MARK_DEBUG" bd:value="true"/>
         </bd:hdl_attributes>
       </spirit:interconnection>
       <spirit:monitorInterconnection>
-        <spirit:name>zynq_ultra_ps_e_0_M_AXI_HPM1_FPD</spirit:name>
-        <spirit:monitoredActiveInterface spirit:busRef="M_AXI_HPM1_FPD" spirit:componentRef="zynq_ultra_ps_e_0"/>
-        <spirit:monitorInterface spirit:busRef="SLOT_1_AXI" spirit:componentRef="system_ila_0"/>
+        <spirit:name>porttoportmapping_v1_0_0_m00_axi</spirit:name>
+        <spirit:monitoredActiveInterface spirit:busRef="m00_axi" spirit:componentRef="porttoportmapping_v1_0_0"/>
+        <spirit:monitorInterface spirit:busRef="SLOT_2_AXI" spirit:componentRef="system_ila_0"/>
       </spirit:monitorInterconnection>
       <spirit:interconnection>
         <spirit:name>zynq_ultra_ps_e_0_M_AXI_HPM0_FPD</spirit:name>
         <spirit:activeInterface spirit:busRef="M_AXI_HPM0_FPD" spirit:componentRef="zynq_ultra_ps_e_0"/>
-        <spirit:activeInterface spirit:busRef="S00_AXI" spirit:componentRef="AXI_PerfectTranslator_0"/>
+        <spirit:activeInterface spirit:busRef="s00_axi" spirit:componentRef="porttoportmapping_v1_0_0"/>
         <bd:hdl_attributes>
           <bd:hdl_attribute bd:name="DEBUG" bd:value="true"/>
           <bd:hdl_attribute bd:name="MARK_DEBUG" bd:value="true"/>
@@ -511,35 +514,7 @@
       <spirit:monitorInterconnection>
         <spirit:name>zynq_ultra_ps_e_0_M_AXI_HPM0_FPD</spirit:name>
         <spirit:monitoredActiveInterface spirit:busRef="M_AXI_HPM0_FPD" spirit:componentRef="zynq_ultra_ps_e_0"/>
-        <spirit:monitorInterface spirit:busRef="SLOT_2_AXI" spirit:componentRef="system_ila_0"/>
-      </spirit:monitorInterconnection>
-      <spirit:interconnection>
-        <spirit:name>AXI_PerfectTranslator_0_M00_AXI</spirit:name>
-        <spirit:activeInterface spirit:busRef="M00_AXI" spirit:componentRef="AXI_PerfectTranslator_0"/>
-        <spirit:activeInterface spirit:busRef="S00_AXI" spirit:componentRef="smartconnect_0"/>
-        <bd:hdl_attributes>
-          <bd:hdl_attribute bd:name="DEBUG" bd:value="true"/>
-          <bd:hdl_attribute bd:name="MARK_DEBUG" bd:value="true"/>
-        </bd:hdl_attributes>
-      </spirit:interconnection>
-      <spirit:monitorInterconnection>
-        <spirit:name>AXI_PerfectTranslator_0_M00_AXI</spirit:name>
-        <spirit:monitoredActiveInterface spirit:busRef="M00_AXI" spirit:componentRef="AXI_PerfectTranslator_0"/>
         <spirit:monitorInterface spirit:busRef="SLOT_3_AXI" spirit:componentRef="system_ila_0"/>
-      </spirit:monitorInterconnection>
-      <spirit:interconnection>
-        <spirit:name>AXI_PerfectTranslator_1_M00_AXI</spirit:name>
-        <spirit:activeInterface spirit:busRef="M00_AXI" spirit:componentRef="AXI_PerfectTranslator_1"/>
-        <spirit:activeInterface spirit:busRef="S01_AXI" spirit:componentRef="smartconnect_0"/>
-        <bd:hdl_attributes>
-          <bd:hdl_attribute bd:name="DEBUG" bd:value="true"/>
-          <bd:hdl_attribute bd:name="MARK_DEBUG" bd:value="true"/>
-        </bd:hdl_attributes>
-      </spirit:interconnection>
-      <spirit:monitorInterconnection>
-        <spirit:name>AXI_PerfectTranslator_1_M00_AXI</spirit:name>
-        <spirit:monitoredActiveInterface spirit:busRef="M00_AXI" spirit:componentRef="AXI_PerfectTranslator_1"/>
-        <spirit:monitorInterface spirit:busRef="SLOT_4_AXI" spirit:componentRef="system_ila_0"/>
       </spirit:monitorInterconnection>
     </spirit:interconnections>
     <spirit:adHocConnections>
@@ -548,13 +523,12 @@
         <spirit:internalPortReference spirit:componentRef="zynq_ultra_ps_e_0" spirit:portRef="pl_clk0"/>
         <spirit:internalPortReference spirit:componentRef="zynq_ultra_ps_e_0" spirit:portRef="maxihpm0_fpd_aclk"/>
         <spirit:internalPortReference spirit:componentRef="rst_ps8_0_99M" spirit:portRef="slowest_sync_clk"/>
-        <spirit:internalPortReference spirit:componentRef="zynq_ultra_ps_e_0" spirit:portRef="maxihpm1_fpd_aclk"/>
         <spirit:internalPortReference spirit:componentRef="zynq_ultra_ps_e_0" spirit:portRef="saxihp0_fpd_aclk"/>
         <spirit:internalPortReference spirit:componentRef="smartconnect_0" spirit:portRef="aclk"/>
         <spirit:internalPortReference spirit:componentRef="AXI_PerfectTranslator_0" spirit:portRef="s00_axi_aclk"/>
         <spirit:internalPortReference spirit:componentRef="AXI_PerfectTranslator_0" spirit:portRef="m00_axi_aclk"/>
-        <spirit:internalPortReference spirit:componentRef="AXI_PerfectTranslator_1" spirit:portRef="s00_axi_aclk"/>
-        <spirit:internalPortReference spirit:componentRef="AXI_PerfectTranslator_1" spirit:portRef="m00_axi_aclk"/>
+        <spirit:internalPortReference spirit:componentRef="porttoportmapping_v1_0_0" spirit:portRef="s00_axi_aclk"/>
+        <spirit:internalPortReference spirit:componentRef="porttoportmapping_v1_0_0" spirit:portRef="m00_axi_aclk"/>
         <spirit:internalPortReference spirit:componentRef="system_ila_0" spirit:portRef="clk"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
@@ -567,8 +541,8 @@
         <spirit:internalPortReference spirit:componentRef="rst_ps8_0_99M" spirit:portRef="peripheral_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="AXI_PerfectTranslator_0" spirit:portRef="s00_axi_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="AXI_PerfectTranslator_0" spirit:portRef="m00_axi_aresetn"/>
-        <spirit:internalPortReference spirit:componentRef="AXI_PerfectTranslator_1" spirit:portRef="s00_axi_aresetn"/>
-        <spirit:internalPortReference spirit:componentRef="AXI_PerfectTranslator_1" spirit:portRef="m00_axi_aresetn"/>
+        <spirit:internalPortReference spirit:componentRef="porttoportmapping_v1_0_0" spirit:portRef="s00_axi_aresetn"/>
+        <spirit:internalPortReference spirit:componentRef="porttoportmapping_v1_0_0" spirit:portRef="m00_axi_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="system_ila_0" spirit:portRef="resetn"/>
       </spirit:adHocConnection>
     </spirit:adHocConnections>
@@ -592,7 +566,6 @@
         <spirit:name>M_AXI_HPM1_FPD</spirit:name>
         <spirit:master>
           <spirit:addressSpaceRef spirit:addressSpaceRef="Data"/>
-          <spirit:baseAddress spirit:maximum="0xBFFFFFFF" spirit:minimum="0xB0000000">0xB0000000</spirit:baseAddress>
         </spirit:master>
         <spirit:busType spirit:library="interface" spirit:name="aximm" spirit:vendor="xilinx.com" spirit:version="1.0"/>
         <spirit:abstractionType spirit:library="interface" spirit:name="aximm_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
@@ -614,16 +587,10 @@
         <spirit:width>32</spirit:width>
         <spirit:segments>
           <spirit:segment>
-            <spirit:name>SEG_AXI_PerfectTranslator_0_S00_AXI_mem</spirit:name>
-            <spirit:displayName>/AXI_PerfectTranslator_0/S00_AXI/S00_AXI_mem</spirit:displayName>
+            <spirit:name>SEG_porttoportmapping_v1_0_0_reg0</spirit:name>
+            <spirit:displayName>/porttoportmapping_v1_0_0/s00_axi/reg0</spirit:displayName>
             <spirit:addressOffset>0x01000000000</spirit:addressOffset>
-            <spirit:range>32G</spirit:range>
-          </spirit:segment>
-          <spirit:segment>
-            <spirit:name>SEG_AXI_PerfectTranslator_1_S00_AXI_mem</spirit:name>
-            <spirit:displayName>/AXI_PerfectTranslator_1/S00_AXI/S00_AXI_mem</spirit:displayName>
-            <spirit:addressOffset>0x04800000000</spirit:addressOffset>
-            <spirit:range>32G</spirit:range>
+            <spirit:range>8G</spirit:range>
           </spirit:segment>
         </spirit:segments>
       </spirit:addressSpace>
@@ -696,62 +663,38 @@
 
   <spirit:component xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009">
     <spirit:vendor>user.org</spirit:vendor>
-    <spirit:library>Addressing/AXI_PerfectTranslator_1</spirit:library>
-    <spirit:name>AXI_PerfectTranslator</spirit:name>
+    <spirit:library>Addressing/porttoportmapping_v1_0_0</spirit:library>
+    <spirit:name>porttoportmapping_v1_0</spirit:name>
     <spirit:version>1.0</spirit:version>
     <spirit:busInterfaces>
       <spirit:busInterface>
-        <spirit:name>S00_AXI</spirit:name>
+        <spirit:name>s00_axi</spirit:name>
         <spirit:slave>
-          <spirit:memoryMapRef spirit:memoryMapRef="S00_AXI"/>
+          <spirit:memoryMapRef spirit:memoryMapRef="s00_axi"/>
         </spirit:slave>
         <spirit:busType spirit:library="interface" spirit:name="aximm" spirit:vendor="xilinx.com" spirit:version="1.0"/>
         <spirit:abstractionType spirit:library="interface" spirit:name="aximm_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
       </spirit:busInterface>
       <spirit:busInterface>
-        <spirit:name>M00_AXI</spirit:name>
+        <spirit:name>m00_axi</spirit:name>
         <spirit:master>
-          <spirit:addressSpaceRef spirit:addressSpaceRef="M00_AXI"/>
+          <spirit:addressSpaceRef spirit:addressSpaceRef="m00_axi"/>
         </spirit:master>
         <spirit:busType spirit:library="interface" spirit:name="aximm" spirit:vendor="xilinx.com" spirit:version="1.0"/>
         <spirit:abstractionType spirit:library="interface" spirit:name="aximm_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-        <spirit:parameters>
-          <spirit:parameter>
-            <spirit:name>master_id</spirit:name>
-            <spirit:value>1</spirit:value>
-          </spirit:parameter>
-        </spirit:parameters>
       </spirit:busInterface>
     </spirit:busInterfaces>
     <spirit:addressSpaces>
       <spirit:addressSpace>
-        <spirit:name>M00_AXI</spirit:name>
+        <spirit:name>m00_axi</spirit:name>
         <spirit:range>1T</spirit:range>
         <spirit:width>32</spirit:width>
         <spirit:segments>
           <spirit:segment>
-            <spirit:name>SEG_zynq_ultra_ps_e_0_HP0_DDR_LOW</spirit:name>
-            <spirit:displayName>/zynq_ultra_ps_e_0/SAXIGP2/HP0_DDR_LOW</spirit:displayName>
+            <spirit:name>SEG_AXI_PerfectTranslator_0_S00_AXI_mem</spirit:name>
+            <spirit:displayName>/AXI_PerfectTranslator_0/S00_AXI/S00_AXI_mem</spirit:displayName>
             <spirit:addressOffset>0x0000000000</spirit:addressOffset>
-            <spirit:range>2G</spirit:range>
-          </spirit:segment>
-          <spirit:segment bd:isExcluded="true">
-            <spirit:name>SEG_zynq_ultra_ps_e_0_HP0_LPS_OCM</spirit:name>
-            <spirit:displayName>/zynq_ultra_ps_e_0/SAXIGP2/HP0_LPS_OCM</spirit:displayName>
-            <spirit:addressOffset>0x00FF000000</spirit:addressOffset>
-            <spirit:range>16M</spirit:range>
-          </spirit:segment>
-          <spirit:segment bd:isExcluded="true">
-            <spirit:name>SEG_zynq_ultra_ps_e_0_HP0_PCIE_LOW</spirit:name>
-            <spirit:displayName>/zynq_ultra_ps_e_0/SAXIGP2/HP0_PCIE_LOW</spirit:displayName>
-            <spirit:addressOffset>0x00E0000000</spirit:addressOffset>
-            <spirit:range>256M</spirit:range>
-          </spirit:segment>
-          <spirit:segment bd:isExcluded="true">
-            <spirit:name>SEG_zynq_ultra_ps_e_0_HP0_QSPI</spirit:name>
-            <spirit:displayName>/zynq_ultra_ps_e_0/SAXIGP2/HP0_QSPI</spirit:displayName>
-            <spirit:addressOffset>0x00C0000000</spirit:addressOffset>
-            <spirit:range>512M</spirit:range>
+            <spirit:range>4M</spirit:range>
           </spirit:segment>
         </spirit:segments>
       </spirit:addressSpace>

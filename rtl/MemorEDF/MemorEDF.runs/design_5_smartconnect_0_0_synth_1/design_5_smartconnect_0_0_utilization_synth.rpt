@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-| Date         : Thu Feb 25 13:39:18 2021
+| Date         : Fri Feb 26 18:52:14 2021
 | Host         : buflightdev running 64-bit Ubuntu 16.04.7 LTS
 | Command      : report_utilization -file design_5_smartconnect_0_0_utilization_synth.rpt -pb design_5_smartconnect_0_0_utilization_synth.pb
 | Design       : design_5_smartconnect_0_0
@@ -31,13 +31,13 @@ Table of Contents
 +----------------------------+------+-------+-----------+-------+
 |          Site Type         | Used | Fixed | Available | Util% |
 +----------------------------+------+-------+-----------+-------+
-| CLB LUTs*                  | 7436 |     0 |    274080 |  2.71 |
-|   LUT as Logic             | 5371 |     0 |    274080 |  1.96 |
-|   LUT as Memory            | 2065 |     0 |    144000 |  1.43 |
-|     LUT as Distributed RAM | 1306 |     0 |           |       |
-|     LUT as Shift Register  |  759 |     0 |           |       |
-| CLB Registers              | 7651 |     0 |    548160 |  1.40 |
-|   Register as Flip Flop    | 7651 |     0 |    548160 |  1.40 |
+| CLB LUTs*                  | 3197 |     0 |    274080 |  1.17 |
+|   LUT as Logic             | 2402 |     0 |    274080 |  0.88 |
+|   LUT as Memory            |  795 |     0 |    144000 |  0.55 |
+|     LUT as Distributed RAM |  408 |     0 |           |       |
+|     LUT as Shift Register  |  387 |     0 |           |       |
+| CLB Registers              | 3618 |     0 |    548160 |  0.66 |
+|   Register as Flip Flop    | 3618 |     0 |    548160 |  0.66 |
 |   Register as Latch        |    0 |     0 |    548160 |  0.00 |
 | CARRY8                     |    0 |     0 |     34260 |  0.00 |
 | F7 Muxes                   |    0 |     0 |    137040 |  0.00 |
@@ -61,8 +61,8 @@ Table of Contents
 | 0     |          Yes |           - |            - |
 | 0     |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
-| 231   |          Yes |         Set |            - |
-| 7420  |          Yes |       Reset |            - |
+| 98    |          Yes |         Set |            - |
+| 3520  |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -154,17 +154,17 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| FDRE     | 7420 |            Register |
-| LUT4     | 2305 |                 CLB |
-| RAMD32   | 2272 |                 CLB |
-| LUT6     | 1336 |                 CLB |
-| LUT3     | 1050 |                 CLB |
-| LUT2     |  984 |                 CLB |
-| LUT5     |  850 |                 CLB |
-| SRLC32E  |  758 |                 CLB |
-| RAMS32   |  322 |                 CLB |
-| FDSE     |  231 |            Register |
-| LUT1     |  192 |                 CLB |
+| FDRE     | 3520 |            Register |
+| LUT4     | 1256 |                 CLB |
+| RAMD32   |  714 |                 CLB |
+| LUT6     |  589 |                 CLB |
+| SRLC32E  |  386 |                 CLB |
+| LUT5     |  358 |                 CLB |
+| LUT3     |  259 |                 CLB |
+| LUT2     |  168 |                 CLB |
+| RAMS32   |  102 |                 CLB |
+| FDSE     |   98 |            Register |
+| LUT1     |   51 |                 CLB |
 | SRL16E   |    1 |                 CLB |
 +----------+------+---------------------+
 
