@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<bd:repository xmlns:bd="http://www.xilinx.com/bd" bd:BoundaryCRC="0xA6336DD2B203EB90" bd:bdsource="SBD" bd:device="xczu9eg-ffvb1156-2-e" bd:isScoped="true" bd:isValidated="true" bd:synthFlowMode="None" bd:tool_version="2017.4" bd:top="bd_3d1d" bd:version="1.00.a">
+<bd:repository xmlns:bd="http://www.xilinx.com/bd" bd:BoundaryCRC="0xA6336DD2EAFA076E" bd:bdsource="SBD" bd:device="xczu9eg-ffvb1156-2-e" bd:isScoped="true" bd:isValidated="true" bd:synthFlowMode="None" bd:tool_version="2017.4" bd:top="bd_3d1d" bd:version="1.00.a">
 
   <spirit:component xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009">
     <spirit:vendor>xilinx.com</spirit:vendor>
@@ -201,7 +201,16 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>SUPPORTS_NARROW_BURST</spirit:name>
-            <spirit:value>0</spirit:value>
+            <spirit:value>1</spirit:value>
+            <spirit:vendorExtensions>
+              <bd:configElementInfos>
+                <bd:configElementInfo bd:valueSource="default_prop"/>
+              </bd:configElementInfos>
+            </spirit:vendorExtensions>
+          </spirit:parameter>
+          <spirit:parameter>
+            <spirit:name>NUM_READ_OUTSTANDING</spirit:name>
+            <spirit:value>8</spirit:value>
             <spirit:vendorExtensions>
               <bd:configElementInfos>
                 <bd:configElementInfo bd:valueSource="const_prop"/>
@@ -209,20 +218,11 @@
             </spirit:vendorExtensions>
           </spirit:parameter>
           <spirit:parameter>
-            <spirit:name>NUM_READ_OUTSTANDING</spirit:name>
-            <spirit:value>2</spirit:value>
-            <spirit:vendorExtensions>
-              <bd:configElementInfos>
-                <bd:configElementInfo bd:valueSource="default_prop"/>
-              </bd:configElementInfos>
-            </spirit:vendorExtensions>
-          </spirit:parameter>
-          <spirit:parameter>
             <spirit:name>NUM_WRITE_OUTSTANDING</spirit:name>
-            <spirit:value>2</spirit:value>
+            <spirit:value>8</spirit:value>
             <spirit:vendorExtensions>
               <bd:configElementInfos>
-                <bd:configElementInfo bd:valueSource="default_prop"/>
+                <bd:configElementInfo bd:valueSource="const_prop"/>
               </bd:configElementInfos>
             </spirit:vendorExtensions>
           </spirit:parameter>
@@ -1014,8 +1014,8 @@
           <spirit:configurableElementValue spirit:referenceId="HAS_LOCK">0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="HAS_BURST">1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="NUM_MSC">1</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="SSC000_ROUTE">0b1</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="SSC001_ROUTE">0b0</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="SSC000_ROUTE">0b0</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="SSC001_ROUTE">0b1</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
     </spirit:componentInstances>
@@ -1676,7 +1676,7 @@
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">bd_3d1d_s00tr_0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="READ_WRITE_MODE">READ_WRITE</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="IS_CASCADED">0</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="MEP_IDENTIFIER">0</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="MEP_IDENTIFIER">1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="MEP_IDENTIFIER_WIDTH">1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="ADDR_WIDTH">40</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="S_ID_WIDTH">16</spirit:configurableElementValue>
@@ -1699,7 +1699,7 @@
           <spirit:configurableElementValue spirit:referenceId="NUM_READ_THREADS">1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="NUM_WRITE_THREADS">1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="MEP_IDENTIFIER_WIDTH">1</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="SUPPORTS_NARROW">0</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="SUPPORTS_NARROW">1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="HAS_BURST">1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="NUM_SEG">1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="ADDR_WIDTH">40</spirit:configurableElementValue>

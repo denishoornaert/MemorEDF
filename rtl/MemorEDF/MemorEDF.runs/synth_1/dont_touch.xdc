@@ -3,25 +3,22 @@
 
 # XDC: new/design_2_wrapper.xdc
 
-# Block Designs: bd/design_5/design_5.bd
-set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_5 || ORIG_REF_NAME==design_5} -quiet] -quiet
+# Block Designs: bd/design_6/design_6.bd
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_6 || ORIG_REF_NAME==design_6} -quiet] -quiet
 
-# IP: bd/design_5/ip/design_5_zynq_ultra_ps_e_0_0/design_5_zynq_ultra_ps_e_0_0.xci
-set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_5_zynq_ultra_ps_e_0_0 || ORIG_REF_NAME==design_5_zynq_ultra_ps_e_0_0} -quiet] -quiet
+# IP: bd/design_6/ip/design_6_zynq_ultra_ps_e_0_0/design_6_zynq_ultra_ps_e_0_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_6_zynq_ultra_ps_e_0_0 || ORIG_REF_NAME==design_6_zynq_ultra_ps_e_0_0} -quiet] -quiet
 
-# IP: bd/design_5/ip/design_5_smartconnect_0_0/design_5_smartconnect_0_0.xci
-set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_5_smartconnect_0_0 || ORIG_REF_NAME==design_5_smartconnect_0_0} -quiet] -quiet
+# IP: bd/design_6/ip/design_6_porttoportmapping_v1_0_0_0/design_6_porttoportmapping_v1_0_0_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_6_porttoportmapping_v1_0_0_0 || ORIG_REF_NAME==design_6_porttoportmapping_v1_0_0_0} -quiet] -quiet
 
-# IP: bd/design_5/ip/design_5_rst_ps8_0_99M_0/design_5_rst_ps8_0_99M_0.xci
-set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_5_rst_ps8_0_99M_0 || ORIG_REF_NAME==design_5_rst_ps8_0_99M_0} -quiet] -quiet
+# IP: bd/design_6/ip/design_6_smartconnect_0_0/design_6_smartconnect_0_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_6_smartconnect_0_0 || ORIG_REF_NAME==design_6_smartconnect_0_0} -quiet] -quiet
 
-# IP: bd/design_5/ip/design_5_AXI_PerfectTranslator_0_2/design_5_AXI_PerfectTranslator_0_2.xci
-set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_5_AXI_PerfectTranslator_0_2 || ORIG_REF_NAME==design_5_AXI_PerfectTranslator_0_2} -quiet] -quiet
+# IP: bd/design_6/ip/design_6_rst_ps8_0_99M_0/design_6_rst_ps8_0_99M_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_6_rst_ps8_0_99M_0 || ORIG_REF_NAME==design_6_rst_ps8_0_99M_0} -quiet] -quiet
 
-# IP: bd/design_5/ip/design_5_porttoportmapping_v1_0_0_0/design_5_porttoportmapping_v1_0_0_0.xci
-set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_5_porttoportmapping_v1_0_0_0 || ORIG_REF_NAME==design_5_porttoportmapping_v1_0_0_0} -quiet] -quiet
+# IP: bd/design_6/ip/design_6_system_ila_0_1/design_6_system_ila_0_1.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_6_system_ila_0_1 || ORIG_REF_NAME==design_6_system_ila_0_1} -quiet] -quiet
 
-# IP: bd/design_5/ip/design_5_system_ila_0_1/design_5_system_ila_0_1.xci
-set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_5_system_ila_0_1 || ORIG_REF_NAME==design_5_system_ila_0_1} -quiet] -quiet
-
-# XDC: bd/design_5/design_5_ooc.xdc
+# XDC: bd/design_6/design_6_ooc.xdc
