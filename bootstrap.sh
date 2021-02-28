@@ -21,6 +21,8 @@ cp -r /run/media/mmcblk0p2/home/root/jailhouse-rt/configs/arm64/schim-bomb3-col-
 umount /run/media/mmcblk0p1/
 umount /run/media/mmcblk0p2/
 
+./common/config_schim_fp.out 0c0d0e0f 0 0 0 0
+
 cd jailhouse-rt/
 
 insmod driver/jailhouse.ko
