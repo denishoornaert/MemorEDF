@@ -18,9 +18,10 @@ int main(int argc, char** argv) {
     sscanf(argv[1], "%x", &priorities);
 
     int lpd_fd  = open_fd();
+    int hpm_fd  = open_fd();
 
     struct configuration* config = mmap((void*)0, LPD0_SIZE, PROT_EXEC|PROT_READ|PROT_WRITE, MAP_SHARED, lpd_fd, LPD0_ADDR);
-    unsigned* plim = (unsigned*)malloc(HPM0_SIZE);
+    unsigned* plim = mmap((void*)0, HPM0_SIZE, PROT_EXEC|PROT_READ|PROT_WRITE, MAP_SHARED|0x40, hpm_fd, 0x3c000000);
 
     // Set the period registers (default: 0x002faf08)
     (*config).periods[0] = 0x00000000;
@@ -74,7 +75,7 @@ int main(int argc, char** argv) {
 
     int unmap_result = 0;
     unmap_result |= unmap(config, LPD0_SIZE);
-    free(plim);
+    unmap_result |= unmap(plim  , HPM0_SIZE);
 
     return unmap_result;
 }
