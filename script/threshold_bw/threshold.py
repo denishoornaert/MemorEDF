@@ -53,9 +53,9 @@ def plot_fp_rev():
 
     for prio in range(1, 5, 1):
         axs[coord[prio-1][0], coord[prio-1][1]].set_title("CUA priority: "+priorities_labels[prio-1])
-        axs[coord[prio-1][0], coord[prio-1][1]].set_ylim([0, 700])
+        #axs[coord[prio-1][0], coord[prio-1][1]].set_ylim([0, 700])
         for core in range(1, 5, 1):
-            data = read("prio_"+str(prio)+"/"+str(core)+"_cores.csv", 1)
+            data = read("fp/prio_"+str(prio)+"/"+str(core)+"_cores.csv", 1)
 
             x = list(data.keys())
             x.sort()
@@ -92,9 +92,9 @@ def plot_fp():
 
     for core in range(1, 5, 1):
         axs[coord[core-1][0], coord[core-1][1]].set_title("Contention level: "+str(core)+" core"+("s" if (core > 1) else " (Solo)"))
-        axs[coord[core-1][0], coord[core-1][1]].set_ylim([0, 700])
+        #axs[coord[core-1][0], coord[core-1][1]].set_ylim([0, 700])
         for prio in range(1, 5, 1):
-            data = read("prio_"+str(prio)+"/"+str(core)+"_cores.csv", 1)
+            data = read("fp/prio_"+str(prio)+"/"+str(core)+"_cores.csv", 1)
 
             x = list(data.keys())
             x.sort()
@@ -158,9 +158,9 @@ def plot_ts():
 
     for core in range(1, 5, 1):
         axs[coord[core-1][0], coord[core-1][1]].set_title("Contention level: "+str(core)+" core"+("s" if (core > 1) else " (Solo)"))
-        axs[coord[core-1][0], coord[core-1][1]].set_ylim([0, 700])
+        #axs[coord[core-1][0], coord[core-1][1]].set_ylim([0, 700])
         for mit in range(1, 5, 1):
-            data = read("mit_"+str(mit)+"/"+str(core)+"_cores.csv", 1)
+            data = read("ts/mit_"+str(mit)+"/"+str(core)+"_cores.csv", 1)
 
             x = list(data.keys())
             x.sort()
@@ -199,9 +199,9 @@ def plot_tdma():
 
     for core in range(1, 5, 1):
         axs[coord[core-1][0], coord[core-1][1]].set_title("Contention level: "+str(core)+" core"+("s" if (core > 1) else " (Solo)"))
-        axs[coord[core-1][0], coord[core-1][1]].set_ylim([0, 700])
+        #axs[coord[core-1][0], coord[core-1][1]].set_ylim([0, 700])
         for period in range(1, 5, 1):
-            data = read("period_"+str(period)+"/"+str(core)+"_cores.csv", 1)
+            data = read("tdma/period_"+str(period)+"/"+str(core)+"_cores.csv", 1)
 
             x = list(data.keys())
             x.sort()
@@ -240,9 +240,9 @@ def plot_tdma_rev():
 
     for period in range(1, 5, 1):
         axs[coord[period-1][0], coord[period-1][1]].set_title("CUA period = "+str(periods[period-1]))
-        axs[coord[period-1][0], coord[period-1][1]].set_ylim([0, 700])
+        #axs[coord[period-1][0], coord[period-1][1]].set_ylim([0, 700])
         for core in range(1, 5, 1):
-            data = read("period_"+str(period)+"/"+str(core)+"_cores.csv", 1)
+            data = read("tdma/period_"+str(period)+"/"+str(core)+"_cores.csv", 1)
 
             x = list(data.keys())
             x.sort()
@@ -281,9 +281,9 @@ def plot_fair():
 
     for core in range(1, 5, 1):
         axs[coord[core-1][0], coord[core-1][1]].set_title("Contention level: "+str(core)+" core"+("s" if (core > 1) else " (Solo)"))
-        axs[coord[core-1][0], coord[core-1][1]].set_ylim([0, 700])
+        #axs[coord[core-1][0], coord[core-1][1]].set_ylim([0, 700])
         for policy in ["aging", "fibo", "gallois"]:
-            data = read(policy+"/"+str(core)+"_cores.csv", 1)
+            data = read("fair/"+policy+"/"+str(core)+"_cores.csv", 1)
 
             x = list(data.keys())
             x.sort()
@@ -323,9 +323,9 @@ def plot_fair_rev():
 
     for index, policy in enumerate(["aging", "fibo", "gallois"]):
         axs[coord[index][0], coord[index][1]].set_title(policy)
-        axs[coord[index][0], coord[index][1]].set_ylim([0, 700])
+        #axs[coord[index][0], coord[index][1]].set_ylim([0, 700])
         for core in range(1, 5, 1):
-            data = read(policy+"/"+str(core)+"_cores.csv", 1)
+            data = read("fair/"+policy+"/"+str(core)+"_cores.csv", 1)
 
             x = list(data.keys())
             x.sort()
