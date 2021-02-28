@@ -87,7 +87,7 @@ saveenv
 boot
 ```
 ```
-setenv bootargs "console=ttyPS0,115200n8 earlycon clk_ignore_unused cpuidle.off=1 earlyprintk mem=512M rw rootwait"
+setenv bootargs "console=ttyPS0,115200n8 earlycon clk_ignore_unused cpuidle.off=1 earlyprintk mem=1024M rw rootwait"
 setenv uenvcmd "fatload mmc 0 0x3000000 Image && fatload mmc 0 0x2A00000 system.dtb && booti 0x3000000 - 0x2A00000"
 setenv bootcmd "run uenvcmd"
 saveenv
