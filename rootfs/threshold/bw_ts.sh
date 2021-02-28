@@ -4,7 +4,9 @@ set -e
 source ~/common/jailhouse.config
 
 # Load experience variables
-source ~/experiences/threshold/ts.config
+touch ~/experiences/profile.config
+cp ~/experiences/threshold/ts.config ~/experiences/profile.config
+source ~/experiences/profile.config
 
 # Load the jailhouse root cell for SchIM
 if (lsmod | grep "jailhouse" &> /dev/null)
@@ -12,7 +14,7 @@ then
     :; # do nothing
 else
     insmod $jh_path/driver/jailhouse.ko
-    jailhouse enable $jh_path/configs/arm64/schim-root.cell
+    $jh_path/tools/jailhouse enable $jh_path/configs/arm64/schim-rootcol-dual-slave-cached.cell
 fi
 
 # Configure SchIM acording to the experiment profile
@@ -34,10 +36,10 @@ for (( i = $((last_bomb+1)); i > 1; i-- )); do
         touch ${dest_dir}/"mit_${j}"/${i}_cores.csv
         # Generate and redirect data
         echo "Start - mit ${j} - core ${i} | ${mit_1[j]} ${mit_2[j]} ${mit_3[j]} ${mit_4[j]}"
-        ~/synthetic/threshold_bw.out ${mit_1[j]} ${mit_2[j]} ${mit_3[j]} ${mit_4[j]} > ${dest_dir}/"mit_${j}"/${i}_cores.csv
+        ~/synthetic/threshold_bw_ts.out ${mit_1[j]} ${mit_2[j]} ${mit_3[j]} ${mit_4[j]} > ${dest_dir}/"mit_${j}"/${i}_cores.csv
     done
     # Kill one cell
-    jailhouse cell destroy $((i-1)) >> /dev/null
+    $jh_path/tools/jailhouse cell destroy $((i-1)) >> /dev/null
 done
 
 # Run alone
@@ -47,5 +49,5 @@ for (( j = 1; j < 5; j++ )); do
     touch ${dest_dir}/"mit_${j}"/1_cores.csv
     # Generate and redirect data
     echo "Start - mit ${j} - core ${i} | ${mit_1[j]} ${mit_2[j]} ${mit_3[j]} ${mit_4[j]}"
-    ~/synthetic/threshold_bw.out ${mit_1[j]} ${mit_2[j]} ${mit_3[j]} ${mit_4[j]} > ${dest_dir}/"mit_${j}"/1_cores.csv
+    ~/synthetic/threshold_bw_ts.out ${mit_1[j]} ${mit_2[j]} ${mit_3[j]} ${mit_4[j]} > ${dest_dir}/"mit_${j}"/1_cores.csv
 done

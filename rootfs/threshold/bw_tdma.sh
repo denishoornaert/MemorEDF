@@ -4,7 +4,9 @@ set -e
 source ~/common/jailhouse.config
 
 # Load experience variables
-source ~/experiences/threshold/tdma.config
+touch ~/experiences/profile.config
+cp ~/experiences/threshold/tdma.config ~/experiences/profile.config
+source ~/experiences/profile.config
 
 # Load the jailhouse root cell for SchIM
 if (lsmod | grep "jailhouse" &> /dev/null)
@@ -12,7 +14,7 @@ then
     :; # do nothing
 else
     insmod $jh_path/driver/jailhouse.ko
-    jailhouse enable $jh_path/configs/arm64/schim-root.cell
+    $jh_path/tools/jailhouse enable $jh_path/configs/arm64/schim-rootcol-dual-slave-cached.cell
 fi
 
 # Configure SchIM acording to the experiment profile
@@ -37,7 +39,7 @@ for (( i = $((last_bomb+1)); i > 1; i-- )); do
         ~/synthetic/threshold_bw_tdma.out ${periods_1[j]} ${periods_2[j]} ${periods_3[j]} ${periods_4[j]} > ${dest_dir}/"period_${j}"/${i}_cores.csv
     done
     # Kill one cell
-    jailhouse cell destroy $((i-1)) >> /dev/null
+    $jh_path/tools/jailhouse cell destroy $((i-1)) >> /dev/null
 done
 
 # Run alone
