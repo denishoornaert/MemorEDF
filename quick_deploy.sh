@@ -110,7 +110,8 @@ if [[ $programs_build ]]; then
     cp demo/exec/poke.out rootfs/common/
     ## Spam to synthetic
     cp demo/exec/spam_fake_colored.out rootfs/synthetic/
-    cp demo/exec/threshold_bw.out rootfs/synthetic/
+    cp demo/exec/threshold_bw_fp.out rootfs/synthetic/
+    cp demo/exec/threshold_bw_ts.out rootfs/synthetic/
     cp demo/exec/threshold_bw_tdma.out rootfs/synthetic/
     cp demo/exec/threshold_bw_aging.out rootfs/synthetic/
     cp demo/exec/threshold_bw_fibo.out rootfs/synthetic/
