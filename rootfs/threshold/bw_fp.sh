@@ -35,7 +35,7 @@ for (( i = $((last_bomb+1)); i > 1; i-- )); do
         # Create output raw data file
         touch ${dest_dir}/"prio_${j}"/${i}_cores.csv
         # Generate and redirect data
-        echo "prio ${prio[j]}"
+        echo "prio 1 : ${prio[j-1]}"
         ~/synthetic/threshold_bw_fp.out ${prio[j-1]} > ${dest_dir}/"prio_${j}"/${i}_cores.csv
     done
     # Kill one cell
