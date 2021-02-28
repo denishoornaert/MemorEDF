@@ -1,10 +1,10 @@
 -makelib ies_lib/xil_defaultlib -sv \
-  "/opt/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv" \
-  "/opt/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv" \
-  "/opt/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv" \
+  "/home/renato/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv" \
+  "/home/renato/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv" \
+  "/home/renato/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv" \
 -endlib
 -makelib ies_lib/xpm \
-  "/opt/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_VCOMP.vhd" \
+  "/home/renato/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_VCOMP.vhd" \
 -endlib
 -makelib ies_lib/axi_infrastructure_v1_1_0 \
   "../../../../MemorEDF.srcs/sources_1/bd/design_static_bleacher/ipshared/ec67/hdl/axi_infrastructure_v1_1_vl_rfs.v" \
@@ -28,10 +28,8 @@
 -endlib
 -makelib ies_lib/xil_defaultlib \
   "../../../bd/design_static_bleacher/sim/design_static_bleacher.v" \
-  "../../../bd/design_static_bleacher/ipshared/2464/hdl/AXI_PerfectTranslator_v1_0_S00_AXI.v" \
-  "../../../bd/design_static_bleacher/ipshared/2464/hdl/AXI_PerfectTranslator_v1_0_M00_AXI.v" \
-  "../../../bd/design_static_bleacher/ipshared/2464/hdl/AXI_PerfectTranslator_v1_0.v" \
-  "../../../bd/design_static_bleacher/ip/design_static_bleacher_AXI_PerfectTranslator_0_0/sim/design_static_bleacher_AXI_PerfectTranslator_0_0.v" \
+  "../../../bd/design_static_bleacher/ipshared/0d6a/hdl/porttoportmapping_v1_0.v" \
+  "../../../bd/design_static_bleacher/ip/design_static_bleacher_porttoportmapping_v1_0_0_0/sim/design_static_bleacher_porttoportmapping_v1_0_0_0.v" \
 -endlib
 -makelib ies_lib/xil_defaultlib \
   glbl.v

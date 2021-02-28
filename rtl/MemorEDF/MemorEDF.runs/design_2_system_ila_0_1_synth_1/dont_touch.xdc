@@ -73,10 +73,6 @@ set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==bd_c78d_slot_3_
 # IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_system_ila_0_1/bd_0/ip/ip_21/bd_c78d_slot_3_r_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==bd_c78d_slot_3_r_0 || ORIG_REF_NAME==bd_c78d_slot_3_r_0} -quiet] -quiet
 
-# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_system_ila_0_1/design_2_system_ila_0_1_ooc.xdc
-# XDC: The top module name and the constraint reference have the same name: 'design_2_system_ila_0_1'. Do not add the DONT_TOUCH constraint.
-set_property DONT_TOUCH TRUE [get_cells inst -quiet] -quiet
-
 # XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_system_ila_0_1/bd_0/ip/ip_0/ila_v6_2/constraints/ila_impl.xdc
 set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {REF_NAME==bd_c78d_ila_lib_0 || ORIG_REF_NAME==bd_c78d_ila_lib_0} -quiet] {/inst } ]/inst ] -quiet] -quiet
 
@@ -86,6 +82,10 @@ set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {R
 # XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_system_ila_0_1/bd_0/ip/ip_0/bd_c78d_ila_lib_0_ooc.xdc
 
 # XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_system_ila_0_1/bd_0/bd_c78d_ooc.xdc
+
+# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_system_ila_0_1/design_2_system_ila_0_1_ooc.xdc
+# XDC: The top module name and the constraint reference have the same name: 'design_2_system_ila_0_1'. Do not add the DONT_TOUCH constraint.
+set_property DONT_TOUCH TRUE [get_cells inst -quiet] -quiet
 
 # IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_system_ila_0_1/design_2_system_ila_0_1.xci
 # IP: The module: 'design_2_system_ila_0_1' is the root of the design. Do not add the DONT_TOUCH constraint.
@@ -159,10 +159,6 @@ set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {R
 # IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_system_ila_0_1/bd_0/ip/ip_21/bd_c78d_slot_3_r_0.xci
 #dup# set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==bd_c78d_slot_3_r_0 || ORIG_REF_NAME==bd_c78d_slot_3_r_0} -quiet] -quiet
 
-# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_system_ila_0_1/design_2_system_ila_0_1_ooc.xdc
-# XDC: The top module name and the constraint reference have the same name: 'design_2_system_ila_0_1'. Do not add the DONT_TOUCH constraint.
-#dup# set_property DONT_TOUCH TRUE [get_cells inst -quiet] -quiet
-
 # XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_system_ila_0_1/bd_0/ip/ip_0/ila_v6_2/constraints/ila_impl.xdc
 #dup# set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {REF_NAME==bd_c78d_ila_lib_0 || ORIG_REF_NAME==bd_c78d_ila_lib_0} -quiet] {/inst } ]/inst ] -quiet] -quiet
 
@@ -172,3 +168,7 @@ set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {R
 # XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_system_ila_0_1/bd_0/ip/ip_0/bd_c78d_ila_lib_0_ooc.xdc
 
 # XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_system_ila_0_1/bd_0/bd_c78d_ooc.xdc
+
+# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_2/ip/design_2_system_ila_0_1/design_2_system_ila_0_1_ooc.xdc
+# XDC: The top module name and the constraint reference have the same name: 'design_2_system_ila_0_1'. Do not add the DONT_TOUCH constraint.
+#dup# set_property DONT_TOUCH TRUE [get_cells inst -quiet] -quiet

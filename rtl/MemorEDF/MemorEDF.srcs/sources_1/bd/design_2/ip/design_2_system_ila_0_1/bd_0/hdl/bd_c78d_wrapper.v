@@ -127,6 +127,7 @@ module bd_c78d_wrapper
     SLOT_3_AXI_araddr,
     SLOT_3_AXI_arburst,
     SLOT_3_AXI_arcache,
+    SLOT_3_AXI_arid,
     SLOT_3_AXI_arlen,
     SLOT_3_AXI_arlock,
     SLOT_3_AXI_arprot,
@@ -138,6 +139,7 @@ module bd_c78d_wrapper
     SLOT_3_AXI_awaddr,
     SLOT_3_AXI_awburst,
     SLOT_3_AXI_awcache,
+    SLOT_3_AXI_awid,
     SLOT_3_AXI_awlen,
     SLOT_3_AXI_awlock,
     SLOT_3_AXI_awprot,
@@ -146,10 +148,12 @@ module bd_c78d_wrapper
     SLOT_3_AXI_awsize,
     SLOT_3_AXI_awuser,
     SLOT_3_AXI_awvalid,
+    SLOT_3_AXI_bid,
     SLOT_3_AXI_bready,
     SLOT_3_AXI_bresp,
     SLOT_3_AXI_bvalid,
     SLOT_3_AXI_rdata,
+    SLOT_3_AXI_rid,
     SLOT_3_AXI_rlast,
     SLOT_3_AXI_rready,
     SLOT_3_AXI_rresp,
@@ -281,6 +285,7 @@ module bd_c78d_wrapper
   input [48:0]SLOT_3_AXI_araddr;
   input [1:0]SLOT_3_AXI_arburst;
   input [3:0]SLOT_3_AXI_arcache;
+  input [5:0]SLOT_3_AXI_arid;
   input [7:0]SLOT_3_AXI_arlen;
   input [0:0]SLOT_3_AXI_arlock;
   input [2:0]SLOT_3_AXI_arprot;
@@ -292,6 +297,7 @@ module bd_c78d_wrapper
   input [48:0]SLOT_3_AXI_awaddr;
   input [1:0]SLOT_3_AXI_awburst;
   input [3:0]SLOT_3_AXI_awcache;
+  input [5:0]SLOT_3_AXI_awid;
   input [7:0]SLOT_3_AXI_awlen;
   input [0:0]SLOT_3_AXI_awlock;
   input [2:0]SLOT_3_AXI_awprot;
@@ -300,10 +306,12 @@ module bd_c78d_wrapper
   input [2:0]SLOT_3_AXI_awsize;
   input [0:0]SLOT_3_AXI_awuser;
   input SLOT_3_AXI_awvalid;
+  input [5:0]SLOT_3_AXI_bid;
   input SLOT_3_AXI_bready;
   input [1:0]SLOT_3_AXI_bresp;
   input SLOT_3_AXI_bvalid;
   input [127:0]SLOT_3_AXI_rdata;
+  input [5:0]SLOT_3_AXI_rid;
   input SLOT_3_AXI_rlast;
   input SLOT_3_AXI_rready;
   input [1:0]SLOT_3_AXI_rresp;
@@ -436,6 +444,7 @@ module bd_c78d_wrapper
   wire [48:0]SLOT_3_AXI_araddr;
   wire [1:0]SLOT_3_AXI_arburst;
   wire [3:0]SLOT_3_AXI_arcache;
+  wire [5:0]SLOT_3_AXI_arid;
   wire [7:0]SLOT_3_AXI_arlen;
   wire [0:0]SLOT_3_AXI_arlock;
   wire [2:0]SLOT_3_AXI_arprot;
@@ -447,6 +456,7 @@ module bd_c78d_wrapper
   wire [48:0]SLOT_3_AXI_awaddr;
   wire [1:0]SLOT_3_AXI_awburst;
   wire [3:0]SLOT_3_AXI_awcache;
+  wire [5:0]SLOT_3_AXI_awid;
   wire [7:0]SLOT_3_AXI_awlen;
   wire [0:0]SLOT_3_AXI_awlock;
   wire [2:0]SLOT_3_AXI_awprot;
@@ -455,10 +465,12 @@ module bd_c78d_wrapper
   wire [2:0]SLOT_3_AXI_awsize;
   wire [0:0]SLOT_3_AXI_awuser;
   wire SLOT_3_AXI_awvalid;
+  wire [5:0]SLOT_3_AXI_bid;
   wire SLOT_3_AXI_bready;
   wire [1:0]SLOT_3_AXI_bresp;
   wire SLOT_3_AXI_bvalid;
   wire [127:0]SLOT_3_AXI_rdata;
+  wire [5:0]SLOT_3_AXI_rid;
   wire SLOT_3_AXI_rlast;
   wire SLOT_3_AXI_rready;
   wire [1:0]SLOT_3_AXI_rresp;
@@ -592,6 +604,7 @@ module bd_c78d_wrapper
         .SLOT_3_AXI_araddr(SLOT_3_AXI_araddr),
         .SLOT_3_AXI_arburst(SLOT_3_AXI_arburst),
         .SLOT_3_AXI_arcache(SLOT_3_AXI_arcache),
+        .SLOT_3_AXI_arid(SLOT_3_AXI_arid),
         .SLOT_3_AXI_arlen(SLOT_3_AXI_arlen),
         .SLOT_3_AXI_arlock(SLOT_3_AXI_arlock),
         .SLOT_3_AXI_arprot(SLOT_3_AXI_arprot),
@@ -603,6 +616,7 @@ module bd_c78d_wrapper
         .SLOT_3_AXI_awaddr(SLOT_3_AXI_awaddr),
         .SLOT_3_AXI_awburst(SLOT_3_AXI_awburst),
         .SLOT_3_AXI_awcache(SLOT_3_AXI_awcache),
+        .SLOT_3_AXI_awid(SLOT_3_AXI_awid),
         .SLOT_3_AXI_awlen(SLOT_3_AXI_awlen),
         .SLOT_3_AXI_awlock(SLOT_3_AXI_awlock),
         .SLOT_3_AXI_awprot(SLOT_3_AXI_awprot),
@@ -611,10 +625,12 @@ module bd_c78d_wrapper
         .SLOT_3_AXI_awsize(SLOT_3_AXI_awsize),
         .SLOT_3_AXI_awuser(SLOT_3_AXI_awuser),
         .SLOT_3_AXI_awvalid(SLOT_3_AXI_awvalid),
+        .SLOT_3_AXI_bid(SLOT_3_AXI_bid),
         .SLOT_3_AXI_bready(SLOT_3_AXI_bready),
         .SLOT_3_AXI_bresp(SLOT_3_AXI_bresp),
         .SLOT_3_AXI_bvalid(SLOT_3_AXI_bvalid),
         .SLOT_3_AXI_rdata(SLOT_3_AXI_rdata),
+        .SLOT_3_AXI_rid(SLOT_3_AXI_rid),
         .SLOT_3_AXI_rlast(SLOT_3_AXI_rlast),
         .SLOT_3_AXI_rready(SLOT_3_AXI_rready),
         .SLOT_3_AXI_rresp(SLOT_3_AXI_rresp),

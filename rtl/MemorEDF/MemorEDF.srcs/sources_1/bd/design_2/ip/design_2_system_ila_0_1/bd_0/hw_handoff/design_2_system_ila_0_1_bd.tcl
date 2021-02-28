@@ -272,7 +272,7 @@ proc create_root_design { parentCell } {
    CONFIG.C_SLOT_3_AXI_BUSER_WIDTH {0} \
    CONFIG.C_SLOT_3_AXI_B_SEL {1} \
    CONFIG.C_SLOT_3_AXI_DATA_WIDTH {128} \
-   CONFIG.C_SLOT_3_AXI_ID_WIDTH {0} \
+   CONFIG.C_SLOT_3_AXI_ID_WIDTH {6} \
    CONFIG.C_SLOT_3_AXI_PROTOCOL {AXI4} \
    CONFIG.C_SLOT_3_AXI_RUSER_WIDTH {0} \
    CONFIG.C_SLOT_3_AXI_R_SEL {1} \
@@ -305,7 +305,7 @@ proc create_root_design { parentCell } {
    CONFIG.C_ILA_CLK_FREQ {249975000} \
    CONFIG.C_INPUT_PIPE_STAGES {0} \
    CONFIG.C_MONITOR_TYPE {Native} \
-   CONFIG.C_NUM_OF_PROBES {140} \
+   CONFIG.C_NUM_OF_PROBES {144} \
    CONFIG.C_PROBE0_TYPE {0} \
    CONFIG.C_PROBE0_WIDTH {2} \
    CONFIG.C_PROBE100_TYPE {0} \
@@ -335,67 +335,75 @@ proc create_root_design { parentCell } {
    CONFIG.C_PROBE111_TYPE {0} \
    CONFIG.C_PROBE111_WIDTH {4} \
    CONFIG.C_PROBE112_TYPE {0} \
-   CONFIG.C_PROBE112_WIDTH {8} \
+   CONFIG.C_PROBE112_WIDTH {6} \
    CONFIG.C_PROBE113_TYPE {0} \
-   CONFIG.C_PROBE113_WIDTH {1} \
+   CONFIG.C_PROBE113_WIDTH {8} \
    CONFIG.C_PROBE114_TYPE {0} \
-   CONFIG.C_PROBE114_WIDTH {3} \
+   CONFIG.C_PROBE114_WIDTH {1} \
    CONFIG.C_PROBE115_TYPE {0} \
-   CONFIG.C_PROBE115_WIDTH {4} \
+   CONFIG.C_PROBE115_WIDTH {3} \
    CONFIG.C_PROBE116_TYPE {0} \
-   CONFIG.C_PROBE116_WIDTH {3} \
+   CONFIG.C_PROBE116_WIDTH {4} \
    CONFIG.C_PROBE117_TYPE {0} \
-   CONFIG.C_PROBE117_WIDTH {1} \
+   CONFIG.C_PROBE117_WIDTH {3} \
    CONFIG.C_PROBE118_TYPE {0} \
-   CONFIG.C_PROBE118_WIDTH {2} \
+   CONFIG.C_PROBE118_WIDTH {1} \
    CONFIG.C_PROBE119_TYPE {0} \
-   CONFIG.C_PROBE119_WIDTH {49} \
+   CONFIG.C_PROBE119_WIDTH {2} \
    CONFIG.C_PROBE11_TYPE {0} \
    CONFIG.C_PROBE11_WIDTH {2} \
    CONFIG.C_PROBE120_TYPE {0} \
-   CONFIG.C_PROBE120_WIDTH {2} \
+   CONFIG.C_PROBE120_WIDTH {49} \
    CONFIG.C_PROBE121_TYPE {0} \
-   CONFIG.C_PROBE121_WIDTH {4} \
+   CONFIG.C_PROBE121_WIDTH {2} \
    CONFIG.C_PROBE122_TYPE {0} \
-   CONFIG.C_PROBE122_WIDTH {8} \
+   CONFIG.C_PROBE122_WIDTH {4} \
    CONFIG.C_PROBE123_TYPE {0} \
-   CONFIG.C_PROBE123_WIDTH {1} \
+   CONFIG.C_PROBE123_WIDTH {6} \
    CONFIG.C_PROBE124_TYPE {0} \
-   CONFIG.C_PROBE124_WIDTH {3} \
+   CONFIG.C_PROBE124_WIDTH {8} \
    CONFIG.C_PROBE125_TYPE {0} \
-   CONFIG.C_PROBE125_WIDTH {4} \
+   CONFIG.C_PROBE125_WIDTH {1} \
    CONFIG.C_PROBE126_TYPE {0} \
    CONFIG.C_PROBE126_WIDTH {3} \
    CONFIG.C_PROBE127_TYPE {0} \
-   CONFIG.C_PROBE127_WIDTH {1} \
+   CONFIG.C_PROBE127_WIDTH {4} \
    CONFIG.C_PROBE128_TYPE {0} \
-   CONFIG.C_PROBE128_WIDTH {2} \
+   CONFIG.C_PROBE128_WIDTH {3} \
    CONFIG.C_PROBE129_TYPE {0} \
-   CONFIG.C_PROBE129_WIDTH {2} \
+   CONFIG.C_PROBE129_WIDTH {1} \
    CONFIG.C_PROBE12_TYPE {0} \
    CONFIG.C_PROBE12_WIDTH {40} \
    CONFIG.C_PROBE130_TYPE {0} \
    CONFIG.C_PROBE130_WIDTH {2} \
    CONFIG.C_PROBE131_TYPE {0} \
-   CONFIG.C_PROBE131_WIDTH {128} \
+   CONFIG.C_PROBE131_WIDTH {6} \
    CONFIG.C_PROBE132_TYPE {0} \
    CONFIG.C_PROBE132_WIDTH {2} \
    CONFIG.C_PROBE133_TYPE {0} \
-   CONFIG.C_PROBE133_WIDTH {128} \
+   CONFIG.C_PROBE133_WIDTH {2} \
    CONFIG.C_PROBE134_TYPE {0} \
-   CONFIG.C_PROBE134_WIDTH {16} \
+   CONFIG.C_PROBE134_WIDTH {128} \
    CONFIG.C_PROBE135_TYPE {0} \
-   CONFIG.C_PROBE135_WIDTH {2} \
+   CONFIG.C_PROBE135_WIDTH {6} \
    CONFIG.C_PROBE136_TYPE {0} \
-   CONFIG.C_PROBE136_WIDTH {3} \
+   CONFIG.C_PROBE136_WIDTH {2} \
    CONFIG.C_PROBE137_TYPE {0} \
-   CONFIG.C_PROBE137_WIDTH {2} \
+   CONFIG.C_PROBE137_WIDTH {128} \
    CONFIG.C_PROBE138_TYPE {0} \
-   CONFIG.C_PROBE138_WIDTH {2} \
+   CONFIG.C_PROBE138_WIDTH {16} \
    CONFIG.C_PROBE139_TYPE {0} \
-   CONFIG.C_PROBE139_WIDTH {3} \
+   CONFIG.C_PROBE139_WIDTH {2} \
    CONFIG.C_PROBE13_TYPE {0} \
    CONFIG.C_PROBE13_WIDTH {2} \
+   CONFIG.C_PROBE140_TYPE {0} \
+   CONFIG.C_PROBE140_WIDTH {3} \
+   CONFIG.C_PROBE141_TYPE {0} \
+   CONFIG.C_PROBE141_WIDTH {2} \
+   CONFIG.C_PROBE142_TYPE {0} \
+   CONFIG.C_PROBE142_WIDTH {2} \
+   CONFIG.C_PROBE143_TYPE {0} \
+   CONFIG.C_PROBE143_WIDTH {3} \
    CONFIG.C_PROBE14_TYPE {0} \
    CONFIG.C_PROBE14_WIDTH {4} \
    CONFIG.C_PROBE15_TYPE {0} \
@@ -829,48 +837,52 @@ connect_bd_intf_net -intf_net Conn3 [get_bd_intf_ports SLOT_3_AXI] [get_bd_intf_
   connect_bd_net -net net_slot_2_axi_wstrb [get_bd_pins g_inst/m_slot_2_axi_wstrb] [get_bd_pins ila_lib/probe102]
   connect_bd_net -net net_slot_2_axi_wvalid [get_bd_pins g_inst/m_slot_2_axi_wvalid] [get_bd_pins slot_2_w/In0]
   connect_bd_net -net net_slot_3_axi_ar_cnt [get_bd_pins g_inst/m_slot_3_axi_ar_cnt] [get_bd_pins ila_lib/probe108]
-  connect_bd_net -net net_slot_3_axi_ar_ctrl [get_bd_pins ila_lib/probe138] [get_bd_pins slot_3_ar/dout]
+  connect_bd_net -net net_slot_3_axi_ar_ctrl [get_bd_pins ila_lib/probe142] [get_bd_pins slot_3_ar/dout]
   connect_bd_net -net net_slot_3_axi_araddr [get_bd_pins g_inst/m_slot_3_axi_araddr] [get_bd_pins ila_lib/probe109]
   connect_bd_net -net net_slot_3_axi_arburst [get_bd_pins g_inst/m_slot_3_axi_arburst] [get_bd_pins ila_lib/probe110]
   connect_bd_net -net net_slot_3_axi_arcache [get_bd_pins g_inst/m_slot_3_axi_arcache] [get_bd_pins ila_lib/probe111]
-  connect_bd_net -net net_slot_3_axi_arlen [get_bd_pins g_inst/m_slot_3_axi_arlen] [get_bd_pins ila_lib/probe112]
-  connect_bd_net -net net_slot_3_axi_arlock [get_bd_pins g_inst/m_slot_3_axi_arlock] [get_bd_pins ila_lib/probe113]
-  connect_bd_net -net net_slot_3_axi_arprot [get_bd_pins g_inst/m_slot_3_axi_arprot] [get_bd_pins ila_lib/probe114]
-  connect_bd_net -net net_slot_3_axi_arqos [get_bd_pins g_inst/m_slot_3_axi_arqos] [get_bd_pins ila_lib/probe115]
+  connect_bd_net -net net_slot_3_axi_arid [get_bd_pins g_inst/m_slot_3_axi_arid] [get_bd_pins ila_lib/probe112]
+  connect_bd_net -net net_slot_3_axi_arlen [get_bd_pins g_inst/m_slot_3_axi_arlen] [get_bd_pins ila_lib/probe113]
+  connect_bd_net -net net_slot_3_axi_arlock [get_bd_pins g_inst/m_slot_3_axi_arlock] [get_bd_pins ila_lib/probe114]
+  connect_bd_net -net net_slot_3_axi_arprot [get_bd_pins g_inst/m_slot_3_axi_arprot] [get_bd_pins ila_lib/probe115]
+  connect_bd_net -net net_slot_3_axi_arqos [get_bd_pins g_inst/m_slot_3_axi_arqos] [get_bd_pins ila_lib/probe116]
   connect_bd_net -net net_slot_3_axi_arready [get_bd_pins g_inst/m_slot_3_axi_arready] [get_bd_pins slot_3_ar/In1]
-  connect_bd_net -net net_slot_3_axi_arsize [get_bd_pins g_inst/m_slot_3_axi_arsize] [get_bd_pins ila_lib/probe116]
-  connect_bd_net -net net_slot_3_axi_aruser [get_bd_pins g_inst/m_slot_3_axi_aruser] [get_bd_pins ila_lib/probe117]
+  connect_bd_net -net net_slot_3_axi_arsize [get_bd_pins g_inst/m_slot_3_axi_arsize] [get_bd_pins ila_lib/probe117]
+  connect_bd_net -net net_slot_3_axi_aruser [get_bd_pins g_inst/m_slot_3_axi_aruser] [get_bd_pins ila_lib/probe118]
   connect_bd_net -net net_slot_3_axi_arvalid [get_bd_pins g_inst/m_slot_3_axi_arvalid] [get_bd_pins slot_3_ar/In0]
-  connect_bd_net -net net_slot_3_axi_aw_cnt [get_bd_pins g_inst/m_slot_3_axi_aw_cnt] [get_bd_pins ila_lib/probe118]
-  connect_bd_net -net net_slot_3_axi_aw_ctrl [get_bd_pins ila_lib/probe135] [get_bd_pins slot_3_aw/dout]
-  connect_bd_net -net net_slot_3_axi_awaddr [get_bd_pins g_inst/m_slot_3_axi_awaddr] [get_bd_pins ila_lib/probe119]
-  connect_bd_net -net net_slot_3_axi_awburst [get_bd_pins g_inst/m_slot_3_axi_awburst] [get_bd_pins ila_lib/probe120]
-  connect_bd_net -net net_slot_3_axi_awcache [get_bd_pins g_inst/m_slot_3_axi_awcache] [get_bd_pins ila_lib/probe121]
-  connect_bd_net -net net_slot_3_axi_awlen [get_bd_pins g_inst/m_slot_3_axi_awlen] [get_bd_pins ila_lib/probe122]
-  connect_bd_net -net net_slot_3_axi_awlock [get_bd_pins g_inst/m_slot_3_axi_awlock] [get_bd_pins ila_lib/probe123]
-  connect_bd_net -net net_slot_3_axi_awprot [get_bd_pins g_inst/m_slot_3_axi_awprot] [get_bd_pins ila_lib/probe124]
-  connect_bd_net -net net_slot_3_axi_awqos [get_bd_pins g_inst/m_slot_3_axi_awqos] [get_bd_pins ila_lib/probe125]
+  connect_bd_net -net net_slot_3_axi_aw_cnt [get_bd_pins g_inst/m_slot_3_axi_aw_cnt] [get_bd_pins ila_lib/probe119]
+  connect_bd_net -net net_slot_3_axi_aw_ctrl [get_bd_pins ila_lib/probe139] [get_bd_pins slot_3_aw/dout]
+  connect_bd_net -net net_slot_3_axi_awaddr [get_bd_pins g_inst/m_slot_3_axi_awaddr] [get_bd_pins ila_lib/probe120]
+  connect_bd_net -net net_slot_3_axi_awburst [get_bd_pins g_inst/m_slot_3_axi_awburst] [get_bd_pins ila_lib/probe121]
+  connect_bd_net -net net_slot_3_axi_awcache [get_bd_pins g_inst/m_slot_3_axi_awcache] [get_bd_pins ila_lib/probe122]
+  connect_bd_net -net net_slot_3_axi_awid [get_bd_pins g_inst/m_slot_3_axi_awid] [get_bd_pins ila_lib/probe123]
+  connect_bd_net -net net_slot_3_axi_awlen [get_bd_pins g_inst/m_slot_3_axi_awlen] [get_bd_pins ila_lib/probe124]
+  connect_bd_net -net net_slot_3_axi_awlock [get_bd_pins g_inst/m_slot_3_axi_awlock] [get_bd_pins ila_lib/probe125]
+  connect_bd_net -net net_slot_3_axi_awprot [get_bd_pins g_inst/m_slot_3_axi_awprot] [get_bd_pins ila_lib/probe126]
+  connect_bd_net -net net_slot_3_axi_awqos [get_bd_pins g_inst/m_slot_3_axi_awqos] [get_bd_pins ila_lib/probe127]
   connect_bd_net -net net_slot_3_axi_awready [get_bd_pins g_inst/m_slot_3_axi_awready] [get_bd_pins slot_3_aw/In1]
-  connect_bd_net -net net_slot_3_axi_awsize [get_bd_pins g_inst/m_slot_3_axi_awsize] [get_bd_pins ila_lib/probe126]
-  connect_bd_net -net net_slot_3_axi_awuser [get_bd_pins g_inst/m_slot_3_axi_awuser] [get_bd_pins ila_lib/probe127]
+  connect_bd_net -net net_slot_3_axi_awsize [get_bd_pins g_inst/m_slot_3_axi_awsize] [get_bd_pins ila_lib/probe128]
+  connect_bd_net -net net_slot_3_axi_awuser [get_bd_pins g_inst/m_slot_3_axi_awuser] [get_bd_pins ila_lib/probe129]
   connect_bd_net -net net_slot_3_axi_awvalid [get_bd_pins g_inst/m_slot_3_axi_awvalid] [get_bd_pins slot_3_aw/In0]
-  connect_bd_net -net net_slot_3_axi_b_cnt [get_bd_pins g_inst/m_slot_3_axi_b_cnt] [get_bd_pins ila_lib/probe128]
-  connect_bd_net -net net_slot_3_axi_b_ctrl [get_bd_pins ila_lib/probe137] [get_bd_pins slot_3_b/dout]
+  connect_bd_net -net net_slot_3_axi_b_cnt [get_bd_pins g_inst/m_slot_3_axi_b_cnt] [get_bd_pins ila_lib/probe130]
+  connect_bd_net -net net_slot_3_axi_b_ctrl [get_bd_pins ila_lib/probe141] [get_bd_pins slot_3_b/dout]
+  connect_bd_net -net net_slot_3_axi_bid [get_bd_pins g_inst/m_slot_3_axi_bid] [get_bd_pins ila_lib/probe131]
   connect_bd_net -net net_slot_3_axi_bready [get_bd_pins g_inst/m_slot_3_axi_bready] [get_bd_pins slot_3_b/In1]
-  connect_bd_net -net net_slot_3_axi_bresp [get_bd_pins g_inst/m_slot_3_axi_bresp] [get_bd_pins ila_lib/probe129]
+  connect_bd_net -net net_slot_3_axi_bresp [get_bd_pins g_inst/m_slot_3_axi_bresp] [get_bd_pins ila_lib/probe132]
   connect_bd_net -net net_slot_3_axi_bvalid [get_bd_pins g_inst/m_slot_3_axi_bvalid] [get_bd_pins slot_3_b/In0]
-  connect_bd_net -net net_slot_3_axi_r_cnt [get_bd_pins g_inst/m_slot_3_axi_r_cnt] [get_bd_pins ila_lib/probe130]
-  connect_bd_net -net net_slot_3_axi_r_ctrl [get_bd_pins ila_lib/probe139] [get_bd_pins slot_3_r/dout]
-  connect_bd_net -net net_slot_3_axi_rdata [get_bd_pins g_inst/m_slot_3_axi_rdata] [get_bd_pins ila_lib/probe131]
+  connect_bd_net -net net_slot_3_axi_r_cnt [get_bd_pins g_inst/m_slot_3_axi_r_cnt] [get_bd_pins ila_lib/probe133]
+  connect_bd_net -net net_slot_3_axi_r_ctrl [get_bd_pins ila_lib/probe143] [get_bd_pins slot_3_r/dout]
+  connect_bd_net -net net_slot_3_axi_rdata [get_bd_pins g_inst/m_slot_3_axi_rdata] [get_bd_pins ila_lib/probe134]
+  connect_bd_net -net net_slot_3_axi_rid [get_bd_pins g_inst/m_slot_3_axi_rid] [get_bd_pins ila_lib/probe135]
   connect_bd_net -net net_slot_3_axi_rlast [get_bd_pins g_inst/m_slot_3_axi_rlast] [get_bd_pins slot_3_r/In2]
   connect_bd_net -net net_slot_3_axi_rready [get_bd_pins g_inst/m_slot_3_axi_rready] [get_bd_pins slot_3_r/In1]
-  connect_bd_net -net net_slot_3_axi_rresp [get_bd_pins g_inst/m_slot_3_axi_rresp] [get_bd_pins ila_lib/probe132]
+  connect_bd_net -net net_slot_3_axi_rresp [get_bd_pins g_inst/m_slot_3_axi_rresp] [get_bd_pins ila_lib/probe136]
   connect_bd_net -net net_slot_3_axi_rvalid [get_bd_pins g_inst/m_slot_3_axi_rvalid] [get_bd_pins slot_3_r/In0]
-  connect_bd_net -net net_slot_3_axi_w_ctrl [get_bd_pins ila_lib/probe136] [get_bd_pins slot_3_w/dout]
-  connect_bd_net -net net_slot_3_axi_wdata [get_bd_pins g_inst/m_slot_3_axi_wdata] [get_bd_pins ila_lib/probe133]
+  connect_bd_net -net net_slot_3_axi_w_ctrl [get_bd_pins ila_lib/probe140] [get_bd_pins slot_3_w/dout]
+  connect_bd_net -net net_slot_3_axi_wdata [get_bd_pins g_inst/m_slot_3_axi_wdata] [get_bd_pins ila_lib/probe137]
   connect_bd_net -net net_slot_3_axi_wlast [get_bd_pins g_inst/m_slot_3_axi_wlast] [get_bd_pins slot_3_w/In2]
   connect_bd_net -net net_slot_3_axi_wready [get_bd_pins g_inst/m_slot_3_axi_wready] [get_bd_pins slot_3_w/In1]
-  connect_bd_net -net net_slot_3_axi_wstrb [get_bd_pins g_inst/m_slot_3_axi_wstrb] [get_bd_pins ila_lib/probe134]
+  connect_bd_net -net net_slot_3_axi_wstrb [get_bd_pins g_inst/m_slot_3_axi_wstrb] [get_bd_pins ila_lib/probe138]
   connect_bd_net -net net_slot_3_axi_wvalid [get_bd_pins g_inst/m_slot_3_axi_wvalid] [get_bd_pins slot_3_w/In0]
   connect_bd_net -net resetn_1 [get_bd_ports resetn] [get_bd_pins g_inst/aresetn]
 
