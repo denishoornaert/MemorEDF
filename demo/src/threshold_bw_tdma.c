@@ -66,6 +66,8 @@ int main(int argc, char** argv) {
             struct timespec time1, time2;
             long unsigned sec, ns;
 
+            (*config).reset = j;
+
             // read
             clock_gettime(CLOCK_REALTIME, &time1);
             for (unsigned i = ((0<<14)/sizeof(unsigned)); i < (HPM0_SIZE/sizeof(unsigned)); i+=(CACHE_LINE_SIZE/sizeof(unsigned))) {
