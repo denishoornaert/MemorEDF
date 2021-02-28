@@ -7,94 +7,37 @@
 # Block Designs: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/bd_79ed.bd
 # DONT_TOUCH constraint suppressed by (parent) sub-design file.
 
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_10/bd_79ed_s00a2s_0.xci
+# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_5/bd_79ed_s00a2s_0.xci
 # DONT_TOUCH constraint suppressed by (parent) sub-design file.
 
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_19/bd_79ed_s01a2s_0.xci
+# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_11/bd_79ed_m00s2a_0.xci
 # DONT_TOUCH constraint suppressed by (parent) sub-design file.
 
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_25/bd_79ed_m00s2a_0.xci
+# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_12/bd_79ed_m00e_0.xci
 # DONT_TOUCH constraint suppressed by (parent) sub-design file.
 
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_31/bd_79ed_m00e_0.xci
+# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_6/bd_79ed_sarn_0.xci
 # DONT_TOUCH constraint suppressed by (parent) sub-design file.
 
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_26/bd_79ed_m00arn_0.xci
+# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_7/bd_79ed_srn_0.xci
 # DONT_TOUCH constraint suppressed by (parent) sub-design file.
 
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_27/bd_79ed_m00rn_0.xci
+# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_8/bd_79ed_sawn_0.xci
 # DONT_TOUCH constraint suppressed by (parent) sub-design file.
 
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_28/bd_79ed_m00awn_0.xci
+# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_9/bd_79ed_swn_0.xci
 # DONT_TOUCH constraint suppressed by (parent) sub-design file.
 
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_29/bd_79ed_m00wn_0.xci
+# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_10/bd_79ed_sbn_0.xci
 # DONT_TOUCH constraint suppressed by (parent) sub-design file.
 
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_30/bd_79ed_m00bn_0.xci
+# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_2/bd_79ed_s00mmu_0.xci
 # DONT_TOUCH constraint suppressed by (parent) sub-design file.
 
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_20/bd_79ed_sarn_1.xci
+# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_3/bd_79ed_s00tr_0.xci
 # DONT_TOUCH constraint suppressed by (parent) sub-design file.
 
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_21/bd_79ed_srn_1.xci
-# DONT_TOUCH constraint suppressed by (parent) sub-design file.
-
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_22/bd_79ed_sawn_1.xci
-# DONT_TOUCH constraint suppressed by (parent) sub-design file.
-
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_23/bd_79ed_swn_1.xci
-# DONT_TOUCH constraint suppressed by (parent) sub-design file.
-
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_24/bd_79ed_sbn_1.xci
-# DONT_TOUCH constraint suppressed by (parent) sub-design file.
-
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_16/bd_79ed_s01mmu_0.xci
-# DONT_TOUCH constraint suppressed by (parent) sub-design file.
-
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_17/bd_79ed_s01tr_0.xci
-# DONT_TOUCH constraint suppressed by (parent) sub-design file.
-
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_18/bd_79ed_s01sic_0.xci
-# DONT_TOUCH constraint suppressed by (parent) sub-design file.
-
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_11/bd_79ed_sarn_0.xci
-# DONT_TOUCH constraint suppressed by (parent) sub-design file.
-
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_12/bd_79ed_srn_0.xci
-# DONT_TOUCH constraint suppressed by (parent) sub-design file.
-
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_13/bd_79ed_sawn_0.xci
-# DONT_TOUCH constraint suppressed by (parent) sub-design file.
-
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_14/bd_79ed_swn_0.xci
-# DONT_TOUCH constraint suppressed by (parent) sub-design file.
-
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_15/bd_79ed_sbn_0.xci
-# DONT_TOUCH constraint suppressed by (parent) sub-design file.
-
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_7/bd_79ed_s00mmu_0.xci
-# DONT_TOUCH constraint suppressed by (parent) sub-design file.
-
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_8/bd_79ed_s00tr_0.xci
-# DONT_TOUCH constraint suppressed by (parent) sub-design file.
-
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_9/bd_79ed_s00sic_0.xci
-# DONT_TOUCH constraint suppressed by (parent) sub-design file.
-
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_2/bd_79ed_arsw_0.xci
-# DONT_TOUCH constraint suppressed by (parent) sub-design file.
-
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_3/bd_79ed_rsw_0.xci
-# DONT_TOUCH constraint suppressed by (parent) sub-design file.
-
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_4/bd_79ed_awsw_0.xci
-# DONT_TOUCH constraint suppressed by (parent) sub-design file.
-
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_5/bd_79ed_wsw_0.xci
-# DONT_TOUCH constraint suppressed by (parent) sub-design file.
-
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_6/bd_79ed_bsw_0.xci
+# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_4/bd_79ed_s00sic_0.xci
 # DONT_TOUCH constraint suppressed by (parent) sub-design file.
 
 # IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_0/bd_79ed_one_0.xci
@@ -103,61 +46,29 @@
 # IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_1/bd_79ed_psr_aclk_0.xci
 # DONT_TOUCH constraint suppressed by (parent) sub-design file.
 
-# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_10/bd_79ed_s00a2s_0_ooc.xdc
+# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/ooc.xdc
+# XDC: The top module name and the constraint reference have the same name: 'design_5_smartconnect_0_0'. Do not add the DONT_TOUCH constraint.
+set_property DONT_TOUCH TRUE [get_cells inst -quiet] -quiet
 
-# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_19/bd_79ed_s01a2s_0_ooc.xdc
+# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_5/bd_79ed_s00a2s_0_ooc.xdc
 
-# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_25/bd_79ed_m00s2a_0_ooc.xdc
+# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_11/bd_79ed_m00s2a_0_ooc.xdc
 
-# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_26/bd_79ed_m00arn_0_ooc.xdc
+# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_6/bd_79ed_sarn_0_ooc.xdc
 
-# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_27/bd_79ed_m00rn_0_ooc.xdc
+# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_7/bd_79ed_srn_0_ooc.xdc
 
-# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_28/bd_79ed_m00awn_0_ooc.xdc
+# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_8/bd_79ed_sawn_0_ooc.xdc
 
-# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_29/bd_79ed_m00wn_0_ooc.xdc
+# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_9/bd_79ed_swn_0_ooc.xdc
 
-# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_30/bd_79ed_m00bn_0_ooc.xdc
-
-# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_20/bd_79ed_sarn_1_ooc.xdc
-
-# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_21/bd_79ed_srn_1_ooc.xdc
-
-# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_22/bd_79ed_sawn_1_ooc.xdc
-
-# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_23/bd_79ed_swn_1_ooc.xdc
-
-# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_24/bd_79ed_sbn_1_ooc.xdc
-
-# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_11/bd_79ed_sarn_0_ooc.xdc
-
-# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_12/bd_79ed_srn_0_ooc.xdc
-
-# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_13/bd_79ed_sawn_0_ooc.xdc
-
-# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_14/bd_79ed_swn_0_ooc.xdc
-
-# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_15/bd_79ed_sbn_0_ooc.xdc
-
-# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_2/bd_79ed_arsw_0_ooc.xdc
-
-# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_3/bd_79ed_rsw_0_ooc.xdc
-
-# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_4/bd_79ed_awsw_0_ooc.xdc
-
-# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_5/bd_79ed_wsw_0_ooc.xdc
-
-# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_6/bd_79ed_bsw_0_ooc.xdc
+# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_10/bd_79ed_sbn_0_ooc.xdc
 
 # XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_1/bd_79ed_psr_aclk_0_board.xdc
 # DONT_TOUCH constraint suppressed by parent sub-design file.
 
 # XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_1/bd_79ed_psr_aclk_0.xdc
 # DONT_TOUCH constraint suppressed by parent sub-design file.
-
-# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/ooc.xdc
-# XDC: The top module name and the constraint reference have the same name: 'design_5_smartconnect_0_0'. Do not add the DONT_TOUCH constraint.
-set_property DONT_TOUCH TRUE [get_cells inst -quiet] -quiet
 
 # IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/design_5_smartconnect_0_0.xci
 # IP: The module: 'design_5_smartconnect_0_0' is the root of the design. Do not add the DONT_TOUCH constraint.
@@ -165,94 +76,37 @@ set_property DONT_TOUCH TRUE [get_cells inst -quiet] -quiet
 # Block Designs: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/bd_79ed.bd
 # DONT_TOUCH constraint suppressed by (parent) sub-design file.
 
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_10/bd_79ed_s00a2s_0.xci
+# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_5/bd_79ed_s00a2s_0.xci
 # DONT_TOUCH constraint suppressed by (parent) sub-design file.
 
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_19/bd_79ed_s01a2s_0.xci
+# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_11/bd_79ed_m00s2a_0.xci
 # DONT_TOUCH constraint suppressed by (parent) sub-design file.
 
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_25/bd_79ed_m00s2a_0.xci
+# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_12/bd_79ed_m00e_0.xci
 # DONT_TOUCH constraint suppressed by (parent) sub-design file.
 
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_31/bd_79ed_m00e_0.xci
+# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_6/bd_79ed_sarn_0.xci
 # DONT_TOUCH constraint suppressed by (parent) sub-design file.
 
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_26/bd_79ed_m00arn_0.xci
+# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_7/bd_79ed_srn_0.xci
 # DONT_TOUCH constraint suppressed by (parent) sub-design file.
 
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_27/bd_79ed_m00rn_0.xci
+# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_8/bd_79ed_sawn_0.xci
 # DONT_TOUCH constraint suppressed by (parent) sub-design file.
 
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_28/bd_79ed_m00awn_0.xci
+# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_9/bd_79ed_swn_0.xci
 # DONT_TOUCH constraint suppressed by (parent) sub-design file.
 
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_29/bd_79ed_m00wn_0.xci
+# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_10/bd_79ed_sbn_0.xci
 # DONT_TOUCH constraint suppressed by (parent) sub-design file.
 
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_30/bd_79ed_m00bn_0.xci
+# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_2/bd_79ed_s00mmu_0.xci
 # DONT_TOUCH constraint suppressed by (parent) sub-design file.
 
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_20/bd_79ed_sarn_1.xci
+# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_3/bd_79ed_s00tr_0.xci
 # DONT_TOUCH constraint suppressed by (parent) sub-design file.
 
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_21/bd_79ed_srn_1.xci
-# DONT_TOUCH constraint suppressed by (parent) sub-design file.
-
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_22/bd_79ed_sawn_1.xci
-# DONT_TOUCH constraint suppressed by (parent) sub-design file.
-
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_23/bd_79ed_swn_1.xci
-# DONT_TOUCH constraint suppressed by (parent) sub-design file.
-
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_24/bd_79ed_sbn_1.xci
-# DONT_TOUCH constraint suppressed by (parent) sub-design file.
-
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_16/bd_79ed_s01mmu_0.xci
-# DONT_TOUCH constraint suppressed by (parent) sub-design file.
-
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_17/bd_79ed_s01tr_0.xci
-# DONT_TOUCH constraint suppressed by (parent) sub-design file.
-
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_18/bd_79ed_s01sic_0.xci
-# DONT_TOUCH constraint suppressed by (parent) sub-design file.
-
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_11/bd_79ed_sarn_0.xci
-# DONT_TOUCH constraint suppressed by (parent) sub-design file.
-
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_12/bd_79ed_srn_0.xci
-# DONT_TOUCH constraint suppressed by (parent) sub-design file.
-
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_13/bd_79ed_sawn_0.xci
-# DONT_TOUCH constraint suppressed by (parent) sub-design file.
-
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_14/bd_79ed_swn_0.xci
-# DONT_TOUCH constraint suppressed by (parent) sub-design file.
-
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_15/bd_79ed_sbn_0.xci
-# DONT_TOUCH constraint suppressed by (parent) sub-design file.
-
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_7/bd_79ed_s00mmu_0.xci
-# DONT_TOUCH constraint suppressed by (parent) sub-design file.
-
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_8/bd_79ed_s00tr_0.xci
-# DONT_TOUCH constraint suppressed by (parent) sub-design file.
-
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_9/bd_79ed_s00sic_0.xci
-# DONT_TOUCH constraint suppressed by (parent) sub-design file.
-
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_2/bd_79ed_arsw_0.xci
-# DONT_TOUCH constraint suppressed by (parent) sub-design file.
-
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_3/bd_79ed_rsw_0.xci
-# DONT_TOUCH constraint suppressed by (parent) sub-design file.
-
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_4/bd_79ed_awsw_0.xci
-# DONT_TOUCH constraint suppressed by (parent) sub-design file.
-
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_5/bd_79ed_wsw_0.xci
-# DONT_TOUCH constraint suppressed by (parent) sub-design file.
-
-# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_6/bd_79ed_bsw_0.xci
+# IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_4/bd_79ed_s00sic_0.xci
 # DONT_TOUCH constraint suppressed by (parent) sub-design file.
 
 # IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_0/bd_79ed_one_0.xci
@@ -261,58 +115,26 @@ set_property DONT_TOUCH TRUE [get_cells inst -quiet] -quiet
 # IP: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_1/bd_79ed_psr_aclk_0.xci
 # DONT_TOUCH constraint suppressed by (parent) sub-design file.
 
-# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_10/bd_79ed_s00a2s_0_ooc.xdc
+# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/ooc.xdc
+# XDC: The top module name and the constraint reference have the same name: 'design_5_smartconnect_0_0'. Do not add the DONT_TOUCH constraint.
+#dup# set_property DONT_TOUCH TRUE [get_cells inst -quiet] -quiet
 
-# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_19/bd_79ed_s01a2s_0_ooc.xdc
+# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_5/bd_79ed_s00a2s_0_ooc.xdc
 
-# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_25/bd_79ed_m00s2a_0_ooc.xdc
+# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_11/bd_79ed_m00s2a_0_ooc.xdc
 
-# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_26/bd_79ed_m00arn_0_ooc.xdc
+# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_6/bd_79ed_sarn_0_ooc.xdc
 
-# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_27/bd_79ed_m00rn_0_ooc.xdc
+# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_7/bd_79ed_srn_0_ooc.xdc
 
-# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_28/bd_79ed_m00awn_0_ooc.xdc
+# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_8/bd_79ed_sawn_0_ooc.xdc
 
-# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_29/bd_79ed_m00wn_0_ooc.xdc
+# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_9/bd_79ed_swn_0_ooc.xdc
 
-# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_30/bd_79ed_m00bn_0_ooc.xdc
-
-# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_20/bd_79ed_sarn_1_ooc.xdc
-
-# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_21/bd_79ed_srn_1_ooc.xdc
-
-# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_22/bd_79ed_sawn_1_ooc.xdc
-
-# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_23/bd_79ed_swn_1_ooc.xdc
-
-# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_24/bd_79ed_sbn_1_ooc.xdc
-
-# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_11/bd_79ed_sarn_0_ooc.xdc
-
-# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_12/bd_79ed_srn_0_ooc.xdc
-
-# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_13/bd_79ed_sawn_0_ooc.xdc
-
-# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_14/bd_79ed_swn_0_ooc.xdc
-
-# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_15/bd_79ed_sbn_0_ooc.xdc
-
-# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_2/bd_79ed_arsw_0_ooc.xdc
-
-# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_3/bd_79ed_rsw_0_ooc.xdc
-
-# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_4/bd_79ed_awsw_0_ooc.xdc
-
-# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_5/bd_79ed_wsw_0_ooc.xdc
-
-# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_6/bd_79ed_bsw_0_ooc.xdc
+# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_10/bd_79ed_sbn_0_ooc.xdc
 
 # XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_1/bd_79ed_psr_aclk_0_board.xdc
 # DONT_TOUCH constraint suppressed by parent sub-design file.
 
 # XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/bd_0/ip/ip_1/bd_79ed_psr_aclk_0.xdc
 # DONT_TOUCH constraint suppressed by parent sub-design file.
-
-# XDC: /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_smartconnect_0_0/ooc.xdc
-# XDC: The top module name and the constraint reference have the same name: 'design_5_smartconnect_0_0'. Do not add the DONT_TOUCH constraint.
-#dup# set_property DONT_TOUCH TRUE [get_cells inst -quiet] -quiet

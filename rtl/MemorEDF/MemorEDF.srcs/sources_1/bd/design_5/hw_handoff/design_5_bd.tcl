@@ -162,20 +162,26 @@ proc create_root_design { parentCell } {
   # Create instance: AXI_PerfectTranslator_0, and set properties
   set AXI_PerfectTranslator_0 [ create_bd_cell -type ip -vlnv user.org:user:AXI_PerfectTranslator:1.0 AXI_PerfectTranslator_0 ]
 
-  # Create instance: AXI_PerfectTranslator_1, and set properties
-  set AXI_PerfectTranslator_1 [ create_bd_cell -type ip -vlnv user.org:user:AXI_PerfectTranslator:1.0 AXI_PerfectTranslator_1 ]
+  # Create instance: porttoportmapping_v1_0_0, and set properties
+  set porttoportmapping_v1_0_0 [ create_bd_cell -type ip -vlnv user.org:user:porttoportmapping_v1_0:1.0 porttoportmapping_v1_0_0 ]
+  set_property -dict [ list \
+   CONFIG.C_M00_AXI_ID_WIDTH {16} \
+ ] $porttoportmapping_v1_0_0
 
   # Create instance: rst_ps8_0_99M, and set properties
   set rst_ps8_0_99M [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 rst_ps8_0_99M ]
 
   # Create instance: smartconnect_0, and set properties
   set smartconnect_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:smartconnect:1.0 smartconnect_0 ]
+  set_property -dict [ list \
+   CONFIG.NUM_SI {1} \
+ ] $smartconnect_0
 
   # Create instance: system_ila_0, and set properties
   set system_ila_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:system_ila:1.1 system_ila_0 ]
   set_property -dict [ list \
    CONFIG.C_MON_TYPE {INTERFACE} \
-   CONFIG.C_NUM_MONITOR_SLOTS {5} \
+   CONFIG.C_NUM_MONITOR_SLOTS {4} \
    CONFIG.C_SLOT_0_APC_EN {0} \
    CONFIG.C_SLOT_0_AXI_AR_SEL_DATA {1} \
    CONFIG.C_SLOT_0_AXI_AR_SEL_TRIG {1} \
@@ -224,18 +230,6 @@ proc create_root_design { parentCell } {
    CONFIG.C_SLOT_3_AXI_W_SEL_DATA {1} \
    CONFIG.C_SLOT_3_AXI_W_SEL_TRIG {1} \
    CONFIG.C_SLOT_3_INTF_TYPE {xilinx.com:interface:aximm_rtl:1.0} \
-   CONFIG.C_SLOT_4_APC_EN {0} \
-   CONFIG.C_SLOT_4_AXI_AR_SEL_DATA {1} \
-   CONFIG.C_SLOT_4_AXI_AR_SEL_TRIG {1} \
-   CONFIG.C_SLOT_4_AXI_AW_SEL_DATA {1} \
-   CONFIG.C_SLOT_4_AXI_AW_SEL_TRIG {1} \
-   CONFIG.C_SLOT_4_AXI_B_SEL_DATA {1} \
-   CONFIG.C_SLOT_4_AXI_B_SEL_TRIG {1} \
-   CONFIG.C_SLOT_4_AXI_R_SEL_DATA {1} \
-   CONFIG.C_SLOT_4_AXI_R_SEL_TRIG {1} \
-   CONFIG.C_SLOT_4_AXI_W_SEL_DATA {1} \
-   CONFIG.C_SLOT_4_AXI_W_SEL_TRIG {1} \
-   CONFIG.C_SLOT_4_INTF_TYPE {xilinx.com:interface:aximm_rtl:1.0} \
  ] $system_ila_0
 
   # Create instance: zynq_ultra_ps_e_0, and set properties
@@ -874,7 +868,7 @@ proc create_root_design { parentCell } {
    CONFIG.PSU__USE__AUDIO {0} \
    CONFIG.PSU__USE__IRQ0 {1} \
    CONFIG.PSU__USE__M_AXI_GP0 {1} \
-   CONFIG.PSU__USE__M_AXI_GP1 {1} \
+   CONFIG.PSU__USE__M_AXI_GP1 {0} \
    CONFIG.PSU__USE__M_AXI_GP2 {0} \
    CONFIG.PSU__USE__S_AXI_GP2 {1} \
    CONFIG.PSU__USE__VIDEO {0} \
@@ -882,41 +876,35 @@ proc create_root_design { parentCell } {
 
   # Create interface connections
   connect_bd_intf_net -intf_net AXI_PerfectTranslator_0_M00_AXI [get_bd_intf_pins AXI_PerfectTranslator_0/M00_AXI] [get_bd_intf_pins smartconnect_0/S00_AXI]
-connect_bd_intf_net -intf_net [get_bd_intf_nets AXI_PerfectTranslator_0_M00_AXI] [get_bd_intf_pins AXI_PerfectTranslator_0/M00_AXI] [get_bd_intf_pins system_ila_0/SLOT_3_AXI]
+connect_bd_intf_net -intf_net [get_bd_intf_nets AXI_PerfectTranslator_0_M00_AXI] [get_bd_intf_pins AXI_PerfectTranslator_0/M00_AXI] [get_bd_intf_pins system_ila_0/SLOT_0_AXI]
   set_property -dict [ list \
 HDL_ATTRIBUTE.DEBUG {true} \
  ] [get_bd_intf_nets AXI_PerfectTranslator_0_M00_AXI]
-  connect_bd_intf_net -intf_net AXI_PerfectTranslator_1_M00_AXI [get_bd_intf_pins AXI_PerfectTranslator_1/M00_AXI] [get_bd_intf_pins smartconnect_0/S01_AXI]
-connect_bd_intf_net -intf_net [get_bd_intf_nets AXI_PerfectTranslator_1_M00_AXI] [get_bd_intf_pins AXI_PerfectTranslator_1/M00_AXI] [get_bd_intf_pins system_ila_0/SLOT_4_AXI]
+  connect_bd_intf_net -intf_net porttoportmapping_v1_0_0_m00_axi [get_bd_intf_pins AXI_PerfectTranslator_0/S00_AXI] [get_bd_intf_pins porttoportmapping_v1_0_0/m00_axi]
+connect_bd_intf_net -intf_net [get_bd_intf_nets porttoportmapping_v1_0_0_m00_axi] [get_bd_intf_pins AXI_PerfectTranslator_0/S00_AXI] [get_bd_intf_pins system_ila_0/SLOT_2_AXI]
   set_property -dict [ list \
 HDL_ATTRIBUTE.DEBUG {true} \
- ] [get_bd_intf_nets AXI_PerfectTranslator_1_M00_AXI]
+ ] [get_bd_intf_nets porttoportmapping_v1_0_0_m00_axi]
   connect_bd_intf_net -intf_net smartconnect_0_M00_AXI [get_bd_intf_pins smartconnect_0/M00_AXI] [get_bd_intf_pins zynq_ultra_ps_e_0/S_AXI_HP0_FPD]
-connect_bd_intf_net -intf_net [get_bd_intf_nets smartconnect_0_M00_AXI] [get_bd_intf_pins smartconnect_0/M00_AXI] [get_bd_intf_pins system_ila_0/SLOT_0_AXI]
+connect_bd_intf_net -intf_net [get_bd_intf_nets smartconnect_0_M00_AXI] [get_bd_intf_pins smartconnect_0/M00_AXI] [get_bd_intf_pins system_ila_0/SLOT_1_AXI]
   set_property -dict [ list \
 HDL_ATTRIBUTE.DEBUG {true} \
  ] [get_bd_intf_nets smartconnect_0_M00_AXI]
-  connect_bd_intf_net -intf_net zynq_ultra_ps_e_0_M_AXI_HPM0_FPD [get_bd_intf_pins AXI_PerfectTranslator_0/S00_AXI] [get_bd_intf_pins zynq_ultra_ps_e_0/M_AXI_HPM0_FPD]
-connect_bd_intf_net -intf_net [get_bd_intf_nets zynq_ultra_ps_e_0_M_AXI_HPM0_FPD] [get_bd_intf_pins system_ila_0/SLOT_2_AXI] [get_bd_intf_pins zynq_ultra_ps_e_0/M_AXI_HPM0_FPD]
+  connect_bd_intf_net -intf_net zynq_ultra_ps_e_0_M_AXI_HPM0_FPD [get_bd_intf_pins porttoportmapping_v1_0_0/s00_axi] [get_bd_intf_pins zynq_ultra_ps_e_0/M_AXI_HPM0_FPD]
+connect_bd_intf_net -intf_net [get_bd_intf_nets zynq_ultra_ps_e_0_M_AXI_HPM0_FPD] [get_bd_intf_pins system_ila_0/SLOT_3_AXI] [get_bd_intf_pins zynq_ultra_ps_e_0/M_AXI_HPM0_FPD]
   set_property -dict [ list \
 HDL_ATTRIBUTE.DEBUG {true} \
  ] [get_bd_intf_nets zynq_ultra_ps_e_0_M_AXI_HPM0_FPD]
-  connect_bd_intf_net -intf_net zynq_ultra_ps_e_0_M_AXI_HPM1_FPD [get_bd_intf_pins AXI_PerfectTranslator_1/S00_AXI] [get_bd_intf_pins zynq_ultra_ps_e_0/M_AXI_HPM1_FPD]
-connect_bd_intf_net -intf_net [get_bd_intf_nets zynq_ultra_ps_e_0_M_AXI_HPM1_FPD] [get_bd_intf_pins system_ila_0/SLOT_1_AXI] [get_bd_intf_pins zynq_ultra_ps_e_0/M_AXI_HPM1_FPD]
-  set_property -dict [ list \
-HDL_ATTRIBUTE.DEBUG {true} \
- ] [get_bd_intf_nets zynq_ultra_ps_e_0_M_AXI_HPM1_FPD]
 
   # Create port connections
-  connect_bd_net -net rst_ps8_0_99M_peripheral_aresetn [get_bd_pins AXI_PerfectTranslator_0/m00_axi_aresetn] [get_bd_pins AXI_PerfectTranslator_0/s00_axi_aresetn] [get_bd_pins AXI_PerfectTranslator_1/m00_axi_aresetn] [get_bd_pins AXI_PerfectTranslator_1/s00_axi_aresetn] [get_bd_pins rst_ps8_0_99M/peripheral_aresetn] [get_bd_pins system_ila_0/resetn]
-  connect_bd_net -net zynq_ultra_ps_e_0_pl_clk0 [get_bd_pins AXI_PerfectTranslator_0/m00_axi_aclk] [get_bd_pins AXI_PerfectTranslator_0/s00_axi_aclk] [get_bd_pins AXI_PerfectTranslator_1/m00_axi_aclk] [get_bd_pins AXI_PerfectTranslator_1/s00_axi_aclk] [get_bd_pins rst_ps8_0_99M/slowest_sync_clk] [get_bd_pins smartconnect_0/aclk] [get_bd_pins system_ila_0/clk] [get_bd_pins zynq_ultra_ps_e_0/maxihpm0_fpd_aclk] [get_bd_pins zynq_ultra_ps_e_0/maxihpm1_fpd_aclk] [get_bd_pins zynq_ultra_ps_e_0/pl_clk0] [get_bd_pins zynq_ultra_ps_e_0/saxihp0_fpd_aclk]
+  connect_bd_net -net rst_ps8_0_99M_peripheral_aresetn [get_bd_pins AXI_PerfectTranslator_0/m00_axi_aresetn] [get_bd_pins AXI_PerfectTranslator_0/s00_axi_aresetn] [get_bd_pins porttoportmapping_v1_0_0/m00_axi_aresetn] [get_bd_pins porttoportmapping_v1_0_0/s00_axi_aresetn] [get_bd_pins rst_ps8_0_99M/peripheral_aresetn] [get_bd_pins system_ila_0/resetn]
+  connect_bd_net -net zynq_ultra_ps_e_0_pl_clk0 [get_bd_pins AXI_PerfectTranslator_0/m00_axi_aclk] [get_bd_pins AXI_PerfectTranslator_0/s00_axi_aclk] [get_bd_pins porttoportmapping_v1_0_0/m00_axi_aclk] [get_bd_pins porttoportmapping_v1_0_0/s00_axi_aclk] [get_bd_pins rst_ps8_0_99M/slowest_sync_clk] [get_bd_pins smartconnect_0/aclk] [get_bd_pins system_ila_0/clk] [get_bd_pins zynq_ultra_ps_e_0/maxihpm0_fpd_aclk] [get_bd_pins zynq_ultra_ps_e_0/pl_clk0] [get_bd_pins zynq_ultra_ps_e_0/saxihp0_fpd_aclk]
   connect_bd_net -net zynq_ultra_ps_e_0_pl_resetn0 [get_bd_pins rst_ps8_0_99M/ext_reset_in] [get_bd_pins zynq_ultra_ps_e_0/pl_resetn0]
 
   # Create address segments
   create_bd_addr_seg -range 0x80000000 -offset 0x00000000 [get_bd_addr_spaces AXI_PerfectTranslator_0/M00_AXI] [get_bd_addr_segs zynq_ultra_ps_e_0/SAXIGP2/HP0_DDR_LOW] SEG_zynq_ultra_ps_e_0_HP0_DDR_LOW
-  create_bd_addr_seg -range 0x80000000 -offset 0x00000000 [get_bd_addr_spaces AXI_PerfectTranslator_1/M00_AXI] [get_bd_addr_segs zynq_ultra_ps_e_0/SAXIGP2/HP0_DDR_LOW] SEG_zynq_ultra_ps_e_0_HP0_DDR_LOW
-  create_bd_addr_seg -range 0x000800000000 -offset 0x001000000000 [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs AXI_PerfectTranslator_0/S00_AXI/S00_AXI_mem] SEG_AXI_PerfectTranslator_0_S00_AXI_mem
-  create_bd_addr_seg -range 0x000800000000 -offset 0x004800000000 [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs AXI_PerfectTranslator_1/S00_AXI/S00_AXI_mem] SEG_AXI_PerfectTranslator_1_S00_AXI_mem
+  create_bd_addr_seg -range 0x00400000 -offset 0x00000000 [get_bd_addr_spaces porttoportmapping_v1_0_0/m00_axi] [get_bd_addr_segs AXI_PerfectTranslator_0/S00_AXI/S00_AXI_mem] SEG_AXI_PerfectTranslator_0_S00_AXI_mem
+  create_bd_addr_seg -range 0x000200000000 -offset 0x001000000000 [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs porttoportmapping_v1_0_0/s00_axi/reg0] SEG_porttoportmapping_v1_0_0_reg0
 
   # Exclude Address Segments
   create_bd_addr_seg -range 0x01000000 -offset 0xFF000000 [get_bd_addr_spaces AXI_PerfectTranslator_0/M00_AXI] [get_bd_addr_segs zynq_ultra_ps_e_0/SAXIGP2/HP0_LPS_OCM] SEG_zynq_ultra_ps_e_0_HP0_LPS_OCM
@@ -927,15 +915,6 @@ HDL_ATTRIBUTE.DEBUG {true} \
 
   create_bd_addr_seg -range 0x20000000 -offset 0xC0000000 [get_bd_addr_spaces AXI_PerfectTranslator_0/M00_AXI] [get_bd_addr_segs zynq_ultra_ps_e_0/SAXIGP2/HP0_QSPI] SEG_zynq_ultra_ps_e_0_HP0_QSPI
   exclude_bd_addr_seg [get_bd_addr_segs AXI_PerfectTranslator_0/M00_AXI/SEG_zynq_ultra_ps_e_0_HP0_QSPI]
-
-  create_bd_addr_seg -range 0x01000000 -offset 0xFF000000 [get_bd_addr_spaces AXI_PerfectTranslator_1/M00_AXI] [get_bd_addr_segs zynq_ultra_ps_e_0/SAXIGP2/HP0_LPS_OCM] SEG_zynq_ultra_ps_e_0_HP0_LPS_OCM
-  exclude_bd_addr_seg [get_bd_addr_segs AXI_PerfectTranslator_1/M00_AXI/SEG_zynq_ultra_ps_e_0_HP0_LPS_OCM]
-
-  create_bd_addr_seg -range 0x10000000 -offset 0xE0000000 [get_bd_addr_spaces AXI_PerfectTranslator_1/M00_AXI] [get_bd_addr_segs zynq_ultra_ps_e_0/SAXIGP2/HP0_PCIE_LOW] SEG_zynq_ultra_ps_e_0_HP0_PCIE_LOW
-  exclude_bd_addr_seg [get_bd_addr_segs AXI_PerfectTranslator_1/M00_AXI/SEG_zynq_ultra_ps_e_0_HP0_PCIE_LOW]
-
-  create_bd_addr_seg -range 0x20000000 -offset 0xC0000000 [get_bd_addr_spaces AXI_PerfectTranslator_1/M00_AXI] [get_bd_addr_segs zynq_ultra_ps_e_0/SAXIGP2/HP0_QSPI] SEG_zynq_ultra_ps_e_0_HP0_QSPI
-  exclude_bd_addr_seg [get_bd_addr_segs AXI_PerfectTranslator_1/M00_AXI/SEG_zynq_ultra_ps_e_0_HP0_QSPI]
 
 
 

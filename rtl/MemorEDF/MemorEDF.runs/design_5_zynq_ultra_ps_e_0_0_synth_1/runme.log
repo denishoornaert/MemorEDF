@@ -15,9 +15,9 @@ Attempting to get a license for feature 'Synthesis' and/or device 'xczu9eg'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xczu9eg'
 INFO: [Common 17-1540] The version limit for your license is '2018.09' and has expired for new software. A version limit expiration means that, although you may be able to continue to use the current version of tools or IP with this license, you will not be eligible for any updates or new releases.
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 20119 
+INFO: Helper process launched with PID 24993 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1549.297 ; gain = 0.000 ; free physical = 1754 ; free virtual = 22521
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1549.293 ; gain = 0.000 ; free physical = 862 ; free virtual = 19553
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'design_5_zynq_ultra_ps_e_0_0' [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_zynq_ultra_ps_e_0_0/synth/design_5_zynq_ultra_ps_e_0_0.v:59]
 INFO: [Synth 8-638] synthesizing module 'zynq_ultra_ps_e_v3_1_1_zynq_ultra_ps_e' [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_zynq_ultra_ps_e_0_0/hdl/zynq_ultra_ps_e_v3_1_1.v:324]
@@ -71,7 +71,7 @@ WARNING: [Synth 8-3848] Net irq_ipi_pl_1 in module/entity zynq_ultra_ps_e_v3_1_1
 WARNING: [Synth 8-3848] Net irq_ipi_pl_2 in module/entity zynq_ultra_ps_e_v3_1_1_zynq_ultra_ps_e does not have driver. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_zynq_ultra_ps_e_0_0/hdl/zynq_ultra_ps_e_v3_1_1.v:1399]
 WARNING: [Synth 8-3848] Net irq_ipi_pl_3 in module/entity zynq_ultra_ps_e_v3_1_1_zynq_ultra_ps_e does not have driver. [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_zynq_ultra_ps_e_0_0/hdl/zynq_ultra_ps_e_v3_1_1.v:1400]
 INFO: [Synth 8-256] done synthesizing module 'zynq_ultra_ps_e_v3_1_1_zynq_ultra_ps_e' (3#1) [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_zynq_ultra_ps_e_0_0/hdl/zynq_ultra_ps_e_v3_1_1.v:324]
-WARNING: [Synth 8-350] instance 'inst' of module 'zynq_ultra_ps_e_v3_1_1_zynq_ultra_ps_e' requires 1491 connections, but only 1487 given [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_zynq_ultra_ps_e_0_0/synth/design_5_zynq_ultra_ps_e_0_0.v:479]
+WARNING: [Synth 8-350] instance 'inst' of module 'zynq_ultra_ps_e_v3_1_1_zynq_ultra_ps_e' requires 1491 connections, but only 1487 given [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_zynq_ultra_ps_e_0_0/synth/design_5_zynq_ultra_ps_e_0_0.v:357]
 INFO: [Synth 8-256] done synthesizing module 'design_5_zynq_ultra_ps_e_0_0' (4#1) [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_zynq_ultra_ps_e_0_0/synth/design_5_zynq_ultra_ps_e_0_0.v:59]
 WARNING: [Synth 8-3331] design zynq_ultra_ps_e_v3_1_1_zynq_ultra_ps_e has unconnected port dp_audio_ref_clk
 WARNING: [Synth 8-3331] design zynq_ultra_ps_e_v3_1_1_zynq_ultra_ps_e has unconnected port irq_ipi_pl_0
@@ -175,7 +175,7 @@ WARNING: [Synth 8-3331] design zynq_ultra_ps_e_v3_1_1_zynq_ultra_ps_e has unconn
 WARNING: [Synth 8-3331] design zynq_ultra_ps_e_v3_1_1_zynq_ultra_ps_e has unconnected port test_adc2_in[7]
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1549.297 ; gain = 0.000 ; free physical = 1740 ; free virtual = 22509
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1549.293 ; gain = 0.000 ; free physical = 795 ; free virtual = 19500
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -184,12 +184,12 @@ Report Check Netlist:
 +------+------------------+-------+---------+-------+------------------+
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
-INFO: [Synth 8-3295] tying undriven pin inst:emio_enet0_signal_detect to constant 0 [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_zynq_ultra_ps_e_0_0/synth/design_5_zynq_ultra_ps_e_0_0.v:479]
-INFO: [Synth 8-3295] tying undriven pin inst:emio_enet1_signal_detect to constant 0 [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_zynq_ultra_ps_e_0_0/synth/design_5_zynq_ultra_ps_e_0_0.v:479]
-INFO: [Synth 8-3295] tying undriven pin inst:emio_enet2_signal_detect to constant 0 [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_zynq_ultra_ps_e_0_0/synth/design_5_zynq_ultra_ps_e_0_0.v:479]
-INFO: [Synth 8-3295] tying undriven pin inst:emio_enet3_signal_detect to constant 0 [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_zynq_ultra_ps_e_0_0/synth/design_5_zynq_ultra_ps_e_0_0.v:479]
+INFO: [Synth 8-3295] tying undriven pin inst:emio_enet0_signal_detect to constant 0 [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_zynq_ultra_ps_e_0_0/synth/design_5_zynq_ultra_ps_e_0_0.v:357]
+INFO: [Synth 8-3295] tying undriven pin inst:emio_enet1_signal_detect to constant 0 [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_zynq_ultra_ps_e_0_0/synth/design_5_zynq_ultra_ps_e_0_0.v:357]
+INFO: [Synth 8-3295] tying undriven pin inst:emio_enet2_signal_detect to constant 0 [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_zynq_ultra_ps_e_0_0/synth/design_5_zynq_ultra_ps_e_0_0.v:357]
+INFO: [Synth 8-3295] tying undriven pin inst:emio_enet3_signal_detect to constant 0 [/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_zynq_ultra_ps_e_0_0/synth/design_5_zynq_ultra_ps_e_0_0.v:357]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1549.297 ; gain = 0.000 ; free physical = 1736 ; free virtual = 22506
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1549.293 ; gain = 0.000 ; free physical = 736 ; free virtual = 19442
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xczu9eg-ffvb1156-2-e
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -207,16 +207,16 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2150.695 ; gain = 0.000 ; free physical = 160 ; free virtual = 20711
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2150.691 ; gain = 0.000 ; free physical = 162 ; free virtual = 17034
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:26 ; elapsed = 00:00:35 . Memory (MB): peak = 2150.695 ; gain = 601.398 ; free physical = 170 ; free virtual = 20535
+Finished Constraint Validation : Time (s): cpu = 00:00:29 ; elapsed = 00:00:38 . Memory (MB): peak = 2150.691 ; gain = 601.398 ; free physical = 180 ; free virtual = 16820
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xczu9eg-ffvb1156-2-e
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:26 ; elapsed = 00:00:35 . Memory (MB): peak = 2150.695 ; gain = 601.398 ; free physical = 170 ; free virtual = 20535
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:29 ; elapsed = 00:00:38 . Memory (MB): peak = 2150.691 ; gain = 601.398 ; free physical = 180 ; free virtual = 16820
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -224,10 +224,10 @@ Start Applying 'set_property' XDC Constraints
 Applied set_property DONT_TOUCH = true for inst/PS8_i. (constraint file  /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_zynq_ultra_ps_e_0_0/design_5_zynq_ultra_ps_e_0_0.xdc, line 25).
 Applied set_property DONT_TOUCH = true for inst. (constraint file  /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.runs/design_5_zynq_ultra_ps_e_0_0_synth_1/dont_touch.xdc, line 9).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:26 ; elapsed = 00:00:35 . Memory (MB): peak = 2150.695 ; gain = 601.398 ; free physical = 172 ; free virtual = 20536
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:29 ; elapsed = 00:00:38 . Memory (MB): peak = 2150.691 ; gain = 601.398 ; free physical = 183 ; free virtual = 16823
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:27 ; elapsed = 00:00:35 . Memory (MB): peak = 2150.695 ; gain = 601.398 ; free physical = 172 ; free virtual = 20505
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:29 ; elapsed = 00:00:38 . Memory (MB): peak = 2150.691 ; gain = 601.398 ; free physical = 150 ; free virtual = 16790
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -268,7 +268,7 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:27 ; elapsed = 00:00:35 . Memory (MB): peak = 2150.695 ; gain = 601.398 ; free physical = 157 ; free virtual = 20465
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:30 ; elapsed = 00:00:39 . Memory (MB): peak = 2150.691 ; gain = 601.398 ; free physical = 150 ; free virtual = 16745
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -280,13 +280,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:47 ; elapsed = 00:01:11 . Memory (MB): peak = 3957.617 ; gain = 2408.320 ; free physical = 846 ; free virtual = 19586
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:50 ; elapsed = 00:01:17 . Memory (MB): peak = 3956.613 ; gain = 2407.320 ; free physical = 2349 ; free virtual = 17119
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:47 ; elapsed = 00:01:12 . Memory (MB): peak = 3982.625 ; gain = 2433.328 ; free physical = 827 ; free virtual = 19567
+Finished Timing Optimization : Time (s): cpu = 00:00:50 ; elapsed = 00:01:17 . Memory (MB): peak = 3982.621 ; gain = 2433.328 ; free physical = 2329 ; free virtual = 17099
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -298,7 +298,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:53 ; elapsed = 00:01:18 . Memory (MB): peak = 4005.227 ; gain = 2455.930 ; free physical = 698 ; free virtual = 19448
+Finished Technology Mapping : Time (s): cpu = 00:00:56 ; elapsed = 00:01:23 . Memory (MB): peak = 4005.223 ; gain = 2455.930 ; free physical = 1941 ; free virtual = 16987
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -419,7 +419,7 @@ INFO: [Synth 8-3295] tying undriven pin trace_data_pipe[6]_inferred:in0[9] to co
 INFO: [Synth 8-3295] tying undriven pin trace_data_pipe[6]_inferred:in0[8] to constant 0
 INFO: [Common 17-14] Message 'Synth 8-3295' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:57 ; elapsed = 00:01:22 . Memory (MB): peak = 4005.227 ; gain = 2455.930 ; free physical = 611 ; free virtual = 19363
+Finished IO Insertion : Time (s): cpu = 00:01:01 ; elapsed = 00:01:28 . Memory (MB): peak = 4005.223 ; gain = 2455.930 ; free physical = 1757 ; free virtual = 16835
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -432,7 +432,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:57 ; elapsed = 00:01:22 . Memory (MB): peak = 4005.227 ; gain = 2455.930 ; free physical = 611 ; free virtual = 19363
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:01 ; elapsed = 00:01:28 . Memory (MB): peak = 4005.223 ; gain = 2455.930 ; free physical = 1757 ; free virtual = 16835
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -444,25 +444,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:57 ; elapsed = 00:01:22 . Memory (MB): peak = 4005.227 ; gain = 2455.930 ; free physical = 611 ; free virtual = 19363
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:01 ; elapsed = 00:01:28 . Memory (MB): peak = 4005.223 ; gain = 2455.930 ; free physical = 1757 ; free virtual = 16835
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:57 ; elapsed = 00:01:22 . Memory (MB): peak = 4005.227 ; gain = 2455.930 ; free physical = 611 ; free virtual = 19363
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:01 ; elapsed = 00:01:28 . Memory (MB): peak = 4005.223 ; gain = 2455.930 ; free physical = 1757 ; free virtual = 16835
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:57 ; elapsed = 00:01:22 . Memory (MB): peak = 4005.227 ; gain = 2455.930 ; free physical = 611 ; free virtual = 19363
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:01 ; elapsed = 00:01:28 . Memory (MB): peak = 4005.223 ; gain = 2455.930 ; free physical = 1757 ; free virtual = 16835
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:57 ; elapsed = 00:01:22 . Memory (MB): peak = 4005.227 ; gain = 2455.930 ; free physical = 611 ; free virtual = 19362
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:01 ; elapsed = 00:01:28 . Memory (MB): peak = 4005.223 ; gain = 2455.930 ; free physical = 1757 ; free virtual = 16835
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -492,11 +492,11 @@ Report Instance Areas:
 |2     |  inst   |zynq_ultra_ps_e_v3_1_1_zynq_ultra_ps_e |   303|
 +------+---------+---------------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:57 ; elapsed = 00:01:22 . Memory (MB): peak = 4005.227 ; gain = 2455.930 ; free physical = 610 ; free virtual = 19362
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:01 ; elapsed = 00:01:28 . Memory (MB): peak = 4005.223 ; gain = 2455.930 ; free physical = 1756 ; free virtual = 16834
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 569 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:44 ; elapsed = 00:01:02 . Memory (MB): peak = 4005.227 ; gain = 1854.531 ; free physical = 651 ; free virtual = 19402
-Synthesis Optimization Complete : Time (s): cpu = 00:00:57 ; elapsed = 00:01:22 . Memory (MB): peak = 4005.234 ; gain = 2455.930 ; free physical = 651 ; free virtual = 19402
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:47 ; elapsed = 00:01:06 . Memory (MB): peak = 4005.223 ; gain = 1854.531 ; free physical = 1795 ; free virtual = 16873
+Synthesis Optimization Complete : Time (s): cpu = 00:01:01 ; elapsed = 00:01:28 . Memory (MB): peak = 4005.230 ; gain = 2455.930 ; free physical = 1795 ; free virtual = 16873
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
@@ -506,10 +506,10 @@ No Unisim elements were transformed.
 INFO: [Common 17-83] Releasing license: Synthesis
 122 Infos, 107 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:59 ; elapsed = 00:01:24 . Memory (MB): peak = 4021.227 ; gain = 2493.305 ; free physical = 1658 ; free virtual = 20410
+synth_design: Time (s): cpu = 00:01:03 ; elapsed = 00:01:29 . Memory (MB): peak = 4021.223 ; gain = 2493.305 ; free physical = 2821 ; free virtual = 17898
 INFO: [Common 17-1381] The checkpoint '/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.runs/design_5_zynq_ultra_ps_e_0_0_synth_1/design_5_zynq_ultra_ps_e_0_0.dcp' has been generated.
 INFO: [Coretcl 2-1482] Added synthesis output to IP cache for IP /home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.srcs/sources_1/bd/design_5/ip/design_5_zynq_ultra_ps_e_0_0/design_5_zynq_ultra_ps_e_0_0.xci
 INFO: [Common 17-1381] The checkpoint '/home/renato/MemorEDF/MemorEDF/rtl/MemorEDF/MemorEDF.runs/design_5_zynq_ultra_ps_e_0_0_synth_1/design_5_zynq_ultra_ps_e_0_0.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file design_5_zynq_ultra_ps_e_0_0_utilization_synth.rpt -pb design_5_zynq_ultra_ps_e_0_0_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 4021.227 ; gain = 0.000 ; free physical = 1571 ; free virtual = 20325
-INFO: [Common 17-206] Exiting Vivado at Thu Feb 25 13:37:56 2021...
+report_utilization: Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 4021.223 ; gain = 0.000 ; free physical = 2723 ; free virtual = 17803
+INFO: [Common 17-206] Exiting Vivado at Fri Feb 26 18:51:36 2021...

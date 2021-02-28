@@ -2,20 +2,18 @@
    ExpandedHierarchyInLayout: "",
    guistr: "# # String gsaved with Nlview 6.6.11  2017-06-12 bk=1.3860 VDI=40 GEI=35 GUI=JA:1.6
 #  -string -flagsOSRD
-preplace inst AXI_PerfectTranslator_0 -pg 1 -lvl 4 -y 160 -defaultsOSRD
-preplace inst rst_ps8_0_99M -pg 1 -lvl 3 -y 300 -defaultsOSRD
-preplace inst smartconnect_0 -pg 1 -lvl 1 -y 80 -defaultsOSRD
-preplace inst zynq_ultra_ps_e_0 -pg 1 -lvl 2 -y 100 -defaultsOSRD
-preplace inst porttoportmapping_v1_0_0 -pg 1 -lvl 3 -y 120 -defaultsOSRD
-preplace inst system_ila_0 -pg 1 -lvl 5 -y -90 -defaultsOSRD
-preplace netloc zynq_ultra_ps_e_0_pl_clk0 1 0 5 30 10 330 10 1010 10 1420 -60 N
-preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM0_FPD 1 2 3 1000J -140 N -140 N
-preplace netloc AXI_PerfectTranslator_0_M00_AXI 1 0 5 20 -10 NJ -10 NJ -10 NJ -10 1720
-preplace netloc porttoportmapping_v1_0_0_m00_axi 1 3 2 1400J -120 N
-preplace netloc rst_ps8_0_99M_peripheral_aresetn 1 2 3 1020 210 1410 -40 N
-preplace netloc smartconnect_0_M00_AXI 1 1 4 340J -80 N -80 N -80 N
-preplace netloc zynq_ultra_ps_e_0_pl_resetn0 1 2 1 1000
-levelinfo -pg 1 0 190 690 1220 1580 1870 1970 -top -190 -bot 400
+preplace inst rst_ps8_0_99M -pg 1 -lvl 2 -y 290 -defaultsOSRD
+preplace inst smartconnect_0 -pg 1 -lvl 1 -y 190 -defaultsOSRD
+preplace inst zynq_ultra_ps_e_0 -pg 1 -lvl 2 -y 90 -defaultsOSRD
+preplace inst porttoportmapping_v1_0_0 -pg 1 -lvl 3 -y 360 -defaultsOSRD
+preplace inst system_ila_0 -pg 1 -lvl 3 -y 190 -defaultsOSRD
+preplace netloc zynq_ultra_ps_e_0_pl_clk0 1 0 3 20 100 350 200 1020
+preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM0_FPD 1 2 1 1040
+preplace netloc porttoportmapping_v1_0_0_m00_axi 1 0 4 30 120 340J 180 1030 100 1370
+preplace netloc rst_ps8_0_99M_peripheral_aresetn 1 2 1 1050
+preplace netloc smartconnect_0_M00_AXI 1 1 2 330 190 N
+preplace netloc zynq_ultra_ps_e_0_pl_resetn0 1 1 2 340 380 1010
+levelinfo -pg 1 0 190 700 1230 1410 -top 0 -bot 460
 ",
 }
 {
