@@ -23,13 +23,12 @@ int main(int argc, char** argv) {
     sscanf(argv[2], "%u", &c1_slot_size);
     sscanf(argv[3], "%u", &c2_slot_size);
     sscanf(argv[4], "%u", &c3_slot_size);
-    //sscanf(argv[1], "%x", &priorities);
 
     int lpd_fd  = open_fd();
     int hpm_fd  = open_fd();
 
     struct configuration* config = mmap((void*)0, LPD0_SIZE, PROT_EXEC|PROT_READ|PROT_WRITE, MAP_SHARED, lpd_fd, LPD0_ADDR);
-    unsigned* plim = mmap((void*)0, HPM0_SIZE, PROT_EXEC|PROT_READ|PROT_WRITE, MAP_SHARED|0x40, hpm_fd, HPM0_ADDR);
+    unsigned* plim = mmap((void*)0, HPM0_SIZE, PROT_EXEC|PROT_READ|PROT_WRITE, MAP_SHARED|0x40, hpm_fd, 0x3c000000);
 
     // Set the period registers (default: 0x002faf08)
     (*config).periods[0] = 0x00000000;
@@ -51,13 +50,7 @@ int main(int argc, char** argv) {
     // Set the hyper period register
     (*config).hyperperiod = 0x00000000;
     // Set the scheduler
-    (*config).scheduler = mg;//fp;
-
-    // Set the CPU
-    cpu_set_t mask;
-    CPU_ZERO(&mask);
-    CPU_SET(0, &mask);
-    sched_setaffinity(0, sizeof(mask), &mask);
+    (*config).scheduler = mg;
 
     printf("operation, threshold, sec, ns, MB, accesses\n");
 
@@ -76,22 +69,20 @@ int main(int argc, char** argv) {
 
             // read
             clock_gettime(CLOCK_REALTIME, &time1);
-            for (unsigned i = ((0<<14)/sizeof(unsigned)); i < (HPM0_SIZE/sizeof(unsigned)); i+=(64*KB/sizeof(unsigned))) {
-                for (unsigned j = 0; j < (16*KB/sizeof(unsigned)); j+=(CACHE_LINE_SIZE/sizeof(unsigned))) {
-                    k = plim[i+j];
-                }
+            for (unsigned i = ((0<<14)/sizeof(unsigned)); i < (HPM0_SIZE/sizeof(unsigned)); i+=(CACHE_LINE_SIZE/sizeof(unsigned))) {
+                k = plim[i];
             }
             clock_gettime(CLOCK_REALTIME, &time2);
 
             sec = diff(time1, time2).tv_sec;
             ns  = diff(time1, time2).tv_nsec;
-            printf("read, %u, %lu, %lu, %u, %u\n", threshold, sec, ns, (HPM0_SIZE/4), ((HPM0_SIZE/4)/sizeof(u128)));
+            printf("read, %u, %lu, %lu, %u, %u\n", threshold, sec, ns, HPM0_SIZE, (HPM0_SIZE/sizeof(unsigned)));
         }
     }
 
     int unmap_result = 0;
-    unmap_result |= unmap(plim  , HPM0_SIZE);
     unmap_result |= unmap(config, LPD0_SIZE);
+    unmap_result |= unmap(plim  , HPM0_SIZE);
 
     return unmap_result;
 }
