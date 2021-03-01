@@ -40,9 +40,10 @@ fi
 # Start Memory Bombs in either Read or Write mode
 ~/common/bombs_"$bombing_mode".sh >> /dev/null
 
+# Creat dump folder
+mkdir -p ~/${dest_dir}/${mode}/${scheduling_policy}
 
 # Start the fake Memory Bomb
-mkdir -p ~/${dest_dir}/${mode}/${scheduling_policy}
 touch ~/${dest_dir}/${mode}/${scheduling_policy}/sdvbs_stress.csv
 current_path=`pwd`
 cd ~/benchmarks/root-cell/
@@ -56,7 +57,6 @@ cd ${current_path}
 
 
 # Start the fake Memory Bomb
-mkdir ~/${dest_dir}/${mode}/${scheduling_policy}
 touch ~/${dest_dir}/${mode}/${scheduling_policy}/sdvbs_solo.csv
 current_path=`pwd`
 cd ~/benchmarks/root-cell/
