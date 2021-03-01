@@ -7,7 +7,7 @@ echo "=================================================================="
 echo "=================================================================="
 
 bms=$(find ./* -type d -maxdepth 0 -exec basename {} \;)
-runs=30
+runs=5 #30
 topdir=$(pwd)
 
 echo "benchamrk, data-size, run, duration" >> $1
