@@ -18,28 +18,28 @@ if (__name__ == '__main__'):
     bar_width = 0.325
     data = {
         "solo" : {
-            "fp":      read("fp.csv", 1),
-            "tdma":    read("tdma.csv", 1),
-            "ts":      read("ts.csv", 1),
-            "aging":   read("aging.csv", 1),
-            "fibo":    read("fibo.csv", 1),
-            "gallois": read("gallois.csv", 1)
+            "fp":      read("fp/sdvbs_solo.csv", 1),
+            "tdma":    read("tdma/sdvbs_solo.csv", 1),
+            "ts":      read("ts/sdvbs_solo.csv", 1)
+#            "aging":   read("sdvbs_solo.csv", 1),
+#            "fibo":    read("sdvbs_solo.csv", 1),
+#            "gallois": read("sdvbs_solo.csv", 1)
         },
         "stress" : {
-            "fp":      read("fp_stress.csv", 1),
-            "tdma":    read("tdma_stress.csv", 1),
-            "ts":      read("ts_stress.csv", 1),
-            "aging":   read("aging_stress.csv", 1),
-            "fibo":    read("fibo_stress.csv", 1),
-            "gallois": read("gallois_stress.csv", 1)
+            "fp":      read("fp/sdvbs_stress.csv", 1),
+            "tdma":    read("tdma/sdvbs_stress.csv", 1),
+            "ts":      read("ts/sdvbs_stress.csv", 1)
+#            "aging":   read("sdvbs_stress.csv", 1),
+#            "fibo":    read("sdvbs_stress.csv", 1),
+#            "gallois": read("sdvbs_stress.csv", 1)
         }
     }
 
-    contentions = list(data.keys())
+    contentions = ["solo", "stress"]
     policies = list(data["solo"].keys())
-    sizes = list(set().union(*[set(data[mit].keys()) for mit in data.keys()]))
+    sizes = ["sqcif", "qcif", "cif", "vga"] #"sim_fast", "sim",
     amount_of_sizes = len(sizes)
-    benchmarks = list(set().union(*[set(data[mit][size].keys()) for mit in data.keys() for size in data[mit].keys()]))
+    benchmarks = ["disparity", "mser", "localization", "stitch", "texture_synthesis", "tracking", "sift"]
 
     for contention in data.keys():
         for policy in data[contention].keys():
@@ -47,19 +47,21 @@ if (__name__ == '__main__'):
                 for benchmark in data[contention][policy][size].keys():
                     data[contention][policy][size][benchmark] = {"avg":np.mean(data[contention][policy][size][benchmark]), "std":np.std(data[contention][policy][size][benchmark])}
 
-    fig, axs = plt.subplots(len(policies), len(benchmarks), gridspec_kw={'wspace': 0.035})
+    fig, axs = plt.subplots(len(sizes), len(benchmarks), gridspec_kw={'wspace': 0.035}, figsize=(12, 8))
 
-    for i, policy in enumerate(policies):
-        for index, benchmark in enumerate(benchmarks):
-            x = np.array([i*2.0 for i in range(amount_of_sizes)])
-            axs[i][index].set_title("Benchmark: "+benchmark)
-            for offset, contention in zip(range(-(len(contentios)/2), (len(contentios)/2)+1), contentions):
-                y = [data[contention][policy][size][benchmark]["avg"]/data["solo"][policy][size][benchmark]["avg"] for size in sizes]
-                axs[i][index].bar(x+(offset*bar_width), y, width=bar_width, align="center", label=contention)
-            axs[i][index].set_xticks(x)
-            axs[i][index].set_xticklabels(sizes, rotation=45)
-            axs[i][index].set_ylabel("Normalized Execution Time")
-            axs[i][index].grid(axis='y')
+    for index, size in enumerate(sizes):
+        for i, benchmark in enumerate(benchmarks):
+            axs[index][i].set_ylim([0, 2])
+            x = np.array([i*1.1 for i in range(len(policies))])
+            if (index == 0):
+                axs[index][i].set_title(benchmark)
+            for offset, contention in zip([-1, 1], contentions):
+                y = [data[contention][policy][size][benchmark]["avg"]/data["solo"][policy][size][benchmark]["avg"] for policy in policies]
+                axs[index][i].bar(x+(offset/2*bar_width), y, width=bar_width, align="center", label=contention)
+            axs[index][i].set_xticks(x)
+            axs[index][i].set_xticklabels(policies, rotation=45)
+            axs[index][i].set_ylabel(size)#"Normalized Execution Time")
+            axs[index][i].grid(axis='y')
 
     # Hide x labels and tick labels for top plots and y ticks for right plots.
     for ax in axs.flat:
