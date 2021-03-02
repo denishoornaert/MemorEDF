@@ -24,7 +24,7 @@ do
 	esac
 done
 
-for i in $(seq $first_bomb $last_bomb)
+for i in $(seq 1 3)
 do
     # Stop any activity in the mem. bomb
     devmem $((comm_base + off)) 32 0
@@ -35,9 +35,9 @@ do
     if [ "$verbose" == "1" ]
     then
     	devmem $((comm_base + off)) 32 0x0d
-	usleep 500000
     else
         devmem $((comm_base + off)) 32 0x5
     fi
+	sleep 1
     off=$((off + 4096))
 done
