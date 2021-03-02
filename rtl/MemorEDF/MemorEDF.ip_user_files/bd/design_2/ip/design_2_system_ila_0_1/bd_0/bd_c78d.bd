@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<bd:repository xmlns:bd="http://www.xilinx.com/bd" bd:BoundaryCRC="0xB27A4E236EDEBEAC" bd:bdsource="SBD" bd:device="xczu9eg-ffvb1156-2-e" bd:isScoped="true" bd:isValidated="true" bd:synthFlowMode="None" bd:tool_version="2017.4" bd:top="bd_c78d" bd:version="1.00.a">
+<bd:repository xmlns:bd="http://www.xilinx.com/bd" bd:BoundaryCRC="0xF1DB1D1C8B7945DE" bd:bdsource="SBD" bd:device="xczu9eg-ffvb1156-2-e" bd:isScoped="true" bd:isValidated="true" bd:synthFlowMode="None" bd:tool_version="2017.4" bd:top="bd_c78d" bd:version="1.00.a">
 
   <spirit:component xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009">
     <spirit:vendor>xilinx.com</spirit:vendor>
@@ -867,7 +867,7 @@
             <spirit:value>AXI4</spirit:value>
             <spirit:vendorExtensions>
               <bd:configElementInfos>
-                <bd:configElementInfo bd:valueSource="default_prop"/>
+                <bd:configElementInfo bd:valueSource="default"/>
               </bd:configElementInfos>
             </spirit:vendorExtensions>
           </spirit:parameter>
@@ -882,7 +882,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>ID_WIDTH</spirit:name>
-            <spirit:value>0</spirit:value>
+            <spirit:value>6</spirit:value>
             <spirit:vendorExtensions>
               <bd:configElementInfos>
                 <bd:configElementInfo bd:valueSource="default"/>
@@ -1035,7 +1035,16 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>SUPPORTS_NARROW_BURST</spirit:name>
-            <spirit:value>0</spirit:value>
+            <spirit:value>1</spirit:value>
+            <spirit:vendorExtensions>
+              <bd:configElementInfos>
+                <bd:configElementInfo bd:valueSource="default_prop"/>
+              </bd:configElementInfos>
+            </spirit:vendorExtensions>
+          </spirit:parameter>
+          <spirit:parameter>
+            <spirit:name>NUM_READ_OUTSTANDING</spirit:name>
+            <spirit:value>8</spirit:value>
             <spirit:vendorExtensions>
               <bd:configElementInfos>
                 <bd:configElementInfo bd:valueSource="default"/>
@@ -1043,20 +1052,11 @@
             </spirit:vendorExtensions>
           </spirit:parameter>
           <spirit:parameter>
-            <spirit:name>NUM_READ_OUTSTANDING</spirit:name>
-            <spirit:value>2</spirit:value>
-            <spirit:vendorExtensions>
-              <bd:configElementInfos>
-                <bd:configElementInfo bd:valueSource="default_prop"/>
-              </bd:configElementInfos>
-            </spirit:vendorExtensions>
-          </spirit:parameter>
-          <spirit:parameter>
             <spirit:name>NUM_WRITE_OUTSTANDING</spirit:name>
-            <spirit:value>2</spirit:value>
+            <spirit:value>8</spirit:value>
             <spirit:vendorExtensions>
               <bd:configElementInfos>
-                <bd:configElementInfo bd:valueSource="default_prop"/>
+                <bd:configElementInfo bd:valueSource="default"/>
               </bd:configElementInfos>
             </spirit:vendorExtensions>
           </spirit:parameter>
@@ -1256,6 +1256,10 @@
         <spirit:componentRef spirit:library="ip" spirit:name="ila" spirit:vendor="xilinx.com" spirit:version="6.2"/>
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">bd_c78d_ila_lib_0</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_PROBE143_TYPE">0</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_PROBE142_TYPE">0</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_PROBE141_TYPE">0</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_PROBE140_TYPE">0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_PROBE139_TYPE">0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_PROBE138_TYPE">0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_PROBE137_TYPE">0</spirit:configurableElementValue>
@@ -1396,34 +1400,38 @@
           <spirit:configurableElementValue spirit:referenceId="C_PROBE2_TYPE">0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_PROBE1_TYPE">0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_PROBE0_TYPE">0</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_PROBE139_WIDTH">3</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_PROBE138_WIDTH">2</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_PROBE137_WIDTH">2</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_PROBE136_WIDTH">3</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_PROBE135_WIDTH">2</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_PROBE134_WIDTH">16</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_PROBE133_WIDTH">128</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_PROBE143_WIDTH">3</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_PROBE142_WIDTH">2</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_PROBE141_WIDTH">2</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_PROBE140_WIDTH">3</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_PROBE139_WIDTH">2</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_PROBE138_WIDTH">16</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_PROBE137_WIDTH">128</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_PROBE136_WIDTH">2</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_PROBE135_WIDTH">6</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_PROBE134_WIDTH">128</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_PROBE133_WIDTH">2</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_PROBE132_WIDTH">2</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_PROBE131_WIDTH">128</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_PROBE131_WIDTH">6</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_PROBE130_WIDTH">2</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_PROBE129_WIDTH">2</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_PROBE128_WIDTH">2</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_PROBE127_WIDTH">1</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_PROBE129_WIDTH">1</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_PROBE128_WIDTH">3</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_PROBE127_WIDTH">4</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_PROBE126_WIDTH">3</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_PROBE125_WIDTH">4</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_PROBE124_WIDTH">3</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_PROBE123_WIDTH">1</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_PROBE122_WIDTH">8</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_PROBE121_WIDTH">4</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_PROBE120_WIDTH">2</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_PROBE119_WIDTH">49</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_PROBE118_WIDTH">2</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_PROBE117_WIDTH">1</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_PROBE116_WIDTH">3</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_PROBE115_WIDTH">4</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_PROBE114_WIDTH">3</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_PROBE113_WIDTH">1</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_PROBE112_WIDTH">8</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_PROBE125_WIDTH">1</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_PROBE124_WIDTH">8</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_PROBE123_WIDTH">6</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_PROBE122_WIDTH">4</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_PROBE121_WIDTH">2</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_PROBE120_WIDTH">49</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_PROBE119_WIDTH">2</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_PROBE118_WIDTH">1</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_PROBE117_WIDTH">3</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_PROBE116_WIDTH">4</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_PROBE115_WIDTH">3</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_PROBE114_WIDTH">1</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_PROBE113_WIDTH">8</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_PROBE112_WIDTH">6</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_PROBE111_WIDTH">4</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_PROBE110_WIDTH">2</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_PROBE109_WIDTH">49</spirit:configurableElementValue>
@@ -1536,7 +1544,7 @@
           <spirit:configurableElementValue spirit:referenceId="C_PROBE1_WIDTH">40</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_PROBE0_WIDTH">2</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_DATA_DEPTH">1024</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_NUM_OF_PROBES">140</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_NUM_OF_PROBES">144</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_XLNX_HW_PROBE_INFO">DEFAULT</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_PROBE70_WIDTH">2</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_TRIGOUT_EN">false</spirit:configurableElementValue>
@@ -1634,7 +1642,7 @@
           <spirit:configurableElementValue spirit:referenceId="C_SLOT_0_AXI_ARUSER_WIDTH">16</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_SLOT_0_AXI_RUSER_WIDTH">0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_SLOT_3_AXI_PROTOCOL">AXI4</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_SLOT_3_AXI_ID_WIDTH">0</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_SLOT_3_AXI_ID_WIDTH">6</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_SLOT_3_AXI_DATA_WIDTH">128</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_SLOT_3_AXI_ADDR_WIDTH">49</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_SLOT_2_AXI_PROTOCOL">AXI4</spirit:configurableElementValue>
@@ -2602,124 +2610,144 @@
         <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe111"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
+        <spirit:name>net_slot_3_axi_arid</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="g_inst" spirit:portRef="m_slot_3_axi_arid"/>
+        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe112"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
         <spirit:name>net_slot_3_axi_arlen</spirit:name>
         <spirit:internalPortReference spirit:componentRef="g_inst" spirit:portRef="m_slot_3_axi_arlen"/>
-        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe112"/>
+        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe113"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>net_slot_3_axi_arlock</spirit:name>
         <spirit:internalPortReference spirit:componentRef="g_inst" spirit:portRef="m_slot_3_axi_arlock"/>
-        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe113"/>
+        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe114"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>net_slot_3_axi_arprot</spirit:name>
         <spirit:internalPortReference spirit:componentRef="g_inst" spirit:portRef="m_slot_3_axi_arprot"/>
-        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe114"/>
+        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe115"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>net_slot_3_axi_arqos</spirit:name>
         <spirit:internalPortReference spirit:componentRef="g_inst" spirit:portRef="m_slot_3_axi_arqos"/>
-        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe115"/>
+        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe116"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>net_slot_3_axi_arsize</spirit:name>
         <spirit:internalPortReference spirit:componentRef="g_inst" spirit:portRef="m_slot_3_axi_arsize"/>
-        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe116"/>
+        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe117"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>net_slot_3_axi_aruser</spirit:name>
         <spirit:internalPortReference spirit:componentRef="g_inst" spirit:portRef="m_slot_3_axi_aruser"/>
-        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe117"/>
+        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe118"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>net_slot_3_axi_aw_cnt</spirit:name>
         <spirit:internalPortReference spirit:componentRef="g_inst" spirit:portRef="m_slot_3_axi_aw_cnt"/>
-        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe118"/>
+        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe119"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>net_slot_3_axi_awaddr</spirit:name>
         <spirit:internalPortReference spirit:componentRef="g_inst" spirit:portRef="m_slot_3_axi_awaddr"/>
-        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe119"/>
+        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe120"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>net_slot_3_axi_awburst</spirit:name>
         <spirit:internalPortReference spirit:componentRef="g_inst" spirit:portRef="m_slot_3_axi_awburst"/>
-        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe120"/>
+        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe121"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>net_slot_3_axi_awcache</spirit:name>
         <spirit:internalPortReference spirit:componentRef="g_inst" spirit:portRef="m_slot_3_axi_awcache"/>
-        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe121"/>
+        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe122"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>net_slot_3_axi_awid</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="g_inst" spirit:portRef="m_slot_3_axi_awid"/>
+        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe123"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>net_slot_3_axi_awlen</spirit:name>
         <spirit:internalPortReference spirit:componentRef="g_inst" spirit:portRef="m_slot_3_axi_awlen"/>
-        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe122"/>
+        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe124"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>net_slot_3_axi_awlock</spirit:name>
         <spirit:internalPortReference spirit:componentRef="g_inst" spirit:portRef="m_slot_3_axi_awlock"/>
-        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe123"/>
+        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe125"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>net_slot_3_axi_awprot</spirit:name>
         <spirit:internalPortReference spirit:componentRef="g_inst" spirit:portRef="m_slot_3_axi_awprot"/>
-        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe124"/>
+        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe126"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>net_slot_3_axi_awqos</spirit:name>
         <spirit:internalPortReference spirit:componentRef="g_inst" spirit:portRef="m_slot_3_axi_awqos"/>
-        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe125"/>
+        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe127"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>net_slot_3_axi_awsize</spirit:name>
         <spirit:internalPortReference spirit:componentRef="g_inst" spirit:portRef="m_slot_3_axi_awsize"/>
-        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe126"/>
+        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe128"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>net_slot_3_axi_awuser</spirit:name>
         <spirit:internalPortReference spirit:componentRef="g_inst" spirit:portRef="m_slot_3_axi_awuser"/>
-        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe127"/>
+        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe129"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>net_slot_3_axi_b_cnt</spirit:name>
         <spirit:internalPortReference spirit:componentRef="g_inst" spirit:portRef="m_slot_3_axi_b_cnt"/>
-        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe128"/>
+        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe130"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>net_slot_3_axi_bid</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="g_inst" spirit:portRef="m_slot_3_axi_bid"/>
+        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe131"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>net_slot_3_axi_bresp</spirit:name>
         <spirit:internalPortReference spirit:componentRef="g_inst" spirit:portRef="m_slot_3_axi_bresp"/>
-        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe129"/>
+        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe132"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>net_slot_3_axi_r_cnt</spirit:name>
         <spirit:internalPortReference spirit:componentRef="g_inst" spirit:portRef="m_slot_3_axi_r_cnt"/>
-        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe130"/>
+        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe133"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>net_slot_3_axi_rdata</spirit:name>
         <spirit:internalPortReference spirit:componentRef="g_inst" spirit:portRef="m_slot_3_axi_rdata"/>
-        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe131"/>
+        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe134"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>net_slot_3_axi_rid</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="g_inst" spirit:portRef="m_slot_3_axi_rid"/>
+        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe135"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>net_slot_3_axi_rresp</spirit:name>
         <spirit:internalPortReference spirit:componentRef="g_inst" spirit:portRef="m_slot_3_axi_rresp"/>
-        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe132"/>
+        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe136"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>net_slot_3_axi_wdata</spirit:name>
         <spirit:internalPortReference spirit:componentRef="g_inst" spirit:portRef="m_slot_3_axi_wdata"/>
-        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe133"/>
+        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe137"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>net_slot_3_axi_wstrb</spirit:name>
         <spirit:internalPortReference spirit:componentRef="g_inst" spirit:portRef="m_slot_3_axi_wstrb"/>
-        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe134"/>
+        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe138"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>net_slot_3_axi_aw_ctrl</spirit:name>
         <spirit:internalPortReference spirit:componentRef="slot_3_aw" spirit:portRef="dout"/>
-        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe135"/>
+        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe139"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>net_slot_3_axi_awvalid</spirit:name>
@@ -2734,7 +2762,7 @@
       <spirit:adHocConnection>
         <spirit:name>net_slot_3_axi_w_ctrl</spirit:name>
         <spirit:internalPortReference spirit:componentRef="slot_3_w" spirit:portRef="dout"/>
-        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe136"/>
+        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe140"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>net_slot_3_axi_wvalid</spirit:name>
@@ -2754,7 +2782,7 @@
       <spirit:adHocConnection>
         <spirit:name>net_slot_3_axi_b_ctrl</spirit:name>
         <spirit:internalPortReference spirit:componentRef="slot_3_b" spirit:portRef="dout"/>
-        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe137"/>
+        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe141"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>net_slot_3_axi_bvalid</spirit:name>
@@ -2769,7 +2797,7 @@
       <spirit:adHocConnection>
         <spirit:name>net_slot_3_axi_ar_ctrl</spirit:name>
         <spirit:internalPortReference spirit:componentRef="slot_3_ar" spirit:portRef="dout"/>
-        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe138"/>
+        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe142"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>net_slot_3_axi_arvalid</spirit:name>
@@ -2784,7 +2812,7 @@
       <spirit:adHocConnection>
         <spirit:name>net_slot_3_axi_r_ctrl</spirit:name>
         <spirit:internalPortReference spirit:componentRef="slot_3_r" spirit:portRef="dout"/>
-        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe139"/>
+        <spirit:internalPortReference spirit:componentRef="ila_lib" spirit:portRef="probe143"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>net_slot_3_axi_rvalid</spirit:name>
