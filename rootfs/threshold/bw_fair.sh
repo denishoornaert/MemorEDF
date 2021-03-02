@@ -8,14 +8,14 @@ touch ~/experiences/profile.config
 cp ~/experiences/threshold/fair.config ~/experiences/profile.config
 source ~/experiences/profile.config
 
-# Load the jailhouse root cell for SchIM
-if (lsmod | grep "jailhouse" &> /dev/null)
-then
-    :; # do nothing
-else
-    insmod $jh_path/driver/jailhouse.ko
-    $jh_path/tools/jailhouse enable $jh_path/configs/arm64/schim-rootcol-dual-slave-cached.cell
-fi
+## Load the jailhouse root cell for SchIM
+#if (lsmod | grep "jailhouse" &> /dev/null)
+#then
+#    :; # do nothing
+#else
+#    insmod $jh_path/driver/jailhouse.ko
+#    $jh_path/tools/jailhouse enable $jh_path/configs/arm64/schim-rootcol-dual-slave-cached.cell
+#fi
 
 # Aging
 # Configure SchIM acording to the experiment profile
@@ -34,7 +34,7 @@ for (( i = $((last_bomb+1)); i > 1; i-- )); do
     echo "Start - aging - core ${i}"
     ~/synthetic/threshold_bw_aging.out > ${dest_dir}/"aging"/${i}_cores.csv
     # Kill one cell
-    $jh_path/tools/jailhouse cell destroy $((i-1)) >> /dev/null
+    $jh_path/tools/jailhouse cell destroy $((i-1)) #>> /dev/null
 done
 # Run alone
 # Create output raw data file
@@ -61,7 +61,7 @@ for (( i = $((last_bomb+1)); i > 1; i-- )); do
     echo "Start - fibo - core ${i}"
     ~/synthetic/threshold_bw_fibo.out > ${dest_dir}/"fibo"/${i}_cores.csv
     # Kill one cell
-    $jh_path/tools/jailhouse cell destroy $((i-1)) >> /dev/null
+    $jh_path/tools/jailhouse cell destroy $((i-1)) #>> /dev/null
 done
 # Run alone
 # Create output raw data file
@@ -88,7 +88,7 @@ for (( i = $((last_bomb+1)); i > 1; i-- )); do
     echo "Start - gallois - core ${i}"
     ~/synthetic/threshold_bw_gallois.out > ${dest_dir}/"gallois"/${i}_cores.csv
     # Kill one cell
-    $jh_path/tools/jailhouse cell destroy $((i-1)) >> /dev/null
+    $jh_path/tools/jailhouse cell destroy $((i-1)) #>> /dev/null
 done
 # Run alone
 # Create output raw data file

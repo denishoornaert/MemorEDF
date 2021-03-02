@@ -8,17 +8,17 @@ touch ~/experiences/profile.config
 cp ~/experiences/threshold/tdma.config ~/experiences/profile.config
 source ~/experiences/profile.config
 
-# Load the jailhouse root cell for SchIM
-if (lsmod | grep "jailhouse" &> /dev/null)
-then
-    :; # do nothing
-else
-    insmod $jh_path/driver/jailhouse.ko
-    $jh_path/tools/jailhouse enable $jh_path/configs/arm64/schim-rootcol-dual-slave-cached.cell
-fi
-
-# Configure SchIM acording to the experiment profile
-~/common/config_schim_tdma.out ${periods_1[1]} ${periods_2[1]} ${periods_3[1]} ${periods_4[1]} $threshold_core_0 $threshold_core_1 $threshold_core_2 $threshold_core_3
+## Load the jailhouse root cell for SchIM
+#if (lsmod | grep "jailhouse" &> /dev/null)
+#then
+#    :; # do nothing
+#else
+#    insmod $jh_path/driver/jailhouse.ko
+#    $jh_path/tools/jailhouse enable $jh_path/configs/arm64/schim-rootcol-dual-slave-cached.cell
+#fi
+#
+## Configure SchIM acording to the experiment profile
+#~/common/config_schim_tdma.out ${periods_1[1]} ${periods_2[1]} ${periods_3[1]} ${periods_4[1]} $threshold_core_0 $threshold_core_1 $threshold_core_2 $threshold_core_3
 
 # Load colored Memory Bomb cells
 ~/common/load_col_bombs.sh >> /dev/null
@@ -39,7 +39,7 @@ for (( i = $((last_bomb+1)); i > 1; i-- )); do
         ~/synthetic/threshold_bw_tdma.out ${periods_1[j]} ${periods_2[j]} ${periods_3[j]} ${periods_4[j]} > ${dest_dir}/"period_${j}"/${i}_cores.csv
     done
     # Kill one cell
-    $jh_path/tools/jailhouse cell destroy $((i-1)) >> /dev/null
+    $jh_path/tools/jailhouse cell destroy $((i-1)) #>> /dev/null
 done
 
 # Run alone
