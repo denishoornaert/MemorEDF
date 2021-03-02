@@ -4,8 +4,17 @@ set -e
 source ~/common/jailhouse.config
 
 # Load experience variables
+touch ~/experiences/profile.config
 cp $1 ~/experiences/profile.config
 source ~/experiences/profile.config
+
+# Load colored Memory Bomb cells
+~/common/load_col_bombs.sh >> /dev/null
+# Start Memory Bombs in either Read or Write mode
+~/common/bombs_"$bombing_mode".sh >> /dev/null
+
+# Creat dump folder
+mkdir -p ~/${dest_dir}/${mode}/${scheduling_policy}
 
 post_fix=""
 # Configure SchIM acording to the experiment profile
@@ -33,15 +42,6 @@ else
     echo "Invalid policy set in "${1}" ("${scheduling_policy}") -> Abort!"
     exit 1
 fi
-
-
-# Load colored Memory Bomb cells
-~/common/load_col_bombs.sh >> /dev/null
-# Start Memory Bombs in either Read or Write mode
-~/common/bombs_"$bombing_mode".sh >> /dev/null
-
-# Creat dump folder
-mkdir -p ~/${dest_dir}/${mode}/${scheduling_policy}
 
 # Start the fake Memory Bomb
 touch ~/${dest_dir}/${mode}/${scheduling_policy}/sdvbs_stress.csv
