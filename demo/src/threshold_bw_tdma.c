@@ -71,7 +71,7 @@ int main(int argc, char** argv) {
             // read
             clock_gettime(CLOCK_REALTIME, &time1);
             for (unsigned i = ((0<<14)/sizeof(unsigned)); i < (HPM0_SIZE/sizeof(unsigned)); i+=(CACHE_LINE_SIZE/sizeof(unsigned))) {
-                k = plim[i];
+                plim[i] = i+k;
             }
             clock_gettime(CLOCK_REALTIME, &time2);
 

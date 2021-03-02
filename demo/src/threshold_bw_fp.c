@@ -56,14 +56,14 @@ int main(int argc, char** argv) {
         (*config).deadlines[2] = threshold;
         (*config).deadlines[3] = threshold;
 
-        for (size_t j = 0; j < 100; j++) {
+        for (size_t j = 0; j < ((threshold == 0)? 5 : 10); j++) {
             struct timespec time1, time2;
             long unsigned sec, ns;
 
             // read
             clock_gettime(CLOCK_REALTIME, &time1);
             for (unsigned i = 0; i < (HPM0_SIZE/sizeof(unsigned)); i+=(CACHE_LINE_SIZE/sizeof(unsigned))) {
-                k = plim[i];
+                plim[i] = i+k;
             }
             clock_gettime(CLOCK_REALTIME, &time2);
 
