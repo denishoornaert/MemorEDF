@@ -17,6 +17,12 @@ cp -r /run/media/mmcblk0p2/home/root/jailhouse-rt/configs/arm64/schim-rootcol-du
 cp -r /run/media/mmcblk0p2/home/root/jailhouse-rt/configs/arm64/schim-bomb1-col-dual-slave-cached.cell  ~/jailhouse-rt/configs/arm64/
 cp -r /run/media/mmcblk0p2/home/root/jailhouse-rt/configs/arm64/schim-bomb2-col-dual-slave-cached.cell  ~/jailhouse-rt/configs/arm64/
 cp -r /run/media/mmcblk0p2/home/root/jailhouse-rt/configs/arm64/schim-bomb3-col-dual-slave-cached.cell  ~/jailhouse-rt/configs/arm64/
+cp -r /run/media/mmcblk0p2/home/root/jailhouse-rt/configs/arm64/schim-rootcol-main-route.cell  ~/jailhouse-rt/configs/arm64/
+cp -r /run/media/mmcblk0p2/home/root/jailhouse-rt/configs/arm64/schim-bomb1-col-main-route.cell  ~/jailhouse-rt/configs/arm64/
+cp -r /run/media/mmcblk0p2/home/root/jailhouse-rt/configs/arm64/schim-bomb2-col-main-route.cell  ~/jailhouse-rt/configs/arm64/
+cp -r /run/media/mmcblk0p2/home/root/jailhouse-rt/configs/arm64/schim-bomb3-col-main-route.cell  ~/jailhouse-rt/configs/arm64/
+cp /run/media/mmcblk0p2/home/root/launch_benchmarks.sh ~/
+cp /run/media/mmcblk0p2/home/root/launch_fp_benchmarks.sh ~/
 
 umount /run/media/mmcblk0p1/
 umount /run/media/mmcblk0p2/
