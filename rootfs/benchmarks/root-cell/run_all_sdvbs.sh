@@ -14,7 +14,8 @@ echo "benchamrk, data-size, run, duration" >> $1
 for b in $bms
 do
     #echo "RUNNING $b"
-    if [ "$b" == "multi_ncut" ]
+#    if [ "$b" == "multi_ncut" ]
+    if [ "$b" != "disparity" ]
     then
 	   continue
     fi
@@ -27,6 +28,7 @@ do
     	cd $d
     	for i in $(seq $runs)
     	do
+            #devmem 0x8000003c 32 $i
     	    res=$(./$b . | grep Cycles | awk '{print $4}')
     	    echo "$b, $d, $i, $res"
             echo "$b, $d, $i, $res" >> $1
