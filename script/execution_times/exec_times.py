@@ -18,17 +18,19 @@ if (__name__ == '__main__'):
     bar_width = 0.325
     data = {
         "solo" : {
-            "fp":      read("fp/sdvbs_solo.csv", 1),
-            "tdma":    read("tdma/sdvbs_solo.csv", 1),
-            "ts":      read("ts/sdvbs_solo.csv", 1)
+            "fp":         read("fp/sdvbs_solo.csv", 1),
+            "tdma":       read("tdma/sdvbs_solo.csv", 1),
+            "ts":         read("ts/sdvbs_solo.csv", 1),
+            "main-route": read("main-route/sdvbs_solo.csv", 1)
 #            "aging":   read("sdvbs_solo.csv", 1),
 #            "fibo":    read("sdvbs_solo.csv", 1),
 #            "gallois": read("sdvbs_solo.csv", 1)
         },
         "stress" : {
-            "fp":      read("fp/sdvbs_stress.csv", 1),
-            "tdma":    read("tdma/sdvbs_stress.csv", 1),
-            "ts":      read("ts/sdvbs_stress.csv", 1)
+            "fp":         read("fp/sdvbs_stress.csv", 1),
+            "tdma":       read("tdma/sdvbs_stress.csv", 1),
+            "ts":         read("ts/sdvbs_stress.csv", 1),
+            "main-route": read("main-route/sdvbs_stress.csv", 1)
 #            "aging":   read("sdvbs_stress.csv", 1),
 #            "fibo":    read("sdvbs_stress.csv", 1),
 #            "gallois": read("sdvbs_stress.csv", 1)
@@ -36,7 +38,7 @@ if (__name__ == '__main__'):
     }
 
     contentions = ["solo", "stress"]
-    policies = list(data["solo"].keys())
+    policies = ["fp", "tdma", "ts", "main-route"]
     sizes = ["sqcif", "qcif", "cif", "vga"] #"sim_fast", "sim",
     amount_of_sizes = len(sizes)
     benchmarks = ["disparity", "mser", "localization", "stitch", "texture_synthesis", "tracking", "sift"]
@@ -51,12 +53,12 @@ if (__name__ == '__main__'):
 
     for index, size in enumerate(sizes):
         for i, benchmark in enumerate(benchmarks):
-            axs[index][i].set_ylim([0, 2])
+            axs[index][i].set_ylim([0, 5])
             x = np.array([i*1.1 for i in range(len(policies))])
             if (index == 0):
                 axs[index][i].set_title(benchmark)
             for offset, contention in zip([-1, 1], contentions):
-                y = [data[contention][policy][size][benchmark]["avg"]/data["solo"][policy][size][benchmark]["avg"] for policy in policies]
+                y = [data[contention][policy][size][benchmark]["avg"]/data["solo"]["main-route"][size][benchmark]["avg"] for policy in policies]
                 axs[index][i].bar(x+(offset/2*bar_width), y, width=bar_width, align="center", label=contention)
             axs[index][i].set_xticks(x)
             axs[index][i].set_xticklabels(policies, rotation=45)
