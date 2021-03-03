@@ -57,6 +57,8 @@ module MemGuard #(
 //    begin
 //        assign hasBeenUpdated = (~update)&update_ff&(last_selected == i);
 //    end
+
+    reg                                                 bootstrap;
     
     reg                [$clog2(NUMBER_OF_QUEUES)-1 : 0] last_selected;
     
@@ -80,8 +82,22 @@ module MemGuard #(
     begin
         if(reset)
         begin
+            bootstrap <= 0;
+        end
+        else if(update)
+        begin
+            bootstrap <= 1;
+        end
+    end
+
+    always @(posedge clock)
+    begin
+        if(reset)
+        begin
             last_selected <= 0;
         end
+        else if (~bootstrap)
+            last_selected <= internal_selection;
         else if (update)
             last_selected <= internal_selection;
     end
