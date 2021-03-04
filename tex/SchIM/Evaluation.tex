@@ -6,7 +6,7 @@ the target platform, its overhead and benefits.  First, in subsection
 setup. Thereafter, we assess the overhead introduced by the \schim in
 Section~\ref{subsec:platform-capabilities-and-performance-degradation}.
 Section \ref{sec:feedback-pressure} explores the impact of the PL-to-PS feedback
-on the control and the performace.
+on the control and the performance.
 In Section~\ref{subsec:internal-behaviour-of-schim}, an in-depth analysis
 of the \schim's behavior is presented. Finally, an evaluation of the
 temporal behavior of a set of real-world benchmarks operating through
@@ -17,7 +17,7 @@ the \schim is provided in Section~\ref{subsec:isolation}.
 \label{subsection:considered-architecture}
 The \schim has been evaluated using synthetic benchmarks (or
 \emph{Memory Bombs}), real benchmarks selected from the San Diego
-Vision Benchmark Suite (SD-VBS)~\cite{SD-VBS} and a combinations of
+Vision Benchmark Suite (SD-VBS)~\cite{SD-VBS} and a combination of
 the two. Specifically, seven memory-intensive benchmarks have
 been selected, i.e. \emph{stitch}, \emph{texture synthesis},
 \emph{disparity}, \emph{tracking}, \emph{localization}, \emph{mser}
@@ -38,7 +38,7 @@ bleaching~\cite{gracioli2019designing, PLIM20} at the \schim's output
 to re-compact accesses to colored pages into contiguous DRAM
 accesses. In this platform, there are a total of 16 DRAM banks of
 256~MB each. Thanks to bleaching, we are able to assign the full size
-of 4 banks (i.e., 1~GB) to each core core, instead of being restricted
+of 4 banks (i.e., 1~GB) to each core, instead of being restricted
 to only 1/4 of that due to non-overlapping color and bank address
 bits.
 
@@ -83,7 +83,7 @@ dependent.
 
 In \fig{fig:bandwidth_comparison}, we have computed the throughput of
 one \emph{core under analysis}, here core 0 (noted $C_{0}$) when a
-synthetic memory intensive application is deployed on an increasing
+synthetic memory-intensive application is deployed on an increasing
 number of cores denoted with the same notation. The first bar cluster
 (``Normal'') refers to the throughput measured via the normal
 route. The other three clusters capture the observed bandwidth when
@@ -91,7 +91,7 @@ traffic is routed through and managed by the \schim. One cluster is
 provided for each of the implemented memory scheduling policies,
 namely --- from left to right --- FP, TDMA, and TS. As expected, there
 is a sharp reduction (around 75\%) in terms of absolute
-bandwidth. Importantly however, two aspects need to be
+bandwidth. Importantly, however, two aspects need to be
 highlighted. First, the bandwidth achieved through the \schim is still
 remarkably high and allows studying the behavior of realistic workload
 under custom memory scheduling policies, which is the main goal of
@@ -162,34 +162,33 @@ the normal route, nor when using the TS policy at the \schim.
 As mentioned in Section \ref{sec:pl-to-ps-feedback}, the PL-to-PS feedbacks enables
 \schim to regulates the HPM ports buffer occupancy to prevent head-of-line blocking.
 Since this feedback directly throttles the desired core, the selection of an adequate
-threshold is important preserve the balance between control and performance.
+threshold is important to preserve the balance between control and performance.
 Therefore in Figure \ref{fig:schim_threshold}, we have explored the sensitivity
-to the thershold for each of the proposed schedulers under different levels of contention.
+to the threshold for each of the proposed schedulers under different levels of contention.
 The thresholds in use range from 1 to 8 and when the feedback is disabled
 (noted \emph{NA}). The contention is created by up to four co-running cores emitting
 write transactions. For each parameter applied to a scheduler (i.e., fixed
-priority, TDMA slot or MIT), the co-running cores are assigned the the most
-demanding parameter available (i.e., a highest priority for FP, the biggest TDMA
+priority, TDMA slot or MIT), the co-running cores are assigned the most
+demanding parameter available (i.e., the highest priority for FP, the biggest TDMA
 slot or the smallest MIT).
 
 In the case of the FP scheduler (Figure \ref{fig:threshold_fp}), one can observe
-that when running alone, the threshold as no influence on the throughput.
+that when running alone, the threshold has no influence on the throughput.
 However, as soon as co-runners are added, the cores start to experience a
-decrease of throughput.
-Figure \ref{fig:threshold_tdma} shows that the TDMA scheduler is, with respect
-to the throughput, not impacted considerably by the threshold. Overall, the
+decrease in throughput.
+Figure \ref{fig:threshold_tdma} shows that the TDMA scheduler is, for the throughput, not impacted considerably by the threshold. Overall, the
 scheduler manages to preserve a constant throughput regardless of the contention
 and the assigned slot.
-Similarly, the TS scheduler is barely impacted by the choice of threshold as
+Similarly, the TS scheduler is barely impacted by the choice of the threshold as
 displayed in Figure \ref{fig:threshold_ts}. Nonetheless, under high
 contention, one can observe that the throughput of each core is affected.
 
 The fourth inset of Figure \ref{fig:threshold_fp} and \ref{fig:threshold_tdma}
 illustrate the importance of the threshold and the PL-to-PL feedback as a
-considerable drop of throughput can be observed for the highest priority of FP
+a considerable drop of throughput can be observed for the highest priority of FP
 and for a TDMA period of 32.
 
-Considering these experiments, setting the threshold to four for all the scheduler
+Considering these experiments, setting the threshold to four for all the schedulers
 seems to bring the best trade-off between control and performance. However, this
 value cannot be blindly applied to all cases as this experiment is performed for
 a sequential and contiguous access pattern.
@@ -200,7 +199,7 @@ The next objective is to verify the correct behavior of the schedulers
 at the granularity of a clock cycle by observing the inputs,
 the outputs and the internal signals and registers of the \schim
 module. This is made possible thanks to the \emph{Integrated Logic
-  Analyser} (or ILA) provided by Xilinx \cite{Xilinx-ILA}. The latter
+  Analyzer} (or ILA) provided by Xilinx \cite{Xilinx-ILA}. The latter
 IP can be directly implemented on the PL side, alongside the \schim,
 and is able to probe the signals and to store them in a local
 memory. For this experiment, a group of relevant internal signals have
@@ -230,7 +229,7 @@ others according to the priorities assignment. Furthermore, one can
 observe that the rate at which the queues receive new transactions
 from their associated core is proportional to the priority place in
 the priority ordering.  Finally, the third inset in
-\fig{fig:schim_behaviour_fp} confirms the correct behaviour of the FP
+\fig{fig:schim_behaviour_fp} confirms the correct behavior of the FP
 policy.%, with the higher the core's priority, the higher the transaction density at the output of \schim is.
 %Thanks to the heat map, one can clearly see that the cores
 %with the highest priority also feature the highest density of
@@ -241,24 +240,24 @@ highest density of transactions at the output of the \schim.
 The trace snapshot displayed in \fig{fig:schim_behaviour_tdma} has
 been obtained by configuring the \schim module in TDMA mode. For the
 sake of clarity, a slot of 256 clock cycles has been set for each
-core. In addition, the threshold of each core has been set to 4 to
+core. Besides, the threshold of each core has been set to 4 to
 create sharp transitions.  The insets 2 and 3 of
-\fig{fig:schim_behaviour_tdma} clearly show the behaviour expected
+\fig{fig:schim_behaviour_tdma} clearly show the behavior expected
 from a TDMA schedule. In fact, one can clearly see in the latter that
 transactions originating from one core are only being repeated out of
-the \schim module during a well defined and periodic time slot of 256 clock cycles. In the inset 2 of \fig{fig:schim_behaviour_tdma}, we can
+the \schim module during a well-defined and periodic time slot of 256 clock cycles. In the inset 2 of \fig{fig:schim_behaviour_tdma}, we can
 observe a similar pattern, with transactions arriving only during the
-TDMA slot associated to their queue (and indirectly core). Globally,
+TDMA slot associated with their queue (and indirectly core). Globally,
 the rate at which queues receive transactions is steady and constant.
 
-The trace snapshot for the TS policy has been obtained with a MIT of
-160 clock cycles for each core. Similarly to the TDMA experiment, such
+The trace snapshot for the TS policy has been obtained with an MIT of
+160 clock cycles for each core. Similar to the TDMA experiment, such
 period has been set arbitrarily in order to improve the clarity of the
 trace snapshot displayed in \fig{fig:schim_behaviour_mg}. Thanks to
 the inset 3 in \fig{fig:schim_behaviour_mg}, we can see that under a significant traffic load, the TS mode of the \schim is able to shape
-the output traffic. Roughly, the same pattern can be observed in inset
-2 of \fig{fig:schim_behaviour_mg}. However, there is exception.
-In both the second and the thrid insets, queue 3 (and indirectly core 3)
+the output traffic. Roughly, the same pattern can be observed in the inset
+2 of \fig{fig:schim_behaviour_mg}. However, there is an exception.
+In both the second and the third insets, queue 3 (and indirectly core 3)
 clearly violates the pattern expected from the TS scheduler. This transaction
 leakage is due to a malfunction in the TS scheduler design.
 
@@ -305,8 +304,8 @@ execution time of an application on a given core when running alone
 (referred to as \emph{Solo}) and when running alongside interfering synthetic
 benchmarks (write memory bombs) on all the other cores (referred to as
 \emph{Stress}).
-For each combination of route to main memory (i.e., the \emph{normal
-route} or the \emph{\schim route}) and scheduler, the result obained
+For each combination of a route to main memory (i.e., the \emph{normal
+route} or the \emph{\schim route}) and scheduler, the result obtained
 for \emph{Stress} is normalized with respect to the equivalent configuration
 in \emph{Solo}.
 %The slowdown compared to the case in which the observed
@@ -343,18 +342,18 @@ the core, having execution times under \emph{Stress} similar or smaller than the
 %\emph{vga}, the scheduler is as good or better than the \emph{normal route}.
 %In fact, the ratio of all the benchmarks we tested lie in
 %the proximity of 1.0, with a maximum inter-core interference of around 7\%.
-Similarly, the FP scheduler is also capable of ensuring a sound
+Similarly, the FP scheduler is also capable of ensuring sound
 isolation of the core under analysis.
 Unfortunately, the TS scheduler generally fails to provide any form of
 isolation. This is more than likely due to the logic defect mentioned in
 Section \ref{subsec:internal-behaviour-of-schim}. In this case, the transaction leakage
 prevents the transaction from the core under analysis to be served as they
-unexpectedly occupy the bus, unpredictabily delaying the scheduling of the other transactions.
+unexpectedly occupy the bus, unpredictability delaying the scheduling of the other transactions.
 % of the core under analysis
 %despite having been assigned the highest priority. Even worst, the
-%scheduler has little-to-none impact since its slowdown is comparable
+%scheduler has a little-to-none impact since its slowdown is comparable
 %to that observed on the loop-back path.
-%This result can be explained by the fact that, despite the enforcement of the FP policy, and its proven correct behaviour (see \fig{fig:schim_behaviour_fp}), the
+%This result can be explained by the fact that despite the enforcement of the FP policy, and its proven correct behavior (see \fig{fig:schim_behaviour_fp}), the
 %This
 %enforced ordering of transaction is likely overridden by the
 %transaction re-ordering mechanisms present in the DDR controller. The
