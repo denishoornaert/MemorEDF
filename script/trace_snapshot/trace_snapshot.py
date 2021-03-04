@@ -11,15 +11,15 @@ features = {
     "design_2_i/MemorEDF_0/inst/nonaxidomain/genblk1[1].queue/counter_reg[3:0]" : None,
     "design_2_i/MemorEDF_0/inst/nonaxidomain/genblk1[2].queue/counter_reg[3:0]" : None,
     "design_2_i/MemorEDF_0/inst/nonaxidomain/genblk1[3].queue/counter_reg[3:0]" : None,
-    "design_2_i/MemorEDF_0/inst/nonaxidomain/selector/internal_id_reg[1]_9[1:0]" : None,
+    "design_2_i/MemorEDF_0/inst/nonaxidomain/selector/internal_id_reg[1]_10[1:0]" : None,
     "design_2_i/MemorEDF_0_m00_axi_ARADDR[39:0]" : None,
     "design_2_i/MemorEDF_0/inst/dispatcher_to_queues_1_2_valid[1:0]" : None,
     "design_2_i/MemorEDF_0/inst/dispatcher_to_queues_3_4_valid[1:0]" : None,
     "u_ila_0_m00_axi_arready" : None,
-    "design_2_i/MemorEDF_0/inst/m00_axi_arvalid" : None
+    "design_2_i/MemorEDF_0/m00_axi_arvalid" : None
 }
 
-scheduled = "design_2_i/MemorEDF_0/inst/nonaxidomain/selector/internal_id_reg[1]_9[1:0]"
+scheduled = "design_2_i/MemorEDF_0/inst/nonaxidomain/selector/internal_id_reg[1]_10[1:0]"
 
 queues = [
     "design_2_i/MemorEDF_0/inst/nonaxidomain/genblk1[0].queue/counter_reg__0[3:0]",
@@ -88,7 +88,7 @@ def idfilter(array, noise=True):
     x = []
     y = []
     for i in range(len(array)):
-        if(m["u_ila_0_m00_axi_arready"][i] and m["design_2_i/MemorEDF_0/inst/m00_axi_arvalid"][i]):
+        if(m["u_ila_0_m00_axi_arready"][i] and m["design_2_i/MemorEDF_0/m00_axi_arvalid"][i]):
             id = int(bin(m["design_2_i/MemorEDF_0_m00_axi_ARADDR[39:0]"][i]&0x000000c000)[2:].zfill(40)[40-16:40-14], 2)
             noise = min(max(np.random.normal(0, 0.001, 1)[0], -0.001), 0.001) if(noise) else 0
             y.append(id+noise)
@@ -129,8 +129,9 @@ def cumulativeInputs(ax, m):
     ax.set_xlim([0, len(m["Sample in Buffer"])])
     # Y axis
     ax.set_ylabel("Transactions");
-    ax.set_yticks(list(range(0, (len(y)+1), (len(y)//4))))
-    ax.set_ylim([-0.5, len(y)]);
+    #print(y)
+    #ax.set_yticks(list(range(0, (len(y)+1), (len(y)//4))))
+    #ax.set_ylim([-0.5, len(y)]);
 
 def schedulingDensity(ax, m):
     ## Title
@@ -150,7 +151,7 @@ def schedulingDensity(ax, m):
 
 if (__name__ == '__main__'):
 
-    filenames = ("SchIM_FP/fp_3_0f0e0d0c_20_3", "SchIM_TS/ts_3_128_128_3", "SchIM_TDMA/tdma_3_3_512_512_1")
+    filenames = ["SchIM_TS/iladata_TS"]#, "SchIM_TDMA/iladata_TDMA", "SchIM_FP/iladata_FP", "SchIM_FIBO/iladata_FIBO", "SchIM_GALOIS/iladata_GALOIS", "SchIM_AGING/iladata_AGING"]
     inputExt  = ".csv"
     outputExt = ".png"
 
