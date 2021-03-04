@@ -347,7 +347,7 @@ Similarly, the FP scheduler is also capable of ensuring a sound
 isolation of the core under analysis.
 Unfortunately, the TS scheduler generally fails to provide any form of
 isolation. This is more than likely due to the logic defect mentioned in
-Section \ref{fig:schim_behaviour_mg}. In this case, the transaction leakage
+Section \ref{subsec:internal-behaviour-of-schim}. In this case, the transaction leakage
 prevents the transaction from the core under analysis to be served as they
 unexpectedly occupy the bus, unpredictabily delaying the scheduling of the other transactions.
 % of the core under analysis
