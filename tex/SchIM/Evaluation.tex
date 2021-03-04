@@ -298,7 +298,7 @@ leakage is due to a malfunction in the TS scheduler design.
 
 \subsection{Memory Isolation}
 \label{subsec:isolation}
-To evaluate the capability of \schim with respect to its ability to
+To evaluate the capability of our \schim with respect to its ability to
 ensure performance isolation between the cores, a set of experiments
 involving SD-VBS benchmarks were designed. Here, we compare the
 execution time of an application on a given core when running alone
@@ -319,10 +319,10 @@ Figure~\ref{fig:isolation_ratio}. All the results in the
 Figure~\ref{fig:isolation_ratio} are the aggregation (arithmetic average)
 of 30 different runs in the same configuration.
 
-For this set of experiments, the FP scheduler such that the core under
+For this set of experiments, the FP scheduler was configured such that the core under
 analysis (i.e., the one running the benchmark) has the highest priority
 and a threshold of 8. The other cores are assigned lower priorities and
-threshold matching their priority order (i.e., 4, 2, 1). Under TDMA scheduling the core under analysis has a slot of 512 clock cycles and a threshold of 14 while the co-runners are assigned slots of 32 and 16 clock cycles with threshold of 4 or 1. For the TS scheduler, the core under analysis is assigned a MIT of 16 and a threshold of 4 whereas each co-runner has a MIT of 64 and a threshold of 2.
+thresholds matching their priority order (i.e., 4, 2, 1). Under TDMA scheduling the core under analysis has a slot of 512 clock cycles and a threshold of 14 while the co-runners are assigned slots of 32 and 16 clock cycles with thresholds of 4 and 1. For the TS scheduler, the core under analysis is assigned a MIT of 16 and a threshold of 4 whereas each co-runner has a MIT of 64 and a threshold of 2.
 
 The \emph{normal route} is used as a baseline for this experiment
 because no scheduling is performed in this configuration.
