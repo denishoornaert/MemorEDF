@@ -174,7 +174,7 @@ there are always ties between the queues and FP is frequently applied.
       \begin{subfigure}{0.45\textwidth}
         \centering
         % include first image
-        \includegraphics[scale=0.43]{images/SchIM_FP_buffering.pdf}
+        \includegraphics[scale=0.45]{images/SchIM_FP_buffering.pdf}
         \caption{FP with ordering $C_{0} \succ C_{1} \succ C_{2} \succ C_{3}$}
         \label{fig:schim_behaviour_fp}
       \end{subfigure}
@@ -182,15 +182,15 @@ there are always ties between the queues and FP is frequently applied.
       \begin{subfigure}{0.45\textwidth}
         \centering
         % include second image
-        \includegraphics[scale=0.43]{images/SchIM_TDMA_buffering.pdf}
+        \includegraphics[scale=0.45]{images/SchIM_TDMA_buffering.pdf}
         \caption{TDMA with slots of 512 clock cycles}
         \label{fig:schim_behaviour_tdma}
       \end{subfigure}
-      \vfill
+      \hfill
       \begin{subfigure}{0.45\textwidth}
         \centering
         % include second image
-        \includegraphics[scale=0.43]{images/SchIM_MG_buffering.pdf}
+        \includegraphics[scale=0.45]{images/SchIM_MG_buffering.pdf}
         \caption{TS with min. period of 256 clock cycles}
         \label{fig:schim_behaviour_mg}
       \end{subfigure}
@@ -208,14 +208,14 @@ other cores. The slowdown compared to the case in which the observed
 benchmark runs alone in the system is computed. It follows that a
 ratio of 1 denotes the ideal isolation. The results obtained on the
 considered benchmarks are listed in
-Table~\ref{tab:isolation_ratio}. All the results in the table are the
+Table~\ref{fig:isolation_ratio}. All the results in the table are the
 aggregation (geometric average) of 100 different runs in the same
 configuration.
 
 The simple loop-back path is used as a baseline for this experiment
 because scheduling is performed in this configuration. The results for
 the simple loop-back are displayed in the left-most column in
-Table~\ref{tab:isolation_ratio}. We highlight the sensitivity of both
+Table~\ref{fig:isolation_ratio}. We highlight the sensitivity of both
 \emph{disparity} and \emph{mser} to inter-core interference, with
 ratios of respectively $1.46$ and $1.59$. On the other hand,
 \emph{texture synthesis} and \emph{localization} do not seem to suffer
@@ -240,20 +240,9 @@ scenarios like those in \fig{fig:schim_behaviour_fp} because the
 memory access pattern of the core under analysis is sequential as
 well. It follows that the FP policy is mainly useful when performing
 the movement of large, sequential data chunks.
-\begin{table}[]
-  \centering
-  \caption{Inter-core Interference Ratios}
-  \label{tab:isolation_ratio}
-  \begin{tabular}{|l||c|c|c|c|}
-    \hline
-    \multirow{2}{*}{Benchmark} & \multicolumn{4}{c|}{Memory Route \& Scheduler}                          \\ \cline{2-5}
-    & Loop-back & \schim TDMA & \schim TS & \schim FP \\ \hline\hline
-    stitch                     & $1.14$    & $1.06$      & $0.98$    & $1.16$    \\ \hline
-    texture synth.             & $1.03$    & $1.02$      & $1.0$     & $1.03$    \\ \hline
-    disparity                  & $1.46$    & $1.07$      & $0.96$    & $1.46$    \\ \hline
-    tracking                   & $1.13$    & $1.05$      & $0.97$    & $1.13$    \\ \hline
-    localization               & $1.02$    & $1.01$      & $1.0$     & $1.02$    \\ \hline
-    mser                       & $1.59$    & $1.06$      & $0.98$    & $1.56$    \\ \hline
-    sift                       & $1.14$    & $1.04$      & $0.97$    & $1.14$    \\ \hline
-  \end{tabular}
-\end{table}
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.53]{images/Execution_times.pdf}
+    \caption{}
+    \label{fig:isolation_ratio}
+\end{figure}
