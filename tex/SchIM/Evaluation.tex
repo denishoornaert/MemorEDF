@@ -127,7 +127,7 @@ the normal route, nor when using the TS policy at the \schim.
 
 \begin{figure}
   \centering
-  \includegraphics[scale=0.5]{images/bw_comparisons.pdf}
+  \includegraphics[scale=0.45]{images/bw_comparisons.pdf}
   \caption{Bandwidth in MBps for different path under increasing set of cores contending.}
   \label{fig:bandwidth_comparison}
 \end{figure}
@@ -246,33 +246,28 @@ create sharp transitions.  The insets 2 and 3 of
 \fig{fig:schim_behaviour_tdma} clearly show the behaviour expected
 from a TDMA schedule. In fact, one can clearly see in the latter that
 transactions originating from one core are only being repeated out of
-the \schim module during a well defined 256 clock cycles time
-slot. Moreover, queues are scheduled one after the other in a periodic
-fashion.  In the inset 2 of \fig{fig:schim_behaviour_tdma}, we can
+the \schim module during a well defined and periodic time slot of 256 clock cycles. In the inset 2 of \fig{fig:schim_behaviour_tdma}, we can
 observe a similar pattern, with transactions arriving only during the
 TDMA slot associated to their queue (and indirectly core). Globally,
-the rate at which queues receive transactions is steady and
-constant. The variations can be explained by different factors such as
-the coarseness of the FIQ feedback regulation and the scheduling
-happening in the OS.
+the rate at which queues receive transactions is steady and constant.
 
-The trace snapshot for the TS policy has been obtained with the
-minimal inter-arrival time set to 256 clock cycles for all the
-cores. Similarly to the TDMA experiment, such period has been set
-arbitrarily in order to improve the clarity of the trace snapshot
-displayed in \fig{fig:schim_behaviour_mg}.  Thanks to the inset 3 in
-\fig{fig:schim_behaviour_mg}, we can see that under a significant
-traffic load, the TS mode of the \schim is able to shape the output
-traffic. Roughly, the same pattern can be observed in inset 2 of
-\fig{fig:schim_behaviour_mg}. However, there are two
-exceptions. First, one queue can receive more than one
-transaction. This is due to the coarseness of the FIQ feedback
-regulation. Secondly, some queues seem to be prioritized. This can be
-explained by the fact that in the TS scheduler implementation break
-ties between valid ready transactions using a FP policy. In this
-experiment, since the \schim module is constantly under pressure,
-there are always ties between the queues and FP is frequently applied.
-    \begin{figure}[]
+The trace snapshot for the TS policy has been obtained with a MIT of
+160 clock cycles for each core. Similarly to the TDMA experiment, such
+period has been set arbitrarily in order to improve the clarity of the
+trace snapshot displayed in \fig{fig:schim_behaviour_mg}. Thanks to
+the inset 3 in \fig{fig:schim_behaviour_mg}, we can see that under a significant traffic load, the TS mode of the \schim is able to shape
+the output traffic. Roughly, the same pattern can be observed in inset
+2 of \fig{fig:schim_behaviour_mg}. However, there is exception.
+In both the second and the thrid insets, queue 3 (and indirectly core 3)
+clearly violates the pattern expected from the TS scheduler. This transaction
+leakage is due to a malfunction in the TS scheduler design.
+
+%First, one queue can receive more than one transaction. This is due to
+%the coarseness of the FIQ feedback regulation. Secondly, some queues
+%seem to be prioritized. This can be explained by the fact that in the
+%TS scheduler implementation break ties between valid ready transactions
+%using a FP policy. In this experiment, since the \schim module is constantly under pressure, there are always ties between the queues and FP is frequently applied.
+    \begin{figure}[t]
       \centering
       \begin{subfigure}{0.45\textwidth}
         \centering
@@ -301,51 +296,78 @@ there are always ties between the queues and FP is frequently applied.
       \label{fig:schim_behaviour}
     \end{figure}
 
-\subsection{Memory Isolation}\label{subsec:isolation}
+\subsection{Memory Isolation}
+\label{subsec:isolation}
 To evaluate the capability of \schim with respect to its ability to
 ensure performance isolation between the cores, a set of experiments
 involving SD-VBS benchmarks were designed. Here, we compare the
-execution time of an application on a given core when running
-alongside interfering synthetic benchmarks (memory bombs) on all the
-other cores. The slowdown compared to the case in which the observed
-benchmark runs alone in the system is computed. It follows that a
-ratio of 1 denotes the ideal isolation. The results obtained on the
-considered benchmarks are listed in
-Table~\ref{fig:isolation_ratio}. All the results in the table are the
-aggregation (geometric average) of 100 different runs in the same
-configuration.
+execution time of an application on a given core when running alone
+(referred to as \emph{Solo}) and when running alongside interfering synthetic
+benchmarks (write memory bombs) on all the other cores (referred to as
+\emph{Stress}).
+For each combination of route to main memory (i.e., the \emph{normal
+route} or the \emph{\schim route}) and scheduler, the result obained
+for \emph{Stress} is normalized with respect to the equivalent configuration
+in \emph{Solo}.
+%The slowdown compared to the case in which the observed
+%benchmark runs alone in the system is computed while taking the same
+%route to the main memory (i.e., the \emph{normal route} or the
+%\empl{\schim route}).
+%It follows that a ratio of 1 denotes the ideal isolation.
+The results obtained on the considered benchmarks are listed in
+Figure~\ref{fig:isolation_ratio}. All the results in the
+Figure~\ref{fig:isolation_ratio} are the aggregation (arithmetic average)
+of 30 different runs in the same configuration.
 
-The simple loop-back path is used as a baseline for this experiment
-because scheduling is performed in this configuration. The results for
-the simple loop-back are displayed in the left-most column in
-Table~\ref{fig:isolation_ratio}. We highlight the sensitivity of both
-\emph{disparity} and \emph{mser} to inter-core interference, with
-ratios of respectively $1.46$ and $1.59$. On the other hand,
-\emph{texture synthesis} and \emph{localization} do not seem to suffer
-significantly from inter-core interference. In comparison, the TDMA
-scheduler manages to guarantee isolation of the core under
-analysis. In fact, the ratio of all the benchmarks we tested lie in
-the proximity of 1.0, with a maximum inter-core interference of around
-7\%. Similarly, the TS scheduler is also capable of ensuring a sound
-isolation of the core under analysis. Unfortunately, the FP scheduler
-is unable to guarantee the isolation of the core under analysis
-despite having been assigned the highest priority. Even worst, the
-scheduler has little-to-none impact since its slowdown is comparable
-to that observed on the loop-back path.  This result can be explained
-by the fact that, despite the enforcement of the FP policy, and its
-proven correct behaviour (see \fig{fig:schim_behaviour_fp}), the
-enforced ordering of transaction is likely overridden by the
-transaction re-ordering mechanisms present in the DDR controller. The
-problem specifically occurs because the access pattern of the
-interfering bombs is sequential, and hence preferably treated by the
-DDR controller. Conversely, the FP scheduler works correctly in
-scenarios like those in \fig{fig:schim_behaviour_fp} because the
-memory access pattern of the core under analysis is sequential as
-well. It follows that the FP policy is mainly useful when performing
-the movement of large, sequential data chunks.
+For this set of experiments, the FP scheduler such that the core under
+analysis (i.e., the one running the benchmark) has the highest priority
+and a threshold of 8. The other cores are assigned lower priorities and
+threshold matching their priority order (i.e., 4, 2, 1). Under TDMA scheduling the core under analysis has a slot of 512 clock cycles and a threshold of 14 while the co-runners are assigned slots of 32 and 16 clock cycles with threshold of 4 or 1. For the TS scheduler, the core under analysis is assigned a MIT of 16 and a threshold of 4 whereas each co-runner has a MIT of 64 and a threshold of 2.
+
+The \emph{normal route} is used as a baseline for this experiment
+because no scheduling is performed in this configuration.
+%The results for
+%the simple loop-back are displayed in the left-most column in
+%Table~\ref{fig:isolation_ratio}.
+The Figure \ref{fig:isolation_ratio} highlights the sensitivity of both
+\emph{disparity} and \emph{mser} to inter-core interference on the
+\emph{normal route}. This is especially the case for large input sizes
+such as \emph{cif} and \emph{vga}. On the other hand, \emph{texture
+synthesis} and \emph{localization} do not suffer from inter-core
+interference.
+Globally, the TDMA scheduler always manages to preserve the isolation of
+the core, having execution times under \emph{Stress} similar or smaller than the \emph{normal route}. This is particularly visible for \emph{qcif}, \emph{cif} and \emph{vga} input sizes of \emph{disparity} and \emph{mser}.
+%Unlike the \emph{normal route}, the TDMA scheduler manages to mitigate
+%the impact of the inter-core interference on the core under analysis for
+%\emph{disparity} and \emph{mser}. In fact, for \emph{qcif}, \emph{cif} and
+%\emph{vga}, the scheduler is as good or better than the \emph{normal route}.
+%In fact, the ratio of all the benchmarks we tested lie in
+%the proximity of 1.0, with a maximum inter-core interference of around 7\%.
+Similarly, the FP scheduler is also capable of ensuring a sound
+isolation of the core under analysis.
+Unfortunately, the TS scheduler generally fails to provide any form of
+isolation. This is more than likely due to the logic defect mentioned in
+Section \ref{fig:schim_behaviour_mg}. In this case, the transaction leakage
+prevents the transaction from the core under analysis to be served as they
+unexpectedly occupy the bus, unpredictabily delaying the scheduling of the other transactions.
+% of the core under analysis
+%despite having been assigned the highest priority. Even worst, the
+%scheduler has little-to-none impact since its slowdown is comparable
+%to that observed on the loop-back path.
+%This result can be explained by the fact that, despite the enforcement of the FP policy, and its proven correct behaviour (see \fig{fig:schim_behaviour_fp}), the
+%This
+%enforced ordering of transaction is likely overridden by the
+%transaction re-ordering mechanisms present in the DDR controller. The
+%problem specifically occurs because the access pattern of the
+%interfering bombs is sequential, and hence preferably treated by the
+%DDR controller. Conversely, the FP scheduler works correctly in
+%scenarios like those in \fig{fig:schim_behaviour_fp} because the
+%memory access pattern of the core under analysis is sequential as
+%well. It follows that the FP policy is mainly useful when performing
+%the movement of large, sequential data chunks.
 \begin{figure}
     \centering
-    \includegraphics[scale=0.53]{images/Execution_times.pdf}
-    \caption{}
+    \includegraphics[scale=0.54]{images/Execution_times.pdf}
+    \caption{Normalized execution time for each benchmark and input size for \emph{Solo} and \emph{Stress}.}
     \label{fig:isolation_ratio}
 \end{figure}
