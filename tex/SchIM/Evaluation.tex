@@ -180,11 +180,12 @@ Figure \ref{fig:threshold_tdma} shows that the TDMA scheduler is, with respect t
 scheduler manages to preserve a constant throughput regardless of the contention
 and the assigned slot.
 Similarly, the TS scheduler is barely impacted by the choice of the threshold as
-displayed in Figure \ref{fig:threshold_ts}. Nonetheless, under high
-contention, one can observe that the throughput of each core is affected.
+displayed in Figure \ref{fig:threshold_ts}.
 
+Nonetheless, under high
+contention, one can observe that the throughput of each core is affected.
 The fourth inset of Figure \ref{fig:threshold_fp} and \ref{fig:threshold_tdma}
-illustrate the importance of the threshold and the PL-to-PL feedback as a
+illustrate the importance of the threshold and the PL-to-PL feedback mechanism as a
 a considerable drop of throughput can be observed for the highest priority of FP
 and for a TDMA period of 32.
 
@@ -316,12 +317,12 @@ in \emph{Solo}.
 The results obtained on the considered benchmarks are listed in
 Figure~\ref{fig:isolation_ratio}. All the results in the
 Figure~\ref{fig:isolation_ratio} are the aggregation (arithmetic average)
-of 30 different runs in the same configuration.
+of 30 different runs in the same configuration. Each bar cluster of the Figure~\ref{fig:isolation_ratio} insets represents one of the aforementioned configuration for \emph{Solo} and \emph{Stress}. The height of each bar denotes its normalized execution time.
 
 For this set of experiments, the FP scheduler was configured such that the core under
 analysis (i.e., the one running the benchmark) has the highest priority
 and a threshold of 8. The other cores are assigned lower priorities and
-thresholds matching their priority order (i.e., 4, 2, 1). Under TDMA scheduling the core under analysis has a slot of 512 clock cycles and a threshold of 14 while the co-runners are assigned slots of 32 and 16 clock cycles with thresholds of 4 and 1. For the TS scheduler, the core under analysis is assigned a MIT of 16 and a threshold of 4 whereas each co-runner has a MIT of 64 and a threshold of 2.
+thresholds matching their priority order (i.e., 4, 2, 1). Under TDMA scheduling, the core under analysis has a slot of 512 clock cycles and a threshold of 14 while the co-runners are assigned slots of 32 and 16 clock cycles with thresholds of 4 and 1. For the TS scheduler, the core under analysis is assigned a MIT of 16 and a threshold of 4 whereas each co-runner has a MIT of 64 and a threshold of 2.
 
 The \emph{normal route} is used as a baseline for this experiment
 because no scheduling is performed in this configuration.
@@ -367,6 +368,6 @@ unexpectedly occupy the bus, unpredictability delaying the scheduling of the oth
 \begin{figure}
     \centering
     \includegraphics[scale=0.54]{images/Execution_times.pdf}
-    \caption{Normalized execution time for each benchmark and input size for \emph{Solo} and \emph{Stress}.}
+    \caption{Normalized execution time for each benchmark and input size for \emph{Solo} and \emph{Stress}. Each column denote a given benchmark of the SD-VBS suite, while each row denotes a specific input size (in increasing order from top to bottom).}
     \label{fig:isolation_ratio}
 \end{figure}
