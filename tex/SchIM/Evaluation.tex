@@ -159,24 +159,24 @@ the normal route, nor when using the TS policy at the \schim.
   \caption{Figures showing the impact of the threshold in use on the final bandwidth experinced by the cores for the offerede schedulers}
   \label{fig:schim_threshold}
 \end{figure}
-As mentioned in Section \ref{sec:pl-to-ps-feedback}, the PL-to-PS feedbacks enables
-\schim to regulates the HPM ports buffer occupancy to prevent head-of-line blocking.
+As mentioned in Section \ref{sec:pl-to-ps-feedback}, the PL-to-PS feedback enables
+\schim to regulate the HPM ports buffer occupancy to prevent head-of-line blocking.
 Since this feedback directly throttles the desired core, the selection of an adequate
 threshold is important to preserve the balance between control and performance.
-Therefore in Figure \ref{fig:schim_threshold}, we have explored the sensitivity
+Therefore, in Figure \ref{fig:schim_threshold}, we have explored the sensitivity
 to the threshold for each of the proposed schedulers under different levels of contention.
-The thresholds in use range from 1 to 8 and when the feedback is disabled
+The thresholds in use range from 1 to 8 and even include the case where the feedback mechanism is disabled
 (noted \emph{NA}). The contention is created by up to four co-running cores emitting
 write transactions. For each parameter applied to a scheduler (i.e., fixed
 priority, TDMA slot or MIT), the co-running cores are assigned the most
-demanding parameter available (i.e., the highest priority for FP, the biggest TDMA
+demanding parameters available (i.e., the highest priority for FP, the biggest TDMA
 slot or the smallest MIT).
 
 In the case of the FP scheduler (Figure \ref{fig:threshold_fp}), one can observe
 that when running alone, the threshold has no influence on the throughput.
 However, as soon as co-runners are added, the cores start to experience a
 decrease in throughput.
-Figure \ref{fig:threshold_tdma} shows that the TDMA scheduler is, for the throughput, not impacted considerably by the threshold. Overall, the
+Figure \ref{fig:threshold_tdma} shows that the TDMA scheduler is, with respect to the throughput, not impacted considerably by the threshold. Globally, the
 scheduler manages to preserve a constant throughput regardless of the contention
 and the assigned slot.
 Similarly, the TS scheduler is barely impacted by the choice of the threshold as
