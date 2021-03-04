@@ -151,9 +151,9 @@ def schedulingDensity(ax, m):
 
 if (__name__ == '__main__'):
 
-    filenames = ["SchIM_TS/iladata_TS"]#, "SchIM_TDMA/iladata_TDMA", "SchIM_FP/iladata_FP", "SchIM_FIBO/iladata_FIBO", "SchIM_GALOIS/iladata_GALOIS", "SchIM_AGING/iladata_AGING"]
+    filenames = ["SchIM_TS/iladata_TS", "SchIM_TDMA/iladata_TDMA", "SchIM_FP/iladata_FP", "SchIM_FIBO/iladata_FIBO", "SchIM_GALOIS/iladata_GALOIS", "SchIM_AGING/iladata_AGING"]
     inputExt  = ".csv"
-    outputExt = ".png"
+    outputExt = ".pdf"
 
     for filename in filenames:
         # Read raw data file
