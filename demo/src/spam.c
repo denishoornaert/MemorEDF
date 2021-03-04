@@ -19,19 +19,11 @@ int main(int argc, char** argv) {
     char mode;
     unsigned samples;
 
-    sscanf(argv[1], "%lx", &target);
-    sscanf(argv[2], "%c", &mode);
-    sscanf(argv[3], "%u", &samples);
+    sscanf(argv[1], "%c", &mode);
 
     int hpm_fd  = open_fd();
 
-    unsigned* plim   = mmap((void*)0, HPM0_SIZE, PROT_EXEC|PROT_READ|PROT_WRITE, MAP_SHARED|0x40, hpm_fd, target);
-
-    // Set the CPU
-    cpu_set_t mask;
-    CPU_ZERO(&mask);
-    CPU_SET(0, &mask);
-    sched_setaffinity(0, sizeof(mask), &mask);
+    unsigned* plim   = mmap((void*)0, HPM0_SIZE, PROT_EXEC|PROT_READ|PROT_WRITE, MAP_SHARED|0x40, hpm_fd, 0x1c000000);
 
     printf("operation, contention, priorities, seconds, nanoseconds, bytes\n");
 
