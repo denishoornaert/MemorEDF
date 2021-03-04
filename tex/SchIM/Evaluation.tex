@@ -1,14 +1,14 @@
 \section{Evaluation}
 
 The present section aims at evaluating the behavior of the \schim on
-the target platform, it overhead and benefits.  First, in subsection
+the target platform, its overhead and benefits.  First, in subsection
 \ref{subsection:considered-architecture}, we review our experimental
 setup. Thereafter, we assess the overhead introduced by the \schim in
 Section~\ref{subsec:platform-capabilities-and-performance-degradation}. In
 Section~\ref{subsec:internal-behaviour-of-schim}, an in-depth analysis
-of the \schim behaviour is presented. Finally, a demonstration of the
-memory isolation enabled by the \schim using real-world benchmarks is
-provided in Section~\ref{subsec:isolation}.
+of the \schim's behavior is presented. Finally, an evaluation of the
+temporal behavior of a set of real-world benchmarks operating through
+the \schim is provided in Section~\ref{subsec:isolation}.
 
 
 \subsection{Experimental Setup}
@@ -19,12 +19,26 @@ Vision Benchmark Suite (SD-VBS)~\cite{SD-VBS} and a combinations of
 the two. Specifically, the 7 most memory-intensive benchmarks have
 been selected, i.e. \emph{stitch}, \emph{texture synthesis},
 \emph{disparity}, \emph{tracking}, \emph{localization}, \emph{mser}
-and \emph{sift}. For all our runs we have considered the VGA input
-size (640$\times$480 pixels). When running any benchmark, we use the
-cache coloring mechanism provided by Jailhouse to partition the LLC
-evenly amongst the cores and to prevent our measurements to be
-affected by inter-core cache line eviction. As a result, each
-benchmark operates on 1/4 of the total cache space---256~KB.
+and \emph{sift}. For our runs we have considered all the intermediate
+input sizes ranging from SQCIF (128$\times$196 pixels) to VGA
+(640$\times$480 pixels). When running any benchmark, we use the cache
+coloring mechanism implemented in the Jailhouse
+hypervisor~\cite{determ_virt} to partition the LLC evenly amongst the
+4 cores and to prevent our measurements to be affected by inter-core
+cache interference. As a result, each benchmark operates on 1/4 of the
+total cache space---256~KB. As extensively discussed
+in~\cite{bounding_rtas14, palloc_rtas14}, it is also important to
+avoid inter-core DRAM bank conflicts, which can cause the arbitrary
+reordering of transactions originating from different cores. This is
+accomplished by (1) configuring the DRAM controller to disable DRAM
+bank interleaving; and (2) by performing static cache
+bleaching~\cite{gracioli2019designing, PLIM20} at the \schim's output
+to re-compact accesses to colored pages into contiguous DRAM
+accesses. In this platform, there are a total of 16 DRAM banks of
+256~MB each. Thanks to bleaching, we are able to assign the full size
+of 4 banks (i.e., 1~GB) to each core core, instead of being restricted
+to only 1/4 of that due to non-overlapping color and bank address
+bits.
 
 %  \todo[inline]{RM: this part is a bit redundant with the implementation section. We can remove this seciton and only keep the description of the routes we are gonna test. See above}
 %    The COTS platform used for the following set of experiments, the Xilinx ZCU102 development board, features four cores which, with the LLC, composed the cores cluster. While the \schim can be configured to handle many more masters, in the present set of experiments, only the cores composing this cluster competes for main memory access. Consequently, the \schim module has been configured with four queues (one for each master) as shown in Figure \ref{fig:MemorEDF_module_schema}. Following the discussion in section \ref{sec:pl-to-ps-feedback}, \schim has been configured with two slave ports. Finally, the frequency of the PL side has been pushed to 250~MHz.
@@ -53,35 +67,59 @@ and TS.
 \label{subsec:platform-capabilities-and-performance-degradation}
 Intuitively and as discussed in~\cite{PLIM20}, redirecting the traffic
 coming from the cores to the PL side incurs a performance hit. In
-fact, the PL operates at a lower frequency compared to the PS. As
-such, larger memory latency and a smaller throughput should be
-expected when routing memory traffic through the PL. On the other
-hand, by redirecting and scheduling traffic in the PL, we can achieve
-higher system predictability.  In order to weight up the pros and the
-cons of these two orthogonal objectives, we have computed the
-throughput of one \emph{core under analysis}, here core 0 (noted
-$C_{0}$), for each of the aforementioned paths under all the possible
-levels of contention. The result of this experiment is display in
-\fig{fig:bandwidth_comparison}.
+spite of the lower frequency at which the \schim operates (250~MHz),
+the theoretical throughput when using both the HPM lanes should be
+around 8~GB/s. We observe however that the achievable throughput
+through the HPM ports is a fraction of that due to what appears to be
+PS-side internal throttling. For the sake of completeness, we quantify
+in \fig{fig:bandwidth_comparison} the maximum bandwidth achieved
+through the PL --- and hence through the \schim. But it is important
+to remember that the absolute figures are strictly platforms
+dependent.
 
-From \fig{fig:bandwidth_comparison}, one can observe that in general,
-the throughput experienced by the core under analysis (i.e., $C_{0}$)
-is high and that, regardless of the contention level on the normal
-route, the bandwidth remains high. As mentioned earlier, redirecting
-the cores' traffic through the PL side has a cost. In fact, in the
-case with no contention (the left-most bar cluster), the bandwidth
-experienced by $C_{0}$ when going through the simple loop-back, is
-reduced by around 75\% compared to the normal route.  Looking at the
-left-most bar cluster, one can also observe the overhead introduced by
-having the presence of the \schim on the memory loop-back. The
-additional drop in bandwidth is approximately 185~MBps.  While the
-throughput is larger in the case of the \emph{simple loop-back}, it
-also drops linearly as soon as the contention level increases.  On the
-other hand, the \schim manages to preserve the same bandwidth, with
-negligible interference being observed in the most challenging
-scenario (the right-most bar cluster). In other words, the \schim
-guarantees performance isolation between the cores with respect to the
-bus usage.
+In \fig{fig:bandwidth_comparison}, we have computed the throughput of
+one \emph{core under analysis}, here core 0 (noted $C_{0}$) when a
+synthetic memory intensive application is deployed on an increasing
+number of cores denoted with the same notation. The first bar cluster
+(``Normal'') refers to the throughput measured via the normal
+route. The other three clusters capture the observed bandwidth when
+traffic is routed through and managed by the \schim. One cluster is
+provided for each of the implemented memory scheduling policies,
+namely --- from left to right --- FP, TDMA, and TS. As expected, there
+is a sharp reduction (around 75\%) in terms of absolute
+bandwidth. Importantly however, two aspects need to be
+highlighted. First, the bandwidth achieved through the \schim is still
+remarkably high and allows studying the behavior of realistic workload
+under custom memory scheduling policies, which is the main goal of
+this research. Second, it emerges that the implemented FP and TDMA
+policies are capable of protecting the core under analysis from
+inter-core interference, while this is not the case when going through
+the normal route, nor when using the TS policy at the \schim.
+
+
+%% for each
+%% of the aforementioned paths under all the possible levels of
+%% contention. The result of this experiment is display in
+%% \fig{fig:bandwidth_comparison}.
+
+%% From , one can observe that in general,
+%% the throughput experienced by the core under analysis (i.e., $C_{0}$)
+%% is high and that, regardless of the contention level on the normal
+%% route, the bandwidth remains high. As mentioned earlier, redirecting
+%% the cores' traffic through the PL side has a cost. In fact, in the
+%% case with no contention (the left-most bar cluster), the bandwidth
+%% experienced by $C_{0}$ when going through the simple loop-back, is
+%% reduced by around 75\% compared to the normal route.  Looking at the
+%% left-most bar cluster, one can also observe the overhead introduced by
+%% having the presence of the \schim on the memory loop-back. The
+%% additional drop in bandwidth is approximately 185~MBps.  While the
+%% throughput is larger in the case of the \emph{simple loop-back}, it
+%% also drops linearly as soon as the contention level increases.  On the
+%% other hand, the \schim manages to preserve the same bandwidth, with
+%% negligible interference being observed in the most challenging
+%% scenario (the right-most bar cluster). In other words, the \schim
+%% guarantees performance isolation between the cores with respect to the
+%% bus usage.
 
 \begin{figure}
   \centering
