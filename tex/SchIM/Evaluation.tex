@@ -196,17 +196,17 @@ a sequential and contiguous access pattern.
 
 \subsection{Internal Behaviour of SchIM}
 \label{subsec:internal-behaviour-of-schim}
-The next objective is to verify the correct behavior of our scheduling
-policies at the granularity of a clock cycle by observing the inputs,
+The next objective is to verify the correct behavior of the schedulers
+at the granularity of a clock cycle by observing the inputs,
 the outputs and the internal signals and registers of the \schim
-module.  This is made possible thanks to the \emph{Integrated Logic
+module. This is made possible thanks to the \emph{Integrated Logic
   Analyser} (or ILA) provided by Xilinx \cite{Xilinx-ILA}. The latter
 IP can be directly implemented on the PL side, alongside the \schim,
 and is able to probe the signals and to store them in a local
 memory. For this experiment, a group of relevant internal signals have
 been probed and captured during a window of 16384 contiguous clock
 cycles. Then, the information has been extracted by post-processing
-the data.  To characterize the behavior of the three different
+the data. To characterize the behavior of the three different
 policies, the ILA has been instrumented to collect (i) the amount of
 transactions being buffered in the queues at each clock cycle (inset 1
 in \fig{fig:schim_behaviour_fp}, \fig{fig:schim_behaviour_tdma}, and
@@ -294,7 +294,7 @@ there are always ties between the queues and FP is frequently applied.
       \begin{subfigure}{0.45\textwidth}
         \centering
         % include second image
-        \includegraphics[scale=0.45]{images/SchIM_MG_buffering.pdf}
+        \includegraphics[scale=0.45]{images/SchIM_TS_buffering.pdf}
         \caption{TS with min. period of 256 clock cycles}
         \label{fig:schim_behaviour_mg}
       \end{subfigure}
