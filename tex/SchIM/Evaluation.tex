@@ -128,6 +128,68 @@ the normal route, nor when using the TS policy at the \schim.
   \label{fig:bandwidth_comparison}
 \end{figure}
 
+\subsection{PL-to-PS feedback performance impact}
+\begin{figure}[]
+  \centering
+  \begin{subfigure}{0.9\textwidth}
+    \centering
+    \includegraphics[scale=0.4]{images/fp.pdf}
+    \caption{}
+    \label{fig:threshold_fp}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}{0.9\textwidth}
+    \centering
+    \includegraphics[scale=0.4]{images/tdma.pdf}
+    \caption{}
+    \label{fig:threshold_tdma}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}{0.9\textwidth}
+    \centering
+    \includegraphics[scale=0.4]{images/ts.pdf}
+    \caption{}
+    \label{fig:threshold_ts}
+  \end{subfigure}
+  \caption{Throughput-threshold relationship for FP (\ref{fig:threshold_fp}), TDMA (\ref{fig:threshold_tdma}) and TS (\ref{fig:threshold_ts})}
+  \label{fig:schim_threshold}
+\end{figure}
+\ref{fig:schim_threshold}
+As mentioned in Section \ref{sec:pl-to-ps-feedback}, the PL-to-PS feedbacks enables
+\schim to regulates the HPM ports buffer occupancy to prevent head-of-line blocking.
+Since this feedback directly throttles the desired core, the selection of an adequate
+threshold is important preserve the balance between control and performance.
+Therefore in Figure \ref{fig:schim_threshold}, we have explored the sensitivity
+to the thershold for each of the proposed schedulers under different levels of contention.
+The thresholds in use range from 1 to 8 and when the feedback is disabled
+(noted \emph{NA}). The contention is created by up to four co-running cores emitting
+write transactions. For each parameter applied to a scheduler (i.e., fixed
+priority, TDMA slot or MIT), the co-running cores are assigned the the most
+demanding parameter available (i.e., a highest priority for FP, the biggest TDMA
+slot or the smallest MIT).
+
+In the case of the FP scheduler (Figure \ref{fig:threshold_fp}), one can observe
+that when running alone, the threshold as no influence on the throughput.
+However, as soon as co-runners are added, the cores start to experience a
+decrease of throughput.
+Figure \ref{fig:threshold_tdma} shows that the TDMA scheduler is, with respect
+to the throughput, not impacted considerably by the threshold. Overall, the
+scheduler manages to preserve a constant throughput regardless of the contention
+and the assigned slot.
+Similarly, the TS scheduler is barely impacted by the choice of threshold as
+displayed in Figure \ref{fig:threshold_ts}. Nonetheless, under high
+contention, one can observe that the throughput of each core is affected.
+
+The fourth inset of Figure \ref{fig:threshold_fp} and \ref{fig:threshold_tdma}
+illustrate the importance of the threshold and the PL-to-PL feedback as a
+considerable drop of throughput can be observed for the highest priority of FP
+and for a TDMA period of 32.
+
+Considering these experiments, setting the threshold to four for all the scheduler
+seems to bring the best trade-off between control and performance. However, this
+value cannot be blindly applied to all cases as this experiment is performed for
+a sequential and contiguous access pattern.
+
 \subsection{Internal Behaviour of SchIM}
 \label{subsec:internal-behaviour-of-schim}
 The next objective is to verify the correct behavior of our scheduling
