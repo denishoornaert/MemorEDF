@@ -140,7 +140,7 @@ def schedulingDensity(ax, m):
     x, y = idfilter(m["Sample in Buffer"])
     xy = np.vstack([x, y])
     z = gaussian_kde(xy)(xy)
-    ax.scatter(x, y, c=z, s=2, edgecolor='')
+    ax.scatter(x, y, s=2, edgecolor='')#, c=z)
     ## X axis
     ax.get_xaxis().set_visible(False)
     ax.set_xlim([0, len(m["Sample in Buffer"])])
