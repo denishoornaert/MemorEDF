@@ -265,7 +265,59 @@ module MemorEDF #
         output wire                                 Q_0_kill_the_core,
         output wire                                 Q_1_kill_the_core,
         output wire                                 Q_2_kill_the_core,
-        output wire                                 Q_3_kill_the_core
+        output wire                                 Q_3_kill_the_core,
+        // BRAM write port
+        output wire                              bram_clka_1,
+        output wire            [DATA_SIZE-1 : 0] bram_dina_1,
+        output wire [$clog2(QUEUE_LENGTH)-1 : 0] bram_addra_1,
+        output wire                              bram_wea_1,
+        output wire                              bram_ena_1,
+        // BRAM read port
+        output wire                              bram_clkb_1,
+        output wire                              bram_rstb_1,
+        output wire            [DATA_SIZE-1 : 0] bram_dinb_1,
+        output wire [$clog2(QUEUE_LENGTH)-1 : 0] bram_addrb_1,
+        output wire                              bram_enb_1,
+        input  wire            [DATA_SIZE-1 : 0] bram_doutb_1,
+        // BRAM write port
+        output wire                              bram_clka_2,
+        output wire            [DATA_SIZE-1 : 0] bram_dina_2,
+        output wire [$clog2(QUEUE_LENGTH)-1 : 0] bram_addra_2,
+        output wire                              bram_wea_2,
+        output wire                              bram_ena_2,
+        // BRAM read port
+        output wire                              bram_clkb_2,
+        output wire                              bram_rstb_2,
+        output wire            [DATA_SIZE-1 : 0] bram_dinb_2,
+        output wire [$clog2(QUEUE_LENGTH)-1 : 0] bram_addrb_2,
+        output wire                              bram_enb_2,
+        input  wire            [DATA_SIZE-1 : 0] bram_doutb_2,
+        // BRAM write port
+        output wire                              bram_clka_3,
+        output wire            [DATA_SIZE-1 : 0] bram_dina_3,
+        output wire [$clog2(QUEUE_LENGTH)-1 : 0] bram_addra_3,
+        output wire                              bram_wea_3,
+        output wire                              bram_ena_3,
+        // BRAM read port
+        output wire                              bram_clkb_3,
+        output wire                              bram_rstb_3,
+        output wire            [DATA_SIZE-1 : 0] bram_dinb_3,
+        output wire [$clog2(QUEUE_LENGTH)-1 : 0] bram_addrb_3,
+        output wire                              bram_enb_3,
+        input  wire            [DATA_SIZE-1 : 0] bram_doutb_3,
+        // BRAM write port
+        output wire                              bram_clka_4,
+        output wire            [DATA_SIZE-1 : 0] bram_dina_4,
+        output wire [$clog2(QUEUE_LENGTH)-1 : 0] bram_addra_4,
+        output wire                              bram_wea_4,
+        output wire                              bram_ena_4,
+        // BRAM read port
+        output wire                              bram_clkb_4,
+        output wire                              bram_rstb_4,
+        output wire            [DATA_SIZE-1 : 0] bram_dinb_4,
+        output wire [$clog2(QUEUE_LENGTH)-1 : 0] bram_addrb_4,
+        output wire                              bram_enb_4,
+        input  wire            [DATA_SIZE-1 : 0] bram_doutb_4
 	);
 
 	localparam NUMBER_OF_SCHEDULERS = TDMA_ENABLED + EDF_ENABLED + FP_ENABLED + MG_ENABLED + PRNG_FIBONACCI_ENABLED + PRNG_GALLOIS_ENABLED;
@@ -300,6 +352,65 @@ module MemorEDF #
     assign scheduler_hyper_period = buffers[447 : 416];
     assign scheduling_mode        = buffers[479 : 448]; // TODO go for 32 bit (or REGISTER_SIZE)
     assign counter_reset          = buffers[511 : 480];
+    
+    // BRAM write port
+    wire [NUMBER_OF_QUEUES-1 : 0]                             bram_clka;
+    wire [NUMBER_OF_QUEUES-1 : 0]           [DATA_SIZE-1 : 0] bram_dina;
+    wire [NUMBER_OF_QUEUES-1 : 0][$clog2(QUEUE_LENGTH)-1 : 0] bram_addra;
+    wire [NUMBER_OF_QUEUES-1 : 0]                             bram_wea;
+    wire [NUMBER_OF_QUEUES-1 : 0]                             bram_ena;
+    // BRAM read port
+    wire [NUMBER_OF_QUEUES-1 : 0]                             bram_clkb;
+    wire [NUMBER_OF_QUEUES-1 : 0]                             bram_rstb;
+    wire [NUMBER_OF_QUEUES-1 : 0]           [DATA_SIZE-1 : 0] bram_dinb;
+    wire [NUMBER_OF_QUEUES-1 : 0][$clog2(QUEUE_LENGTH)-1 : 0] bram_addrb;
+    wire [NUMBER_OF_QUEUES-1 : 0]                             bram_enb;
+    wire [NUMBER_OF_QUEUES-1 : 0]           [DATA_SIZE-1 : 0] bram_doutb;
+    
+    assign bram_clka_1 = bram_clka[0];
+    assign bram_dina_1 = bram_dina[0];
+    assign bram_addra_1 = bram_addra[0];
+    assign bram_wea_1 = bram_wea[0];
+    assign bram_ena_1 = bram_ena[0];
+    assign bram_clkb_1 = bram_clkb[0];
+    assign bram_rstb_1 = bram_rstb[0];
+    assign bram_dinb_1 = bram_dinb[0];
+    assign bram_addrb_1 = bram_addrb[0];
+    assign bram_enb_1 = bram_enb[0];
+    assign bram_doutb[0] = bram_doutb_1;
+    assign bram_clka_2 = bram_clka[1];
+    assign bram_dina_2 = bram_dina[1];
+    assign bram_addra_2 = bram_addra[1];
+    assign bram_wea_2 = bram_wea[1];
+    assign bram_ena_2 = bram_ena[1];
+    assign bram_clkb_2 = bram_clkb[1];
+    assign bram_rstb_2 = bram_rstb[1];
+    assign bram_dinb_2 = bram_dinb[1];
+    assign bram_addrb_2 = bram_addrb[1];
+    assign bram_enb_2 = bram_enb[1];
+    assign bram_doutb[1] = bram_doutb_2;
+    assign bram_clka_3 = bram_clka[2];
+    assign bram_dina_3 = bram_dina[2];
+    assign bram_addra_3 = bram_addra[2];
+    assign bram_wea_3 = bram_wea[2];
+    assign bram_ena_3 = bram_ena[2];
+    assign bram_clkb_3 = bram_clkb[2];
+    assign bram_rstb_3 = bram_rstb[2];
+    assign bram_dinb_3 = bram_dinb[2];
+    assign bram_addrb_3 = bram_addrb[2];
+    assign bram_enb_3 = bram_enb[2];
+    assign bram_doutb[2] = bram_doutb_3;
+    assign bram_clka_4 = bram_clka[3];
+    assign bram_dina_4 = bram_dina[3];
+    assign bram_addra_4 = bram_addra[3];
+    assign bram_wea_4 = bram_wea[3];
+    assign bram_ena_4 = bram_ena[3];
+    assign bram_clkb_4 = bram_clkb[3];
+    assign bram_rstb_4 = bram_rstb[3];
+    assign bram_dinb_4 = bram_dinb[3];
+    assign bram_addrb_4 = bram_addrb[3];
+    assign bram_enb_4 = bram_enb[3];
+    assign bram_doutb[3] = bram_doutb_4;
     
 //    Mapper #(
 //        .ID_WIDTH(6),
@@ -732,7 +843,18 @@ module MemorEDF #
         .Q_0_kill_the_core(Q_0_kill_the_core),
         .Q_1_kill_the_core(Q_1_kill_the_core),
         .Q_2_kill_the_core(Q_2_kill_the_core),
-        .Q_3_kill_the_core(Q_3_kill_the_core)
+        .Q_3_kill_the_core(Q_3_kill_the_core),
+        .bram_clka(bram_clka),
+        .bram_dina(bram_dina),
+        .bram_addra(bram_addra),
+        .bram_wea(bram_wea),
+        .bram_ena(bram_ena),
+        .bram_clkb(bram_clkb),
+        .bram_rstb(bram_rstb),
+        .bram_dinb(bram_dinb),
+        .bram_addrb(bram_addrb),
+        .bram_enb(bram_enb),
+        .bram_doutb(bram_doutb)
     );
 
 	endmodule
