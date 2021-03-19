@@ -34,8 +34,8 @@ module MemGuard #(
         //consumed,
         update,
         valid,
-        selection,
-        isSelected
+        selection
+//        isSelected
     );
     
     // Input definition
@@ -46,7 +46,7 @@ module MemGuard #(
     input  wire                       [NUMBER_OF_QUEUES-1 : 0] empty;
     //input  wire                       [NUMBER_OF_QUEUES-1 : 0] consumed;
     input  wire                                                update;
-    input wire isSelected;
+//    input wire isSelected;
     
     // Output definition
     output reg                                   valid;
@@ -66,7 +66,7 @@ module MemGuard #(
     
     wire               [$clog2(NUMBER_OF_QUEUES)-1 : 0] internal_selection;
     
-    assign selection = last_selected;
+    assign selection = internal_selection;
     
     always @(posedge clock)
     begin
@@ -82,13 +82,13 @@ module MemGuard #(
     
     always @(posedge clock)
     begin
-        if(reset|isSelected)
+        if(reset)
         begin
             bootstrap <= 0;
         end
-        else if(update)
+        else
         begin
-            bootstrap <= 1;
+            bootstrap <= valid;
         end
     end
 
@@ -98,9 +98,9 @@ module MemGuard #(
         begin
             last_selected <= 0;
         end
-        else if (~bootstrap)
-            last_selected <= internal_selection;
-        else if (update)
+//        else if (~bootstrap)
+//            last_selected <= internal_selection;
+        else if (valid & ~bootstrap)
             last_selected <= internal_selection;
     end
     
@@ -110,7 +110,7 @@ module MemGuard #(
     
     wire [NUMBER_OF_QUEUES-1 : 0] [PRIORITY_SIZE-1 : 0] priorities;
     
-    assign valid = |(core_active & (~empty));
+    assign valid = (|(core_active & (~empty)))&&(~(update&(~update_ff)));
     genvar i;
     for(i = 0; i < NUMBER_OF_QUEUES; i = i + 1)
     begin
@@ -159,7 +159,7 @@ module MemGuard #(
             integer i;
             for(i = 0; i < NUMBER_OF_QUEUES; i = i + 1)
             begin
-                if(((hasBeenUpdated[i] & core_active[i]) | empty[i]) | (budgets[i] == 0))
+                if(((update&(~update_ff)&(last_selected == i) & core_active[i]) | empty[i]) | (budgets[i] == 0))
                 begin
                     core_active[i] <= 0;
                     core_counter[i] <= 0;
@@ -194,7 +194,7 @@ module MemGuard #(
                 end
                 else if(~hasBeenUpdated[i])
                 begin
-                    hasBeenUpdated[i] <= (~update)&update_ff&(last_selected == i);                    
+                    hasBeenUpdated[i] <= update&(~update_ff)&(last_selected == i);                    
                 end
             end
         end

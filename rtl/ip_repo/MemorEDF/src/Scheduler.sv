@@ -231,10 +231,10 @@ module Scheduler
             .budgets(budgets),
             .priorities_input(priorities),
             .empty(empty),
-            .update((~pending_transaction & ~empty[selected_queue] & valid)),//.consumed(hasBeenConsumed),
+            .update(consumed & ~consumed_ff),//((~pending_transaction & ~empty[selected_queue] & valid)),//.consumed(hasBeenConsumed),
             .valid(schedulers_to_selector_valid[3]),
-            .selection(schedulers_to_selector_selection[3]),
-            .isSelected((mode==3)&(mode!=prvMode))
+            .selection(schedulers_to_selector_selection[3])
+//            .isSelected((mode==3)&(mode!=prvMode))
         );
     end
     
