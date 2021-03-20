@@ -37,33 +37,50 @@ module Selector #(
     input  wire                        reset;
     input  wire [$clog2(INPUTS)-1 : 0] index;
     input  wire     [INPUT_SIZE-1 : 0] values [INPUTS];
-    output reg      [INPUT_SIZE-1 : 0] outcome;
+//    output reg      [INPUT_SIZE-1 : 0] outcome;
+    output wire      [INPUT_SIZE-1 : 0] outcome;
     
 //    // Output register(s) definition
-//    reg [INPUT_SIZE-1 : 0] internalOutcome;
+    wire [INPUTS-1 : 0][INPUT_SIZE-1 : 0] and_outcomes;
+    wire [INPUTS-1 : 0][INPUT_SIZE-1 : 0] or_outcomes;
     
 //    // External routing of the registers
 //    assign outcome = internalOutcome;
     
-    // Running behaviour of the micro-architecture
-    always @(posedge clock)
+//    // Running behaviour of the micro-architecture
+//    always @(posedge clock)
+//    begin
+//        if(reset)
+//        begin
+//            //internalOutcome <= 0;
+//            outcome <= 0;
+//        end
+//        else
+//        begin
+//            integer i;
+//            for (i = 0; i < INPUTS; i = i+1)
+//            begin
+//                if(index == i)
+//                begin
+//                    outcome <= values[i];
+//                end 
+//            end
+//        end
+//    end
+
+    genvar i;
+    for (i = 0; i < INPUTS; i+=1)
     begin
-        if(reset)
-        begin
-            //internalOutcome <= 0;
-            outcome <= 0;
-        end
-        else
-        begin
-            integer i;
-            for (i = 0; i < INPUTS; i = i+1)
-            begin
-                if(index == i)
-                begin
-                    outcome <= values[i];
-                end 
-            end
-        end
+        assign and_outcomes[i] = values[i] & ((index == i)? {INPUT_SIZE{1'b1}} : 0);        
     end
+    
+    genvar j;
+    assign or_outcomes[0] = and_outcomes[0];
+    for (j = 1; j < INPUTS; j+=1)
+    begin
+        assign or_outcomes[j] = or_outcomes[j-1] | and_outcomes[j];
+    end
+    
+    assign outcome = or_outcomes[INPUTS-1];
     
 endmodule

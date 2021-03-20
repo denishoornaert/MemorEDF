@@ -123,7 +123,7 @@ module NonAXIDomain #(
 //    wire             [NUMBER_OF_QUEUES-1 : 0] dispatcher_to_queues_valid;
     wire [(DATA_SIZE*(NUMBER_OF_QUEUES/2))-1 : 0] dispatcher_to_queues_1_2_packets;
     wire [(DATA_SIZE*(NUMBER_OF_QUEUES/2))-1 : 0] dispatcher_to_queues_3_4_packets;
-    wire     [(DATA_SIZE*NUMBER_OF_QUEUES)-1 : 0] dispatcher_to_queues_packets;
+    wire   [(DATA_SIZE*NUMBER_OF_QUEUES/2)-1 : 0] dispatcher_to_queues_packets;
     wire             [(NUMBER_OF_QUEUES/2)-1 : 0] dispatcher_to_queues_1_2_valid;
     wire             [(NUMBER_OF_QUEUES/2)-1 : 0] dispatcher_to_queues_3_4_valid;
     wire                 [NUMBER_OF_QUEUES-1 : 0] dispatcher_to_queues_valid;
@@ -134,7 +134,7 @@ module NonAXIDomain #(
     wire             [NUMBER_OF_QUEUES-1 : 0] lastElem;
     wire     [$clog2(NUMBER_OF_QUEUES)-1 : 0] scheduler_to_selector_id;
     
-    assign dispatcher_to_queues_packets = {dispatcher_to_queues_3_4_packets[DATA_SIZE +: DATA_SIZE], dispatcher_to_queues_3_4_packets[0 +: DATA_SIZE], dispatcher_to_queues_1_2_packets[DATA_SIZE +: DATA_SIZE], dispatcher_to_queues_1_2_packets[0 +: DATA_SIZE]};
+    assign dispatcher_to_queues_packets = {packetizer_2_to_dispatcher_packet, packetizer_1_to_dispatcher_packet};
     assign dispatcher_to_queues_valid = {dispatcher_to_queues_3_4_valid[1], dispatcher_to_queues_3_4_valid[0], dispatcher_to_queues_1_2_valid[1], dispatcher_to_queues_1_2_valid[0]};
 
     wire     [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] queues_higher_threshold;
@@ -145,27 +145,25 @@ module NonAXIDomain #(
 
     // Instantiation of the Dispatcher module
     Dispatcher # (
-        .OUTPUTS(NUMBER_OF_QUEUES/2),
-        .INPUT_SIZE(DATA_SIZE)
+        .OUTPUTS(NUMBER_OF_QUEUES/2)
+//        .INPUT_SIZE(DATA_SIZE)
     ) dispatcher_1 (
         .clock(clock),
         .reset(reset),
-        .packetIn(packetizer_1_to_dispatcher_packet),
+//        .packetIn(packetizer_1_to_dispatcher_packet),
         .valid(packetizer_1_to_dispatcher_valid),
         .id(packetizer_1_to_dispatcher_id[0]),
-        .packetsOut(dispatcher_to_queues_1_2_packets),
+//        .packetsOut(dispatcher_to_queues_1_2_packets),
         .produced(dispatcher_to_queues_1_2_valid)
     );
     Dispatcher # (
-        .OUTPUTS(NUMBER_OF_QUEUES/2),
-        .INPUT_SIZE(DATA_SIZE)
+        .OUTPUTS(NUMBER_OF_QUEUES/2)
+//        .INPUT_SIZE(DATA_SIZE)
     ) dispatcher_2 (
         .clock(clock),
         .reset(reset),
-        .packetIn(packetizer_2_to_dispatcher_packet),
         .valid(packetizer_2_to_dispatcher_valid),
         .id(packetizer_2_to_dispatcher_id[0]),
-        .packetsOut(dispatcher_to_queues_3_4_packets),
         .produced(dispatcher_to_queues_3_4_valid)
     );
 	
@@ -182,7 +180,7 @@ module NonAXIDomain #(
 	       .clock(clock),
            .reset(reset),
            .higher_threshold(queues_higher_threshold[i]),
-           .valueIn(dispatcher_to_queues_packets[(i*DATA_SIZE) +: DATA_SIZE]),
+           .valueIn(dispatcher_to_queues_packets[((i>>1)*DATA_SIZE) +: DATA_SIZE]),
            .valueInValid(dispatcher_to_queues_valid[i]),
            .consumed(scheduler_to_queues_consumed[i]),
            .valueOut(queues_to_selector_packets[i]),
