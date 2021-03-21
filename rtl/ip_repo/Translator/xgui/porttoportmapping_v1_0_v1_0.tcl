@@ -35,6 +35,8 @@ proc init_gui { IPINST } {
 
 
 
+  ipgui::add_param $IPINST -name "READ_DEPTH"
+  ipgui::add_param $IPINST -name "WRITE_DEPTH"
 
 }
 
@@ -218,12 +220,30 @@ proc validate_PARAM_VALUE.C_S00_AXI_WUSER_WIDTH { PARAM_VALUE.C_S00_AXI_WUSER_WI
 	return true
 }
 
+proc update_PARAM_VALUE.READ_DEPTH { PARAM_VALUE.READ_DEPTH } {
+	# Procedure called to update READ_DEPTH when any of the dependent parameters in the arguments change
+}
+
+proc validate_PARAM_VALUE.READ_DEPTH { PARAM_VALUE.READ_DEPTH } {
+	# Procedure called to validate READ_DEPTH
+	return true
+}
+
 proc update_PARAM_VALUE.SPM_SIZE_IN_BYTE { PARAM_VALUE.SPM_SIZE_IN_BYTE } {
 	# Procedure called to update SPM_SIZE_IN_BYTE when any of the dependent parameters in the arguments change
 }
 
 proc validate_PARAM_VALUE.SPM_SIZE_IN_BYTE { PARAM_VALUE.SPM_SIZE_IN_BYTE } {
 	# Procedure called to validate SPM_SIZE_IN_BYTE
+	return true
+}
+
+proc update_PARAM_VALUE.WRITE_DEPTH { PARAM_VALUE.WRITE_DEPTH } {
+	# Procedure called to update WRITE_DEPTH when any of the dependent parameters in the arguments change
+}
+
+proc validate_PARAM_VALUE.WRITE_DEPTH { PARAM_VALUE.WRITE_DEPTH } {
+	# Procedure called to validate WRITE_DEPTH
 	return true
 }
 
@@ -331,5 +351,15 @@ proc update_MODELPARAM_VALUE.COLOR_BITS_LOWER_BOUND { MODELPARAM_VALUE.COLOR_BIT
 proc update_MODELPARAM_VALUE.SPM_SIZE_IN_BYTE { MODELPARAM_VALUE.SPM_SIZE_IN_BYTE PARAM_VALUE.SPM_SIZE_IN_BYTE } {
 	# Procedure called to set VHDL generic/Verilog parameter value(s) based on TCL parameter value
 	set_property value [get_property value ${PARAM_VALUE.SPM_SIZE_IN_BYTE}] ${MODELPARAM_VALUE.SPM_SIZE_IN_BYTE}
+}
+
+proc update_MODELPARAM_VALUE.READ_DEPTH { MODELPARAM_VALUE.READ_DEPTH PARAM_VALUE.READ_DEPTH } {
+	# Procedure called to set VHDL generic/Verilog parameter value(s) based on TCL parameter value
+	set_property value [get_property value ${PARAM_VALUE.READ_DEPTH}] ${MODELPARAM_VALUE.READ_DEPTH}
+}
+
+proc update_MODELPARAM_VALUE.WRITE_DEPTH { MODELPARAM_VALUE.WRITE_DEPTH PARAM_VALUE.WRITE_DEPTH } {
+	# Procedure called to set VHDL generic/Verilog parameter value(s) based on TCL parameter value
+	set_property value [get_property value ${PARAM_VALUE.WRITE_DEPTH}] ${MODELPARAM_VALUE.WRITE_DEPTH}
 }
 
