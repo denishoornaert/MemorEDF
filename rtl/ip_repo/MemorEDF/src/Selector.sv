@@ -46,7 +46,7 @@ module Selector #(
 //    assign outcome = internalOutcome;
     
     // Running behaviour of the micro-architecture
-    always @(posedge clock)
+    always @(*) //posedge clock)
     begin
         if(reset)
         begin
