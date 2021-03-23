@@ -88,6 +88,9 @@ module Scheduler
     //
     reg             [REGISTER_SIZE-1 : 0] counter_reset_ff;
     wire                                  force_reset;
+    
+    reg [1 : 0] prvMode;
+    
 
     assign enable            = internal_enable;
     assign id                = internal_id;
@@ -108,6 +111,18 @@ module Scheduler
         else
         begin
             consumed_ff <= consumed;
+        end
+    end
+    
+    always @(posedge clock)
+    begin
+        if(reset)
+        begin
+            prvMode <= 0;
+        end
+        else
+        begin
+            prvMode <= mode;
         end
     end
     
@@ -216,9 +231,10 @@ module Scheduler
             .budgets(budgets),
             .priorities_input(priorities),
             .empty(empty),
-            .update((~pending_transaction & ~empty[selected_queue] & valid)),//.consumed(hasBeenConsumed),
+            .update(consumed & ~consumed_ff),//((~pending_transaction & ~empty[selected_queue] & valid)),//.consumed(hasBeenConsumed),
             .valid(schedulers_to_selector_valid[3]),
             .selection(schedulers_to_selector_selection[3])
+//            .isSelected((mode==3)&(mode!=prvMode))
         );
     end
     

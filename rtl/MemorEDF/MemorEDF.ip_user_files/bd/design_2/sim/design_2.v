@@ -1,7 +1,7 @@
 //Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-//Date        : Mon Feb 22 14:44:13 2021
+//Date        : Sat Feb 27 19:19:05 2021
 //Host        : buflightdev running 64-bit Ubuntu 16.04.7 LTS
 //Command     : generate_target design_2.bd
 //Design      : design_2
@@ -9,7 +9,7 @@
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "design_2,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_2,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=7,numReposBlks=7,numNonXlnxBlks=2,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_clkrst_cnt=28,da_zynq_ultra_ps_e_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "design_2.hwdef" *) 
+(* CORE_GENERATION_INFO = "design_2,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_2,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=6,numReposBlks=6,numNonXlnxBlks=2,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_clkrst_cnt=28,da_zynq_ultra_ps_e_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "design_2.hwdef" *) 
 module design_2
    ();
 
@@ -56,51 +56,13 @@ module design_2
   (* CONN_BUS_INFO = "MemorEDF_0_m00_axi xilinx.com:interface:aximm:1.0 AXI4 WREADY" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire MemorEDF_0_m00_axi_WREADY;
   (* CONN_BUS_INFO = "MemorEDF_0_m00_axi xilinx.com:interface:aximm:1.0 AXI4 WSTRB" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [15:0]MemorEDF_0_m00_axi_WSTRB;
   (* CONN_BUS_INFO = "MemorEDF_0_m00_axi xilinx.com:interface:aximm:1.0 AXI4 WVALID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire MemorEDF_0_m00_axi_WVALID;
-  wire [39:0]porttoportmapping_v1_0_0_m00_axi_ARADDR;
-  wire [1:0]porttoportmapping_v1_0_0_m00_axi_ARBURST;
-  wire [3:0]porttoportmapping_v1_0_0_m00_axi_ARCACHE;
-  wire [15:0]porttoportmapping_v1_0_0_m00_axi_ARID;
-  wire [7:0]porttoportmapping_v1_0_0_m00_axi_ARLEN;
-  wire porttoportmapping_v1_0_0_m00_axi_ARLOCK;
-  wire [2:0]porttoportmapping_v1_0_0_m00_axi_ARPROT;
-  wire [3:0]porttoportmapping_v1_0_0_m00_axi_ARQOS;
-  wire porttoportmapping_v1_0_0_m00_axi_ARREADY;
-  wire [2:0]porttoportmapping_v1_0_0_m00_axi_ARSIZE;
-  wire [0:0]porttoportmapping_v1_0_0_m00_axi_ARUSER;
-  wire porttoportmapping_v1_0_0_m00_axi_ARVALID;
-  wire [39:0]porttoportmapping_v1_0_0_m00_axi_AWADDR;
-  wire [1:0]porttoportmapping_v1_0_0_m00_axi_AWBURST;
-  wire [3:0]porttoportmapping_v1_0_0_m00_axi_AWCACHE;
-  wire [15:0]porttoportmapping_v1_0_0_m00_axi_AWID;
-  wire [7:0]porttoportmapping_v1_0_0_m00_axi_AWLEN;
-  wire porttoportmapping_v1_0_0_m00_axi_AWLOCK;
-  wire [2:0]porttoportmapping_v1_0_0_m00_axi_AWPROT;
-  wire [3:0]porttoportmapping_v1_0_0_m00_axi_AWQOS;
-  wire porttoportmapping_v1_0_0_m00_axi_AWREADY;
-  wire [2:0]porttoportmapping_v1_0_0_m00_axi_AWSIZE;
-  wire [0:0]porttoportmapping_v1_0_0_m00_axi_AWUSER;
-  wire porttoportmapping_v1_0_0_m00_axi_AWVALID;
-  wire [15:0]porttoportmapping_v1_0_0_m00_axi_BID;
-  wire porttoportmapping_v1_0_0_m00_axi_BREADY;
-  wire [1:0]porttoportmapping_v1_0_0_m00_axi_BRESP;
-  wire porttoportmapping_v1_0_0_m00_axi_BVALID;
-  wire [127:0]porttoportmapping_v1_0_0_m00_axi_RDATA;
-  wire [15:0]porttoportmapping_v1_0_0_m00_axi_RID;
-  wire porttoportmapping_v1_0_0_m00_axi_RLAST;
-  wire porttoportmapping_v1_0_0_m00_axi_RREADY;
-  wire [1:0]porttoportmapping_v1_0_0_m00_axi_RRESP;
-  wire porttoportmapping_v1_0_0_m00_axi_RVALID;
-  wire [127:0]porttoportmapping_v1_0_0_m00_axi_WDATA;
-  wire porttoportmapping_v1_0_0_m00_axi_WLAST;
-  wire porttoportmapping_v1_0_0_m00_axi_WREADY;
-  wire [15:0]porttoportmapping_v1_0_0_m00_axi_WSTRB;
-  wire porttoportmapping_v1_0_0_m00_axi_WVALID;
   wire [0:0]rst_ps8_0_99M_peripheral_aresetn;
   (* CONN_BUS_INFO = "smartconnect_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 ARADDR" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [48:0]smartconnect_0_M00_AXI_ARADDR;
   (* CONN_BUS_INFO = "smartconnect_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 ARBURST" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [1:0]smartconnect_0_M00_AXI_ARBURST;
   (* CONN_BUS_INFO = "smartconnect_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 ARCACHE" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [3:0]smartconnect_0_M00_AXI_ARCACHE;
+  (* CONN_BUS_INFO = "smartconnect_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 ARID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [5:0]smartconnect_0_M00_AXI_ARID;
   (* CONN_BUS_INFO = "smartconnect_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 ARLEN" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [7:0]smartconnect_0_M00_AXI_ARLEN;
-  (* CONN_BUS_INFO = "smartconnect_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 ARLOCK" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [0:0]smartconnect_0_M00_AXI_ARLOCK;
+  (* CONN_BUS_INFO = "smartconnect_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 ARLOCK" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire smartconnect_0_M00_AXI_ARLOCK;
   (* CONN_BUS_INFO = "smartconnect_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 ARPROT" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [2:0]smartconnect_0_M00_AXI_ARPROT;
   (* CONN_BUS_INFO = "smartconnect_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 ARQOS" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [3:0]smartconnect_0_M00_AXI_ARQOS;
   (* CONN_BUS_INFO = "smartconnect_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 ARREADY" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire smartconnect_0_M00_AXI_ARREADY;
@@ -110,18 +72,21 @@ module design_2
   (* CONN_BUS_INFO = "smartconnect_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 AWADDR" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [48:0]smartconnect_0_M00_AXI_AWADDR;
   (* CONN_BUS_INFO = "smartconnect_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 AWBURST" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [1:0]smartconnect_0_M00_AXI_AWBURST;
   (* CONN_BUS_INFO = "smartconnect_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 AWCACHE" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [3:0]smartconnect_0_M00_AXI_AWCACHE;
+  (* CONN_BUS_INFO = "smartconnect_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 AWID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [5:0]smartconnect_0_M00_AXI_AWID;
   (* CONN_BUS_INFO = "smartconnect_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 AWLEN" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [7:0]smartconnect_0_M00_AXI_AWLEN;
-  (* CONN_BUS_INFO = "smartconnect_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 AWLOCK" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [0:0]smartconnect_0_M00_AXI_AWLOCK;
+  (* CONN_BUS_INFO = "smartconnect_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 AWLOCK" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire smartconnect_0_M00_AXI_AWLOCK;
   (* CONN_BUS_INFO = "smartconnect_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 AWPROT" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [2:0]smartconnect_0_M00_AXI_AWPROT;
   (* CONN_BUS_INFO = "smartconnect_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 AWQOS" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [3:0]smartconnect_0_M00_AXI_AWQOS;
   (* CONN_BUS_INFO = "smartconnect_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 AWREADY" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire smartconnect_0_M00_AXI_AWREADY;
   (* CONN_BUS_INFO = "smartconnect_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 AWSIZE" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [2:0]smartconnect_0_M00_AXI_AWSIZE;
   (* CONN_BUS_INFO = "smartconnect_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 AWUSER" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [0:0]smartconnect_0_M00_AXI_AWUSER;
   (* CONN_BUS_INFO = "smartconnect_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 AWVALID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire smartconnect_0_M00_AXI_AWVALID;
+  (* CONN_BUS_INFO = "smartconnect_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 BID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [5:0]smartconnect_0_M00_AXI_BID;
   (* CONN_BUS_INFO = "smartconnect_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 BREADY" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire smartconnect_0_M00_AXI_BREADY;
   (* CONN_BUS_INFO = "smartconnect_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 BRESP" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [1:0]smartconnect_0_M00_AXI_BRESP;
   (* CONN_BUS_INFO = "smartconnect_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 BVALID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire smartconnect_0_M00_AXI_BVALID;
   (* CONN_BUS_INFO = "smartconnect_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 RDATA" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [127:0]smartconnect_0_M00_AXI_RDATA;
+  (* CONN_BUS_INFO = "smartconnect_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 RID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [5:0]smartconnect_0_M00_AXI_RID;
   (* CONN_BUS_INFO = "smartconnect_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 RLAST" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire smartconnect_0_M00_AXI_RLAST;
   (* CONN_BUS_INFO = "smartconnect_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 RREADY" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire smartconnect_0_M00_AXI_RREADY;
   (* CONN_BUS_INFO = "smartconnect_0_M00_AXI xilinx.com:interface:aximm:1.0 AXI4 RRESP" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [1:0]smartconnect_0_M00_AXI_RRESP;
@@ -429,46 +394,46 @@ module design_2
         .s02_axi_wvalid(zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_WVALID));
   design_2_porttoportmapping_v1_0_0_0 porttoportmapping_v1_0_0
        (.m00_axi_aclk(zynq_ultra_ps_e_0_pl_clk0),
-        .m00_axi_araddr(porttoportmapping_v1_0_0_m00_axi_ARADDR),
-        .m00_axi_arburst(porttoportmapping_v1_0_0_m00_axi_ARBURST),
-        .m00_axi_arcache(porttoportmapping_v1_0_0_m00_axi_ARCACHE),
+        .m00_axi_araddr(smartconnect_0_M00_AXI_ARADDR),
+        .m00_axi_arburst(smartconnect_0_M00_AXI_ARBURST),
+        .m00_axi_arcache(smartconnect_0_M00_AXI_ARCACHE),
         .m00_axi_aresetn(rst_ps8_0_99M_peripheral_aresetn),
-        .m00_axi_arid(porttoportmapping_v1_0_0_m00_axi_ARID),
-        .m00_axi_arlen(porttoportmapping_v1_0_0_m00_axi_ARLEN),
-        .m00_axi_arlock(porttoportmapping_v1_0_0_m00_axi_ARLOCK),
-        .m00_axi_arprot(porttoportmapping_v1_0_0_m00_axi_ARPROT),
-        .m00_axi_arqos(porttoportmapping_v1_0_0_m00_axi_ARQOS),
-        .m00_axi_arready(porttoportmapping_v1_0_0_m00_axi_ARREADY),
-        .m00_axi_arsize(porttoportmapping_v1_0_0_m00_axi_ARSIZE),
-        .m00_axi_aruser(porttoportmapping_v1_0_0_m00_axi_ARUSER),
-        .m00_axi_arvalid(porttoportmapping_v1_0_0_m00_axi_ARVALID),
-        .m00_axi_awaddr(porttoportmapping_v1_0_0_m00_axi_AWADDR),
-        .m00_axi_awburst(porttoportmapping_v1_0_0_m00_axi_AWBURST),
-        .m00_axi_awcache(porttoportmapping_v1_0_0_m00_axi_AWCACHE),
-        .m00_axi_awid(porttoportmapping_v1_0_0_m00_axi_AWID),
-        .m00_axi_awlen(porttoportmapping_v1_0_0_m00_axi_AWLEN),
-        .m00_axi_awlock(porttoportmapping_v1_0_0_m00_axi_AWLOCK),
-        .m00_axi_awprot(porttoportmapping_v1_0_0_m00_axi_AWPROT),
-        .m00_axi_awqos(porttoportmapping_v1_0_0_m00_axi_AWQOS),
-        .m00_axi_awready(porttoportmapping_v1_0_0_m00_axi_AWREADY),
-        .m00_axi_awsize(porttoportmapping_v1_0_0_m00_axi_AWSIZE),
-        .m00_axi_awuser(porttoportmapping_v1_0_0_m00_axi_AWUSER),
-        .m00_axi_awvalid(porttoportmapping_v1_0_0_m00_axi_AWVALID),
-        .m00_axi_bid(porttoportmapping_v1_0_0_m00_axi_BID),
-        .m00_axi_bready(porttoportmapping_v1_0_0_m00_axi_BREADY),
-        .m00_axi_bresp(porttoportmapping_v1_0_0_m00_axi_BRESP),
-        .m00_axi_bvalid(porttoportmapping_v1_0_0_m00_axi_BVALID),
-        .m00_axi_rdata(porttoportmapping_v1_0_0_m00_axi_RDATA),
-        .m00_axi_rid(porttoportmapping_v1_0_0_m00_axi_RID),
-        .m00_axi_rlast(porttoportmapping_v1_0_0_m00_axi_RLAST),
-        .m00_axi_rready(porttoportmapping_v1_0_0_m00_axi_RREADY),
-        .m00_axi_rresp(porttoportmapping_v1_0_0_m00_axi_RRESP),
-        .m00_axi_rvalid(porttoportmapping_v1_0_0_m00_axi_RVALID),
-        .m00_axi_wdata(porttoportmapping_v1_0_0_m00_axi_WDATA),
-        .m00_axi_wlast(porttoportmapping_v1_0_0_m00_axi_WLAST),
-        .m00_axi_wready(porttoportmapping_v1_0_0_m00_axi_WREADY),
-        .m00_axi_wstrb(porttoportmapping_v1_0_0_m00_axi_WSTRB),
-        .m00_axi_wvalid(porttoportmapping_v1_0_0_m00_axi_WVALID),
+        .m00_axi_arid(smartconnect_0_M00_AXI_ARID),
+        .m00_axi_arlen(smartconnect_0_M00_AXI_ARLEN),
+        .m00_axi_arlock(smartconnect_0_M00_AXI_ARLOCK),
+        .m00_axi_arprot(smartconnect_0_M00_AXI_ARPROT),
+        .m00_axi_arqos(smartconnect_0_M00_AXI_ARQOS),
+        .m00_axi_arready(smartconnect_0_M00_AXI_ARREADY),
+        .m00_axi_arsize(smartconnect_0_M00_AXI_ARSIZE),
+        .m00_axi_aruser(smartconnect_0_M00_AXI_ARUSER),
+        .m00_axi_arvalid(smartconnect_0_M00_AXI_ARVALID),
+        .m00_axi_awaddr(smartconnect_0_M00_AXI_AWADDR),
+        .m00_axi_awburst(smartconnect_0_M00_AXI_AWBURST),
+        .m00_axi_awcache(smartconnect_0_M00_AXI_AWCACHE),
+        .m00_axi_awid(smartconnect_0_M00_AXI_AWID),
+        .m00_axi_awlen(smartconnect_0_M00_AXI_AWLEN),
+        .m00_axi_awlock(smartconnect_0_M00_AXI_AWLOCK),
+        .m00_axi_awprot(smartconnect_0_M00_AXI_AWPROT),
+        .m00_axi_awqos(smartconnect_0_M00_AXI_AWQOS),
+        .m00_axi_awready(smartconnect_0_M00_AXI_AWREADY),
+        .m00_axi_awsize(smartconnect_0_M00_AXI_AWSIZE),
+        .m00_axi_awuser(smartconnect_0_M00_AXI_AWUSER),
+        .m00_axi_awvalid(smartconnect_0_M00_AXI_AWVALID),
+        .m00_axi_bid(smartconnect_0_M00_AXI_BID),
+        .m00_axi_bready(smartconnect_0_M00_AXI_BREADY),
+        .m00_axi_bresp(smartconnect_0_M00_AXI_BRESP),
+        .m00_axi_bvalid(smartconnect_0_M00_AXI_BVALID),
+        .m00_axi_rdata(smartconnect_0_M00_AXI_RDATA),
+        .m00_axi_rid(smartconnect_0_M00_AXI_RID),
+        .m00_axi_rlast(smartconnect_0_M00_AXI_RLAST),
+        .m00_axi_rready(smartconnect_0_M00_AXI_RREADY),
+        .m00_axi_rresp(smartconnect_0_M00_AXI_RRESP),
+        .m00_axi_rvalid(smartconnect_0_M00_AXI_RVALID),
+        .m00_axi_wdata(smartconnect_0_M00_AXI_WDATA),
+        .m00_axi_wlast(smartconnect_0_M00_AXI_WLAST),
+        .m00_axi_wready(smartconnect_0_M00_AXI_WREADY),
+        .m00_axi_wstrb(smartconnect_0_M00_AXI_WSTRB),
+        .m00_axi_wvalid(smartconnect_0_M00_AXI_WVALID),
         .s00_axi_aclk(zynq_ultra_ps_e_0_pl_clk0),
         .s00_axi_araddr(MemorEDF_0_m00_axi_ARADDR),
         .s00_axi_arburst(MemorEDF_0_m00_axi_ARBURST),
@@ -519,83 +484,6 @@ module design_2
         .mb_debug_sys_rst(1'b0),
         .peripheral_aresetn(rst_ps8_0_99M_peripheral_aresetn),
         .slowest_sync_clk(zynq_ultra_ps_e_0_pl_clk0));
-  design_2_smartconnect_0_0 smartconnect_0
-       (.M00_AXI_araddr(smartconnect_0_M00_AXI_ARADDR),
-        .M00_AXI_arburst(smartconnect_0_M00_AXI_ARBURST),
-        .M00_AXI_arcache(smartconnect_0_M00_AXI_ARCACHE),
-        .M00_AXI_arlen(smartconnect_0_M00_AXI_ARLEN),
-        .M00_AXI_arlock(smartconnect_0_M00_AXI_ARLOCK),
-        .M00_AXI_arprot(smartconnect_0_M00_AXI_ARPROT),
-        .M00_AXI_arqos(smartconnect_0_M00_AXI_ARQOS),
-        .M00_AXI_arready(smartconnect_0_M00_AXI_ARREADY),
-        .M00_AXI_arsize(smartconnect_0_M00_AXI_ARSIZE),
-        .M00_AXI_aruser(smartconnect_0_M00_AXI_ARUSER),
-        .M00_AXI_arvalid(smartconnect_0_M00_AXI_ARVALID),
-        .M00_AXI_awaddr(smartconnect_0_M00_AXI_AWADDR),
-        .M00_AXI_awburst(smartconnect_0_M00_AXI_AWBURST),
-        .M00_AXI_awcache(smartconnect_0_M00_AXI_AWCACHE),
-        .M00_AXI_awlen(smartconnect_0_M00_AXI_AWLEN),
-        .M00_AXI_awlock(smartconnect_0_M00_AXI_AWLOCK),
-        .M00_AXI_awprot(smartconnect_0_M00_AXI_AWPROT),
-        .M00_AXI_awqos(smartconnect_0_M00_AXI_AWQOS),
-        .M00_AXI_awready(smartconnect_0_M00_AXI_AWREADY),
-        .M00_AXI_awsize(smartconnect_0_M00_AXI_AWSIZE),
-        .M00_AXI_awuser(smartconnect_0_M00_AXI_AWUSER),
-        .M00_AXI_awvalid(smartconnect_0_M00_AXI_AWVALID),
-        .M00_AXI_bready(smartconnect_0_M00_AXI_BREADY),
-        .M00_AXI_bresp(smartconnect_0_M00_AXI_BRESP),
-        .M00_AXI_bvalid(smartconnect_0_M00_AXI_BVALID),
-        .M00_AXI_rdata(smartconnect_0_M00_AXI_RDATA),
-        .M00_AXI_rlast(smartconnect_0_M00_AXI_RLAST),
-        .M00_AXI_rready(smartconnect_0_M00_AXI_RREADY),
-        .M00_AXI_rresp(smartconnect_0_M00_AXI_RRESP),
-        .M00_AXI_rvalid(smartconnect_0_M00_AXI_RVALID),
-        .M00_AXI_wdata(smartconnect_0_M00_AXI_WDATA),
-        .M00_AXI_wlast(smartconnect_0_M00_AXI_WLAST),
-        .M00_AXI_wready(smartconnect_0_M00_AXI_WREADY),
-        .M00_AXI_wstrb(smartconnect_0_M00_AXI_WSTRB),
-        .M00_AXI_wvalid(smartconnect_0_M00_AXI_WVALID),
-        .S00_AXI_araddr(porttoportmapping_v1_0_0_m00_axi_ARADDR),
-        .S00_AXI_arburst(porttoportmapping_v1_0_0_m00_axi_ARBURST),
-        .S00_AXI_arcache(porttoportmapping_v1_0_0_m00_axi_ARCACHE),
-        .S00_AXI_arid(porttoportmapping_v1_0_0_m00_axi_ARID),
-        .S00_AXI_arlen(porttoportmapping_v1_0_0_m00_axi_ARLEN),
-        .S00_AXI_arlock(porttoportmapping_v1_0_0_m00_axi_ARLOCK),
-        .S00_AXI_arprot(porttoportmapping_v1_0_0_m00_axi_ARPROT),
-        .S00_AXI_arqos(porttoportmapping_v1_0_0_m00_axi_ARQOS),
-        .S00_AXI_arready(porttoportmapping_v1_0_0_m00_axi_ARREADY),
-        .S00_AXI_arsize(porttoportmapping_v1_0_0_m00_axi_ARSIZE),
-        .S00_AXI_aruser(porttoportmapping_v1_0_0_m00_axi_ARUSER),
-        .S00_AXI_arvalid(porttoportmapping_v1_0_0_m00_axi_ARVALID),
-        .S00_AXI_awaddr(porttoportmapping_v1_0_0_m00_axi_AWADDR),
-        .S00_AXI_awburst(porttoportmapping_v1_0_0_m00_axi_AWBURST),
-        .S00_AXI_awcache(porttoportmapping_v1_0_0_m00_axi_AWCACHE),
-        .S00_AXI_awid(porttoportmapping_v1_0_0_m00_axi_AWID),
-        .S00_AXI_awlen(porttoportmapping_v1_0_0_m00_axi_AWLEN),
-        .S00_AXI_awlock(porttoportmapping_v1_0_0_m00_axi_AWLOCK),
-        .S00_AXI_awprot(porttoportmapping_v1_0_0_m00_axi_AWPROT),
-        .S00_AXI_awqos(porttoportmapping_v1_0_0_m00_axi_AWQOS),
-        .S00_AXI_awready(porttoportmapping_v1_0_0_m00_axi_AWREADY),
-        .S00_AXI_awsize(porttoportmapping_v1_0_0_m00_axi_AWSIZE),
-        .S00_AXI_awuser(porttoportmapping_v1_0_0_m00_axi_AWUSER),
-        .S00_AXI_awvalid(porttoportmapping_v1_0_0_m00_axi_AWVALID),
-        .S00_AXI_bid(porttoportmapping_v1_0_0_m00_axi_BID),
-        .S00_AXI_bready(porttoportmapping_v1_0_0_m00_axi_BREADY),
-        .S00_AXI_bresp(porttoportmapping_v1_0_0_m00_axi_BRESP),
-        .S00_AXI_bvalid(porttoportmapping_v1_0_0_m00_axi_BVALID),
-        .S00_AXI_rdata(porttoportmapping_v1_0_0_m00_axi_RDATA),
-        .S00_AXI_rid(porttoportmapping_v1_0_0_m00_axi_RID),
-        .S00_AXI_rlast(porttoportmapping_v1_0_0_m00_axi_RLAST),
-        .S00_AXI_rready(porttoportmapping_v1_0_0_m00_axi_RREADY),
-        .S00_AXI_rresp(porttoportmapping_v1_0_0_m00_axi_RRESP),
-        .S00_AXI_rvalid(porttoportmapping_v1_0_0_m00_axi_RVALID),
-        .S00_AXI_wdata(porttoportmapping_v1_0_0_m00_axi_WDATA),
-        .S00_AXI_wlast(porttoportmapping_v1_0_0_m00_axi_WLAST),
-        .S00_AXI_wready(porttoportmapping_v1_0_0_m00_axi_WREADY),
-        .S00_AXI_wstrb(porttoportmapping_v1_0_0_m00_axi_WSTRB),
-        .S00_AXI_wvalid(porttoportmapping_v1_0_0_m00_axi_WVALID),
-        .aclk(zynq_ultra_ps_e_0_pl_clk0),
-        .aresetn(rst_ps8_0_99M_peripheral_aresetn));
   design_2_system_ila_0_1 system_ila_0
        (.SLOT_0_AXI_araddr(MemorEDF_0_m00_axi_ARADDR),
         .SLOT_0_AXI_arburst(MemorEDF_0_m00_axi_ARBURST),
@@ -717,6 +605,7 @@ module design_2
         .SLOT_3_AXI_araddr(smartconnect_0_M00_AXI_ARADDR),
         .SLOT_3_AXI_arburst(smartconnect_0_M00_AXI_ARBURST),
         .SLOT_3_AXI_arcache(smartconnect_0_M00_AXI_ARCACHE),
+        .SLOT_3_AXI_arid(smartconnect_0_M00_AXI_ARID),
         .SLOT_3_AXI_arlen(smartconnect_0_M00_AXI_ARLEN),
         .SLOT_3_AXI_arlock(smartconnect_0_M00_AXI_ARLOCK),
         .SLOT_3_AXI_arprot(smartconnect_0_M00_AXI_ARPROT),
@@ -728,6 +617,7 @@ module design_2
         .SLOT_3_AXI_awaddr(smartconnect_0_M00_AXI_AWADDR),
         .SLOT_3_AXI_awburst(smartconnect_0_M00_AXI_AWBURST),
         .SLOT_3_AXI_awcache(smartconnect_0_M00_AXI_AWCACHE),
+        .SLOT_3_AXI_awid(smartconnect_0_M00_AXI_AWID),
         .SLOT_3_AXI_awlen(smartconnect_0_M00_AXI_AWLEN),
         .SLOT_3_AXI_awlock(smartconnect_0_M00_AXI_AWLOCK),
         .SLOT_3_AXI_awprot(smartconnect_0_M00_AXI_AWPROT),
@@ -736,10 +626,12 @@ module design_2
         .SLOT_3_AXI_awsize(smartconnect_0_M00_AXI_AWSIZE),
         .SLOT_3_AXI_awuser(smartconnect_0_M00_AXI_AWUSER),
         .SLOT_3_AXI_awvalid(smartconnect_0_M00_AXI_AWVALID),
+        .SLOT_3_AXI_bid(smartconnect_0_M00_AXI_BID),
         .SLOT_3_AXI_bready(smartconnect_0_M00_AXI_BREADY),
         .SLOT_3_AXI_bresp(smartconnect_0_M00_AXI_BRESP),
         .SLOT_3_AXI_bvalid(smartconnect_0_M00_AXI_BVALID),
         .SLOT_3_AXI_rdata(smartconnect_0_M00_AXI_RDATA),
+        .SLOT_3_AXI_rid(smartconnect_0_M00_AXI_RID),
         .SLOT_3_AXI_rlast(smartconnect_0_M00_AXI_RLAST),
         .SLOT_3_AXI_rready(smartconnect_0_M00_AXI_RREADY),
         .SLOT_3_AXI_rresp(smartconnect_0_M00_AXI_RRESP),
@@ -884,7 +776,7 @@ module design_2
         .saxigp2_araddr(smartconnect_0_M00_AXI_ARADDR),
         .saxigp2_arburst(smartconnect_0_M00_AXI_ARBURST),
         .saxigp2_arcache(smartconnect_0_M00_AXI_ARCACHE),
-        .saxigp2_arid({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
+        .saxigp2_arid(smartconnect_0_M00_AXI_ARID),
         .saxigp2_arlen(smartconnect_0_M00_AXI_ARLEN),
         .saxigp2_arlock(smartconnect_0_M00_AXI_ARLOCK),
         .saxigp2_arprot(smartconnect_0_M00_AXI_ARPROT),
@@ -896,7 +788,7 @@ module design_2
         .saxigp2_awaddr(smartconnect_0_M00_AXI_AWADDR),
         .saxigp2_awburst(smartconnect_0_M00_AXI_AWBURST),
         .saxigp2_awcache(smartconnect_0_M00_AXI_AWCACHE),
-        .saxigp2_awid({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
+        .saxigp2_awid(smartconnect_0_M00_AXI_AWID),
         .saxigp2_awlen(smartconnect_0_M00_AXI_AWLEN),
         .saxigp2_awlock(smartconnect_0_M00_AXI_AWLOCK),
         .saxigp2_awprot(smartconnect_0_M00_AXI_AWPROT),
@@ -905,10 +797,12 @@ module design_2
         .saxigp2_awsize(smartconnect_0_M00_AXI_AWSIZE),
         .saxigp2_awuser(smartconnect_0_M00_AXI_AWUSER),
         .saxigp2_awvalid(smartconnect_0_M00_AXI_AWVALID),
+        .saxigp2_bid(smartconnect_0_M00_AXI_BID),
         .saxigp2_bready(smartconnect_0_M00_AXI_BREADY),
         .saxigp2_bresp(smartconnect_0_M00_AXI_BRESP),
         .saxigp2_bvalid(smartconnect_0_M00_AXI_BVALID),
         .saxigp2_rdata(smartconnect_0_M00_AXI_RDATA),
+        .saxigp2_rid(smartconnect_0_M00_AXI_RID),
         .saxigp2_rlast(smartconnect_0_M00_AXI_RLAST),
         .saxigp2_rready(smartconnect_0_M00_AXI_RREADY),
         .saxigp2_rresp(smartconnect_0_M00_AXI_RRESP),

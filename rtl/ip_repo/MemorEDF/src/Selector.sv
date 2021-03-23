@@ -44,30 +44,8 @@ module Selector #(
     wire [INPUTS-1 : 0][INPUT_SIZE-1 : 0] and_outcomes;
     wire [INPUTS-1 : 0][INPUT_SIZE-1 : 0] or_outcomes;
     
-//    // External routing of the registers
-//    assign outcome = internalOutcome;
-    
-//    // Running behaviour of the micro-architecture
-//    always @(posedge clock)
-//    begin
-//        if(reset)
-//        begin
-//            //internalOutcome <= 0;
-//            outcome <= 0;
-//        end
-//        else
-//        begin
-//            integer i;
-//            for (i = 0; i < INPUTS; i = i+1)
-//            begin
-//                if(index == i)
-//                begin
-//                    outcome <= values[i];
-//                end 
-//            end
-//        end
-//    end
-
+    // Running behaviour of the micro-architecture
+    always @(*) //posedge clock)
     genvar i;
     for (i = 0; i < INPUTS; i+=1)
     begin
