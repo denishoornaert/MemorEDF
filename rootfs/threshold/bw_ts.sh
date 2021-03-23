@@ -33,7 +33,7 @@ for (( i = $((last_bomb+1)); i > 1; i-- )); do
         # If not yet created, creates the destination directory
         mkdir -p $dest_dir/"mit_${j}"
         # Create output raw data file
-        touch ${dest_dir}/"mit_${j}"/${i}_cores.csv
+        touch ${dest_dir}/"mit_${j}"/${i}_cores.csv 
         # Generate and redirect data
         echo "Start - mit ${j} - core ${i} | ${mit_1[j]} ${mit_2[j]} ${mit_3[j]} ${mit_4[j]}"
         ~/synthetic/threshold_bw_ts.out ${mit_1[j]} ${mit_2[j]} ${mit_3[j]} ${mit_4[j]} > ${dest_dir}/"mit_${j}"/${i}_cores.csv

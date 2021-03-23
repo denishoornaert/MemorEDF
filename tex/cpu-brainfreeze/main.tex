@@ -38,7 +38,10 @@
 
 \title{
     Work in Progress: Identifying Unexpected Inter-core Interference Induced by Shared Cache
-%    \thanks{Marco Caccamo was supported by an Alexander von Humboldt Professorship endowed by the German Federal Ministry of Education and Research.}
+    \thanks{
+        The material presented in this paper is based upon work supported by the National Science Foundation (NSF) under grant number CCF-2008799. Any opinions, findings, and conclusions or recommendations expressed in this publication are those of the authors and do not necessarily reflect the views of the NSF.
+        Marco Caccamo was supported by an Alexander von Humboldt Professorship endowed by the German Federal Ministry of Education and Research.
+    }
 }
 
 \author{
@@ -66,21 +69,27 @@
 %        email address or ORCID
 %    }
 
-%    \IEEEauthorblockN{
-%        Denis Hoornaert\IEEEauthorrefmark{1},
-%        Shahin Roozkhosh\IEEEauthorrefmark{2},
-%        Renato Mancuso\IEEEauthorrefmark{2} and
-%        Marco Caccamo\IEEEauthorrefmark{1}
-%    }
-%    \IEEEauthorblockA{
-%        \IEEEauthorrefmark{1}\textit{Technical University of Munich}~~~~\IEEEauthorrefmark{2}\textit{Boston University}\\
-%        \{denis.hoornaert, mcaccamo\}@tum.de, \{shahin, rmancuso\}@bu.edu
-%    }
+    \IEEEauthorblockN{
+        Denis Hoornaert\IEEEauthorrefmark{1},
+        Shahin Roozkhosh\IEEEauthorrefmark{2},
+        Renato Mancuso\IEEEauthorrefmark{2} and
+        Marco Caccamo\IEEEauthorrefmark{1}
+    }
+    \IEEEauthorblockA{
+%        \IEEEauthorrefmark{1}\textit{Chair of Cyber-Physical Systems in Production Engineering}~~~~\IEEEauthorrefmark{2}\textit{Cyber-Physical Systems Laboratory}\\
+        \IEEEauthorrefmark{1}\textit{Technical University of Munich, Germany}~~~~\IEEEauthorrefmark{2}\textit{Boston University, USA}\\
+        \{denis.hoornaert, mcaccamo\}@tum.de, \{shahin, rmancuso\}@bu.edu
+    }
 
-    Authors omitted for review.
+%    Authors omitted for review.
 }
 
 \maketitle
+
+% RTAS WiP feedback
+% 1. Only done on A53
+% 2. Outline a reason why this would happen (i.e., why people should care)
+% 3. No practical solution(s) proposed
 
 \begin{abstract}
     In modern real-time multicore systems, understanding and adequately managing shared caches is essential to ensure the temporal isolation of critical tasks.

@@ -17,57 +17,57 @@ def read(filepath, skip):
 
 
 
-x = np.array([i*1.5 for i in range(8)])
+x = np.array([i*1.5 for i in range(4)])
 x_labels = [
     "Normal",
-    "PL-Loop",
+#    "PL-Loop",
     "FP",
     "TDMA",
     "TS",
-    "Fibo",
-    "Gallois",
-    "Aging"
+#    "Fibo",
+#    "Gallois",
+#    "Aging"
 ]
 
 cores_1 = [
     np.average(read("main_route/1_cores.csv", 1)),
-    np.average(read("simple_loop_back/1_cores.csv", 1)),
+#    np.average(read("simple_loop_back/1_cores.csv", 1)),
     np.average(read("SchIM_FP/1_cores.csv", 1)),
     np.average(read("SchIM_TDMA/1_cores.csv", 1)),
     np.average(read("SchIM_TS/1_cores.csv", 1)),
-    np.average(read("SchIM_Fibo/1_cores.csv", 1)),
-    np.average(read("SchIM_Gallois/1_cores.csv", 1)),
-    np.average(read("SchIM_Aging/1_cores.csv", 1))
+#    np.average(read("SchIM_Fibo/1_cores.csv", 1)),
+#    np.average(read("SchIM_Gallois/1_cores.csv", 1)),
+#    np.average(read("SchIM_Aging/1_cores.csv", 1))
 ]
 cores_2 = [
     np.average(read("main_route/2_cores.csv", 1)),
-    np.average(read("simple_loop_back/2_cores.csv", 1)),
+#    np.average(read("simple_loop_back/2_cores.csv", 1)),
     np.average(read("SchIM_FP/2_cores.csv", 1)),
     np.average(read("SchIM_TDMA/2_cores.csv", 1)),
     np.average(read("SchIM_TS/2_cores.csv", 1)),
-    np.average(read("SchIM_Fibo/2_cores.csv", 1)),
-    np.average(read("SchIM_Gallois/2_cores.csv", 1)),
-    np.average(read("SchIM_Aging/2_cores.csv", 1))
+#    np.average(read("SchIM_Fibo/2_cores.csv", 1)),
+#    np.average(read("SchIM_Gallois/2_cores.csv", 1)),
+#    np.average(read("SchIM_Aging/2_cores.csv", 1))
 ]
 cores_3 = [
     np.average(read("main_route/3_cores.csv", 1)),
-    np.average(read("simple_loop_back/3_cores.csv", 1)),
+#    np.average(read("simple_loop_back/3_cores.csv", 1)),
     np.average(read("SchIM_FP/3_cores.csv", 1)),
     np.average(read("SchIM_TDMA/3_cores.csv", 1)),
     np.average(read("SchIM_TS/3_cores.csv", 1)),
-    np.average(read("SchIM_Fibo/3_cores.csv", 1)),
-    np.average(read("SchIM_Gallois/3_cores.csv", 1)),
-    np.average(read("SchIM_Aging/3_cores.csv", 1))
+#    np.average(read("SchIM_Fibo/3_cores.csv", 1)),
+#    np.average(read("SchIM_Gallois/3_cores.csv", 1)),
+#    np.average(read("SchIM_Aging/3_cores.csv", 1))
 ]
 cores_4 = [
     np.average(read("main_route/4_cores.csv", 1)),
-    np.average(read("simple_loop_back/4_cores.csv", 1)),
+#    np.average(read("simple_loop_back/4_cores.csv", 1)),
     np.average(read("SchIM_FP/4_cores.csv", 1)),
     np.average(read("SchIM_TDMA/4_cores.csv", 1)),
     np.average(read("SchIM_TS/4_cores.csv", 1)),
-    np.average(read("SchIM_Fibo/4_cores.csv", 1)),
-    np.average(read("SchIM_Gallois/4_cores.csv", 1)),
-    np.average(read("SchIM_Aging/4_cores.csv", 1))
+#    np.average(read("SchIM_Fibo/4_cores.csv", 1)),
+#    np.average(read("SchIM_Gallois/4_cores.csv", 1)),
+#    np.average(read("SchIM_Aging/4_cores.csv", 1))
 ]
 
 bar_width = 0.2

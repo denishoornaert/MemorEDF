@@ -53,13 +53,16 @@ if (__name__ == '__main__'):
 
     for index, size in enumerate(sizes):
         for i, benchmark in enumerate(benchmarks):
-            axs[index][i].set_ylim([0, 5])
+            #axs[index][i].set_ylim([0, 5])
+            axs[index][i].set_ylim([0, 2])
             x = np.array([i*1.1 for i in range(len(policies))])
             if (index == 0):
                 axs[index][i].set_title(benchmark)
             for offset, contention in zip([-1, 1], contentions):
-                y = [data[contention][policy][size][benchmark]["avg"]/data["solo"]["main-route"][size][benchmark]["avg"] for policy in policies]
-                axs[index][i].bar(x+(offset/2*bar_width), y, width=bar_width, align="center", label=contention)
+                #y = [data[contention][policy][size][benchmark]["avg"]/data["solo"]["main-route"][size][benchmark]["avg"] for policy in policies]
+                y = [data[contention][policy][size][benchmark]["avg"]/data["solo"][policy][size][benchmark]["avg"] for policy in policies]
+                e = [data[contention][policy][size][benchmark]["std"]/data["solo"][policy][size][benchmark]["avg"] for policy in policies]
+                axs[index][i].bar(x+(offset/2*bar_width), y, yerr=e, width=bar_width, align="center", label=contention)
             axs[index][i].set_xticks(x)
             axs[index][i].set_xticklabels(policies, rotation=45)
             axs[index][i].set_ylabel(size)#"Normalized Execution Time")

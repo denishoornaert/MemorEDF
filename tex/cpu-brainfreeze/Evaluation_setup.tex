@@ -31,7 +31,7 @@
         In other words, they run on different cores and have private LLC partitions.
         This measure enforces the independence of the two actors and ensures that the observed interference cannot be imputed to either a common software stack or inter-core cache line evictions.
         Moreover, the private LLC partition of the attacker is subdivided into two.
-        The first half allows the attacker to access the main memory, where its code is located (via the red path in Figure \ref{fig:system_schematic}), whereas the second half is dedicated to the data read through the AXI-Regulator (via the orange route in Figure \ref{fig:system_schematic}).
+        The first half allows the attacker to access the main memory, where its code is located (red route in Figure \ref{fig:system_schematic}), whereas the second half is dedicated to the data read through the AXI-Regulator (orange route in Figure \ref{fig:system_schematic}).
 
         Assuming the attacker accesses to the main memory introduce little to no inter-core interference, the two actors can be deemed as properly isolated.
 
@@ -120,12 +120,12 @@
 %        Once the DRAM controller has served a read request, the data read is sent back to the core cluster through the AXI-Resistor.
 %        This phase is not buffered by the IP as shown in Figure \ref{fig:system_schematic} (see \emph{Response Phase Lane}).
 
-    In our system model, the AXI-Regulator is a PLIM module \cite{PLIM20} located on the secondary route to the main memory (see the orange route in Figure \ref{fig:system_schematic}) and used to act as a slow cacheable target memory.
-    In addition, the AXI-Regulator also prevents any potential interference introduced by the DRAM controller as the former intercepts every transaction before they reach the latter.
+    In our system model, the AXI-Regulator is a PLIM module \cite{PLIM20} located on the secondary route to the main memory (orange route in Figure \ref{fig:system_schematic}) and used to act as a slow cacheable target memory.
+    Moreover, the AXI-Regulator prevents potential interference introduced by the DRAM controller as the former intercepts every transaction before they reach the latter.
 
     The mechanism enabling the characteristics mentioned just above is the following.
     Upon the reception of a read transaction coming from the core cluster via the HPM port, the IP inserts this transaction within a queue where it waits to be relayed out of the AXI-Regulator.
     The decision to relay the transaction stored at the head of the queue to the DRAM controller is done according to a timer.
-    The latter is located within the AXI-Regulator (see \emph{Configuration} in Figure \ref{fig:system_schematic}) and, from the DRAM controller perspective, enforces a minimal inter-arrival time (MIT) between two consecutive transactions.
-    The MIT is expressed in clock cycles (CC) and is dynamically reprogrammable thanks to a configuration port accessible by all cores with uncached transactions (see the cyan route in Figure \ref{fig:system_schematic}).
+    The latter is located within the AXI-Regulator (\emph{Configuration} in Figure \ref{fig:system_schematic}) and, from the DRAM controller perspective, enforces a minimal inter-arrival time (MIT) between two consecutive transactions.
+    The MIT is expressed in clock cycles (CC) and is dynamically reprogrammable thanks to a configuration port accessible by all cores with uncached transactions (cyan route in Figure \ref{fig:system_schematic}).
 %        In contrast to the transactions heading to the DRAM controller via the AXI-Resistor, transactions served by the DRAM controller and returning to the core cluster traverse the AXI-Resistor without being buffered (see \emph{Response Phase Lane} in Figure \ref{fig:system_schematic}).

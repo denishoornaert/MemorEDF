@@ -8,7 +8,7 @@
 #define LPD0_SIZE       64
 
 #define HPM0_ADDR       0x1000000000
-#define HPM0_SIZE       1*MB
+#define HPM0_SIZE       64*MB
 
 #define HPM1_ADDR       0x4800000000
 #define HPM1_SIZE       HPM0_SIZE

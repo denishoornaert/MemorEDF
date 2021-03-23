@@ -26,160 +26,82 @@ module Queue #(
         parameter REGISTER_SIZE = 32
     )
     (
-        clock,
-        reset,
-        higher_threshold,
-        valueIn,
-        valueInValid,
-        consumed,
-        valueOut,
-        empty,
-        full,
-        lastElem,
-        kill_the_core
+        input                            clock,
+        input                            reset,
+        input      [REGISTER_SIZE-1 : 0] higher_threshold,
+        input          [DATA_SIZE-1 : 0] valueIn,
+        input                            valueInValid,
+        input                            consumed,
+        output         [DATA_SIZE-1 : 0] valueOut,
+        output reg                       empty,
+        output reg                       full,
+        output reg                       lastElem,
+        output                           kill_the_core,
+        // BRAM write port
+        output wire                              bram_clka,
+        output wire            [DATA_SIZE-1 : 0] bram_dina,
+        output wire [$clog2(QUEUE_LENGTH)-1 : 0] bram_addra,
+        output wire                              bram_wea,
+        output wire                              bram_ena,
+        // BRAM read port
+        output wire                              bram_clkb,
+        output wire                              bram_rstb,
+        output wire            [DATA_SIZE-1 : 0] bram_dinb,
+        output wire [$clog2(QUEUE_LENGTH)-1 : 0] bram_addrb,
+        output wire                              bram_enb,
+        input  wire            [DATA_SIZE-1 : 0] bram_doutb
     );
 
-    // Function returning the ceil of log2 of the input value
-    function integer clog2;
-        input integer value;
-        begin
-            value = value-1;
-            for (clog2=0; value>0; clog2=clog2+1)
-                value = value>>1;
-        end
-    endfunction
-
-    // IO definition
-    input                            clock;
-    input                            reset;
-    input      [REGISTER_SIZE-1 : 0] higher_threshold;
-    input          [DATA_SIZE-1 : 0] valueIn;
-    input                            valueInValid;
-    input                            consumed;
-    output         [DATA_SIZE-1 : 0] valueOut;
-    output                           empty;
-    output                           full;
-    output                           lastElem;
-    output                           kill_the_core;
-
-    // Ouput registers
-    reg internalEmpty;
-    reg internalFull;
-    reg internalLastElem;
-    wire internalKillTheCore; // reg
-
     // Internal registers
-    reg [DATA_SIZE-1 : 0] values [QUEUE_LENGTH];
-    reg [clog2(QUEUE_LENGTH)-1 : 0] counter;
+    reg [$clog2(QUEUE_LENGTH) : 0] counter;
+    reg [$clog2(QUEUE_LENGTH) : 0] head;
+    reg [$clog2(QUEUE_LENGTH) : 0] tail;
 
     // External routing
-    assign full     = internalFull;
-    assign empty    = internalEmpty;
-    assign lastElem = internalLastElem;
-    assign valueOut = values[0];
+    assign bram_clka  = clock;
+    assign bram_dina  = valueIn;
+    assign bram_addra = tail;
+    assign bram_wea   = valueInValid;
+    assign bram_ena   = 1;
 
-//    always @(posedge clock)
-//    begin
-//        if(reset)
-//        begin
-//            internalKillTheCore <= 0;
-//        end
-//        else
-//        begin
-//            if((higher_threshold > 0))// & (lower_threshold > 0))
-//            begin
-//                if(counter >= higher_threshold)
-//                begin
-//                    internalKillTheCore <= 1;
-//                end
-//                else// if(lower_threshold > counter)
-//                begin
-//                    internalKillTheCore <= 0;
-//                end
-//            end
-//        end
-//    end
-    assign internalKillTheCore = ((higher_threshold > 0) & (counter >= higher_threshold));
-    assign kill_the_core = internalKillTheCore;
+    assign bram_clkb  = clock;
+    assign bram_rstb  = reset;
+    assign bram_addrb = head;
+    assign bram_enb   = 1;
+    assign valueOut   = bram_doutb;
 
-    // Running behaviour of the micro-architecture
+    assign full     = (counter == QUEUE_LENGTH);
+    assign empty    = (counter == 0);  
+    assign kill_the_core = ((higher_threshold > 0) & (counter >= higher_threshold));
+
     always @(posedge clock)
     begin
         if(reset)
         begin
-            integer i;
-            for(i = 0; i < QUEUE_LENGTH; i = i + 1)
-            begin
-                values[i] <= 0;
-            end
-            counter       <= 0;
-            internalEmpty <= 1;
-            internalFull  <= 0;
-            internalLastElem <= 0;
+            tail <= 0;
+            head <= 0;
         end
         else
         begin
-            // Simultaneously insert and consume two different elements
-            if(valueInValid & consumed)
-            begin
-                integer i;
-                for(i = 0; i < QUEUE_LENGTH-1; i = i + 1)
-                begin
-                    values[i]  <= (counter == i+1) ? valueIn : values[i+1];
-                end
-                values[QUEUE_LENGTH-1] <= (counter == 0) ? valueIn : 0;
+            if(consumed)
+                head <= (head+1)%QUEUE_LENGTH;
+            if(valueInValid)
+                tail <= (tail+1)%QUEUE_LENGTH;
+        end
+    end
+
+    always @(posedge clock)
+    begin
+        if(reset)
+            counter <= 0;
+        else
+        begin
+            if(consumed & valueInValid)
                 counter <= counter;
-            end
-            // Single insert in the queue
-            else if(valueInValid)
-            begin
-                integer i;
-                for(i = 0; i < QUEUE_LENGTH; i = i + 1)
-                begin
-                    if(i == counter)
-                    begin
-                        values[i] <= valueIn;
-                    end
-                end
-                counter <= counter+1;
-                internalEmpty <= 0;
-                if(counter == QUEUE_LENGTH-1)
-                begin
-                    internalFull <= 1;
-                end
-                if(counter == 0)
-                begin
-                    internalLastElem <= 1;
-                end
-                else
-                begin
-                    internalLastElem <= 0;
-                end
-            end
-            // Single extract from the queue
             else if(consumed)
-            begin
-                integer i;
-                for(i = 0; i < QUEUE_LENGTH-1; i = i + 1)
-                begin
-                    values[i] <= values[i+1];
-                end
-                values[QUEUE_LENGTH-1] <= 0;
                 counter <= counter-1;
-                internalFull  <= 0;
-                if(counter == 1)
-                begin
-                    internalEmpty <= 1;
-                end
-                if(counter == 2)
-                begin
-                    internalLastElem <= 1;
-                end
-                else
-                begin
-                    internalLastElem <= 0;
-                end
-            end
+            else if(valueInValid)
+                counter <= counter+1;
         end
     end
 

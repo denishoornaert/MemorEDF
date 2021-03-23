@@ -7,15 +7,15 @@ echo "=================================================================="
 echo "=================================================================="
 
 bms=$(find ./* -type d -maxdepth 0 -exec basename {} \;)
-runs=5 #30
+runs=30
 topdir=$(pwd)
 
 echo "benchamrk, data-size, run, duration" >> $1
 for b in $bms
 do
     #echo "RUNNING $b"
-#    if [ "$b" == "multi_ncut" ]
-    if [ "$b" != "disparity" ]
+    if [ "$b" == "multi_ncut" ]
+#    if [ "$b" != "disparity" ]
     then
 	   continue
     fi
