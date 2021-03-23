@@ -15,7 +15,7 @@ features = {
     "design_2_i/MemorEDF_0_m00_axi_ARADDR[39:0]" : None,
     "design_2_i/MemorEDF_0/inst/dispatcher_to_queues_1_2_valid[1:0]" : None,
     "design_2_i/MemorEDF_0/inst/dispatcher_to_queues_3_4_valid[1:0]" : None,
-    "u_ila_0_m00_axi_arready" : None,
+    "design_2_i/MemorEDF_0/m00_axi_arready" : None,
     "design_2_i/MemorEDF_0/m00_axi_arvalid" : None
 }
 
@@ -88,7 +88,7 @@ def idfilter(array, noise=True):
     x = []
     y = []
     for i in range(len(array)):
-        if(m["u_ila_0_m00_axi_arready"][i] and m["design_2_i/MemorEDF_0/m00_axi_arvalid"][i]):
+        if(m["design_2_i/MemorEDF_0/m00_axi_arready"][i] and m["design_2_i/MemorEDF_0/m00_axi_arvalid"][i]):
             id = int(bin(m["design_2_i/MemorEDF_0_m00_axi_ARADDR[39:0]"][i]&0x000000c000)[2:].zfill(40)[40-16:40-14], 2)
             noise = min(max(np.random.normal(0, 0.001, 1)[0], -0.001), 0.001) if(noise) else 0
             y.append(id+noise)
@@ -151,7 +151,7 @@ def schedulingDensity(ax, m):
 
 if (__name__ == '__main__'):
 
-    filenames = ["SchIM_TS/iladata_TS", "SchIM_TDMA/iladata_TDMA", "SchIM_FP/iladata_FP", "SchIM_FIBO/iladata_FIBO", "SchIM_GALOIS/iladata_GALOIS", "SchIM_AGING/iladata_AGING"]
+    filenames = ["SchIM_TS/iladata_TS"]#, "SchIM_TDMA/iladata_TDMA", "SchIM_FP/iladata_FP", "SchIM_FIBO/iladata_FIBO", "SchIM_GALOIS/iladata_GALOIS", "SchIM_AGING/iladata_AGING"]
     inputExt  = ".csv"
     outputExt = ".pdf"
 
