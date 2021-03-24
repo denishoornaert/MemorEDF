@@ -189,7 +189,7 @@ module Scheduler
         );
     end
 
-    if (EDF_ENABLED)
+    if (EDF_ENABLED & 0)
     begin
         EDF # (
             .NUMBER_OF_QUEUES(NUMBER_OF_QUEUES),
@@ -231,10 +231,9 @@ module Scheduler
             .budgets(budgets),
             .priorities_input(priorities),
             .empty(empty),
-            .update(consumed & ~consumed_ff),//((~pending_transaction & ~empty[selected_queue] & valid)),//.consumed(hasBeenConsumed),
+            .update(consumed & ~consumed_ff),
             .valid(schedulers_to_selector_valid[3]),
             .selection(schedulers_to_selector_selection[3])
-//            .isSelected((mode==3)&(mode!=prvMode))
         );
     end
     
@@ -275,7 +274,7 @@ module Scheduler
             .clock(clock),
             .reset(reset),
             .empty(empty),
-            .update((~pending_transaction & ~empty[selected_queue] & valid)),//.consume(hasBeenConsumed),
+            .update(consumed & ~consumed_ff),
             .valid(schedulers_to_selector_valid[6]),
             .selection(schedulers_to_selector_selection[6])
         );
