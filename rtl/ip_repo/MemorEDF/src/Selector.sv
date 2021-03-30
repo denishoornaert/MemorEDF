@@ -45,7 +45,7 @@ module Selector #(
     wire [INPUTS-1 : 0][INPUT_SIZE-1 : 0] or_outcomes;
     
     // Running behaviour of the micro-architecture
-    always @(*) //posedge clock)
+//    always @(*) //posedge clock)
     genvar i;
     for (i = 0; i < INPUTS; i+=1)
     begin

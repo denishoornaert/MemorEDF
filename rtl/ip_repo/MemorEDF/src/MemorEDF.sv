@@ -70,10 +70,12 @@ module MemorEDF #
         parameter integer C_M00_AXI_ADDR_WIDTH   = 40,
         parameter integer C_M00_AXI_DATA_WIDTH   = 128,
         parameter integer C_M00_AXI_AWUSER_WIDTH = 16,
-        parameter integer C_M00_AXI_ARUSER_WIDTH = 16
+        parameter integer C_M00_AXI_ARUSER_WIDTH = 16,
 //        parameter integer C_M00_AXI_WUSER_WIDTH  = 0,
 //        parameter integer C_M00_AXI_RUSER_WIDTH  = 0,
 //        parameter integer C_M00_AXI_BUSER_WIDTH  = 0
+        parameter integer UPPER_BOUND            = 15,
+        parameter integer LOWER_BOUND            = 14
 	)
 	(
 		// Ports of Axi Slave Bus Interface S00_AXI
@@ -562,7 +564,9 @@ module MemorEDF #
 		.C_S_AXI_ADDR_WIDTH(C_S00_AXI_ADDR_WIDTH),
 		.C_S_AXI_AWUSER_WIDTH(C_S00_AXI_AWUSER_WIDTH),
 		.C_S_AXI_ARUSER_WIDTH(C_S00_AXI_ARUSER_WIDTH),
-		.PACKETIZER_NUMBER(1'b0)
+		.PACKETIZER_NUMBER(1'b0),
+		.UPPER_BOUND(UPPER_BOUND),
+		.LOWER_BOUND(LOWER_BOUND)
 //		.C_S_AXI_WUSER_WIDTH(C_S00_AXI_WUSER_WIDTH),
 //		.C_S_AXI_RUSER_WIDTH(C_S00_AXI_RUSER_WIDTH),
 //		.C_S_AXI_BUSER_WIDTH(C_S00_AXI_BUSER_WIDTH)
@@ -626,7 +630,9 @@ module MemorEDF #
         .C_S_AXI_ADDR_WIDTH(C_S02_AXI_ADDR_WIDTH),
         .C_S_AXI_AWUSER_WIDTH(C_S02_AXI_AWUSER_WIDTH),
         .C_S_AXI_ARUSER_WIDTH(C_S02_AXI_ARUSER_WIDTH),
-        .PACKETIZER_NUMBER(1'b1)
+        .PACKETIZER_NUMBER(1'b1),
+        .UPPER_BOUND(UPPER_BOUND),
+        .LOWER_BOUND(LOWER_BOUND)
 //        .C_S_AXI_WUSER_WIDTH(C_S02_AXI_WUSER_WIDTH),
 //        .C_S_AXI_RUSER_WIDTH(C_S02_AXI_RUSER_WIDTH),
 //        .C_S_AXI_BUSER_WIDTH(C_S02_AXI_BUSER_WIDTH)

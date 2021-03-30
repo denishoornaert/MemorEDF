@@ -37,7 +37,17 @@ proc init_gui { IPINST } {
 
   ipgui::add_param $IPINST -name "READ_DEPTH"
   ipgui::add_param $IPINST -name "WRITE_DEPTH"
+  ipgui::add_param $IPINST -name "BLEACHING"
 
+}
+
+proc update_PARAM_VALUE.BLEACHING { PARAM_VALUE.BLEACHING } {
+	# Procedure called to update BLEACHING when any of the dependent parameters in the arguments change
+}
+
+proc validate_PARAM_VALUE.BLEACHING { PARAM_VALUE.BLEACHING } {
+	# Procedure called to validate BLEACHING
+	return true
 }
 
 proc update_PARAM_VALUE.COLOR_BITS_LOWER_BOUND { PARAM_VALUE.COLOR_BITS_LOWER_BOUND } {
@@ -361,5 +371,10 @@ proc update_MODELPARAM_VALUE.READ_DEPTH { MODELPARAM_VALUE.READ_DEPTH PARAM_VALU
 proc update_MODELPARAM_VALUE.WRITE_DEPTH { MODELPARAM_VALUE.WRITE_DEPTH PARAM_VALUE.WRITE_DEPTH } {
 	# Procedure called to set VHDL generic/Verilog parameter value(s) based on TCL parameter value
 	set_property value [get_property value ${PARAM_VALUE.WRITE_DEPTH}] ${MODELPARAM_VALUE.WRITE_DEPTH}
+}
+
+proc update_MODELPARAM_VALUE.BLEACHING { MODELPARAM_VALUE.BLEACHING PARAM_VALUE.BLEACHING } {
+	# Procedure called to set VHDL generic/Verilog parameter value(s) based on TCL parameter value
+	set_property value [get_property value ${PARAM_VALUE.BLEACHING}] ${MODELPARAM_VALUE.BLEACHING}
 }
 

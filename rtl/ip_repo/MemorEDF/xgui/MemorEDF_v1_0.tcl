@@ -79,6 +79,8 @@ proc init_gui { IPINST } {
 
 
 
+  ipgui::add_param $IPINST -name "UPPER_BOUND" -widget comboBox
+  ipgui::add_param $IPINST -name "LOWER_BOUND" -widget comboBox
 
 }
 
@@ -316,6 +318,15 @@ proc validate_PARAM_VALUE.FP_ENABLED { PARAM_VALUE.FP_ENABLED } {
 	return true
 }
 
+proc update_PARAM_VALUE.LOWER_BOUND { PARAM_VALUE.LOWER_BOUND } {
+	# Procedure called to update LOWER_BOUND when any of the dependent parameters in the arguments change
+}
+
+proc validate_PARAM_VALUE.LOWER_BOUND { PARAM_VALUE.LOWER_BOUND } {
+	# Procedure called to validate LOWER_BOUND
+	return true
+}
+
 proc update_PARAM_VALUE.MG_ENABLED { PARAM_VALUE.MG_ENABLED } {
 	# Procedure called to update MG_ENABLED when any of the dependent parameters in the arguments change
 }
@@ -385,6 +396,15 @@ proc update_PARAM_VALUE.TDMA_ENABLED { PARAM_VALUE.TDMA_ENABLED } {
 
 proc validate_PARAM_VALUE.TDMA_ENABLED { PARAM_VALUE.TDMA_ENABLED } {
 	# Procedure called to validate TDMA_ENABLED
+	return true
+}
+
+proc update_PARAM_VALUE.UPPER_BOUND { PARAM_VALUE.UPPER_BOUND } {
+	# Procedure called to update UPPER_BOUND when any of the dependent parameters in the arguments change
+}
+
+proc validate_PARAM_VALUE.UPPER_BOUND { PARAM_VALUE.UPPER_BOUND } {
+	# Procedure called to validate UPPER_BOUND
 	return true
 }
 
@@ -557,5 +577,15 @@ proc update_MODELPARAM_VALUE.PRNG_GALLOIS_ENABLED { MODELPARAM_VALUE.PRNG_GALLOI
 proc update_MODELPARAM_VALUE.AGING_ENABLED { MODELPARAM_VALUE.AGING_ENABLED PARAM_VALUE.AGING_ENABLED } {
 	# Procedure called to set VHDL generic/Verilog parameter value(s) based on TCL parameter value
 	set_property value [get_property value ${PARAM_VALUE.AGING_ENABLED}] ${MODELPARAM_VALUE.AGING_ENABLED}
+}
+
+proc update_MODELPARAM_VALUE.UPPER_BOUND { MODELPARAM_VALUE.UPPER_BOUND PARAM_VALUE.UPPER_BOUND } {
+	# Procedure called to set VHDL generic/Verilog parameter value(s) based on TCL parameter value
+	set_property value [get_property value ${PARAM_VALUE.UPPER_BOUND}] ${MODELPARAM_VALUE.UPPER_BOUND}
+}
+
+proc update_MODELPARAM_VALUE.LOWER_BOUND { MODELPARAM_VALUE.LOWER_BOUND PARAM_VALUE.LOWER_BOUND } {
+	# Procedure called to set VHDL generic/Verilog parameter value(s) based on TCL parameter value
+	set_property value [get_property value ${PARAM_VALUE.LOWER_BOUND}] ${MODELPARAM_VALUE.LOWER_BOUND}
 }
 

@@ -9,6 +9,7 @@ module porttoportmapping_v1_0 #
         parameter SPM_SIZE_IN_BYTE       = 2*1024*1024,
         parameter READ_DEPTH             = 16,
         parameter WRITE_DEPTH            = 16,
+        parameter BLEACHING              = 1,
 		// Parameters of Axi Slave Bus Interface S00_AXI
 		parameter C_S00_AXI_ID_WIDTH	= 16,
 		parameter C_S00_AXI_DATA_WIDTH	= 128,
@@ -137,16 +138,26 @@ module porttoportmapping_v1_0 #
         wire                                            [34 : 0] read_removed_msb;
         wire                                            [34 : 0] read_dropped_address;
         wire                                            [39 : 0] read_new_msb;
-        // Address bleaching - WRITE
-        assign write_isolated_bank   = s00_axi_awaddr[35 : 35];
-        assign write_removed_msb     = s00_axi_awaddr[34 : 0];
-        assign write_dropped_address = {2'b00, write_removed_msb[34 : 16], write_removed_msb[13 : 0]};
-        assign write_new_msb         = {4'h0, write_isolated_bank, write_dropped_address};
-        // Address bleaching - READ
-        assign read_isolated_bank   = s00_axi_araddr[35 : 35];
-        assign read_removed_msb     = s00_axi_araddr[34 : 0];
-        assign read_dropped_address = {2'b00, read_removed_msb[34 : 16], read_removed_msb[13 : 0]};
-        assign read_new_msb         = {4'h0, read_isolated_bank, read_dropped_address};
+        if (BLEACHING)
+        begin
+            // Address bleaching - WRITE
+            assign write_isolated_bank   = s00_axi_awaddr[35 : 35];
+            assign write_removed_msb     = s00_axi_awaddr[34 : 0];
+            assign write_dropped_address = {2'b00, write_removed_msb[34 : 16], write_removed_msb[13 : 0]};
+            assign write_new_msb         = {4'h0, write_isolated_bank, write_dropped_address};
+            // Address bleaching - READ
+            assign read_isolated_bank   = s00_axi_araddr[35 : 35];
+            assign read_removed_msb     = s00_axi_araddr[34 : 0];
+            assign read_dropped_address = {2'b00, read_removed_msb[34 : 16], read_removed_msb[13 : 0]};
+            assign read_new_msb         = {4'h0, read_isolated_bank, read_dropped_address};
+        end
+        else
+        begin
+            // Address bleaching - WRITE
+            assign write_new_msb        = {4'h0, s00_axi_awaddr[35 : 0]};
+            // Address bleaching - READ
+            assign read_new_msb         = {4'h0, s00_axi_araddr[35 : 0]};
+        end
         
         // ID translation
         // ID translation - READ
