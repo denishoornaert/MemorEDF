@@ -49,8 +49,8 @@ module Serializer #
 		output wire                [C_M_AXI_AWUSER_WIDTH-1 : 0] M_AXI_AWUSER,
 		output wire                                             M_AXI_AWVALID,
 		input  wire                                             M_AXI_AWREADY,
-		output wire                  [C_M_AXI_DATA_WIDTH-1 : 0] M_AXI_WDATA,
-		output wire                [C_M_AXI_DATA_WIDTH/8-1 : 0] M_AXI_WSTRB,
+		output reg                   [C_M_AXI_DATA_WIDTH-1 : 0] M_AXI_WDATA,
+		output reg                 [C_M_AXI_DATA_WIDTH/8-1 : 0] M_AXI_WSTRB,
 		output wire                                             M_AXI_WLAST,
 		output wire                                             M_AXI_WVALID,
 		input  wire                                             M_AXI_WREADY,
@@ -252,15 +252,27 @@ module Serializer #
     always @(posedge M_AXI_ACLK)
     begin
         if (M_AXI_ARESETN == 0 || init_txn_pulse == 1'b1 || start_single_burst_write == 1'b1)
+        begin
             write_index <= 0;
+            M_AXI_WDATA <= data[0];
+            M_AXI_WSTRB <= wstrb_write[0];
+        end
         else if (wnext && (write_index != (p_awlen+1-1)))
+        begin
             write_index <= write_index + 1;
+            M_AXI_WDATA <= data[write_index+1];
+            M_AXI_WSTRB <= wstrb_write[write_index+1];
+        end
         else
+        begin
             write_index <= write_index;
+            M_AXI_WDATA <= M_AXI_WDATA;
+            M_AXI_WSTRB <= M_AXI_WSTRB;
+        end
     end
 
-    assign M_AXI_WDATA = data[write_index];
-    assign M_AXI_WSTRB = wstrb_write[write_index];
+//    assign M_AXI_WDATA = data[write_index];
+//    assign M_AXI_WSTRB = wstrb_write[write_index];
 
     always @(posedge M_AXI_ACLK)
     begin

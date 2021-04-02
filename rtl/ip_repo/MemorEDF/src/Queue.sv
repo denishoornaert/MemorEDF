@@ -33,9 +33,9 @@ module Queue #(
         input                            valueInValid,
         input                            consumed,
         output         [DATA_SIZE-1 : 0] valueOut,
-        output reg                       empty,
-        output reg                       full,
-        output reg                       lastElem,
+        output wire                      empty,
+        output wire                      full,
+        output wire                      lastElem,
         output                           kill_the_core,
         // BRAM write port
         output wire                              bram_clka,
@@ -56,6 +56,12 @@ module Queue #(
     reg [$clog2(QUEUE_LENGTH) : 0] counter;
     reg [$clog2(QUEUE_LENGTH) : 0] head;
     reg [$clog2(QUEUE_LENGTH) : 0] tail;
+    
+    reg                            int_full;
+    reg                            int_empty;
+    
+    assign full  = int_full;
+    assign empty = int_empty;
 
     // External routing
     assign bram_clka  = clock;
@@ -70,8 +76,8 @@ module Queue #(
     assign bram_enb   = 1;
     assign valueOut   = bram_doutb;
 
-    assign full     = (counter == QUEUE_LENGTH);
-    assign empty    = (counter == 0);  
+//    assign full     = (counter == QUEUE_LENGTH);
+//    assign empty    = (counter == 0);  
     assign kill_the_core = ((higher_threshold > 0) & (counter >= higher_threshold));
 
     always @(posedge clock)
@@ -93,15 +99,31 @@ module Queue #(
     always @(posedge clock)
     begin
         if(reset)
+        begin
             counter <= 0;
+            int_full <= 0;
+            int_empty <= 1;
+        end
         else
         begin
             if(consumed & valueInValid)
+            begin
                 counter <= counter;
+                int_full <= full;
+                int_empty <= empty;
+            end
             else if(consumed)
+            begin
                 counter <= counter-1;
+                int_full <= 0;
+                int_empty <= (counter == 1);
+            end
             else if(valueInValid)
+            begin
                 counter <= counter+1;
+                int_full <= (counter == QUEUE_LENGTH-1);
+                int_empty <= 0;
+            end
         end
     end
 

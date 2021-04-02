@@ -203,7 +203,7 @@ module NonAXIDomain #(
 	end
 
 	// Instantiation of the Selector module
-	Selector # (
+	Selector_tree # (
 	   .INPUTS(NUMBER_OF_QUEUES),
 	   .INPUT_SIZE(DATA_SIZE)
 	) selector (

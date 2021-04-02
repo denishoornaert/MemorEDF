@@ -38,8 +38,14 @@ module Aging #(
     reg update_ff;
     assign hasBeenUpdated = (~update)&update_ff;
     
+    
+    wire              [$clog2(NUMBER_OF_QUEUES)-1 : 0] selection_out;
+    
     reg  [NUMBER_OF_QUEUES-1 : 0][REGISTER_SIZE-1 : 0] aging_counters;
     reg               [$clog2(NUMBER_OF_QUEUES)-1 : 0] last_selected;
+    reg               [$clog2(NUMBER_OF_QUEUES)-1 : 0] internal_selection;
+    
+    assign selection = internal_selection;
     
     always @(posedge clock)
     begin
@@ -99,7 +105,12 @@ module Aging #(
         .reset(reset),
         .priorities(aging_counters),
         .empty(empty),
-        .selection(selection)
+        .selection(selection_out)
     );
+    
+    always @(posedge clock)
+    begin
+        internal_selection <= selection_out;
+    end
     
 endmodule

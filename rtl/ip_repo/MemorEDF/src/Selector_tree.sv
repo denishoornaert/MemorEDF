@@ -19,8 +19,8 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-
-module Selector #(
+// INPUTS must be a power of 2!
+module Selector_tree #(
         parameter INPUTS     = 4,
         parameter INPUT_SIZE = 8
     )
@@ -41,23 +41,31 @@ module Selector #(
     output wire      [INPUT_SIZE-1 : 0] outcome;
     
 //    // Output register(s) definition
-    wire [INPUTS-1 : 0][INPUT_SIZE-1 : 0] and_outcomes;
-    wire [INPUTS-1 : 0][INPUT_SIZE-1 : 0] or_outcomes;
+    wire [15 : 0][INPUT_SIZE-1 : 0] outcomes;
     
     // Running behaviour of the micro-architecture
     genvar i;
-    for (i = 0; i < INPUTS; i+=1)
-    begin
-        assign and_outcomes[i] = values[i] & ((index == i)? {INPUT_SIZE{1'b1}} : 0);        
-    end
     
-    genvar j;
-    assign or_outcomes[0] = and_outcomes[0];
-    for (j = 1; j < INPUTS; j+=1)
-    begin
-        assign or_outcomes[j] = or_outcomes[j-1] | and_outcomes[j];
-    end
     
-    assign outcome = or_outcomes[INPUTS-1];
+    assign outcomes[0] = values[0] & ((index == 0)? {INPUT_SIZE{1'b1}} : 0);
+    assign outcomes[1] = values[1] & ((index == 1)? {INPUT_SIZE{1'b1}} : 0);
+    assign outcomes[2] = values[2] & ((index == 2)? {INPUT_SIZE{1'b1}} : 0);
+    assign outcomes[3] = values[3] & ((index == 3)? {INPUT_SIZE{1'b1}} : 0);
+    assign outcomes[4] = values[4] & ((index == 4)? {INPUT_SIZE{1'b1}} : 0);
+    assign outcomes[5] = values[5] & ((index == 5)? {INPUT_SIZE{1'b1}} : 0);
+    assign outcomes[6] = values[6] & ((index == 6)? {INPUT_SIZE{1'b1}} : 0);
+    assign outcomes[7] = values[7] & ((index == 7)? {INPUT_SIZE{1'b1}} : 0);
+    
+    assign outcomes[ 8] = outcomes[0] | outcomes[1];
+    assign outcomes[ 9] = outcomes[2] | outcomes[3];
+    assign outcomes[10] = outcomes[4] | outcomes[5];
+    assign outcomes[11] = outcomes[6] | outcomes[7];
+    
+    assign outcomes[12] = outcomes[ 8] | outcomes[ 9];
+    assign outcomes[13] = outcomes[10] | outcomes[11];
+    
+    assign outcomes[14] = outcomes[12] | outcomes[13];
+    
+    assign outcome = outcomes[14];
     
 endmodule
