@@ -43,7 +43,9 @@ module Packetizer #
 		parameter integer C_S_AXI_RUSER_WIDTH	= 0,
 		// Width of optional user defined signal in write response channel
 		parameter integer C_S_AXI_BUSER_WIDTH	= 0,
-		parameter PACKETIZER_NUMBER     = 1'b0
+		parameter PACKETIZER_NUMBER             = 1'b0,
+		parameter integer UPPER_BOUND           = 15,
+		parameter integer LOWER_BOUND           = 14
 	)
 	(
 		// Users to add ports here
@@ -701,12 +703,12 @@ module Packetizer #
                 if (mem_awren)
                 begin
                     meta_data_write <= {1'b1, S_AXI_AWADDR, {PACKETIZER_NUMBER, S_AXI_AWID[C_S_AXI_ID_WIDTH-2:0]}, S_AXI_AWLEN, S_AXI_AWSIZE, S_AXI_AWBURST, S_AXI_AWLOCK, S_AXI_AWCACHE, S_AXI_AWPROT, S_AXI_AWQOS, S_AXI_AWREGION, S_AXI_AWUSER};
-                    coreIdReg_write <= S_AXI_AWADDR[15 : 14];//S_AXI_AWID;
+                    coreIdReg_write <= S_AXI_AWADDR[UPPER_BOUND : LOWER_BOUND];
                 end
                 if(mem_arden)
                 begin
                     meta_data_read  <= {1'b0, S_AXI_ARADDR, {PACKETIZER_NUMBER, S_AXI_ARID[C_S_AXI_ID_WIDTH-2:0]}, S_AXI_ARLEN, S_AXI_ARSIZE, S_AXI_ARBURST, S_AXI_ARLOCK, S_AXI_ARCACHE, S_AXI_ARPROT, S_AXI_ARQOS, S_AXI_ARREGION, S_AXI_ARUSER};
-                    coreIdReg_read  <= S_AXI_ARADDR[15 : 14];//S_AXI_ARID;
+                    coreIdReg_read  <= S_AXI_ARADDR[UPPER_BOUND : LOWER_BOUND];
                 end
              end
         end
