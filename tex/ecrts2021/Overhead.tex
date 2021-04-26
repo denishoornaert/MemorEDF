@@ -1,0 +1,12 @@
+\section{Discussion}
+%When comparing the throughput that is experienced by the cores, the normal route always provides a higher throughput in comparison to the the loop-back-based path.
+%However, when only comparing those loop-back-based paths, we can see that the price to pay for having \schim is largely compensated by the memory isolation the latter provides.
+%In general, redirecting the cores traffic toward the PL side with \schim is interesting in combination with techniques such as  \textit{address bleaching} and \textit{zero-copy recoloring}.
+Even though the throughput offered by the \emph{normal route} is higher, the
+authors argue that comparing the latter's raw performance against \schim is unfair.
+Redirecting the CPU-originated memory traffic through the PL side has a cost.
+However, this cost is mainly linked to the implementation and the platform capabilities, elements that can be improved by optimization as well as a selection of more aggressive platforms.
+The important aspect brought by the proposed framework, \schim, is its capability to individually manipulate memory transactions, opening the door to the study of novel memory scheduling policies.
+
+The PL-to-PS feedback is an interesting regulating mechanism. Moreover, it is entirely transparent to the hypervisor's inmates and uses the fastest route possible to communicate with the PS side. Nonetheless, this feedback mechanism is coarse. Inset 1 of Figure \ref{fig:schim_behaviour_tdma} highlights perfectly this problem. Even though all the queues have been assigned a threshold of 4, the latter is often exceeded. The worst-case being queue 3 exceeding the threshold by 2 on the right side of the plot.
+The thresholds used for the FIQ regulation requires to be fine-tuned manually by the user. Future extensions of the \schim will explore the implementation of schedulers capable of dynamically adapting the threshold to maximize the performance and improve the core isolation.
