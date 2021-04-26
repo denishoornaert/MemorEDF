@@ -165,12 +165,6 @@ proc create_root_design { parentCell } {
   set aclk_0 [ create_bd_port -dir I -type clk aclk_0 ]
   set aresetn_0 [ create_bd_port -dir I -type rst aresetn_0 ]
 
-  # Create instance: AXI_PerfectTranslator_0, and set properties
-  set AXI_PerfectTranslator_0 [ create_bd_cell -type ip -vlnv user.org:user:AXI_PerfectTranslator:1.0 AXI_PerfectTranslator_0 ]
-  set_property -dict [ list \
-   CONFIG.C_M00_AXI_ID_WIDTH {6} \
- ] $AXI_PerfectTranslator_0
-
   # Create instance: MemorEDF_0, and set properties
   set MemorEDF_0 [ create_bd_cell -type ip -vlnv user.org:user:MemorEDF:1.0 MemorEDF_0 ]
   set_property -dict [ list \
@@ -200,24 +194,18 @@ proc create_root_design { parentCell } {
  ] [get_bd_intf_pins /MemorEDF_0/m00_axi]
 
   set_property -dict [ list \
-   CONFIG.SUPPORTS_NARROW_BURST {1} \
    CONFIG.NUM_READ_OUTSTANDING {2} \
    CONFIG.NUM_WRITE_OUTSTANDING {2} \
-   CONFIG.MAX_BURST_LENGTH {256} \
  ] [get_bd_intf_pins /MemorEDF_0/s00_axi]
 
   set_property -dict [ list \
-   CONFIG.SUPPORTS_NARROW_BURST {1} \
    CONFIG.NUM_READ_OUTSTANDING {2} \
    CONFIG.NUM_WRITE_OUTSTANDING {2} \
-   CONFIG.MAX_BURST_LENGTH {256} \
  ] [get_bd_intf_pins /MemorEDF_0/s01_axi]
 
   set_property -dict [ list \
-   CONFIG.SUPPORTS_NARROW_BURST {1} \
    CONFIG.NUM_READ_OUTSTANDING {2} \
    CONFIG.NUM_WRITE_OUTSTANDING {2} \
-   CONFIG.MAX_BURST_LENGTH {256} \
  ] [get_bd_intf_pins /MemorEDF_0/s02_axi]
 
   # Create instance: axi_vip_0, and set properties
@@ -319,20 +307,19 @@ proc create_root_design { parentCell } {
  ] $porttoportmapping_v1_0_0
 
   # Create interface connections
-  connect_bd_intf_net -intf_net AXI_PerfectTranslator_0_M00_AXI [get_bd_intf_pins AXI_PerfectTranslator_0/M00_AXI] [get_bd_intf_pins axi_vip_1/S_AXI]
   connect_bd_intf_net -intf_net MemorEDF_0_m00_axi [get_bd_intf_pins MemorEDF_0/m00_axi] [get_bd_intf_pins porttoportmapping_v1_0_0/s00_axi]
   connect_bd_intf_net -intf_net axi_vip_0_M_AXI [get_bd_intf_pins MemorEDF_0/s01_axi] [get_bd_intf_pins axi_vip_0/M_AXI]
   connect_bd_intf_net -intf_net axi_vip_2_M_AXI [get_bd_intf_pins MemorEDF_0/s00_axi] [get_bd_intf_pins axi_vip_2/M_AXI]
   connect_bd_intf_net -intf_net axi_vip_3_M_AXI [get_bd_intf_pins MemorEDF_0/s02_axi] [get_bd_intf_pins axi_vip_3/M_AXI]
-  connect_bd_intf_net -intf_net porttoportmapping_v1_0_0_m00_axi [get_bd_intf_pins AXI_PerfectTranslator_0/S00_AXI] [get_bd_intf_pins porttoportmapping_v1_0_0/m00_axi]
+  connect_bd_intf_net -intf_net porttoportmapping_v1_0_0_m00_axi [get_bd_intf_pins axi_vip_1/S_AXI] [get_bd_intf_pins porttoportmapping_v1_0_0/m00_axi]
 
   # Create port connections
   connect_bd_net -net MemorEDF_0_Q_0_kill_the_core [get_bd_ports Q_0_kill_the_core_0] [get_bd_pins MemorEDF_0/Q_0_kill_the_core]
   connect_bd_net -net MemorEDF_0_Q_1_kill_the_core [get_bd_ports Q_1_kill_the_core_0] [get_bd_pins MemorEDF_0/Q_1_kill_the_core]
   connect_bd_net -net MemorEDF_0_Q_2_kill_the_core [get_bd_ports Q_2_kill_the_core_0] [get_bd_pins MemorEDF_0/Q_2_kill_the_core]
   connect_bd_net -net MemorEDF_0_Q_3_kill_the_core [get_bd_ports Q_3_kill_the_core_0] [get_bd_pins MemorEDF_0/Q_3_kill_the_core]
-  connect_bd_net -net aclk_0_1 [get_bd_ports aclk_0] [get_bd_pins AXI_PerfectTranslator_0/m00_axi_aclk] [get_bd_pins AXI_PerfectTranslator_0/s00_axi_aclk] [get_bd_pins MemorEDF_0/m00_axi_aclk] [get_bd_pins MemorEDF_0/s00_axi_aclk] [get_bd_pins MemorEDF_0/s01_axi_aclk] [get_bd_pins MemorEDF_0/s02_axi_aclk] [get_bd_pins axi_vip_0/aclk] [get_bd_pins axi_vip_1/aclk] [get_bd_pins axi_vip_2/aclk] [get_bd_pins axi_vip_3/aclk] [get_bd_pins porttoportmapping_v1_0_0/m00_axi_aclk] [get_bd_pins porttoportmapping_v1_0_0/s00_axi_aclk]
-  connect_bd_net -net aresetn_0_1 [get_bd_ports aresetn_0] [get_bd_pins AXI_PerfectTranslator_0/m00_axi_aresetn] [get_bd_pins AXI_PerfectTranslator_0/s00_axi_aresetn] [get_bd_pins MemorEDF_0/m00_axi_aresetn] [get_bd_pins MemorEDF_0/s00_axi_aresetn] [get_bd_pins MemorEDF_0/s01_axi_aresetn] [get_bd_pins MemorEDF_0/s02_axi_aresetn] [get_bd_pins axi_vip_0/aresetn] [get_bd_pins axi_vip_1/aresetn] [get_bd_pins axi_vip_2/aresetn] [get_bd_pins axi_vip_3/aresetn] [get_bd_pins porttoportmapping_v1_0_0/m00_axi_aresetn] [get_bd_pins porttoportmapping_v1_0_0/s00_axi_aresetn]
+  connect_bd_net -net aclk_0_1 [get_bd_ports aclk_0] [get_bd_pins MemorEDF_0/m00_axi_aclk] [get_bd_pins MemorEDF_0/s00_axi_aclk] [get_bd_pins MemorEDF_0/s01_axi_aclk] [get_bd_pins MemorEDF_0/s02_axi_aclk] [get_bd_pins axi_vip_0/aclk] [get_bd_pins axi_vip_1/aclk] [get_bd_pins axi_vip_2/aclk] [get_bd_pins axi_vip_3/aclk] [get_bd_pins porttoportmapping_v1_0_0/m00_axi_aclk] [get_bd_pins porttoportmapping_v1_0_0/s00_axi_aclk]
+  connect_bd_net -net aresetn_0_1 [get_bd_ports aresetn_0] [get_bd_pins MemorEDF_0/m00_axi_aresetn] [get_bd_pins MemorEDF_0/s00_axi_aresetn] [get_bd_pins MemorEDF_0/s01_axi_aresetn] [get_bd_pins MemorEDF_0/s02_axi_aresetn] [get_bd_pins axi_vip_0/aresetn] [get_bd_pins axi_vip_1/aresetn] [get_bd_pins axi_vip_2/aresetn] [get_bd_pins axi_vip_3/aresetn] [get_bd_pins porttoportmapping_v1_0_0/m00_axi_aresetn] [get_bd_pins porttoportmapping_v1_0_0/s00_axi_aresetn]
 
   # Create address segments
   create_bd_addr_seg -range 0x00010000 -offset 0x44A00000 [get_bd_addr_spaces axi_vip_0/Master_AXI] [get_bd_addr_segs MemorEDF_0/s01_axi/Reg] SEG_MemorEDF_0_Reg
