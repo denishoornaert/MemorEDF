@@ -81,7 +81,8 @@ def plot_fp():
             y = y[1:]+[y[0]]
             e = e[1:]+[e[0]]
 
-            axs[core-1].errorbar(x, y, yerr=e, label=priorities_labels[prio-1]+" priority")
+            #axs[core-1].errorbar(x, y, yerr=e, label=priorities_labels[prio-1]+" priority")
+            axs[core-1].plot(x, y, label=priorities_labels[prio-1]+" priority")
 
             axs[core-1].set_xticks(x)
             axs[core-1].set_xticklabels([str(x[j]) for j in range(1,9)]+["NA"])
@@ -120,7 +121,8 @@ def plot_ts():
             y = y[1:]+[y[0]]
             e = e[1:]+[e[0]]
 
-            axs[core-1].errorbar(x, y, yerr=e, label="MIT = "+str(mits[mit-1]))
+            #axs[core-1].errorbar(x, y, yerr=e, label="MIT = "+str(mits[mit-1]))
+            axs[core-1].plot(x, y, label="MIT = "+str(mits[mit-1]))
 
             axs[core-1].set_xticks(x)
             axs[core-1].set_xticklabels([str(x[j]) for j in range(1,9)]+["NA"])
@@ -204,7 +206,8 @@ def plot_tdma():
             y = y[1:]+[y[0]]
             e = e[1:]+[e[0]]
 
-            axs[core-1].errorbar(x, y, yerr=e, label="Period = "+str(periods[period-1]))
+            #axs[core-1].errorbar(x, y, yerr=e, label="Period = "+str(periods[period-1]))
+            axs[core-1].plot(x, y, label="Period = "+str(periods[period-1]))
 
             axs[core-1].set_xticks(x)
             axs[core-1].set_xticklabels([str(x[j]) for j in range(1,9)]+["NA"])
