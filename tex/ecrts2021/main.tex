@@ -5,7 +5,7 @@
 %\usepackage{algorithmic}
 \usepackage{graphicx}
 \usepackage{textcomp}
-\usepackage{xcolor}
+\usepackage[dvipsnames]{xcolor}
 \usepackage{tikz}
 \usepackage{multirow}
 \usetikzlibrary{arrows.meta}
@@ -66,8 +66,9 @@
 \newcommand\axiin[1]{$\texttt{HPM}_{#1}$\xspace}
 \newcommand\axiout[1]{$\texttt{HPS}_{#1}$\xspace}
 \newcommand\axiconf[1]{$\texttt{LPM}_{#1}$\xspace}
-\newcommand{\removed}[1]{\textcolor{red}{\sout{#1}}}
-\newcommand{\replace}[2]{\textcolor{blue}{\sout{#1}}~\textcolor{green}{#2}}
+\newcommand{\new}[1]{\color{ForestGreen}\sout{#1}\color{black}}
+\newcommand{\removed}[1]{\color{red}\sout{#1}\color{black}}
+\newcommand{\replace}[2]{\color{red}{\sout{#1}}~\color{green}{#2}\color{black}}
 
 \newcommand{\fig}[1]{Fig.~\ref{#1}}
 

@@ -1,4 +1,4 @@
-\section{Discussion \textcolor{green}{and Limitation}}
+\section{Discussion \textcolor{ForestGreen}{and Limitation}}
 %When comparing the throughput that is experienced by the cores, the normal route always provides a higher throughput in comparison to the the loop-back-based path.
 %However, when only comparing those loop-back-based paths, we can see that the price to pay for having \schim is largely compensated by the memory isolation the latter provides.
 %In general, redirecting the cores traffic toward the PL side with \schim is interesting in combination with techniques such as  \textit{address bleaching} and \textit{zero-copy recoloring}.
@@ -12,7 +12,7 @@ The important aspect brought by the proposed framework, \schim, is its capabilit
 The PL-to-PS feedback is an interesting regulating mechanism. Moreover, it is entirely transparent to the hypervisor's inmates and uses the fastest route possible to communicate with the PS side. Nonetheless, this feedback mechanism is coarse. Inset 1 of Figure \ref{fig:schim_behaviour_tdma} highlights perfectly this problem. Even though all the queues have been assigned a threshold of 4, the latter is often exceeded. The worst-case being queue 3 exceeding the threshold by 2 on the right side of the plot.
 The thresholds used for the FIQ regulation requires to be fine-tuned manually by the user. Future extensions of the \schim will explore the implementation of schedulers capable of dynamically adapting the threshold to maximize the performance and improve the core isolation.
 
-\color{green}
+\color{ForestGreen}
 
 As it stands, the architecture proposed in this paper only works because one and
 only one path between the core cluster and the DRAM controller exist. In the case
