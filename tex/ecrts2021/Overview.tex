@@ -205,10 +205,11 @@ enable arbitration of transactions issued by the different cores of
 the PS. The modules in this domain are intended to be generic for
 extensibility, albeit the first set of three template schedulers is
 provided as a proof of concept.  The scheduling policies currently
-implemented in the \schim are Fixed Priority (FP), Time Division
-Multiple Access (TDMA), and Budget-based Traffic Shaping (TS).  Each
-of the parameters required by the implemented policies --- such as the
-priorities, the periods, and the budgets --- can be adjusted at
+implemented in the \schim are \replace{Fixed Priority (FP), Time Division
+Multiple Access (TDMA), and Budget-based Traffic Shaping (TS)}{Fixed Priority
+(FP) and Time Division Multiple Access (TDMA)}.  Each of the parameters
+required by the implemented policies --- such as
+the priorities, the periods, and the budgets --- can be adjusted at
 runtime via the configuration interface.
 
 The FP scheduler allows associating a priority value to each of the
@@ -218,9 +219,10 @@ order. The TDMA scheduler allows associating a transmission time slot
 to each of the queues expressed in PL clock cycles. The module then
 builds a schedule by concatenating the per-core slots so that only
 pending transactions from one queue at a time are forwarded by the
-\schim. Finally, with the TS scheduler, it is possible to associate a
+\schim.
+\removed{Finally, with the TS scheduler, it is possible to associate a
 maximum rate at which transactions from each queue are forwarded by
-the \schim.
+the \schim.}
 
 %% Finally, the scheduling domain is also the one in charge of the
 %% control of the remaining \schim module, driving and selecting the

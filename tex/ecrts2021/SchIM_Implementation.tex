@@ -241,7 +241,7 @@ interval of the considered core's slot.
 %% forwarded to the remaining of the system will be the core id
 %% corresponding to the interval.  \todo[inline]{DH: @DH TODO improve
 %%   description!}
-
+\color{red}
 \subsubsection{Traffic Shaping (TS)}
 The proposed TS transaction scheduling policy operates by defining a
 minimum inter-arrival time (MIT) that needs to elapse between any two
@@ -275,6 +275,7 @@ bandwidth enforcement at the granularity of individual memory
 transactions. This also differentiates the TS policy in the \schim
 from the \emph{transaction supervisor} proposed
 in~\cite{fred_hyperconnect}.
+\color{black}
 
 % TODO Move to appendix
 \subsection{Programming Model}
@@ -292,6 +293,7 @@ allows a user to select the active memory scheduler.
   \caption{Available \schim configuration registers.}
   \label{tab:configuration_port_structure}
   %\resizebox{0.8\columnwidth}{!}{%
+\color{red}
   \begin{tabular}{|c||c|c|}
     \hline
     \multicolumn{1}{|c||}{Parameter}               & \multicolumn{1}{c|}{Associated Core}      & \multicolumn{1}{c|}{Address}        \\ \hline\hline
@@ -312,6 +314,26 @@ allows a user to select the active memory scheduler.
     & $C_{3}$                                   & \texttt{base+0x30}                    \\ \hline
     \multicolumn{3}{|c|}{Reserved}                                                                                              \\ \hline
     Mode                                      & N/A                                      & \texttt{base+0x38}                    \\ \hline
-  \end{tabular}%
-%}
+  \end{tabular}
+\color{black}
+\color{green}
+    \begin{tabular}{|c||c|c|}
+      \hline
+      \multicolumn{1}{|c||}{Parameter}               & \multicolumn{1}{c|}{Associated Core}      & \multicolumn{1}{c|}{Address}        \\ \hline\hline
+      \multirow{4}{*}{TDMA slots}             & $C_{0}$                                   & \texttt{base+0x00}                    \\ \cline{2-3}
+      & $C_{1}$                                   & \texttt{base+0x04}                    \\ \cline{2-3}
+      & $C_{2}$                                   & \texttt{base+0x08}                    \\ \cline{2-3}
+      & $C_{3}$                                   & \texttt{base+0x0C}                    \\ \hline
+      \multirow{4}{*}{User Thresholds}                & $C_{0}$                                   & \texttt{base+0x10}                    \\ \cline{2-3}
+      & $C_{1}$                                   & \texttt{base+0x14}                    \\ \cline{2-3}
+      & $C_{2}$                                   & \texttt{base+0x18}                    \\ \cline{2-3}
+      & $C_{3}$                                   & \texttt{base+0x1C}                    \\ \hline
+      FP Priorities                                & \begin{tabular}{c|c|c|c}
+                                            $C_{0}$ & $C_{1}$ & $C_{2}$ & $C_{3}$\\
+                                                  \end{tabular}           & \texttt{base+0x20}                    \\ \hline
+      \multicolumn{3}{|c|}{Reserved}                                                                                              \\ \hline
+      Mode                                      & N/A                                      & \texttt{base+0x38}                    \\ \hline
+    \end{tabular}%
+    %}
+\color{black}
 \end{table}
