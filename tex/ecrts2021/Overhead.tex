@@ -1,7 +1,8 @@
-\section{Discussion}
+\section{Discussion \textcolor{green}{and Limitation}}
 %When comparing the throughput that is experienced by the cores, the normal route always provides a higher throughput in comparison to the the loop-back-based path.
 %However, when only comparing those loop-back-based paths, we can see that the price to pay for having \schim is largely compensated by the memory isolation the latter provides.
 %In general, redirecting the cores traffic toward the PL side with \schim is interesting in combination with techniques such as  \textit{address bleaching} and \textit{zero-copy recoloring}.
+\color{red}
 Even though the throughput offered by the \emph{normal route} is higher, the
 authors argue that comparing the latter's raw performance against \schim is unfair.
 Redirecting the CPU-originated memory traffic through the PL side has a cost.
@@ -10,3 +11,50 @@ The important aspect brought by the proposed framework, \schim, is its capabilit
 
 The PL-to-PS feedback is an interesting regulating mechanism. Moreover, it is entirely transparent to the hypervisor's inmates and uses the fastest route possible to communicate with the PS side. Nonetheless, this feedback mechanism is coarse. Inset 1 of Figure \ref{fig:schim_behaviour_tdma} highlights perfectly this problem. Even though all the queues have been assigned a threshold of 4, the latter is often exceeded. The worst-case being queue 3 exceeding the threshold by 2 on the right side of the plot.
 The thresholds used for the FIQ regulation requires to be fine-tuned manually by the user. Future extensions of the \schim will explore the implementation of schedulers capable of dynamically adapting the threshold to maximize the performance and improve the core isolation.
+
+\color{green}
+
+As it stands, the architecture proposed in this paper only works because one and
+only one path between the core cluster and the DRAM controller exist. In the case
+where an equivalent platform would, for instance, feature multiple DRAM controller
+the \schim IP would have to be extended or duplicated.
+
+While the \schim module does not strictly require the PS side to use a hypervisor,
+Jailhouse has been extensively used for the evalution as it provide convinient tools.
+For instance, the coloring capability of Jailhouse has been both used to partition
+the cache and to identify the ower of each transactions (as presented in Section \ref{}).
+However, the cache could not be partitioned and the cores identification could be
+carried on by extracing any other portion of the transactions address such as the
+Most Significant Bits. In addition, the second level of address translation is
+convinent to completely and transparently redirect the inmates through the PL side.
+Finally, the cores throttling via the FIQ routine can also be implemented without
+requirering an hypervisor.
+
+The cost in bandwidth caused by the routing is important and a serious drawback
+agianst the adoption of \schim, despite abling the shaping of the traffic to
+enforce a given policy.
+The authors imput this drop of bandwidth to the path between the PS side module
+populating the path from the core cluster to the HPM ports rather than the
+frequency of the PL side itself. In fact, if one assumes a frequency of 250MHz
+and one burst beat of 16 bytes per clock cycle, the PL side can sustain a
+throughput of approximately 3.7GBps. This is in line with the throughput reported
+in [uiuc xilinx stuff]. Moreover, the frequency comparison should involve the
+frequency of the main bus rather than the cores as on the platform used, the former
+is clocked at 400MHz whereas the former is clocked at 1.5GHz. On the other hand,
+while \schim does introduce extra latency and reduces the bandwidth, the authors
+think that most of the penalty is comming from the two levels of interconnects
+and fifos located on the path from the core cluster to the HPM ports.
+
+The PL-to-PS feedback is an interesting regulating mechanism. Moreover, provided
+that the FIQ lines are not used by the inmates (which is the case of Linux), the
+mechanism is entirely transparent to the hypervisor's inmates and uses the fastest
+route possible to communicate with the PS side. Nonetheless, this feedback mechanism
+is coarse. Inset 1 of Figure \ref{fig:schim_behaviour_tdma} highlights perfectly
+this problem. Even though all the queues have been assigned a threshold of 4, the
+latter is often exceeded. The worst-case being queue 3 exceeding the threshold by
+2 on the right side of the plot. These excesses can be imputed to the reaction time
+of the FIQ routine. The thresholds used for the FIQ regulation requires to be
+fine-tuned manually by the user. Future extensions of the \schim will explore the
+implementation of schedulers capable of dynamically adapting the threshold to
+maximize the performance and improve the core isolation.
+\color{black}
