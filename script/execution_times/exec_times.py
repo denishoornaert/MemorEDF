@@ -20,7 +20,7 @@ if (__name__ == '__main__'):
         "solo" : {
             "fp":         read("fp/sdvbs_solo.csv", 1),
             "tdma":       read("tdma/sdvbs_solo.csv", 1),
-            "ts":         read("ts/sdvbs_solo.csv", 1),
+#            "ts":         read("ts/sdvbs_solo.csv", 1),
             "main-route": read("main-route/sdvbs_solo.csv", 1)
 #            "aging":   read("sdvbs_solo.csv", 1),
 #            "fibo":    read("sdvbs_solo.csv", 1),
@@ -29,7 +29,7 @@ if (__name__ == '__main__'):
         "stress" : {
             "fp":         read("fp/sdvbs_stress.csv", 1),
             "tdma":       read("tdma/sdvbs_stress.csv", 1),
-            "ts":         read("ts/sdvbs_stress.csv", 1),
+#            "ts":         read("ts/sdvbs_stress.csv", 1),
             "main-route": read("main-route/sdvbs_stress.csv", 1)
 #            "aging":   read("sdvbs_stress.csv", 1),
 #            "fibo":    read("sdvbs_stress.csv", 1),
@@ -38,7 +38,7 @@ if (__name__ == '__main__'):
     }
 
     contentions = ["solo", "stress"]
-    policies = ["fp", "tdma", "ts", "main-route"]
+    policies = ["fp", "tdma", "main-route"]#, "ts"
     sizes = ["sqcif", "qcif", "cif", "vga"] #"sim_fast", "sim",
     amount_of_sizes = len(sizes)
     benchmarks = ["disparity", "mser", "localization", "stitch", "texture_synthesis", "tracking", "sift"]
@@ -62,7 +62,7 @@ if (__name__ == '__main__'):
                 #y = [data[contention][policy][size][benchmark]["avg"]/data["solo"]["main-route"][size][benchmark]["avg"] for policy in policies]
                 y = [data[contention][policy][size][benchmark]["avg"]/data["solo"][policy][size][benchmark]["avg"] for policy in policies]
                 e = [data[contention][policy][size][benchmark]["std"]/data["solo"][policy][size][benchmark]["avg"] for policy in policies]
-                axs[index][i].bar(x+(offset/2*bar_width), y, yerr=e, width=bar_width, align="center", label=contention)
+                axs[index][i].bar(x+(offset/2*bar_width), y, width=bar_width, align="center", label=contention)
             axs[index][i].set_xticks(x)
             axs[index][i].set_xticklabels(policies, rotation=45)
             axs[index][i].set_ylabel(size)#"Normalized Execution Time")
