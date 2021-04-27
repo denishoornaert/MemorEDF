@@ -1,4 +1,4 @@
-\documentclass[anonymous, a4paper,UKenglish,cleveref, autoref, thm-restate]{lipics-v2021}
+\documentclass[a4paper,UKenglish,cleveref, autoref, thm-restate]{lipics-v2021}
 
 \usepackage{cite}
 \usepackage{amsmath,amssymb,amsfonts}
@@ -16,6 +16,7 @@
 \usepackage{hyperref}
 \usepackage{url}
 \usepackage{comment}
+\usepackage[normalem]{ulem}
 
 %\bibliographystyle{plainurl}% the mandatory bibstyle
 
@@ -23,13 +24,15 @@
 
 \titlerunning{A Memory Scheduling Infrastructure for Multi-core Systems with Re-programmable Logic} %TODO optional, please use if title is longer than one line
 
-\author{Omitted for review}{Somewhere}{}{}{}
+\author{Denis Hoornaert}{Technical University of Munich, Germany}{denis.hoornaert@tum.de}{}{Denis Hoornaert was supported by an Alexander von Humboldt Professorship endowed by the German Federal Ministry of Education and Research.}
+\author{Shahin Roozkhosh}{Boston University, USA}{shahin@bu.edu}{}{}
+\author{Renato Mancuso}{Boston University, USA}{rmancuso@bu.edu}{}{The material presented in this paper is based upon work supported by the National Science Foundation (NSF) under grant number CCF-2008799. Any opinions, findings, and conclusions or recommendations expressed in this publication are those of the authors and do not necessarily reflect the views of the NSF.}
 
-\authorrunning{Omitted for review}
+\authorrunning{D. Hoornaert, S. Roozkhosh and R. Mancuso}
 
 \Copyright{Omitted for review} %TODO mandatory, please use full first names. LIPIcs license is "CC-BY";  http://creativecommons.org/licenses/by/3.0/
 
-\ccsdesc[100]{\textcolor{red}{Replace ccsdesc macro with valid one}} %TODO mandatory: Please choose ACM 2012 classifications from https://dl.acm.org/ccs/ccs_flat.cfm
+\ccsdesc[500]{Computer systems organization~Real-time system architecture} %TODO mandatory: Please choose ACM 2012 classifications from https://dl.acm.org/ccs/ccs_flat.cfm
 
 \keywords{MPSoC, FPGA, Memory Scheduling} %TODO mandatory; please add comma-separated list of keywords
 
@@ -63,6 +66,8 @@
 \newcommand\axiin[1]{$\texttt{HPM}_{#1}$\xspace}
 \newcommand\axiout[1]{$\texttt{HPS}_{#1}$\xspace}
 \newcommand\axiconf[1]{$\texttt{LPM}_{#1}$\xspace}
+\newcommand{\removed}[1]{\textcolor{red}{\sout{#1}}}
+\newcommand{\replace}[2]{\textcolor{blue}{\sout{#1}}~\textcolor{green}{#2}}
 
 \newcommand{\fig}[1]{Fig.~\ref{#1}}
 
