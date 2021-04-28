@@ -206,10 +206,10 @@ set of memory scheduling policies implemented in the \schim.
 \subsubsection{Fixed Priority}
 The FP scheduling module aims at enforcing strict prioritization of
 cores' memory traffic. The priority ordering is explicitly defined by
-the user through the configuration port. While the \schim only has
-four queues, 16 different levels of priority are offered. The ordering
-must be strict, meaning that two cores cannot be assigned with the
-same priority.
+the user through the configuration port. While the \schim \new{instance used in
+this paper} only has four queues, 16 different levels of priority are offered
+\new{as the platform considered supports up to 16 different colors}. The ordering
+must be strict, meaning that two cores cannot be assigned with the same priority.
 
 The FP scheduling module only needs two pieces of information. That is
 (1) the priority associated with each queue and (2) whether a given
