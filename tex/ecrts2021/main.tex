@@ -66,7 +66,7 @@
 \newcommand\axiin[1]{$\texttt{HPM}_{#1}$\xspace}
 \newcommand\axiout[1]{$\texttt{HPS}_{#1}$\xspace}
 \newcommand\axiconf[1]{$\texttt{LPM}_{#1}$\xspace}
-\newcommand{\new}[1]{\color{ForestGreen}\sout{#1}\color{black}}
+\newcommand{\new}[1]{\color{ForestGreen}#1\color{black}~}
 \newcommand{\removed}[1]{\color{red}\sout{#1}\color{black}}
 \newcommand{\replace}[2]{\color{red}{\sout{#1}}~\color{green}{#2}\color{black}}
 
@@ -118,5 +118,7 @@ synthetic and real-world benchmarks.
 
 \bibliographystyle{plainurl}
 \bibliography{references}
+
+\input{review}
 
 \end{document}
