@@ -56,13 +56,27 @@ limiting factors of research on memory scheduling policies is the
 ability to construct evidence of performance improvements with
 the realistic workload. Proposing a new memory scheduling policy is
 traditionally done with either a simulated setup or with a
-full-system soft-core implementation. Both cases are considerably slower than what it would be in real systems and force the use of an unrealistically lightweight workload. Nonrealistic workloads limit the repeatability of experiments of scale.
+full-system soft-core implementation. \replace{Both cases are considerably slower
+than what it would be in real systems and force the use of an unrealistically
+lightweight workload. Nonrealistic workloads limit the repeatability of
+experiments of scale.}{Both cases have their own drawbacks. The former gives a
+great deal of flexibility but has to abstract many part of the simulated SoC. In
+addtion, they can hardly be applied on real platforms unless they rely on
+soft-core implementation. The drawbacks posed by the full soft-core based SoC
+implementation is that they (i) run at such a low frequency that they cannot
+put enough pressure on the DRAM controller and (ii) rely on soft-cores that do not
+exploit the same Instructions Set Architecture as widely available COTS. The last
+point limits the practical impacts of these works.}
 
-Furthermore, the multi-fold drop in performance excludes the
+\replace{Furthermore, the multi-fold drop in performance excludes the
 possibility of adopting experimental memory scheduling policies for a
 production-ready system. Conversely, we envision that our \schim will
 be an intermediate step in the transition path to the production of
-research-seeded ideas. Additionally, as PS-PL platforms mature and the interplay of PL and memory resources improves, a \schim-like design
+research-seeded ideas}{As reported in \ref{PLIM20}, re-routing the traffic of the
+core cluster through the PL-side comes at a cost in terms of extra latency and
+reduced bandwidth}. \replace{Additionally}{Nonetheless}, as PS-PL 
+platforms mature and the interplay
+of PL and memory resources improves, a \schim-like design
 could be the way to go for mission-reconfigurable, upgradable embedded
 systems.
 
