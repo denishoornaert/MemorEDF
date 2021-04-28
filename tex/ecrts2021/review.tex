@@ -36,7 +36,7 @@
 
     \subsection{Reviewer A}
         \subsubsection{There is a rather throrough experimental evaluation, but it sometimes raises more questions than it answers. This suggests the experiments are not yet fully mature.}
-
+            
 
         \subsubsection{Responses are not intercepted by SchIM, preventing response time analysis of different schedulers.}
             Having a clearer view on the response time of different memory components at the transaction level is one of the many features that can be made available by the PLiM approach. While the authors are interested in exploring such module in the future, we do not consider this as a requirement for \schim.
@@ -59,10 +59,10 @@
 
         \subsubsection{Taking away FIQ from the guest OS further impacts performance. Please explain why you did not use Monitor mode, in particular since you do not need to spill many registers for executing}
             This matter is discussed in the fourth paragraph of the discussion section (section 7).
-            The authors are not sure what the reviewer referres to by "Monitor mode", however, we beleive that the proposed FIQ routine is the fastest approach for this specific platform. On other platforms running different Operating System, mileage may vary. 
+            The authors are not sure what the reviewer referres to by "Monitor mode", however, we beleive that the proposed FIQ routine is the fastest approach for this specific platform. On other platforms running different Operating System, mileage may vary.
 
         \subsubsection{Please explain why FP offers 16 priorities for 4 queues.}
-            Short explanation added line 424-425
+            Short explanation added line 424-425. Typically, \schim offers up to 16 level of priority for this instance because the platform in used can support up to 16 colors and, by extension, up to 16 queues. Each of these queues require a dedicated level of priority.
 
     \subsection{Reviewer C}
         \subsubsection{The paper is excessively overselling the idea while underestimating the weaknesses.}
