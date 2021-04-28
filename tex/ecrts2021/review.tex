@@ -1,0 +1,37 @@
+\newpage
+\section{Reviews}
+
+    \subsection{Shepherding Requirements}
+        \subsubsection{Please remove the discussion of the TS scheduler since it has logical errors in its current status as highlighted in the paper and shown in evaluation}
+            Every mention of the TS scheduler have been removed.
+            \begin{itemize}
+                \item line 303-304, 312-313: mentions removed
+                \item line 444-465: whole section 5.5.3 removed
+                \item Table 1: TS entries removed from configuration port
+                \item line 541: mentions removed
+                \item Figure 4: TS bar cluster removed
+                \item line 557-558, 563-564: mentions removed
+                \item line 581-582: mentions removed
+                \item Figure 5: TS inset removed
+                \item line 601-602, 603, 604-605: mentions removed
+                \item Figure 6: TS inset removed
+                \item line 624-632: TS trace snapshot discussion removed
+                \item line 651-652, 661-665: TS isolation discussion removed
+                \item line 735: mentions removed
+            \end{itemize}
+
+        \subsubsection{Add a discussion about the limitations of the work as highlighted by the reviewers}
+            Discussion regarding the limitation and the nuancing of our approach have been integrated in section 7, "Discussion".
+            The section is organized as follow:
+            \begin{itemize}
+                \item paragraph 1: discuss the overall place of \schim in system as a centralized point
+                \item paragraph 2: discuss the requirements of \schim with respect to the hypervisor
+                \item paragraph 3: discuss the bandwidth cost to pay for routing the traffic through the PL and discuss the reason of this drop.
+                \item paragraph 4: discuss the pl-to-ps feedback and its implementation using FIQ lines
+            \end{itemize}
+
+    \subsection{Reviewer A}
+
+    \subsection{Reviewer B}
+
+    \subsection{Reviewer C}
