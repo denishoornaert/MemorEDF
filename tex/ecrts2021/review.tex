@@ -3,6 +3,7 @@
 
     \subsection{Shepherding Requirements}
         \subsubsection{Please remove the discussion of the TS scheduler since it has logical errors in its current status as highlighted in the paper and shown in evaluation}
+            \label{subsubsec:ts_removal}
             Every mention of the TS scheduler have been removed.
             \begin{itemize}
                 \item line 303-304, 312-313: mentions removed
@@ -34,22 +35,31 @@
 
 
     \subsection{Reviewer A}
+        \subsubsection{There is a rather throrough experimental evaluation, but it sometimes raises more questions than it answers. This suggests the experiments are not yet fully mature.}
+
+
+        \subsubsection{Responses are not intercepted by SchIM, preventing response time analysis of different schedulers.}
+            Having a clearer view on the response time of different memory components at the transaction level is one of the many features that can be made available by the PLiM approach. While the authors are interested in exploring such module in the future, we do not consider this as a requirement for \schim.
+
+        \subsubsection{The TS scheduler has logic errors. It is unclear why it is still included in the paper.}
+            Every elements linked to the TS policy have been removed. See Section \ref{subsubsec:ts_removal} for more information.
 
     \subsection{Reviewer B}
         \subsubsection{Serialization through HPMs and the PLIM design with a single central memory scheduler severly limits the approach and constraints the kind of systems for which memory scheduling can be explored.}
-
+            The authors acknowledge this as a current limitation of \schim and agree that it must be discussed.
 
         \subsubsection{Given that PLIM and PL-side memory arbitrarion existed before, the originality of the work is limited.}
-
+            PLiM existed before but it did not actively manipulate the transactions, it just changed some data on the fly. Regarding the PL-side arbitration, as far as the authors know, there does not exist widely available PS-side plocy that can act on cores individually. This would be the case if the cores are not clusterd together behind a LLC and a bus master by them selves. With that regard, we think that \schim offers novelty.
 
         \subsubsection{It is not clear to me whether the evaluation correctly reflects the performance of the baseline.}
 
 
         \subsubsection{The paper could be written more conscisely. In particular the figures in the evaluation must be scaled up.}
-
+            With the removal of elements linked to the TS policy, some room have been freed. This extra room will be used to scale up the figures.
 
         \subsubsection{Taking away FIQ from the guest OS further impacts performance. Please explain why you did not use Monitor mode, in particular since you do not need to spill many registers for executing}
-
+            This matter is discussed in the fourth paragraph of the discussion section (section 7).
+            The authors are not sure what the reviewer referres to by "Monitor mode", however, we beleive that the proposed FIQ routine is the fastest approach for this specific platform. On other platforms running different Operating System, mileage may vary. 
 
         \subsubsection{Please explain why FP offers 16 priorities for 4 queues.}
             Short explanation added line 424-425
