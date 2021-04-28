@@ -14,13 +14,16 @@ The thresholds used for the FIQ regulation requires to be fine-tuned manually by
 
 \color{ForestGreen}
 
-As it stands, the architecture proposed in this paper only works because one and
-only one path between the core cluster and the DRAM controller exist. In the case
-where an equivalent platform would, for instance, feature multiple DRAM controller
-the \schim IP would have to be extended or duplicated.
+By design, the PLiM module proposed in this paper, \schim, centralizes the
+memory traffic and its scheduling. This centralization works on the platform
+considered as there exist one and only one path between the the LLC and the
+DRAM controller. In systems where multiple paths between the processing units
+and the memory controllers exist, centralized system such as \schim should be
+prohibited. In such platforms, a distributed approach should be prioritize in
+order to benefit from all the parallelization offered.
 
 While the \schim module does not strictly require the PS side to use a hypervisor,
-Jailhouse has been extensively used for the evalution as it provide convinient tools.
+Jailhouse has been extensively used for the evalution as it provides convinient tools.
 For instance, the coloring capability of Jailhouse has been both used to partition
 the cache and to identify the ower of each transactions (as presented in Section \ref{}).
 However, the cache could not be partitioned and the cores identification could be
@@ -46,15 +49,20 @@ think that most of the penalty is comming from the two levels of interconnects
 and fifos located on the path from the core cluster to the HPM ports.
 
 The PL-to-PS feedback is an interesting regulating mechanism. Moreover, provided
-that the FIQ lines are not used by the inmates (which is the case of Linux), the
-mechanism is entirely transparent to the hypervisor's inmates and uses the fastest
-route possible to communicate with the PS side. Nonetheless, this feedback mechanism
-is coarse. Inset 1 of Figure \ref{fig:schim_behaviour_tdma} highlights perfectly
-this problem. Even though all the queues have been assigned a threshold of 4, the
-latter is often exceeded. The worst-case being queue 3 exceeding the threshold by
-2 on the right side of the plot. These excesses can be imputed to the reaction time
-of the FIQ routine. The thresholds used for the FIQ regulation requires to be
-fine-tuned manually by the user. Future extensions of the \schim will explore the
-implementation of schedulers capable of dynamically adapting the threshold to
-maximize the performance and improve the core isolation.
+that the FIQ lines are not used by the inmates, the mechanism is entirely transparent
+to the hypervisor's inmates and uses the fastest route possible to communicate
+with the PS side. As far as the authors know, the Linux inmate used to run the
+benchmarks and the inmates used to stress the bus do not use the FIQ lines.
+Nonetheless, it must be acknowledged that requiring FIQ lines for the correct
+operation of \schim can enter into conflict with software that would also
+require them.
+The PL-to-PS feedback mechanism is coarse. Inset 1 of Figure
+\ref{fig:schim_behaviour_tdma} highlights perfectly this problem. Even though all
+the queues have been assigned a threshold of 4, the latter is often exceeded.
+The worst-case being queue 3 exceeding the threshold by 2 on the right side of the
+plot. These excesses can be imputed to the reaction time of the FIQ routine. The
+thresholds used for the FIQ regulation requires to be fine-tuned manually by the
+user. Future extensions of the \schim will have explore the implementation of
+schedulers capable of dynamically adapting the threshold to maximize the performance
+and improve the core isolation.
 \color{black}
