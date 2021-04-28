@@ -30,8 +30,46 @@
                 \item paragraph 4: discuss the pl-to-ps feedback and its implementation using FIQ lines
             \end{itemize}
 
+        \subsubsection{Explain the value the proposed scheduler-in-the-middle is adding to the isolation use-case. In particular, address the following concern: you experiment with enforced DRAM bank partitioning, which is known by existing literature to enable such isolation on its own. Ideally, a comparison with the system, where scheduler-in-the-middle was applies without bank partitioning and the system where only bank partitioning was applied without the scheduler-in-the-middle will help distilling the effectiveness of each one.}
+
+
     \subsection{Reviewer A}
 
     \subsection{Reviewer B}
+        \subsubsection{Serialization through HPMs and the PLIM design with a single central memory scheduler severly limits the approach and constraints the kind of systems for which memory scheduling can be explored.}
+
+
+        \subsubsection{Given that PLIM and PL-side memory arbitrarion existed before, the originality of the work is limited.}
+
+
+        \subsubsection{It is not clear to me whether the evaluation correctly reflects the performance of the baseline.}
+
+
+        \subsubsection{The paper could be written more conscisely. In particular the figures in the evaluation must be scaled up.}
+
+
+        \subsubsection{Taking away FIQ from the guest OS further impacts performance. Please explain why you did not use Monitor mode, in particular since you do not need to spill many registers for executing}
+
+
+        \subsubsection{Please explain why FP offers 16 priorities for 4 queues.}
+            Short explanation added line 424-425
 
     \subsection{Reviewer C}
+        \subsubsection{The paper is excessively overselling the idea while underestimating the weaknesses.}
+
+
+        \subsubsection{The paper does not solve in fact these problems, while introducing new ones. It does not solve these problems because still SchIM is implemented in PL which is running on order-of-magnitude slower clock frequency than the PS. This is clear from the results where SchIM kills the memory performance by more than 75\% throughput degradation (Figure 4).}
+
+
+        \subsubsection{This solution drastically affects throughput as I highlighted earlier. It does the same for memory latency since a request/access through this solution has to navigate through the PL and SchIM. This runs at the PL clock; suffering several cycles from the solution (this is not fully quantified in the paper, which I discuss in next point),  will translate into a much larger number of CPU (or DRAM) cycles since those run at higher speeds (GHz compared to few MHz of PL). Accordingly, I am plotting that individual memory request latencies also increase by ~100s cycles.}
+
+
+        \subsubsection{Given that the paper also addresses performance isolation and guarantees as a use case considering real-time systems as a potential customer, bounding memory latencies is also an important factor. There has been a plethora of research papers in the community to bound (and tighten) these latencies. This solution will definitely increase these latencies and that effect is not quantified or even highlighted in the paper.}
+
+            \paragraph{Those schedulers are implemented on top of (or on the way to) the actual memory controller existing schedulers (such as FR-FCFS). Accordingly, they do not cancel its effect.}
+
+            \paragraph{the system designer still needs to apply the existing techniques from literature to bound the interference of these memory controller schedulers.}
+
+            \paragraph{With regard to the PL-to-PS feedback: It is not clear to the reviewer how the effectiveness of this is different from the natural backpressure/backlogging mechanisms deployed by most existing COTS SoCs?}
+
+            \paragraph{With regard to the PL-to-PS feedback: Compared to the aforementioned already implemented techniques, this PL-to-PS feedback has its own drawbacks:}
