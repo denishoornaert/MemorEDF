@@ -192,36 +192,148 @@
         hypervisor.
 
     \subsection{Reviewer C}
-        \subsubsection{The paper is excessively overselling the idea while underestimating the weaknesses.}
-            We agree that there is a substantial mismatch between our speech in the early sections (specifically the third paragraph in section \ref{sec:design_goals}).
-            Accordingly, we changed the speech (lines 235-249).
 
-        \subsubsection{The paper does not solve in fact these problems, while introducing new ones. It does not solve these problems because still SchIM is implemented in PL which is running on order-of-magnitude slower clock frequency than the PS. This is clear from the results where SchIM kills the memory performance by more than 75\% throughput degradation (Figure 4).}
-            Following the shepherding requirements, this point is discussed in section \ref{sec:discussion}, paragraph three.
-            In brief, we acknowledge that \schim introduces an overhead. However, this overhead is limited once compared to the throughput reported in the original PLiM paper.
-            The inherent cost of redirecting the traffic through the PL-side is not induced by its frequency. In fact, via some quick computation, we can show that for a frequency of 250MHz (the \schim frequency), a throughput of approx. 3.7GBps can be sustained. This is in line with the throughput of 4.8GBps (for 300MHz) reported in \cite{uiuc-xilinx-port-study}.
-            Finally, while the A53 cortex cores run at 1.5GHz, the main bus runs at a much lower frequency. This frequency is closer to the one of the PL-side.
+        \subsubsection{The paper is excessively overselling the idea
+        while underestimating the weaknesses.}
 
-        \subsubsection{Given that the paper also addresses performance isolation and guarantees as a use case considering real-time systems as a potential customer, bounding memory latencies is also an important factor. There has been a plethora of research papers in the community to bound (and tighten) these latencies. This solution will definitely increase these latencies and that effect is not quantified or even highlighted in the paper.}
-            We would like to reiterate the fact that \schim is a framework that offers the possibility to control the latency and the timings at a transaction level.
-            The two policies offered in this paper have for vocation to demonstrate that \schim, as a framework, is capable of shaping cpu-originated traffic.
-            Implementing policies that could guarantee a user-specified latency is part of the broad range of future works made possible by \schim.
-            While interesting, we consider such implementation as out of the scope of this article.
+        We agree that there was a recognizable mismatch in term of
+        claims between our introduction/motivation sections
+        (specifically the third paragraph in
+        Section~\ref{sec:design_goals}) and the rest of the technical
+        content. Accordingly, we revised
+        Section~\ref{sec:design_goals} to more consistently position
+        the contribution of our work.
 
-%            \paragraph{Those schedulers are implemented on top of (or on the way to) the actual memory controller existing schedulers (such as FR-FCFS). Accordingly, they do not cancel its effect.}
-%            \paragraph{the system designer still needs to apply the existing techniques from literature to bound the interference of these memory controller schedulers.}
+        \subsubsection{The paper does not solve in fact these
+        problems, while introducing new ones. It does not solve these
+        problems because still SchIM is implemented in PL which is
+        running on order-of-magnitude slower clock frequency than the
+        PS. This is clear from the results where SchIM kills the
+        memory performance by more than 75\% throughput degradation
+        (Figure 4).}
 
-        \subsubsection{With regard to the PL-to-PS feedback: It is not clear to the reviewer how the effectiveness of this is different from the natural backpressure/backlogging mechanisms deployed by most existing COTS SoCs?}
-            The motivation behind the integration of the PL-to-PS feedback is that the traditional backpressure mechanisms cannot make the difference between the cores as, for the remaining of the system, they appear as one master (i.e., the core cluster).
-            Thus, while the FIFOs located before the HPM ports can stop the arrival of new transactions in order to not overflow, they cannot indicate which specific core should be throttled. On the other hand, \schim can throttle a specific core even if the regulation is coarse.
-            The throttling is essential to ensure a fair share as it prevents head-of-the-line blocking situation discussed in section \ref{sec:pl-to-ps-feedback}.
-            Finally, we think that MSHRs regulation is not helpful in this situation for two reasons:
-            \begin{enumerate}
-                \item The total amount of outstanding transactions allowed by the MSHRs is greater than the total capacity offered by the two FIFOs located before the HPM ports. For instance, on our board, the LLC can accommodate up to 64 outstanding read transactions, whereas, together, the FIFOs can only accommodate up to 16 outstanding read transactions. Hence, MSHR regulation alone cannot prevent head-of-the-line blocking.
-                \item As hinted in section \ref{sec:pl-to-ps-feedback}, while the amount of read transactions emitted by a given core can be bounded thanks to an MSHR counter, this is not the case for write transactions. In fact, the LLC write-back unit is shared without any restrictions amongst the cores as a write-back request result of the eviction of a cache line. In such a mechanism, the ownership of the cache line is lost. Similar to the previous point, this lack of regulation can lead to head-of-the-line blocking in the HPM ports FIFOs.
-            \end{enumerate}
+        Following the shepherding requirements, this point is
+        discussed in Section~\ref{sec:discussion}. Briefly, we
+        acknowledge that the \schim introduces an overhead. However,
+        this overhead is limited once compared to the throughput
+        required to just route memory traffic through the
+        PL. Moreover, it appears that the quite high cost of
+        redirecting the traffic through the PL is not induced by its
+        frequency. In fact, a back-of-the envelope calculation reveals
+        that for a PL operating at 250MHz (the \schim frequency), and
+        with a bus width of 128~bits, a full-duplex throughput of
+        approximately 3.7GBps can be sustained. This is in line with
+        the throughput of 4.8GBps (for 300MHz) reported
+        in~\cite{uiuc-xilinx-port-study}.  Finally, while the Cortex
+        A53 cores run at 1.5GHz, the main PS-side bus runs at a much
+        lower frequency, i.e. 400MHz. This frequency is closer to the
+        one of the PL-side. Thus, we can conclude that a particularly
+        inefficient implementation of the PS-PL interfaces available
+        in the target platform is to blame for the observed drop in
+        available bandwidth. The proposed \schim design transcends the
+        carried out implementation and better raw performance are
+        expected for the same design as PS-PL platforms proliferate
+        and increase in maturity.
 
-        \subsubsection{With regard to the PL-to-PS feedback: Compared to the aforementioned already implemented techniques, this PL-to-PS feedback has its own drawbacks:}
-            The drawbacks mentioned by the reviewers are (i) the latency inherent to the interruption caused by the PL-to-PS feedback and (ii) the coarseness of the feedback.
-            The authors acknowledge the aforementioned drawbacks and discuss them in section \ref{sec:discussion}.
-            In both cases, the problem resides in the amount of time required to invoke the FIQ routine. Bounding this latency and understanding how often the threshold is exceeded is a non-trivial task. This latency can be shortened and made predictable via some techniques such as allocating a portion of the cache or of a portion of a tightly integrated memory.
+        \subsubsection{Given that the paper also addresses performance
+        isolation and guarantees as a use case considering real-time
+        systems as a potential customer, bounding memory latencies is
+        also an important factor. There has been a plethora of
+        research papers in the community to bound (and tighten) these
+        latencies. This solution will definitely increase these
+        latencies and that effect is not quantified or even
+        highlighted in the paper.}
+
+        Our concern in this sense resonates with the reviewer. Indeed,
+        being able to more accurately control and bound the latency of
+        memory transactions is one of the main premises of the \schim
+        framework. We aim at offering the possibility to control the
+        latency and the timings at a transaction level with
+        user-configurable and community-enhanced memory policies.  The
+        two policies offered in this paper serve the sole purpose of
+        demonstrating that the \schim, as a framework, is capable of
+        scheduling cpu-originated traffic. Implementing policies that
+        could guarantee a user-specified latency on a per-transaction
+        basis is part of the broad range of future works made possible
+        by the \schim.  While interesting, we consider such
+        contributions worthy of self-contained investigation.
+
+%       \paragraph{Those schedulers are implemented on top of (or on
+%       the way to) the actual memory controller existing schedulers
+%       (such as FR-FCFS). Accordingly, they do not cancel its
+%       effect.}  \paragraph{the system designer still needs to apply
+%       the existing techniques from literature to bound the
+%       interference of these memory controller schedulers.}
+
+        \subsubsection{With regard to the PL-to-PS feedback: It is not
+        clear to the reviewer how the effectiveness of this is
+        different from the natural backpressure/backlogging mechanisms
+        deployed by most existing COTS SoCs?}
+
+        The motivation behind the integration of the PL-to-PS feedback
+        is that the traditional backpressure mechanisms cannot
+        differentiate and/or prioritize between the cores as, from the
+        point of view of the memory subsystem, they appear as one
+        master (i.e., the core cluster or LLC controller).  Thus,
+        while the FIFOs located before the HPM ports can stop the
+        arrival of new transactions in order to not overflow, they
+        cannot indicate which specific core should be throttled. On
+        the other hand, \schim can throttle a specific core even if
+        the regulation is coarse.  The throttling is essential to
+        ensure that cores are assigned a priority-aware share of the
+        memory bandwidth as it prevents head-of-the-line blocking. We
+        provide a discussion on the topic in
+        Section~\ref{sec:pl-to-ps-feedback}. On practical example is
+        the following. As shown by Valsan et al in ``Taming
+        Non-Blocking Caches to Improve Isolation in Multicore
+        Real-Time Systems'' (RTAS'16) when due to the combined
+        activity of all the cores the available MSHR are exhausted,
+        the entire LLC can block. The PL-PS feedback mechanism
+        introduced with the \schim is a congestion control mechanism
+        that can target individual cores for throttling preventing the
+        entire cluster to stall due. Because throttling is
+        priority-aware, it ensures that high-priority cores are
+        shielded from low priority cores that emit high-rate memory
+        transactions.
+
+        %% Finally, we think that MSHRs regulation is not helpful in this
+        %% situation for two reasons: \begin{enumerate} \item The total
+        %% amount of outstanding transactions allowed by the MSHRs is
+        %% greater than the total capacity offered by the two FIFOs
+        %% located before the HPM ports. For instance, on our board, the
+        %% LLC can accommodate up to 64 outstanding read transactions,
+        %% whereas, together, the FIFOs can only accommodate up to 16
+        %% outstanding read transactions. Hence, MSHR regulation alone
+        %% cannot prevent head-of-the-line blocking.  \item As hinted in
+        %% section \ref{sec:pl-to-ps-feedback}, while the amount of read
+        %% transactions emitted by a given core can be bounded thanks to
+        %% an MSHR counter, this is not the case for write
+        %% transactions. In fact, the LLC write-back unit is shared
+        %% without any restrictions amongst the cores as a write-back
+        %% request result of the eviction of a cache line. In such a
+        %% mechanism, the ownership of the cache line is lost. Similar to
+        %% the previous point, this lack of regulation can lead to
+        %% head-of-the-line blocking in the HPM ports
+        %% FIFOs.  \end{enumerate}
+
+        \subsubsection{With regard to the PL-to-PS feedback: Compared
+        to the aforementioned already implemented techniques, this
+        PL-to-PS feedback has its own drawbacks:}
+
+        The drawbacks mentioned by the reviewers are (i) the latency
+        inherent to the interruption caused by the PL-to-PS feedback
+        and (ii) the coarseness of the feedback.  The authors
+        acknowledge the aforementioned drawbacks and discuss them in
+        Section~\ref{sec:discussion}. In both cases, the problem
+        resides in the amount of time required to invoke the FIQ
+        routine. Bounding this latency and understanding how often the
+        threshold is exceeded is a non-trivial task. This latency can
+        however be shortened and made more predictable in a couple of
+        ways. For instance, one could allocate the instructions (no
+        data are used inside the handler) that correspond to the FIQ
+        handler in a private cache color. This would prevent extra
+        memory transactions to ever being generated when the FIQ is
+        invoked due to cache misses on the FIQ handler
+        instructions. Alternatively, the FIQ instructions could be
+        allocated in a block of tightly coupled memory (e.g. a
+        scratchpad) and marked as non-cacheable.
