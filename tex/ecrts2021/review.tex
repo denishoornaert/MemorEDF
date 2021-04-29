@@ -2,8 +2,12 @@
 \section{Reviews}
 
     \subsection{Shepherding Requirements}
-        \subsubsection{Please remove the discussion of the TS scheduler since it has logical errors in its current status as highlighted in the paper and shown in evaluation}
-            \label{subsubsec:ts_removal}
+
+        \subsubsection{Please remove the discussion of the TS
+        scheduler since it has logical errors in its current status as
+        highlighted in the paper and shown in evaluation}
+
+         \label{subsubsec:ts_removal}
             Every mention of the TS scheduler have been removed.
             \begin{itemize}
                 \item line 303-304, 312-313: mentions removed
@@ -21,15 +25,32 @@
                 \item line 735: mentions removed
             \end{itemize}
 
-        \subsubsection{Add a discussion about the limitations of the work as highlighted by the reviewers}
-            Discussion regarding the limitation and the nuancing of our approach have been integrated in section 7, "Discussion".
+        \subsubsection{Add a discussion about the limitations of the
+        work as highlighted by the reviewers}
+
+            A discussion regarding the limitations and the nuances of
+            our approach compared to related works has been integrated
+            in Section~\ref{sec:discussion}.
+
             The section is organized as follow:
             \begin{itemize}
-                \item paragraph 1: discuss the overall place of \schim in system as a centralized point
-                \item paragraph 2: discuss the requirements of \schim with respect to the hypervisor
-                \item paragraph 3: discuss the bandwidth cost to pay for routing the traffic through the PL and discuss the reason of this drop.
-                \item paragraph 4: discuss the pl-to-ps feedback and its implementation using FIQ lines
-            \end{itemize}
+                \item Paragraph 1: we discuss the reason for the \schim
+                to be currently implemented as a centralized scheduler
+                and mention the necessity of a more decentralized
+                re-design in platforms with multiple memory
+                controllers;
+
+                \item Paragraph 2: we discuss the requirements of the \schim
+                in terms of hypervisor;
+
+                \item Paragraph 3: we make the necessary
+                considerations about the PL-to-PS feedback and its
+                implementation using FIQ lines.
+
+                \item Paragraph 4: we discuss the bandwidth cost to
+                pay for routing the traffic through the PL and discuss
+                the reason of the loss in net bandwidth;
+           \end{itemize}
 
         \subsubsection{Explain the value the proposed scheduler-in-the-middle is adding to the isolation use-case. In particular, address the following concern: you experiment with enforced DRAM bank partitioning, which is known by existing literature to enable such isolation on its own. Ideally, a comparison with the system, where scheduler-in-the-middle was applies without bank partitioning and the system where only bank partitioning was applied without the scheduler-in-the-middle will help distilling the effectiveness of each one.}
         During the implementation, we have noticed that work-conserving policies such as FP could not be enforced.
