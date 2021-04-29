@@ -59,14 +59,14 @@ traditionally done with either a simulated setup or with a
 full-system soft-core implementation. \replace{Both cases are considerably slower
 than what it would be in real systems and force the use of an unrealistically
 lightweight workload. Nonrealistic workloads limit the repeatability of
-experiments of scale.}{Both cases have their own drawbacks. The former gives a
-great deal of flexibility but has to abstract many part of the simulated SoC. In
-addtion, simulated setups can hardly be applied on real platforms unless they rely on
-soft-core implementation. The drawbacks posed by the full soft-core based SoC
-implementation is that they (i) run at such a low frequency that they cannot
-put enough pressure on the DRAM controller and (ii) rely on soft-cores that do not
-exploit the same Instructions Set Architecture as widely available COTS. The last
-point limits the practical impacts of these works.}
+experiments of scale.}{Both cases have their drawbacks. The former gives a
+great deal of flexibility but has to simulate many parts of the SoC. In addition,
+simulated setups can hardly be applied on real platforms unless they rely on
+soft-core implementation. Full soft-core based SoC implementations suffer from
+two shortcomings. First, they run a low frequency and thus cannot put enough
+pressure on the DRAM controller. Secondly, they rely on soft-core implementations
+that do not exploit the same Instructions Set Architecture as widely available
+COTS, limiting the practical impacts of these works.}
 
 \replace{Furthermore, the multi-fold drop in performance excludes the
 possibility of adopting experimental memory scheduling policies for a
@@ -74,7 +74,7 @@ production-ready system. Conversely, we envision that our \schim will
 be an intermediate step in the transition path to the production of
 research-seeded ideas}{As reported in \citation{PLIM20}, re-routing the traffic of the
 core cluster through the PL-side comes at a cost in terms of extra latency and
-reduced bandwidth}. \replace{Additionally}{Nonetheless}, as PS-PL 
+reduced bandwidth}. \replace{Additionally}{Nonetheless}, as PS-PL
 platforms mature and the interplay
 of PL and memory resources improves, a \schim-like design
 could be the way to go for mission-reconfigurable, upgradable embedded
