@@ -78,7 +78,7 @@ through the HPM ports is a fraction of that due to what appears to be
 PS-side internal throttling. For the sake of completeness, we quantify
 in \fig{fig:bandwidth_comparison} the maximum bandwidth achieved
 through the PL --- and hence through the \schim. Nevertheless, it is
-important to remember that the absolute figures are strictly platforms
+important to remember that the absolute figures are strictly platform
 dependent.
 
 In \fig{fig:bandwidth_comparison}, we have computed the throughput of
@@ -86,7 +86,7 @@ one \emph{core under analysis}, here core 0 (noted $C_{0}$) when a
 synthetic memory-intensive application is deployed on an increasing
 number of cores denoted with the same notation. The first bar cluster
 (``Normal'') refers to the throughput measured via the normal
-route. The other three clusters capture the observed bandwidth when
+route. The other two clusters capture the observed bandwidth when
 traffic is routed through and managed by the \schim.
 One cluster is provided for each of the implemented memory scheduling policies,
 namely --- from left to right --- \replace{FP, TDMA, and TS}{FP and TDMA}.
@@ -174,10 +174,12 @@ Therefore, in Figure \ref{fig:schim_threshold}, we have explored the sensitivity
 to the threshold for each of the proposed schedulers under different levels of contention.
 The thresholds in use range from 1 to 8 and even include the case where the feedback mechanism is disabled
 (noted \emph{NA}). The contention is created by up to four co-running cores emitting
-write transactions. For each parameter applied to a scheduler (i.e., fixed
-priority, TDMA slot or MIT), the co-running cores are assigned the most
-demanding parameters available (i.e., the highest priority for FP, the biggest TDMA
-slot or the smallest MIT).
+write transactions. For each parameter applied to a scheduler \replace{(i.e., fixed
+priority, TDMA slot or MIT)}{(i.e., fixed
+priority or TDMA slot)}, the co-running cores are assigned the most
+demanding parameters available \replace{(i.e., the highest priority for FP, the biggest TDMA
+slot or the smallest MIT)}{(i.e., the highest priority for FP or the biggest TDMA
+slot)}.
 
 In the case of the FP scheduler (Figure \ref{fig:threshold_fp}), one can observe
 that when running alone, the threshold has no influence on the throughput.
@@ -215,7 +217,7 @@ and is able to probe the signals and to store them in a local
 memory. For this experiment, a group of relevant internal signals have
 been probed and captured during a window of 16384 contiguous clock
 cycles. Then, the information has been extracted by post-processing
-the data. To characterize the behavior of the three different
+the data. To characterize the behavior of the \replace{three}{two} different
 policies, the ILA has been instrumented to collect (i) the amount of
 transactions being buffered in the queues at each clock cycle
 \replace{(inset 1 in \fig{fig:schim_behaviour_fp}, \fig{fig:schim_behaviour_tdma}, and
