@@ -52,8 +52,7 @@ inmate.
 
 As described below, some modifications were necessary to the mainline
 Jailhouse code for our full system implementation\footnote{The
-  modified Jailhouse sources are available at \emph{URL OMITTED FOR
-    BLIND REVIEW}.}.
+  modified Jailhouse sources are available at \url{https://github.com/rntmancuso/jailhouse-rt}.}.
 
 %% with a configurable color specification. By doing so, Jailhouse
 %% supports the notion of temporal partitioning wherein, by assigning a
@@ -165,7 +164,7 @@ HPS ports. These ports follow the asynchronous AXI protocol that
 allows issuing multiple outstanding AR and AW transactions. The
 protocol dictates that any outstanding transaction must have a unique
 AXI ID. This property is crucial to be able to match received
-responses with outstanding requests. Unfortunately, 
+responses with outstanding requests. Unfortunately,
 a potential mismatch between the bit-width of the AXI ID emitted at the HPM
 ports and the bit-width of AXI ID accepted by the HPS ports. For
 instance, in the platform of reference, the HPMs emit 16-bit AXI IDs,
