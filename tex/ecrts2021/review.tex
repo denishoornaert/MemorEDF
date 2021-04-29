@@ -33,33 +33,33 @@
 
         \subsubsection{Explain the value the proposed scheduler-in-the-middle is adding to the isolation use-case. In particular, address the following concern: you experiment with enforced DRAM bank partitioning, which is known by existing literature to enable such isolation on its own. Ideally, a comparison with the system, where scheduler-in-the-middle was applies without bank partitioning and the system where only bank partitioning was applied without the scheduler-in-the-middle will help distilling the effectiveness of each one.}
         During the implementation, we have noticed that work-conserving policies such as FP could not be enforced.
-        Using DRAM bank partitioning prevents policies embedded in the DRAM controller from reordering the traffic shapping produced by \schim.
-        In order words, we want to make sure that transactions will be served in the order dictated by \schim.
-        Similarly, we could have redirected the whole traffic to one single DRAM bank. However, realising our experiments on 128MB would have been difficult.
-        Considering this, the \schim module is capable of enforcing the isolation as it is, from it centralized nature, the bus bottleneck.
-        That being said, we agree to perform the experiences suggested by the reviewers if the time frame allows use to do so.
+        Using DRAM bank partitioning prevents policies embedded in the DRAM controller from reordering the traffic shaping produced by \schim.
+        In order words, we want to ensure that transactions will be served in the order dictated by \schim.
+        Similarly, we could have redirected the whole traffic to one single DRAM bank. However, realizing our experiments on 128MB would have been difficult.
+        Henceforth, the \schim module can enforce the isolation as, from its centralized nature, it is the bus bottleneck.
+        That being said, we agree to perform the experiences suggested by the reviewers if the time frame allows us to do so.
 
     \subsection{Reviewer A}
         \subsubsection{Responses are not intercepted by SchIM, preventing response time analysis of different schedulers.}
-            Having a clearer view on the response time of different memory components at the transaction level is one of the many features that can be made available by the PLiM approach. While the authors are interested in exploring such module in the future, we do not consider this as a requirement for \schim as our main focus is to enforce and test shceduling policies.
+            Having a clearer view of the response time of different memory components at the transaction level is one of the many features that can be made available by the PLiM approach. While the authors are interested in exploring such modules in the future, we do not consider this as a requirement for \schim as our main focus is to enforce and test scheduling policies.
 
         \subsubsection{The TS scheduler has logic errors. It is unclear why it is still included in the paper.}
-            Every elements linked to the TS policy have been removed. See Section \ref{subsubsec:ts_removal} for more information.
+            Every element linked to the TS policy have been removed. See Section \ref{subsubsec:ts_removal} for more information.
 
     \subsection{Reviewer B}
         \subsubsection{Serialization through HPMs and the PLIM design with a single central memory scheduler severly limits the approach and constraints the kind of systems for which memory scheduling can be explored.}
-            The authors acknowledge this as a current limitation of \schim and agree that it must be discussed.
+            The authors acknowledge this as a current limitation of \schim. This matter as been addressed and discussed in section \ref{sec:discussion}.
 
         \subsubsection{Given that PLIM and PL-side memory arbitrarion existed before, the originality of the work is limited.}
-            The \schim module is a direct extension of the original PLiM paper \cite{PLIM20}. However, unlike the bleaching module described in PLiM, \schim aims to have an active behavior, resulting in the shapping of the traffic and the enforcement of scheduling policies.
-            Regarding the PL-side arbitration, the authors acknowledge that previous works (e.g. Hyperconnect from the FRED framework) have explored the arbitration of concurent transactions. However, these works are not part of the PLiM approach and are therefore unable to capture and discriminate between cpu-originated transactions.
-            Following the shepherding requirements, this point has been emphasized in the third paragrph of section \ref{sec:design_goals}.
+            The \schim module is a direct extension of the original PLiM paper \cite{PLIM20}. However, unlike the bleaching module described in PLiM, \schim aims to have an active behavior, resulting in the shaping of the traffic and the enforcement of scheduling policies.
+            Regarding the PL-side arbitration, the authors acknowledge that previous works (e.g., Hyperconnect from the FRED framework) have explored the arbitration of concurrent transactions. However, these works are not part of the PLiM approach and are thus unable to capture and discriminate between cpu-originated transactions.
+            Following the shepherding requirements, this point has been emphasized in the third paragraph of section \ref{sec:design_goals}.
 
 %        \subsubsection{It is not clear to me whether the evaluation correctly reflects the performance of the baseline.}
 
 
         \subsubsection{The paper could be written more conscisely. In particular the figures in the evaluation must be scaled up.}
-            With the removal of elements linked to the TS policy, some room have been freed. This extra room will be used to scale up the figures.
+            With the removal of elements linked to the TS policy, some room has been freed. This extra room will be used to scale up the figures.
 
         \subsubsection{Taking away FIQ from the guest OS further impacts performance. Please explain why you did not use Monitor mode, in particular since you do not need to spill many registers for executing}
             This matter is discussed in the fourth paragraph of the discussion section (section 7).
@@ -67,39 +67,39 @@
             TODO
 
         \subsubsection{Please explain why FP offers 16 priorities for 4 queues.}
-            Short explanation added at lines 424-425. Typically, \schim offers up to 16 level of priority for this instance because the platform in used can support up to 16 cache-colors and, by extension, up to 16 queues. Each of these queues require a dedicated level of priority.
+            Short explanation added at lines 424-425. Typically, our instance \schim offers up to 16 levels of priority because the platform used can support up to 16 cache colors and, by extension, up to 16 queues. Each of these queues requires a dedicated level of priority.
 
     \subsection{Reviewer C}
         \subsubsection{The paper is excessively overselling the idea while underestimating the weaknesses.}
-            We agree that there is a strong mismatch between our speech in the early sections (specifically third paragrph in section \ref{sec:design_goals}).
+            We agree that there is a substantial mismatch between our speech in the early sections (specifically the third paragraph in section \ref{sec:design_goals}).
             Accordingly, we changed the speech (lines 235-249).
 
         \subsubsection{The paper does not solve in fact these problems, while introducing new ones. It does not solve these problems because still SchIM is implemented in PL which is running on order-of-magnitude slower clock frequency than the PS. This is clear from the results where SchIM kills the memory performance by more than 75\% throughput degradation (Figure 4).}
             Following the shepherding requirements, this point is discussed in section \ref{sec:discussion}, paragraph three.
             In brief, we acknowledge that \schim introduces an overhead. However, this overhead is limited once compared to the throughput reported in the original PLiM paper.
-            The inherent cost of redirecting the traffic through the PL-side is not induced by its frequency. In fact, via some quick computation, we can show that for the frequency of 250MHz (the \schim frequency), a throughput of approx. 3.7GBps can be sustained. This is in line with the throughput of 4.8GBps (for 300MHz) reported in \cite{uiuc-xilinx-port-study}.
+            The inherent cost of redirecting the traffic through the PL-side is not induced by its frequency. In fact, via some quick computation, we can show that for a frequency of 250MHz (the \schim frequency), a throughput of approx. 3.7GBps can be sustained. This is in line with the throughput of 4.8GBps (for 300MHz) reported in \cite{uiuc-xilinx-port-study}.
             Finally, while the A53 cortex cores run at 1.5GHz, the main bus runs at a much lower frequency. This frequency is closer to the one of the PL-side.
 
         \subsubsection{Given that the paper also addresses performance isolation and guarantees as a use case considering real-time systems as a potential customer, bounding memory latencies is also an important factor. There has been a plethora of research papers in the community to bound (and tighten) these latencies. This solution will definitely increase these latencies and that effect is not quantified or even highlighted in the paper.}
-            We would to reiterate the fact that \schim is a framework that offers the possibility to control the latency and the timings at a transaction-level.
+            We would like to reiterate the fact that \schim is a framework that offers the possibility to control the latency and the timings at a transaction level.
             The two policies offered in this paper have for vocation to demonstrate that \schim, as a framework, is capable of shaping cpu-originated traffic.
-            The implementation of policies that could guarantee a user-specified latency is part of the broad range of possibilities offered by \schim.
-            While interresting, we consider such implementation as out of the scope of this article.
+            Implementing policies that could guarantee a user-specified latency is part of the broad range of future works made possible by \schim.
+            While interesting, we consider such implementation as out of the scope of this article.
 
 %            \paragraph{Those schedulers are implemented on top of (or on the way to) the actual memory controller existing schedulers (such as FR-FCFS). Accordingly, they do not cancel its effect.}
 %            \paragraph{the system designer still needs to apply the existing techniques from literature to bound the interference of these memory controller schedulers.}
 
         \subsubsection{With regard to the PL-to-PS feedback: It is not clear to the reviewer how the effectiveness of this is different from the natural backpressure/backlogging mechanisms deployed by most existing COTS SoCs?}
-            The motivation behind the integration of the PL-to-PS feedback is that the traditional backpressure mechanisms cannot make the differrence between the cores as, for the remaining of the system, they appear as one master (i.e., the core cluster).
-            Thus, while the FIFOs located before the HPM ports can stop the arrival of new transactions in order to not overflow, they cannot indicate which specific core should be throttled. On the other hand, \schim can throttle a specific core even if the regulation is coarsed.
-            The throttling is important to ensure for a fair allocation as it prevents head-of-the-line blocking situation discussed in section \ref{sec:pl-to-ps-feedback}.
+            The motivation behind the integration of the PL-to-PS feedback is that the traditional backpressure mechanisms cannot make the difference between the cores as, for the remaining of the system, they appear as one master (i.e., the core cluster).
+            Thus, while the FIFOs located before the HPM ports can stop the arrival of new transactions in order to not overflow, they cannot indicate which specific core should be throttled. On the other hand, \schim can throttle a specific core even if the regulation is coarse.
+            The throttling is essential to ensure a fair share as it prevents head-of-the-line blocking situation discussed in section \ref{sec:pl-to-ps-feedback}.
             Finally, we think that MSHRs regulation is not helpful in this situation for two reasons:
             \begin{enumerate}
-                \item The total amount of outstanding transactions allowed by the MSHRs is greater than the accumulated capacity of the two FIFOs located before the HPM ports. For instance, on our board, the LLC can accomodate up to 64 outstanding read transactions whereas, together, the FIFOs can only accomodate up to 16 outstanding read transactions. Hence, MSHR regulation alone can prevent the head of the line blocking.
-                \item While the amount of read transactions emitted by a given core can be bounded thanks to an MSHR counter, this is not the case for write transactions. In fact, the LLC writeback unit is shared without any restrictions amongst the cores as a writeback requests result of the eviction of a cache line. In such mechanism, the ownership of the cache line is lost. Similarly to the previous point, this lack of regulation can lead to head-of-the-line blocking in the HPM ports FIFOs.
+                \item The total amount of outstanding transactions allowed by the MSHRs is greater than the total capacity offered by the two FIFOs located before the HPM ports. For instance, on our board, the LLC can accommodate up to 64 outstanding read transactions, whereas, together, the FIFOs can only accommodate up to 16 outstanding read transactions. Hence, MSHR regulation alone cannot prevent head-of-the-line blocking.
+                \item As hinted in section \ref{sec:pl-to-ps-feedback}, while the amount of read transactions emitted by a given core can be bounded thanks to an MSHR counter, this is not the case for write transactions. In fact, the LLC write-back unit is shared without any restrictions amongst the cores as a write-back request result of the eviction of a cache line. In such a mechanism, the ownership of the cache line is lost. Similar to the previous point, this lack of regulation can lead to head-of-the-line blocking in the HPM ports FIFOs.
             \end{enumerate}
 
         \subsubsection{With regard to the PL-to-PS feedback: Compared to the aforementioned already implemented techniques, this PL-to-PS feedback has its own drawbacks:}
             The drawbacks mentioned by the reviewers are (i) the latency inherent to the interruption caused by the PL-to-PS feedback and (ii) the coarseness of the feedback.
-            the aforementioned drawbacks are acknowledged by the authors and discussed in section \ref{sec:discussion}.
-            In both cases, the problem resides in the amount of time required to invoke the FIQ routine. Bounding this latency and understanding how often the threshold is exceeded is a non-trivial task. This latency can be shortened and made predictable via some techniques such as the allocation a portion of the cache or a portion of a tightly integrated memory.
+            The authors acknowledge the aforementioned drawbacks and discuss them in section \ref{sec:discussion}.
+            In both cases, the problem resides in the amount of time required to invoke the FIQ routine. Bounding this latency and understanding how often the threshold is exceeded is a non-trivial task. This latency can be shortened and made predictable via some techniques such as allocating a portion of the cache or of a portion of a tightly integrated memory.
