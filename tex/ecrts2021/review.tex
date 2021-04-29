@@ -76,11 +76,13 @@
             Finally, while the A53 cortex cores run at 1.5GHz, the main bus runs at a much lower frequency. This frequency is closer to the one of the PL-side.
 
         \subsubsection{Given that the paper also addresses performance isolation and guarantees as a use case considering real-time systems as a potential customer, bounding memory latencies is also an important factor. There has been a plethora of research papers in the community to bound (and tighten) these latencies. This solution will definitely increase these latencies and that effect is not quantified or even highlighted in the paper.}
+            We would to reiterate the fact that \schim is a framework that offers the possibility to control the latency and the timings at a transaction-level.
+            The two policies offered in this paper have for vocation to demonstrate that \schim, as a framework, is capable of shaping cpu-originated traffic.
+            The implementation of policies that could guarantee a user-specified latency is part of the broad range of possibilities offered by \schim.
+            While interresting, we consider such implementation as out of the scope of this article.
 
-            \paragraph{Those schedulers are implemented on top of (or on the way to) the actual memory controller existing schedulers (such as FR-FCFS). Accordingly, they do not cancel its effect.}
-
-
-            \paragraph{the system designer still needs to apply the existing techniques from literature to bound the interference of these memory controller schedulers.}
+%            \paragraph{Those schedulers are implemented on top of (or on the way to) the actual memory controller existing schedulers (such as FR-FCFS). Accordingly, they do not cancel its effect.}
+%            \paragraph{the system designer still needs to apply the existing techniques from literature to bound the interference of these memory controller schedulers.}
 
         \subsubsection{With regard to the PL-to-PS feedback: It is not clear to the reviewer how the effectiveness of this is different from the natural backpressure/backlogging mechanisms deployed by most existing COTS SoCs?}
             The motivation behind the integration of the PL-to-PS feedback is that the traditional backpressure mechanisms cannot make the differrence between the cores as, for the remaining of the system, they appear as one master (i.e., the core cluster).
@@ -88,8 +90,11 @@
             The throttling is important to ensure for a fair allocation as it prevents head-of-the-line blocking situation discussed in section \ref{sec:pl-to-ps-feedback}.
             Finally, we think that MSHRs regulation is not helpful in this situation for two reasons:
             \begin{enumerate}
-                \item The total amount of outstanding transactions allowed by the MSHRs is greater than the accumulated capacity of the two FIFOs located before the HPM ports. For instance, on our board, the LLC can accomodate up to 64 outstanding read transactions whereas, together, the FIFOs can only accomodate 16 outstanding read transactions. Hence, MSHR regulation alone can prevent the head of the line blocking.
+                \item The total amount of outstanding transactions allowed by the MSHRs is greater than the accumulated capacity of the two FIFOs located before the HPM ports. For instance, on our board, the LLC can accomodate up to 64 outstanding read transactions whereas, together, the FIFOs can only accomodate up to 16 outstanding read transactions. Hence, MSHR regulation alone can prevent the head of the line blocking.
                 \item While the amount of read transactions emitted by a given core can be bounded thanks to an MSHR counter, this is not the case for write transactions. In fact, the LLC writeback unit is shared without any restrictions amongst the cores as a writeback requests result of the eviction of a cache line. In such mechanism, the ownership of the cache line is lost. Similarly to the previous point, this lack of regulation can lead to head-of-the-line blocking in the HPM ports FIFOs.
             \end{enumerate}
 
         \subsubsection{With regard to the PL-to-PS feedback: Compared to the aforementioned already implemented techniques, this PL-to-PS feedback has its own drawbacks:}
+            The drawbacks mentioned by the reviewers are (i) the latency inherent to the interruption caused by the PL-to-PS feedback and (ii) the coarseness of the feedback.
+            the aforementioned drawbacks are acknowledged by the authors and discussed in section \ref{sec:discussion}.
+            In both cases, the problem resides in the amount of time required to invoke the FIQ routine. Bounding this latency and understanding how often the threshold is exceeded is a non-trivial task. This latency can be shortened and made predictable via some techniques such as the allocation a portion of the cache or a portion of a tightly integrated memory.
