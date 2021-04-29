@@ -246,7 +246,8 @@ interval of the considered core's slot.
 %% forwarded to the remaining of the system will be the core id
 %% corresponding to the interval.  \todo[inline]{DH: @DH TODO improve
 %%   description!}
-\color{red}
+
+\removed{
 \subsubsection{Traffic Shaping (TS)}
 The proposed TS transaction scheduling policy operates by defining a
 minimum inter-arrival time (MIT) that needs to elapse between any two
@@ -269,18 +270,18 @@ arbitration defined by the user.
 
 The described TS policy is similar to the ARM QoS regulation mechanism
 that is available at the level of interconnect for hardware
-accelerators~\cite{qos-400, ewarp2020rtss}. It is also similar, at
+accelerators \cite{qos-400, ewarp2020rtss}. It is also similar, at
 least in principle, to software-based memory regulation techniques
-such as MemGuard~\cite{memguard2013}. Yet, TS operates differently
+such as MemGuard \cite{memguard2013}. Yet, TS operates differently
 from the hardware implementations of MemGuard-like regulation that
-have been proposed so far in~\cite{zhou2016mitts,
-  Farshchi2020BRUBR}. Indeed, our TS scheduler does not rely on memory
+have been proposed so far in \cite{zhou2016mitts, Farshchi2020BRUBR}.
+Indeed, our TS scheduler does not rely on memory
 budgets and replenishment periods. Instead, it provides memory
 bandwidth enforcement at the granularity of individual memory
 transactions. This also differentiates the TS policy in the \schim
 from the \emph{transaction supervisor} proposed
-in~\cite{fred_hyperconnect}.
-\color{black}
+in \cite{fred_hyperconnect}.
+}
 
 % TODO Move to appendix
 \subsection{Programming Model}
@@ -298,7 +299,7 @@ allows a user to select the active memory scheduler.
   \caption{Available \schim configuration registers.}
   \label{tab:configuration_port_structure}
   %\resizebox{0.8\columnwidth}{!}{%
-\color{red}
+\replace{
   \begin{tabular}{|c||c|c|}
     \hline
     \multicolumn{1}{|c||}{Parameter}               & \multicolumn{1}{c|}{Associated Core}      & \multicolumn{1}{c|}{Address}        \\ \hline\hline
@@ -320,8 +321,7 @@ allows a user to select the active memory scheduler.
     \multicolumn{3}{|c|}{Reserved}                                                                                              \\ \hline
     Mode                                      & N/A                                      & \texttt{base+0x38}                    \\ \hline
   \end{tabular}
-\color{black}
-\color{ForestGreen}
+}{
     \begin{tabular}{|c||c|c|}
       \hline
       \multicolumn{1}{|c||}{Parameter}               & \multicolumn{1}{c|}{Associated Core}      & \multicolumn{1}{c|}{Address}        \\ \hline\hline
@@ -338,7 +338,6 @@ allows a user to select the active memory scheduler.
                                                   \end{tabular}           & \texttt{base+0x20}                    \\ \hline
       \multicolumn{3}{|c|}{Reserved}                                                                                              \\ \hline
       Mode                                      & N/A                                      & \texttt{base+0x38}                    \\ \hline
-    \end{tabular}%
-    %}
-\color{black}
+    \end{tabular}
+    }
 \end{table}
