@@ -32,7 +32,12 @@
             \end{itemize}
 
         \subsubsection{Explain the value the proposed scheduler-in-the-middle is adding to the isolation use-case. In particular, address the following concern: you experiment with enforced DRAM bank partitioning, which is known by existing literature to enable such isolation on its own. Ideally, a comparison with the system, where scheduler-in-the-middle was applies without bank partitioning and the system where only bank partitioning was applied without the scheduler-in-the-middle will help distilling the effectiveness of each one.}
-
+        During the implementation, we have noticed that work-conserving policies such as FP could not be enforced.
+        Using DRAM bank partitioning prevents policies embedded in the DRAM controller from reordering the traffic shapping produced by \schim.
+        In order words, we want to make sure that transactions will be served in the order dictated by \schim.
+        Similarly, we could have redirected the whole traffic to one single DRAM bank. However, realising our experiments on 128MB would have been difficult.
+        Considering this, the \schim module is capable of enforcing the isolation as it is, from it centralized nature, the bus bottleneck.
+        That being said, we agree to perform the experiences suggested by the reviewers if the time frame allows use to do so.
 
     \subsection{Reviewer A}
         \subsubsection{Responses are not intercepted by SchIM, preventing response time analysis of different schedulers.}
