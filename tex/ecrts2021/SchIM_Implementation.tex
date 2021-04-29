@@ -3,9 +3,9 @@
 
 A full-system implementation was carried out on a Xilinx ZCU102
 development system, which is based on a Xilinx Zynq UltraScale+
-XCZU9EG PS-PL SoC. The PS comprises includes four ARM Cortex-A53 CPUs
+XCZU9EG PS-PL SoC. The PS comprises four ARM Cortex-A53 CPUs
 that share a unified 1~MB LLC. The PS includes a DDR4-2666 controller
-connected to a 4~GB DDR4 memory module. There are two high performance
+connected to a 4~GB DDR4 memory module. There are two high-performance
 master interfaces (HPM1 and HPM2); and a third interface routed
 through the low power domain (LPM). The PL is capable of driving up to
 16 interrupt requests lines towards the PS interrupt controller. We
@@ -26,12 +26,12 @@ the \schim can be used with no modification to the OS and the
 applications under analysis. For this reason, we rely on a thin
 virtualization layer that can be used to redirect memory traffic from
 the direct route to the loop-back route (see
-Section~\ref{sec:bg_plim}). For this purpose we use the open-source
+Section~\ref{sec:bg_plim}). For this purpose, we use the open-source
 Jailhouse~\cite{jailhouse} partitioning hypervisor\footnote{The source
   code is available at
   \url{https://github.com/siemens/jailhouse.git}.}  Jailhouse does not
 boot the target machine. Instead, it relies on a standard Linux kernel
-to perform the initial boot sequence. When enabled form a Linux
+to perform the initial boot sequence. When enabled from a Linux
 driver, Jailhouse dynamically virtualizes the original OS. In line
 with its partitioning-only philosophy, Jailhouse has a small footprint
 and enforces virtualization-aided partitioning of essential resources
@@ -75,7 +75,7 @@ Section~\ref{subsec:axi_transaction_scheme}.  To this end, the \schim
 is interposed between the master (HPM) and the slave (HPS) as depicted
 in \fig{fig:SchIM_transaction_scheme_figure}. As shown in
 \fig{fig:SchIM_transaction_scheme_figure}, only the phases initiated
-by the masters (i.e. address phase on AW and AR and the data phase on
+by the masters (i.e., address phase on AW and AR and the data phase on
 W) are intercepted for re-ordering by the \schim.  The introduction of
 the \schim has a direct consequence on the overall communication
 scheme. Unlike the response phases on channels R and B that remain
@@ -85,8 +85,8 @@ start exactly as in the standard AXI scheme with its address phase
 \circled{1} and data phase \circled{2}.  These two transactions are
 buffered within the \schim's queues (\circled{3}) and only relayed
 following the internal memory scheduler's logic.  This release of the
-transaction leads to the initialisation of two new address and data
-phase \circled{4} and \circled{5}.  Finally, the response phase
+transaction leads to the initialization of two new addresses and data
+phase \circled{4}, and \circled{5}.  Finally, the response phase
 \circled{6} goes directly from the slave to the master without being
 intercepted.  For read transactions, the same modifications apply to
 the address phase \circled{1'} which is buffered (\circled{2'}) for
@@ -105,13 +105,13 @@ not intercepted by the \schim.
 At the heart of the queueing domain, lies the queues. They work as FIFOs.
 However, instead of inserting the new data at the back of the queue,
 the new data is always inserted as close as possible to the front of the
-queue. This mechanism helps avoiding gaps within the queues prevent the
-lost of few clock cycles that would be required to move the data from
-the back to the front. Form the authors experiments, saving clock cycles
+queue. This mechanism helps avoiding gaps within the queues prevents the
+loss of few clock cycles that would be required to move the data from
+the back to the front. From the authors' experiments, saving clock cycles
 in \schim is vital to keep the final bandwidth as high as possible.
 
 Furthermore, the queues have been designed to deal with three
-constrains.  Firstly, the queues store both read and write packets
+constraints.  Firstly, the queues store both read and write packets
 such that the order at which transactions arrived is guaranteed. This
 implies that all the queue slots have the same size regardless of
 whether they contain read or write packets.  Secondly, due to the
@@ -120,11 +120,11 @@ Section~\ref{sec:communication-scheme}), each slot needs to be large
 enough to store both the address phase payload and the corresponding
 data of an AXI write transaction (678~bits). The depth of each queue
 is determined by considering the worst-case scenario. The latter
-consists in having to handle simultaneously the maximum number of
-outstanding read and write transactions. Our \schim instance on the
+consists of having to handle the maximum number of
+outstanding read and write transactions simultaneously. Our \schim instance on the
 considered Xilinx UltraScale+ platform was configured with queues that
-are 16 slots in depth. Indeed, the HPM ports in this platform cannot
-handle more than 8 transactions of each
+are 16 slots in-depth. Indeed, the HPM ports in this platform cannot
+handle more than eight transactions of each
 type~\cite{Xilinx-ULTRASCALE-TRM}.
 
 \subsection{LLC-\schim Interface and Traffic Accounting}
@@ -140,7 +140,7 @@ write-back strategy. In this case, a read or write cache miss causes
 up to two events: (1) a cache refill and (2) a cache eviction. The
 cache refill is carried out with a read AXI transaction. If the line
 being evicted was previously written (dirty), then the eviction causes
-a write AXI transaction. It follows that, while read AXI transaction
+a write AXI transaction. It follows that, while read AXI transactions
 have an easily identifiable source, write transactions do not. Indeed,
 a CPU $x$ might be causing the eviction of a line previously allocated
 and modified by CPU $y$. Hence, accounting (and scheduling) the
@@ -165,8 +165,8 @@ HPS ports. These ports follow the asynchronous AXI protocol that
 allows issuing multiple outstanding AR and AW transactions. The
 protocol dictates that any outstanding transaction must have a unique
 AXI ID. This property is crucial to be able to match received
-responses with outstanding requests. Unfortunately, there might exist
-a mismatch between the bit-width of the AXI ID emitted at the HPM
+responses with outstanding requests. Unfortunately, 
+a potential mismatch between the bit-width of the AXI ID emitted at the HPM
 ports and the bit-width of AXI ID accepted by the HPS ports. For
 instance, in the platform of reference, the HPMs emit 16-bit AXI IDs,
 while the HPS AXI ID bit-width is 6 bits. Therefore, the \schim also
@@ -191,13 +191,13 @@ acts as an AXI ID translator.
 
 \subsection{Scheduling Interface and Implemented Policies}\label{sec:sched_interf}
 All the memory schedulers included in the scheduling domain share a
-common interface, to ease the integration of a new scheduler. In terms
-of input signals a generic scheduler module must define (1) a manual
+common interface to ease the integration of a new scheduler. In terms
+of input signals, a generic scheduler module must define (1) a manual
 reset signal that can be triggered through the configuration port; (2)
 a vector of bits where each bit indicates whether the associated queue
 is empty; and (3) a signal indicating if the last scheduled
 transaction as been consumed. Alongside these inputs, the scheduling
-modules have also access to all the configuration registers listed in
+modules also have access to all the configuration registers listed in
 Table~\ref{tab:configuration_port_structure}. In terms of outputs a
 \schim scheduler must define (1) a signal to the selector indicating
 the queue considered for scheduling; and (2) a signal stating whether
@@ -217,7 +217,7 @@ The FP scheduling module only needs two pieces of information. That is
 queue contains at least one buffered transaction. The module logic
 always selects the queue with the highest priority. Lower priority
 queues are considered when higher priority queues do not have
-transactions. This is done by internally setting the user defined
+transactions. This is done by internally setting the user-defined
 priority of a queue as 0 when the corresponding queue is empty.
 
 \subsubsection{Time Division Multiple Access}
@@ -228,7 +228,7 @@ clock cycles, to maximize granularity. The configuration port can be
 used to specify and change the slots specifications at runtime.
 
 The implementation of the module uses a counter register to track the
-time elapsed in the current TDMA major frame --- defined as the sum of
+time elapsed in the current TDMA primary frame --- defined as the sum of
 all the cores' slots. It is reset to 0 at the beginning of a new major
 frame. Using the time-tracking register, the module determines to
 which core the current slot belongs, and forwards the information to
