@@ -203,13 +203,18 @@ the queue considered for scheduling; and (2) a signal stating whether
 the current scheduling decision is valid. We hereby review the initial
 set of memory scheduling policies implemented in the \schim.
 
-\subsubsection{Fixed Priority}
+\subsubsection{Fixed Priority}\label{sec:fixed_prio}
 The FP scheduling module aims at enforcing strict prioritization of
 cores' memory traffic. The priority ordering is explicitly defined by
-the user through the configuration port. While the \schim \new{instance used in
-this paper} only has four queues, 16 different levels of priority are offered
-\new{as the platform considered supports up to 16 different colors}. The ordering
-must be strict, meaning that two cores cannot be assigned with the same priority.
+the user through the configuration port. While the \schim
+\new{instance used in this paper} only has four queues, 16 different
+levels of priority are offered \new{as the considered platform
+  supports up to 16 different colors. This is useful if an hypervisor
+  that supports vCPU scheduling is used. In this case, the \schim
+  allows assigning different priorities to different partitions
+  sharing the same physical CPU}. The core-to-priority assignment must
+be strict, meaning that two cores cannot be assigned the same
+priority.
 
 The FP scheduling module only needs two pieces of information. That is
 (1) the priority associated with each queue and (2) whether a given
