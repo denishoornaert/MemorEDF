@@ -217,13 +217,14 @@ of the \schim following the scheduling domain's resolutions.
 \par{\bf The scheduling domain} encompasses all the sub-modules that
 enable arbitration of transactions issued by the different cores of
 the PS. The modules in this domain are intended to be generic for
-extensibility, albeit the first set of three template schedulers is
+extensibility, albeit the first set of \replace{three}{two } template schedulers is
 provided as a proof of concept.  The scheduling policies currently
 implemented in the \schim are \replace{Fixed Priority (FP), Time Division
 Multiple Access (TDMA), and Budget-based Traffic Shaping (TS)}{Fixed Priority
 (FP) and Time Division Multiple Access (TDMA)}.  Each of the parameters
-required by the implemented policies --- such as
-the priorities, the periods, and the budgets --- can be adjusted at
+required by the implemented policies --- \replace{such as
+the priorities, the periods, and the budgets}{such as
+the priorities and the periods} --- can be adjusted at
 runtime via the configuration interface.
 
 The FP scheduler allows associating a priority value to each of the
