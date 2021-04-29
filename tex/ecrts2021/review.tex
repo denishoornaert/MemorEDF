@@ -52,43 +52,144 @@
                 the reason of the loss in net bandwidth;
            \end{itemize}
 
-        \subsubsection{Explain the value the proposed scheduler-in-the-middle is adding to the isolation use-case. In particular, address the following concern: you experiment with enforced DRAM bank partitioning, which is known by existing literature to enable such isolation on its own. Ideally, a comparison with the system, where scheduler-in-the-middle was applies without bank partitioning and the system where only bank partitioning was applied without the scheduler-in-the-middle will help distilling the effectiveness of each one.}
-        During the implementation, we have noticed that work-conserving policies such as FP could not be enforced.
-        Using DRAM bank partitioning prevents policies embedded in the DRAM controller from reordering the traffic shaping produced by \schim.
-        In order words, we want to ensure that transactions will be served in the order dictated by \schim.
-        Similarly, we could have redirected the whole traffic to one single DRAM bank. However, realizing our experiments on 128MB would have been difficult.
-        Henceforth, the \schim module can enforce the isolation as, from its centralized nature, it is the bus bottleneck.
-        That being said, we agree to perform the experiences suggested by the reviewers if the time frame allows us to do so.
+        \subsubsection{Explain the value the proposed
+        scheduler-in-the-middle is adding to the isolation
+        use-case. In particular, address the following concern: you
+        experiment with enforced DRAM bank partitioning, which is
+        known by existing literature to enable such isolation on its
+        own. Ideally, a comparison with the system, where
+        scheduler-in-the-middle was applies without bank partitioning
+        and the system where only bank partitioning was applied
+        without the scheduler-in-the-middle will help distilling the
+        effectiveness of each one.}
+
+        During the implementation, we have noticed that
+        work-conserving policies such as FP could not be enforced,
+        because, without bank partitioning, the DRAM controller might
+        partially re-order transactions to the same bank as it applies
+        the FR-FCFS scheduling policy to per-bank queues. Using DRAM
+        bank partitioning prevents the DRAM controller from reordering
+        the ordering of transactions produced by the \schim.  In other
+        words, we ensure that transactions will be served in the order
+        dictated by \schim. While we agree that differentiating the
+        degree of achieved isolation with and without bank
+        partitioning would represent an interesting evaluation, we are
+        unable to include additional experiments to cover this aspect
+        due to time constraints. The reason why the \schim improves
+        isolation even in the presence of bank partitioning is that
+        contention at the DRAM banks is not the only source of
+        contention. As many works have demonstrated in the context of
+        memory bandwidth regulation, the shared memory controller
+        itself with its shared command and data buses represents a
+        source of contention. It is accepted that bank partitioning is
+        required in addition to bandwidth regulation. The \schim
+        brings memory bandwidth management into the PL, and provides
+        not only regulation but a generic infrastructure to experiment
+        with custom bandwidth management techniques, both
+        work-conserving and non-work-conserving.
+
+        %% Similarly, we could have redirected the
+        %% whole traffic to one single DRAM bank. However, realizing our
+        %% experiments on 128MB would have been difficult.  Henceforth,
+        %% the \schim module can enforce the isolation as, from its
+        %% centralized nature, it is the bus bottleneck.  That being
+        %% said, we agree to perform the experiences suggested by the
+        %% reviewers if the time frame allows us to do so.
 
     \subsection{Reviewer A}
-        \subsubsection{Responses are not intercepted by SchIM, preventing response time analysis of different schedulers.}
-            Having a clearer view of the response time of different memory components at the transaction level is one of the many features that can be made available by the PLiM approach. While the authors are interested in exploring such modules in the future, we do not consider this as a requirement for \schim as our main focus is to enforce and test scheduling policies.
 
-        \subsubsection{The TS scheduler has logic errors. It is unclear why it is still included in the paper.}
-            Every element linked to the TS policy have been removed. See Section \ref{subsubsec:ts_removal} for more information.
+        \subsubsection{Responses are not intercepted by SchIM,
+        preventing response time analysis of different schedulers.}
+
+            We thank the reviewer for raising this excellent
+            point. Having a clearer view of the response time of
+            different memory components at the transaction level is
+            one of the many features that can be made available by the
+            PLiM approach. While the authors are interested, and in
+            many ways already invested, in exploring such modules in
+            the future, we consider this as currently out of the scope
+            of this specific work since our main focus for this first
+            iteration of the \schim infrastructure is to enforce and
+            test scheduling policies.
+
+        \subsubsection{The TS scheduler has logic errors. It is
+        unclear why it is still included in the paper.}
+
+            Every element linked to the TS policy have been
+            removed. See Section \ref{subsubsec:ts_removal} for more
+            information.
 
     \subsection{Reviewer B}
-        \subsubsection{Serialization through HPMs and the PLIM design with a single central memory scheduler severly limits the approach and constraints the kind of systems for which memory scheduling can be explored.}
-            The authors acknowledge this as a current limitation of \schim. This matter as been addressed and discussed in section \ref{sec:discussion}.
 
-        \subsubsection{Given that PLIM and PL-side memory arbitrarion existed before, the originality of the work is limited.}
-            The \schim module is a direct extension of the original PLiM paper \cite{PLIM20}. However, unlike the bleaching module described in PLiM, \schim aims to have an active behavior, resulting in the shaping of the traffic and the enforcement of scheduling policies.
-            Regarding the PL-side arbitration, the authors acknowledge that previous works (e.g., Hyperconnect from the FRED framework) have explored the arbitration of concurrent transactions. However, these works are not part of the PLiM approach and are thus unable to capture and discriminate between cpu-originated transactions.
-            Following the shepherding requirements, this point has been emphasized in the third paragraph of section \ref{sec:design_goals}.
+        \subsubsection{Serialization through HPMs and the PLIM design with
+        a single central memory scheduler severly limits the approach
+        and constraints the kind of systems for which memory
+        scheduling can be explored.}
+
+        The authors acknowledge that this is a current limitation of
+        our \schim. This matter as been addressed and discussed in
+        Section~\ref{sec:discussion}.
+
+        \subsubsection{Given that PLIM and PL-side memory arbitrarion
+        existed before, the originality of the work is limited.}
+
+        The \schim module leverages the key capability postulated in
+        the original PLiM paper~\cite{PLIM20}. However, unlike the
+        bleaching module described in~\cite{PLIM20}, the \schim aims
+        to have an active behavior, meaning that the timing of memory
+        transactions is explicitly managed thus providing the ability
+        to enforce custom scheduling policies on memory traffic.
+        Regarding the PL-side arbitration, the authors acknowledge
+        that previous works (e.g., Hyperconnect from the FRED
+        framework) have explored the arbitration of concurrent
+        transactions, as we also discuss in
+        Section~\ref{sec:relwork}. However, these works are applicable
+        to memory streams originating in the PL and cannot be directly
+        applied to manage traffic originating from PS-side processing
+        elements. This sets the \schim apart from that line of works
+        as it introduces a complementary set of techniques. Following
+        the shepherding requirements, this point has been emphasized
+        in the third paragraph of Section~\ref{sec:design_goals}.
 
 %        \subsubsection{It is not clear to me whether the evaluation correctly reflects the performance of the baseline.}
 
 
-        \subsubsection{The paper could be written more conscisely. In particular the figures in the evaluation must be scaled up.}
-            With the removal of elements linked to the TS policy, some room has been freed. This extra room will be used to scale up the figures.
+        \subsubsection{The paper could be written more conscisely. In
+        particular the figures in the evaluation must be scaled up.}
 
-        \subsubsection{Taking away FIQ from the guest OS further impacts performance. Please explain why you did not use Monitor mode, in particular since you do not need to spill many registers for executing}
-            This matter is discussed in the fourth paragraph of the discussion section (section 7).
-            The authors are not sure what the reviewer referres to by "Monitor mode", however, we beleive that the proposed FIQ routine is the fastest approach for this specific platform. On other platforms running different Operating System, mileage may vary.
-            TODO
+        With the removal of the content and experiments related to the
+        TS policy, the paper has been compressed. The extra room has
+        been used to scale up the figures.
 
-        \subsubsection{Please explain why FP offers 16 priorities for 4 queues.}
-            Short explanation added at lines 424-425. Typically, our instance \schim offers up to 16 levels of priority because the platform used can support up to 16 cache colors and, by extension, up to 16 queues. Each of these queues requires a dedicated level of priority.
+        \subsubsection{Taking away FIQ from the guest OS further
+        impacts performance. Please explain why you did not use
+        Monitor mode, in particular since you do not need to spill
+        many registers for executing}
+
+        This matter is discussed in the 3rd paragraph of the
+        Section~\ref{sec:discussion}. The authors are unsure about
+        what the reviewer refers to with the term "Monitor mode." We
+        assume they are referring to the EL3 (Secure Monitor). We have
+        added a brief discussion in Section~\ref{sec:discussion} that
+        touches on the possibility of handling FIQs in EL3 instead of
+        EL2. In short, when handling FIQs in EL3, there is an extra
+        overhead to be paid because the CPU needs to switch to secure
+        mode. Thus, while not practically impossible, we expect that
+        handling FIQs in EL3 might incur higher overhead compared to
+        our choice of handling FIQs in EL2.
+
+        \subsubsection{Please explain why FP offers 16 priorities for
+        4 queues.}
+
+        We have added a short explanation in
+        Section~\ref{sec:fixed_prio}. In short, our \schim offers up
+        to 16 levels of priority because on the target platform can 16
+        cache colors are present. Thus, one can potentially define up
+        to 16 partitions and, by extension, up to 16 queues. This
+        makes sense if multiple partitions can share the same core if
+        an hypervisor that supports vCPU scheduling is employed. This
+        is currently not the case for the considered Jailhouse
+        hypervisor.
 
     \subsection{Reviewer C}
         \subsubsection{The paper is excessively overselling the idea while underestimating the weaknesses.}
