@@ -53,20 +53,25 @@ applications.
 
 \par{\bf Realistic performance with experimental policies.} One of the
 limiting factors of research on memory scheduling policies is the
-ability to construct evidence of performance improvements with
-the realistic workload. Proposing a new memory scheduling policy is
-traditionally done with either a simulated setup or with a
-full-system soft-core implementation. \replace{Both cases are considerably slower
-than what it would be in real systems and force the use of an unrealistically
-lightweight workload. Nonrealistic workloads limit the repeatability of
-experiments of scale.}{Both cases have their drawbacks. The former gives a
-great deal of flexibility but has to simulate many parts of the SoC. In addition,
-simulated setups can hardly be applied on real platforms unless they rely on
-soft-core implementation. Full soft-core based SoC implementations suffer from
-two shortcomings. First, they run a low frequency and thus cannot put enough
-pressure on the DRAM controller. Secondly, they rely on soft-core implementations
-that do not exploit the same Instructions Set Architecture as widely available
-COTS, limiting the practical impacts of these works.}
+ability to construct evidence of performance improvements with the
+realistic workload. Proposing a new memory scheduling policy is
+traditionally done with either a simulated setup or with a full-system
+soft-core implementation. \replace{Both cases are considerably slower
+  than what it would be in real systems and force the use of an
+  unrealistically lightweight workload. Nonrealistic workloads limit
+  the repeatability of experiments of scale.}{Both cases have their
+  drawbacks. The former gives a great deal of flexibility but
+  achieving clock-level accuracy requires simulating many components
+  the SoC whose details might not be publicly available. In addition,
+  simulated setups that propose custom hardware designs cannot be
+  directly adopted on real platforms without being first synthesized
+  in hardware. Full soft-core-based SoC implementations suffer from
+  two shortcomings. First, they run at relatively low frequencies and
+  thus can extract only a fraction of the available DRAM
+  bandwidth. Secondly, they are typically based on processors IPs that
+  do not feature the same Instructions Set Architecture (ISA) as
+  widely available COTS, which further limits the practical impacts of
+  these works.}
 
 \replace{Furthermore, the multi-fold drop in performance excludes the
 possibility of adopting experimental memory scheduling policies for a
