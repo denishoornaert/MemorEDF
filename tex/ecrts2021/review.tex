@@ -10,20 +10,22 @@
          \label{subsubsec:ts_removal}
             Every mention of the TS scheduler have been removed.
             \begin{itemize}
-                \item line 303-304, 312-313: mentions removed
-                \item line 444-465: whole section 5.5.3 removed
-                \item Table 1: TS entries removed from configuration port
-                \item line 541: mentions removed
+                \item Figure 3: TS block removed from the block diagram
+                \item lines 310, 312-313, 314-315, 322-323: mentions removed
+                \item lines 456-477: section 5.5.3 removed
+                \item Table 1: TS entries removed from configuration port table
+                \item line 563: mention removed
                 \item Figure 4: TS bar cluster removed
-                \item line 557-558, 563-564: mentions removed
-                \item line 581-582: mentions removed
+                \item lines 568-569, 575-576: mentions removed
                 \item Figure 5: TS inset removed
-                \item line 601-602, 603, 604-605: mentions removed
+                \item lines 585-586, 587-588, 594-595, 612, 614-617: mentions removed
+                \item lines 637-645: TS trace snapshot discussion removed
                 \item Figure 6: TS inset removed
-                \item line 624-632: TS trace snapshot discussion removed
-                \item line 651-652, 661-665: TS isolation discussion removed
-                \item line 735: mentions removed
+                \item lines 664-665, 674-678: TS isolation discussion removed
+                \item Figure 7: TS bar clusters removed
+                \item line 763: mention removed
             \end{itemize}
+            \textcolor{red}{\textbf{Remark: the line numbers listed above are only valid on the version of the paper showing the differences with the original submission.}}
 
         \subsubsection{Add a discussion about the limitations of the
         work as highlighted by the reviewers}
@@ -174,7 +176,7 @@
         touches on the possibility of handling FIQs in EL3 instead of
         EL2. In short, when handling FIQs in EL3, there is an extra
         overhead to be paid because the CPU needs to switch to secure
-        mode. Thus, while not practically impossible, we expect that
+        mode. Thus, while feasible in practice, we expect that
         handling FIQs in EL3 might incur higher overhead compared to
         our choice of handling FIQs in EL2.
 
