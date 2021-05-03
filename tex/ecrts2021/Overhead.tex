@@ -96,22 +96,42 @@ The thresholds used for the FIQ regulation requires to be fine-tuned manually by
   (CCI+Main Interconnect, see Figure~\ref{fig:PS-PL-diagram}) and
   FIFOs located on the path from the core cluster to the HPM
   ports. Therefore, it constitutes a limitation of the employed
-  platform rather than of the proposed design.}{By forwarding transactions
-    to the PL through the HPM, there is a drop in bandwidth as
-    accesses through the PS-to-DDR4 route can extract more than
-    2100MBps of bandwidth based on Figure \ref{fig:bandwidth_comparison}.
-    On the one hand, the back-of-the-envelope calculation stating
-    that a PL operating at 250MHz with a single-burst beat of
-    128-bits per clock cycle should be able to sustain a throughput of 3.7GB/s.
-    Moreover, this calculation is in line with the reported throughput in
+  platform rather than of the proposed design.}{
+%    By forwarding transactions
+%    to the PL through the HPM, there is a drop in bandwidth as
+%    accesses through the \emph{normal route} can extract up to
+%    2100~MBps of bandwidth based on Figure \ref{fig:bandwidth_comparison}.
+    Our experiments in Section \ref{subsec:platform-capabilities-and-performance-degradation}
+    have shown that rerouting the traffic through the PL has a cost. As illustrated
+    in Figure \ref{fig:bandwidth_comparison}, up to 2100~MBps can be extracted
+    from the \emph{normal route} whereas any route through the PL only achieves
+    around 320~MBps.
+    In contrast, a back-of-the-envelope calculation reveals that for a PL
+    operating at 250MHz (the \schim frequency), and with a bus width of 128 bits,
+    a full-duplex throughput of approximately 3.7GBps can be sustained.
+%    This calculation is in line with the reported throughput in
+%    an experiment conducted in \cite{uiuc-xilinx-port-study}, in which
+%    transactions are initiated on the PL and target the DRAM, passing
+%    through the HPS port.
+    This calculation is in line with the reported throughput in
     an experiment conducted in \cite{uiuc-xilinx-port-study}, in which
-    transactions were initiated on the PL and targetted the DRAM, passing
-    through the HPS port. By looking at this evidence, the PL-to-DDR4 route
-    can sustain much higher throughput than what experimentally observed
-    with routing through the HPM port. Hence, identifying the real bottleneck
-    is left to be determined by further investigattion of the components
-    between LLC and HPM, such as throttling bandwidth regulators,
-    clock-domain crossing, and shallow FIFOs depicted in the platform
-    TRM \cite{Xilinx-ULTRASCALE-TRM} (Figure 1-1). Finally, for the aformentioned reasons,
-    the performance of the \schim is expected to vary between different platforms.}
- 
+    PL-originated transactions targeting the DRAM passed through the one of the
+    HP ports.
+%    By looking at this evidence, the PL-to-DRAM route
+%    can sustain much higher throughput than what has been experimentally observed
+%    with routing through the HPM port.
+    This suggests that the PL-to-DRAM route can sustain a much higher throughput
+    than what has been experimentally observed in our evaluation setup, where
+    transactions originate from the PS side.
+    By looking at this evidence, one can conclude that the source of the
+    bandwidth loss is located in the route linking the core cluster to the PL-side.
+%    Identifying the real bottleneck
+%    is left to be determined by further investigattion of the components
+%    between LLC and HPM, such as throttling bandwidth regulators,
+%    clock-domain crossing, and shallow FIFOs depicted in the platform
+%    TRM \cite{Xilinx-ULTRASCALE-TRM} (Figure 1-1).
+    Throttling bandwidth regulators, clock-domain crossing, and shallow FIFOs
+    are few of the elements that could be considered. Finally, for the
+    aforementioned reasons, the performance of the \schim is expected to vary
+    between different platforms.
+}
