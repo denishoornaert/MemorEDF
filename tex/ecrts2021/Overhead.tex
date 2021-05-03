@@ -97,3 +97,16 @@ The thresholds used for the FIQ regulation requires to be fine-tuned manually by
   ports. Therefore, it constitutes a limitation of the employed
   platform rather than of the proposed design.
 }
+\newbis{
+    Regarding the isolation, it should be noted that without bank partitioning
+    work-conserving policies such as FP can not be enforced because the DRAM
+    controller might partially re-order transactions to the same bank as it
+    applies the FR-FCFS scheduling policy to per-bank queues. Using DRAM bank
+    partitioning prevents the DRAM controller from reordering the ordering of
+    transactions produced by the SchIM. In other words, the utilization of bank
+    partitioning ensures that transactions will be served in the order dictated
+    by SchIM. As such, the SchIM brings memory bandwidth management into the PL,
+    and provides not only regulation but a generic infrastructure to experiment
+    with custom bandwidth management techniques, both work-conserving and
+    non-work-conserving.
+}

@@ -348,6 +348,8 @@
 
             \paragraph{In the light of the previous two points, I find this statement: "we can conclude that bulk of the penalty arises from the two levels of interconnects (CCI+Main Interconnect, see Figure 1) and FIFOs located on the path from the core cluster to the HPM ports. Therefore, it constitutes a limitation of the employed platform rather than of the proposed design." Kind of unintentionally misleading. Although I do agree that the significant performance penalty is due to the PS-PL interface and freq differences, those penalties will never be incurred by memory requests originated from the PS at the first place. They are only incurred here because of the rerouting proposed by the PLiM approach and its adoption in SchIM.}
 
+            Slightly extend the Discussion section 7
+
         \subsubsection{Isolation Discussion}
             \paragraph{SchIM alone without bank partitioning is not sufficient to enforce isolation. This one is addressed by the authors' response. Basically, the authors confirm in the response that SchIM alone without additional measures at the memory controller/hypervisor will not be enforcing isolation, and hence, find bank partitioning a must. This is an important clarification that need to be incorporated in the paper, either in evaluation of the isolation case-study or in the discussion and limitations section.}
 
