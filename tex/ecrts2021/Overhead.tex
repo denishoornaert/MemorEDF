@@ -96,6 +96,7 @@ The thresholds used for the FIQ regulation requires to be fine-tuned manually by
   (CCI+Main Interconnect, see Figure~\ref{fig:PS-PL-diagram}) and
   FIFOs located on the path from the core cluster to the HPM
   ports. Therefore, it constitutes a limitation of the employed
+<<<<<<< HEAD
   platform rather than of the proposed design.}{By forwarding transactions
     to the PL through the HPM, there is a drop in bandwidth as
     accesses through the PS-to-DDR4 route can extract more than
@@ -115,3 +116,31 @@ The thresholds used for the FIQ regulation requires to be fine-tuned manually by
     TRM \cite{Xilinx-ULTRASCALE-TRM} (Figure 1-1). Finally, for the aformentioned reasons,
     the performance of the \schim is expected to vary between different platforms.}
  
+=======
+  platform rather than of the proposed design.}{There can be multiple
+    reasons for this drop in performance. First, Calculation
+    in \cite{uiuc-xilinx-port-study} stating that a PL operating at 250MHz should sustain
+    a throughput of 3.7GB/s. Secondly,
+    our experiments targeted explicitly at this problem have highlighted
+    throttling at the HPM ports where bandwidth regulators present
+    between HPM ports and the PL\cite{Xilinx-ULTRASCALE-TRM}.
+    Finally, transactions originated by the CPUs
+    cross a PS-side bus that operates at a much lower
+    frequency. Specifically, on our platform, the main bus subsystem
+    operates at 500MHz, whereas the CPUs operate at 1.5GHz. On the other
+    hand, while the \schim does introduce some extra latency and thus
+    has some impact on the available bandwidth, we can conclude that
+    the bulk of the penalty arises from the two levels of interconnects
+    (CCI+Main Interconnect, see Figure~\ref{fig:PS-PL-diagram}) and
+    FIFOs located on the path from the core cluster to the HPM
+    ports. Therefore, it constitutes a limitation of the employed
+    platform rather than the proposed design.
+
+    By looking at this evidence, the PL itself can sustain much higher
+    throughput than what experimentally observed, and that the drop is
+    imputable to throttling happening on the PS side. However,
+    identifying the real bottleneck in the PS-PL path still requires
+    further investigation, such as examining clock-domain crossing and
+    HPM-PS QoS regulation, which is a part of our future work.
+}
+>>>>>>> f0064932dee6f1e5534576323044b6ed751ce0f0

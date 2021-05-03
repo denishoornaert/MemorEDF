@@ -74,6 +74,7 @@ direct consequence of the address coloring and in the absence of a bleacher, onl
 reduced space of 64~MB is not enough for running Linux.
 Consequently, in the case of the \emph{normal route}, the cores have been
 split into two groups of two, where each group targets independent sets of banks.
+This configuration allows the cache to be partitioned using address cooring.
 }
 
 \subsection{Platform Capabilities and performance degradation}
@@ -322,6 +323,26 @@ leakage is due to a malfunction in the TS scheduler design.
 
 \subsection{Memory Isolation}
 \label{subsec:isolation}
+\newbis{
+On the platform considered for this set of experiments, the Xilinx ZCU102
+development board, we denote three main sources of inter-core interferences: (1)
+cache contention, (2) DRAM bank conflicts, and (3) the congestion and
+saturation of the memory controller. Despite their orthogonality, the two first
+sources are tackled respectively via the integration of the address coloring
+and the bleacher IP. On the other hand, since \schim operates at a slower rate,
+any congestion created by the cores will be localized within \schim and managed
+by \schim. In other words, with \schim the bandwidth contention is moved from
+the memory controller into the PL. It allows \schim to reorder the transactions
+as desired while avoiding reordering of transactions from the memory controller.
+
+The evaluation setup considered for this experiment is identical to the one
+presented in Section \ref{subsection:considered-architecture}. The routes going
+through the PL and using \schim (i.e., FP and TDMA) benefit from both cache
+partitioning via address coloring and bank partitioning. On the other hand, the
+\emph{normal route} uses cache partitioning and sees its cores divided into two
+sets targeting each a different group of private banks.
+}
+
 To evaluate the capability of our \schim with respect to its ability to
 ensure performance isolation between the cores, a set of experiments
 involving SD-VBS benchmarks were designed. Here, we compare the
@@ -379,6 +400,7 @@ Section \ref{subsec:internal-behaviour-of-schim}. In this case, the transaction 
 prevents the transaction from the core under analysis to be served as they
 unexpectedly occupy the bus, unpredictability delaying the scheduling of the other transactions.
 }
+
 % of the core under analysis
 %despite having been assigned the highest priority. Even worst, the
 %scheduler has a little-to-none impact since its slowdown is comparable
