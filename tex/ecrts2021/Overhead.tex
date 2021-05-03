@@ -80,7 +80,7 @@ The thresholds used for the FIQ regulation requires to be fine-tuned manually by
   \replacebis{The authors impute this drop of bandwidth to the path
   between the PS-side modules on the path from the core cluster to the
   HPM ports rather than on the frequency of the PL side itself. In
-  fact, if one assumes a PL frequency of 250MHz and a single-burst
+  fact, if one assumes a PL frequency of 250~MHz and a single-burst
   beat of 128~bits per clock cycle, any bus segment implemented in the
   PL should be able to sustain a throughput of approximately
   3.7~GBps. This is in line with the throughput reported
@@ -89,7 +89,7 @@ The thresholds used for the FIQ regulation requires to be fine-tuned manually by
   misleading. This is because transactions originated by the CPUs
   cross a PS-side bus that operates at a much lower
   frequency. Specifically, on our platform the main bus subsystem
-  operates at 500MHz whereas the CPUs operate at 1.5GHz. On the other
+  operates at 500~MHz whereas the CPUs operate at 1.5GHz. On the other
   hand, while the \schim does introduce some extra latency and thus
   has some impact on the available bandwidth, we can conclude that
   bulk of the penalty arises from the two levels of interconnects
@@ -107,7 +107,7 @@ The thresholds used for the FIQ regulation requires to be fine-tuned manually by
     from the \emph{normal route} whereas any route through the PL only achieves
     around 320~MBps.
     In contrast, a back-of-the-envelope calculation reveals that for a PL
-    operating at 250MHz (the \schim frequency), and with a bus width of 128 bits,
+    operating at 250~MHz (the \schim frequency), and with a bus width of 128 bits,
     a full-duplex throughput of approximately 3.7~GBps can be sustained.
 %    This calculation is in line with the reported throughput in
 %    an experiment conducted in \cite{uiuc-xilinx-port-study}, in which
