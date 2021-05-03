@@ -72,11 +72,11 @@ The thresholds used for the FIQ regulation requires to be fine-tuned manually by
   thresholds used for FIQ-based regulation require to be fine-tuned
   manually by the user. Future extensions of the \schim will explore
   the implementation of schedulers capable of dynamically adapting the
-  thresholds to maximize performance and improve isolation.
-
-  The loss in bandwidth caused by routing transactions through the PL
+  thresholds to maximize performance and improve isolation. The loss in
+  bandwidth caused by routing transactions through the PL
   is important and a serious drawback against the adoption of the
-  \schim.  The authors impute this drop of bandwidth to the path
+  \schim,}\newbis{compared to the PS-to-DDR4 accesses.}
+  \replacebis{The authors impute this drop of bandwidth to the path
   between the PS-side modules on the path from the core cluster to the
   HPM ports rather than on the frequency of the PL side itself. In
   fact, if one assumes a PL frequency of 250MHz and a single-burst
@@ -95,5 +95,28 @@ The thresholds used for the FIQ regulation requires to be fine-tuned manually by
   (CCI+Main Interconnect, see Figure~\ref{fig:PS-PL-diagram}) and
   FIFOs located on the path from the core cluster to the HPM
   ports. Therefore, it constitutes a limitation of the employed
-  platform rather than of the proposed design.
-}
+  platform rather than of the proposed design.}{There can be multiple
+    reasons for this drop in performance the back-of-the-envelope
+    calculation stating that a PL operating at 250MHz should sustain
+    a throughput of 3.7GB/s \cite{uiuc-xilinx-port-study}. Secondly,
+    our experiments targeted explicitly at this problem have highlighted
+    throttling at the HPM ports where bandwidth regulators present
+    between HPM ports and the PL\cite{Xilinx-ULTRASCALE-TRM}.
+    Finally, transactions originated by the CPUs
+    cross a PS-side bus that operates at a much lower
+    frequency. Specifically, on our platform, the main bus subsystem
+    operates at 500MHz, whereas the CPUs operate at 1.5GHz. On the other
+    hand, while the \schim does introduce some extra latency and thus
+    has some impact on the available bandwidth, we can conclude that
+    the bulk of the penalty arises from the two levels of interconnects
+    (CCI+Main Interconnect, see Figure~\ref{fig:PS-PL-diagram}) and
+    FIFOs located on the path from the core cluster to the HPM
+    ports. Therefore, it constitutes a limitation of the employed
+    platform rather than the proposed design.
+
+    By looking at this evidence, the PL itself can sustain much higher
+    throughput than what experimentally observed, and that the drop is
+    imputable to throttling happening on the PS side. However,
+    identifying the real bottleneck in the PS-PL path still requires
+    further investigation, such as examining clock-domain crossing and
+    HPM-PS QoS regulation, which is a part of our future work.}
