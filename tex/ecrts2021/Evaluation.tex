@@ -93,12 +93,12 @@ through the HPM ports is a fraction of \replacebis{that}{what we measured by
   \newbis{We further provide a discussion on the bandwidth drop when transactions
   are routed through the PL in Section}.
   For the sake of completeness, we quantify
-in Figure \ref{fig:bandwidth_comparison} the maximum bandwidth achieved
+in \fig{fig:bandwidth_comparison} the maximum bandwidth achieved
 through the PL --- and hence through the \schim. Nevertheless, it is
 important to remember that the absolute figures are strictly platform
 dependent.
 
-In Figure \ref{fig:bandwidth_comparison}, we have computed the throughput of
+In \fig{fig:bandwidth_comparison}, we have computed the throughput of
 one \emph{core under analysis}, here core 0 (noted $C_{0}$) when a
 synthetic memory-intensive application is deployed on an increasing
 number of cores denoted with the same notation. The first bar cluster
@@ -187,7 +187,7 @@ As mentioned in Section \ref{sec:pl-to-ps-feedback}, the PL-to-PS feedback enabl
 our \schim to regulate the HPM ports buffer occupancy to prevent head-of-line blocking.
 Since this feedback directly throttles the desired core, the selection of an adequate
 threshold is important to preserve the balance between control and performance.
-Therefore, in Figure \ref{fig:schim_threshold}, we have explored the sensitivity
+Therefore, in \fig{fig:schim_threshold}, we have explored the sensitivity
 to the threshold for each of the proposed schedulers under different levels of contention.
 The thresholds in use range from 1 to 8 and even include the case where the feedback mechanism is disabled
 (noted \emph{NA}). The contention is created by up to four co-running cores emitting
@@ -198,21 +198,21 @@ demanding parameters available \replace{(i.e., the highest priority for FP, the 
 slot or the smallest MIT)}{(i.e., the highest priority for FP or the biggest TDMA
 slot)}.
 
-In the case of the FP scheduler (Figure \ref{fig:threshold_fp}), one can observe
+In the case of the FP scheduler (\fig{fig:threshold_fp}), one can observe
 that when running alone, the threshold has no influence on the throughput.
 However, as soon as co-runners are added, the cores start to experience a
 decrease in throughput.
-Figure \ref{fig:threshold_tdma} shows that the TDMA scheduler is not impacted considerably by the threshold with respect to the throughput. Globally, the
+\fig{fig:threshold_tdma} shows that the TDMA scheduler is not impacted considerably by the threshold with respect to the throughput. Globally, the
 scheduler manages to preserve a constant throughput regardless of the contention
 and the assigned slot.
 \removed{
 Similarly, the TS scheduler is barely impacted by choice of the threshold as
-displayed in Figure \ref{fig:threshold_ts}.
+displayed in \fig{fig:threshold_ts}.
 }
 
 Nonetheless, under high
 contention, one can observe that the throughput of each core is affected.
-The fourth inset of Figure \ref{fig:threshold_fp} and \ref{fig:threshold_tdma}
+The fourth inset of \fig{fig:threshold_fp} and \fig{fig:threshold_tdma}
 illustrate the importance of the threshold and the PL-to-PL feedback mechanism as a
 a considerable drop of throughput can be observed for the highest priority of FP
 and for a TDMA period of 32.
@@ -376,9 +376,9 @@ in \emph{Solo}.
 %\empl{\schim route}).
 %It follows that a ratio of 1 denotes the ideal isolation.
 The results obtained on the considered benchmarks are listed in
-Figure~\ref{fig:isolation_ratio}. All the results in the
-Figure~\ref{fig:isolation_ratio} are the aggregation (arithmetic average)
-of 30 different runs in the same configuration. Each bar cluster of the Figure~\ref{fig:isolation_ratio} insets represents one of the aforementioned configuration for \emph{Solo} and \emph{Stress}. The height of each bar denotes its normalized execution time.
+\fig{fig:isolation_ratio}. The results in the
+\fig{fig:isolation_ratio} are the aggregation (arithmetic average)
+of 30 different runs in the same configuration. Each bar cluster of the \fig{fig:isolation_ratio} insets represents one of the aforementioned configuration for \emph{Solo} and \emph{Stress}. The height of each bar denotes its normalized execution time.
 
 For this set of experiments, the FP scheduler was configured such that the core under
 analysis (i.e., the one running the benchmark) has the highest priority
@@ -394,7 +394,7 @@ because no scheduling is performed in this configuration.
 %The results for
 %the simple loop-back are displayed in the left-most column in
 %Table~\ref{fig:isolation_ratio}.
-The Figure \ref{fig:isolation_ratio} highlights the sensitivity of both
+The \fig{fig:isolation_ratio} highlights the sensitivity of both
 \emph{disparity} and \emph{mser} to inter-core interference on the
 \emph{normal route}. This is especially the case for large input sizes
 such as \emph{cif} and \emph{vga}. On the other hand, \emph{texture
@@ -433,3 +433,13 @@ unexpectedly occupy the bus, unpredictability delaying the scheduling of the oth
 %memory access pattern of the core under analysis is sequential as
 %well. It follows that the FP policy is mainly useful when performing
 %the movement of large, sequential data chunks.
+<<<<<<< HEAD
+=======
+\begin{figure}[!t]
+    \centering
+%    \includegraphics[scale=0.54]{images/Execution_times.pdf}
+    \includegraphics[scale=0.5]{images/Execution_times_no_ts.pdf}
+    \caption{Normalized execution time for each benchmark and input size for \emph{Solo} and \emph{Stress}. Each column denotes a given benchmark of the SD-VBS suite, while each row denotes a specific input size (in increasing order from top to bottom).}
+    \label{fig:isolation_ratio}
+\end{figure}
+>>>>>>> c459c61d084541653bb00b8d50a8555325b96c0b

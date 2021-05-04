@@ -9,7 +9,7 @@ authors argue that comparing the latter's raw performance against \schim is unfa
 Redirecting the CPU-originated memory traffic through the PL side has a cost.
 However, this cost is mainly linked to the implementation and the platform capabilities, elements that can be improved by optimization as well as a selection of more aggressive platforms.
 The important aspect brought by the proposed framework, \schim, is its capability to individually manipulate memory transactions, opening the door to the study of novel memory scheduling policies.
-The PL-to-PS feedback is an interesting regulating mechanism. Moreover, it is entirely transparent to the hypervisor's inmates and uses the fastest route possible to communicate with the PS side. Nonetheless, this feedback mechanism is coarse. Inset 1 of Figure \ref{fig:schim_behaviour_tdma} highlights perfectly this problem. Even though all the queues have been assigned a threshold of 4, the latter is often exceeded. The worst-case being queue 3 exceeding the threshold by 2 on the right side of the plot.
+The PL-to-PS feedback is an interesting regulating mechanism. Moreover, it is entirely transparent to the hypervisor's inmates and uses the fastest route possible to communicate with the PS side. Nonetheless, this feedback mechanism is coarse. Inset 1 of \fig{fig:schim_behaviour_tdma} highlights perfectly this problem. Even though all the queues have been assigned a threshold of 4, the latter is often exceeded. The worst-case being queue 3 exceeding the threshold by 2 on the right side of the plot.
 The thresholds used for the FIQ regulation requires to be fine-tuned manually by the user. Future extensions of the \schim will explore the implementation of schedulers capable of dynamically adapting the threshold to maximize the performance and improve the core isolation.
 }
 
@@ -62,7 +62,7 @@ The thresholds used for the FIQ regulation requires to be fine-tuned manually by
   functionality. This is mainly because FIQ handling is
   non-preemptive. We also recognize that the PL-to-PS feedback
   mechanism is relatively coarse. Inset 1 of
-  Figure~\ref{fig:schim_behaviour_tdma} highlights this problem. Even
+  \fig{fig:schim_behaviour_tdma} highlights this problem. Even
   though all the queues have been assigned a threshold of 4, the
   threshold is often exceeded.  The worst-case being queue 3 exceeding
   the threshold by 2 on the right-hand side of the plot. This problem
@@ -93,7 +93,7 @@ The thresholds used for the FIQ regulation requires to be fine-tuned manually by
   hand, while the \schim does introduce some extra latency and thus
   has some impact on the available bandwidth, we can conclude that
   bulk of the penalty arises from the two levels of interconnects
-  (CCI+Main Interconnect, see Figure~\ref{fig:PS-PL-diagram}) and
+  (CCI+Main Interconnect, see \fig{fig:PS-PL-diagram}) and
   FIFOs located on the path from the core cluster to the HPM
   ports. Therefore, it constitutes a limitation of the employed
   platform rather than of the proposed design.}{
@@ -103,7 +103,7 @@ The thresholds used for the FIQ regulation requires to be fine-tuned manually by
 %    2100~MBps of bandwidth based on Figure \ref{fig:bandwidth_comparison}.
     Our experiments in Section \ref{subsec:platform-capabilities-and-performance-degradation}
     have shown that rerouting the traffic through the PL has a cost. As illustrated
-    in Figure \ref{fig:bandwidth_comparison}, up to 2100~MBps can be extracted
+    in \fig{fig:bandwidth_comparison}, up to 2100~MBps can be extracted
     from the \emph{normal route} whereas any route through the PL only achieves
     around 320~MBps.
     In contrast, a back-of-the-envelope calculation reveals that for a PL
