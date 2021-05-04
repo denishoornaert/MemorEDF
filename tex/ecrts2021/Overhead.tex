@@ -123,15 +123,17 @@ The thresholds used for the FIQ regulation requires to be fine-tuned manually by
     This suggests that the PL-to-DRAM route can sustain a much higher throughput
     than what has been experimentally observed in our evaluation setup, where
     transactions originate from the PS side.
-    By looking at this evidence, one can conclude that the source of the
-    bandwidth loss is located in the route linking the core cluster to the PL-side.
+    In light of thse considerations, we can conclude that the source of the
+    bandwidth loss can be imputed to the bus segments connecting the CPU cluster to the HPM ports.
 %    Identifying the real bottleneck
 %    is left to be determined by further investigattion of the components
 %    between LLC and HPM, such as throttling bandwidth regulators,
 %    clock-domain crossing, and shallow FIFOs depicted in the platform
 %    TRM \cite{Xilinx-ULTRASCALE-TRM} (Figure 1-1).
-    Throttling bandwidth regulators, clock-domain crossing, and shallow FIFOs
-    are few of the elements that could be considered. Finally, for the
-    aforementioned reasons, the performance of the \schim is expected to vary
-    between different platforms.
-}
+    A focused study is necessary to narrow down the exact reason for
+    the performance drop. Nonetheless, vendor-imposed bandwidth
+    throttling, PS-to-PL clock-domain crossing delays, and shallow
+    FIFOs at the HPM ports and/or at the main PS-side interconnect
+    represent plausible reasons. We anticipate that due to the
+    platform-specific nature of this issue, the raw performance of the
+    \schim will substantially vary across different SoCs.}
