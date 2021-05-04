@@ -330,6 +330,15 @@ leakage is due to a malfunction in the TS scheduler design.
 
 \subsection{Memory Isolation}
 \label{subsec:isolation}
+
+\begin{figure}
+    \centering
+%    \includegraphics[scale=0.54]{images/Execution_times.pdf}
+    \includegraphics[width=0.9\textwidth]{images/Execution_times_no_ts.pdf}
+    \caption{Normalized execution time for each benchmark and input size for \emph{Solo} and \emph{Stress}. Each column denotes a given benchmark of the SD-VBS suite, while each row denotes a specific input size (in increasing order from top to bottom).}
+    \label{fig:isolation_ratio}
+\end{figure}
+
 \newbis{
 On the platform considered for this set of experiments, the Xilinx ZCU102
 development board, we denote three main sources of inter-core performance interference: (1)
@@ -379,6 +388,7 @@ thresholds matching their priority order (i.e., 4, 2, 1). Under TDMA scheduling,
 For the TS scheduler, the core under analysis is assigned a MIT of 16 and a threshold of 4, whereas each co-runner has a MIT of 64 and a threshold of 2.
 }
 
+
 The \emph{normal route} is used as a baseline for this experiment
 because no scheduling is performed in this configuration.
 %The results for
@@ -423,10 +433,3 @@ unexpectedly occupy the bus, unpredictability delaying the scheduling of the oth
 %memory access pattern of the core under analysis is sequential as
 %well. It follows that the FP policy is mainly useful when performing
 %the movement of large, sequential data chunks.
-\begin{figure}
-    \centering
-%    \includegraphics[scale=0.54]{images/Execution_times.pdf}
-    \includegraphics[scale=0.54]{images/Execution_times_no_ts.pdf}
-    \caption{Normalized execution time for each benchmark and input size for \emph{Solo} and \emph{Stress}. Each column denotes a given benchmark of the SD-VBS suite, while each row denotes a specific input size (in increasing order from top to bottom).}
-    \label{fig:isolation_ratio}
-\end{figure}
