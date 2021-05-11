@@ -36,22 +36,9 @@ module Queue #(
         output wire                      empty,
         output wire                      full,
         output wire                      lastElem,
-        output                           kill_the_core,
-        // BRAM write port
-        output wire                              bram_clka,
-        output wire            [DATA_SIZE-1 : 0] bram_dina,
-        output wire [$clog2(QUEUE_LENGTH)-1 : 0] bram_addra,
-        output wire                              bram_wea,
-        output wire                              bram_ena,
-        // BRAM read port
-        output wire                              bram_clkb,
-        output wire                              bram_rstb,
-        output wire            [DATA_SIZE-1 : 0] bram_dinb,
-        output wire [$clog2(QUEUE_LENGTH)-1 : 0] bram_addrb,
-        output wire                              bram_enb,
-        input  wire            [DATA_SIZE-1 : 0] bram_doutb
+        output                           kill_the_core
     );
-
+    
     // Internal registers
     reg [$clog2(QUEUE_LENGTH) : 0] counter;
     reg [$clog2(QUEUE_LENGTH) : 0] head;
@@ -62,19 +49,21 @@ module Queue #(
     
     assign full  = int_full;
     assign empty = int_empty;
-
-    // External routing
-    assign bram_clka  = clock;
-    assign bram_dina  = valueIn;
-    assign bram_addra = tail;
-    assign bram_wea   = valueInValid;
-    assign bram_ena   = 1;
-
-    assign bram_clkb  = clock;
-    assign bram_rstb  = reset;
-    assign bram_addrb = head;
-    assign bram_enb   = 1;
-    assign valueOut   = bram_doutb;
+    
+    HPSPBRAM #(
+        .RAM_WIDTH(DATA_SIZE),
+        .RAM_DEPTH(QUEUE_LENGTH+1)
+    ) bram (
+        .addra(tail),
+        .addrb(head),
+        .dina(valueIn),
+        .clka(clock),
+        .wea(valueInValid),
+        .enb(1),
+        .rstb(reset),
+        .regceb(),
+        .doutb(valueOut)
+    );
 
 //    assign full     = (counter == QUEUE_LENGTH);
 //    assign empty    = (counter == 0);  

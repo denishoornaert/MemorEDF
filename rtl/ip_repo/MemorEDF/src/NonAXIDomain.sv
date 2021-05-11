@@ -63,18 +63,7 @@ module NonAXIDomain #(
         Q_0_kill_the_core,
         Q_1_kill_the_core,
         Q_2_kill_the_core,
-        Q_3_kill_the_core,
-        bram_clka,
-        bram_dina,
-        bram_addra,
-        bram_wea,
-        bram_ena,
-        bram_clkb,
-        bram_rstb,
-        bram_dinb,
-        bram_addrb,
-        bram_enb,
-        bram_doutb
+        Q_3_kill_the_core
     );
     
     input wire                                                clock;
@@ -104,20 +93,6 @@ module NonAXIDomain #(
     output wire                                                    Q_1_kill_the_core;
     output wire                                                    Q_2_kill_the_core;
     output wire                                                    Q_3_kill_the_core;
-    
-    // BRAM write port
-    output wire [NUMBER_OF_QUEUES-1 : 0]                             bram_clka;
-    output wire [NUMBER_OF_QUEUES-1 : 0]           [DATA_SIZE-1 : 0] bram_dina;
-    output wire [NUMBER_OF_QUEUES-1 : 0][$clog2(QUEUE_LENGTH)-1 : 0] bram_addra;
-    output wire [NUMBER_OF_QUEUES-1 : 0]                             bram_wea;
-    output wire [NUMBER_OF_QUEUES-1 : 0]                             bram_ena;
-    // BRAM read port
-    output wire [NUMBER_OF_QUEUES-1 : 0]                             bram_clkb;
-    output wire [NUMBER_OF_QUEUES-1 : 0]                             bram_rstb;
-    output wire [NUMBER_OF_QUEUES-1 : 0]           [DATA_SIZE-1 : 0] bram_dinb;
-    output wire [NUMBER_OF_QUEUES-1 : 0][$clog2(QUEUE_LENGTH)-1 : 0] bram_addrb;
-    output wire [NUMBER_OF_QUEUES-1 : 0]                             bram_enb;
-    input  wire [NUMBER_OF_QUEUES-1 : 0]           [DATA_SIZE-1 : 0] bram_doutb;
     
 //    wire [(DATA_SIZE*NUMBER_OF_QUEUES)-1 : 0] dispatcher_to_queues_packets;
 //    wire             [NUMBER_OF_QUEUES-1 : 0] dispatcher_to_queues_valid;
@@ -187,18 +162,7 @@ module NonAXIDomain #(
            .empty(empty[i]),
            .full(full[i]),
            .lastElem(lastElem[i]),
-           .kill_the_core(Qs_kill_the_core[i]),
-           .bram_clka(bram_clka[i]),
-           .bram_dina(bram_dina[i]),
-           .bram_addra(bram_addra[i]),
-           .bram_wea(bram_wea[i]),
-           .bram_ena(bram_ena[i]),
-           .bram_clkb(bram_clkb[i]),
-           .bram_rstb(bram_rstb[i]),
-           .bram_dinb(bram_dinb[i]),
-           .bram_addrb(bram_addrb[i]),
-           .bram_enb(bram_enb[i]),
-           .bram_doutb(bram_doutb[i])
+           .kill_the_core(Qs_kill_the_core[i])
 	   );
 	end
 

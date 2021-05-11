@@ -28,6 +28,11 @@ proc init_gui { IPINST } {
   ipgui::add_param $IPINST -name "NUMBER_OF_QUEUES" -parent ${Queues_parameters}
   ipgui::add_param $IPINST -name "QUEUE_LENGTH" -parent ${Queues_parameters}
 
+  #Adding Group
+  set Core_Identification_Bits [ipgui::add_group $IPINST -name "Core Identification Bits" -parent ${Page_0}]
+  ipgui::add_param $IPINST -name "UPPER_BOUND" -parent ${Core_Identification_Bits} -widget comboBox
+  ipgui::add_param $IPINST -name "LOWER_BOUND" -parent ${Core_Identification_Bits} -widget comboBox
+
 
   #Adding Page
   set AXI_parameters [ipgui::add_page $IPINST -name "AXI parameters"]
@@ -79,8 +84,6 @@ proc init_gui { IPINST } {
 
 
 
-  ipgui::add_param $IPINST -name "UPPER_BOUND" -widget comboBox
-  ipgui::add_param $IPINST -name "LOWER_BOUND" -widget comboBox
 
 }
 
