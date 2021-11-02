@@ -142,29 +142,22 @@ module NonAXIDomain #(
         .produced(dispatcher_to_queues_3_4_valid)
     );
 	
-	
-	// Instantiation of the Queue moludes
-	genvar i;
-	for (i = 0; i < NUMBER_OF_QUEUES; i = i + 1)
-	begin
-	   Queue # (
-	       .DATA_SIZE(DATA_SIZE),
-	       .QUEUE_LENGTH(QUEUE_LENGTH),
-           .REGISTER_SIZE(REGISTER_SIZE)
-	   ) queue (
-	       .clock(clock),
-           .reset(reset),
-           .higher_threshold(queues_higher_threshold[i]),
-           .valueIn(dispatcher_to_queues_packets[((i>>1)*DATA_SIZE) +: DATA_SIZE]),
-           .valueInValid(dispatcher_to_queues_valid[i]),
-           .consumed(scheduler_to_queues_consumed[i]),
-           .valueOut(queues_to_selector_packets[i]),
-           .empty(empty[i]),
-           .full(full[i]),
-           .lastElem(lastElem[i]),
-           .kill_the_core(Qs_kill_the_core[i])
-	   );
-	end
+	Queueing_domain # (
+	   .NUMBER_OF_QUEUES(NUMBER_OF_QUEUES),
+	   .REGISTER_SIZE(REGISTER_SIZE)
+	) queueing_domain (
+	   .clock(clock),
+	   .reset(reset),
+	   .queues_higher_threshold(queues_higher_threshold),
+	   .dispatcher_to_queues_packets(dispatcher_to_queues_packets),
+	   .dispatcher_to_queues_valid(dispatcher_to_queues_valid),
+	   .scheduler_to_queues_consumed(scheduler_to_queues_consumed),
+	   .queues_to_selector_packets(queues_to_selector_packets),
+	   .empty(empty),
+	   .full(full),
+	   .lastElem(lastElem),
+	   .Qs_kill_the_core(Qs_kill_the_core)
+	);
 
 	// Instantiation of the Selector module
 	Selector_tree # (
