@@ -30,36 +30,81 @@ module Queueing_domain #(
         input  wire                                                clock,
         input  wire                                                reset,
         input  wire [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] queues_higher_threshold,
-        input  wire         [(DATA_SIZE*NUMBER_OF_QUEUES/2)-1 : 0] dispatcher_to_queues_packets,
+        input  wire                              [DATA_SIZE-1 : 0] dispatcher_to_queues_packet,
         input  wire                       [NUMBER_OF_QUEUES-1 : 0] dispatcher_to_queues_valid,
         input  wire                       [NUMBER_OF_QUEUES-1 : 0] scheduler_to_queues_consumed,
-        output wire                              [DATA_SIZE-1 : 0] queues_to_selector_packets [NUMBER_OF_QUEUES],
+        input  wire               [$clog2(NUMBER_OF_QUEUES)-1 : 0] core_id,
+        output wire                              [DATA_SIZE-1 : 0] queues_to_selector_packets, // [NUMBER_OF_QUEUES],
         output wire                       [NUMBER_OF_QUEUES-1 : 0] empty,
         output wire                       [NUMBER_OF_QUEUES-1 : 0] full,
         output wire                       [NUMBER_OF_QUEUES-1 : 0] lastElem,
         output wire                       [NUMBER_OF_QUEUES-1 : 0] Qs_kill_the_core
     );
     
+    wire                                  queue_head_popped;
+    wire                                  pop_pool_head;
+    wire     [$clog2(QUEUE_LENGTH)-1 : 0] insert_addr;
+    wire     [$clog2(QUEUE_LENGTH)-1 : 0] looking_up_addr [NUMBER_OF_QUEUES-1 : 0];
+    wire                                  availability_depleted;
+    wire                                  available;
+    
+    assign     pop_pool_head = |dispatcher_to_queues_valid;
+    assign queue_head_popped = |scheduler_to_queues_consumed;
+    
+    HPSPBRAM #(
+        .RAM_WIDTH(DATA_SIZE),
+        .RAM_DEPTH(QUEUE_LENGTH)
+    ) buffer (
+        .addra(insert_addr),
+        .addrb(looking_up_addr[core_id]),
+        .dina(dispatcher_to_queues_packet),
+        .clka(clock),
+        .wea(dispatcher_to_queues_valid),
+        .enb(1),
+        .rstb(reset),
+        .regceb(),
+        .doutb(queues_to_selector_packets)
+    );
+    
     genvar i;
     for (i = 0; i < NUMBER_OF_QUEUES; i = i + 1)
     begin
        Queue # (
-           .DATA_SIZE(DATA_SIZE),
+           .DATA_SIZE($clog2(QUEUE_LENGTH)),
            .QUEUE_LENGTH(QUEUE_LENGTH),
            .REGISTER_SIZE(REGISTER_SIZE)
-       ) queue (
+       ) pointers_queue (
            .clock(clock),
            .reset(reset),
            .higher_threshold(queues_higher_threshold[i]),
-           .valueIn(dispatcher_to_queues_packets[((i>>1)*DATA_SIZE) +: DATA_SIZE]),
+           .valueIn(insert_addr),
            .valueInValid(dispatcher_to_queues_valid[i]),
            .consumed(scheduler_to_queues_consumed[i]),
-           .valueOut(queues_to_selector_packets[i]),
+           .valueOut(looking_up_addr[i]),
            .empty(empty[i]),
            .full(full[i]),
            .lastElem(lastElem[i]),
            .kill_the_core(Qs_kill_the_core[i])
        );
     end
+    
+    Queue # (
+       .DATA_SIZE($clog2(QUEUE_LENGTH)),
+       .QUEUE_LENGTH(QUEUE_LENGTH),
+       .REGISTER_SIZE(REGISTER_SIZE),
+       .INIT_FILE("/home/denis/github/MemorEDF/rtl/ip_repo/MemorEDF/src/availability_pool.coe")
+    ) availablility_pool (
+       .clock(clock),
+       .reset(reset),
+       .higher_threshold(0), // disable threshold mechanism
+       .valueIn(looking_up_addr[core_id]),
+       .valueInValid(queue_head_popped),
+       .consumed(pop_pool_head),
+       .valueOut(insert_addr),
+       .empty(availability_depleted),
+       .full(available),
+       .lastElem(), // Not needed
+       .kill_the_core() // not needed
+    );
     
 endmodule
