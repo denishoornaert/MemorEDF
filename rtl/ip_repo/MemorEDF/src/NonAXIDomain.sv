@@ -103,7 +103,7 @@ module NonAXIDomain #(
     wire             [(NUMBER_OF_QUEUES/2)-1 : 0] dispatcher_to_queues_3_4_valid;
     wire                 [NUMBER_OF_QUEUES-1 : 0] dispatcher_to_queues_valid;
     wire             [NUMBER_OF_QUEUES-1 : 0] scheduler_to_queues_consumed;
-    wire                    [DATA_SIZE-1 : 0] queues_to_selector_packets [NUMBER_OF_QUEUES];
+    wire                    [DATA_SIZE-1 : 0] queues_to_selector_packets;// [NUMBER_OF_QUEUES];
     wire             [NUMBER_OF_QUEUES-1 : 0] empty;
     wire             [NUMBER_OF_QUEUES-1 : 0] full;
     wire             [NUMBER_OF_QUEUES-1 : 0] lastElem;
@@ -118,40 +118,43 @@ module NonAXIDomain #(
     assign {Q_3_kill_the_core, Q_2_kill_the_core, Q_1_kill_the_core, Q_0_kill_the_core} = Qs_kill_the_core;
     assign queues_higher_threshold = {scheduler_deadlines[3][REGISTER_SIZE-1 : 0], scheduler_deadlines[2][REGISTER_SIZE-1 : 0], scheduler_deadlines[1][REGISTER_SIZE-1 : 0], scheduler_deadlines[0][REGISTER_SIZE-1 : 0]};
 
-    // Instantiation of the Dispatcher module
-    Dispatcher # (
-        .OUTPUTS(NUMBER_OF_QUEUES/2)
-//        .INPUT_SIZE(DATA_SIZE)
-    ) dispatcher_1 (
-        .clock(clock),
-        .reset(reset),
-//        .packetIn(packetizer_1_to_dispatcher_packet),
-        .valid(packetizer_1_to_dispatcher_valid),
-        .id(packetizer_1_to_dispatcher_id[0]),
-//        .packetsOut(dispatcher_to_queues_1_2_packets),
-        .produced(dispatcher_to_queues_1_2_valid)
-    );
-    Dispatcher # (
-        .OUTPUTS(NUMBER_OF_QUEUES/2)
-//        .INPUT_SIZE(DATA_SIZE)
-    ) dispatcher_2 (
-        .clock(clock),
-        .reset(reset),
-        .valid(packetizer_2_to_dispatcher_valid),
-        .id(packetizer_2_to_dispatcher_id[0]),
-        .produced(dispatcher_to_queues_3_4_valid)
-    );
+//    // Instantiation of the Dispatcher module
+//    Dispatcher # (
+//        .OUTPUTS(NUMBER_OF_QUEUES/2)
+////        .INPUT_SIZE(DATA_SIZE)
+//    ) dispatcher_1 (
+//        .clock(clock),
+//        .reset(reset),
+////        .packetIn(packetizer_1_to_dispatcher_packet),
+//        .valid(packetizer_1_to_dispatcher_valid),
+//        .id(packetizer_1_to_dispatcher_id[0]),
+////        .packetsOut(dispatcher_to_queues_1_2_packets),
+//        .produced(dispatcher_to_queues_1_2_valid)
+//    );
+//    Dispatcher # (
+//        .OUTPUTS(NUMBER_OF_QUEUES/2)
+////        .INPUT_SIZE(DATA_SIZE)
+//    ) dispatcher_2 (
+//        .clock(clock),
+//        .reset(reset),
+//        .valid(packetizer_2_to_dispatcher_valid),
+//        .id(packetizer_2_to_dispatcher_id[0]),
+//        .produced(dispatcher_to_queues_3_4_valid)
+//    );
 	
 	Queueing_domain # (
+	   .DATA_SIZE(DATA_SIZE),
+	   .QUEUE_LENGTH(QUEUE_LENGTH),
 	   .NUMBER_OF_QUEUES(NUMBER_OF_QUEUES),
 	   .REGISTER_SIZE(REGISTER_SIZE)
 	) queueing_domain (
 	   .clock(clock),
 	   .reset(reset),
 	   .queues_higher_threshold(queues_higher_threshold),
-	   .dispatcher_to_queues_packets(dispatcher_to_queues_packets),
-	   .dispatcher_to_queues_valid(dispatcher_to_queues_valid),
+	   .dispatcher_to_queues_packet(packetizer_1_to_dispatcher_packet),
+	   .dispatcher_to_queues_valid((packetizer_1_to_dispatcher_valid << packetizer_1_to_dispatcher_id)),
 	   .scheduler_to_queues_consumed(scheduler_to_queues_consumed),
+	   .core_id(scheduler_to_selector_id),
 	   .queues_to_selector_packets(queues_to_selector_packets),
 	   .empty(empty),
 	   .full(full),
@@ -159,17 +162,18 @@ module NonAXIDomain #(
 	   .Qs_kill_the_core(Qs_kill_the_core)
 	);
 
-	// Instantiation of the Selector module
-	Selector_tree # (
-	   .INPUTS(NUMBER_OF_QUEUES),
-	   .INPUT_SIZE(DATA_SIZE)
-	) selector (
-	   .clock(clock),
-       .reset(reset),
-       .index(scheduler_to_selector_id),
-       .values(queues_to_selector_packets),
-       .outcome(selector_to_serializer_packet)
-	);
+//	// Instantiation of the Selector module
+//	Selector_tree # (
+//	   .INPUTS(NUMBER_OF_QUEUES),
+//	   .INPUT_SIZE(DATA_SIZE)
+//	) selector (
+//	   .clock(clock),
+//       .reset(reset),
+//       .index(scheduler_to_selector_id),
+//       .values(queues_to_selector_packets),
+//       .outcome(selector_to_serializer_packet)
+//	);
+	assign selector_to_serializer_packet = queues_to_selector_packets;
 
 	// Instantiation of the Scheduler module
 	Scheduler # (
