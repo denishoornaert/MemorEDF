@@ -23,7 +23,8 @@
 module Queue #(
         parameter DATA_SIZE = 8,
         parameter QUEUE_LENGTH = 4,
-        parameter REGISTER_SIZE = 32
+        parameter REGISTER_SIZE = 32,
+        parameter INIT_FILE = ""
     )
     (
         input                            clock,
@@ -52,7 +53,8 @@ module Queue #(
     
     HPSPBRAM #(
         .RAM_WIDTH(DATA_SIZE),
-        .RAM_DEPTH(QUEUE_LENGTH+1)
+        .RAM_DEPTH(QUEUE_LENGTH+1),
+        .INIT_FILE(INIT_FILE)
     ) bram (
         .addra(tail),
         .addrb(head),
