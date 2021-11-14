@@ -21,10 +21,11 @@
 
 
 module Queue #(
-        parameter DATA_SIZE = 8,
-        parameter QUEUE_LENGTH = 4,
+        parameter     DATA_SIZE = 8,
+        parameter  QUEUE_LENGTH = 4,
         parameter REGISTER_SIZE = 32,
-        parameter INIT_FILE = ""
+        parameter     INIT_FILE = "",
+        parameter  INIT_COUNTER = 0
     )
     (
         input                            clock,
@@ -91,7 +92,7 @@ module Queue #(
     begin
         if(reset)
         begin
-            counter <= 0;
+            counter <= INIT_COUNTER;
             int_full <= 0;
             int_empty <= 1;
         end
