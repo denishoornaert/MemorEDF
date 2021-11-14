@@ -162,17 +162,6 @@ module NonAXIDomain #(
 	   .Qs_kill_the_core(Qs_kill_the_core)
 	);
 
-//	// Instantiation of the Selector module
-//	Selector_tree # (
-//	   .INPUTS(NUMBER_OF_QUEUES),
-//	   .INPUT_SIZE(DATA_SIZE)
-//	) selector (
-//	   .clock(clock),
-//       .reset(reset),
-//       .index(scheduler_to_selector_id),
-//       .values(queues_to_selector_packets),
-//       .outcome(selector_to_serializer_packet)
-//	);
 	assign selector_to_serializer_packet = queues_to_selector_packets;
 
 	// Instantiation of the Scheduler module
