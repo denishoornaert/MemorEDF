@@ -88,11 +88,12 @@ module Queueing_domain #(
        );
     end
     
-    Queue # (
+    QueueRAM # (
        .DATA_SIZE($clog2(QUEUE_LENGTH)),
        .QUEUE_LENGTH(QUEUE_LENGTH),
        .REGISTER_SIZE(REGISTER_SIZE),
-       .INIT_FILE("/home/denis/github/MemorEDF/rtl/ip_repo/MemorEDF/src/availability_pool.coe")
+       .INIT_FILE("/home/denis/github/MemorEDF/rtl/ip_repo/MemorEDF/src/availability_pool.coe"),
+       .INIT_COUNTER(QUEUE_LENGTH)
     ) availablility_pool (
        .clock(clock),
        .reset(reset),
