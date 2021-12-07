@@ -28,6 +28,7 @@ module TDMA #(
         clock,
         reset,
         delta,
+        empty,
         valid,
         selection
     );
@@ -36,6 +37,7 @@ module TDMA #(
     input clock;
     input reset;
     input [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] delta;
+    input                       [NUMBER_OF_QUEUES-1 : 0] empty;
 
     // Output definition
     output                                  valid;
@@ -91,22 +93,22 @@ module TDMA #(
             if(0 <= counter & counter < sums[0])
             begin
                 internalSelection <= 0;
-                internal_valid <= 1;
+                internal_valid <= ~empty[0];
             end
             else if(sums[0] <= counter & counter < sums[1])
             begin
                 internalSelection <= 1;
-                internal_valid <= 1;
+                internal_valid <= ~empty[1];
             end
             else if(sums[1] <= counter & counter < sums[2])
             begin
                 internalSelection <= 2;
-                internal_valid <= 1;
+                internal_valid <= ~empty[2];
             end
             else if(sums[2] <= counter & counter < sums[3])
             begin
                 internalSelection <= 3;
-                internal_valid <= 1;
+                internal_valid <= ~empty[3];
             end
             else
             begin

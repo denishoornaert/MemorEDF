@@ -270,7 +270,7 @@ module MemorEDF #
         output wire                                 Q_3_kill_the_core
 	);
 
-	localparam NUMBER_OF_SCHEDULERS = TDMA_ENABLED + EDF_ENABLED + FP_ENABLED + MG_ENABLED + PRNG_FIBONACCI_ENABLED + PRNG_GALLOIS_ENABLED;
+	localparam NUMBER_OF_SCHEDULERS = TDMA_ENABLED + EDF_ENABLED + FP_ENABLED + MG_ENABLED + PRNG_FIBONACCI_ENABLED + PRNG_GALLOIS_ENABLED + AGING_ENABLED;
 
     // Internal routing
     wire            [DATA_SIZE-1 : 0] packetizer_1_to_dispatcher_packet;
@@ -279,8 +279,9 @@ module MemorEDF #
     wire            [DATA_SIZE-1 : 0] packetizer_2_to_dispatcher_packet;
     wire                              packetizer_2_to_dispatcher_valid;
     wire                      [1 : 0] packetizer_2_to_dispatcher_id; // [$log2(NB_QUEUES)-1 : 0]
-    wire            [DATA_SIZE-1 : 0] selector_to_serializer_packet;
-    wire                              serializer_to_scheduler_consumed;
+    wire            [DATA_SIZE-1 : 0] buffer_to_serializer_packet;
+    wire                              scheduler_to_serializer_valid;
+    wire                              serializer_to_scheduler_ready;
     wire                              scheduler_to_serializer_activate_signal;
     wire                              write_map_split_came_from;
     wire                              read_map_split_came_from;
@@ -302,37 +303,6 @@ module MemorEDF #
     assign scheduler_hyper_period = buffers[447 : 416];
     assign scheduling_mode        = buffers[479 : 448]; // TODO go for 32 bit (or REGISTER_SIZE)
     assign counter_reset          = buffers[511 : 480];
-    
-//    Mapper #(
-//        .ID_WIDTH(6),
-//        .NUMBER_OF_PORTS(2)
-//    )
-//    map (
-//        .clock(m00_axi_aclk),
-//        .reset(!m00_axi_aresetn),
-//        //
-//        .id_1(s00_axi_awid[10 : 5]),
-//        .port_1(0),
-//        .valid_1((s00_axi_awready&s00_axi_awvalid)),
-//        //
-//        .id_2(s00_axi_arid[10 : 5]),
-//        .port_2(0),
-//        .valid_2((s00_axi_arready&s00_axi_arvalid)),
-//        //
-//        .id_3(s02_axi_awid[10 : 5]),
-//        .port_3(1),
-//        .valid_3((s02_axi_awready&s02_axi_awvalid)),
-//        //
-//        .id_4(s02_axi_arid[10 : 5]),
-//        .port_4(1),
-//        .valid_4((s02_axi_arready&s02_axi_arvalid)),
-//        //
-//        .write_look_after(m00_axi_bid[10 : 5]),
-//        .write_came_from(write_map_split_came_from),
-//        //
-//        .read_look_after(m00_axi_rid[10 : 5]),
-//        .read_came_from(read_map_split_came_from)
-//    );
     
     always @(*)
     begin
@@ -431,20 +401,6 @@ module MemorEDF #
             m00_axi_rready <= s00_axi_rready|s02_axi_rready;
         end
     end
-    
-    // Pass-through channels
-//    // Response channel
-//    assign s00_axi_bvalid = m00_axi_bvalid;
-//    assign m00_axi_bready = s00_axi_bready;
-//    assign s00_axi_bid = m00_axi_bid;
-//    assign s00_axi_bresp = m00_axi_bresp;
-    // Read response channel
-//    assign m00_axi_rready = s00_axi_rready;
-//    assign s00_axi_rvalid = m00_axi_rvalid;
-//    assign s00_axi_rid = m00_axi_rid;
-//    assign s00_axi_rdata = m00_axi_rdata;
-//    assign s00_axi_rresp = m00_axi_rresp;
-//    assign s00_axi_rlast = m00_axi_rlast;
 	
     // Instantiation of Axi Bus Interface S00_AXI
 	Packetizer # (
@@ -456,9 +412,6 @@ module MemorEDF #
 		.PACKETIZER_NUMBER(1'b0),
 		.UPPER_BOUND(UPPER_BOUND),
 		.LOWER_BOUND(LOWER_BOUND)
-//		.C_S_AXI_WUSER_WIDTH(C_S00_AXI_WUSER_WIDTH),
-//		.C_S_AXI_RUSER_WIDTH(C_S00_AXI_RUSER_WIDTH),
-//		.C_S_AXI_BUSER_WIDTH(C_S00_AXI_BUSER_WIDTH)
 	) packetizer_1 (
 	    // Out of module/IP IOs
 		.S_AXI_ACLK(s00_axi_aclk),
@@ -479,14 +432,8 @@ module MemorEDF #
 		.S_AXI_WDATA(s00_axi_wdata),
 		.S_AXI_WSTRB(s00_axi_wstrb),
 		.S_AXI_WLAST(s00_axi_wlast),
-//		.S_AXI_WUSER(s00_axi_wuser),
 		.S_AXI_WVALID(s00_axi_wvalid),
 		.S_AXI_WREADY(s00_axi_wready),
-//		.S_AXI_BID(s00_axi_bid),
-//		.S_AXI_BRESP(s00_axi_bresp),
-//		.S_AXI_BUSER(bp_axi_buser),
-//		.S_AXI_BVALID(s00_axi_bvalid),
-//		.S_AXI_BREADY(s00_axi_bready),
 		.S_AXI_ARID(s00_axi_arid),
 		.S_AXI_ARADDR(s00_axi_araddr),
 		.S_AXI_ARLEN(s00_axi_arlen),
@@ -500,12 +447,6 @@ module MemorEDF #
 		.S_AXI_ARUSER(s00_axi_aruser),
 		.S_AXI_ARVALID(s00_axi_arvalid),
 		.S_AXI_ARREADY(s00_axi_arready),
-//		.S_AXI_RID(bp_axi_rid),
-//		.S_AXI_RDATA(bp_axi_rdata),
-//		.S_AXI_RRESP(bp_axi_rresp),
-//		.S_AXI_RLAST(bp_axi_rlast),
-//		.S_AXI_RUSER(bp_axi_ruser),
-//		.S_AXI_RVALID(s00_axi_rvalid),
 		.S_AXI_RREADY(s00_axi_rready),
 		// Internal IOs
 		.packetOut(packetizer_1_to_dispatcher_packet),
@@ -522,11 +463,7 @@ module MemorEDF #
         .PACKETIZER_NUMBER(1'b1),
         .UPPER_BOUND(UPPER_BOUND),
         .LOWER_BOUND(LOWER_BOUND)
-//        .C_S_AXI_WUSER_WIDTH(C_S02_AXI_WUSER_WIDTH),
-//        .C_S_AXI_RUSER_WIDTH(C_S02_AXI_RUSER_WIDTH),
-//        .C_S_AXI_BUSER_WIDTH(C_S02_AXI_BUSER_WIDTH)
     ) packetizer_2 (
-        // Out of module/IP IOs
         .S_AXI_ACLK(s02_axi_aclk),
         .S_AXI_ARESETN(s02_axi_aresetn),
         .S_AXI_AWID(s02_axi_awid),
@@ -545,14 +482,8 @@ module MemorEDF #
         .S_AXI_WDATA(s02_axi_wdata),
         .S_AXI_WSTRB(s02_axi_wstrb),
         .S_AXI_WLAST(s02_axi_wlast),
-//        .S_AXI_WUSER(s02_axi_wuser),
         .S_AXI_WVALID(s02_axi_wvalid),
         .S_AXI_WREADY(s02_axi_wready),
-//        .S_AXI_BID(s02_axi_bid),
-//        .S_AXI_BRESP(s02_axi_bresp),
-//        .S_AXI_BUSER(bp_axi_buser),
-//        .S_AXI_BVALID(s02_axi_bvalid),
-//        .S_AXI_BREADY(s02_axi_bready),
         .S_AXI_ARID(s02_axi_arid),
         .S_AXI_ARADDR(s02_axi_araddr),
         .S_AXI_ARLEN(s02_axi_arlen),
@@ -566,12 +497,6 @@ module MemorEDF #
         .S_AXI_ARUSER(s02_axi_aruser),
         .S_AXI_ARVALID(s02_axi_arvalid),
         .S_AXI_ARREADY(s02_axi_arready),
-//        .S_AXI_RID(bp_axi_rid),
-//        .S_AXI_RDATA(bp_axi_rdata),
-//        .S_AXI_RRESP(bp_axi_rresp),
-//        .S_AXI_RLAST(bp_axi_rlast),
-//        .S_AXI_RUSER(bp_axi_ruser),
-//        .S_AXI_RVALID(s02_axi_rvalid),
         .S_AXI_RREADY(s02_axi_rready),
         // Internal IOs
         .packetOut(packetizer_2_to_dispatcher_packet),
@@ -585,9 +510,6 @@ module MemorEDF #
         .C_S_AXI_ADDR_WIDTH(C_S01_AXI_ADDR_WIDTH),
         .C_S_AXI_AWUSER_WIDTH(C_S01_AXI_AWUSER_WIDTH),
         .C_S_AXI_ARUSER_WIDTH(C_S01_AXI_ARUSER_WIDTH)
-//        .C_S_AXI_WUSER_WIDTH(C_S01_AXI_WUSER_WIDTH),
-//        .C_S_AXI_RUSER_WIDTH(C_S01_AXI_RUSER_WIDTH),
-//        .C_S_AXI_BUSER_WIDTH(C_S01_AXI_BUSER_WIDTH)
     ) configurationport (
         .S_AXI_ACLK(s01_axi_aclk),
         .S_AXI_ARESETN(s01_axi_aresetn),
@@ -607,12 +529,10 @@ module MemorEDF #
         .S_AXI_WDATA(s01_axi_wdata),
         .S_AXI_WSTRB(s01_axi_wstrb),
         .S_AXI_WLAST(s01_axi_wlast),
-//        .S_AXI_WUSER(s01_axi_wuser),
         .S_AXI_WVALID(s01_axi_wvalid),
         .S_AXI_WREADY(s01_axi_wready),
         .S_AXI_BID(s01_axi_bid),
         .S_AXI_BRESP(s01_axi_bresp),
-//        .S_AXI_BUSER(s01_axi_buser),
         .S_AXI_BVALID(s01_axi_bvalid),
         .S_AXI_BREADY(s01_axi_bready),
         .S_AXI_ARID(s01_axi_arid),
@@ -632,7 +552,6 @@ module MemorEDF #
         .S_AXI_RDATA(s01_axi_rdata),
         .S_AXI_RRESP(s01_axi_rresp),
         .S_AXI_RLAST(s01_axi_rlast),
-//        .S_AXI_RUSER(s01_axi_ruser),
         .S_AXI_RVALID(s01_axi_rvalid),
         .S_AXI_RREADY(s01_axi_rready),
         .memory_out(buffers)
@@ -646,11 +565,7 @@ module MemorEDF #
         .C_M_AXI_DATA_WIDTH(C_M00_AXI_DATA_WIDTH),
         .C_M_AXI_AWUSER_WIDTH(C_M00_AXI_AWUSER_WIDTH),
         .C_M_AXI_ARUSER_WIDTH(C_M00_AXI_ARUSER_WIDTH)
-//        .C_M_AXI_WUSER_WIDTH(C_M00_AXI_WUSER_WIDTH),
-//        .C_M_AXI_RUSER_WIDTH(C_M00_AXI_RUSER_WIDTH),
-//        .C_M_AXI_BUSER_WIDTH(C_M00_AXI_BUSER_WIDTH)
     ) serializer (
-        .INIT_AXI_TXN(scheduler_to_serializer_activate_signal),
         .M_AXI_ACLK(m00_axi_aclk),
         .M_AXI_ARESETN(m00_axi_aresetn),
         .M_AXI_AWID(m00_axi_awid),
@@ -668,14 +583,8 @@ module MemorEDF #
         .M_AXI_WDATA(m00_axi_wdata),
         .M_AXI_WSTRB(m00_axi_wstrb),
         .M_AXI_WLAST(m00_axi_wlast),
-//        .M_AXI_WUSER(m00_axi_wuser),
         .M_AXI_WVALID(m00_axi_wvalid),
         .M_AXI_WREADY(m00_axi_wready),
-//        .M_AXI_BID(m00_axi_bid),
-//        .M_AXI_BRESP(m00_axi_bresp),
-//        .M_AXI_BUSER(bp_axi_buser),
-//        .M_AXI_BVALID(m00_axi_bvalid),
-//        .M_AXI_BREADY(m00_axi_bready),
         .M_AXI_ARID(m00_axi_arid),
         .M_AXI_ARADDR(m00_axi_araddr),
         .M_AXI_ARLEN(m00_axi_arlen),
@@ -688,15 +597,11 @@ module MemorEDF #
         .M_AXI_ARUSER(m00_axi_aruser),
         .M_AXI_ARVALID(m00_axi_arvalid),
         .M_AXI_ARREADY(m00_axi_arready),
-//        .M_AXI_RID(bp_axi_rid),
-//        .M_AXI_RDATA(bp_axi_rdata),
-//        .M_AXI_RRESP(bp_axi_rresp),
-        .M_AXI_RLAST(m00_axi_rlast), // bp_axi_rlast
-//        .M_AXI_RUSER(bp_axi_ruser),
-//        .M_AXI_RVALID(m00_axi_rvalid),
-//        .M_AXI_RREADY(bp_axi_rready),
-        .packet_in(selector_to_serializer_packet),
-        .packetConsumed(serializer_to_scheduler_consumed)
+        .M_AXI_RLAST(m00_axi_rlast),
+        // Internal decoupled io
+        .valid(scheduler_to_serializer_valid),
+        .ready(serializer_to_scheduler_ready),
+        .packet(buffer_to_serializer_packet)
     );
 
     NonAXIDomain #(
@@ -715,9 +620,6 @@ module MemorEDF #
     ) nonaxidomain (
         .clock(m00_axi_aclk),
         .reset(!m00_axi_aresetn),
-//        .packetizer_to_dispatcher_packet(packetizer_to_dispatcher_packet),
-//        .packetizer_to_dispatcher_valid(packetizer_to_dispatcher_valid),
-//        .packetizer_to_dispatcher_id(packetizer_to_dispatcher_id),
         .packetizer_1_to_dispatcher_packet(packetizer_1_to_dispatcher_packet),
         .packetizer_1_to_dispatcher_valid(packetizer_1_to_dispatcher_valid),
         .packetizer_1_to_dispatcher_id(packetizer_1_to_dispatcher_id),
@@ -732,9 +634,9 @@ module MemorEDF #
         .scheduler_hyper_period(scheduler_hyper_period),
         .scheduler_counter_reset(counter_reset),
         .queues_thresholds(scheduler_deadlines),
-        .selector_to_serializer_packet(selector_to_serializer_packet),
-        .serializer_to_scheduler_consumed(serializer_to_scheduler_consumed),
-        .scheduler_to_serializer_activate_signal(scheduler_to_serializer_activate_signal),
+        .scheduler_to_serializer_valid(scheduler_to_serializer_valid),
+        .serializer_to_scheduler_ready(serializer_to_scheduler_ready),
+        .buffer_to_serializer_packet(buffer_to_serializer_packet),
         .Q_0_kill_the_core(Q_0_kill_the_core),
         .Q_1_kill_the_core(Q_1_kill_the_core),
         .Q_2_kill_the_core(Q_2_kill_the_core),

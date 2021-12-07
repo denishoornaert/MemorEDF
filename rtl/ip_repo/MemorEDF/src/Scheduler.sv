@@ -30,7 +30,8 @@ module Scheduler
         parameter MG_ENABLED             = 1,
         parameter PRNG_FIBONACCI_ENABLED = 1,
         parameter PRNG_GALLOIS_ENABLED   = 1,
-        parameter AGING_ENABLED          = 1
+        parameter AGING_ENABLED          = 1,
+        parameter NUMBER_OF_SCHEDULERS   = 7
     )
     (
         clock,
@@ -46,19 +47,18 @@ module Scheduler
         hyper_period,
         counter_reset,
         id,
+        valid_and_ready,
+        ready,
         consumed,
-        hasBeenConsumed,
         enable
     );
 
-    localparam NUMBER_OF_SCHEDULERS = TDMA_ENABLED + EDF_ENABLED + FP_ENABLED + MG_ENABLED + PRNG_FIBONACCI_ENABLED + PRNG_GALLOIS_ENABLED + AGING_ENABLED;
-
     // Definition of the module IOs
+    // Generic
     input                                                clock;
     input                                                reset;
+    // Parameters
     input           [$clog2(NUMBER_OF_SCHEDULERS)-1 : 0] mode;
-    input                       [NUMBER_OF_QUEUES-1 : 0] full;
-    input                       [NUMBER_OF_QUEUES-1 : 0] empty;
     input                       [NUMBER_OF_QUEUES-1 : 0] lastElem;
     input [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] deadlines;
     input [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] periods;
@@ -66,9 +66,13 @@ module Scheduler
     input [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] budgets;
     input                          [REGISTER_SIZE-1 : 0] hyper_period;
     input                          [REGISTER_SIZE-1 : 0] counter_reset;
+    // Queues feedback
+    input                       [NUMBER_OF_QUEUES-1 : 0] full;
+    input                       [NUMBER_OF_QUEUES-1 : 0] empty;
     output              [$clog2(NUMBER_OF_QUEUES)-1 : 0] id;
+    output                                               valid_and_ready;
+    input                                                ready;
     input                                                consumed;
-    output                      [NUMBER_OF_QUEUES-1 : 0] hasBeenConsumed;
     output                                               enable;
 
     // Scheduling part
@@ -76,6 +80,7 @@ module Scheduler
     wire [$clog2(NUMBER_OF_QUEUES)-1 : 0] selected_queue;
     wire                                  schedulers_to_selector_valid [NUMBER_OF_SCHEDULERS];
     wire                                  valid;
+    wire                                  valid_and_ready;
     // Control part
     reg                                   internal_enable;
     reg  [$clog2(NUMBER_OF_QUEUES)-1 : 0] internal_id;
@@ -88,54 +93,26 @@ module Scheduler
     //
     reg             [REGISTER_SIZE-1 : 0] counter_reset_ff;
     wire                                  force_reset;
-    
-    reg [1 : 0] prvMode;
-    
+   
+    assign valid_and_ready   = valid & ready;
 
     assign enable            = internal_enable;
     assign id                = internal_id;
 
-
-    genvar i;
-    for(i = 0; i < NUMBER_OF_QUEUES; i = i + 1)
-    begin
-        assign hasBeenConsumed[i] = (consumed & ~consumed_ff & internal_hasBeenConsumed[i]);
-    end
-
     always @(posedge clock)
     begin
         if(reset)
-        begin
             consumed_ff <= 1;
-        end
         else
-        begin
             consumed_ff <= consumed;
-        end
     end
     
     always @(posedge clock)
     begin
         if(reset)
-        begin
-            prvMode <= 0;
-        end
-        else
-        begin
-            prvMode <= mode;
-        end
-    end
-    
-    always @(posedge clock)
-    begin
-        if(reset)
-        begin
             counter_reset_ff <= 0;
-        end
         else
-        begin
             counter_reset_ff <= counter_reset;
-        end
     end
     assign force_reset = (counter_reset != counter_reset_ff);
 
@@ -184,6 +161,7 @@ module Scheduler
             .clock(clock),
             .reset(reset|force_reset),
             .delta(periods),
+            .empty(empty),
             .valid(schedulers_to_selector_valid[0]),
             .selection(schedulers_to_selector_selection[0])
         );

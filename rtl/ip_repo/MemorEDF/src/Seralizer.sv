@@ -34,7 +34,6 @@ module Serializer #
 		parameter integer C_M_AXI_BUSER_WIDTH	= 0
 	)
 	(
-		input  wire                                             INIT_AXI_TXN,
 		input  wire                                             M_AXI_ACLK,
 		input  wire                                             M_AXI_ARESETN,
 		output wire                    [C_M_AXI_ID_WIDTH-1 : 0] M_AXI_AWID,
@@ -67,8 +66,10 @@ module Serializer #
 		output wire                                             M_AXI_ARVALID,
 		input  wire                                             M_AXI_ARREADY,
 		input  wire                                             M_AXI_RLAST,
-		input  wire [(102+(4*16)+(4*C_M_AXI_DATA_WIDTH))-1 : 0] packet_in,
-		output wire                                             packetConsumed
+		// internal IO
+        input  wire                                             valid,
+        output reg                                              ready,
+		input  wire [(102+(4*16)+(4*C_M_AXI_DATA_WIDTH))-1 : 0] packet
 	);
 
 	reg [C_M_AXI_ADDR_WIDTH-1 : 0] 	axi_awaddr;
@@ -87,9 +88,6 @@ module Serializer #
     reg                             internal_packetConsumed;
 	//Interface response error flags
 	wire  	                        wnext;
-	reg  	                        init_txn_ff;
-	reg  	                        init_txn_ff2;
-	wire  	                        init_txn_pulse;
 
     // Packet meta-data decomposition
     wire                              packet_type;
@@ -122,16 +120,16 @@ module Serializer #
     wire                   [16-1 : 0] wstrb_write [0 : 4-1];
     wire   [C_M_AXI_DATA_WIDTH-1 : 0] data [0 : 4-1];
     
-    assign metadata       = packet_in[677 : 576];
+    assign metadata       = packet[677 : 576];
     // TODO check the order !!
-    assign wstrb_write[0] = packet_in[575 : 560];
-    assign wstrb_write[1] = packet_in[559 : 544];
-    assign wstrb_write[2] = packet_in[543 : 528];
-    assign wstrb_write[3] = packet_in[527 : 512];
-    assign data[0]        = packet_in[511 : 384];
-    assign data[1]        = packet_in[383 : 256];
-    assign data[2]        = packet_in[255 : 128];
-    assign data[3]        = packet_in[127 :   0];
+    assign wstrb_write[0] = packet[575 : 560];
+    assign wstrb_write[1] = packet[559 : 544];
+    assign wstrb_write[2] = packet[543 : 528];
+    assign wstrb_write[3] = packet[527 : 512];
+    assign data[0]        = packet[511 : 384];
+    assign data[1]        = packet[383 : 256];
+    assign data[2]        = packet[255 : 128];
+    assign data[3]        = packet[127 :   0];
 
     // Decomposition of the read and write packet intot he corresponding and adequate signals
     assign packet_type = metadata[101 +: 1];
@@ -164,25 +162,10 @@ module Serializer #
 	assign M_AXI_ARQOS	  = p_arqos;
 	assign M_AXI_ARUSER	  = p_aruser;
 	assign M_AXI_ARVALID  = axi_arvalid;
-	assign init_txn_pulse = INIT_AXI_TXN;//(!init_txn_ff2) && init_txn_ff;
-
-    always @(posedge M_AXI_ACLK)
-    begin
-        if (M_AXI_ARESETN == 0 )
-        begin
-            init_txn_ff <= 1'b0;
-            init_txn_ff2 <= 1'b0;
-        end
-        else
-        begin
-            init_txn_ff <= INIT_AXI_TXN;
-            init_txn_ff2 <= init_txn_ff;
-        end
-    end
     
     always @(posedge M_AXI_ACLK)
     begin
-        if (M_AXI_ARESETN == 0 || init_txn_pulse == 1'b1 )
+        if (M_AXI_ARESETN == 0 || (valid && ready) )
             axi_awvalid <= 1'b0;
         else if (~axi_awvalid && start_single_burst_write)
             axi_awvalid <= 1'b1;
@@ -194,7 +177,7 @@ module Serializer #
     
     always @(posedge M_AXI_ACLK)
     begin
-        if (M_AXI_ARESETN == 0 || init_txn_pulse == 1'b1)
+        if (M_AXI_ARESETN == 0 || (valid && ready) )
             axi_awaddr <= p_awaddr;
         else if (M_AXI_AWREADY && axi_awvalid)
             axi_awaddr <= axi_awaddr;
@@ -202,14 +185,15 @@ module Serializer #
             axi_awaddr <= axi_awaddr;
     end
 
+    // TODO: potentially useless... could save an extra clock cycle...
     always @(posedge M_AXI_ACLK)
     begin
-        if(init_txn_pulse & packet_type) // implicit packet_type == 1 so packet is a write transaction
+        if((valid && ready) & packet_type) // implicit packet_type == 1 so packet is a write transaction
         begin
             start_single_burst_write <= 1;
             start_single_burst_read  <= 0;
         end
-        else if(init_txn_pulse & !packet_type) // implicit packet_type == 1 so packet is a read transaction
+        else if((valid && ready) & !packet_type) // implicit packet_type == 1 so packet is a read transaction
         begin
             start_single_burst_write <= 0;
             start_single_burst_read  <= 1;
@@ -225,7 +209,7 @@ module Serializer #
 
     always @(posedge M_AXI_ACLK)
     begin
-        if (M_AXI_ARESETN == 0 || init_txn_pulse == 1'b1 )
+        if (M_AXI_ARESETN == 0 || (valid && ready) )
             axi_wvalid <= 1'b0;
         else if (~axi_wvalid && (M_AXI_AWREADY && axi_awvalid))
             axi_wvalid <= 1'b1;
@@ -237,7 +221,7 @@ module Serializer #
 
     always @(posedge M_AXI_ACLK)
     begin
-        if (M_AXI_ARESETN == 0 || init_txn_pulse == 1'b1 )
+        if (M_AXI_ARESETN == 0 || (valid && ready) )
             axi_wlast <= 1'b0;
         else if (((write_index == (p_awlen+1-2) && (p_awlen+1) >= 2) && wnext) || ((p_awlen+1) == 1 ))
             axi_wlast <= 1'b1;
@@ -251,7 +235,7 @@ module Serializer #
 
     always @(posedge M_AXI_ACLK)
     begin
-        if (M_AXI_ARESETN == 0 || init_txn_pulse == 1'b1 || start_single_burst_write == 1'b1)
+        if (M_AXI_ARESETN == 0 || (valid && ready) || start_single_burst_write == 1'b1)
         begin
             write_index <= 0;
             M_AXI_WDATA <= data[0];
@@ -271,12 +255,9 @@ module Serializer #
         end
     end
 
-//    assign M_AXI_WDATA = data[write_index];
-//    assign M_AXI_WSTRB = wstrb_write[write_index];
-
     always @(posedge M_AXI_ACLK)
     begin
-        if (M_AXI_ARESETN == 0 || init_txn_pulse == 1'b1 )
+        if (M_AXI_ARESETN == 0 || (valid && ready) )
             axi_arvalid <= 1'b0;
         else if (~axi_arvalid && start_single_burst_read)
             axi_arvalid <= 1'b1;
@@ -288,7 +269,7 @@ module Serializer #
 
     always @(posedge M_AXI_ACLK)
     begin
-        if (M_AXI_ARESETN == 0 || init_txn_pulse == 1'b1)
+        if (M_AXI_ARESETN == 0 || (valid && ready))
             axi_araddr <= p_araddr;
         else if (M_AXI_ARREADY && axi_arvalid)
             axi_araddr <= axi_araddr;
@@ -298,7 +279,7 @@ module Serializer #
 
     always @(posedge M_AXI_ACLK)
     begin
-        if (M_AXI_ARESETN == 0 )
+        if (M_AXI_ARESETN == 0)
             rlast_ff <= 0;
         else
             rlast_ff <= (axi_arvalid & M_AXI_ARREADY);
@@ -315,13 +296,13 @@ module Serializer #
     always @(posedge M_AXI_ACLK)
     begin
         if (M_AXI_ARESETN == 0)
-            internal_packetConsumed <= 1;
-        else if((!init_txn_ff) && INIT_AXI_TXN)
-            internal_packetConsumed <= 0;
+            ready <= 1;
+        else if(valid && ready)
+            ready <= 0;
         else if (((!wlast_ff)&(axi_wlast & axi_wvalid & M_AXI_WREADY))|((!rlast_ff)&(axi_arvalid & M_AXI_ARREADY)))
-            internal_packetConsumed <= 1;
+            ready <= 1;
+        else
+            ready <= ready;
     end
-
-    assign packetConsumed = internal_packetConsumed;
 
 endmodule

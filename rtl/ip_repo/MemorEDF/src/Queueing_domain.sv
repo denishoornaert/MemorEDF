@@ -32,9 +32,9 @@ module Queueing_domain #(
         input  wire [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] queues_higher_threshold,
         input  wire                              [DATA_SIZE-1 : 0] dispatcher_to_queues_packet,
         input  wire                       [NUMBER_OF_QUEUES-1 : 0] dispatcher_to_queues_valid,
-        input  wire                       [NUMBER_OF_QUEUES-1 : 0] scheduler_to_queues_consumed,
+        input  wire                                                scheduler_to_queues_ready,
         input  wire               [$clog2(NUMBER_OF_QUEUES)-1 : 0] core_id,
-        output wire                              [DATA_SIZE-1 : 0] queues_to_selector_packets, // [NUMBER_OF_QUEUES],
+        output wire                              [DATA_SIZE-1 : 0] queues_to_buffer_packet,
         output wire                       [NUMBER_OF_QUEUES-1 : 0] empty,
         output wire                       [NUMBER_OF_QUEUES-1 : 0] full,
         output wire                       [NUMBER_OF_QUEUES-1 : 0] lastElem,
@@ -49,7 +49,7 @@ module Queueing_domain #(
     wire                                  available;
     
     assign     pop_pool_head = |dispatcher_to_queues_valid;
-    assign queue_head_popped = |scheduler_to_queues_consumed;
+    assign queue_head_popped = scheduler_to_queues_ready;
     
     HPSPBRAM #(
         .RAM_WIDTH(DATA_SIZE),
@@ -63,7 +63,7 @@ module Queueing_domain #(
         .enb(1),
         .rstb(reset),
         .regceb(),
-        .doutb(queues_to_selector_packets)
+        .doutb(queues_to_buffer_packet)
     );
     
     genvar i;
@@ -79,7 +79,7 @@ module Queueing_domain #(
            .higher_threshold(queues_higher_threshold[i]),
            .valueIn(insert_addr),
            .valueInValid(dispatcher_to_queues_valid[i]),
-           .consumed(scheduler_to_queues_consumed[i]),
+           .consumed((core_id == i)? scheduler_to_queues_ready : 0),
            .valueOut(looking_up_addr[i]),
            .empty(empty[i]),
            .full(full[i]),

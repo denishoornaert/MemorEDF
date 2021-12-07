@@ -49,7 +49,7 @@ module FP #(
     // List of all the possible queue ids possible given the amount specified in the parameters
     reg [NUMBER_OF_QUEUES-1 : 0] [$clog2(NUMBER_OF_QUEUES)-1 : 0] ids;
     
-    assign valid = 1;
+    assign valid = |(~empty);
     
     // If no packets are available, the priority associated to a given queue should be the lowest (0). Otherwise, the priority specified by the user remains unaltered.
     always @(posedge clock)
