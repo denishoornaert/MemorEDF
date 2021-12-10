@@ -25,31 +25,27 @@ module FP #(
         parameter PRIORITY_SIZE    = 4
     )
     (
-        clock,
-        reset,
-        priorities,
-        empty,
-        valid,
-        selection
+        // Input definition
+        input  wire                                                clock,
+        input  wire                                                reset,
+        input  wire [NUMBER_OF_QUEUES-1 : 0] [PRIORITY_SIZE-1 : 0] priorities,
+        input  wire                       [NUMBER_OF_QUEUES-1 : 0] empty,
+        // Output definition
+        output wire                                  valid,
+        output wire [$clog2(NUMBER_OF_QUEUES)-1 : 0] selection
     );
     
-    // Input definition
-    input  wire                                                clock;
-    input  wire                                                reset;
-    input  wire [NUMBER_OF_QUEUES-1 : 0] [PRIORITY_SIZE-1 : 0] priorities;
-    input  wire                       [NUMBER_OF_QUEUES-1 : 0] empty;
-    
-    // Output definition
-    output wire                                  valid;
-    output wire [$clog2(NUMBER_OF_QUEUES)-1 : 0] selection;
-    
     // Updated priorities given the availability of at least one packet in a given queue
-    reg [NUMBER_OF_QUEUES-1 : 0] [PRIORITY_SIZE-1 : 0] updated_priorities;
+    wire [NUMBER_OF_QUEUES-1 : 0] [PRIORITY_SIZE-1 : 0] updated_priorities;
     
     // List of all the possible queue ids possible given the amount specified in the parameters
     reg [NUMBER_OF_QUEUES-1 : 0] [$clog2(NUMBER_OF_QUEUES)-1 : 0] ids;
     
     assign valid = |(~empty);
+    
+    genvar i;
+    for(i = 0; i < NUMBER_OF_QUEUES; i++)
+        assign updated_priorities[i] = (empty[i])? 0 : priorities[i];
     
     // If no packets are available, the priority associated to a given queue should be the lowest (0). Otherwise, the priority specified by the user remains unaltered.
     always @(posedge clock)
@@ -62,14 +58,6 @@ module FP #(
                 ids[j] <= j;
             end
         end
-        else
-        begin
-            integer j;
-            for(j = 0; j < NUMBER_OF_QUEUES; j = j + 1)
-            begin
-                updated_priorities[j] <= (empty[j])? 0 : priorities[j];
-            end
-        end 
     end
     
     wire            [NUMBER_OF_QUEUES-1 : 0] [PRIORITY_SIZE-1 : 0] priority_chain;
