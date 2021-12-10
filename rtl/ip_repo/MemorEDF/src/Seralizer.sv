@@ -69,7 +69,7 @@ module Serializer #
 		// internal IO
         input  wire                                             valid,
         output reg                                              ready,
-		input  wire [(102+(4*16)+(4*C_M_AXI_DATA_WIDTH))-1 : 0] packet
+		input  wire [(102+(4*16)+(4*C_M_AXI_DATA_WIDTH))-1 : 0] payload
 	);
 
 	reg [C_M_AXI_ADDR_WIDTH-1 : 0] 	axi_awaddr;
@@ -115,10 +115,12 @@ module Serializer #
     wire                      [3 : 0] p_arqos;
     wire                      [3 : 0] p_arregion;
     wire [C_M_AXI_ARUSER_WIDTH-1 : 0] p_aruser;
+    
+    reg [(102+(4*16)+(4*C_M_AXI_DATA_WIDTH))-1 : 0] packet;
 
-    wire                  [102-1 : 0] metadata;
-    wire                   [16-1 : 0] wstrb_write [0 : 4-1];
-    wire   [C_M_AXI_DATA_WIDTH-1 : 0] data [0 : 4-1];
+    wire                                [102-1 : 0] metadata;
+    wire                                 [16-1 : 0] wstrb_write [0 : 4-1];
+    wire                 [C_M_AXI_DATA_WIDTH-1 : 0] data [0 : 4-1];
     
     assign metadata       = packet[677 : 576];
     // TODO check the order !!
@@ -303,6 +305,14 @@ module Serializer #
             ready <= 1;
         else
             ready <= ready;
+    end
+    
+    always @(posedge M_AXI_ACLK)
+    begin
+        if (M_AXI_ARESETN == 0)
+            packet <= 0;
+        else if (ready && valid) //(start_single_burst_write | start_single_burst_read) // payload available one clock cycle after
+            packet <= payload;
     end
 
 endmodule
