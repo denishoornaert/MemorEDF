@@ -279,8 +279,8 @@ module MemorEDF #
     wire            [DATA_SIZE-1 : 0] packetizer_2_to_dispatcher_packet;
     wire                              packetizer_2_to_dispatcher_valid;
     wire                      [1 : 0] packetizer_2_to_dispatcher_id; // [$log2(NB_QUEUES)-1 : 0]
-    wire            [DATA_SIZE-1 : 0] buffer_to_serializer_packet;
-    wire                              scheduler_to_serializer_valid;
+    wire            [DATA_SIZE-1 : 0] queues_to_serializer_packet;
+    wire                              queues_to_serializer_valid;
     wire                              serializer_to_scheduler_ready;
     wire                              scheduler_to_serializer_activate_signal;
     wire                              write_map_split_came_from;
@@ -599,9 +599,9 @@ module MemorEDF #
         .M_AXI_ARREADY(m00_axi_arready),
         .M_AXI_RLAST(m00_axi_rlast),
         // Internal decoupled io
-        .valid(scheduler_to_serializer_valid),
+        .valid(queues_to_serializer_valid),
         .ready(serializer_to_scheduler_ready),
-        .packet(buffer_to_serializer_packet)
+        .payload(queues_to_serializer_packet)
     );
 
     NonAXIDomain #(
@@ -634,9 +634,9 @@ module MemorEDF #
         .scheduler_hyper_period(scheduler_hyper_period),
         .scheduler_counter_reset(counter_reset),
         .queues_thresholds(scheduler_deadlines),
-        .scheduler_to_serializer_valid(scheduler_to_serializer_valid),
+        .queues_to_serializer_valid(queues_to_serializer_valid),
         .serializer_to_scheduler_ready(serializer_to_scheduler_ready),
-        .buffer_to_serializer_packet(buffer_to_serializer_packet),
+        .queues_to_serializer_packet(queues_to_serializer_packet),
         .Q_0_kill_the_core(Q_0_kill_the_core),
         .Q_1_kill_the_core(Q_1_kill_the_core),
         .Q_2_kill_the_core(Q_2_kill_the_core),
