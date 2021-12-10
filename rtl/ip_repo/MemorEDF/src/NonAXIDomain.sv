@@ -60,8 +60,8 @@ module NonAXIDomain #(
         output wire                                               Q_3_kill_the_core,
         // Internal decoupled IO
         input wire                                                serializer_to_scheduler_ready,
-        output reg                                                scheduler_to_serializer_valid,
-        output reg                              [DATA_SIZE-1 : 0] buffer_to_serializer_packet
+        output wire                                               queues_to_serializer_valid,
+        output wire                             [DATA_SIZE-1 : 0] queues_to_serializer_packet
     );
 
     wire [(DATA_SIZE*(NUMBER_OF_QUEUES/2))-1 : 0] dispatcher_to_queues_1_2_packets;
@@ -72,10 +72,11 @@ module NonAXIDomain #(
     wire                 [NUMBER_OF_QUEUES-1 : 0] dispatcher_to_queues_valid;
     wire                 [NUMBER_OF_QUEUES-1 : 0] scheduler_to_queues_consumed;
     wire                 [NUMBER_OF_QUEUES-1 : 0] scheduler_to_queues_valid;
-    wire                        [DATA_SIZE-1 : 0] queues_to_buffer_packet;
     wire                 [NUMBER_OF_QUEUES-1 : 0] empty;
     wire                 [NUMBER_OF_QUEUES-1 : 0] full;
     wire         [$clog2(NUMBER_OF_QUEUES)-1 : 0] scheduler_to_selector_id;
+    
+    wire scheduler_to_serializer_valid;
     
     assign dispatcher_to_queues_packets = {packetizer_2_to_dispatcher_packet, packetizer_1_to_dispatcher_packet};
     assign dispatcher_to_queues_valid = {dispatcher_to_queues_3_4_valid[1], dispatcher_to_queues_3_4_valid[0], dispatcher_to_queues_1_2_valid[1], dispatcher_to_queues_1_2_valid[0]};
@@ -85,24 +86,6 @@ module NonAXIDomain #(
 
     assign {Q_3_kill_the_core, Q_2_kill_the_core, Q_1_kill_the_core, Q_0_kill_the_core} = Qs_kill_the_core;
     assign queues_higher_threshold = {scheduler_deadlines[3][REGISTER_SIZE-1 : 0], scheduler_deadlines[2][REGISTER_SIZE-1 : 0], scheduler_deadlines[1][REGISTER_SIZE-1 : 0], scheduler_deadlines[0][REGISTER_SIZE-1 : 0]};
-	
-    always @(posedge clock)
-    begin
-        if (reset)
-            buffer_to_serializer_packet <= 0;
-        else if (scheduler_to_queues_valid)
-            buffer_to_serializer_packet <= queues_to_buffer_packet;
-    end
-    
-    always @(posedge clock)
-    begin
-        if (reset)
-            scheduler_to_serializer_valid <= 0;
-        else if (scheduler_to_queues_valid)
-            scheduler_to_serializer_valid <= 1;
-        else
-            scheduler_to_serializer_valid <= 0;
-    end
 	
 	Queueing_domain # (
 	   .DATA_SIZE(DATA_SIZE),
@@ -115,9 +98,12 @@ module NonAXIDomain #(
 	   .queues_higher_threshold(queues_higher_threshold),
 	   .dispatcher_to_queues_packet(packetizer_1_to_dispatcher_packet),
 	   .dispatcher_to_queues_valid((packetizer_1_to_dispatcher_valid << packetizer_1_to_dispatcher_id)),
-	   .scheduler_to_queues_ready(scheduler_to_queues_valid),
+	   // handshake
+	   .scheduler_to_queues_ready(scheduler_to_serializer_valid),
+       .queues_to_serializer_valid(queues_to_serializer_valid),
 	   .core_id(scheduler_to_selector_id),
-	   .queues_to_buffer_packet(queues_to_buffer_packet),
+	   .queues_to_serializer_packet(queues_to_serializer_packet),
+	   // metadat outputs
 	   .empty(empty),
 	   .full(full),
 	   .Qs_kill_the_core(Qs_kill_the_core)
@@ -147,7 +133,7 @@ module NonAXIDomain #(
        .full(full),
        .empty(empty),
        .id(scheduler_to_selector_id),
-       .valid_and_ready(scheduler_to_queues_valid),
+       .valid_and_ready(scheduler_to_serializer_valid),
        .ready(serializer_to_scheduler_ready)
 //       .consumed(serializer_to_scheduler_consumed),
 //       .enable(scheduler_to_serializer_activate_signal)
