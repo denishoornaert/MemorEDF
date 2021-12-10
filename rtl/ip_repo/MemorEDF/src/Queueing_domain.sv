@@ -33,13 +33,17 @@ module Queueing_domain #(
         input  wire                              [DATA_SIZE-1 : 0] dispatcher_to_queues_packet,
         input  wire                       [NUMBER_OF_QUEUES-1 : 0] dispatcher_to_queues_valid,
         input  wire                                                scheduler_to_queues_ready,
+        output reg                                                 queues_to_serializer_valid,
         input  wire               [$clog2(NUMBER_OF_QUEUES)-1 : 0] core_id,
-        output wire                              [DATA_SIZE-1 : 0] queues_to_buffer_packet,
+        output wire                              [DATA_SIZE-1 : 0] queues_to_serializer_packet,
         output wire                       [NUMBER_OF_QUEUES-1 : 0] empty,
         output wire                       [NUMBER_OF_QUEUES-1 : 0] full,
         output wire                       [NUMBER_OF_QUEUES-1 : 0] lastElem,
         output wire                       [NUMBER_OF_QUEUES-1 : 0] Qs_kill_the_core
     );
+    
+    // Used for detecting posedge on readiness signal comming from the serializer
+    reg                                   scheduler_to_queues_ready_ff;
     
     wire                                  queue_head_popped;
     wire                                  pop_pool_head;
@@ -48,8 +52,28 @@ module Queueing_domain #(
     wire                                  availability_depleted;
     wire                                  available;
     
+    // Ensures that answer is a simple 1cc pulse
+    always @(posedge clock)
+    if (reset)
+        queues_to_serializer_valid <= 0;
+    else if (queues_to_serializer_valid)
+        queues_to_serializer_valid <= 0;
+    else if (scheduler_to_queues_ready)
+        queues_to_serializer_valid <= 1;
+    else
+        queues_to_serializer_valid <= queues_to_serializer_valid;
+        
+    // detecting posedge on readiness signal comming from the serializer
+    always @(posedge clock)
+    begin
+        if (reset)
+            scheduler_to_queues_ready_ff <= 0;
+        else
+            scheduler_to_queues_ready_ff <= scheduler_to_queues_ready;
+    end
+    
     assign     pop_pool_head = |dispatcher_to_queues_valid;
-    assign queue_head_popped = scheduler_to_queues_ready;
+    assign queue_head_popped = (scheduler_to_queues_ready & ~scheduler_to_queues_ready_ff);
     
     HPSPBRAM #(
         .RAM_WIDTH(DATA_SIZE),
@@ -63,7 +87,7 @@ module Queueing_domain #(
         .enb(1),
         .rstb(reset),
         .regceb(),
-        .doutb(queues_to_buffer_packet)
+        .doutb(queues_to_serializer_packet)
     );
     
     genvar i;
@@ -79,7 +103,7 @@ module Queueing_domain #(
            .higher_threshold(queues_higher_threshold[i]),
            .valueIn(insert_addr),
            .valueInValid(dispatcher_to_queues_valid[i]),
-           .consumed((core_id == i)? scheduler_to_queues_ready : 0),
+           .consumed((core_id == i)? queue_head_popped : 0),//scheduler_to_queues_ready : 0),
            .valueOut(looking_up_addr[i]),
            .empty(empty[i]),
            .full(full[i]),
