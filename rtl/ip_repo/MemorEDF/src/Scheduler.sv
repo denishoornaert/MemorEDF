@@ -97,7 +97,7 @@ module Scheduler
     assign valid_and_ready   = valid & ready;
 
     assign enable            = internal_enable;
-    assign id                = internal_id;
+    assign id                = selected_queue; //internal_id;
 
     always @(posedge clock)
     begin
@@ -256,60 +256,6 @@ module Scheduler
             .valid(schedulers_to_selector_valid[6]),
             .selection(schedulers_to_selector_selection[6])
         );
-    end
-
-    // Dispatcher route the consumed signal to the appropriate queue
-    Combinatorial_Dispatcher #(
-        .OUTPUTS(NUMBER_OF_QUEUES),
-        .INPUT_SIZE(1'b1)
-    ) queue_router (
-        .clock(clock),
-        .reset(reset),
-        .packetIn(consumed & ~consumed_ff),
-        .valid(consumed & ~consumed_ff),
-        .id(internal_id),
-        .packetsOut(internal_hasBeenConsumed)
-    );
-
-    always @(posedge clock)
-    begin
-        if(reset)
-        begin
-            internal_id <= 0;
-        end
-        else
-        begin
-            if(~pending_transaction)
-            begin
-                internal_id <= selected_queue;
-            end
-        end
-    end
-
-    always@(posedge clock)
-    begin
-        if(reset)
-        begin
-            internal_enable <= 0;
-            pending_transaction <= 0;
-        end
-        else
-        begin
-            if(~pending_transaction & ~empty[selected_queue] & valid)
-            begin
-                pending_transaction <= 1;
-                internal_enable <= 1;
-            end
-            else if(pending_transaction & consumed & ~consumed_ff)
-            begin
-                pending_transaction <= 0;
-                internal_enable <= 0;
-            end
-            else
-            begin
-                internal_enable <= 0;
-            end
-        end
     end
 
 endmodule
