@@ -95,6 +95,7 @@ module NonAXIDomain #(
 	) queueing_domain (
 	   .clock(clock),
 	   .reset(reset),
+	   // packets input
 	   .queues_higher_threshold(queues_higher_threshold),
 	   .dispatcher_to_queues_packet(packetizer_1_to_dispatcher_packet),
 	   .dispatcher_to_queues_valid((packetizer_1_to_dispatcher_valid << packetizer_1_to_dispatcher_id)),
@@ -123,6 +124,7 @@ module NonAXIDomain #(
 	) scheduler (
 	   .clock(clock),
        .reset(reset),
+       // from configuration port
        .mode(scheduling_mode),
        .deadlines(scheduler_deadlines),
        .periods(scheduler_periods),
@@ -130,8 +132,10 @@ module NonAXIDomain #(
        .budgets(scheduler_budgets),
        .hyper_period(scheduler_hyper_period),
        .counter_reset(scheduler_counter_reset),
+       // from queues
        .full(full),
        .empty(empty),
+       // outputs
        .id(scheduler_to_selector_id),
        .valid_and_ready(scheduler_to_serializer_valid),
        .ready(serializer_to_scheduler_ready)
