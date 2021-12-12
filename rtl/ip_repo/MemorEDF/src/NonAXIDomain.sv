@@ -38,30 +38,30 @@ module NonAXIDomain #(
         parameter integer AGING_ENABLED          = 1,
         parameter integer NUMBER_OF_SCHEDULERS   = 7
     )(
-        input wire                                                clock,
-        input wire                                                reset,
-        input wire                              [DATA_SIZE-1 : 0] packetizer_1_to_dispatcher_packet,
-        input wire                                                packetizer_1_to_dispatcher_valid,
-        input wire                                        [1 : 0] packetizer_1_to_dispatcher_id,
-        input wire                              [DATA_SIZE-1 : 0] packetizer_2_to_dispatcher_packet,
-        input wire                                                packetizer_2_to_dispatcher_valid,
-        input wire                                        [1 : 0] packetizer_2_to_dispatcher_id,
-        input wire           [$clog2(NUMBER_OF_SCHEDULERS)-1 : 0] scheduling_mode,
-        input wire [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] scheduler_deadlines,
-        input wire [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] scheduler_periods,
-        input wire [NUMBER_OF_QUEUES-1 : 0] [PRIORITY_SIZE-1 : 0] scheduler_priorities,
-        input wire [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] scheduler_budgets,
-        input wire                          [REGISTER_SIZE-1 : 0] scheduler_hyper_period,
-        input wire                          [REGISTER_SIZE-1 : 0] scheduler_counter_reset,
-        input wire [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] queues_thresholds,
-        output wire                                               Q_0_kill_the_core,
-        output wire                                               Q_1_kill_the_core,
-        output wire                                               Q_2_kill_the_core,
-        output wire                                               Q_3_kill_the_core,
+        input wire                                                 clock,
+        input wire                                                 reset,
+        input wire                               [DATA_SIZE-1 : 0] packetizer_1_to_dispatcher_packet,
+        input wire                                                 packetizer_1_to_dispatcher_valid,
+        input wire                                         [1 : 0] packetizer_1_to_dispatcher_id,
+        input wire                               [DATA_SIZE-1 : 0] packetizer_2_to_dispatcher_packet,
+        input wire                                                 packetizer_2_to_dispatcher_valid,
+        input wire                                         [1 : 0] packetizer_2_to_dispatcher_id,
+        input wire            [$clog2(NUMBER_OF_SCHEDULERS)-1 : 0] scheduling_mode,
+        input wire  [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] scheduler_deadlines,
+        input wire  [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] scheduler_periods,
+        input wire  [NUMBER_OF_QUEUES-1 : 0] [PRIORITY_SIZE-1 : 0] scheduler_priorities,
+        input wire  [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] scheduler_budgets,
+        input wire                           [REGISTER_SIZE-1 : 0] scheduler_hyper_period,
+        input wire                           [REGISTER_SIZE-1 : 0] scheduler_counter_reset,
+        input wire  [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] queues_thresholds,
+        output wire                                                Q_0_kill_the_core,
+        output wire                                                Q_1_kill_the_core,
+        output wire                                                Q_2_kill_the_core,
+        output wire                                                Q_3_kill_the_core,
         // Internal decoupled IO
-        input wire                                                serializer_to_scheduler_ready,
-        output wire                                               queues_to_serializer_valid,
-        output wire                             [DATA_SIZE-1 : 0] queues_to_serializer_packet
+        input wire                                                 serializer_to_scheduler_ready,
+        output wire                                                queues_to_serializer_valid,
+        output wire                              [DATA_SIZE-1 : 0] queues_to_serializer_packet
     );
 
     wire [(DATA_SIZE*(NUMBER_OF_QUEUES/2))-1 : 0] dispatcher_to_queues_1_2_packets;
@@ -103,7 +103,7 @@ module NonAXIDomain #(
        .queues_to_serializer_valid(queues_to_serializer_valid),
 	   .core_id(scheduler_to_selector_id),
 	   .queues_to_serializer_packet(queues_to_serializer_packet),
-	   // metadat outputs
+	   // metadata outputs
 	   .empty(empty),
 	   .full(full),
 	   .Qs_kill_the_core(Qs_kill_the_core)
@@ -135,8 +135,6 @@ module NonAXIDomain #(
        .id(scheduler_to_selector_id),
        .valid_and_ready(scheduler_to_serializer_valid),
        .ready(serializer_to_scheduler_ready)
-//       .consumed(serializer_to_scheduler_consumed),
-//       .enable(scheduler_to_serializer_activate_signal)
 	);
 
 endmodule

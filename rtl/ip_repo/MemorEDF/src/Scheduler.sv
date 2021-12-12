@@ -34,59 +34,37 @@ module Scheduler
         parameter NUMBER_OF_SCHEDULERS   = 7
     )
     (
-        clock,
-        reset,
-        mode,
-        full,
-        empty,
-        lastElem,
-        deadlines,
-        periods,
-        priorities,
-        budgets,
-        hyper_period,
-        counter_reset,
-        id,
-        valid_and_ready,
-        ready,
-        consumed,
-        enable
-    );
-
-    // Definition of the module IOs
-    // Generic
-    input                                                clock;
-    input                                                reset;
-    // Parameters
-    input           [$clog2(NUMBER_OF_SCHEDULERS)-1 : 0] mode;
-    input                       [NUMBER_OF_QUEUES-1 : 0] lastElem;
-    input [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] deadlines;
-    input [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] periods;
-    input [NUMBER_OF_QUEUES-1 : 0] [PRIORITY_SIZE-1 : 0] priorities;
-    input [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] budgets;
-    input                          [REGISTER_SIZE-1 : 0] hyper_period;
-    input                          [REGISTER_SIZE-1 : 0] counter_reset;
-    // Queues feedback
-    input                       [NUMBER_OF_QUEUES-1 : 0] full;
-    input                       [NUMBER_OF_QUEUES-1 : 0] empty;
-    output              [$clog2(NUMBER_OF_QUEUES)-1 : 0] id;
-    output                                               valid_and_ready;
-    input                                                ready;
-    input                                                consumed;
-    output                                               enable;
+        // Generic
+        input  wire                                                clock,
+        input  wire                                                reset,
+        // Parameters
+        input  wire           [$clog2(NUMBER_OF_SCHEDULERS)-1 : 0] mode,
+        input  wire [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] deadlines,
+        input  wire [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] periods,
+        input  wire [NUMBER_OF_QUEUES-1 : 0] [PRIORITY_SIZE-1 : 0] priorities,
+        input  wire [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] budgets,
+        input  wire                          [REGISTER_SIZE-1 : 0] hyper_period,
+        input  wire                          [REGISTER_SIZE-1 : 0] counter_reset,
+        // Queues feedback
+        input  wire                       [NUMBER_OF_QUEUES-1 : 0] full,
+        input  wire                       [NUMBER_OF_QUEUES-1 : 0] empty,
+        output wire               [$clog2(NUMBER_OF_QUEUES)-1 : 0] id,
+        output wire                                                valid_and_ready,
+        input  wire                                                ready
+    );    
 
     // Scheduling part
     wire [$clog2(NUMBER_OF_QUEUES)-1 : 0] schedulers_to_selector_selection [NUMBER_OF_SCHEDULERS];
     wire [$clog2(NUMBER_OF_QUEUES)-1 : 0] selected_queue;
     wire                                  schedulers_to_selector_valid [NUMBER_OF_SCHEDULERS];
     wire                                  valid;
-    wire                                  valid_and_ready;
     // Control part
     reg                                   internal_enable;
     reg  [$clog2(NUMBER_OF_QUEUES)-1 : 0] internal_id;
     //
     reg          [NUMBER_OF_QUEUES-1 : 0] internal_hasBeenConsumed;
     //
+    wire                                  consumed;
     reg                                   consumed_ff;
     // Booting
     reg                                   pending_transaction;
@@ -95,9 +73,8 @@ module Scheduler
     wire                                  force_reset;
    
     assign valid_and_ready   = valid & ready;
-
-    assign enable            = internal_enable;
-    assign id                = selected_queue; //internal_id;
+    assign id                = selected_queue;
+    assign consumed          = 0;
 
     always @(posedge clock)
     begin
@@ -150,7 +127,7 @@ module Scheduler
     else
     begin
         assign valid = schedulers_to_selector_valid[0];
-        end
+    end
 
     if (TDMA_ENABLED)
     begin
