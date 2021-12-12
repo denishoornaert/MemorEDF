@@ -58,16 +58,9 @@ module Scheduler
     wire [$clog2(NUMBER_OF_QUEUES)-1 : 0] selected_queue;
     wire                                  schedulers_to_selector_valid [NUMBER_OF_SCHEDULERS];
     wire                                  valid;
-    // Control part
-    reg                                   internal_enable;
-    reg  [$clog2(NUMBER_OF_QUEUES)-1 : 0] internal_id;
-    //
-    reg          [NUMBER_OF_QUEUES-1 : 0] internal_hasBeenConsumed;
     //
     wire                                  consumed;
     reg                                   consumed_ff;
-    // Booting
-    reg                                   pending_transaction;
     //
     reg             [REGISTER_SIZE-1 : 0] counter_reset_ff;
     wire                                  force_reset;
