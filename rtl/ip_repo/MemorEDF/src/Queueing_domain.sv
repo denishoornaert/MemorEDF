@@ -32,6 +32,7 @@ module Queueing_domain #(
         input  wire [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] queues_higher_threshold,
         input  wire                              [DATA_SIZE-1 : 0] dispatcher_to_queues_packet,
         input  wire                       [NUMBER_OF_QUEUES-1 : 0] dispatcher_to_queues_valid,
+        output wire                                                queues_to_dispatcher_ready,
         input  wire                                                scheduler_to_queues_ready,
         output reg                                                 queues_to_serializer_valid,
         input  wire               [$clog2(NUMBER_OF_QUEUES)-1 : 0] core_id,
@@ -51,6 +52,8 @@ module Queueing_domain #(
     wire     [$clog2(QUEUE_LENGTH)-1 : 0] looking_up_addr [NUMBER_OF_QUEUES-1 : 0];
     wire                                  availability_depleted;
     wire                                  available;
+    
+    assign queues_to_dispatcher_ready = 1;
     
     // Ensures that answer is a simple 1cc pulse
     always @(posedge clock)

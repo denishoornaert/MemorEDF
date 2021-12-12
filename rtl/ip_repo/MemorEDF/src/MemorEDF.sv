@@ -271,6 +271,9 @@ module MemorEDF #
     wire [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] scheduler_budgets;
     wire                          [REGISTER_SIZE-1 : 0] scheduler_hyper_period;
     wire                          [REGISTER_SIZE-1 : 0] counter_reset;
+    
+    wire                                                queues_to_dispatcher_1_ready;
+    wire                                                queues_to_dispatcher_2_ready;
 
     assign scheduler_periods      = buffers[127 :   0];
     assign scheduler_deadlines    = buffers[255 : 128];
@@ -427,7 +430,8 @@ module MemorEDF #
 		// Internal IOs
 		.packetOut(packetizer_1_to_dispatcher_packet),
 		.packetValid(packetizer_1_to_dispatcher_valid),
-		.coreId(packetizer_1_to_dispatcher_id)
+		.coreId(packetizer_1_to_dispatcher_id),
+		.ready(queues_to_dispatcher_1_ready)
 	);
     // Instantiation of Axi Bus Interface S02_AXI
     Packetizer # ( 
@@ -477,7 +481,8 @@ module MemorEDF #
         // Internal IOs
         .packetOut(packetizer_2_to_dispatcher_packet),
         .packetValid(packetizer_2_to_dispatcher_valid),
-        .coreId(packetizer_2_to_dispatcher_id)
+        .coreId(packetizer_2_to_dispatcher_id),
+        .ready(queues_to_dispatcher_2_ready)
     );
 	
 	ConfigurationPort # ( 
@@ -599,9 +604,11 @@ module MemorEDF #
         .packetizer_1_to_dispatcher_packet(packetizer_1_to_dispatcher_packet),
         .packetizer_1_to_dispatcher_valid(packetizer_1_to_dispatcher_valid),
         .packetizer_1_to_dispatcher_id(packetizer_1_to_dispatcher_id),
+        .queues_to_dispatcher_1_ready(queues_to_dispatcher_1_ready),
         .packetizer_2_to_dispatcher_packet(packetizer_2_to_dispatcher_packet),
         .packetizer_2_to_dispatcher_valid(packetizer_2_to_dispatcher_valid),
         .packetizer_2_to_dispatcher_id(packetizer_2_to_dispatcher_id),
+        .queues_to_dispatcher_2_ready(queues_to_dispatcher_2_ready),
         .scheduling_mode(scheduling_mode),
         .scheduler_deadlines(scheduler_deadlines),
         .scheduler_periods(scheduler_periods),
