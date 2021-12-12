@@ -43,27 +43,18 @@ module MemorEDF #
 		parameter integer C_S00_AXI_ADDR_WIDTH	 = 40,
 		parameter integer C_S00_AXI_AWUSER_WIDTH = 16,
 		parameter integer C_S00_AXI_ARUSER_WIDTH = 16,
-//		parameter integer C_S00_AXI_WUSER_WIDTH	 = 0,
-//		parameter integer C_S00_AXI_RUSER_WIDTH	 = 0,
-//		parameter integer C_S00_AXI_BUSER_WIDTH	 = 0,
 		// Parameters of Axi Slave Bus Interface S01_AXI
         parameter integer C_S01_AXI_ID_WIDTH     = 16,
         parameter integer C_S01_AXI_DATA_WIDTH   = 128,
         parameter integer C_S01_AXI_ADDR_WIDTH   = 40,
         parameter integer C_S01_AXI_AWUSER_WIDTH = 16,
         parameter integer C_S01_AXI_ARUSER_WIDTH = 16,
-//        parameter integer C_S01_AXI_WUSER_WIDTH  = 0,
-//        parameter integer C_S01_AXI_RUSER_WIDTH  = 0,
-//        parameter integer C_S01_AXI_BUSER_WIDTH  = 0,
 		// Parameters of Axi Slave Bus Interface S02_AXI
         parameter integer C_S02_AXI_ID_WIDTH     = 16,
         parameter integer C_S02_AXI_DATA_WIDTH     = 128,
         parameter integer C_S02_AXI_ADDR_WIDTH     = 40,
         parameter integer C_S02_AXI_AWUSER_WIDTH = 16,
         parameter integer C_S02_AXI_ARUSER_WIDTH = 16,
-        //        parameter integer C_S02_AXI_WUSER_WIDTH     = 0,
-        //        parameter integer C_S02_AXI_RUSER_WIDTH     = 0,
-        //        parameter integer C_S02_AXI_BUSER_WIDTH     = 0,
 		// Parameters of Axi Master Bus Interface M00_AXI
         parameter integer C_M00_AXI_BURST_LEN    = 4,
         parameter integer C_M00_AXI_ID_WIDTH     = 16,
@@ -71,9 +62,6 @@ module MemorEDF #
         parameter integer C_M00_AXI_DATA_WIDTH   = 128,
         parameter integer C_M00_AXI_AWUSER_WIDTH = 16,
         parameter integer C_M00_AXI_ARUSER_WIDTH = 16,
-//        parameter integer C_M00_AXI_WUSER_WIDTH  = 0,
-//        parameter integer C_M00_AXI_RUSER_WIDTH  = 0,
-//        parameter integer C_M00_AXI_BUSER_WIDTH  = 0
         parameter integer UPPER_BOUND            = 15,
         parameter integer LOWER_BOUND            = 14
 	)
@@ -97,12 +85,10 @@ module MemorEDF #
 		input wire     [C_S00_AXI_DATA_WIDTH-1 : 0] s00_axi_wdata,
 		input wire [(C_S00_AXI_DATA_WIDTH/8)-1 : 0] s00_axi_wstrb,
 		input wire                                  s00_axi_wlast,
-//		input wire    [C_S00_AXI_WUSER_WIDTH-1 : 0] s00_axi_wuser,
 		input wire                                  s00_axi_wvalid,
 		output reg                                  s00_axi_wready,
 		output reg       [C_S00_AXI_ID_WIDTH-1 : 0] s00_axi_bid,
 		output reg                          [1 : 0] s00_axi_bresp,
-//		output wire   [C_S00_AXI_BUSER_WIDTH-1 : 0] s00_axi_buser,
 		output reg                                  s00_axi_bvalid,
 		input wire                                  s00_axi_bready,
 		input wire       [C_S00_AXI_ID_WIDTH-1 : 0] s00_axi_arid,
@@ -122,7 +108,6 @@ module MemorEDF #
 		output reg     [C_S00_AXI_DATA_WIDTH-1 : 0] s00_axi_rdata,
 		output reg                          [1 : 0] s00_axi_rresp,
 		output reg                                  s00_axi_rlast,
-//		output reg    [C_S00_AXI_RUSER_WIDTH-1 : 0] s00_axi_ruser,
 		output reg                                  s00_axi_rvalid,
 		input wire                                  s00_axi_rready,
 		// Ports of Axi Slave Bus Interface S01_AXI
@@ -144,12 +129,10 @@ module MemorEDF #
         input wire     [C_S01_AXI_DATA_WIDTH-1 : 0] s01_axi_wdata,
         input wire [(C_S01_AXI_DATA_WIDTH/8)-1 : 0] s01_axi_wstrb,
         input wire                                  s01_axi_wlast,
-//        input wire    [C_S01_AXI_WUSER_WIDTH-1 : 0] s01_axi_wuser,
         input wire                                  s01_axi_wvalid,
         output reg                                  s01_axi_wready,
         output reg       [C_S01_AXI_ID_WIDTH-1 : 0] s01_axi_bid,
         output reg                          [1 : 0] s01_axi_bresp,
-//        output reg    [C_S01_AXI_BUSER_WIDTH-1 : 0] s01_axi_buser,
         output reg                                  s01_axi_bvalid,
         input wire                                  s01_axi_bready,
         input wire       [C_S01_AXI_ID_WIDTH-1 : 0] s01_axi_arid,
@@ -169,7 +152,6 @@ module MemorEDF #
         output reg     [C_S01_AXI_DATA_WIDTH-1 : 0] s01_axi_rdata,
         output reg                          [1 : 0] s01_axi_rresp,
         output reg                                  s01_axi_rlast,
-//        output reg    [C_S01_AXI_RUSER_WIDTH-1 : 0] s01_axi_ruser,
         output reg                                  s01_axi_rvalid,
         input wire                                  s01_axi_rready,
         // Ports of Axi Slave Bus Interface S02_AXI
@@ -191,12 +173,10 @@ module MemorEDF #
         input wire     [C_S02_AXI_DATA_WIDTH-1 : 0] s02_axi_wdata,
         input wire [(C_S02_AXI_DATA_WIDTH/8)-1 : 0] s02_axi_wstrb,
         input wire                                  s02_axi_wlast,
-//        input wire    [C_S02_AXI_WUSER_WIDTH-1 : 0] s02_axi_wuser,
         input wire                                  s02_axi_wvalid,
         output reg                                  s02_axi_wready,
         output reg       [C_S02_AXI_ID_WIDTH-1 : 0] s02_axi_bid,
         output reg                          [1 : 0] s02_axi_bresp,
-//        output reg    [C_S02_AXI_BUSER_WIDTH-1 : 0] s02_axi_buser,
         output reg                                  s02_axi_bvalid,
         input wire                                  s02_axi_bready,
         input wire       [C_S02_AXI_ID_WIDTH-1 : 0] s02_axi_arid,
@@ -216,7 +196,6 @@ module MemorEDF #
         output reg     [C_S02_AXI_DATA_WIDTH-1 : 0] s02_axi_rdata,
         output reg                          [1 : 0] s02_axi_rresp,
         output reg                                  s02_axi_rlast,
-//        output reg    [C_S02_AXI_RUSER_WIDTH-1 : 0] s02_axi_ruser,
         output reg                                  s02_axi_rvalid,
         input wire                                  s02_axi_rready,
 		// Ports of Axi Master Bus Interface M00_AXI
@@ -237,12 +216,10 @@ module MemorEDF #
         output reg     [C_M00_AXI_DATA_WIDTH-1 : 0] m00_axi_wdata,
         output reg   [C_M00_AXI_DATA_WIDTH/8-1 : 0] m00_axi_wstrb,
         output reg                                  m00_axi_wlast,
-//        output reg    [C_M00_AXI_WUSER_WIDTH-1 : 0] m00_axi_wuser,
         output reg                                  m00_axi_wvalid,
         input wire                                  m00_axi_wready,
         input wire       [C_M00_AXI_ID_WIDTH-1 : 0] m00_axi_bid,
         input wire                          [1 : 0] m00_axi_bresp,
-//        input wire    [C_M00_AXI_BUSER_WIDTH-1 : 0] m00_axi_buser,
         input wire                                  m00_axi_bvalid,
         output reg                                  m00_axi_bready,
         output reg       [C_M00_AXI_ID_WIDTH-1 : 0] m00_axi_arid,
@@ -261,7 +238,6 @@ module MemorEDF #
         input wire     [C_M00_AXI_DATA_WIDTH-1 : 0] m00_axi_rdata,
         input wire                          [1 : 0] m00_axi_rresp,
         input wire                                  m00_axi_rlast,
-//        input wire    [C_M00_AXI_RUSER_WIDTH-1 : 0] m00_axi_ruser,
         input wire                                  m00_axi_rvalid,
         output reg                                  m00_axi_rready,
         output wire                                 Q_0_kill_the_core,
@@ -273,18 +249,18 @@ module MemorEDF #
 	localparam NUMBER_OF_SCHEDULERS = TDMA_ENABLED + EDF_ENABLED + FP_ENABLED + MG_ENABLED + PRNG_FIBONACCI_ENABLED + PRNG_GALLOIS_ENABLED + AGING_ENABLED;
 
     // Internal routing
-    wire            [DATA_SIZE-1 : 0] packetizer_1_to_dispatcher_packet;
-    wire                              packetizer_1_to_dispatcher_valid;
-    wire                      [1 : 0] packetizer_1_to_dispatcher_id; // [$log2(NB_QUEUES)-1 : 0]
-    wire            [DATA_SIZE-1 : 0] packetizer_2_to_dispatcher_packet;
-    wire                              packetizer_2_to_dispatcher_valid;
-    wire                      [1 : 0] packetizer_2_to_dispatcher_id; // [$log2(NB_QUEUES)-1 : 0]
-    wire            [DATA_SIZE-1 : 0] queues_to_serializer_packet;
-    wire                              queues_to_serializer_valid;
-    wire                              serializer_to_scheduler_ready;
-    wire                              scheduler_to_serializer_activate_signal;
-    wire                              write_map_split_came_from;
-    wire                              read_map_split_came_from;
+    wire                [DATA_SIZE-1 : 0] packetizer_1_to_dispatcher_packet;
+    wire                                  packetizer_1_to_dispatcher_valid;
+    wire [$clog2(NUMBER_OF_QUEUES)-1 : 0] packetizer_1_to_dispatcher_id;
+    wire                [DATA_SIZE-1 : 0] packetizer_2_to_dispatcher_packet;
+    wire                                  packetizer_2_to_dispatcher_valid;
+    wire [$clog2(NUMBER_OF_QUEUES)-1 : 0] packetizer_2_to_dispatcher_id; 
+    wire                [DATA_SIZE-1 : 0] queues_to_serializer_packet;
+    wire                                  queues_to_serializer_valid;
+    wire                                  serializer_to_scheduler_ready;
+    wire                                  scheduler_to_serializer_activate_signal;
+    wire                                  write_map_split_came_from;
+    wire                                  read_map_split_came_from;
 
     // Issued from the configuration port
     wire          [((C_S01_AXI_DATA_WIDTH/8)*32)-1 : 0] buffers;
