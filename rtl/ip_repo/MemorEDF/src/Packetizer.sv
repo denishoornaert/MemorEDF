@@ -75,38 +75,38 @@ module Packetizer #(
 		output wire                               S_AXI_RLAST,
 		output wire                               S_AXI_RVALID,
 		input wire                                S_AXI_RREADY,
-		// Custom output
+		// Custom decoupled IO
 		output wire [(102+(4*16)+(4*C_S_AXI_DATA_WIDTH))-1 : 0] packetOut,
 		output wire                               packetValid,
-		output wire     [$clog2(NB_QUEUES)-1 : 0] coreId
+		output wire     [$clog2(NB_QUEUES)-1 : 0] coreId,
+		input  wire                               ready
 	);
 
 	// AXI4FULL signals
-	reg [C_S_AXI_ADDR_WIDTH-1 : 0] axi_awaddr;
-	reg                            axi_awready;
-	reg                            axi_wready;
-	reg                            axi_bvalid;
-	reg [C_S_AXI_ADDR_WIDTH-1 : 0] axi_araddr;
-	reg                            axi_arready;
-	reg [C_S_AXI_DATA_WIDTH-1 : 0] axi_rdata;
-	reg                    [1 : 0] axi_rresp;
-	reg                            axi_rlast;
-	reg                            axi_rvalid;
-	wire                           aw_wrap_en;
-	wire                           ar_wrap_en;
-	wire                    [31:0] aw_wrap_size;
-	wire                    [31:0] ar_wrap_size;
-	reg                            axi_awv_awr_flag;
-	reg                            axi_arv_arr_flag;
-	reg                      [7:0] axi_awlen_cntr;
-	reg                      [7:0] axi_arlen_cntr;
-	reg                      [1:0] axi_arburst;
-	reg                      [1:0] axi_awburst;
-	reg                      [7:0] axi_arlen;
-	reg                      [7:0] axi_awlen;
-    reg   [C_S_AXI_ID_WIDTH-1: 0 ] axi_awid;
-    reg                            axi_aw_flag;
-    
+	reg            [C_S_AXI_ADDR_WIDTH-1 : 0] axi_awaddr;
+	reg                                       axi_awready;
+	reg                                       axi_wready;
+	reg                                       axi_bvalid;
+	reg            [C_S_AXI_ADDR_WIDTH-1 : 0] axi_araddr;
+	reg                                       axi_arready;
+	reg            [C_S_AXI_DATA_WIDTH-1 : 0] axi_rdata;
+	reg                               [1 : 0] axi_rresp;
+	reg                                       axi_rlast;
+	reg                                       axi_rvalid;
+	wire                                      aw_wrap_en;
+	wire                                      ar_wrap_en;
+	wire                               [31:0] aw_wrap_size;
+	wire                               [31:0] ar_wrap_size;
+	reg                                       axi_awv_awr_flag;
+	reg                                       axi_arv_arr_flag;
+	reg                                 [7:0] axi_awlen_cntr;
+	reg                                 [7:0] axi_arlen_cntr;
+	reg                                 [1:0] axi_arburst;
+	reg                                 [1:0] axi_awburst;
+	reg                                 [7:0] axi_arlen;
+	reg                                 [7:0] axi_awlen;
+    reg              [C_S_AXI_ID_WIDTH-1: 0 ] axi_awid;
+    reg                                       axi_aw_flag;
     reg                           [102-1 : 0] meta_data_write;
     reg                           [102-1 : 0] meta_data_read;
     reg [0 : 3][(C_S_AXI_DATA_WIDTH/8)-1 : 0] wstrb_write;
@@ -219,7 +219,7 @@ module Packetizer #(
     
     always @(posedge S_AXI_ACLK)
     begin
-        if( (S_AXI_ARESETN == 0) | packetProduced_write )
+        if( (S_AXI_ARESETN == 0) | (packetProduced_write & ready) )
             packetProduced_write <= 0;
         else if( axi_wready & S_AXI_WVALID & S_AXI_WLAST )
             packetProduced_write <= 1;
@@ -246,7 +246,7 @@ module Packetizer #(
     // if axi_arready process is useless, replace packetProduced_read by axi_arready
     always @(posedge S_AXI_ACLK)
     begin
-        if( (S_AXI_ARESETN == 0) | (packetProduced_read & ~packetProduced_write)) // reset also if read is available and no write is stalled
+        if( (S_AXI_ARESETN == 0) | (packetProduced_read & ~packetProduced_write & ready)) // reset also if read is available and no write is stalled
             packetProduced_read <= 0;
         else if( S_AXI_ARVALID & axi_arready)
             packetProduced_read <= 1;
