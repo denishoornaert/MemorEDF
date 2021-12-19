@@ -71,22 +71,31 @@ module NonAXIDomain #(
         output wire                                                 Q_3_kill_the_core
     );
 
-    wire   [(DATA_SIZE*NUMBER_OF_QUEUES/2)-1 : 0] dispatcher_to_queues_packet;
+    wire                        [DATA_SIZE-1 : 0] dispatcher_to_queues_packet;
     wire                 [NUMBER_OF_QUEUES-1 : 0] dispatcher_to_queues_valid;
-    wire                                  [1 : 0] dispatcher_to_queues_id;
+    wire         [$clog2(NUMBER_OF_QUEUES)-1 : 0] dispatcher_to_queues_id;
     wire                                          queues_to_dispatcher_ready;
     wire                 [NUMBER_OF_QUEUES-1 : 0] scheduler_to_queues_consumed;
     wire                 [NUMBER_OF_QUEUES-1 : 0] scheduler_to_queues_valid;
     wire                 [NUMBER_OF_QUEUES-1 : 0] empty;
     wire                 [NUMBER_OF_QUEUES-1 : 0] full;
     wire         [$clog2(NUMBER_OF_QUEUES)-1 : 0] scheduler_to_selector_id;
-    
-    wire scheduler_to_serializer_valid;
-    
-    assign dispatcher_to_queues_packet  = packetizer_2_to_dispatcher_packet|packetizer_1_to_dispatcher_packet;
-    assign dispatcher_to_queues_valid   = (packetizer_1_to_dispatcher_valid|packetizer_2_to_dispatcher_valid) << dispatcher_to_queues_id;
-    assign dispatcher_to_queues_id      = packetizer_1_to_dispatcher_id|packetizer_1_to_dispatcher_id;
-    assign queues_to_dispatcher_1_ready = queues_to_dispatcher_ready;
+    wire                                          scheduler_to_serializer_valid;
+
+    DecoupledIOMux #(
+        .DATA_SIZE(DATA_SIZE),
+        .NUMBER_OF_QUEUES(NUMBER_OF_QUEUES),
+        .NUMBER_OF_INPUTS(2)
+    ) mux (
+        .packetizers_valid({packetizer_2_to_dispatcher_valid, packetizer_1_to_dispatcher_valid}),
+        .packetizers_ready({queues_to_dispatcher_2_ready, queues_to_dispatcher_1_ready}),
+        .packetizers_id({packetizer_2_to_dispatcher_id, packetizer_1_to_dispatcher_id}),
+        .packetizers_packet({packetizer_2_to_dispatcher_packet, packetizer_1_to_dispatcher_packet}),
+        .queues_valid(dispatcher_to_queues_valid),
+        .queues_ready(queues_to_dispatcher_ready),
+        .queues_id(dispatcher_to_queues_id),
+        .queues_packet(dispatcher_to_queues_packet)
+    );
 
     wire     [NUMBER_OF_QUEUES-1 : 0] [REGISTER_SIZE-1 : 0] queues_higher_threshold;
     wire                                            [3 : 0] Qs_kill_the_core;
@@ -99,12 +108,14 @@ module NonAXIDomain #(
 	   .NUMBER_OF_QUEUES(NUMBER_OF_QUEUES),
 	   .REGISTER_SIZE(REGISTER_SIZE)
 	) queueing_domain (
+	   // Generic IO
 	   .clock(clock),
 	   .reset(reset),
 	   // packets decoupled IO
 	   .queues_higher_threshold(queues_higher_threshold),
 	   .dispatcher_to_queues_packet(dispatcher_to_queues_packet),
 	   .dispatcher_to_queues_valid(dispatcher_to_queues_valid),
+	   .dispatcher_to_queues_id(dispatcher_to_queues_id),
 	   .queues_to_dispatcher_ready(queues_to_dispatcher_ready),
 	   // handshake
 	   .scheduler_to_queues_ready(scheduler_to_serializer_valid),
@@ -129,6 +140,7 @@ module NonAXIDomain #(
 	   .PRNG_GALLOIS_ENABLED(PRNG_GALLOIS_ENABLED),
 	   .AGING_ENABLED(AGING_ENABLED)
 	) scheduler (
+	   // Genrric IO
 	   .clock(clock),
        .reset(reset),
        // from configuration port
