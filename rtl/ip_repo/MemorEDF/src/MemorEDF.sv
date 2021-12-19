@@ -20,8 +20,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 
-module MemorEDF #
-	(
+module MemorEDF #(
 		// Global parameters
 		parameter integer CONFIGURATION_PORT_ENABLED = 1,
 		parameter integer NUMBER_OF_QUEUES       = 4,
