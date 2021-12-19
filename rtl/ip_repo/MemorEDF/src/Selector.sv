@@ -37,10 +37,9 @@ module Selector #(
     input  wire                        reset;
     input  wire [$clog2(INPUTS)-1 : 0] index;
     input  wire     [INPUT_SIZE-1 : 0] values [INPUTS];
-//    output reg      [INPUT_SIZE-1 : 0] outcome;
     output wire      [INPUT_SIZE-1 : 0] outcome;
     
-//    // Output register(s) definition
+    // Output register(s) definition
     wire [INPUTS-1 : 0][INPUT_SIZE-1 : 0] and_outcomes;
     wire [INPUTS-1 : 0][INPUT_SIZE-1 : 0] or_outcomes;
     
